@@ -52,11 +52,11 @@ import * as utilities from "../utilities";
  *     name: exampleDomainName.domainName,
  *     type: "A",
  *     zoneId: aws_route53_zone.example.id,
- *     alias: {
+ *     aliases: [{
  *         evaluateTargetHealth: true,
  *         name: exampleDomainName.cloudfrontDomainName,
  *         zoneId: exampleDomainName.cloudfrontZoneId,
- *     },
+ *     }],
  * });
  * ```
  * ### Edge Optimized (IAM Certificate)
@@ -79,11 +79,11 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.example.id,
  *     name: exampleDomainName.domainName,
  *     type: "A",
- *     alias: {
+ *     aliases: [{
  *         name: exampleDomainName.cloudfrontDomainName,
  *         zoneId: exampleDomainName.cloudfrontZoneId,
  *         evaluateTargetHealth: true,
- *     },
+ *     }],
  * });
  * ```
  *

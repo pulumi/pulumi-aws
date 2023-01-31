@@ -49,12 +49,10 @@ import (
 //							},
 //						},
 //					},
-//					Listeners: appmesh.VirtualNodeSpecListenerArray{
-//						&appmesh.VirtualNodeSpecListenerArgs{
-//							PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
+//					Listener: &appmesh.VirtualNodeSpecListenerArgs{
+//						PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+//							Port:     pulumi.Int(8080),
+//							Protocol: pulumi.String("http"),
 //						},
 //					},
 //					ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
@@ -101,12 +99,10 @@ import (
 //							},
 //						},
 //					},
-//					Listeners: appmesh.VirtualNodeSpecListenerArray{
-//						&appmesh.VirtualNodeSpecListenerArgs{
-//							PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
+//					Listener: &appmesh.VirtualNodeSpecListenerArgs{
+//						PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+//							Port:     pulumi.Int(8080),
+//							Protocol: pulumi.String("http"),
 //						},
 //					},
 //					ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
@@ -152,20 +148,18 @@ import (
 //							},
 //						},
 //					},
-//					Listeners: appmesh.VirtualNodeSpecListenerArray{
-//						&appmesh.VirtualNodeSpecListenerArgs{
-//							PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
-//							HealthCheck: &appmesh.VirtualNodeSpecListenerHealthCheckArgs{
-//								Protocol:           pulumi.String("http"),
-//								Path:               pulumi.String("/ping"),
-//								HealthyThreshold:   pulumi.Int(2),
-//								UnhealthyThreshold: pulumi.Int(2),
-//								TimeoutMillis:      pulumi.Int(2000),
-//								IntervalMillis:     pulumi.Int(5000),
-//							},
+//					Listener: &appmesh.VirtualNodeSpecListenerArgs{
+//						PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+//							Port:     pulumi.Int(8080),
+//							Protocol: pulumi.String("http"),
+//						},
+//						HealthCheck: &appmesh.VirtualNodeSpecListenerHealthCheckArgs{
+//							Protocol:           pulumi.String("http"),
+//							Path:               pulumi.String("/ping"),
+//							HealthyThreshold:   pulumi.Int(2),
+//							UnhealthyThreshold: pulumi.Int(2),
+//							TimeoutMillis:      pulumi.Int(2000),
+//							IntervalMillis:     pulumi.Int(5000),
 //						},
 //					},
 //					ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
@@ -207,12 +201,10 @@ import (
 //							},
 //						},
 //					},
-//					Listeners: appmesh.VirtualNodeSpecListenerArray{
-//						&appmesh.VirtualNodeSpecListenerArgs{
-//							PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
+//					Listener: &appmesh.VirtualNodeSpecListenerArgs{
+//						PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+//							Port:     pulumi.Int(8080),
+//							Protocol: pulumi.String("http"),
 //						},
 //					},
 //					ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{

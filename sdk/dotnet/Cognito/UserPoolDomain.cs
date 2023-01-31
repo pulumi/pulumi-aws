@@ -60,11 +60,14 @@ namespace Pulumi.Aws.Cognito
     ///         Name = main.Domain,
     ///         Type = "A",
     ///         ZoneId = exampleZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-    ///         Alias = new Aws.Route53.Inputs.RecordAliasArgs
+    ///         Aliases = new[]
     ///         {
-    ///             EvaluateTargetHealth = false,
-    ///             Name = main.CloudfrontDistributionArn,
-    ///             ZoneId = "Z2FDTNDATAQYW2",
+    ///             new Aws.Route53.Inputs.RecordAliasArgs
+    ///             {
+    ///                 EvaluateTargetHealth = false,
+    ///                 Name = main.CloudfrontDistributionArn,
+    ///                 ZoneId = "Z2FDTNDATAQYW2",
+    ///             },
     ///         },
     ///     });
     /// 

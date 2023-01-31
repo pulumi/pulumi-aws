@@ -619,11 +619,11 @@ class DomainName(pulumi.CustomResource):
             name=example_domain_name.domain_name,
             type="A",
             zone_id=aws_route53_zone["example"]["id"],
-            alias=aws.route53.RecordAliasArgs(
+            aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=True,
                 name=example_domain_name.cloudfront_domain_name,
                 zone_id=example_domain_name.cloudfront_zone_id,
-            ))
+            )])
         ```
         ### Edge Optimized (IAM Certificate)
 
@@ -643,11 +643,11 @@ class DomainName(pulumi.CustomResource):
             zone_id=aws_route53_zone["example"]["id"],
             name=example_domain_name.domain_name,
             type="A",
-            alias=aws.route53.RecordAliasArgs(
+            aliases=[aws.route53.RecordAliasArgs(
                 name=example_domain_name.cloudfront_domain_name,
                 zone_id=example_domain_name.cloudfront_zone_id,
                 evaluate_target_health=True,
-            ))
+            )])
         ```
 
         ## Import
@@ -724,11 +724,11 @@ class DomainName(pulumi.CustomResource):
             name=example_domain_name.domain_name,
             type="A",
             zone_id=aws_route53_zone["example"]["id"],
-            alias=aws.route53.RecordAliasArgs(
+            aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=True,
                 name=example_domain_name.cloudfront_domain_name,
                 zone_id=example_domain_name.cloudfront_zone_id,
-            ))
+            )])
         ```
         ### Edge Optimized (IAM Certificate)
 
@@ -748,11 +748,11 @@ class DomainName(pulumi.CustomResource):
             zone_id=aws_route53_zone["example"]["id"],
             name=example_domain_name.domain_name,
             type="A",
-            alias=aws.route53.RecordAliasArgs(
+            aliases=[aws.route53.RecordAliasArgs(
                 name=example_domain_name.cloudfront_domain_name,
                 zone_id=example_domain_name.cloudfront_zone_id,
                 evaluate_target_health=True,
-            ))
+            )])
         ```
 
         ## Import

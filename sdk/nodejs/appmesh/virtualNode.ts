@@ -36,12 +36,12 @@ import * as utilities from "../utilities";
  *                 virtualServiceName: "servicea.simpleapp.local",
  *             },
  *         }],
- *         listeners: [{
+ *         listener: {
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         }],
+ *         },
  *         serviceDiscovery: {
  *             dns: {
  *                 hostname: "serviceb.simpleapp.local",
@@ -65,12 +65,12 @@ import * as utilities from "../utilities";
  *                 virtualServiceName: "servicea.simpleapp.local",
  *             },
  *         }],
- *         listeners: [{
+ *         listener: {
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         }],
+ *         },
  *         serviceDiscovery: {
  *             awsCloudMap: {
  *                 attributes: {
@@ -97,7 +97,7 @@ import * as utilities from "../utilities";
  *                 virtualServiceName: "servicea.simpleapp.local",
  *             },
  *         }],
- *         listeners: [{
+ *         listener: {
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
@@ -110,7 +110,7 @@ import * as utilities from "../utilities";
  *                 timeoutMillis: 2000,
  *                 intervalMillis: 5000,
  *             },
- *         }],
+ *         },
  *         serviceDiscovery: {
  *             dns: {
  *                 hostname: "serviceb.simpleapp.local",
@@ -133,12 +133,12 @@ import * as utilities from "../utilities";
  *                 virtualServiceName: "servicea.simpleapp.local",
  *             },
  *         }],
- *         listeners: [{
+ *         listener: {
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         }],
+ *         },
  *         serviceDiscovery: {
  *             dns: {
  *                 hostname: "serviceb.simpleapp.local",

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// <summary>
         /// Listeners from which the virtual node is expected to receive inbound traffic.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNodeSpecListener> Listeners;
+        public readonly Outputs.VirtualNodeSpecListener? Listener;
         /// <summary>
         /// Inbound and outbound access logging information for the virtual node.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             ImmutableArray<Outputs.VirtualNodeSpecBackend> backends,
 
-            ImmutableArray<Outputs.VirtualNodeSpecListener> listeners,
+            Outputs.VirtualNodeSpecListener? listener,
 
             Outputs.VirtualNodeSpecLogging? logging,
 
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         {
             BackendDefaults = backendDefaults;
             Backends = backends;
-            Listeners = listeners;
+            Listener = listener;
             Logging = logging;
             ServiceDiscovery = serviceDiscovery;
         }

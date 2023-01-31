@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic
+ * 
  * ```java
  * package generated_program;
  * 
@@ -46,12 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
- *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
- *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
- *                         .build())
- *                     .build())
+ *                 .listeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
  *             .build());
@@ -69,6 +65,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualGateway;
  * import com.pulumi.aws.appmesh.VirtualGatewayArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsCertificateArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileArgs;
@@ -88,7 +89,7 @@ import javax.annotation.Nullable;
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
- *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
+ *                 .listener(VirtualGatewaySpecListenerArgs.builder()
  *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)

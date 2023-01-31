@@ -5,7 +5,6 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.VirtualRouterSpecListener;
 import com.pulumi.core.annotations.CustomType;
-import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -15,7 +14,7 @@ public final class VirtualRouterSpec {
      * Currently only one listener is supported per virtual router.
      * 
      */
-    private List<VirtualRouterSpecListener> listeners;
+    private VirtualRouterSpecListener listener;
 
     private VirtualRouterSpec() {}
     /**
@@ -23,8 +22,8 @@ public final class VirtualRouterSpec {
      * Currently only one listener is supported per virtual router.
      * 
      */
-    public List<VirtualRouterSpecListener> listeners() {
-        return this.listeners;
+    public VirtualRouterSpecListener listener() {
+        return this.listener;
     }
 
     public static Builder builder() {
@@ -36,24 +35,21 @@ public final class VirtualRouterSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<VirtualRouterSpecListener> listeners;
+        private VirtualRouterSpecListener listener;
         public Builder() {}
         public Builder(VirtualRouterSpec defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.listeners = defaults.listeners;
+    	      this.listener = defaults.listener;
         }
 
         @CustomType.Setter
-        public Builder listeners(List<VirtualRouterSpecListener> listeners) {
-            this.listeners = Objects.requireNonNull(listeners);
+        public Builder listener(VirtualRouterSpecListener listener) {
+            this.listener = Objects.requireNonNull(listener);
             return this;
-        }
-        public Builder listeners(VirtualRouterSpecListener... listeners) {
-            return listeners(List.of(listeners));
         }
         public VirtualRouterSpec build() {
             final var o = new VirtualRouterSpec();
-            o.listeners = listeners;
+            o.listener = listener;
             return o;
         }
     }

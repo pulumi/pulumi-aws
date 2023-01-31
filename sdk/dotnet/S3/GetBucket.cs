@@ -44,10 +44,13 @@ namespace Pulumi.Aws.S3
         ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
         ///         Name = "bucket",
         ///         Type = "A",
-        ///         Alias = new Aws.Route53.Inputs.RecordAliasArgs
+        ///         Aliases = new[]
         ///         {
-        ///             Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
-        ///             ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
+        ///             new Aws.Route53.Inputs.RecordAliasArgs
+        ///             {
+        ///                 Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
+        ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
+        ///             },
         ///         },
         ///     });
         /// 
@@ -122,10 +125,13 @@ namespace Pulumi.Aws.S3
         ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
         ///         Name = "bucket",
         ///         Type = "A",
-        ///         Alias = new Aws.Route53.Inputs.RecordAliasArgs
+        ///         Aliases = new[]
         ///         {
-        ///             Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
-        ///             ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
+        ///             new Aws.Route53.Inputs.RecordAliasArgs
+        ///             {
+        ///                 Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
+        ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
+        ///             },
         ///         },
         ///     });
         /// 

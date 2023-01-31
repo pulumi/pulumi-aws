@@ -48,11 +48,11 @@ import * as utilities from "../utilities";
  *     name: exampleDomainName.domainName,
  *     type: "A",
  *     zoneId: aws_route53_zone.example.zone_id,
- *     alias: {
+ *     aliases: [{
  *         name: exampleDomainName.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.targetDomainName),
  *         zoneId: exampleDomainName.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.hostedZoneId),
  *         evaluateTargetHealth: false,
- *     },
+ *     }],
  * });
  * ```
  *

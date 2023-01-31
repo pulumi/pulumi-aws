@@ -64,11 +64,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         Name = exampleDomainName.Domain,
     ///         Type = "A",
     ///         ZoneId = aws_route53_zone.Example.Zone_id,
-    ///         Alias = new Aws.Route53.Inputs.RecordAliasArgs
+    ///         Aliases = new[]
     ///         {
-    ///             Name = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.TargetDomainName),
-    ///             ZoneId = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.HostedZoneId),
-    ///             EvaluateTargetHealth = false,
+    ///             new Aws.Route53.Inputs.RecordAliasArgs
+    ///             {
+    ///                 Name = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.TargetDomainName),
+    ///                 ZoneId = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.HostedZoneId),
+    ///                 EvaluateTargetHealth = false,
+    ///             },
     ///         },
     ///     });
     /// 

@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(5)
- *             .weightedRoutingPolicy(RecordWeightedRoutingPolicyArgs.builder()
+ *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
  *                 .weight(10)
  *                 .build())
  *             .setIdentifier(&#34;dev&#34;)
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(5)
- *             .weightedRoutingPolicy(RecordWeightedRoutingPolicyArgs.builder()
+ *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
  *                 .weight(90)
  *                 .build())
  *             .setIdentifier(&#34;live&#34;)
@@ -157,7 +157,7 @@ import javax.annotation.Nullable;
  *             .zoneId(aws_route53_zone.primary().zone_id())
  *             .name(&#34;example.com&#34;)
  *             .type(&#34;A&#34;)
- *             .alias(RecordAliasArgs.builder()
+ *             .aliases(RecordAliasArgs.builder()
  *                 .name(main.dnsName())
  *                 .zoneId(main.zoneId())
  *                 .evaluateTargetHealth(true)
@@ -233,16 +233,16 @@ public class Record extends com.pulumi.resources.CustomResource {
      * Documented below.
      * 
      */
-    @Export(name="alias", refs={RecordAlias.class}, tree="[0]")
-    private Output</* @Nullable */ RecordAlias> alias;
+    @Export(name="aliases", refs={List.class,RecordAlias.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RecordAlias>> aliases;
 
     /**
      * @return An alias block. Conflicts with `ttl` &amp; `records`.
      * Documented below.
      * 
      */
-    public Output<Optional<RecordAlias>> alias() {
-        return Codegen.optional(this.alias);
+    public Output<Optional<List<RecordAlias>>> aliases() {
+        return Codegen.optional(this.aliases);
     }
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
@@ -262,15 +262,15 @@ public class Record extends com.pulumi.resources.CustomResource {
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      * 
      */
-    @Export(name="failoverRoutingPolicy", refs={RecordFailoverRoutingPolicy.class}, tree="[0]")
-    private Output</* @Nullable */ RecordFailoverRoutingPolicy> failoverRoutingPolicy;
+    @Export(name="failoverRoutingPolicies", refs={List.class,RecordFailoverRoutingPolicy.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RecordFailoverRoutingPolicy>> failoverRoutingPolicies;
 
     /**
      * @return A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public Output<Optional<RecordFailoverRoutingPolicy>> failoverRoutingPolicy() {
-        return Codegen.optional(this.failoverRoutingPolicy);
+    public Output<Optional<List<RecordFailoverRoutingPolicy>>> failoverRoutingPolicies() {
+        return Codegen.optional(this.failoverRoutingPolicies);
     }
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -290,15 +290,15 @@ public class Record extends com.pulumi.resources.CustomResource {
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      * 
      */
-    @Export(name="geolocationRoutingPolicy", refs={RecordGeolocationRoutingPolicy.class}, tree="[0]")
-    private Output</* @Nullable */ RecordGeolocationRoutingPolicy> geolocationRoutingPolicy;
+    @Export(name="geolocationRoutingPolicies", refs={List.class,RecordGeolocationRoutingPolicy.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RecordGeolocationRoutingPolicy>> geolocationRoutingPolicies;
 
     /**
      * @return A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public Output<Optional<RecordGeolocationRoutingPolicy>> geolocationRoutingPolicy() {
-        return Codegen.optional(this.geolocationRoutingPolicy);
+    public Output<Optional<List<RecordGeolocationRoutingPolicy>>> geolocationRoutingPolicies() {
+        return Codegen.optional(this.geolocationRoutingPolicies);
     }
     /**
      * The health check the record should be associated with.
@@ -318,15 +318,15 @@ public class Record extends com.pulumi.resources.CustomResource {
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      * 
      */
-    @Export(name="latencyRoutingPolicy", refs={RecordLatencyRoutingPolicy.class}, tree="[0]")
-    private Output</* @Nullable */ RecordLatencyRoutingPolicy> latencyRoutingPolicy;
+    @Export(name="latencyRoutingPolicies", refs={List.class,RecordLatencyRoutingPolicy.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RecordLatencyRoutingPolicy>> latencyRoutingPolicies;
 
     /**
      * @return A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public Output<Optional<RecordLatencyRoutingPolicy>> latencyRoutingPolicy() {
-        return Codegen.optional(this.latencyRoutingPolicy);
+    public Output<Optional<List<RecordLatencyRoutingPolicy>>> latencyRoutingPolicies() {
+        return Codegen.optional(this.latencyRoutingPolicies);
     }
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
@@ -416,15 +416,15 @@ public class Record extends com.pulumi.resources.CustomResource {
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      * 
      */
-    @Export(name="weightedRoutingPolicy", refs={RecordWeightedRoutingPolicy.class}, tree="[0]")
-    private Output</* @Nullable */ RecordWeightedRoutingPolicy> weightedRoutingPolicy;
+    @Export(name="weightedRoutingPolicies", refs={List.class,RecordWeightedRoutingPolicy.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RecordWeightedRoutingPolicy>> weightedRoutingPolicies;
 
     /**
      * @return A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public Output<Optional<RecordWeightedRoutingPolicy>> weightedRoutingPolicy() {
-        return Codegen.optional(this.weightedRoutingPolicy);
+    public Output<Optional<List<RecordWeightedRoutingPolicy>>> weightedRoutingPolicies() {
+        return Codegen.optional(this.weightedRoutingPolicies);
     }
     /**
      * The ID of the hosted zone to contain this record.

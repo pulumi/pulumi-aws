@@ -27,10 +27,10 @@ import * as utilities from "../utilities";
  *     zoneId: testZone.then(testZone => testZone.id),
  *     name: "bucket",
  *     type: "A",
- *     alias: {
+ *     aliases: [{
  *         name: selected.then(selected => selected.websiteDomain),
  *         zoneId: selected.then(selected => selected.hostedZoneId),
- *     },
+ *     }],
  * });
  * ```
  * ### CloudFront Origin
@@ -127,10 +127,10 @@ export interface GetBucketResult {
  *     zoneId: testZone.then(testZone => testZone.id),
  *     name: "bucket",
  *     type: "A",
- *     alias: {
+ *     aliases: [{
  *         name: selected.then(selected => selected.websiteDomain),
  *         zoneId: selected.then(selected => selected.hostedZoneId),
- *     },
+ *     }],
  * });
  * ```
  * ### CloudFront Origin

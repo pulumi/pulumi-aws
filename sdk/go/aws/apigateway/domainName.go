@@ -65,10 +65,12 @@ import (
 //				Name:   exampleDomainName.DomainName,
 //				Type:   pulumi.String("A"),
 //				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
-//				Alias: &route53.RecordAliasArgs{
-//					EvaluateTargetHealth: pulumi.Bool(true),
-//					Name:                 exampleDomainName.CloudfrontDomainName,
-//					ZoneId:               exampleDomainName.CloudfrontZoneId,
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						EvaluateTargetHealth: pulumi.Bool(true),
+//						Name:                 exampleDomainName.CloudfrontDomainName,
+//						ZoneId:               exampleDomainName.CloudfrontZoneId,
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -119,10 +121,12 @@ import (
 //				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
 //				Name:   exampleDomainName.DomainName,
 //				Type:   pulumi.String("A"),
-//				Alias: &route53.RecordAliasArgs{
-//					Name:                 exampleDomainName.CloudfrontDomainName,
-//					ZoneId:               exampleDomainName.CloudfrontZoneId,
-//					EvaluateTargetHealth: pulumi.Bool(true),
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						Name:                 exampleDomainName.CloudfrontDomainName,
+//						ZoneId:               exampleDomainName.CloudfrontZoneId,
+//						EvaluateTargetHealth: pulumi.Bool(true),
+//					},
 //				},
 //			})
 //			if err != nil {

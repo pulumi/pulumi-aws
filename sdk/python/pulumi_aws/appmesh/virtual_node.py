@@ -307,12 +307,12 @@ class VirtualNode(pulumi.CustomResource):
                         virtual_service_name="servicea.simpleapp.local",
                     ),
                 )],
-                listeners=[aws.appmesh.VirtualNodeSpecListenerArgs(
+                listener=aws.appmesh.VirtualNodeSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualNodeSpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
                     ),
-                )],
+                ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     dns=aws.appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs(
                         hostname="serviceb.simpleapp.local",
@@ -335,12 +335,12 @@ class VirtualNode(pulumi.CustomResource):
                         virtual_service_name="servicea.simpleapp.local",
                     ),
                 )],
-                listeners=[aws.appmesh.VirtualNodeSpecListenerArgs(
+                listener=aws.appmesh.VirtualNodeSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualNodeSpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
                     ),
-                )],
+                ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     aws_cloud_map=aws.appmesh.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs(
                         attributes={
@@ -366,7 +366,7 @@ class VirtualNode(pulumi.CustomResource):
                         virtual_service_name="servicea.simpleapp.local",
                     ),
                 )],
-                listeners=[aws.appmesh.VirtualNodeSpecListenerArgs(
+                listener=aws.appmesh.VirtualNodeSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualNodeSpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
@@ -379,7 +379,7 @@ class VirtualNode(pulumi.CustomResource):
                         timeout_millis=2000,
                         interval_millis=5000,
                     ),
-                )],
+                ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     dns=aws.appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs(
                         hostname="serviceb.simpleapp.local",
@@ -401,12 +401,12 @@ class VirtualNode(pulumi.CustomResource):
                         virtual_service_name="servicea.simpleapp.local",
                     ),
                 )],
-                listeners=[aws.appmesh.VirtualNodeSpecListenerArgs(
+                listener=aws.appmesh.VirtualNodeSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualNodeSpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
                     ),
-                )],
+                ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     dns=aws.appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs(
                         hostname="serviceb.simpleapp.local",
@@ -473,12 +473,12 @@ class VirtualNode(pulumi.CustomResource):
                         virtual_service_name="servicea.simpleapp.local",
                     ),
                 )],
-                listeners=[aws.appmesh.VirtualNodeSpecListenerArgs(
+                listener=aws.appmesh.VirtualNodeSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualNodeSpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
                     ),
-                )],
+                ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     dns=aws.appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs(
                         hostname="serviceb.simpleapp.local",
@@ -501,12 +501,12 @@ class VirtualNode(pulumi.CustomResource):
                         virtual_service_name="servicea.simpleapp.local",
                     ),
                 )],
-                listeners=[aws.appmesh.VirtualNodeSpecListenerArgs(
+                listener=aws.appmesh.VirtualNodeSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualNodeSpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
                     ),
-                )],
+                ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     aws_cloud_map=aws.appmesh.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs(
                         attributes={
@@ -532,7 +532,7 @@ class VirtualNode(pulumi.CustomResource):
                         virtual_service_name="servicea.simpleapp.local",
                     ),
                 )],
-                listeners=[aws.appmesh.VirtualNodeSpecListenerArgs(
+                listener=aws.appmesh.VirtualNodeSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualNodeSpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
@@ -545,7 +545,7 @@ class VirtualNode(pulumi.CustomResource):
                         timeout_millis=2000,
                         interval_millis=5000,
                     ),
-                )],
+                ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     dns=aws.appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs(
                         hostname="serviceb.simpleapp.local",
@@ -567,12 +567,12 @@ class VirtualNode(pulumi.CustomResource):
                         virtual_service_name="servicea.simpleapp.local",
                     ),
                 )],
-                listeners=[aws.appmesh.VirtualNodeSpecListenerArgs(
+                listener=aws.appmesh.VirtualNodeSpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualNodeSpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
                     ),
-                )],
+                ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     dns=aws.appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs(
                         hostname="serviceb.simpleapp.local",

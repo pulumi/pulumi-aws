@@ -31,12 +31,12 @@ import * as utilities from "../utilities";
  * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
  *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
- *         listeners: [{
+ *         listener: {
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         }],
+ *         },
  *     },
  * });
  * ```

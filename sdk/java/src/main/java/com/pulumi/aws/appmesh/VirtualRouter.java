@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualRouter;
  * import com.pulumi.aws.appmesh.VirtualRouterArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecListenerPortMappingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,7 +59,7 @@ import javax.annotation.Nullable;
  *         var serviceb = new VirtualRouter(&#34;serviceb&#34;, VirtualRouterArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
  *             .spec(VirtualRouterSpecArgs.builder()
- *                 .listeners(VirtualRouterSpecListenerArgs.builder()
+ *                 .listener(VirtualRouterSpecListenerArgs.builder()
  *                     .portMapping(VirtualRouterSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)

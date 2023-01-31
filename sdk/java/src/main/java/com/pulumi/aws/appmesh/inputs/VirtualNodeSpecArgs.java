@@ -54,15 +54,15 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
      * Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    @Import(name="listeners")
-    private @Nullable Output<List<VirtualNodeSpecListenerArgs>> listeners;
+    @Import(name="listener")
+    private @Nullable Output<VirtualNodeSpecListenerArgs> listener;
 
     /**
      * @return Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    public Optional<Output<List<VirtualNodeSpecListenerArgs>>> listeners() {
-        return Optional.ofNullable(this.listeners);
+    public Optional<Output<VirtualNodeSpecListenerArgs>> listener() {
+        return Optional.ofNullable(this.listener);
     }
 
     /**
@@ -100,7 +100,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
     private VirtualNodeSpecArgs(VirtualNodeSpecArgs $) {
         this.backendDefaults = $.backendDefaults;
         this.backends = $.backends;
-        this.listeners = $.listeners;
+        this.listener = $.listener;
         this.logging = $.logging;
         this.serviceDiscovery = $.serviceDiscovery;
     }
@@ -176,34 +176,24 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic.
+         * @param listener Listeners from which the virtual node is expected to receive inbound traffic.
          * 
          * @return builder
          * 
          */
-        public Builder listeners(@Nullable Output<List<VirtualNodeSpecListenerArgs>> listeners) {
-            $.listeners = listeners;
+        public Builder listener(@Nullable Output<VirtualNodeSpecListenerArgs> listener) {
+            $.listener = listener;
             return this;
         }
 
         /**
-         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic.
+         * @param listener Listeners from which the virtual node is expected to receive inbound traffic.
          * 
          * @return builder
          * 
          */
-        public Builder listeners(List<VirtualNodeSpecListenerArgs> listeners) {
-            return listeners(Output.of(listeners));
-        }
-
-        /**
-         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder listeners(VirtualNodeSpecListenerArgs... listeners) {
-            return listeners(List.of(listeners));
+        public Builder listener(VirtualNodeSpecListenerArgs listener) {
+            return listener(Output.of(listener));
         }
 
         /**

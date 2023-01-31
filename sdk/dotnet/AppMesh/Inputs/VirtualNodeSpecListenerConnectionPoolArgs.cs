@@ -18,41 +18,23 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("grpc")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolGrpcArgs>? Grpc { get; set; }
 
-        [Input("http2s")]
-        private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args>? _http2s;
+        /// <summary>
+        /// Connection pool information for HTTP listeners.
+        /// </summary>
+        [Input("http")]
+        public Input<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs>? Http { get; set; }
 
         /// <summary>
         /// Connection pool information for HTTP2 listeners.
         /// </summary>
-        public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args> Http2s
-        {
-            get => _http2s ?? (_http2s = new InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args>());
-            set => _http2s = value;
-        }
-
-        [Input("https")]
-        private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs>? _https;
-
-        /// <summary>
-        /// Connection pool information for HTTP listeners.
-        /// </summary>
-        public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs> Https
-        {
-            get => _https ?? (_https = new InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs>());
-            set => _https = value;
-        }
-
-        [Input("tcps")]
-        private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs>? _tcps;
+        [Input("http2")]
+        public Input<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args>? Http2 { get; set; }
 
         /// <summary>
         /// Connection pool information for TCP listeners.
         /// </summary>
-        public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs> Tcps
-        {
-            get => _tcps ?? (_tcps = new InputList<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs>());
-            set => _tcps = value;
-        }
+        [Input("tcp")]
+        public Input<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs>? Tcp { get; set; }
 
         public VirtualNodeSpecListenerConnectionPoolArgs()
         {

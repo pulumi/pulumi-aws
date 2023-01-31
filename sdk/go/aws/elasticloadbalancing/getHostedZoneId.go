@@ -36,10 +36,12 @@ import (
 //				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
 //				Name:   pulumi.String("example.com"),
 //				Type:   pulumi.String("A"),
-//				Alias: &route53.RecordAliasArgs{
-//					Name:                 pulumi.Any(aws_elb.Main.Dns_name),
-//					ZoneId:               *pulumi.String(main.Id),
-//					EvaluateTargetHealth: pulumi.Bool(true),
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						Name:                 pulumi.Any(aws_elb.Main.Dns_name),
+//						ZoneId:               *pulumi.String(main.Id),
+//						EvaluateTargetHealth: pulumi.Bool(true),
+//					},
 //				},
 //			})
 //			if err != nil {

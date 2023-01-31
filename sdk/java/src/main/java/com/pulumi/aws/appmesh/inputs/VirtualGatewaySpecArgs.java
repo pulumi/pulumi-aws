@@ -8,7 +8,6 @@ import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerArgs;
 import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -37,15 +36,15 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
      * Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
-    @Import(name="listeners", required=true)
-    private Output<List<VirtualGatewaySpecListenerArgs>> listeners;
+    @Import(name="listener", required=true)
+    private Output<VirtualGatewaySpecListenerArgs> listener;
 
     /**
      * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
-    public Output<List<VirtualGatewaySpecListenerArgs>> listeners() {
-        return this.listeners;
+    public Output<VirtualGatewaySpecListenerArgs> listener() {
+        return this.listener;
     }
 
     /**
@@ -67,7 +66,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
 
     private VirtualGatewaySpecArgs(VirtualGatewaySpecArgs $) {
         this.backendDefaults = $.backendDefaults;
-        this.listeners = $.listeners;
+        this.listener = $.listener;
         this.logging = $.logging;
     }
 
@@ -111,34 +110,24 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+         * @param listener Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
          * 
          * @return builder
          * 
          */
-        public Builder listeners(Output<List<VirtualGatewaySpecListenerArgs>> listeners) {
-            $.listeners = listeners;
+        public Builder listener(Output<VirtualGatewaySpecListenerArgs> listener) {
+            $.listener = listener;
             return this;
         }
 
         /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+         * @param listener Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
          * 
          * @return builder
          * 
          */
-        public Builder listeners(List<VirtualGatewaySpecListenerArgs> listeners) {
-            return listeners(Output.of(listeners));
-        }
-
-        /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder listeners(VirtualGatewaySpecListenerArgs... listeners) {
-            return listeners(List.of(listeners));
+        public Builder listener(VirtualGatewaySpecListenerArgs listener) {
+            return listener(Output.of(listener));
         }
 
         /**
@@ -163,7 +152,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         public VirtualGatewaySpecArgs build() {
-            $.listeners = Objects.requireNonNull($.listeners, "expected parameter 'listeners' to be non-null");
+            $.listener = Objects.requireNonNull($.listener, "expected parameter 'listener' to be non-null");
             return $;
         }
     }

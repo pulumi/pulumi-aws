@@ -48,15 +48,12 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Listeners = new[]
+    ///             Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                     Port = 8080,
+    ///                     Protocol = "http",
     ///                 },
     ///             },
     ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
@@ -97,15 +94,12 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Listeners = new[]
+    ///             Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                     Port = 8080,
+    ///                     Protocol = "http",
     ///                 },
     ///             },
     ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
@@ -149,24 +143,21 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Listeners = new[]
+    ///             Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
-    ///                     HealthCheck = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerHealthCheckArgs
-    ///                     {
-    ///                         Protocol = "http",
-    ///                         Path = "/ping",
-    ///                         HealthyThreshold = 2,
-    ///                         UnhealthyThreshold = 2,
-    ///                         TimeoutMillis = 2000,
-    ///                         IntervalMillis = 5000,
-    ///                     },
+    ///                     Port = 8080,
+    ///                     Protocol = "http",
+    ///                 },
+    ///                 HealthCheck = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerHealthCheckArgs
+    ///                 {
+    ///                     Protocol = "http",
+    ///                     Path = "/ping",
+    ///                     HealthyThreshold = 2,
+    ///                     UnhealthyThreshold = 2,
+    ///                     TimeoutMillis = 2000,
+    ///                     IntervalMillis = 5000,
     ///                 },
     ///             },
     ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
@@ -205,15 +196,12 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Listeners = new[]
+    ///             Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                     Port = 8080,
+    ///                     Protocol = "http",
     ///                 },
     ///             },
     ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs

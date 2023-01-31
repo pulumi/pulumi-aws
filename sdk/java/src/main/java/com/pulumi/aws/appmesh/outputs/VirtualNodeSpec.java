@@ -30,7 +30,7 @@ public final class VirtualNodeSpec {
      * @return Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    private @Nullable List<VirtualNodeSpecListener> listeners;
+    private @Nullable VirtualNodeSpecListener listener;
     /**
      * @return Inbound and outbound access logging information for the virtual node.
      * 
@@ -61,8 +61,8 @@ public final class VirtualNodeSpec {
      * @return Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    public List<VirtualNodeSpecListener> listeners() {
-        return this.listeners == null ? List.of() : this.listeners;
+    public Optional<VirtualNodeSpecListener> listener() {
+        return Optional.ofNullable(this.listener);
     }
     /**
      * @return Inbound and outbound access logging information for the virtual node.
@@ -90,7 +90,7 @@ public final class VirtualNodeSpec {
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendDefaults backendDefaults;
         private @Nullable List<VirtualNodeSpecBackend> backends;
-        private @Nullable List<VirtualNodeSpecListener> listeners;
+        private @Nullable VirtualNodeSpecListener listener;
         private @Nullable VirtualNodeSpecLogging logging;
         private @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery;
         public Builder() {}
@@ -98,7 +98,7 @@ public final class VirtualNodeSpec {
     	      Objects.requireNonNull(defaults);
     	      this.backendDefaults = defaults.backendDefaults;
     	      this.backends = defaults.backends;
-    	      this.listeners = defaults.listeners;
+    	      this.listener = defaults.listener;
     	      this.logging = defaults.logging;
     	      this.serviceDiscovery = defaults.serviceDiscovery;
         }
@@ -117,12 +117,9 @@ public final class VirtualNodeSpec {
             return backends(List.of(backends));
         }
         @CustomType.Setter
-        public Builder listeners(@Nullable List<VirtualNodeSpecListener> listeners) {
-            this.listeners = listeners;
+        public Builder listener(@Nullable VirtualNodeSpecListener listener) {
+            this.listener = listener;
             return this;
-        }
-        public Builder listeners(VirtualNodeSpecListener... listeners) {
-            return listeners(List.of(listeners));
         }
         @CustomType.Setter
         public Builder logging(@Nullable VirtualNodeSpecLogging logging) {
@@ -138,7 +135,7 @@ public final class VirtualNodeSpec {
             final var o = new VirtualNodeSpec();
             o.backendDefaults = backendDefaults;
             o.backends = backends;
-            o.listeners = listeners;
+            o.listener = listener;
             o.logging = logging;
             o.serviceDiscovery = serviceDiscovery;
             return o;
