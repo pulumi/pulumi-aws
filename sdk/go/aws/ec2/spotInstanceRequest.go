@@ -112,7 +112,7 @@ type SpotInstanceRequest struct {
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehavior"`
 	InstanceState                pulumi.StringOutput    `pulumi:"instanceState"`
-	// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
@@ -123,8 +123,7 @@ type SpotInstanceRequest struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup pulumi.StringPtrOutput `pulumi:"launchGroup"`
-	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-	// See Launch Template Specification below for more details.
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
 	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// Maintenance and recovery options for the instance. See Maintenance Options below for more details.
 	MaintenanceOptions SpotInstanceRequestMaintenanceOptionsOutput `pulumi:"maintenanceOptions"`
@@ -281,7 +280,7 @@ type spotInstanceRequestState struct {
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
 	InstanceState                *string `pulumi:"instanceState"`
-	// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
@@ -292,8 +291,7 @@ type spotInstanceRequestState struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup *string `pulumi:"launchGroup"`
-	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-	// See Launch Template Specification below for more details.
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
 	LaunchTemplate *SpotInstanceRequestLaunchTemplate `pulumi:"launchTemplate"`
 	// Maintenance and recovery options for the instance. See Maintenance Options below for more details.
 	MaintenanceOptions *SpotInstanceRequestMaintenanceOptions `pulumi:"maintenanceOptions"`
@@ -422,7 +420,7 @@ type SpotInstanceRequestState struct {
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrInput
 	InstanceState                pulumi.StringPtrInput
-	// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
@@ -433,8 +431,7 @@ type SpotInstanceRequestState struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup pulumi.StringPtrInput
-	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-	// See Launch Template Specification below for more details.
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
 	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrInput
 	// Maintenance and recovery options for the instance. See Maintenance Options below for more details.
 	MaintenanceOptions SpotInstanceRequestMaintenanceOptionsPtrInput
@@ -565,7 +562,7 @@ type spotInstanceRequestArgs struct {
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
-	// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
@@ -576,8 +573,7 @@ type spotInstanceRequestArgs struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup *string `pulumi:"launchGroup"`
-	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-	// See Launch Template Specification below for more details.
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
 	LaunchTemplate *SpotInstanceRequestLaunchTemplate `pulumi:"launchTemplate"`
 	// Maintenance and recovery options for the instance. See Maintenance Options below for more details.
 	MaintenanceOptions *SpotInstanceRequestMaintenanceOptions `pulumi:"maintenanceOptions"`
@@ -680,7 +676,7 @@ type SpotInstanceRequestArgs struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrInput
-	// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
@@ -691,8 +687,7 @@ type SpotInstanceRequestArgs struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup pulumi.StringPtrInput
-	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-	// See Launch Template Specification below for more details.
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
 	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrInput
 	// Maintenance and recovery options for the instance. See Maintenance Options below for more details.
 	MaintenanceOptions SpotInstanceRequestMaintenanceOptionsPtrInput
@@ -957,7 +952,7 @@ func (o SpotInstanceRequestOutput) InstanceState() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.InstanceState }).(pulumi.StringOutput)
 }
 
-// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 func (o SpotInstanceRequestOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -983,8 +978,7 @@ func (o SpotInstanceRequestOutput) LaunchGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringPtrOutput { return v.LaunchGroup }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-// See Launch Template Specification below for more details.
+// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
 func (o SpotInstanceRequestOutput) LaunchTemplate() SpotInstanceRequestLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestLaunchTemplatePtrOutput { return v.LaunchTemplate }).(SpotInstanceRequestLaunchTemplatePtrOutput)
 }

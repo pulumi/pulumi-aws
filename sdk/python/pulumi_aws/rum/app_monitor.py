@@ -18,6 +18,7 @@ class AppMonitorArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
                  app_monitor_configuration: Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']] = None,
+                 custom_events: Optional[pulumi.Input['AppMonitorCustomEventsArgs']] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -25,6 +26,7 @@ class AppMonitorArgs:
         The set of arguments for constructing a AppMonitor resource.
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
         :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[str] name: The name of the log stream.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -32,6 +34,8 @@ class AppMonitorArgs:
         pulumi.set(__self__, "domain", domain)
         if app_monitor_configuration is not None:
             pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
+        if custom_events is not None:
+            pulumi.set(__self__, "custom_events", custom_events)
         if cw_log_enabled is not None:
             pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
         if name is not None:
@@ -62,6 +66,18 @@ class AppMonitorArgs:
     @app_monitor_configuration.setter
     def app_monitor_configuration(self, value: Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']]):
         pulumi.set(self, "app_monitor_configuration", value)
+
+    @property
+    @pulumi.getter(name="customEvents")
+    def custom_events(self) -> Optional[pulumi.Input['AppMonitorCustomEventsArgs']]:
+        """
+        Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        """
+        return pulumi.get(self, "custom_events")
+
+    @custom_events.setter
+    def custom_events(self, value: Optional[pulumi.Input['AppMonitorCustomEventsArgs']]):
+        pulumi.set(self, "custom_events", value)
 
     @property
     @pulumi.getter(name="cwLogEnabled")
@@ -106,6 +122,7 @@ class _AppMonitorState:
                  app_monitor_configuration: Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']] = None,
                  app_monitor_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 custom_events: Optional[pulumi.Input['AppMonitorCustomEventsArgs']] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  cw_log_group: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -117,6 +134,7 @@ class _AppMonitorState:
         :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
+        :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[str] cw_log_group: The name of the log group where the copies are stored.
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
@@ -130,6 +148,8 @@ class _AppMonitorState:
             pulumi.set(__self__, "app_monitor_id", app_monitor_id)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if custom_events is not None:
+            pulumi.set(__self__, "custom_events", custom_events)
         if cw_log_enabled is not None:
             pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
         if cw_log_group is not None:
@@ -178,6 +198,18 @@ class _AppMonitorState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="customEvents")
+    def custom_events(self) -> Optional[pulumi.Input['AppMonitorCustomEventsArgs']]:
+        """
+        Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        """
+        return pulumi.get(self, "custom_events")
+
+    @custom_events.setter
+    def custom_events(self, value: Optional[pulumi.Input['AppMonitorCustomEventsArgs']]):
+        pulumi.set(self, "custom_events", value)
 
     @property
     @pulumi.getter(name="cwLogEnabled")
@@ -258,6 +290,7 @@ class AppMonitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_monitor_configuration: Optional[pulumi.Input[pulumi.InputType['AppMonitorAppMonitorConfigurationArgs']]] = None,
+                 custom_events: Optional[pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']]] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -286,6 +319,7 @@ class AppMonitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppMonitorAppMonitorConfigurationArgs']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
+        :param pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
         :param pulumi.Input[str] name: The name of the log stream.
@@ -333,6 +367,7 @@ class AppMonitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_monitor_configuration: Optional[pulumi.Input[pulumi.InputType['AppMonitorAppMonitorConfigurationArgs']]] = None,
+                 custom_events: Optional[pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']]] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -347,6 +382,7 @@ class AppMonitor(pulumi.CustomResource):
             __props__ = AppMonitorArgs.__new__(AppMonitorArgs)
 
             __props__.__dict__["app_monitor_configuration"] = app_monitor_configuration
+            __props__.__dict__["custom_events"] = custom_events
             __props__.__dict__["cw_log_enabled"] = cw_log_enabled
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
@@ -370,6 +406,7 @@ class AppMonitor(pulumi.CustomResource):
             app_monitor_configuration: Optional[pulumi.Input[pulumi.InputType['AppMonitorAppMonitorConfigurationArgs']]] = None,
             app_monitor_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            custom_events: Optional[pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']]] = None,
             cw_log_enabled: Optional[pulumi.Input[bool]] = None,
             cw_log_group: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
@@ -386,6 +423,7 @@ class AppMonitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AppMonitorAppMonitorConfigurationArgs']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
+        :param pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[str] cw_log_group: The name of the log group where the copies are stored.
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
@@ -400,6 +438,7 @@ class AppMonitor(pulumi.CustomResource):
         __props__.__dict__["app_monitor_configuration"] = app_monitor_configuration
         __props__.__dict__["app_monitor_id"] = app_monitor_id
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["custom_events"] = custom_events
         __props__.__dict__["cw_log_enabled"] = cw_log_enabled
         __props__.__dict__["cw_log_group"] = cw_log_group
         __props__.__dict__["domain"] = domain
@@ -431,6 +470,14 @@ class AppMonitor(pulumi.CustomResource):
         The Amazon Resource Name (ARN) specifying the app monitor.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="customEvents")
+    def custom_events(self) -> pulumi.Output['outputs.AppMonitorCustomEvents']:
+        """
+        Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        """
+        return pulumi.get(self, "custom_events")
 
     @property
     @pulumi.getter(name="cwLogEnabled")

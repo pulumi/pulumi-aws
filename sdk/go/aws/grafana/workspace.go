@@ -89,6 +89,8 @@ type Workspace struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayOutput `pulumi:"authenticationProviders"`
+	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	Configuration pulumi.StringOutput `pulumi:"configuration"`
 	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
 	DataSources pulumi.StringArrayOutput `pulumi:"dataSources"`
 	// The workspace description.
@@ -164,6 +166,8 @@ type workspaceState struct {
 	Arn *string `pulumi:"arn"`
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
+	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	Configuration *string `pulumi:"configuration"`
 	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
 	DataSources []string `pulumi:"dataSources"`
 	// The workspace description.
@@ -202,6 +206,8 @@ type WorkspaceState struct {
 	Arn pulumi.StringPtrInput
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayInput
+	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	Configuration pulumi.StringPtrInput
 	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
 	DataSources pulumi.StringArrayInput
 	// The workspace description.
@@ -242,6 +248,8 @@ type workspaceArgs struct {
 	AccountAccessType string `pulumi:"accountAccessType"`
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
+	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	Configuration *string `pulumi:"configuration"`
 	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
 	DataSources []string `pulumi:"dataSources"`
 	// The workspace description.
@@ -272,6 +280,8 @@ type WorkspaceArgs struct {
 	AccountAccessType pulumi.StringInput
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayInput
+	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	Configuration pulumi.StringPtrInput
 	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
 	DataSources pulumi.StringArrayInput
 	// The workspace description.
@@ -396,6 +406,11 @@ func (o WorkspaceOutput) Arn() pulumi.StringOutput {
 // The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 func (o WorkspaceOutput) AuthenticationProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringArrayOutput { return v.AuthenticationProviders }).(pulumi.StringArrayOutput)
+}
+
+// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+func (o WorkspaceOutput) Configuration() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Configuration }).(pulumi.StringOutput)
 }
 
 // The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`

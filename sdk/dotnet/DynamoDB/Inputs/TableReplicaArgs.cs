@@ -13,7 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     public sealed class TableReplicaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the CMK that should be used for the AWS KMS encryption.
+        /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

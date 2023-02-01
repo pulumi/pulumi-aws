@@ -15,14 +15,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs();
 
     /**
-     * The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
      * 
      */
     @Import(name="insertHeaders", required=true)
     private Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
     /**
-     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * @return The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
      * 
      */
     public Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
          * 
          * @return builder
          * 

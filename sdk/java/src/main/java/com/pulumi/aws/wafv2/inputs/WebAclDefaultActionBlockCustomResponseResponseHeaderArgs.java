@@ -14,14 +14,14 @@ public final class WebAclDefaultActionBlockCustomResponseResponseHeaderArgs exte
     public static final WebAclDefaultActionBlockCustomResponseResponseHeaderArgs Empty = new WebAclDefaultActionBlockCustomResponseResponseHeaderArgs();
 
     /**
-     * Friendly name of the WebACL.
+     * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Friendly name of the WebACL.
+     * @return Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class WebAclDefaultActionBlockCustomResponseResponseHeaderArgs exte
         }
 
         /**
-         * @param name Friendly name of the WebACL.
+         * @param name Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class WebAclDefaultActionBlockCustomResponseResponseHeaderArgs exte
         }
 
         /**
-         * @param name Friendly name of the WebACL.
+         * @param name Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
          * 
          * @return builder
          * 

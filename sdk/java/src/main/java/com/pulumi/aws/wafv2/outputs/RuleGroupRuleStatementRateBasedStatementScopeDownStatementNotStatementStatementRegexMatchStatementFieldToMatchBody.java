@@ -4,11 +4,27 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementFieldToMatchBody {
+    /**
+     * @return Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+     * 
+     */
+    private @Nullable String oversizeHandling;
+
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementFieldToMatchBody() {}
+    /**
+     * @return Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+     * 
+     */
+    public Optional<String> oversizeHandling() {
+        return Optional.ofNullable(this.oversizeHandling);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +35,21 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String oversizeHandling;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementFieldToMatchBody defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.oversizeHandling = defaults.oversizeHandling;
         }
 
+        @CustomType.Setter
+        public Builder oversizeHandling(@Nullable String oversizeHandling) {
+            this.oversizeHandling = oversizeHandling;
+            return this;
+        }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementFieldToMatchBody build() {
             final var o = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementRegexMatchStatementFieldToMatchBody();
+            o.oversizeHandling = oversizeHandling;
             return o;
         }
     }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
+        /// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
         /// </summary>
         [Input("awsManagedRulesBotControlRuleSet")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs>? AwsManagedRulesBotControlRuleSet { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string>? LoginPath { get; set; }
 
         /// <summary>
-        /// Details about your login page password field. See Password Field for more details.
+        /// Details about your login page password field. See `password_field` for more details.
         /// </summary>
         [Input("passwordField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs>? PasswordField { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string>? PayloadType { get; set; }
 
         /// <summary>
-        /// Details about your login page username field. See Username Field for more details.
+        /// Details about your login page username field. See `username_field` for more details.
         /// </summary>
         [Input("usernameField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs>? UsernameField { get; set; }

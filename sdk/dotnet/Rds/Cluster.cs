@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -607,7 +607,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -940,7 +940,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         /// </summary>
         public InputList<string> AvailabilityZones
         {

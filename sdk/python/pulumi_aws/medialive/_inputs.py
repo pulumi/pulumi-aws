@@ -944,6 +944,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
                  coding_mode: Optional[pulumi.Input[str]] = None,
                  input_type: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
+                 rate_control_mode: Optional[pulumi.Input[str]] = None,
                  raw_format: Optional[pulumi.Input[str]] = None,
                  sample_rate: Optional[pulumi.Input[float]] = None,
                  spec: Optional[pulumi.Input[str]] = None,
@@ -953,6 +954,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
         :param pulumi.Input[str] coding_mode: Mono, Stereo, or 5.1 channel layout.
         :param pulumi.Input[str] input_type: Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
         :param pulumi.Input[str] profile: AAC profile.
+        :param pulumi.Input[str] rate_control_mode: The rate control mode.
         :param pulumi.Input[str] raw_format: Sets LATM/LOAS AAC output for raw containers.
         :param pulumi.Input[float] sample_rate: Sample rate in Hz.
         :param pulumi.Input[str] spec: Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
@@ -966,6 +968,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
             pulumi.set(__self__, "input_type", input_type)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
         if raw_format is not None:
             pulumi.set(__self__, "raw_format", raw_format)
         if sample_rate is not None:
@@ -1022,6 +1026,18 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
     @profile.setter
     def profile(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The rate control mode.
+        """
+        return pulumi.get(self, "rate_control_mode")
+
+    @rate_control_mode.setter
+    def rate_control_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rate_control_mode", value)
 
     @property
     @pulumi.getter(name="rawFormat")

@@ -13,6 +13,8 @@ import (
 
 // Creates a WAFv2 Web ACL resource.
 //
+// > **Note:** In `fieldToMatch` blocks, _e.g._, in `byteMatchStatement`, the `body` block includes an optional argument `oversizeHandling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversizeHandling` argument as **required** as soon as possible.
+//
 // ## Example Usage
 //
 // This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
@@ -235,16 +237,16 @@ type WebAcl struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
 	// Friendly name of the WebACL.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringOutput `pulumi:"scope"`
@@ -252,7 +254,7 @@ type WebAcl struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
 
@@ -298,16 +300,16 @@ type webAclState struct {
 	Arn *string `pulumi:"arn"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity *int `pulumi:"capacity"`
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
 	// Friendly name of the WebACL.
 	Name *string `pulumi:"name"`
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope *string `pulumi:"scope"`
@@ -315,7 +317,7 @@ type webAclState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig *WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -324,16 +326,16 @@ type WebAclState struct {
 	Arn pulumi.StringPtrInput
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntPtrInput
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
-	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
 	DefaultAction WebAclDefaultActionPtrInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
 	// Friendly name of the WebACL.
 	Name pulumi.StringPtrInput
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringPtrInput
@@ -341,7 +343,7 @@ type WebAclState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclVisibilityConfigPtrInput
 }
 
@@ -350,41 +352,41 @@ func (WebAclState) ElementType() reflect.Type {
 }
 
 type webAclArgs struct {
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
 	// Friendly name of the WebACL.
 	Name *string `pulumi:"name"`
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
 	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
 // The set of arguments for constructing a WebAcl resource.
 type WebAclArgs struct {
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
-	// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
 	DefaultAction WebAclDefaultActionInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
 	// Friendly name of the WebACL.
 	Name pulumi.StringPtrInput
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput
 	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclVisibilityConfigInput
 }
 
@@ -485,12 +487,12 @@ func (o WebAclOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyArrayOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyArrayOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyArrayOutput)
 }
 
-// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
 func (o WebAclOutput) DefaultAction() WebAclDefaultActionOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclDefaultActionOutput { return v.DefaultAction }).(WebAclDefaultActionOutput)
 }
@@ -509,7 +511,7 @@ func (o WebAclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 func (o WebAclOutput) Rules() WebAclRuleArrayOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclRuleArrayOutput { return v.Rules }).(WebAclRuleArrayOutput)
 }
@@ -529,7 +531,7 @@ func (o WebAclOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 func (o WebAclOutput) VisibilityConfig() WebAclVisibilityConfigOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclVisibilityConfigOutput { return v.VisibilityConfig }).(WebAclVisibilityConfigOutput)
 }

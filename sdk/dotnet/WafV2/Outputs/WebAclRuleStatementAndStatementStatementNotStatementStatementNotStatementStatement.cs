@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatement
     {
         /// <summary>
-        /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementByteMatchStatement? ByteMatchStatement;
         /// <summary>
-        /// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        /// Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementGeoMatchStatement? GeoMatchStatement;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement? IpSetReferenceStatement;
         /// <summary>
-        /// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        /// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
-        /// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementRegexMatchStatement? RegexMatchStatement;
         /// <summary>
@@ -38,15 +38,15 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
         /// <summary>
-        /// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+        /// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementSizeConstraintStatement? SizeConstraintStatement;
         /// <summary>
-        /// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        /// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementSqliMatchStatement? SqliMatchStatement;
         /// <summary>
-        /// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        /// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementXssMatchStatement? XssMatchStatement;
 

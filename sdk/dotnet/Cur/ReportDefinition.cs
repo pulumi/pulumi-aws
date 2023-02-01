@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Cur
         public Output<string> S3Region { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        /// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         /// </summary>
         [Output("timeUnit")]
         public Output<string> TimeUnit { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Cur
         public Input<string> S3Region { get; set; } = null!;
 
         /// <summary>
-        /// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        /// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         /// </summary>
         [Input("timeUnit", required: true)]
         public Input<string> TimeUnit { get; set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Cur
         public Input<string>? S3Region { get; set; }
 
         /// <summary>
-        /// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        /// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         /// </summary>
         [Input("timeUnit")]
         public Input<string>? TimeUnit { get; set; }

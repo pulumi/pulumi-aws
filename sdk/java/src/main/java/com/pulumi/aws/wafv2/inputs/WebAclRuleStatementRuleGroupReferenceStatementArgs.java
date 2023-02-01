@@ -33,7 +33,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
     }
 
     /**
-     * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details.
      * 
      * @deprecated
      * Use rule_action_override instead
@@ -44,7 +44,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
     private @Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>> excludedRules;
 
     /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details.
      * 
      * @deprecated
      * Use rule_action_override instead
@@ -102,7 +102,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details.
          * 
          * @return builder
          * 

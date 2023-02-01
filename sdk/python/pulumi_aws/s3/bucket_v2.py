@@ -446,8 +446,8 @@ class _BucketV2State:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]] versionings: A configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
-        :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-        :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+        :param pulumi.Input[str] website_domain: (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
+        :param pulumi.Input[str] website_endpoint: (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]] websites: A configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
@@ -843,7 +843,7 @@ class _BucketV2State:
     @pulumi.getter(name="websiteDomain")
     def website_domain(self) -> Optional[pulumi.Input[str]]:
         """
-        The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+        (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
         return pulumi.get(self, "website_domain")
 
@@ -855,7 +855,7 @@ class _BucketV2State:
     @pulumi.getter(name="websiteEndpoint")
     def website_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+        (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
         return pulumi.get(self, "website_endpoint")
 
@@ -1822,8 +1822,8 @@ class BucketV2(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]] versionings: A configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
-        :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-        :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+        :param pulumi.Input[str] website_domain: (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
+        :param pulumi.Input[str] website_endpoint: (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2WebsiteArgs']]]] websites: A configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
@@ -2061,7 +2061,7 @@ class BucketV2(pulumi.CustomResource):
     @pulumi.getter(name="websiteDomain")
     def website_domain(self) -> pulumi.Output[str]:
         """
-        The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+        (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
         return pulumi.get(self, "website_domain")
 
@@ -2069,7 +2069,7 @@ class BucketV2(pulumi.CustomResource):
     @pulumi.getter(name="websiteEndpoint")
     def website_endpoint(self) -> pulumi.Output[str]:
         """
-        The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+        (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
         return pulumi.get(self, "website_endpoint")
 

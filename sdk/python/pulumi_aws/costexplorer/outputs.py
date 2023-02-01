@@ -12,6 +12,22 @@ from . import outputs
 
 __all__ = [
     'AnomalySubscriptionSubscriber',
+    'AnomalySubscriptionThresholdExpression',
+    'AnomalySubscriptionThresholdExpressionAnd',
+    'AnomalySubscriptionThresholdExpressionAndCostCategory',
+    'AnomalySubscriptionThresholdExpressionAndDimension',
+    'AnomalySubscriptionThresholdExpressionAndTags',
+    'AnomalySubscriptionThresholdExpressionCostCategory',
+    'AnomalySubscriptionThresholdExpressionDimension',
+    'AnomalySubscriptionThresholdExpressionNot',
+    'AnomalySubscriptionThresholdExpressionNotCostCategory',
+    'AnomalySubscriptionThresholdExpressionNotDimension',
+    'AnomalySubscriptionThresholdExpressionNotTags',
+    'AnomalySubscriptionThresholdExpressionOr',
+    'AnomalySubscriptionThresholdExpressionOrCostCategory',
+    'AnomalySubscriptionThresholdExpressionOrDimension',
+    'AnomalySubscriptionThresholdExpressionOrTags',
+    'AnomalySubscriptionThresholdExpressionTags',
     'CostCategoryRule',
     'CostCategoryRuleInheritedValue',
     'CostCategoryRuleRule',
@@ -99,6 +115,1004 @@ class AnomalySubscriptionSubscriber(dict):
         The type of subscription. Valid Values: `SNS` | `EMAIL`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpression(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "costCategory":
+            suggest = "cost_category"
+        elif key == "not":
+            suggest = "not_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpression. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpression.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpression.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ands: Optional[Sequence['outputs.AnomalySubscriptionThresholdExpressionAnd']] = None,
+                 cost_category: Optional['outputs.AnomalySubscriptionThresholdExpressionCostCategory'] = None,
+                 dimension: Optional['outputs.AnomalySubscriptionThresholdExpressionDimension'] = None,
+                 not_: Optional['outputs.AnomalySubscriptionThresholdExpressionNot'] = None,
+                 ors: Optional[Sequence['outputs.AnomalySubscriptionThresholdExpressionOr']] = None,
+                 tags: Optional['outputs.AnomalySubscriptionThresholdExpressionTags'] = None):
+        """
+        :param Sequence['AnomalySubscriptionThresholdExpressionAndArgs'] ands: Return results that match both Dimension objects.
+        :param 'AnomalySubscriptionThresholdExpressionCostCategoryArgs' cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
+        :param 'AnomalySubscriptionThresholdExpressionDimensionArgs' dimension: Configuration block for the specific Dimension to use for.
+        :param 'AnomalySubscriptionThresholdExpressionNotArgs' not_: Return results that match both Dimension object.
+        :param Sequence['AnomalySubscriptionThresholdExpressionOrArgs'] ors: Return results that match both Dimension object.
+        :param 'AnomalySubscriptionThresholdExpressionTagsArgs' tags: Configuration block for the specific Tag to use for. See Tags below.
+        """
+        if ands is not None:
+            pulumi.set(__self__, "ands", ands)
+        if cost_category is not None:
+            pulumi.set(__self__, "cost_category", cost_category)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if not_ is not None:
+            pulumi.set(__self__, "not_", not_)
+        if ors is not None:
+            pulumi.set(__self__, "ors", ors)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def ands(self) -> Optional[Sequence['outputs.AnomalySubscriptionThresholdExpressionAnd']]:
+        """
+        Return results that match both Dimension objects.
+        """
+        return pulumi.get(self, "ands")
+
+    @property
+    @pulumi.getter(name="costCategory")
+    def cost_category(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionCostCategory']:
+        """
+        Configuration block for the filter that's based on  values. See Cost Category below.
+        """
+        return pulumi.get(self, "cost_category")
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionDimension']:
+        """
+        Configuration block for the specific Dimension to use for.
+        """
+        return pulumi.get(self, "dimension")
+
+    @property
+    @pulumi.getter(name="not")
+    def not_(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionNot']:
+        """
+        Return results that match both Dimension object.
+        """
+        return pulumi.get(self, "not_")
+
+    @property
+    @pulumi.getter
+    def ors(self) -> Optional[Sequence['outputs.AnomalySubscriptionThresholdExpressionOr']]:
+        """
+        Return results that match both Dimension object.
+        """
+        return pulumi.get(self, "ors")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionTags']:
+        """
+        Configuration block for the specific Tag to use for. See Tags below.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionAnd(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "costCategory":
+            suggest = "cost_category"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionAnd. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionAnd.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionAnd.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cost_category: Optional['outputs.AnomalySubscriptionThresholdExpressionAndCostCategory'] = None,
+                 dimension: Optional['outputs.AnomalySubscriptionThresholdExpressionAndDimension'] = None,
+                 tags: Optional['outputs.AnomalySubscriptionThresholdExpressionAndTags'] = None):
+        """
+        :param 'AnomalySubscriptionThresholdExpressionAndCostCategoryArgs' cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
+        :param 'AnomalySubscriptionThresholdExpressionAndDimensionArgs' dimension: Configuration block for the specific Dimension to use for.
+        :param 'AnomalySubscriptionThresholdExpressionAndTagsArgs' tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        if cost_category is not None:
+            pulumi.set(__self__, "cost_category", cost_category)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="costCategory")
+    def cost_category(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionAndCostCategory']:
+        """
+        Configuration block for the filter that's based on  values. See Cost Category below.
+        """
+        return pulumi.get(self, "cost_category")
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionAndDimension']:
+        """
+        Configuration block for the specific Dimension to use for.
+        """
+        return pulumi.get(self, "dimension")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionAndTags']:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionAndCostCategory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionAndCostCategory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionAndCostCategory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionAndCostCategory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Unique name of the Cost Category.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Unique name of the Cost Category.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionAndDimension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionAndDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionAndDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionAndDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Unique name of the Cost Category.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Unique name of the Cost Category.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionAndTags(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionAndTags. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionAndTags.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionAndTags.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Key for the tag.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Key for the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionCostCategory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionCostCategory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionCostCategory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionCostCategory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Unique name of the Cost Category.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Unique name of the Cost Category.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionDimension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Unique name of the Cost Category.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Unique name of the Cost Category.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionNot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "costCategory":
+            suggest = "cost_category"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionNot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionNot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionNot.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cost_category: Optional['outputs.AnomalySubscriptionThresholdExpressionNotCostCategory'] = None,
+                 dimension: Optional['outputs.AnomalySubscriptionThresholdExpressionNotDimension'] = None,
+                 tags: Optional['outputs.AnomalySubscriptionThresholdExpressionNotTags'] = None):
+        """
+        :param 'AnomalySubscriptionThresholdExpressionNotCostCategoryArgs' cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
+        :param 'AnomalySubscriptionThresholdExpressionNotDimensionArgs' dimension: Configuration block for the specific Dimension to use for.
+        :param 'AnomalySubscriptionThresholdExpressionNotTagsArgs' tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        if cost_category is not None:
+            pulumi.set(__self__, "cost_category", cost_category)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="costCategory")
+    def cost_category(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionNotCostCategory']:
+        """
+        Configuration block for the filter that's based on  values. See Cost Category below.
+        """
+        return pulumi.get(self, "cost_category")
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionNotDimension']:
+        """
+        Configuration block for the specific Dimension to use for.
+        """
+        return pulumi.get(self, "dimension")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionNotTags']:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionNotCostCategory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionNotCostCategory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionNotCostCategory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionNotCostCategory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Unique name of the Cost Category.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Unique name of the Cost Category.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionNotDimension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionNotDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionNotDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionNotDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Unique name of the Cost Category.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Unique name of the Cost Category.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionNotTags(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionNotTags. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionNotTags.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionNotTags.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Key for the tag.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Key for the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionOr(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "costCategory":
+            suggest = "cost_category"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionOr. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionOr.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionOr.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cost_category: Optional['outputs.AnomalySubscriptionThresholdExpressionOrCostCategory'] = None,
+                 dimension: Optional['outputs.AnomalySubscriptionThresholdExpressionOrDimension'] = None,
+                 tags: Optional['outputs.AnomalySubscriptionThresholdExpressionOrTags'] = None):
+        """
+        :param 'AnomalySubscriptionThresholdExpressionOrCostCategoryArgs' cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
+        :param 'AnomalySubscriptionThresholdExpressionOrDimensionArgs' dimension: Configuration block for the specific Dimension to use for.
+        :param 'AnomalySubscriptionThresholdExpressionOrTagsArgs' tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        if cost_category is not None:
+            pulumi.set(__self__, "cost_category", cost_category)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="costCategory")
+    def cost_category(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionOrCostCategory']:
+        """
+        Configuration block for the filter that's based on  values. See Cost Category below.
+        """
+        return pulumi.get(self, "cost_category")
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionOrDimension']:
+        """
+        Configuration block for the specific Dimension to use for.
+        """
+        return pulumi.get(self, "dimension")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionOrTags']:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionOrCostCategory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionOrCostCategory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionOrCostCategory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionOrCostCategory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Unique name of the Cost Category.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Unique name of the Cost Category.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionOrDimension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionOrDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionOrDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionOrDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Unique name of the Cost Category.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Unique name of the Cost Category.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionOrTags(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionOrTags. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionOrTags.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionOrTags.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Key for the tag.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Key for the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnomalySubscriptionThresholdExpressionTags(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchOptions":
+            suggest = "match_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalySubscriptionThresholdExpressionTags. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalySubscriptionThresholdExpressionTags.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalySubscriptionThresholdExpressionTags.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 match_options: Optional[Sequence[str]] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        :param str key: Key for the tag.
+        :param Sequence[str] match_options: Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        :param Sequence[str] values: Specific value of the Cost Category.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_options is not None:
+            pulumi.set(__self__, "match_options", match_options)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Key for the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchOptions")
+    def match_options(self) -> Optional[Sequence[str]]:
+        """
+        Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+        """
+        return pulumi.get(self, "match_options")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        Specific value of the Cost Category.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

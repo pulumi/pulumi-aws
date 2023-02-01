@@ -27,22 +27,22 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
      */
     private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments allQueryArguments;
     /**
-     * @return Inspect the request body, which immediately follows the request headers.
+     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody body;
     /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
+     * @return Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies cookies;
     /**
-     * @return Inspect the request headers. See Headers below for details.
+     * @return Inspect the request headers. See `headers` below for details.
      * 
      */
     private @Nullable List<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers;
     /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
+     * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody;
@@ -57,12 +57,12 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
      */
     private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
     /**
-     * @return Inspect a single header. See Single Header below for details.
+     * @return Inspect a single header. See `single_header` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader singleHeader;
     /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
+     * @return Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument;
@@ -81,28 +81,28 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
         return Optional.ofNullable(this.allQueryArguments);
     }
     /**
-     * @return Inspect the request body, which immediately follows the request headers.
+     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
     }
     /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
+     * @return Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
     }
     /**
-     * @return Inspect the request headers. See Headers below for details.
+     * @return Inspect the request headers. See `headers` below for details.
      * 
      */
     public List<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
+     * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody> jsonBody() {
@@ -123,14 +123,14 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return Inspect a single header. See Single Header below for details.
+     * @return Inspect a single header. See `single_header` below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
     /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
+     * @return Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {

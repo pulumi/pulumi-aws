@@ -33,6 +33,11 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
      */
     private @Nullable String profile;
     /**
+     * @return The rate control mode.
+     * 
+     */
+    private @Nullable String rateControlMode;
+    /**
      * @return Sets LATM/LOAS AAC output for raw containers.
      * 
      */
@@ -83,6 +88,13 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         return Optional.ofNullable(this.profile);
     }
     /**
+     * @return The rate control mode.
+     * 
+     */
+    public Optional<String> rateControlMode() {
+        return Optional.ofNullable(this.rateControlMode);
+    }
+    /**
      * @return Sets LATM/LOAS AAC output for raw containers.
      * 
      */
@@ -124,6 +136,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         private @Nullable String codingMode;
         private @Nullable String inputType;
         private @Nullable String profile;
+        private @Nullable String rateControlMode;
         private @Nullable String rawFormat;
         private @Nullable Double sampleRate;
         private @Nullable String spec;
@@ -135,6 +148,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     	      this.codingMode = defaults.codingMode;
     	      this.inputType = defaults.inputType;
     	      this.profile = defaults.profile;
+    	      this.rateControlMode = defaults.rateControlMode;
     	      this.rawFormat = defaults.rawFormat;
     	      this.sampleRate = defaults.sampleRate;
     	      this.spec = defaults.spec;
@@ -159,6 +173,11 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         @CustomType.Setter
         public Builder profile(@Nullable String profile) {
             this.profile = profile;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rateControlMode(@Nullable String rateControlMode) {
+            this.rateControlMode = rateControlMode;
             return this;
         }
         @CustomType.Setter
@@ -187,6 +206,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
             o.codingMode = codingMode;
             o.inputType = inputType;
             o.profile = profile;
+            o.rateControlMode = rateControlMode;
             o.rawFormat = rawFormat;
             o.sampleRate = sampleRate;
             o.spec = spec;

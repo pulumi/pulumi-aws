@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -337,6 +337,9 @@ namespace Pulumi.Aws.Ec2
         [Output("rootBlockDevice")]
         public Output<Outputs.LaunchConfigurationRootBlockDevice> RootBlockDevice { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of associated security group IDS.
+        /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
@@ -495,7 +498,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -514,6 +517,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// A list of associated security group IDS.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -650,7 +657,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -669,6 +676,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// A list of associated security group IDS.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());

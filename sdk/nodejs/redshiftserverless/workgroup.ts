@@ -91,7 +91,7 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * An array of VPC subnet IDs to associate with the workgroup.
+     * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
@@ -201,7 +201,7 @@ export interface WorkgroupState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An array of VPC subnet IDs to associate with the workgroup.
+     * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -251,7 +251,7 @@ export interface WorkgroupArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An array of VPC subnet IDs to associate with the workgroup.
+     * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

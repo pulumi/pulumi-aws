@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.RouteSpecGrpcRouteMatchMetadataArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -48,6 +49,21 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * The port number to match from the request.
+     * 
+     */
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
+    }
+
+    /**
      * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
@@ -84,6 +100,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     private RouteSpecGrpcRouteMatchArgs(RouteSpecGrpcRouteMatchArgs $) {
         this.metadatas = $.metadatas;
         this.methodName = $.methodName;
+        this.port = $.port;
         this.prefix = $.prefix;
         this.serviceName = $.serviceName;
     }
@@ -156,6 +173,27 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
          */
         public Builder methodName(String methodName) {
             return methodName(Output.of(methodName));
+        }
+
+        /**
+         * @param port The port number to match from the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port The port number to match from the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
         }
 
         /**

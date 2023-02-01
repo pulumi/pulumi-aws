@@ -18,7 +18,7 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementI
      */
     private String arn;
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
      * 
      */
     private @Nullable WebAclRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig;
@@ -32,7 +32,7 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementI
         return this.arn;
     }
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
      * 
      */
     public Optional<WebAclRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig> ipSetForwardedIpConfig() {

@@ -559,13 +559,77 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appsync_type":                        {Tok: awsResource(appsyncMod, "Type")},
 
 			// AppMesh
-			"aws_appmesh_mesh":            {Tok: awsResource(appmeshMod, "Mesh")},
-			"aws_appmesh_route":           {Tok: awsResource(appmeshMod, "Route")},
-			"aws_appmesh_virtual_node":    {Tok: awsResource(appmeshMod, "VirtualNode")},
-			"aws_appmesh_virtual_router":  {Tok: awsResource(appmeshMod, "VirtualRouter")},
+			"aws_appmesh_mesh":  {Tok: awsResource(appmeshMod, "Mesh")},
+			"aws_appmesh_route": {Tok: awsResource(appmeshMod, "Route")},
+			"aws_appmesh_virtual_node": {
+				Tok: awsResource(appmeshMod, "VirtualNode"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"spec": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"listener": {
+									MaxItemsOne: tfbridge.True(),
+									Name:        "listener",
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"connection_pool": {
+												Elem: &tfbridge.SchemaInfo{
+													Fields: map[string]*tfbridge.SchemaInfo{
+														"http": {
+															MaxItemsOne: tfbridge.True(),
+															Name:        "http",
+														},
+														"http2": {
+															MaxItemsOne: tfbridge.True(),
+															Name:        "http2",
+														},
+														"tcp": {
+															MaxItemsOne: tfbridge.True(),
+															Name:        "tcp",
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			"aws_appmesh_virtual_router": {
+				Tok: awsResource(appmeshMod, "VirtualRouter"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"spec": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"listener": {
+									MaxItemsOne: tfbridge.True(),
+									Name:        "listener",
+								},
+							},
+						},
+					},
+				},
+			},
 			"aws_appmesh_virtual_service": {Tok: awsResource(appmeshMod, "VirtualService")},
 			"aws_appmesh_gateway_route":   {Tok: awsResource(appmeshMod, "GatewayRoute")},
-			"aws_appmesh_virtual_gateway": {Tok: awsResource(appmeshMod, "VirtualGateway")},
+			"aws_appmesh_virtual_gateway": {
+				Tok: awsResource(appmeshMod, "VirtualGateway"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"spec": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"listener": {
+									MaxItemsOne: tfbridge.True(),
+									Name:        "listener",
+								},
+							},
+						},
+					},
+				},
+			},
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
@@ -1167,6 +1231,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datasync_location_fsx_lustre_file_system":  {Tok: awsResource(datasyncMod, "LocationFsxLustre")},
 			"aws_datasync_location_hdfs":                    {Tok: awsResource(datasyncMod, "LocationHdfs")},
 			"aws_datasync_location_fsx_openzfs_file_system": {Tok: awsResource(datasyncMod, "FsxOpenZfsFileSystem")},
+			"aws_datasync_location_object_storage":          {Tok: awsResource(datasyncMod, "LocationObjectStorage")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {
 				Tok: awsResource(dlmMod, "LifecyclePolicy"),
@@ -2676,6 +2741,26 @@ func Provider() tfbridge.ProviderInfo {
 					// Do not autoname Route53 records, as the "name" of these is actually the true
 					// domain name of the DNS record.
 					"name": {Name: "name"},
+					"alias": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "aliases",
+					},
+					"geolocation_routing_policy": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "geolocationRoutingPolicies",
+					},
+					"latency_routing_policy": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "latencyRoutingPolicies",
+					},
+					"failover_routing_policy": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "failoverRoutingPolicies",
+					},
+					"weighted_routing_policy": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "weightedRoutingPolicies",
+					},
 				},
 			},
 			"aws_route53_resolver_config":               {Tok: awsResource(route53Mod, "ResolverConfig")},

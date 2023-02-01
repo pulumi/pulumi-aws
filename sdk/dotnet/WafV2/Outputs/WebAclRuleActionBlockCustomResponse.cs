@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly int ResponseCode;
         /// <summary>
-        /// The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+        /// The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleActionBlockCustomResponseResponseHeader> ResponseHeaders;
 

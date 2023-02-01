@@ -27,22 +27,22 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementO
      */
     private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
     /**
-     * @return Inspect the request body, which immediately follows the request headers.
+     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody body;
     /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
+     * @return Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchCookies cookies;
     /**
-     * @return Inspect the request headers. See Headers below for details.
+     * @return Inspect the request headers. See `headers` below for details.
      * 
      */
     private @Nullable List<WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchHeader> headers;
     /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
+     * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBody jsonBody;
@@ -57,12 +57,12 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementO
      */
     private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString queryString;
     /**
-     * @return Inspect a single header. See Single Header below for details.
+     * @return Inspect a single header. See `single_header` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader singleHeader;
     /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
+     * @return Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
@@ -81,28 +81,28 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementO
         return Optional.ofNullable(this.allQueryArguments);
     }
     /**
-     * @return Inspect the request body, which immediately follows the request headers.
+     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
     }
     /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
+     * @return Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
     }
     /**
-     * @return Inspect the request headers. See Headers below for details.
+     * @return Inspect the request headers. See `headers` below for details.
      * 
      */
     public List<WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
+     * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchJsonBody> jsonBody() {
@@ -123,14 +123,14 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementO
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return Inspect a single header. See Single Header below for details.
+     * @return Inspect a single header. See `single_header` below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
     /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
+     * @return Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
     public Optional<WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {

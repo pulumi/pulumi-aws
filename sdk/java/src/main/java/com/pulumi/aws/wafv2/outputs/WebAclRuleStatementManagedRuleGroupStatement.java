@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatement {
     /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
      * 
      * @deprecated
      * Use rule_action_override instead
@@ -36,12 +36,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
      */
     private String name;
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
      * 
      */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides;
     /**
-     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement;
@@ -58,7 +58,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
 
     private WebAclRuleStatementManagedRuleGroupStatement() {}
     /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
      * 
      * @deprecated
      * Use rule_action_override instead
@@ -83,14 +83,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         return this.name;
     }
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
      * 
      */
     public List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides() {
         return this.ruleActionOverrides == null ? List.of() : this.ruleActionOverrides;
     }
     /**
-     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> scopeDownStatement() {

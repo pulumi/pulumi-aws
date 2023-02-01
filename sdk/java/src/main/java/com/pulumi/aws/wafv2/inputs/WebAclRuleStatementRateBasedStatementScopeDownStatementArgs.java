@@ -27,14 +27,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementArgs();
 
     /**
-     * Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+     * Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
      * 
      */
     @Import(name="andStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs> andStatement;
 
     /**
-     * @return Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+     * @return Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs>> andStatement() {
@@ -42,14 +42,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+     * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
      * 
      */
     @Import(name="byteMatchStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs> byteMatchStatement;
 
     /**
-     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs>> byteMatchStatement() {
@@ -57,14 +57,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+     * Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
      * 
      */
     @Import(name="geoMatchStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs> geoMatchStatement;
 
     /**
-     * @return Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+     * @return Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs>> geoMatchStatement() {
@@ -87,14 +87,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+     * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
      * 
      */
     @Import(name="labelMatchStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs> labelMatchStatement;
 
     /**
-     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs>> labelMatchStatement() {
@@ -102,14 +102,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+     * Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
      * 
      */
     @Import(name="notStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs> notStatement;
 
     /**
-     * @return Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+     * @return Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs>> notStatement() {
@@ -117,14 +117,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+     * Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
      * 
      */
     @Import(name="orStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs> orStatement;
 
     /**
-     * @return Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+     * @return Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs>> orStatement() {
@@ -132,14 +132,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
      * 
      */
     @Import(name="regexMatchStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs> regexMatchStatement;
 
     /**
-     * @return Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+     * @return Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs>> regexMatchStatement() {
@@ -162,14 +162,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+     * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
      * 
      */
     @Import(name="sizeConstraintStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs> sizeConstraintStatement;
 
     /**
-     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs>> sizeConstraintStatement() {
@@ -177,14 +177,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+     * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
      * 
      */
     @Import(name="sqliMatchStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs> sqliMatchStatement;
 
     /**
-     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs>> sqliMatchStatement() {
@@ -192,14 +192,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
-     * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+     * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
      * 
      */
     @Import(name="xssMatchStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs> xssMatchStatement;
 
     /**
-     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs>> xssMatchStatement() {
@@ -242,7 +242,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param notStatement Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         * @param notStatement Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param notStatement Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         * @param notStatement Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
-         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
          * 
          * @return builder
          * 

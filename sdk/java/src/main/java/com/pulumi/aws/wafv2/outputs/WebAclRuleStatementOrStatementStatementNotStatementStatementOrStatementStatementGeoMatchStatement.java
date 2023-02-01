@@ -19,7 +19,7 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementO
      */
     private List<String> countryCodes;
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwarded_ip_config` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig;
@@ -33,7 +33,7 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementO
         return this.countryCodes;
     }
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See Forwarded IP Config below for details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwarded_ip_config` below for details.
      * 
      */
     public Optional<WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig> forwardedIpConfig() {

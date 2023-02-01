@@ -19,6 +19,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.RouteSpecTcpRouteActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
+        /// Criteria for determining an gRPC request match.
+        /// </summary>
+        [Input("match")]
+        public Input<Inputs.RouteSpecTcpRouteMatchGetArgs>? Match { get; set; }
+
+        /// <summary>
         /// Types of timeouts.
         /// </summary>
         [Input("timeout")]

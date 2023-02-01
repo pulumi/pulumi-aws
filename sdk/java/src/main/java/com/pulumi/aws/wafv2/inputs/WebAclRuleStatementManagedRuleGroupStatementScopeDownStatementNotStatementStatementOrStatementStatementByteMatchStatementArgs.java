@@ -19,14 +19,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementArgs();
 
     /**
-     * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchArgs>> fieldToMatch() {
@@ -66,7 +66,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
@@ -75,7 +75,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     public Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementTextTransformationArgs>> textTransformations() {
@@ -110,7 +110,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 

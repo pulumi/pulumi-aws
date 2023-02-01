@@ -1015,6 +1015,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
             suggest = "coding_mode"
         elif key == "inputType":
             suggest = "input_type"
+        elif key == "rateControlMode":
+            suggest = "rate_control_mode"
         elif key == "rawFormat":
             suggest = "raw_format"
         elif key == "sampleRate":
@@ -1038,6 +1040,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
                  coding_mode: Optional[str] = None,
                  input_type: Optional[str] = None,
                  profile: Optional[str] = None,
+                 rate_control_mode: Optional[str] = None,
                  raw_format: Optional[str] = None,
                  sample_rate: Optional[float] = None,
                  spec: Optional[str] = None,
@@ -1047,6 +1050,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
         :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
         :param str input_type: Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
         :param str profile: AAC profile.
+        :param str rate_control_mode: The rate control mode.
         :param str raw_format: Sets LATM/LOAS AAC output for raw containers.
         :param float sample_rate: Sample rate in Hz.
         :param str spec: Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
@@ -1060,6 +1064,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
             pulumi.set(__self__, "input_type", input_type)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
         if raw_format is not None:
             pulumi.set(__self__, "raw_format", raw_format)
         if sample_rate is not None:
@@ -1100,6 +1106,14 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
         AAC profile.
         """
         return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[str]:
+        """
+        The rate control mode.
+        """
+        return pulumi.get(self, "rate_control_mode")
 
     @property
     @pulumi.getter(name="rawFormat")

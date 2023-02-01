@@ -15,14 +15,14 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementArgs exte
     public static final WebAclRuleStatementAndStatementStatementNotStatementArgs Empty = new WebAclRuleStatementAndStatementStatementNotStatementArgs();
 
     /**
-     * Statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * Statement to negate. You can use any statement that can be nested. See `statement` above for details.
      * 
      */
     @Import(name="statements", required=true)
     private Output<List<WebAclRuleStatementAndStatementStatementNotStatementStatementArgs>> statements;
 
     /**
-     * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * @return Statement to negate. You can use any statement that can be nested. See `statement` above for details.
      * 
      */
     public Output<List<WebAclRuleStatementAndStatementStatementNotStatementStatementArgs>> statements() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementArgs exte
         }
 
         /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * @param statements Statement to negate. You can use any statement that can be nested. See `statement` above for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementArgs exte
         }
 
         /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * @param statements Statement to negate. You can use any statement that can be nested. See `statement` above for details.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementArgs exte
         }
 
         /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * @param statements Statement to negate. You can use any statement that can be nested. See `statement` above for details.
          * 
          * @return builder
          * 

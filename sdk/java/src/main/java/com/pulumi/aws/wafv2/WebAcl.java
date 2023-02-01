@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
 /**
  * Creates a WAFv2 Web ACL resource.
  * 
+ * &gt; **Note:** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
+ * 
  * ## Example Usage
  * 
  * This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
@@ -375,28 +377,28 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.capacity;
     }
     /**
-     * Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+     * Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
      * 
      */
     @Export(name="customResponseBodies", refs={List.class,WebAclCustomResponseBody.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclCustomResponseBody>> customResponseBodies;
 
     /**
-     * @return Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+     * @return Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
      * 
      */
     public Output<Optional<List<WebAclCustomResponseBody>>> customResponseBodies() {
         return Codegen.optional(this.customResponseBodies);
     }
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
      * 
      */
     @Export(name="defaultAction", refs={WebAclDefaultAction.class}, tree="[0]")
     private Output<WebAclDefaultAction> defaultAction;
 
     /**
-     * @return Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
      * 
      */
     public Output<WebAclDefaultAction> defaultAction() {
@@ -437,14 +439,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
     @Export(name="rules", refs={List.class,WebAclRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclRule>> rules;
 
     /**
-     * @return Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * @return Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
     public Output<Optional<List<WebAclRule>>> rules() {
@@ -493,14 +495,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
      * 
      */
     @Export(name="visibilityConfig", refs={WebAclVisibilityConfig.class}, tree="[0]")
     private Output<WebAclVisibilityConfig> visibilityConfig;
 
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
      * 
      */
     public Output<WebAclVisibilityConfig> visibilityConfig() {

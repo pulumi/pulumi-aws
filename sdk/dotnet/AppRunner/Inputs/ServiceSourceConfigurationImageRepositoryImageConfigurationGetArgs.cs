@@ -18,6 +18,18 @@ namespace Pulumi.Aws.AppRunner.Inputs
         [Input("port")]
         public Input<string>? Port { get; set; }
 
+        [Input("runtimeEnvironmentSecrets")]
+        private InputMap<string>? _runtimeEnvironmentSecrets;
+
+        /// <summary>
+        /// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+        /// </summary>
+        public InputMap<string> RuntimeEnvironmentSecrets
+        {
+            get => _runtimeEnvironmentSecrets ?? (_runtimeEnvironmentSecrets = new InputMap<string>());
+            set => _runtimeEnvironmentSecrets = value;
+        }
+
         [Input("runtimeEnvironmentVariables")]
         private InputMap<string>? _runtimeEnvironmentVariables;
 

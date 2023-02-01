@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttpRouteActionWeightedTarget
     {
         /// <summary>
+        /// The targeted port of the weighted object.
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
         /// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string VirtualNode;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
         [OutputConstructor]
         private RouteSpecHttpRouteActionWeightedTarget(
+            int? port,
+
             string virtualNode,
 
             int weight)
         {
+            Port = port;
             VirtualNode = virtualNode;
             Weight = weight;
         }

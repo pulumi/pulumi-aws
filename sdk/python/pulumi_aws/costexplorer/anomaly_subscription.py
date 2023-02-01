@@ -19,30 +19,38 @@ class AnomalySubscriptionArgs:
                  frequency: pulumi.Input[str],
                  monitor_arn_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subscribers: pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]],
-                 threshold: pulumi.Input[float],
                  account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threshold: Optional[pulumi.Input[float]] = None,
+                 threshold_expression: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']] = None):
         """
         The set of arguments for constructing a AnomalySubscription resource.
         :param pulumi.Input[str] frequency: The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_arn_lists: A list of cost anomaly monitors.
         :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
-        :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded.
         :param pulumi.Input[str] account_id: The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         :param pulumi.Input[str] name: The name for the subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionArgs'] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "monitor_arn_lists", monitor_arn_lists)
         pulumi.set(__self__, "subscribers", subscribers)
-        pulumi.set(__self__, "threshold", threshold)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if threshold is not None:
+            warnings.warn("""use threshold_expression instead""", DeprecationWarning)
+            pulumi.log.warn("""threshold is deprecated: use threshold_expression instead""")
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if threshold_expression is not None:
+            pulumi.set(__self__, "threshold_expression", threshold_expression)
 
     @property
     @pulumi.getter
@@ -81,18 +89,6 @@ class AnomalySubscriptionArgs:
         pulumi.set(self, "subscribers", value)
 
     @property
-    @pulumi.getter
-    def threshold(self) -> pulumi.Input[float]:
-        """
-        The dollar value that triggers a notification if the threshold is exceeded.
-        """
-        return pulumi.get(self, "threshold")
-
-    @threshold.setter
-    def threshold(self, value: pulumi.Input[float]):
-        pulumi.set(self, "threshold", value)
-
-    @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -128,6 +124,30 @@ class AnomalySubscriptionArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="thresholdExpression")
+    def threshold_expression(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']]:
+        """
+        An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        """
+        return pulumi.get(self, "threshold_expression")
+
+    @threshold_expression.setter
+    def threshold_expression(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']]):
+        pulumi.set(self, "threshold_expression", value)
+
 
 @pulumi.input_type
 class _AnomalySubscriptionState:
@@ -140,7 +160,8 @@ class _AnomalySubscriptionState:
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threshold: Optional[pulumi.Input[float]] = None):
+                 threshold: Optional[pulumi.Input[float]] = None,
+                 threshold_expression: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']] = None):
         """
         Input properties used for looking up and filtering AnomalySubscription resources.
         :param pulumi.Input[str] account_id: The unique identifier for the AWS account in which the anomaly subscription ought to be created.
@@ -151,7 +172,8 @@ class _AnomalySubscriptionState:
         :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded.
+        :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionArgs'] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -170,7 +192,12 @@ class _AnomalySubscriptionState:
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if threshold is not None:
+            warnings.warn("""use threshold_expression instead""", DeprecationWarning)
+            pulumi.log.warn("""threshold is deprecated: use threshold_expression instead""")
+        if threshold is not None:
             pulumi.set(__self__, "threshold", threshold)
+        if threshold_expression is not None:
+            pulumi.set(__self__, "threshold_expression", threshold_expression)
 
     @property
     @pulumi.getter(name="accountId")
@@ -272,13 +299,25 @@ class _AnomalySubscriptionState:
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
         """
-        The dollar value that triggers a notification if the threshold is exceeded.
+        The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
         """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
     def threshold(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="thresholdExpression")
+    def threshold_expression(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']]:
+        """
+        An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        """
+        return pulumi.get(self, "threshold_expression")
+
+    @threshold_expression.setter
+    def threshold_expression(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']]):
+        pulumi.set(self, "threshold_expression", value)
 
 
 class AnomalySubscription(pulumi.CustomResource):
@@ -293,6 +332,7 @@ class AnomalySubscription(pulumi.CustomResource):
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionSubscriberArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
+                 threshold_expression: Optional[pulumi.Input[pulumi.InputType['AnomalySubscriptionThresholdExpressionArgs']]] = None,
                  __props__=None):
         """
         Provides a CE Anomaly Subscription.
@@ -394,7 +434,8 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the subscription.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionSubscriberArgs']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded.
+        :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+        :param pulumi.Input[pulumi.InputType['AnomalySubscriptionThresholdExpressionArgs']] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
         ...
     @overload
@@ -516,6 +557,7 @@ class AnomalySubscription(pulumi.CustomResource):
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionSubscriberArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
+                 threshold_expression: Optional[pulumi.Input[pulumi.InputType['AnomalySubscriptionThresholdExpressionArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -537,9 +579,11 @@ class AnomalySubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["tags"] = tags
-            if threshold is None and not opts.urn:
-                raise TypeError("Missing required property 'threshold'")
+            if threshold is not None and not opts.urn:
+                warnings.warn("""use threshold_expression instead""", DeprecationWarning)
+                pulumi.log.warn("""threshold is deprecated: use threshold_expression instead""")
             __props__.__dict__["threshold"] = threshold
+            __props__.__dict__["threshold_expression"] = threshold_expression
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(AnomalySubscription, __self__).__init__(
@@ -560,7 +604,8 @@ class AnomalySubscription(pulumi.CustomResource):
             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionSubscriberArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            threshold: Optional[pulumi.Input[float]] = None) -> 'AnomalySubscription':
+            threshold: Optional[pulumi.Input[float]] = None,
+            threshold_expression: Optional[pulumi.Input[pulumi.InputType['AnomalySubscriptionThresholdExpressionArgs']]] = None) -> 'AnomalySubscription':
         """
         Get an existing AnomalySubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -576,7 +621,8 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalySubscriptionSubscriberArgs']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded.
+        :param pulumi.Input[float] threshold: The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+        :param pulumi.Input[pulumi.InputType['AnomalySubscriptionThresholdExpressionArgs']] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -591,6 +637,7 @@ class AnomalySubscription(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["threshold"] = threshold
+        __props__.__dict__["threshold_expression"] = threshold_expression
         return AnomalySubscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -661,7 +708,15 @@ class AnomalySubscription(pulumi.CustomResource):
     @pulumi.getter
     def threshold(self) -> pulumi.Output[float]:
         """
-        The dollar value that triggers a notification if the threshold is exceeded.
+        The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
         """
         return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="thresholdExpression")
+    def threshold_expression(self) -> pulumi.Output['outputs.AnomalySubscriptionThresholdExpression']:
+        """
+        An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        """
+        return pulumi.get(self, "threshold_expression")
 

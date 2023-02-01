@@ -17,14 +17,14 @@ public final class WebAclDefaultActionArgs extends com.pulumi.resources.Resource
     public static final WebAclDefaultActionArgs Empty = new WebAclDefaultActionArgs();
 
     /**
-     * Specifies that AWS WAF should allow requests by default. See Allow below for details.
+     * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
      * 
      */
     @Import(name="allow")
     private @Nullable Output<WebAclDefaultActionAllowArgs> allow;
 
     /**
-     * @return Specifies that AWS WAF should allow requests by default. See Allow below for details.
+     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
      * 
      */
     public Optional<Output<WebAclDefaultActionAllowArgs>> allow() {
@@ -32,14 +32,14 @@ public final class WebAclDefaultActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies that AWS WAF should block requests by default. See Block below for details.
+     * Specifies that AWS WAF should block requests by default. See `block` below for details.
      * 
      */
     @Import(name="block")
     private @Nullable Output<WebAclDefaultActionBlockArgs> block;
 
     /**
-     * @return Specifies that AWS WAF should block requests by default. See Block below for details.
+     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
      * 
      */
     public Optional<Output<WebAclDefaultActionBlockArgs>> block() {
@@ -72,7 +72,7 @@ public final class WebAclDefaultActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param allow Specifies that AWS WAF should allow requests by default. See Allow below for details.
+         * @param allow Specifies that AWS WAF should allow requests by default. See `allow` below for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WebAclDefaultActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param allow Specifies that AWS WAF should allow requests by default. See Allow below for details.
+         * @param allow Specifies that AWS WAF should allow requests by default. See `allow` below for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class WebAclDefaultActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param block Specifies that AWS WAF should block requests by default. See Block below for details.
+         * @param block Specifies that AWS WAF should block requests by default. See `block` below for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class WebAclDefaultActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param block Specifies that AWS WAF should block requests by default. See Block below for details.
+         * @param block Specifies that AWS WAF should block requests by default. See `block` below for details.
          * 
          * @return builder
          * 

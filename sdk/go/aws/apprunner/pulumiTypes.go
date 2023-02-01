@@ -2122,6 +2122,8 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 	Port *string `pulumi:"port"`
 	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 	Runtime string `pulumi:"runtime"`
+	// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+	RuntimeEnvironmentSecrets map[string]string `pulumi:"runtimeEnvironmentSecrets"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables map[string]string `pulumi:"runtimeEnvironmentVariables"`
 	// Command App Runner runs to start your application.
@@ -2146,6 +2148,8 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 	Runtime pulumi.StringInput `pulumi:"runtime"`
+	// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+	RuntimeEnvironmentSecrets pulumi.StringMapInput `pulumi:"runtimeEnvironmentSecrets"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables pulumi.StringMapInput `pulumi:"runtimeEnvironmentVariables"`
 	// Command App Runner runs to start your application.
@@ -2250,6 +2254,13 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringOutput)
 }
 
+// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
+		return v.RuntimeEnvironmentSecrets
+	}).(pulumi.StringMapOutput)
+}
+
 // Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) RuntimeEnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
@@ -2316,6 +2327,16 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 		}
 		return &v.Runtime
 	}).(pulumi.StringPtrOutput)
+}
+
+// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeEnvironmentSecrets
+	}).(pulumi.StringMapOutput)
 }
 
 // Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
@@ -2678,6 +2699,8 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageRepositoryType(
 type ServiceSourceConfigurationImageRepositoryImageConfiguration struct {
 	// Port that your application listens to in the container. Defaults to `"8080"`.
 	Port *string `pulumi:"port"`
+	// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+	RuntimeEnvironmentSecrets map[string]string `pulumi:"runtimeEnvironmentSecrets"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables map[string]string `pulumi:"runtimeEnvironmentVariables"`
 	// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
@@ -2698,6 +2721,8 @@ type ServiceSourceConfigurationImageRepositoryImageConfigurationInput interface 
 type ServiceSourceConfigurationImageRepositoryImageConfigurationArgs struct {
 	// Port that your application listens to in the container. Defaults to `"8080"`.
 	Port pulumi.StringPtrInput `pulumi:"port"`
+	// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+	RuntimeEnvironmentSecrets pulumi.StringMapInput `pulumi:"runtimeEnvironmentSecrets"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables pulumi.StringMapInput `pulumi:"runtimeEnvironmentVariables"`
 	// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
@@ -2786,6 +2811,13 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) Port(
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
+// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
+		return v.RuntimeEnvironmentSecrets
+	}).(pulumi.StringMapOutput)
+}
+
 // Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) RuntimeEnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
@@ -2830,6 +2862,16 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) Po
 		}
 		return v.Port
 	}).(pulumi.StringPtrOutput)
+}
+
+// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeEnvironmentSecrets
+	}).(pulumi.StringMapOutput)
 }
 
 // Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.

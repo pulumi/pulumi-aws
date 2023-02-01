@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// Map of environment variables that are accessible from the function code during execution.
+        /// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
         /// </summary>
         public InputMap<string> Variables
         {

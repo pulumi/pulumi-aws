@@ -76,6 +76,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
+        /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+        /// </summary>
+        [Output("sharePrincipals")]
+        public Output<bool?> SharePrincipals { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
         /// </summary>
         [Output("shareTagOptions")]
@@ -158,6 +164,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
+        /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+        /// </summary>
+        [Input("sharePrincipals")]
+        public Input<bool>? SharePrincipals { get; set; }
+
+        /// <summary>
         /// Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
         /// </summary>
         [Input("shareTagOptions")]
@@ -206,6 +218,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+        /// </summary>
+        [Input("sharePrincipals")]
+        public Input<bool>? SharePrincipals { get; set; }
 
         /// <summary>
         /// Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.

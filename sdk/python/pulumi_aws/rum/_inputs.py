@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'AppMonitorAppMonitorConfigurationArgs',
+    'AppMonitorCustomEventsArgs',
 ]
 
 @pulumi.input_type
@@ -162,5 +163,28 @@ class AppMonitorAppMonitorConfigurationArgs:
     @telemetries.setter
     def telemetries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "telemetries", value)
+
+
+@pulumi.input_type
+class AppMonitorCustomEventsArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] status: Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 

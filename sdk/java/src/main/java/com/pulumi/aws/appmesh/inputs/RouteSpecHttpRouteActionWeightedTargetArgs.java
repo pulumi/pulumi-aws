@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RouteSpecHttpRouteActionWeightedTargetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RouteSpecHttpRouteActionWeightedTargetArgs Empty = new RouteSpecHttpRouteActionWeightedTargetArgs();
+
+    /**
+     * The targeted port of the weighted object.
+     * 
+     */
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return The targeted port of the weighted object.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
+    }
 
     /**
      * Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
@@ -47,6 +64,7 @@ public final class RouteSpecHttpRouteActionWeightedTargetArgs extends com.pulumi
     private RouteSpecHttpRouteActionWeightedTargetArgs() {}
 
     private RouteSpecHttpRouteActionWeightedTargetArgs(RouteSpecHttpRouteActionWeightedTargetArgs $) {
+        this.port = $.port;
         this.virtualNode = $.virtualNode;
         this.weight = $.weight;
     }
@@ -67,6 +85,27 @@ public final class RouteSpecHttpRouteActionWeightedTargetArgs extends com.pulumi
 
         public Builder(RouteSpecHttpRouteActionWeightedTargetArgs defaults) {
             $ = new RouteSpecHttpRouteActionWeightedTargetArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param port The targeted port of the weighted object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port The targeted port of the weighted object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
         }
 
         /**

@@ -18,7 +18,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
      */
     private String arn;
     /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details.
      * 
      * @deprecated
      * Use rule_action_override instead
@@ -36,7 +36,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
         return this.arn;
     }
     /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
+     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details.
      * 
      * @deprecated
      * Use rule_action_override instead

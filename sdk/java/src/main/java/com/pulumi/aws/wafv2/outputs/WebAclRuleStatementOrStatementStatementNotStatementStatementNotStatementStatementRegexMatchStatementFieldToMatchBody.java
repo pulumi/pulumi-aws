@@ -4,11 +4,27 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementRegexMatchStatementFieldToMatchBody {
+    /**
+     * @return What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+     * 
+     */
+    private @Nullable String oversizeHandling;
+
     private WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementRegexMatchStatementFieldToMatchBody() {}
+    /**
+     * @return What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+     * 
+     */
+    public Optional<String> oversizeHandling() {
+        return Optional.ofNullable(this.oversizeHandling);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +35,21 @@ public final class WebAclRuleStatementOrStatementStatementNotStatementStatementN
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String oversizeHandling;
         public Builder() {}
         public Builder(WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementRegexMatchStatementFieldToMatchBody defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.oversizeHandling = defaults.oversizeHandling;
         }
 
+        @CustomType.Setter
+        public Builder oversizeHandling(@Nullable String oversizeHandling) {
+            this.oversizeHandling = oversizeHandling;
+            return this;
+        }
         public WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementRegexMatchStatementFieldToMatchBody build() {
             final var o = new WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementRegexMatchStatementFieldToMatchBody();
+            o.oversizeHandling = oversizeHandling;
             return o;
         }
     }

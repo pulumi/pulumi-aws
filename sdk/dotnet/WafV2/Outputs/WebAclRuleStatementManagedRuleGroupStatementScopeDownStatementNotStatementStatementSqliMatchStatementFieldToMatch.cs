@@ -18,19 +18,19 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments;
         /// <summary>
-        /// Inspect the request body, which immediately follows the request headers.
+        /// Inspect the request body, which immediately follows the request headers. See `body` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchBody? Body;
         /// <summary>
-        /// Inspect the cookies in the web request. See Cookies below for details.
+        /// Inspect the cookies in the web request. See `cookies` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchCookies? Cookies;
         /// <summary>
-        /// Inspect the request headers. See Headers below for details.
+        /// Inspect the request headers. See `headers` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchHeader> Headers;
         /// <summary>
-        /// Inspect the request body as JSON. See JSON Body for details.
+        /// Inspect the request body as JSON. See `json_body` for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchJsonBody? JsonBody;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString? QueryString;
         /// <summary>
-        /// Inspect a single header. See Single Header below for details.
+        /// Inspect a single header. See `single_header` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader? SingleHeader;
         /// <summary>
-        /// Inspect a single query argument. See Single Query Argument below for details.
+        /// Inspect a single query argument. See `single_query_argument` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
         /// <summary>

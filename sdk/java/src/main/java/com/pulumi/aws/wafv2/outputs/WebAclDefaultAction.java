@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclDefaultAction {
     /**
-     * @return Specifies that AWS WAF should allow requests by default. See Allow below for details.
+     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
      * 
      */
     private @Nullable WebAclDefaultActionAllow allow;
     /**
-     * @return Specifies that AWS WAF should block requests by default. See Block below for details.
+     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
      * 
      */
     private @Nullable WebAclDefaultActionBlock block;
 
     private WebAclDefaultAction() {}
     /**
-     * @return Specifies that AWS WAF should allow requests by default. See Allow below for details.
+     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
      * 
      */
     public Optional<WebAclDefaultActionAllow> allow() {
         return Optional.ofNullable(this.allow);
     }
     /**
-     * @return Specifies that AWS WAF should block requests by default. See Block below for details.
+     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
      * 
      */
     public Optional<WebAclDefaultActionBlock> block() {

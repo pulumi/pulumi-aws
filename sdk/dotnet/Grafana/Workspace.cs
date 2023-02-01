@@ -88,6 +88,12 @@ namespace Pulumi.Aws.Grafana
         public Output<ImmutableArray<string>> AuthenticationProviders { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        /// </summary>
+        [Output("configuration")]
+        public Output<string> Configuration { get; private set; } = null!;
+
+        /// <summary>
         /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         /// </summary>
         [Output("dataSources")]
@@ -238,6 +244,12 @@ namespace Pulumi.Aws.Grafana
             set => _authenticationProviders = value;
         }
 
+        /// <summary>
+        /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        /// </summary>
+        [Input("configuration")]
+        public Input<string>? Configuration { get; set; }
+
         [Input("dataSources")]
         private InputList<string>? _dataSources;
 
@@ -359,6 +371,12 @@ namespace Pulumi.Aws.Grafana
             get => _authenticationProviders ?? (_authenticationProviders = new InputList<string>());
             set => _authenticationProviders = value;
         }
+
+        /// <summary>
+        /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        /// </summary>
+        [Input("configuration")]
+        public Input<string>? Configuration { get; set; }
 
         [Input("dataSources")]
         private InputList<string>? _dataSources;

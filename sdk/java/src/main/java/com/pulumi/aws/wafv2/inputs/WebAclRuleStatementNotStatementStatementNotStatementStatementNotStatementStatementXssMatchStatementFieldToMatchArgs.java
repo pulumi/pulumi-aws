@@ -41,14 +41,14 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
     }
 
     /**
-     * Inspect the request body, which immediately follows the request headers.
+     * Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
     @Import(name="body")
     private @Nullable Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBodyArgs> body;
 
     /**
-     * @return Inspect the request body, which immediately follows the request headers.
+     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBodyArgs>> body() {
@@ -56,14 +56,14 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
     }
 
     /**
-     * Inspect the cookies in the web request. See Cookies below for details.
+     * Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
     @Import(name="cookies")
     private @Nullable Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchCookiesArgs> cookies;
 
     /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
+     * @return Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchCookiesArgs>> cookies() {
@@ -71,14 +71,14 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
     }
 
     /**
-     * Inspect the request headers. See Headers below for details.
+     * Inspect the request headers. See `headers` below for details.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchHeaderArgs>> headers;
 
     /**
-     * @return Inspect the request headers. See Headers below for details.
+     * @return Inspect the request headers. See `headers` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchHeaderArgs>>> headers() {
@@ -86,14 +86,14 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
     }
 
     /**
-     * Inspect the request body as JSON. See JSON Body for details.
+     * Inspect the request body as JSON. See `json_body` for details.
      * 
      */
     @Import(name="jsonBody")
     private @Nullable Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchJsonBodyArgs> jsonBody;
 
     /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
+     * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchJsonBodyArgs>> jsonBody() {
@@ -131,14 +131,14 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
     }
 
     /**
-     * Inspect a single header. See Single Header below for details.
+     * Inspect a single header. See `single_header` below for details.
      * 
      */
     @Import(name="singleHeader")
     private @Nullable Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderArgs> singleHeader;
 
     /**
-     * @return Inspect a single header. See Single Header below for details.
+     * @return Inspect a single header. See `single_header` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeaderArgs>> singleHeader() {
@@ -146,14 +146,14 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
     }
 
     /**
-     * Inspect a single query argument. See Single Query Argument below for details.
+     * Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
     @Import(name="singleQueryArgument")
     private @Nullable Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
 
     /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
+     * @return Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs>> singleQueryArgument() {
@@ -230,7 +230,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param body Inspect the request body, which immediately follows the request headers.
+         * @param body Inspect the request body, which immediately follows the request headers. See `body` below for details.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param body Inspect the request body, which immediately follows the request headers.
+         * @param body Inspect the request body, which immediately follows the request headers. See `body` below for details.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param cookies Inspect the cookies in the web request. See Cookies below for details.
+         * @param cookies Inspect the cookies in the web request. See `cookies` below for details.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param cookies Inspect the cookies in the web request. See Cookies below for details.
+         * @param cookies Inspect the cookies in the web request. See `cookies` below for details.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param headers Inspect the request headers. See Headers below for details.
+         * @param headers Inspect the request headers. See `headers` below for details.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param headers Inspect the request headers. See Headers below for details.
+         * @param headers Inspect the request headers. See `headers` below for details.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param headers Inspect the request headers. See Headers below for details.
+         * @param headers Inspect the request headers. See `headers` below for details.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * @param jsonBody Inspect the request body as JSON. See `json_body` for details.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * @param jsonBody Inspect the request body as JSON. See `json_body` for details.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param singleHeader Inspect a single header. See Single Header below for details.
+         * @param singleHeader Inspect a single header. See `single_header` below for details.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param singleHeader Inspect a single header. See Single Header below for details.
+         * @param singleHeader Inspect a single header. See `single_header` below for details.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param singleQueryArgument Inspect a single query argument. See Single Query Argument below for details.
+         * @param singleQueryArgument Inspect a single query argument. See `single_query_argument` below for details.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class WebAclRuleStatementNotStatementStatementNotStatementStatement
         }
 
         /**
-         * @param singleQueryArgument Inspect a single query argument. See Single Query Argument below for details.
+         * @param singleQueryArgument Inspect a single query argument. See `single_query_argument` below for details.
          * 
          * @return builder
          * 

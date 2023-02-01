@@ -77,6 +77,7 @@ __all__ = [
     'RouteSpecTcpRoute',
     'RouteSpecTcpRouteAction',
     'RouteSpecTcpRouteActionWeightedTarget',
+    'RouteSpecTcpRouteMatch',
     'RouteSpecTcpRouteTimeout',
     'RouteSpecTcpRouteTimeoutIdle',
     'VirtualGatewaySpec',
@@ -398,11 +399,15 @@ class GatewayRouteSpecGrpcRouteMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 service_name: str):
+                 service_name: str,
+                 port: Optional[int] = None):
         """
         :param str service_name: Fully qualified domain name for the service to match from the request.
+        :param int port: The port number to match from the request.
         """
         pulumi.set(__self__, "service_name", service_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -411,6 +416,14 @@ class GatewayRouteSpecGrpcRouteMatch(dict):
         Fully qualified domain name for the service to match from the request.
         """
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port number to match from the request.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type
@@ -660,13 +673,17 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
 class GatewayRouteSpecHttp2RouteMatch(dict):
     def __init__(__self__, *,
                  hostname: Optional['outputs.GatewayRouteSpecHttp2RouteMatchHostname'] = None,
+                 port: Optional[int] = None,
                  prefix: Optional[str] = None):
         """
         :param 'GatewayRouteSpecHttp2RouteMatchHostnameArgs' hostname: Host name to rewrite.
+        :param int port: The port number to match from the request.
         :param str prefix: Specified beginning characters to rewrite.
         """
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
 
@@ -677,6 +694,14 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
         Host name to rewrite.
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port number to match from the request.
+        """
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
@@ -965,13 +990,17 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
 class GatewayRouteSpecHttpRouteMatch(dict):
     def __init__(__self__, *,
                  hostname: Optional['outputs.GatewayRouteSpecHttpRouteMatchHostname'] = None,
+                 port: Optional[int] = None,
                  prefix: Optional[str] = None):
         """
         :param 'GatewayRouteSpecHttpRouteMatchHostnameArgs' hostname: Host name to rewrite.
+        :param int port: The port number to match from the request.
         :param str prefix: Specified beginning characters to rewrite.
         """
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
 
@@ -982,6 +1011,14 @@ class GatewayRouteSpecHttpRouteMatch(dict):
         Host name to rewrite.
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port number to match from the request.
+        """
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
@@ -1301,13 +1338,17 @@ class RouteSpecGrpcRouteActionWeightedTarget(dict):
 
     def __init__(__self__, *,
                  virtual_node: str,
-                 weight: int):
+                 weight: int,
+                 port: Optional[int] = None):
         """
         :param str virtual_node: Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
+        :param int port: The targeted port of the weighted object.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
         pulumi.set(__self__, "weight", weight)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -1324,6 +1365,14 @@ class RouteSpecGrpcRouteActionWeightedTarget(dict):
         Relative weight of the weighted target. An integer between 0 and 100.
         """
         return pulumi.get(self, "weight")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The targeted port of the weighted object.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type
@@ -1350,11 +1399,13 @@ class RouteSpecGrpcRouteMatch(dict):
     def __init__(__self__, *,
                  metadatas: Optional[Sequence['outputs.RouteSpecGrpcRouteMatchMetadata']] = None,
                  method_name: Optional[str] = None,
+                 port: Optional[int] = None,
                  prefix: Optional[str] = None,
                  service_name: Optional[str] = None):
         """
         :param Sequence['RouteSpecGrpcRouteMatchMetadataArgs'] metadatas: Data to match from the gRPC request.
         :param str method_name: Method name to match from the request. If you specify a name, you must also specify a `service_name`.
+        :param int port: The port number to match from the request.
         :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param str service_name: Fully qualified domain name for the service to match from the request.
@@ -1363,6 +1414,8 @@ class RouteSpecGrpcRouteMatch(dict):
             pulumi.set(__self__, "metadatas", metadatas)
         if method_name is not None:
             pulumi.set(__self__, "method_name", method_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if service_name is not None:
@@ -1383,6 +1436,14 @@ class RouteSpecGrpcRouteMatch(dict):
         Method name to match from the request. If you specify a name, you must also specify a `service_name`.
         """
         return pulumi.get(self, "method_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port number to match from the request.
+        """
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
@@ -1901,13 +1962,17 @@ class RouteSpecHttp2RouteActionWeightedTarget(dict):
 
     def __init__(__self__, *,
                  virtual_node: str,
-                 weight: int):
+                 weight: int,
+                 port: Optional[int] = None):
         """
         :param str virtual_node: Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
+        :param int port: The targeted port of the weighted object.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
         pulumi.set(__self__, "weight", weight)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -1925,6 +1990,14 @@ class RouteSpecHttp2RouteActionWeightedTarget(dict):
         """
         return pulumi.get(self, "weight")
 
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The targeted port of the weighted object.
+        """
+        return pulumi.get(self, "port")
+
 
 @pulumi.output_type
 class RouteSpecHttp2RouteMatch(dict):
@@ -1932,12 +2005,14 @@ class RouteSpecHttp2RouteMatch(dict):
                  prefix: str,
                  headers: Optional[Sequence['outputs.RouteSpecHttp2RouteMatchHeader']] = None,
                  method: Optional[str] = None,
+                 port: Optional[int] = None,
                  scheme: Optional[str] = None):
         """
         :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param Sequence['RouteSpecHttp2RouteMatchHeaderArgs'] headers: Client request headers to match on.
         :param str method: Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+        :param int port: The port number to match from the request.
         :param str scheme: Client request header scheme to match on. Valid values: `http`, `https`.
         """
         pulumi.set(__self__, "prefix", prefix)
@@ -1945,6 +2020,8 @@ class RouteSpecHttp2RouteMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if method is not None:
             pulumi.set(__self__, "method", method)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if scheme is not None:
             pulumi.set(__self__, "scheme", scheme)
 
@@ -1972,6 +2049,14 @@ class RouteSpecHttp2RouteMatch(dict):
         Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
         """
         return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port number to match from the request.
+        """
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
@@ -2465,13 +2550,17 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
 
     def __init__(__self__, *,
                  virtual_node: str,
-                 weight: int):
+                 weight: int,
+                 port: Optional[int] = None):
         """
         :param str virtual_node: Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
+        :param int port: The targeted port of the weighted object.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
         pulumi.set(__self__, "weight", weight)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -2489,6 +2578,14 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
         """
         return pulumi.get(self, "weight")
 
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The targeted port of the weighted object.
+        """
+        return pulumi.get(self, "port")
+
 
 @pulumi.output_type
 class RouteSpecHttpRouteMatch(dict):
@@ -2496,12 +2593,14 @@ class RouteSpecHttpRouteMatch(dict):
                  prefix: str,
                  headers: Optional[Sequence['outputs.RouteSpecHttpRouteMatchHeader']] = None,
                  method: Optional[str] = None,
+                 port: Optional[int] = None,
                  scheme: Optional[str] = None):
         """
         :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         :param Sequence['RouteSpecHttpRouteMatchHeaderArgs'] headers: Client request headers to match on.
         :param str method: Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+        :param int port: The port number to match from the request.
         :param str scheme: Client request header scheme to match on. Valid values: `http`, `https`.
         """
         pulumi.set(__self__, "prefix", prefix)
@@ -2509,6 +2608,8 @@ class RouteSpecHttpRouteMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if method is not None:
             pulumi.set(__self__, "method", method)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if scheme is not None:
             pulumi.set(__self__, "scheme", scheme)
 
@@ -2536,6 +2637,14 @@ class RouteSpecHttpRouteMatch(dict):
         Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
         """
         return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port number to match from the request.
+        """
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
@@ -2905,12 +3014,16 @@ class RouteSpecHttpRouteTimeoutPerRequest(dict):
 class RouteSpecTcpRoute(dict):
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecTcpRouteAction',
+                 match: Optional['outputs.RouteSpecTcpRouteMatch'] = None,
                  timeout: Optional['outputs.RouteSpecTcpRouteTimeout'] = None):
         """
         :param 'RouteSpecTcpRouteActionArgs' action: Action to take if a match is determined.
+        :param 'RouteSpecTcpRouteMatchArgs' match: Criteria for determining an gRPC request match.
         :param 'RouteSpecTcpRouteTimeoutArgs' timeout: Types of timeouts.
         """
         pulumi.set(__self__, "action", action)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -2921,6 +3034,14 @@ class RouteSpecTcpRoute(dict):
         Action to take if a match is determined.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional['outputs.RouteSpecTcpRouteMatch']:
+        """
+        Criteria for determining an gRPC request match.
+        """
+        return pulumi.get(self, "match")
 
     @property
     @pulumi.getter
@@ -2989,13 +3110,17 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
 
     def __init__(__self__, *,
                  virtual_node: str,
-                 weight: int):
+                 weight: int,
+                 port: Optional[int] = None):
         """
         :param str virtual_node: Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
+        :param int port: The targeted port of the weighted object.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
         pulumi.set(__self__, "weight", weight)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -3012,6 +3137,33 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
         Relative weight of the weighted target. An integer between 0 and 100.
         """
         return pulumi.get(self, "weight")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The targeted port of the weighted object.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class RouteSpecTcpRouteMatch(dict):
+    def __init__(__self__, *,
+                 port: Optional[int] = None):
+        """
+        :param int port: The port number to match from the request.
+        """
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port number to match from the request.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type

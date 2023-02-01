@@ -17,14 +17,14 @@ public final class FunctionEnvironmentArgs extends com.pulumi.resources.Resource
     public static final FunctionEnvironmentArgs Empty = new FunctionEnvironmentArgs();
 
     /**
-     * Map of environment variables that are accessible from the function code during execution.
+     * Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
      * 
      */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
     /**
-     * @return Map of environment variables that are accessible from the function code during execution.
+     * @return Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
      * 
      */
     public Optional<Output<Map<String,String>>> variables() {
@@ -56,7 +56,7 @@ public final class FunctionEnvironmentArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param variables Map of environment variables that are accessible from the function code during execution.
+         * @param variables Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class FunctionEnvironmentArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param variables Map of environment variables that are accessible from the function code during execution.
+         * @param variables Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
          * 
          * @return builder
          * 

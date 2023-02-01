@@ -49,9 +49,10 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -239,7 +240,7 @@ class LaunchConfigurationArgs:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -274,6 +275,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of associated security group IDS.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -379,9 +383,10 @@ class _LaunchConfigurationState:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -585,7 +590,7 @@ class _LaunchConfigurationState:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -620,6 +625,9 @@ class _LaunchConfigurationState:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of associated security group IDS.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -885,9 +893,10 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -1184,9 +1193,10 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
@@ -1320,7 +1330,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
         """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -1343,6 +1353,9 @@ class LaunchConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of associated security group IDS.
+        """
         return pulumi.get(self, "security_groups")
 
     @property

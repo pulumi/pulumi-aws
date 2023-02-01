@@ -78,6 +78,8 @@ type Component struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Platform of the component.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayOutput `pulumi:"supportedOsVersions"`
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -147,6 +149,8 @@ type componentState struct {
 	Owner *string `pulumi:"owner"`
 	// Platform of the component.
 	Platform *string `pulumi:"platform"`
+	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -182,6 +186,8 @@ type ComponentState struct {
 	Owner pulumi.StringPtrInput
 	// Platform of the component.
 	Platform pulumi.StringPtrInput
+	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+	SkipDestroy pulumi.BoolPtrInput
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -213,6 +219,8 @@ type componentArgs struct {
 	Name *string `pulumi:"name"`
 	// Platform of the component.
 	Platform string `pulumi:"platform"`
+	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -237,6 +245,8 @@ type ComponentArgs struct {
 	Name pulumi.StringPtrInput
 	// Platform of the component.
 	Platform pulumi.StringInput
+	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+	SkipDestroy pulumi.BoolPtrInput
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -382,6 +392,11 @@ func (o ComponentOutput) Owner() pulumi.StringOutput {
 // Platform of the component.
 func (o ComponentOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+}
+
+// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+func (o ComponentOutput) SkipDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // Set of Operating Systems (OS) supported by the component.

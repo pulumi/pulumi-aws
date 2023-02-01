@@ -37,6 +37,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? Profile { get; set; }
 
         /// <summary>
+        /// The rate control mode.
+        /// </summary>
+        [Input("rateControlMode")]
+        public Input<string>? RateControlMode { get; set; }
+
+        /// <summary>
         /// Sets LATM/LOAS AAC output for raw containers.
         /// </summary>
         [Input("rawFormat")]

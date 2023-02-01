@@ -64,6 +64,21 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     * 
+     */
+    @Import(name="configuration")
+    private @Nullable Output<String> configuration;
+
+    /**
+     * @return The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     * 
+     */
+    public Optional<Output<String>> configuration() {
+        return Optional.ofNullable(this.configuration);
+    }
+
+    /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      * 
      */
@@ -286,6 +301,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         this.accountAccessType = $.accountAccessType;
         this.arn = $.arn;
         this.authenticationProviders = $.authenticationProviders;
+        this.configuration = $.configuration;
         this.dataSources = $.dataSources;
         this.description = $.description;
         this.endpoint = $.endpoint;
@@ -392,6 +408,27 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder authenticationProviders(String... authenticationProviders) {
             return authenticationProviders(List.of(authenticationProviders));
+        }
+
+        /**
+         * @param configuration The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(@Nullable Output<String> configuration) {
+            $.configuration = configuration;
+            return this;
+        }
+
+        /**
+         * @param configuration The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(String configuration) {
+            return configuration(Output.of(configuration));
         }
 
         /**

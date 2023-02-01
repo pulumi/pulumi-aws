@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatement
     {
         /// <summary>
-        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
+        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule> ExcludedRules;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See Rule Action Override below for details.
+        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> RuleActionOverrides;
         /// <summary>
-        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? ScopeDownStatement;
         /// <summary>

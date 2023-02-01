@@ -77,6 +77,21 @@ public final class PortfolioShareState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+     * 
+     */
+    @Import(name="sharePrincipals")
+    private @Nullable Output<Boolean> sharePrincipals;
+
+    /**
+     * @return Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+     * 
+     */
+    public Optional<Output<Boolean>> sharePrincipals() {
+        return Optional.ofNullable(this.sharePrincipals);
+    }
+
+    /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      * 
      */
@@ -128,6 +143,7 @@ public final class PortfolioShareState extends com.pulumi.resources.ResourceArgs
         this.accepted = $.accepted;
         this.portfolioId = $.portfolioId;
         this.principalId = $.principalId;
+        this.sharePrincipals = $.sharePrincipals;
         this.shareTagOptions = $.shareTagOptions;
         this.type = $.type;
         this.waitForAcceptance = $.waitForAcceptance;
@@ -233,6 +249,27 @@ public final class PortfolioShareState extends com.pulumi.resources.ResourceArgs
          */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
+        }
+
+        /**
+         * @param sharePrincipals Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharePrincipals(@Nullable Output<Boolean> sharePrincipals) {
+            $.sharePrincipals = sharePrincipals;
+            return this;
+        }
+
+        /**
+         * @param sharePrincipals Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharePrincipals(Boolean sharePrincipals) {
+            return sharePrincipals(Output.of(sharePrincipals));
         }
 
         /**

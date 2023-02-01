@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteMatchHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -48,6 +49,21 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * The port number to match from the request.
+     * 
+     */
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
+    }
+
+    /**
      * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
@@ -84,6 +100,7 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
     private RouteSpecHttpRouteMatchArgs(RouteSpecHttpRouteMatchArgs $) {
         this.headers = $.headers;
         this.method = $.method;
+        this.port = $.port;
         this.prefix = $.prefix;
         this.scheme = $.scheme;
     }
@@ -156,6 +173,27 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
          */
         public Builder method(String method) {
             return method(Output.of(method));
+        }
+
+        /**
+         * @param port The port number to match from the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port The port number to match from the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
         }
 
         /**

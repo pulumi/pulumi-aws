@@ -282,26 +282,6 @@ class VirtualGateway(pulumi.CustomResource):
         Provides an AWS App Mesh virtual gateway resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appmesh.VirtualGateway("example",
-            mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listener=aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                ),
-            ),
-            tags={
-                "Environment": "test",
-            })
-        ```
         ### Access Logs and TLS
 
         ```python
@@ -361,26 +341,6 @@ class VirtualGateway(pulumi.CustomResource):
         Provides an AWS App Mesh virtual gateway resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appmesh.VirtualGateway("example",
-            mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listener=aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                ),
-            ),
-            tags={
-                "Environment": "test",
-            })
-        ```
         ### Access Logs and TLS
 
         ```python

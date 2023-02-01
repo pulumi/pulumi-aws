@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var instance-assume-role-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var instanceAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  *         var instance = new Role(&#34;instance&#34;, RoleArgs.builder()        
  *             .path(&#34;/system/&#34;)
- *             .assumeRolePolicy(instance_assume_role_policy.json())
+ *             .assumeRolePolicy(instanceAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

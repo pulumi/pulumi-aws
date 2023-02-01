@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'AppMonitorAppMonitorConfiguration',
+    'AppMonitorCustomEvents',
 ]
 
 @pulumi.output_type
@@ -157,5 +158,24 @@ class AppMonitorAppMonitorConfiguration(dict):
         An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
         """
         return pulumi.get(self, "telemetries")
+
+
+@pulumi.output_type
+class AppMonitorCustomEvents(dict):
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        :param str status: Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
+        """
+        return pulumi.get(self, "status")
 
 

@@ -4,6 +4,7 @@
 package com.pulumi.aws.costexplorer;
 
 import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
+import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Double;
@@ -110,18 +111,41 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The dollar value that triggers a notification if the threshold is exceeded.
+     * The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+     * 
+     * @deprecated
+     * use threshold_expression instead
      * 
      */
-    @Import(name="threshold", required=true)
-    private Output<Double> threshold;
+    @Deprecated /* use threshold_expression instead */
+    @Import(name="threshold")
+    private @Nullable Output<Double> threshold;
 
     /**
-     * @return The dollar value that triggers a notification if the threshold is exceeded.
+     * @return The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+     * 
+     * @deprecated
+     * use threshold_expression instead
      * 
      */
-    public Output<Double> threshold() {
-        return this.threshold;
+    @Deprecated /* use threshold_expression instead */
+    public Optional<Output<Double>> threshold() {
+        return Optional.ofNullable(this.threshold);
+    }
+
+    /**
+     * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+     * 
+     */
+    @Import(name="thresholdExpression")
+    private @Nullable Output<AnomalySubscriptionThresholdExpressionArgs> thresholdExpression;
+
+    /**
+     * @return An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+     * 
+     */
+    public Optional<Output<AnomalySubscriptionThresholdExpressionArgs>> thresholdExpression() {
+        return Optional.ofNullable(this.thresholdExpression);
     }
 
     private AnomalySubscriptionArgs() {}
@@ -134,6 +158,7 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
         this.subscribers = $.subscribers;
         this.tags = $.tags;
         this.threshold = $.threshold;
+        this.thresholdExpression = $.thresholdExpression;
     }
 
     public static Builder builder() {
@@ -301,31 +326,59 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param threshold The dollar value that triggers a notification if the threshold is exceeded.
+         * @param threshold The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * use threshold_expression instead
+         * 
          */
-        public Builder threshold(Output<Double> threshold) {
+        @Deprecated /* use threshold_expression instead */
+        public Builder threshold(@Nullable Output<Double> threshold) {
             $.threshold = threshold;
             return this;
         }
 
         /**
-         * @param threshold The dollar value that triggers a notification if the threshold is exceeded.
+         * @param threshold The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * use threshold_expression instead
+         * 
+         */
+        @Deprecated /* use threshold_expression instead */
+        public Builder threshold(Double threshold) {
+            return threshold(Output.of(threshold));
+        }
+
+        /**
+         * @param thresholdExpression An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
          * 
          * @return builder
          * 
          */
-        public Builder threshold(Double threshold) {
-            return threshold(Output.of(threshold));
+        public Builder thresholdExpression(@Nullable Output<AnomalySubscriptionThresholdExpressionArgs> thresholdExpression) {
+            $.thresholdExpression = thresholdExpression;
+            return this;
+        }
+
+        /**
+         * @param thresholdExpression An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thresholdExpression(AnomalySubscriptionThresholdExpressionArgs thresholdExpression) {
+            return thresholdExpression(Output.of(thresholdExpression));
         }
 
         public AnomalySubscriptionArgs build() {
             $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
             $.monitorArnLists = Objects.requireNonNull($.monitorArnLists, "expected parameter 'monitorArnLists' to be non-null");
             $.subscribers = Objects.requireNonNull($.subscribers, "expected parameter 'subscribers' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
             return $;
         }
     }

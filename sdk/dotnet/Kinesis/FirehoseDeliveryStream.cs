@@ -582,8 +582,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration?> KinesisSourceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A name to identify the stream. This is unique to the
-        /// AWS account and region the Stream is created in.
+        /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -720,8 +719,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs>? KinesisSourceConfiguration { get; set; }
 
         /// <summary>
-        /// A name to identify the stream. This is unique to the
-        /// AWS account and region the Stream is created in.
+        /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -820,8 +818,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs>? KinesisSourceConfiguration { get; set; }
 
         /// <summary>
-        /// A name to identify the stream. This is unique to the
-        /// AWS account and region the Stream is created in.
+        /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

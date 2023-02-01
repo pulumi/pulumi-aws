@@ -13,37 +13,6 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh virtual gateway resource.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
-    ///     {
-    ///         MeshName = "example-service-mesh",
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
-    ///         {
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
-    ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
-    ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Access Logs and TLS
     /// 
     /// ```csharp

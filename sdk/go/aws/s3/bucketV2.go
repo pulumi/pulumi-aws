@@ -707,11 +707,11 @@ type BucketV2 struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_versioning resource instead
 	Versionings BucketV2VersioningArrayOutput `pulumi:"versionings"`
-	// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+	// (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_website_configuration resource
 	WebsiteDomain pulumi.StringOutput `pulumi:"websiteDomain"`
-	// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+	// (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_website_configuration resource
 	WebsiteEndpoint pulumi.StringOutput `pulumi:"websiteEndpoint"`
@@ -841,11 +841,11 @@ type bucketV2State struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_versioning resource instead
 	Versionings []BucketV2Versioning `pulumi:"versionings"`
-	// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+	// (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_website_configuration resource
 	WebsiteDomain *string `pulumi:"websiteDomain"`
-	// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+	// (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_website_configuration resource
 	WebsiteEndpoint *string `pulumi:"websiteEndpoint"`
@@ -941,11 +941,11 @@ type BucketV2State struct {
 	//
 	// Deprecated: Use the aws_s3_bucket_versioning resource instead
 	Versionings BucketV2VersioningArrayInput
-	// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+	// (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_website_configuration resource
 	WebsiteDomain pulumi.StringPtrInput
-	// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+	// (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_website_configuration resource
 	WebsiteEndpoint pulumi.StringPtrInput
@@ -1363,14 +1363,14 @@ func (o BucketV2Output) Versionings() BucketV2VersioningArrayOutput {
 	return o.ApplyT(func(v *BucketV2) BucketV2VersioningArrayOutput { return v.Versionings }).(BucketV2VersioningArrayOutput)
 }
 
-// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+// (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_website_configuration resource
 func (o BucketV2Output) WebsiteDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.WebsiteDomain }).(pulumi.StringOutput)
 }
 
-// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+// (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_website_configuration resource
 func (o BucketV2Output) WebsiteEndpoint() pulumi.StringOutput {

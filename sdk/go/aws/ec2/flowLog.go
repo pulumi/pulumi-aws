@@ -105,33 +105,34 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Sid": "",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Service": "delivery.logs.amazonaws.com"
-//	      },
-//	      "Action": "sts:AssumeRole"
-//	    }
-//	  ]
-//	}
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(` {
+//	   "Version":"2012-10-17",
+//	   "Statement": [
+//	     {
+//	       "Action":"sts:AssumeRole",
+//	       "Principal":{
+//	         "Service":"firehose.amazonaws.com"
+//	       },
+//	       "Effect":"Allow",
+//	       "Sid":""
+//	     }
+//	   ]
+//	 }
 //
 // `)),
 //
@@ -139,33 +140,53 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "exampleFirehoseDeliveryStream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Destination: pulumi.String("extended_s3"),
+//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
+//					RoleArn:   exampleRole.Arn,
+//					BucketArn: exampleBucketV2.Arn,
+//				},
+//				Tags: pulumi.StringMap{
+//					"LogDeliveryEnabled": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
-//				IamRoleArn:     exampleRole.Arn,
-//				LogDestination: exampleLogGroup.Arn,
-//				TrafficType:    pulumi.String("ALL"),
-//				VpcId:          pulumi.Any(aws_vpc.Example.Id),
+//				LogDestination:     exampleFirehoseDeliveryStream.Arn,
+//				LogDestinationType: pulumi.String("kinesis-data-firehose"),
+//				TrafficType:        pulumi.String("ALL"),
+//				VpcId:              pulumi.Any(aws_vpc.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
 //				Role: exampleRole.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "logs:CreateLogDelivery",
-//	        "logs:DeleteLogDelivery",
-//	        "logs:ListLogDeliveries",
-//	        "logs:GetLogDelivery",
-//	        "firehose:TagDeliveryStream"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": "*"
-//	    }
-//	  ]
-//	}
+//				Policy: pulumi.Any(fmt.Sprintf(` {
+//	   "Version":"2012-10-17",
+//	   "Statement":[
+//	     {
+//	       "Action": [
+//	         "logs:CreateLogDelivery",
+//	         "logs:DeleteLogDelivery",
+//	         "logs:ListLogDeliveries",
+//	         "logs:GetLogDelivery",
+//	         "firehose:TagDeliveryStream"
+//	       ],
+//	       "Effect":"Allow",
+//	       "Resource":"*"
+//	     }
+//	   ]
+//	 }
 //
 // `)),
 //

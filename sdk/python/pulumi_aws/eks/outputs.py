@@ -34,6 +34,7 @@ __all__ = [
     'GetClusterIdentityOidcResult',
     'GetClusterKubernetesNetworkConfigResult',
     'GetClusterOutpostConfigResult',
+    'GetClusterOutpostConfigControlPlanePlacementResult',
     'GetClusterVpcConfigResult',
     'GetNodeGroupRemoteAccessResult',
     'GetNodeGroupResourceResult',
@@ -1013,12 +1014,15 @@ class GetClusterKubernetesNetworkConfigResult(dict):
 class GetClusterOutpostConfigResult(dict):
     def __init__(__self__, *,
                  control_plane_instance_type: str,
+                 control_plane_placements: Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult'],
                  outpost_arns: Sequence[str]):
         """
         :param str control_plane_instance_type: The Amazon EC2 instance type for all Kubernetes control plane instances.
+        :param Sequence['GetClusterOutpostConfigControlPlanePlacementArgs'] control_plane_placements: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
         :param Sequence[str] outpost_arns: List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
+        pulumi.set(__self__, "control_plane_placements", control_plane_placements)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
 
     @property
@@ -1030,12 +1034,38 @@ class GetClusterOutpostConfigResult(dict):
         return pulumi.get(self, "control_plane_instance_type")
 
     @property
+    @pulumi.getter(name="controlPlanePlacements")
+    def control_plane_placements(self) -> Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult']:
+        """
+        An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        """
+        return pulumi.get(self, "control_plane_placements")
+
+    @property
     @pulumi.getter(name="outpostArns")
     def outpost_arns(self) -> Sequence[str]:
         """
         List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
         """
         return pulumi.get(self, "outpost_arns")
+
+
+@pulumi.output_type
+class GetClusterOutpostConfigControlPlanePlacementResult(dict):
+    def __init__(__self__, *,
+                 group_name: str):
+        """
+        :param str group_name: The name of the placement group for the Kubernetes control plane instances.
+        """
+        pulumi.set(__self__, "group_name", group_name)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
+        """
+        The name of the placement group for the Kubernetes control plane instances.
+        """
+        return pulumi.get(self, "group_name")
 
 
 @pulumi.output_type

@@ -1068,6 +1068,143 @@ func (o EventSourceMappingFilterCriteriaFilterArrayOutput) Index(i pulumi.IntInp
 	}).(EventSourceMappingFilterCriteriaFilterOutput)
 }
 
+type EventSourceMappingScalingConfig struct {
+	// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+	MaximumConcurrency *int `pulumi:"maximumConcurrency"`
+}
+
+// EventSourceMappingScalingConfigInput is an input type that accepts EventSourceMappingScalingConfigArgs and EventSourceMappingScalingConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingScalingConfigInput` via:
+//
+//	EventSourceMappingScalingConfigArgs{...}
+type EventSourceMappingScalingConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingScalingConfigOutput() EventSourceMappingScalingConfigOutput
+	ToEventSourceMappingScalingConfigOutputWithContext(context.Context) EventSourceMappingScalingConfigOutput
+}
+
+type EventSourceMappingScalingConfigArgs struct {
+	// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+	MaximumConcurrency pulumi.IntPtrInput `pulumi:"maximumConcurrency"`
+}
+
+func (EventSourceMappingScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingScalingConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigOutput() EventSourceMappingScalingConfigOutput {
+	return i.ToEventSourceMappingScalingConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigOutput)
+}
+
+func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
+	return i.ToEventSourceMappingScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigOutput).ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingScalingConfigPtrInput is an input type that accepts EventSourceMappingScalingConfigArgs, EventSourceMappingScalingConfigPtr and EventSourceMappingScalingConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingScalingConfigPtrInput` via:
+//
+//	        EventSourceMappingScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput
+	ToEventSourceMappingScalingConfigPtrOutputWithContext(context.Context) EventSourceMappingScalingConfigPtrOutput
+}
+
+type eventSourceMappingScalingConfigPtrType EventSourceMappingScalingConfigArgs
+
+func EventSourceMappingScalingConfigPtr(v *EventSourceMappingScalingConfigArgs) EventSourceMappingScalingConfigPtrInput {
+	return (*eventSourceMappingScalingConfigPtrType)(v)
+}
+
+func (*eventSourceMappingScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingScalingConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingScalingConfigPtrType) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
+	return i.ToEventSourceMappingScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingScalingConfigPtrType) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigPtrOutput)
+}
+
+type EventSourceMappingScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingScalingConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfigOutput() EventSourceMappingScalingConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfigOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
+	return o.ToEventSourceMappingScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingScalingConfig) *EventSourceMappingScalingConfig {
+		return &v
+	}).(EventSourceMappingScalingConfigPtrOutput)
+}
+
+// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+func (o EventSourceMappingScalingConfigOutput) MaximumConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingScalingConfig) *int { return v.MaximumConcurrency }).(pulumi.IntPtrOutput)
+}
+
+type EventSourceMappingScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingScalingConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingScalingConfigPtrOutput) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingScalingConfigPtrOutput) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingScalingConfigPtrOutput) Elem() EventSourceMappingScalingConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingScalingConfig) EventSourceMappingScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingScalingConfig
+		return ret
+	}).(EventSourceMappingScalingConfigOutput)
+}
+
+// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
 type EventSourceMappingSelfManagedEventSource struct {
 	// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
 	Endpoints map[string]string `pulumi:"endpoints"`
@@ -1586,7 +1723,7 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 }
 
 type FunctionEnvironment struct {
-	// Map of environment variables that are accessible from the function code during execution.
+	// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
 	Variables map[string]string `pulumi:"variables"`
 }
 
@@ -1602,7 +1739,7 @@ type FunctionEnvironmentInput interface {
 }
 
 type FunctionEnvironmentArgs struct {
-	// Map of environment variables that are accessible from the function code during execution.
+	// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
 	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
@@ -1683,7 +1820,7 @@ func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx
 	}).(FunctionEnvironmentPtrOutput)
 }
 
-// Map of environment variables that are accessible from the function code during execution.
+// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
 func (o FunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
@@ -1712,7 +1849,7 @@ func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
 	}).(FunctionEnvironmentOutput)
 }
 
-// Map of environment variables that are accessible from the function code during execution.
+// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
 func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FunctionEnvironment) map[string]string {
 		if v == nil {
@@ -4056,6 +4193,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaPtrInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaFilterInput)(nil)).Elem(), EventSourceMappingFilterCriteriaFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaFilterArrayInput)(nil)).Elem(), EventSourceMappingFilterCriteriaFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingScalingConfigInput)(nil)).Elem(), EventSourceMappingScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingScalingConfigPtrInput)(nil)).Elem(), EventSourceMappingScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourceInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourcePtrInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
@@ -4116,6 +4255,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaFilterOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaFilterArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingScalingConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourceOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourcePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput{})

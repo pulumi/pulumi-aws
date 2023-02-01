@@ -68,7 +68,7 @@ type Workgroup struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// An array of VPC subnet IDs to associate with the workgroup.
+	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -131,7 +131,7 @@ type workgroupState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// An array of VPC subnet IDs to associate with the workgroup.
+	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -160,7 +160,7 @@ type WorkgroupState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds pulumi.StringArrayInput
-	// An array of VPC subnet IDs to associate with the workgroup.
+	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -189,7 +189,7 @@ type workgroupArgs struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// An array of VPC subnet IDs to associate with the workgroup.
+	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -211,7 +211,7 @@ type WorkgroupArgs struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds pulumi.StringArrayInput
-	// An array of VPC subnet IDs to associate with the workgroup.
+	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -346,7 +346,7 @@ func (o WorkgroupOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// An array of VPC subnet IDs to associate with the workgroup.
+// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 func (o WorkgroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

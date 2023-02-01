@@ -79,7 +79,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			instance_assume_role_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			instanceAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -101,7 +101,7 @@ import (
 //			}
 //			_, err = iam.NewRole(ctx, "instance", &iam.RoleArgs{
 //				Path:             pulumi.String("/system/"),
-//				AssumeRolePolicy: *pulumi.String(instance_assume_role_policy.Json),
+//				AssumeRolePolicy: *pulumi.String(instanceAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

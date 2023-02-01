@@ -369,6 +369,12 @@ namespace Pulumi.Aws.Lambda
         public Output<ImmutableArray<string>> Queues { get; private set; } = null!;
 
         /// <summary>
+        /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+        /// </summary>
+        [Output("scalingConfig")]
+        public Output<Outputs.EventSourceMappingScalingConfig?> ScalingConfig { get; private set; } = null!;
+
+        /// <summary>
         /// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         /// </summary>
         [Output("selfManagedEventSource")]
@@ -571,6 +577,12 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
+        /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+        /// </summary>
+        [Input("scalingConfig")]
+        public Input<Inputs.EventSourceMappingScalingConfigArgs>? ScalingConfig { get; set; }
+
+        /// <summary>
         /// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         /// </summary>
         [Input("selfManagedEventSource")]
@@ -745,6 +757,12 @@ namespace Pulumi.Aws.Lambda
             get => _queues ?? (_queues = new InputList<string>());
             set => _queues = value;
         }
+
+        /// <summary>
+        /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+        /// </summary>
+        [Input("scalingConfig")]
+        public Input<Inputs.EventSourceMappingScalingConfigGetArgs>? ScalingConfig { get; set; }
 
         /// <summary>
         /// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementRegexMatchStatement
     {
         /// <summary>
-        /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        /// The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementRegexMatchStatementFieldToMatch? FieldToMatch;
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         /// At least one required.
-        /// See Text Transformation below for details.
+        /// See `text_transformation` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementRegexMatchStatementTextTransformation> TextTransformations;
 

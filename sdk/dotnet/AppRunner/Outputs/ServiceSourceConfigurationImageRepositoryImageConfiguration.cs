@@ -18,6 +18,10 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// </summary>
         public readonly string? Port;
         /// <summary>
+        /// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? RuntimeEnvironmentSecrets;
+        /// <summary>
         /// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RuntimeEnvironmentVariables;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.AppRunner.Outputs
         private ServiceSourceConfigurationImageRepositoryImageConfiguration(
             string? port,
 
+            ImmutableDictionary<string, string>? runtimeEnvironmentSecrets,
+
             ImmutableDictionary<string, string>? runtimeEnvironmentVariables,
 
             string? startCommand)
         {
             Port = port;
+            RuntimeEnvironmentSecrets = runtimeEnvironmentSecrets;
             RuntimeEnvironmentVariables = runtimeEnvironmentVariables;
             StartCommand = startCommand;
         }

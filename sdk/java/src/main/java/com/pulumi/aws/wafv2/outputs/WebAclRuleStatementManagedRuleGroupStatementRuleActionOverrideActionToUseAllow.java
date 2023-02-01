@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow {
     /**
-     * @return Defines custom handling for the web request. See Custom Request Handling below for details.
+     * @return Defines custom handling for the web request. See `custom_request_handling` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling customRequestHandling;
 
     private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow() {}
     /**
-     * @return Defines custom handling for the web request. See Custom Request Handling below for details.
+     * @return Defines custom handling for the web request. See `custom_request_handling` below for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling> customRequestHandling() {

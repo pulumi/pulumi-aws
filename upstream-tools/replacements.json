@@ -23,6 +23,26 @@
       "new": "    Data source for managing an AWS AppConfig Environments."
     }
   ],
+  "website/docs/d/auditmanager_control.html.markdown": [
+    {
+      "old": "Terraform data source for managing an AWS Audit Manager Control.",
+      "new": "Data source for managing an AWS Audit Manager Control."
+    },
+    {
+      "old": "Terraform data source for managing an AWS Audit Manager Control.",
+      "new": "Data source for managing an AWS Audit Manager Control."
+    }
+  ],
+  "website/docs/d/auditmanager_framework.html.markdown": [
+    {
+      "old": "Terraform data source for managing an AWS Audit Manager Framework.",
+      "new": "Data source for managing an AWS Audit Manager Framework."
+    },
+    {
+      "old": "Terraform data source for managing an AWS Audit Manager Framework.",
+      "new": "Data source for managing an AWS Audit Manager Framework."
+    }
+  ],
   "website/docs/d/backup_framework.html.markdown": [
     {
       "old": "  name = \"tf_example_backup_framework_name\"",
@@ -419,6 +439,16 @@
       "new": "Resource for managing an AWS Audit Manager Assessment."
     }
   ],
+  "website/docs/r/auditmanager_assessment_delegation.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS Audit Manager Assessment Delegation.",
+      "new": "  Resource for managing an AWS Audit Manager Assessment Delegation."
+    },
+    {
+      "old": "Terraform resource for managing an AWS Audit Manager Assessment Delegation.",
+      "new": "Resource for managing an AWS Audit Manager Assessment Delegation."
+    }
+  ],
   "website/docs/r/auditmanager_assessment_report.html.markdown": [
     {
       "old": "Terraform resource for managing an AWS Audit Manager Assessment Report.",
@@ -435,6 +465,26 @@
     {
       "old": "Terraform resource for managing an AWS Audit Manager Framework.",
       "new": "Resource for managing an AWS Audit Manager Framework."
+    }
+  ],
+  "website/docs/r/auditmanager_framework_share.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS Audit Manager Framework Share.",
+      "new": "Resource for managing an AWS Audit Manager Framework Share."
+    },
+    {
+      "old": "Terraform resource for managing an AWS Audit Manager Framework Share.",
+      "new": "Resource for managing an AWS Audit Manager Framework Share."
+    }
+  ],
+  "website/docs/r/auditmanager_organization_admin_account_registration.html.markdown": [
+    {
+      "old": "Terraform resource for managing AWS Audit Manager Organization Admin Account Registration.",
+      "new": "Resource for managing AWS Audit Manager Organization Admin Account Registration."
+    },
+    {
+      "old": "Terraform resource for managing AWS Audit Manager Organization Admin Account Registration.",
+      "new": "Resource for managing AWS Audit Manager Organization Admin Account Registration."
     }
   ],
   "website/docs/r/autoscaling_group.html.markdown": [
@@ -1991,6 +2041,16 @@
       "new": "attributes that are specific to a single instance in a RDS Cluster,"
     }
   ],
+  "website/docs/r/rds_export_task.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS RDS (Relational Database) Export Task.",
+      "new": "Resource for managing an AWS RDS (Relational Database) Export Task."
+    },
+    {
+      "old": "Terraform resource for managing an AWS RDS (Relational Database) Export Task.",
+      "new": "Resource for managing an AWS RDS (Relational Database) Export Task."
+    }
+  ],
   "website/docs/r/rds_global_cluster.html.markdown": [
     {
       "old": "* `engine_version` - (Optional) Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws_rds_cluster_instance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, Terraform will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws_rds_cluster` resource as shown above in [Upgrading Engine Versions](#upgrading-engine-versions) example.",
@@ -2425,10 +2485,6 @@
     }
   ],
   "website/docs/r/sesv2_configuration_set_event_destination.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination."
-    },
     {
       "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.",
       "new": "Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination."

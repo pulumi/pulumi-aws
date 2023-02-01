@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * Provides an AWS App Mesh virtual gateway resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appmesh.VirtualGateway("example", {
- *     meshName: "example-service-mesh",
- *     spec: {
- *         listener: {
- *             portMapping: {
- *                 port: 8080,
- *                 protocol: "http",
- *             },
- *         },
- *     },
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
  * ### Access Logs and TLS
  *
  * ```typescript

@@ -44,14 +44,14 @@ public final class WebAclCustomResponseBodyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+     * Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+     * @return Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
      * 
      */
     public Output<String> key() {
@@ -127,7 +127,7 @@ public final class WebAclCustomResponseBodyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param key Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+         * @param key Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class WebAclCustomResponseBodyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param key Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+         * @param key Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
          * 
          * @return builder
          * 

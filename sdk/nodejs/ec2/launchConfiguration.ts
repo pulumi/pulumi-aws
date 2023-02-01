@@ -255,7 +255,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
@@ -266,6 +266,9 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
     public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.LaunchConfigurationRootBlockDevice>;
+    /**
+     * A list of associated security group IDS.
+     */
     public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * The maximum price to use for reserving spot instances.
@@ -414,7 +417,7 @@ export interface LaunchConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
@@ -425,6 +428,9 @@ export interface LaunchConfigurationState {
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice>;
+    /**
+     * A list of associated security group IDS.
+     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The maximum price to use for reserving spot instances.
@@ -501,7 +507,7 @@ export interface LaunchConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
@@ -512,6 +518,9 @@ export interface LaunchConfigurationArgs {
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice>;
+    /**
+     * A list of associated security group IDS.
+     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The maximum price to use for reserving spot instances.

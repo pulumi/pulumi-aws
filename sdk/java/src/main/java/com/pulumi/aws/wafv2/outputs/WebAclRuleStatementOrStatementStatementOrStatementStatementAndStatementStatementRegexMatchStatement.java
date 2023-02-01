@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexMatchStatement {
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexMatchStatementFieldToMatch fieldToMatch;
@@ -27,14 +27,14 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementAn
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     private List<WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexMatchStatement() {}
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     public Optional<WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexMatchStatementFieldToMatch> fieldToMatch() {
@@ -50,7 +50,7 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementAn
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     public List<WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexMatchStatementTextTransformation> textTransformations() {

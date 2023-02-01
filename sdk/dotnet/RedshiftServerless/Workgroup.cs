@@ -90,7 +90,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// An array of VPC subnet IDs to associate with the workgroup.
+        /// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// An array of VPC subnet IDs to associate with the workgroup.
+        /// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// An array of VPC subnet IDs to associate with the workgroup.
+        /// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         /// </summary>
         public InputList<string> SubnetIds
         {

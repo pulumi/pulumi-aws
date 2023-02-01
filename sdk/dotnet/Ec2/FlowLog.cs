@@ -84,53 +84,73 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
     ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Sid"": """",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""delivery.logs.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   ]
-    /// }
+    ///         AssumeRolePolicy = @" {
+    ///    ""Version"":""2012-10-17"",
+    ///    ""Statement"": [
+    ///      {
+    ///        ""Action"":""sts:AssumeRole"",
+    ///        ""Principal"":{
+    ///          ""Service"":""firehose.amazonaws.com""
+    ///        },
+    ///        ""Effect"":""Allow"",
+    ///        ""Sid"":""""
+    ///      }
+    ///    ]
+    ///  }
     /// ",
+    ///     });
+    /// 
+    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", new()
+    ///     {
+    ///         Destination = "extended_s3",
+    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///         {
+    ///             RoleArn = exampleRole.Arn,
+    ///             BucketArn = exampleBucketV2.Arn,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "LogDeliveryEnabled", "true" },
+    ///         },
     ///     });
     /// 
     ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
     ///     {
-    ///         IamRoleArn = exampleRole.Arn,
-    ///         LogDestination = exampleLogGroup.Arn,
+    ///         LogDestination = exampleFirehoseDeliveryStream.Arn,
+    ///         LogDestinationType = "kinesis-data-firehose",
     ///         TrafficType = "ALL",
     ///         VpcId = aws_vpc.Example.Id,
+    ///     });
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Acl = "private",
     ///     });
     /// 
     ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
     ///     {
     ///         Role = exampleRole.Id,
-    ///         Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""logs:CreateLogDelivery"",
-    ///         ""logs:DeleteLogDelivery"",
-    ///         ""logs:ListLogDeliveries"",
-    ///         ""logs:GetLogDelivery"",
-    ///         ""firehose:TagDeliveryStream""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""*""
-    ///     }
-    ///   ]
-    /// }
+    ///         Policy = @" {
+    ///    ""Version"":""2012-10-17"",
+    ///    ""Statement"":[
+    ///      {
+    ///        ""Action"": [
+    ///          ""logs:CreateLogDelivery"",
+    ///          ""logs:DeleteLogDelivery"",
+    ///          ""logs:ListLogDeliveries"",
+    ///          ""logs:GetLogDelivery"",
+    ///          ""firehose:TagDeliveryStream""
+    ///        ],
+    ///        ""Effect"":""Allow"",
+    ///        ""Resource"":""*""
+    ///      }
+    ///    ]
+    ///  }
     /// ",
     ///     });
     /// 

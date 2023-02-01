@@ -57,6 +57,8 @@ type AppMonitor struct {
 	AppMonitorId pulumi.StringOutput `pulumi:"appMonitorId"`
 	// The Amazon Resource Name (ARN) specifying the app monitor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
+	CustomEvents AppMonitorCustomEventsOutput `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
 	// The name of the log group where the copies are stored.
@@ -109,6 +111,8 @@ type appMonitorState struct {
 	AppMonitorId *string `pulumi:"appMonitorId"`
 	// The Amazon Resource Name (ARN) specifying the app monitor.
 	Arn *string `pulumi:"arn"`
+	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
+	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The name of the log group where the copies are stored.
@@ -130,6 +134,8 @@ type AppMonitorState struct {
 	AppMonitorId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) specifying the app monitor.
 	Arn pulumi.StringPtrInput
+	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
+	CustomEvents AppMonitorCustomEventsPtrInput
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrInput
 	// The name of the log group where the copies are stored.
@@ -151,6 +157,8 @@ func (AppMonitorState) ElementType() reflect.Type {
 type appMonitorArgs struct {
 	// configuration data for the app monitor. See appMonitorConfiguration below.
 	AppMonitorConfiguration *AppMonitorAppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
+	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
+	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
@@ -165,6 +173,8 @@ type appMonitorArgs struct {
 type AppMonitorArgs struct {
 	// configuration data for the app monitor. See appMonitorConfiguration below.
 	AppMonitorConfiguration AppMonitorAppMonitorConfigurationPtrInput
+	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
+	CustomEvents AppMonitorCustomEventsPtrInput
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrInput
 	// The top-level internet domain name for which your application has administrative authority.
@@ -275,6 +285,11 @@ func (o AppMonitorOutput) AppMonitorId() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) specifying the app monitor.
 func (o AppMonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
+func (o AppMonitorOutput) CustomEvents() AppMonitorCustomEventsOutput {
+	return o.ApplyT(func(v *AppMonitor) AppMonitorCustomEventsOutput { return v.CustomEvents }).(AppMonitorCustomEventsOutput)
 }
 
 // Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.

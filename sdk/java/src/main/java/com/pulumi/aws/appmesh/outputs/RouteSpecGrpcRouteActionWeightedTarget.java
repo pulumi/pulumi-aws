@@ -7,9 +7,16 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecGrpcRouteActionWeightedTarget {
+    /**
+     * @return The targeted port of the weighted object.
+     * 
+     */
+    private @Nullable Integer port;
     /**
      * @return Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
@@ -22,6 +29,13 @@ public final class RouteSpecGrpcRouteActionWeightedTarget {
     private Integer weight;
 
     private RouteSpecGrpcRouteActionWeightedTarget() {}
+    /**
+     * @return The targeted port of the weighted object.
+     * 
+     */
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
+    }
     /**
      * @return Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
@@ -46,15 +60,22 @@ public final class RouteSpecGrpcRouteActionWeightedTarget {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer port;
         private String virtualNode;
         private Integer weight;
         public Builder() {}
         public Builder(RouteSpecGrpcRouteActionWeightedTarget defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.port = defaults.port;
     	      this.virtualNode = defaults.virtualNode;
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
+            return this;
+        }
         @CustomType.Setter
         public Builder virtualNode(String virtualNode) {
             this.virtualNode = Objects.requireNonNull(virtualNode);
@@ -67,6 +88,7 @@ public final class RouteSpecGrpcRouteActionWeightedTarget {
         }
         public RouteSpecGrpcRouteActionWeightedTarget build() {
             final var o = new RouteSpecGrpcRouteActionWeightedTarget();
+            o.port = port;
             o.virtualNode = virtualNode;
             o.weight = weight;
             return o;

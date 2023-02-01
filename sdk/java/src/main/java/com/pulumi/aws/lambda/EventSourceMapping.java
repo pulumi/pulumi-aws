@@ -9,6 +9,7 @@ import com.pulumi.aws.lambda.inputs.EventSourceMappingState;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingDestinationConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingFilterCriteria;
+import com.pulumi.aws.lambda.outputs.EventSourceMappingScalingConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingSelfManagedEventSource;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingSourceAccessConfiguration;
@@ -583,6 +584,20 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> queues() {
         return Codegen.optional(this.queues);
+    }
+    /**
+     * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+     * 
+     */
+    @Export(name="scalingConfig", refs={EventSourceMappingScalingConfig.class}, tree="[0]")
+    private Output</* @Nullable */ EventSourceMappingScalingConfig> scalingConfig;
+
+    /**
+     * @return Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+     * 
+     */
+    public Output<Optional<EventSourceMappingScalingConfig>> scalingConfig() {
+        return Codegen.optional(this.scalingConfig);
     }
     /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.

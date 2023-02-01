@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
 import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionState;
 import com.pulumi.aws.costexplorer.outputs.AnomalySubscriptionSubscriber;
+import com.pulumi.aws.costexplorer.outputs.AnomalySubscriptionThresholdExpression;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -287,18 +288,36 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The dollar value that triggers a notification if the threshold is exceeded.
+     * The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
+     * 
+     * @deprecated
+     * use threshold_expression instead
      * 
      */
+    @Deprecated /* use threshold_expression instead */
     @Export(name="threshold", refs={Double.class}, tree="[0]")
     private Output<Double> threshold;
 
     /**
-     * @return The dollar value that triggers a notification if the threshold is exceeded.
+     * @return The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
      * 
      */
     public Output<Double> threshold() {
         return this.threshold;
+    }
+    /**
+     * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+     * 
+     */
+    @Export(name="thresholdExpression", refs={AnomalySubscriptionThresholdExpression.class}, tree="[0]")
+    private Output<AnomalySubscriptionThresholdExpression> thresholdExpression;
+
+    /**
+     * @return An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+     * 
+     */
+    public Output<AnomalySubscriptionThresholdExpression> thresholdExpression() {
+        return this.thresholdExpression;
     }
 
     /**

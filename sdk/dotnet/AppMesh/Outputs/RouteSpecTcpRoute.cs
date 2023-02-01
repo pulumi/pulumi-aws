@@ -18,6 +18,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.RouteSpecTcpRouteAction Action;
         /// <summary>
+        /// Criteria for determining an gRPC request match.
+        /// </summary>
+        public readonly Outputs.RouteSpecTcpRouteMatch? Match;
+        /// <summary>
         /// Types of timeouts.
         /// </summary>
         public readonly Outputs.RouteSpecTcpRouteTimeout? Timeout;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.AppMesh.Outputs
         private RouteSpecTcpRoute(
             Outputs.RouteSpecTcpRouteAction action,
 
+            Outputs.RouteSpecTcpRouteMatch? match,
+
             Outputs.RouteSpecTcpRouteTimeout? timeout)
         {
             Action = action;
+            Match = match;
             Timeout = timeout;
         }
     }

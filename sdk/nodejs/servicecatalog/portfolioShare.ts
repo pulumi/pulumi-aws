@@ -82,6 +82,10 @@ export class PortfolioShare extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
+     * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+     */
+    public readonly sharePrincipals!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      */
     public readonly shareTagOptions!: pulumi.Output<boolean | undefined>;
@@ -111,6 +115,7 @@ export class PortfolioShare extends pulumi.CustomResource {
             resourceInputs["accepted"] = state ? state.accepted : undefined;
             resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
             resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["sharePrincipals"] = state ? state.sharePrincipals : undefined;
             resourceInputs["shareTagOptions"] = state ? state.shareTagOptions : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["waitForAcceptance"] = state ? state.waitForAcceptance : undefined;
@@ -128,6 +133,7 @@ export class PortfolioShare extends pulumi.CustomResource {
             resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
             resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
             resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["sharePrincipals"] = args ? args.sharePrincipals : undefined;
             resourceInputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["waitForAcceptance"] = args ? args.waitForAcceptance : undefined;
@@ -159,6 +165,10 @@ export interface PortfolioShareState {
      */
     principalId?: pulumi.Input<string>;
     /**
+     * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+     */
+    sharePrincipals?: pulumi.Input<boolean>;
+    /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      */
     shareTagOptions?: pulumi.Input<boolean>;
@@ -188,6 +198,10 @@ export interface PortfolioShareArgs {
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      */
     principalId: pulumi.Input<string>;
+    /**
+     * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+     */
+    sharePrincipals?: pulumi.Input<boolean>;
     /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      */

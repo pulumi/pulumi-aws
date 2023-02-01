@@ -38,8 +38,7 @@ class FirehoseDeliveryStreamArgs:
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
+        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options if redshift is the destination.
                Using `redshift_configuration` requires the user to also specify a
                `s3_configuration` block. More details are given below.
@@ -164,8 +163,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name to identify the stream. This is unique to the
-        AWS account and region the Stream is created in.
+        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         """
         return pulumi.get(self, "name")
 
@@ -276,8 +274,7 @@ class _FirehoseDeliveryStreamState:
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
+        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options if redshift is the destination.
                Using `redshift_configuration` requires the user to also specify a
                `s3_configuration` block. More details are given below.
@@ -406,8 +403,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name to identify the stream. This is unique to the
-        AWS account and region the Stream is created in.
+        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         """
         return pulumi.get(self, "name")
 
@@ -898,8 +894,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] http_endpoint_configuration: Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
+        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']] redshift_configuration: Configuration options if redshift is the destination.
                Using `redshift_configuration` requires the user to also specify a
                `s3_configuration` block. More details are given below.
@@ -1376,8 +1371,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] http_endpoint_configuration: Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
+        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']] redshift_configuration: Configuration options if redshift is the destination.
                Using `redshift_configuration` requires the user to also specify a
                `s3_configuration` block. More details are given below.
@@ -1468,8 +1462,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A name to identify the stream. This is unique to the
-        AWS account and region the Stream is created in.
+        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         """
         return pulumi.get(self, "name")
 

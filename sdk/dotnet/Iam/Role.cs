@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var instance_assume_role_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var instanceAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Iam
     ///     var instance = new Aws.Iam.Role("instance", new()
     ///     {
     ///         Path = "/system/",
-    ///         AssumeRolePolicy = instance_assume_role_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(instance_assume_role_policy =&gt; instance_assume_role_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

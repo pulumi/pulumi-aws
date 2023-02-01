@@ -28,7 +28,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderGetArgs>? _responseHeaders;
 
         /// <summary>
-        /// The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+        /// The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderGetArgs> ResponseHeaders
         {

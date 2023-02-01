@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -310,8 +310,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> KeyName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-        /// See Launch Template Specification below for more details.
+        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.InstanceLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
@@ -651,7 +650,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
-        /// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
         public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
@@ -681,8 +680,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-        /// See Launch Template Specification below for more details.
+        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.InstanceLaunchTemplateArgs>? LaunchTemplate { get; set; }
@@ -991,7 +989,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
         public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
@@ -1021,8 +1019,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KeyName { get; set; }
 
         /// <summary>
-        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-        /// See Launch Template Specification below for more details.
+        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.InstanceLaunchTemplateGetArgs>? LaunchTemplate { get; set; }

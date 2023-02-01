@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.aws.appmesh.inputs.RouteSpecTcpRouteActionArgs;
+import com.pulumi.aws.appmesh.inputs.RouteSpecTcpRouteMatchArgs;
 import com.pulumi.aws.appmesh.inputs.RouteSpecTcpRouteTimeoutArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,21 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Criteria for determining an gRPC request match.
+     * 
+     */
+    @Import(name="match")
+    private @Nullable Output<RouteSpecTcpRouteMatchArgs> match;
+
+    /**
+     * @return Criteria for determining an gRPC request match.
+     * 
+     */
+    public Optional<Output<RouteSpecTcpRouteMatchArgs>> match() {
+        return Optional.ofNullable(this.match);
+    }
+
+    /**
      * Types of timeouts.
      * 
      */
@@ -50,6 +66,7 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
 
     private RouteSpecTcpRouteArgs(RouteSpecTcpRouteArgs $) {
         this.action = $.action;
+        this.match = $.match;
         this.timeout = $.timeout;
     }
 
@@ -90,6 +107,27 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder action(RouteSpecTcpRouteActionArgs action) {
             return action(Output.of(action));
+        }
+
+        /**
+         * @param match Criteria for determining an gRPC request match.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder match(@Nullable Output<RouteSpecTcpRouteMatchArgs> match) {
+            $.match = match;
+            return this;
+        }
+
+        /**
+         * @param match Criteria for determining an gRPC request match.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder match(RouteSpecTcpRouteMatchArgs match) {
+            return match(Output.of(match));
         }
 
         /**

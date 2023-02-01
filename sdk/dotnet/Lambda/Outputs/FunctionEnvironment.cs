@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class FunctionEnvironment
     {
         /// <summary>
-        /// Map of environment variables that are accessible from the function code during execution.
+        /// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Variables;
 

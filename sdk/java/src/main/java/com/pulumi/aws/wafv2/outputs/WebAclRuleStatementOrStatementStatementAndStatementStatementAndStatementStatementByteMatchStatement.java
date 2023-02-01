@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementByteMatchStatement {
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatch fieldToMatch;
@@ -32,14 +32,14 @@ public final class WebAclRuleStatementOrStatementStatementAndStatementStatementA
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     private List<WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementByteMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementByteMatchStatement() {}
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatch> fieldToMatch() {
@@ -62,7 +62,7 @@ public final class WebAclRuleStatementOrStatementStatementAndStatementStatementA
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     public List<WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementByteMatchStatementTextTransformation> textTransformations() {

@@ -14,13 +14,21 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecGrpcRouteMatch
     {
         /// <summary>
+        /// The port number to match from the request.
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
         /// Fully qualified domain name for the service to match from the request.
         /// </summary>
         public readonly string ServiceName;
 
         [OutputConstructor]
-        private GatewayRouteSpecGrpcRouteMatch(string serviceName)
+        private GatewayRouteSpecGrpcRouteMatch(
+            int? port,
+
+            string serviceName)
         {
+            Port = port;
             ServiceName = serviceName;
         }
     }

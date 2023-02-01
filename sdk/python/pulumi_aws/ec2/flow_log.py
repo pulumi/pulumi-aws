@@ -604,44 +604,56 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "delivery.logs.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\" {
+           "Version":"2012-10-17",
+           "Statement": [
+             {
+               "Action":"sts:AssumeRole",
+               "Principal":{
+                 "Service":"firehose.amazonaws.com"
+               },
+               "Effect":"Allow",
+               "Sid":""
+             }
+           ]
+         }
         \"\"\")
+        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
+            destination="extended_s3",
+            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
+                role_arn=example_role.arn,
+                bucket_arn=example_bucket_v2.arn,
+            ),
+            tags={
+                "LogDeliveryEnabled": "true",
+            })
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
-            iam_role_arn=example_role.arn,
-            log_destination=example_log_group.arn,
+            log_destination=example_firehose_delivery_stream.arn,
+            log_destination_type="kinesis-data-firehose",
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+            bucket=example_bucket_v2.id,
+            acl="private")
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "logs:CreateLogDelivery",
-                "logs:DeleteLogDelivery",
-                "logs:ListLogDeliveries",
-                "logs:GetLogDelivery",
-                "firehose:TagDeliveryStream"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
+            policy=\"\"\" {
+           "Version":"2012-10-17",
+           "Statement":[
+             {
+               "Action": [
+                 "logs:CreateLogDelivery",
+                 "logs:DeleteLogDelivery",
+                 "logs:ListLogDeliveries",
+                 "logs:GetLogDelivery",
+                 "firehose:TagDeliveryStream"
+               ],
+               "Effect":"Allow",
+               "Resource":"*"
+             }
+           ]
+         }
         \"\"\")
         ```
         ### S3 Logging
@@ -766,44 +778,56 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "delivery.logs.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\" {
+           "Version":"2012-10-17",
+           "Statement": [
+             {
+               "Action":"sts:AssumeRole",
+               "Principal":{
+                 "Service":"firehose.amazonaws.com"
+               },
+               "Effect":"Allow",
+               "Sid":""
+             }
+           ]
+         }
         \"\"\")
+        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
+            destination="extended_s3",
+            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
+                role_arn=example_role.arn,
+                bucket_arn=example_bucket_v2.arn,
+            ),
+            tags={
+                "LogDeliveryEnabled": "true",
+            })
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
-            iam_role_arn=example_role.arn,
-            log_destination=example_log_group.arn,
+            log_destination=example_firehose_delivery_stream.arn,
+            log_destination_type="kinesis-data-firehose",
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
+        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+            bucket=example_bucket_v2.id,
+            acl="private")
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "logs:CreateLogDelivery",
-                "logs:DeleteLogDelivery",
-                "logs:ListLogDeliveries",
-                "logs:GetLogDelivery",
-                "firehose:TagDeliveryStream"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
+            policy=\"\"\" {
+           "Version":"2012-10-17",
+           "Statement":[
+             {
+               "Action": [
+                 "logs:CreateLogDelivery",
+                 "logs:DeleteLogDelivery",
+                 "logs:ListLogDeliveries",
+                 "logs:GetLogDelivery",
+                 "firehose:TagDeliveryStream"
+               ],
+               "Effect":"Allow",
+               "Resource":"*"
+             }
+           ]
+         }
         \"\"\")
         ```
         ### S3 Logging

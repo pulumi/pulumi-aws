@@ -19,14 +19,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs();
 
     /**
-     * Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
+     * Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
      * 
      */
     @Import(name="awsManagedRulesBotControlRuleSet")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs> awsManagedRulesBotControlRuleSet;
 
     /**
-     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
+     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs>> awsManagedRulesBotControlRuleSet() {
@@ -49,14 +49,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
 
     /**
-     * Details about your login page password field. See Password Field for more details.
+     * Details about your login page password field. See `password_field` for more details.
      * 
      */
     @Import(name="passwordField")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs> passwordField;
 
     /**
-     * @return Details about your login page password field. See Password Field for more details.
+     * @return Details about your login page password field. See `password_field` for more details.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs>> passwordField() {
@@ -79,14 +79,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
 
     /**
-     * Details about your login page username field. See Username Field for more details.
+     * Details about your login page username field. See `username_field` for more details.
      * 
      */
     @Import(name="usernameField")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs> usernameField;
 
     /**
-     * @return Details about your login page username field. See Username Field for more details.
+     * @return Details about your login page username field. See `username_field` for more details.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs>> usernameField() {
@@ -122,7 +122,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param awsManagedRulesBotControlRuleSet Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
+         * @param awsManagedRulesBotControlRuleSet Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param awsManagedRulesBotControlRuleSet Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
+         * @param awsManagedRulesBotControlRuleSet Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param passwordField Details about your login page password field. See Password Field for more details.
+         * @param passwordField Details about your login page password field. See `password_field` for more details.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param passwordField Details about your login page password field. See Password Field for more details.
+         * @param passwordField Details about your login page password field. See `password_field` for more details.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param usernameField Details about your login page username field. See Username Field for more details.
+         * @param usernameField Details about your login page username field. See `username_field` for more details.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param usernameField Details about your login page username field. See Username Field for more details.
+         * @param usernameField Details about your login page username field. See `username_field` for more details.
          * 
          * @return builder
          * 

@@ -20,6 +20,7 @@ __all__ = [
     'EventSourceMappingDestinationConfigOnFailure',
     'EventSourceMappingFilterCriteria',
     'EventSourceMappingFilterCriteriaFilter',
+    'EventSourceMappingScalingConfig',
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSelfManagedKafkaEventSourceConfig',
     'EventSourceMappingSourceAccessConfiguration',
@@ -298,6 +299,42 @@ class EventSourceMappingFilterCriteriaFilter(dict):
 
 
 @pulumi.output_type
+class EventSourceMappingScalingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumConcurrency":
+            suggest = "maximum_concurrency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_concurrency: Optional[int] = None):
+        """
+        :param int maximum_concurrency: Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        """
+        if maximum_concurrency is not None:
+            pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
+
+    @property
+    @pulumi.getter(name="maximumConcurrency")
+    def maximum_concurrency(self) -> Optional[int]:
+        """
+        Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        """
+        return pulumi.get(self, "maximum_concurrency")
+
+
+@pulumi.output_type
 class EventSourceMappingSelfManagedEventSource(dict):
     def __init__(__self__, *,
                  endpoints: Mapping[str, str]):
@@ -420,7 +457,7 @@ class FunctionEnvironment(dict):
     def __init__(__self__, *,
                  variables: Optional[Mapping[str, str]] = None):
         """
-        :param Mapping[str, str] variables: Map of environment variables that are accessible from the function code during execution.
+        :param Mapping[str, str] variables: Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
@@ -429,7 +466,7 @@ class FunctionEnvironment(dict):
     @pulumi.getter
     def variables(self) -> Optional[Mapping[str, str]]:
         """
-        Map of environment variables that are accessible from the function code during execution.
+        Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
         """
         return pulumi.get(self, "variables")
 

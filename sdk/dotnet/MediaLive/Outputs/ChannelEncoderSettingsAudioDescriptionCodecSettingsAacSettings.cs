@@ -30,6 +30,10 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? Profile;
         /// <summary>
+        /// The rate control mode.
+        /// </summary>
+        public readonly string? RateControlMode;
+        /// <summary>
         /// Sets LATM/LOAS AAC output for raw containers.
         /// </summary>
         public readonly string? RawFormat;
@@ -56,6 +60,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             string? profile,
 
+            string? rateControlMode,
+
             string? rawFormat,
 
             double? sampleRate,
@@ -68,6 +74,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
             CodingMode = codingMode;
             InputType = inputType;
             Profile = profile;
+            RateControlMode = rateControlMode;
             RawFormat = rawFormat;
             SampleRate = sampleRate;
             Spec = spec;

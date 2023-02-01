@@ -6,6 +6,7 @@ package com.pulumi.aws.lambda.inputs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingDestinationConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingFilterCriteriaArgs;
+import com.pulumi.aws.lambda.inputs.EventSourceMappingScalingConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
@@ -280,6 +281,21 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+     * 
+     */
+    @Import(name="scalingConfig")
+    private @Nullable Output<EventSourceMappingScalingConfigArgs> scalingConfig;
+
+    /**
+     * @return Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+     * 
+     */
+    public Optional<Output<EventSourceMappingScalingConfigArgs>> scalingConfig() {
+        return Optional.ofNullable(this.scalingConfig);
+    }
+
+    /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
      * 
      */
@@ -449,6 +465,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         this.maximumRetryAttempts = $.maximumRetryAttempts;
         this.parallelizationFactor = $.parallelizationFactor;
         this.queues = $.queues;
+        this.scalingConfig = $.scalingConfig;
         this.selfManagedEventSource = $.selfManagedEventSource;
         this.selfManagedKafkaEventSourceConfig = $.selfManagedKafkaEventSourceConfig;
         this.sourceAccessConfigurations = $.sourceAccessConfigurations;
@@ -854,6 +871,27 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
          */
         public Builder queues(String... queues) {
             return queues(List.of(queues));
+        }
+
+        /**
+         * @param scalingConfig Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingConfig(@Nullable Output<EventSourceMappingScalingConfigArgs> scalingConfig) {
+            $.scalingConfig = scalingConfig;
+            return this;
+        }
+
+        /**
+         * @param scalingConfig Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scalingConfig(EventSourceMappingScalingConfigArgs scalingConfig) {
+            return scalingConfig(Output.of(scalingConfig));
         }
 
         /**

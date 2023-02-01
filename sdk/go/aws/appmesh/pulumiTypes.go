@@ -755,6 +755,8 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) VirtualSer
 }
 
 type GatewayRouteSpecGrpcRouteMatch struct {
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Fully qualified domain name for the service to match from the request.
 	ServiceName string `pulumi:"serviceName"`
 }
@@ -771,6 +773,8 @@ type GatewayRouteSpecGrpcRouteMatchInput interface {
 }
 
 type GatewayRouteSpecGrpcRouteMatchArgs struct {
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Fully qualified domain name for the service to match from the request.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
@@ -852,6 +856,11 @@ func (o GatewayRouteSpecGrpcRouteMatchOutput) ToGatewayRouteSpecGrpcRouteMatchPt
 	}).(GatewayRouteSpecGrpcRouteMatchPtrOutput)
 }
 
+// The port number to match from the request.
+func (o GatewayRouteSpecGrpcRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Fully qualified domain name for the service to match from the request.
 func (o GatewayRouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteMatch) string { return v.ServiceName }).(pulumi.StringOutput)
@@ -879,6 +888,16 @@ func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) Elem() GatewayRouteSpecGrpcRout
 		var ret GatewayRouteSpecGrpcRouteMatch
 		return ret
 	}).(GatewayRouteSpecGrpcRouteMatchOutput)
+}
+
+// The port number to match from the request.
+func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Fully qualified domain name for the service to match from the request.
@@ -1935,6 +1954,8 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) VirtualSe
 type GatewayRouteSpecHttp2RouteMatch struct {
 	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttp2RouteMatchHostname `pulumi:"hostname"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Specified beginning characters to rewrite.
 	Prefix *string `pulumi:"prefix"`
 }
@@ -1953,6 +1974,8 @@ type GatewayRouteSpecHttp2RouteMatchInput interface {
 type GatewayRouteSpecHttp2RouteMatchArgs struct {
 	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttp2RouteMatchHostnamePtrInput `pulumi:"hostname"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Specified beginning characters to rewrite.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
@@ -2039,6 +2062,11 @@ func (o GatewayRouteSpecHttp2RouteMatchOutput) Hostname() GatewayRouteSpecHttp2R
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
 }
 
+// The port number to match from the request.
+func (o GatewayRouteSpecHttp2RouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -2076,6 +2104,16 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Hostname() GatewayRouteSpecHtt
 		}
 		return v.Hostname
 	}).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
+}
+
+// The port number to match from the request.
+func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specified beginning characters to rewrite.
@@ -3288,6 +3326,8 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) VirtualSer
 type GatewayRouteSpecHttpRouteMatch struct {
 	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttpRouteMatchHostname `pulumi:"hostname"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Specified beginning characters to rewrite.
 	Prefix *string `pulumi:"prefix"`
 }
@@ -3306,6 +3346,8 @@ type GatewayRouteSpecHttpRouteMatchInput interface {
 type GatewayRouteSpecHttpRouteMatchArgs struct {
 	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttpRouteMatchHostnamePtrInput `pulumi:"hostname"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Specified beginning characters to rewrite.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
@@ -3392,6 +3434,11 @@ func (o GatewayRouteSpecHttpRouteMatchOutput) Hostname() GatewayRouteSpecHttpRou
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
 }
 
+// The port number to match from the request.
+func (o GatewayRouteSpecHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -3429,6 +3476,16 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Hostname() GatewayRouteSpecHttp
 		}
 		return v.Hostname
 	}).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
+}
+
+// The port number to match from the request.
+func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specified beginning characters to rewrite.
@@ -4428,6 +4485,8 @@ func (o RouteSpecGrpcRouteActionPtrOutput) WeightedTargets() RouteSpecGrpcRouteA
 }
 
 type RouteSpecGrpcRouteActionWeightedTarget struct {
+	// The targeted port of the weighted object.
+	Port *int `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -4446,6 +4505,8 @@ type RouteSpecGrpcRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecGrpcRouteActionWeightedTargetArgs struct {
+	// The targeted port of the weighted object.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -4503,6 +4564,11 @@ func (o RouteSpecGrpcRouteActionWeightedTargetOutput) ToRouteSpecGrpcRouteAction
 	return o
 }
 
+// The targeted port of the weighted object.
+func (o RouteSpecGrpcRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
@@ -4538,6 +4604,8 @@ type RouteSpecGrpcRouteMatch struct {
 	Metadatas []RouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
 	// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName *string `pulumi:"methodName"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
@@ -4561,6 +4629,8 @@ type RouteSpecGrpcRouteMatchArgs struct {
 	Metadatas RouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
 	// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName pulumi.StringPtrInput `pulumi:"methodName"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -4655,6 +4725,11 @@ func (o RouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.MethodName }).(pulumi.StringPtrOutput)
 }
 
+// The port number to match from the request.
+func (o RouteSpecGrpcRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
@@ -4708,6 +4783,16 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) MethodName() pulumi.StringPtrOutput {
 		}
 		return v.MethodName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecGrpcRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
@@ -6408,6 +6493,8 @@ func (o RouteSpecHttp2RouteActionPtrOutput) WeightedTargets() RouteSpecHttp2Rout
 }
 
 type RouteSpecHttp2RouteActionWeightedTarget struct {
+	// The targeted port of the weighted object.
+	Port *int `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -6426,6 +6513,8 @@ type RouteSpecHttp2RouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecHttp2RouteActionWeightedTargetArgs struct {
+	// The targeted port of the weighted object.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -6483,6 +6572,11 @@ func (o RouteSpecHttp2RouteActionWeightedTargetOutput) ToRouteSpecHttp2RouteActi
 	return o
 }
 
+// The targeted port of the weighted object.
+func (o RouteSpecHttp2RouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
@@ -6518,6 +6612,8 @@ type RouteSpecHttp2RouteMatch struct {
 	Headers []RouteSpecHttp2RouteMatchHeader `pulumi:"headers"`
 	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method *string `pulumi:"method"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix string `pulumi:"prefix"`
@@ -6541,6 +6637,8 @@ type RouteSpecHttp2RouteMatchArgs struct {
 	Headers RouteSpecHttp2RouteMatchHeaderArrayInput `pulumi:"headers"`
 	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
@@ -6635,6 +6733,11 @@ func (o RouteSpecHttp2RouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
+// The port number to match from the request.
+func (o RouteSpecHttp2RouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
@@ -6688,6 +6791,16 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 		}
 		return v.Method
 	}).(pulumi.StringPtrOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecHttp2RouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
@@ -8363,6 +8476,8 @@ func (o RouteSpecHttpRouteActionPtrOutput) WeightedTargets() RouteSpecHttpRouteA
 }
 
 type RouteSpecHttpRouteActionWeightedTarget struct {
+	// The targeted port of the weighted object.
+	Port *int `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -8381,6 +8496,8 @@ type RouteSpecHttpRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecHttpRouteActionWeightedTargetArgs struct {
+	// The targeted port of the weighted object.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -8438,6 +8555,11 @@ func (o RouteSpecHttpRouteActionWeightedTargetOutput) ToRouteSpecHttpRouteAction
 	return o
 }
 
+// The targeted port of the weighted object.
+func (o RouteSpecHttpRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
@@ -8473,6 +8595,8 @@ type RouteSpecHttpRouteMatch struct {
 	Headers []RouteSpecHttpRouteMatchHeader `pulumi:"headers"`
 	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method *string `pulumi:"method"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix string `pulumi:"prefix"`
@@ -8496,6 +8620,8 @@ type RouteSpecHttpRouteMatchArgs struct {
 	Headers RouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
 	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
@@ -8590,6 +8716,11 @@ func (o RouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
+// The port number to match from the request.
+func (o RouteSpecHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
@@ -8643,6 +8774,16 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 		}
 		return v.Method
 	}).(pulumi.StringPtrOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecHttpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
@@ -9985,6 +10126,8 @@ func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutpu
 type RouteSpecTcpRoute struct {
 	// Action to take if a match is determined.
 	Action RouteSpecTcpRouteAction `pulumi:"action"`
+	// Criteria for determining an gRPC request match.
+	Match *RouteSpecTcpRouteMatch `pulumi:"match"`
 	// Types of timeouts.
 	Timeout *RouteSpecTcpRouteTimeout `pulumi:"timeout"`
 }
@@ -10003,6 +10146,8 @@ type RouteSpecTcpRouteInput interface {
 type RouteSpecTcpRouteArgs struct {
 	// Action to take if a match is determined.
 	Action RouteSpecTcpRouteActionInput `pulumi:"action"`
+	// Criteria for determining an gRPC request match.
+	Match RouteSpecTcpRouteMatchPtrInput `pulumi:"match"`
 	// Types of timeouts.
 	Timeout RouteSpecTcpRouteTimeoutPtrInput `pulumi:"timeout"`
 }
@@ -10089,6 +10234,11 @@ func (o RouteSpecTcpRouteOutput) Action() RouteSpecTcpRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
 }
 
+// Criteria for determining an gRPC request match.
+func (o RouteSpecTcpRouteOutput) Match() RouteSpecTcpRouteMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRoute) *RouteSpecTcpRouteMatch { return v.Match }).(RouteSpecTcpRouteMatchPtrOutput)
+}
+
 // Types of timeouts.
 func (o RouteSpecTcpRouteOutput) Timeout() RouteSpecTcpRouteTimeoutPtrOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) *RouteSpecTcpRouteTimeout { return v.Timeout }).(RouteSpecTcpRouteTimeoutPtrOutput)
@@ -10126,6 +10276,16 @@ func (o RouteSpecTcpRoutePtrOutput) Action() RouteSpecTcpRouteActionPtrOutput {
 		}
 		return &v.Action
 	}).(RouteSpecTcpRouteActionPtrOutput)
+}
+
+// Criteria for determining an gRPC request match.
+func (o RouteSpecTcpRoutePtrOutput) Match() RouteSpecTcpRouteMatchPtrOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRoute) *RouteSpecTcpRouteMatch {
+		if v == nil {
+			return nil
+		}
+		return v.Match
+	}).(RouteSpecTcpRouteMatchPtrOutput)
 }
 
 // Types of timeouts.
@@ -10280,6 +10440,8 @@ func (o RouteSpecTcpRouteActionPtrOutput) WeightedTargets() RouteSpecTcpRouteAct
 }
 
 type RouteSpecTcpRouteActionWeightedTarget struct {
+	// The targeted port of the weighted object.
+	Port *int `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -10298,6 +10460,8 @@ type RouteSpecTcpRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecTcpRouteActionWeightedTargetArgs struct {
+	// The targeted port of the weighted object.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -10355,6 +10519,11 @@ func (o RouteSpecTcpRouteActionWeightedTargetOutput) ToRouteSpecTcpRouteActionWe
 	return o
 }
 
+// The targeted port of the weighted object.
+func (o RouteSpecTcpRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecTcpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
@@ -10383,6 +10552,143 @@ func (o RouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecTcpRouteActionWeightedTarget {
 		return vs[0].([]RouteSpecTcpRouteActionWeightedTarget)[vs[1].(int)]
 	}).(RouteSpecTcpRouteActionWeightedTargetOutput)
+}
+
+type RouteSpecTcpRouteMatch struct {
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
+}
+
+// RouteSpecTcpRouteMatchInput is an input type that accepts RouteSpecTcpRouteMatchArgs and RouteSpecTcpRouteMatchOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteMatchInput` via:
+//
+//	RouteSpecTcpRouteMatchArgs{...}
+type RouteSpecTcpRouteMatchInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteMatchOutput() RouteSpecTcpRouteMatchOutput
+	ToRouteSpecTcpRouteMatchOutputWithContext(context.Context) RouteSpecTcpRouteMatchOutput
+}
+
+type RouteSpecTcpRouteMatchArgs struct {
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (RouteSpecTcpRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (i RouteSpecTcpRouteMatchArgs) ToRouteSpecTcpRouteMatchOutput() RouteSpecTcpRouteMatchOutput {
+	return i.ToRouteSpecTcpRouteMatchOutputWithContext(context.Background())
+}
+
+func (i RouteSpecTcpRouteMatchArgs) ToRouteSpecTcpRouteMatchOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteMatchOutput)
+}
+
+func (i RouteSpecTcpRouteMatchArgs) ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput {
+	return i.ToRouteSpecTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecTcpRouteMatchArgs) ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteMatchOutput).ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx)
+}
+
+// RouteSpecTcpRouteMatchPtrInput is an input type that accepts RouteSpecTcpRouteMatchArgs, RouteSpecTcpRouteMatchPtr and RouteSpecTcpRouteMatchPtrOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteMatchPtrInput` via:
+//
+//	        RouteSpecTcpRouteMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteSpecTcpRouteMatchPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput
+	ToRouteSpecTcpRouteMatchPtrOutputWithContext(context.Context) RouteSpecTcpRouteMatchPtrOutput
+}
+
+type routeSpecTcpRouteMatchPtrType RouteSpecTcpRouteMatchArgs
+
+func RouteSpecTcpRouteMatchPtr(v *RouteSpecTcpRouteMatchArgs) RouteSpecTcpRouteMatchPtrInput {
+	return (*routeSpecTcpRouteMatchPtrType)(v)
+}
+
+func (*routeSpecTcpRouteMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (i *routeSpecTcpRouteMatchPtrType) ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput {
+	return i.ToRouteSpecTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecTcpRouteMatchPtrType) ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteMatchPtrOutput)
+}
+
+type RouteSpecTcpRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecTcpRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchOutput() RouteSpecTcpRouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput {
+	return o.ToRouteSpecTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecTcpRouteMatch) *RouteSpecTcpRouteMatch {
+		return &v
+	}).(RouteSpecTcpRouteMatchPtrOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecTcpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecTcpRouteMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecTcpRouteMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (o RouteSpecTcpRouteMatchPtrOutput) ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteMatchPtrOutput) ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteMatchPtrOutput) Elem() RouteSpecTcpRouteMatchOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteMatch) RouteSpecTcpRouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecTcpRouteMatch
+		return ret
+	}).(RouteSpecTcpRouteMatchOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecTcpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 type RouteSpecTcpRouteTimeout struct {
@@ -28342,6 +28648,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteActionPtrInput)(nil)).Elem(), RouteSpecTcpRouteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteActionWeightedTargetInput)(nil)).Elem(), RouteSpecTcpRouteActionWeightedTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteActionWeightedTargetArrayInput)(nil)).Elem(), RouteSpecTcpRouteActionWeightedTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteMatchInput)(nil)).Elem(), RouteSpecTcpRouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteMatchPtrInput)(nil)).Elem(), RouteSpecTcpRouteMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteTimeoutInput)(nil)).Elem(), RouteSpecTcpRouteTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteTimeoutPtrInput)(nil)).Elem(), RouteSpecTcpRouteTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteTimeoutIdleInput)(nil)).Elem(), RouteSpecTcpRouteTimeoutIdleArgs{})
@@ -28709,6 +29017,8 @@ func init() {
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionWeightedTargetOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(RouteSpecTcpRouteMatchOutput{})
+	pulumi.RegisterOutputType(RouteSpecTcpRouteMatchPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutIdleOutput{})

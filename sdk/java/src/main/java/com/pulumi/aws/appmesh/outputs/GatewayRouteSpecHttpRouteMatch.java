@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteMatchHostname;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,6 +19,11 @@ public final class GatewayRouteSpecHttpRouteMatch {
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
     /**
+     * @return The port number to match from the request.
+     * 
+     */
+    private @Nullable Integer port;
+    /**
      * @return Specified beginning characters to rewrite.
      * 
      */
@@ -30,6 +36,13 @@ public final class GatewayRouteSpecHttpRouteMatch {
      */
     public Optional<GatewayRouteSpecHttpRouteMatchHostname> hostname() {
         return Optional.ofNullable(this.hostname);
+    }
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
      * @return Specified beginning characters to rewrite.
@@ -49,17 +62,24 @@ public final class GatewayRouteSpecHttpRouteMatch {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
+        private @Nullable Integer port;
         private @Nullable String prefix;
         public Builder() {}
         public Builder(GatewayRouteSpecHttpRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
+    	      this.port = defaults.port;
     	      this.prefix = defaults.prefix;
         }
 
         @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttpRouteMatchHostname hostname) {
             this.hostname = hostname;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
             return this;
         }
         @CustomType.Setter
@@ -70,6 +90,7 @@ public final class GatewayRouteSpecHttpRouteMatch {
         public GatewayRouteSpecHttpRouteMatch build() {
             final var o = new GatewayRouteSpecHttpRouteMatch();
             o.hostname = hostname;
+            o.port = port;
             o.prefix = prefix;
             return o;
         }

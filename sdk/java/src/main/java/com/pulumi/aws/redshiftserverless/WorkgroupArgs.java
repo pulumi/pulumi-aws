@@ -111,14 +111,14 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of VPC subnet IDs to associate with the workgroup.
+     * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return An array of VPC subnet IDs to associate with the workgroup.
+     * @return An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -334,7 +334,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup.
+         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup.
+         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup.
+         * @param subnetIds An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
          * 
          * @return builder
          * 

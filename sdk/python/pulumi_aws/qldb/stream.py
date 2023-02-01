@@ -296,6 +296,26 @@ class Stream(pulumi.CustomResource):
         """
         Provides an AWS Quantum Ledger Database (QLDB) Stream resource
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.qldb.Stream("example",
+            inclusive_start_time="2021-01-01T00:00:00Z",
+            kinesis_configuration=aws.qldb.StreamKinesisConfigurationArgs(
+                aggregation_enabled=False,
+                stream_arn="arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
+            ),
+            ledger_name="existing-ledger-name",
+            role_arn="sample-role-arn",
+            stream_name="sample-ledger-stream",
+            tags={
+                "example": "tag",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
@@ -314,6 +334,26 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Quantum Ledger Database (QLDB) Stream resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.qldb.Stream("example",
+            inclusive_start_time="2021-01-01T00:00:00Z",
+            kinesis_configuration=aws.qldb.StreamKinesisConfigurationArgs(
+                aggregation_enabled=False,
+                stream_arn="arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
+            ),
+            ledger_name="existing-ledger-name",
+            role_arn="sample-role-arn",
+            stream_name="sample-ledger-stream",
+            tags={
+                "example": "tag",
+            })
+        ```
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.

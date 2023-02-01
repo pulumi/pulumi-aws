@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.RouteSpecGrpcRouteMatchMetadata;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -23,6 +24,11 @@ public final class RouteSpecGrpcRouteMatch {
      * 
      */
     private @Nullable String methodName;
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    private @Nullable Integer port;
     /**
      * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
@@ -51,6 +57,13 @@ public final class RouteSpecGrpcRouteMatch {
         return Optional.ofNullable(this.methodName);
     }
     /**
+     * @return The port number to match from the request.
+     * 
+     */
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
+    }
+    /**
      * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
@@ -77,6 +90,7 @@ public final class RouteSpecGrpcRouteMatch {
     public static final class Builder {
         private @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
         private @Nullable String methodName;
+        private @Nullable Integer port;
         private @Nullable String prefix;
         private @Nullable String serviceName;
         public Builder() {}
@@ -84,6 +98,7 @@ public final class RouteSpecGrpcRouteMatch {
     	      Objects.requireNonNull(defaults);
     	      this.metadatas = defaults.metadatas;
     	      this.methodName = defaults.methodName;
+    	      this.port = defaults.port;
     	      this.prefix = defaults.prefix;
     	      this.serviceName = defaults.serviceName;
         }
@@ -102,6 +117,11 @@ public final class RouteSpecGrpcRouteMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
+            return this;
+        }
+        @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
             this.prefix = prefix;
             return this;
@@ -115,6 +135,7 @@ public final class RouteSpecGrpcRouteMatch {
             final var o = new RouteSpecGrpcRouteMatch();
             o.metadatas = metadatas;
             o.methodName = methodName;
+            o.port = port;
             o.prefix = prefix;
             o.serviceName = serviceName;
             return o;

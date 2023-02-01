@@ -59,6 +59,12 @@ namespace Pulumi.Aws.Rum
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        /// </summary>
+        [Output("customEvents")]
+        public Output<Outputs.AppMonitorCustomEvents> CustomEvents { get; private set; } = null!;
+
+        /// <summary>
         /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         /// </summary>
         [Output("cwLogEnabled")]
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.Rum
         public Input<Inputs.AppMonitorAppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
 
         /// <summary>
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        /// </summary>
+        [Input("customEvents")]
+        public Input<Inputs.AppMonitorCustomEventsArgs>? CustomEvents { get; set; }
+
+        /// <summary>
         /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         /// </summary>
         [Input("cwLogEnabled")]
@@ -201,6 +213,12 @@ namespace Pulumi.Aws.Rum
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        /// </summary>
+        [Input("customEvents")]
+        public Input<Inputs.AppMonitorCustomEventsGetArgs>? CustomEvents { get; set; }
 
         /// <summary>
         /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.

@@ -85,8 +85,12 @@ type AnomalySubscription struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The dollar value that triggers a notification if the threshold is exceeded.
+	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+	//
+	// Deprecated: use threshold_expression instead
 	Threshold pulumi.Float64Output `pulumi:"threshold"`
+	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+	ThresholdExpression AnomalySubscriptionThresholdExpressionOutput `pulumi:"thresholdExpression"`
 }
 
 // NewAnomalySubscription registers a new resource with the given unique name, arguments, and options.
@@ -104,9 +108,6 @@ func NewAnomalySubscription(ctx *pulumi.Context,
 	}
 	if args.Subscribers == nil {
 		return nil, errors.New("invalid value for required argument 'Subscribers'")
-	}
-	if args.Threshold == nil {
-		return nil, errors.New("invalid value for required argument 'Threshold'")
 	}
 	var resource AnomalySubscription
 	err := ctx.RegisterResource("aws:costexplorer/anomalySubscription:AnomalySubscription", name, args, &resource, opts...)
@@ -146,8 +147,12 @@ type anomalySubscriptionState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The dollar value that triggers a notification if the threshold is exceeded.
+	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+	//
+	// Deprecated: use threshold_expression instead
 	Threshold *float64 `pulumi:"threshold"`
+	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+	ThresholdExpression *AnomalySubscriptionThresholdExpression `pulumi:"thresholdExpression"`
 }
 
 type AnomalySubscriptionState struct {
@@ -167,8 +172,12 @@ type AnomalySubscriptionState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The dollar value that triggers a notification if the threshold is exceeded.
+	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+	//
+	// Deprecated: use threshold_expression instead
 	Threshold pulumi.Float64PtrInput
+	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+	ThresholdExpression AnomalySubscriptionThresholdExpressionPtrInput
 }
 
 func (AnomalySubscriptionState) ElementType() reflect.Type {
@@ -188,8 +197,12 @@ type anomalySubscriptionArgs struct {
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold float64 `pulumi:"threshold"`
+	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+	//
+	// Deprecated: use threshold_expression instead
+	Threshold *float64 `pulumi:"threshold"`
+	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+	ThresholdExpression *AnomalySubscriptionThresholdExpression `pulumi:"thresholdExpression"`
 }
 
 // The set of arguments for constructing a AnomalySubscription resource.
@@ -206,8 +219,12 @@ type AnomalySubscriptionArgs struct {
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold pulumi.Float64Input
+	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+	//
+	// Deprecated: use threshold_expression instead
+	Threshold pulumi.Float64PtrInput
+	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+	ThresholdExpression AnomalySubscriptionThresholdExpressionPtrInput
 }
 
 func (AnomalySubscriptionArgs) ElementType() reflect.Type {
@@ -337,9 +354,18 @@ func (o AnomalySubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The dollar value that triggers a notification if the threshold is exceeded.
+// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+//
+// Deprecated: use threshold_expression instead
 func (o AnomalySubscriptionOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.Float64Output { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+func (o AnomalySubscriptionOutput) ThresholdExpression() AnomalySubscriptionThresholdExpressionOutput {
+	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionThresholdExpressionOutput {
+		return v.ThresholdExpression
+	}).(AnomalySubscriptionThresholdExpressionOutput)
 }
 
 type AnomalySubscriptionArrayOutput struct{ *pulumi.OutputState }

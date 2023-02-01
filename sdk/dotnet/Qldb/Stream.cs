@@ -11,6 +11,35 @@ namespace Pulumi.Aws.Qldb
 {
     /// <summary>
     /// Provides an AWS Quantum Ledger Database (QLDB) Stream resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Qldb.Stream("example", new()
+    ///     {
+    ///         InclusiveStartTime = "2021-01-01T00:00:00Z",
+    ///         KinesisConfiguration = new Aws.Qldb.Inputs.StreamKinesisConfigurationArgs
+    ///         {
+    ///             AggregationEnabled = false,
+    ///             StreamArn = "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
+    ///         },
+    ///         LedgerName = "existing-ledger-name",
+    ///         RoleArn = "sample-role-arn",
+    ///         StreamName = "sample-ledger-stream",
+    ///         Tags = 
+    ///         {
+    ///             { "example", "tag" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:qldb/stream:Stream")]
     public partial class Stream : global::Pulumi.CustomResource

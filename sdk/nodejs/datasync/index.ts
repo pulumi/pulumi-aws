@@ -35,6 +35,11 @@ export type LocationHdfs = import("./locationHdfs").LocationHdfs;
 export const LocationHdfs: typeof import("./locationHdfs").LocationHdfs = null as any;
 utilities.lazyLoad(exports, ["LocationHdfs"], () => require("./locationHdfs"));
 
+export { LocationObjectStorageArgs, LocationObjectStorageState } from "./locationObjectStorage";
+export type LocationObjectStorage = import("./locationObjectStorage").LocationObjectStorage;
+export const LocationObjectStorage: typeof import("./locationObjectStorage").LocationObjectStorage = null as any;
+utilities.lazyLoad(exports, ["LocationObjectStorage"], () => require("./locationObjectStorage"));
+
 export { LocationSmbArgs, LocationSmbState } from "./locationSmb";
 export type LocationSmb = import("./locationSmb").LocationSmb;
 export const LocationSmb: typeof import("./locationSmb").LocationSmb = null as any;
@@ -72,6 +77,8 @@ const _module = {
                 return new LocationFsxWindows(name, <any>undefined, { urn })
             case "aws:datasync/locationHdfs:LocationHdfs":
                 return new LocationHdfs(name, <any>undefined, { urn })
+            case "aws:datasync/locationObjectStorage:LocationObjectStorage":
+                return new LocationObjectStorage(name, <any>undefined, { urn })
             case "aws:datasync/locationSmb:LocationSmb":
                 return new LocationSmb(name, <any>undefined, { urn })
             case "aws:datasync/nfsLocation:NfsLocation":
@@ -91,6 +98,7 @@ pulumi.runtime.registerResourceModule("aws", "datasync/fsxOpenZfsFileSystem", _m
 pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxLustre", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxWindows", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationHdfs", _module)
+pulumi.runtime.registerResourceModule("aws", "datasync/locationObjectStorage", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationSmb", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/nfsLocation", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/s3Location", _module)

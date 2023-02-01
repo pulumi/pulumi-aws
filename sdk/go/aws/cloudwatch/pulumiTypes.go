@@ -2447,7 +2447,7 @@ type EventTargetEcsTarget struct {
 	PlacementConstraints []EventTargetEcsTargetPlacementConstraint `pulumi:"placementConstraints"`
 	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
 	PropagateTags *string `pulumi:"propagateTags"`
 	// A map of tags to assign to ecs resources.
 	Tags map[string]string `pulumi:"tags"`
@@ -2485,7 +2485,7 @@ type EventTargetEcsTargetArgs struct {
 	PlacementConstraints EventTargetEcsTargetPlacementConstraintArrayInput `pulumi:"placementConstraints"`
 	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
 	// A map of tags to assign to ecs resources.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -2614,7 +2614,7 @@ func (o EventTargetEcsTargetOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
 func (o EventTargetEcsTargetOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
@@ -2738,7 +2738,7 @@ func (o EventTargetEcsTargetPtrOutput) PlatformVersion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
 func (o EventTargetEcsTargetPtrOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {
