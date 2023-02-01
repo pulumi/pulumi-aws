@@ -30,3 +30,10 @@ sdk/java/gradlew
 sdk/java/gradlew.bat
 
 !upstream-tools/yarn.lock
+
+__pycache__
+venv
+sdk/python/build
+sdk/python/*.egg-info
+
+.envrc
