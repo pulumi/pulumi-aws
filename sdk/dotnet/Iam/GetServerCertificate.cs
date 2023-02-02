@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Iam
         ///                 InstanceProtocol = "https",
         ///                 LbPort = 443,
         ///                 LbProtocol = "https",
-        ///                 SslCertificateId = my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult).Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
+        ///                 SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
         ///             },
         ///         },
         ///     });
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Iam
         ///                 InstanceProtocol = "https",
         ///                 LbPort = 443,
         ///                 LbProtocol = "https",
-        ///                 SslCertificateId = my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult).Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
+        ///                 SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
         ///             },
         ///         },
         ///     });

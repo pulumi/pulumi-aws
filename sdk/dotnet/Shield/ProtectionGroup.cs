@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Shield
     /// 
     ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
     ///     {
-    ///         ResourceArn = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
+    ///         ResourceArn = Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
     ///         {
     ///             var currentRegion = values.Item1;
     ///             var currentCallerIdentity = values.Item2;
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Shield
     ///         Pattern = "ARBITRARY",
     ///         Members = new[]
     ///         {
-    ///             Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
+    ///             Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
     ///             {
     ///                 var currentRegion = values.Item1;
     ///                 var currentCallerIdentity = values.Item2;

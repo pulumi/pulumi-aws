@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     ///     var example = new Aws.Ecr.RegistryPolicy("example", new()
     ///     {
-    ///         Policy = Output.Tuple(currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, currentPartition, currentRegion, currentCallerIdentity).Apply(values =&gt;
     ///         {
     ///             var currentPartition = values.Item1;
     ///             var currentCallerIdentity = values.Item2;

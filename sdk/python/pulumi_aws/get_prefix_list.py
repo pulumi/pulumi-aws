@@ -95,7 +95,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
                     prefix_list_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListResult:
     """
-    `ec2.get_prefix_list` provides details about a specific AWS prefix list (PL)
+    _ec2_get_prefix_list_ provides details about a specific AWS prefix list (PL)
     in the current region.
 
     This can be used both to validate a prefix list given in a variable
@@ -165,7 +165,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
                            prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListResult]:
     """
-    `ec2.get_prefix_list` provides details about a specific AWS prefix list (PL)
+    _ec2_get_prefix_list_ provides details about a specific AWS prefix list (PL)
     in the current region.
 
     This can be used both to validate a prefix list given in a variable

@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Route53
     /// 
     ///     var route53_query_logging_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", new()
     ///     {
-    ///         PolicyDocument = route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(route53_query_logging_policyPolicyDocument =&gt; route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyDocument = route53_query_logging_policyPolicyDocument.Apply(route53_query_logging_policyPolicyDocument =&gt; route53_query_logging_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///         PolicyName = "route53-query-logging-policy",
     ///     }, new CustomResourceOptions
     ///     {

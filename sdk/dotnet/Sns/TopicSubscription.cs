@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Sns
     ///     var sns_topicTopic = new Aws.Sns.Topic("sns-topicTopic", new()
     ///     {
     ///         DisplayName = sns.Display_name,
-    ///         Policy = sns_topic_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(sns_topic_policy =&gt; sns_topic_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         Policy = sns_topic_policy.Apply(sns_topic_policy =&gt; sns_topic_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = "aws.sns",
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Sns
     /// 
     ///     var sqs_queue = new Aws.Sqs.Queue("sqs-queue", new()
     ///     {
-    ///         Policy = sqs_queue_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(sqs_queue_policy =&gt; sqs_queue_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         Policy = sqs_queue_policy.Apply(sqs_queue_policy =&gt; sqs_queue_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = "aws.sqs",

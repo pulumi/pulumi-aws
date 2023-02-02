@@ -73,7 +73,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var example = new Aws.OpenSearch.Domain("example", new()
     ///     {
-    ///         AccessPolicies = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
     ///         {
     ///             var currentRegion = values.Item1;
     ///             var currentCallerIdentity = values.Item2;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             { "rest.action.multi.allow_explicit_index", "true" },
     ///         },
-    ///         AccessPolicies = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
     ///         {
     ///             var currentRegion = values.Item1;
     ///             var currentCallerIdentity = values.Item2;

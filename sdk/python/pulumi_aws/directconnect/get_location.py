@@ -107,7 +107,7 @@ def get_location(location_code: Optional[str] = None,
     Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
     These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
 
-    > **Note:** This data source is different from the `directconnect.get_locations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+    > **Note:** This data source is different from the _directconnect_get_locations_ data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
 
     ## Example Usage
 
@@ -142,7 +142,7 @@ def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
     Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
     These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
 
-    > **Note:** This data source is different from the `directconnect.get_locations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+    > **Note:** This data source is different from the _directconnect_get_locations_ data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
 
     ## Example Usage
 
