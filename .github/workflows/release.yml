@@ -253,7 +253,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-        args: -p 1 release --rm-dist --timeout 120m0s
+        args: -p 1 release --rm-dist --timeout 150m0s
         version: latest
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
