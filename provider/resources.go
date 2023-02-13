@@ -343,6 +343,9 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
 		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
 		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
+
+		CallerName:             "Pulumi AWS Classic",
+		CallerDocumentationURL: "https://www.pulumi.com/registry/packages/aws/installation-configuration/",
 	}
 
 	if details, ok := vars["assumeRole"]; ok {
@@ -406,11 +409,8 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 
 	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
 		return fmt.Errorf("unable to validate AWS credentials. \n"+
-			"Details: %v\n\n"+
-			"Make sure you have: \n\n"+
-			" \t • Set your AWS region, e.g. `pulumi config set aws:region us-west-2` \n"+
-			" \t • Configured your AWS credentials as per https://pulumi.io/install/aws.html \n"+
-			" \t You can also set these via cli using `aws configure`. \n\n", err)
+			"Details: %v\n"+
+			"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`. \n", err)
 	}
 
 	return nil
