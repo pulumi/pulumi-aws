@@ -84,7 +84,7 @@ def get_region(endpoint: Optional[str] = None,
                name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegionResult:
     """
-    `get_region` provides details about a specific AWS region.
+    _get_region_ provides details about a specific AWS region.
 
     As well as validating a given region name this resource can be used to
     discover the name of the region configured within the provider. The latter
@@ -125,7 +125,7 @@ def get_region_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegionResult]:
     """
-    `get_region` provides details about a specific AWS region.
+    _get_region_ provides details about a specific AWS region.
 
     As well as validating a given region name this resource can be used to
     discover the name of the region configured within the provider. The latter

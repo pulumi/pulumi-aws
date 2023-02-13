@@ -435,7 +435,7 @@ class SecurityGroup(pulumi.CustomResource):
         )])
         ```
 
-        You can also find a specific Prefix List using the `ec2.get_prefix_list` data source.
+        You can also find a specific Prefix List using the _ec2_get_prefix_list_ data source.
         ### Change of name or name-prefix value
 
         Security Group's Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.
@@ -555,7 +555,7 @@ class SecurityGroup(pulumi.CustomResource):
         )])
         ```
 
-        You can also find a specific Prefix List using the `ec2.get_prefix_list` data source.
+        You can also find a specific Prefix List using the _ec2_get_prefix_list_ data source.
         ### Change of name or name-prefix value
 
         Security Group's Name [cannot be edited after the resource is created](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group). In fact, the `name` and `name-prefix` arguments force the creation of a new Security Group resource when they change value. In that case, this provider first deletes the existing Security Group resource and then it creates a new one. If the existing Security Group is associated to a Network Interface resource, the deletion cannot complete. The reason is that Network Interface resources cannot be left with no Security Group attached and the new one is not yet available at that point.

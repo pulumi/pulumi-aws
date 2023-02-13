@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OntapStorageVirtualMachineEndpointIscseGetArgs : global::Pulumi.ResourceArgs
+    public sealed class OntapStorageVirtualMachineEndpointIscsiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
@@ -30,9 +30,9 @@ namespace Pulumi.Aws.Fsx.Inputs
             set => _ipAddresses = value;
         }
 
-        public OntapStorageVirtualMachineEndpointIscseGetArgs()
+        public OntapStorageVirtualMachineEndpointIscsiArgs()
         {
         }
-        public static new OntapStorageVirtualMachineEndpointIscseGetArgs Empty => new OntapStorageVirtualMachineEndpointIscseGetArgs();
+        public static new OntapStorageVirtualMachineEndpointIscsiArgs Empty => new OntapStorageVirtualMachineEndpointIscsiArgs();
     }
 }

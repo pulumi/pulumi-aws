@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Route53
     ///         CustomerMasterKeySpec = "ECC_NIST_P256",
     ///         DeletionWindowInDays = 7,
     ///         KeyUsage = "SIGN_VERIFY",
-    ///         Policy = Output.Tuple(current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         Policy = Output.Tuple(current, current).Apply(values =&gt;
     ///         {
     ///             var current = values.Item1;
     ///             var current1 = values.Item2;

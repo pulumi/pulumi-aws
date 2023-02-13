@@ -13515,6 +13515,7 @@ type NetworkInsightsAnalysisExplanation struct {
 	InternetGateways               []NetworkInsightsAnalysisExplanationInternetGateway               `pulumi:"internetGateways"`
 	LoadBalancerArn                *string                                                           `pulumi:"loadBalancerArn"`
 	LoadBalancerListenerPort       *int                                                              `pulumi:"loadBalancerListenerPort"`
+	LoadBalancerTargetGroup        []NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup       `pulumi:"loadBalancerTargetGroup"`
 	LoadBalancerTargetGroups       []NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup       `pulumi:"loadBalancerTargetGroups"`
 	LoadBalancerTargetPort         *int                                                              `pulumi:"loadBalancerTargetPort"`
 	MissingComponent               *string                                                           `pulumi:"missingComponent"`
@@ -13527,6 +13528,7 @@ type NetworkInsightsAnalysisExplanation struct {
 	Protocols                      []string                                                          `pulumi:"protocols"`
 	RouteTableRoutes               []NetworkInsightsAnalysisExplanationRouteTableRoute               `pulumi:"routeTableRoutes"`
 	RouteTables                    []NetworkInsightsAnalysisExplanationRouteTable                    `pulumi:"routeTables"`
+	SecurityGroup                  []NetworkInsightsAnalysisExplanationSecurityGroup                 `pulumi:"securityGroup"`
 	SecurityGroupRules             []NetworkInsightsAnalysisExplanationSecurityGroupRule             `pulumi:"securityGroupRules"`
 	SecurityGroups                 []NetworkInsightsAnalysisExplanationSecurityGroup                 `pulumi:"securityGroups"`
 	SourceVpcs                     []NetworkInsightsAnalysisExplanationSourceVpc                     `pulumi:"sourceVpcs"`
@@ -13575,6 +13577,7 @@ type NetworkInsightsAnalysisExplanationArgs struct {
 	InternetGateways               NetworkInsightsAnalysisExplanationInternetGatewayArrayInput               `pulumi:"internetGateways"`
 	LoadBalancerArn                pulumi.StringPtrInput                                                     `pulumi:"loadBalancerArn"`
 	LoadBalancerListenerPort       pulumi.IntPtrInput                                                        `pulumi:"loadBalancerListenerPort"`
+	LoadBalancerTargetGroup        NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayInput       `pulumi:"loadBalancerTargetGroup"`
 	LoadBalancerTargetGroups       NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayInput       `pulumi:"loadBalancerTargetGroups"`
 	LoadBalancerTargetPort         pulumi.IntPtrInput                                                        `pulumi:"loadBalancerTargetPort"`
 	MissingComponent               pulumi.StringPtrInput                                                     `pulumi:"missingComponent"`
@@ -13587,6 +13590,7 @@ type NetworkInsightsAnalysisExplanationArgs struct {
 	Protocols                      pulumi.StringArrayInput                                                   `pulumi:"protocols"`
 	RouteTableRoutes               NetworkInsightsAnalysisExplanationRouteTableRouteArrayInput               `pulumi:"routeTableRoutes"`
 	RouteTables                    NetworkInsightsAnalysisExplanationRouteTableArrayInput                    `pulumi:"routeTables"`
+	SecurityGroup                  NetworkInsightsAnalysisExplanationSecurityGroupArrayInput                 `pulumi:"securityGroup"`
 	SecurityGroupRules             NetworkInsightsAnalysisExplanationSecurityGroupRuleArrayInput             `pulumi:"securityGroupRules"`
 	SecurityGroups                 NetworkInsightsAnalysisExplanationSecurityGroupArrayInput                 `pulumi:"securityGroups"`
 	SourceVpcs                     NetworkInsightsAnalysisExplanationSourceVpcArrayInput                     `pulumi:"sourceVpcs"`
@@ -13751,6 +13755,12 @@ func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerListenerPort() pul
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) *int { return v.LoadBalancerListenerPort }).(pulumi.IntPtrOutput)
 }
 
+func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetGroup() NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup {
+		return v.LoadBalancerTargetGroup
+	}).(NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayOutput)
+}
+
 func (o NetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetGroups() NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup {
 		return v.LoadBalancerTargetGroups
@@ -13811,6 +13821,12 @@ func (o NetworkInsightsAnalysisExplanationOutput) RouteTables() NetworkInsightsA
 	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisExplanationRouteTable {
 		return v.RouteTables
 	}).(NetworkInsightsAnalysisExplanationRouteTableArrayOutput)
+}
+
+func (o NetworkInsightsAnalysisExplanationOutput) SecurityGroup() NetworkInsightsAnalysisExplanationSecurityGroupArrayOutput {
+	return o.ApplyT(func(v NetworkInsightsAnalysisExplanation) []NetworkInsightsAnalysisExplanationSecurityGroup {
+		return v.SecurityGroup
+	}).(NetworkInsightsAnalysisExplanationSecurityGroupArrayOutput)
 }
 
 func (o NetworkInsightsAnalysisExplanationOutput) SecurityGroupRules() NetworkInsightsAnalysisExplanationSecurityGroupRuleArrayOutput {
@@ -40617,6 +40633,7 @@ type GetNetworkInsightsAnalysisExplanation struct {
 	InternetGateways               []GetNetworkInsightsAnalysisExplanationInternetGateway               `pulumi:"internetGateways"`
 	LoadBalancerArn                string                                                               `pulumi:"loadBalancerArn"`
 	LoadBalancerListenerPort       int                                                                  `pulumi:"loadBalancerListenerPort"`
+	LoadBalancerTargetGroup        []GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup       `pulumi:"loadBalancerTargetGroup"`
 	LoadBalancerTargetGroups       []GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup       `pulumi:"loadBalancerTargetGroups"`
 	LoadBalancerTargetPort         int                                                                  `pulumi:"loadBalancerTargetPort"`
 	MissingComponent               string                                                               `pulumi:"missingComponent"`
@@ -40629,6 +40646,7 @@ type GetNetworkInsightsAnalysisExplanation struct {
 	Protocols                      []string                                                             `pulumi:"protocols"`
 	RouteTableRoutes               []GetNetworkInsightsAnalysisExplanationRouteTableRoute               `pulumi:"routeTableRoutes"`
 	RouteTables                    []GetNetworkInsightsAnalysisExplanationRouteTable                    `pulumi:"routeTables"`
+	SecurityGroup                  []GetNetworkInsightsAnalysisExplanationSecurityGroup                 `pulumi:"securityGroup"`
 	SecurityGroupRules             []GetNetworkInsightsAnalysisExplanationSecurityGroupRule             `pulumi:"securityGroupRules"`
 	SecurityGroups                 []GetNetworkInsightsAnalysisExplanationSecurityGroup                 `pulumi:"securityGroups"`
 	SourceVpcs                     []GetNetworkInsightsAnalysisExplanationSourceVpc                     `pulumi:"sourceVpcs"`
@@ -40677,6 +40695,7 @@ type GetNetworkInsightsAnalysisExplanationArgs struct {
 	InternetGateways               GetNetworkInsightsAnalysisExplanationInternetGatewayArrayInput               `pulumi:"internetGateways"`
 	LoadBalancerArn                pulumi.StringInput                                                           `pulumi:"loadBalancerArn"`
 	LoadBalancerListenerPort       pulumi.IntInput                                                              `pulumi:"loadBalancerListenerPort"`
+	LoadBalancerTargetGroup        GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayInput       `pulumi:"loadBalancerTargetGroup"`
 	LoadBalancerTargetGroups       GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayInput       `pulumi:"loadBalancerTargetGroups"`
 	LoadBalancerTargetPort         pulumi.IntInput                                                              `pulumi:"loadBalancerTargetPort"`
 	MissingComponent               pulumi.StringInput                                                           `pulumi:"missingComponent"`
@@ -40689,6 +40708,7 @@ type GetNetworkInsightsAnalysisExplanationArgs struct {
 	Protocols                      pulumi.StringArrayInput                                                      `pulumi:"protocols"`
 	RouteTableRoutes               GetNetworkInsightsAnalysisExplanationRouteTableRouteArrayInput               `pulumi:"routeTableRoutes"`
 	RouteTables                    GetNetworkInsightsAnalysisExplanationRouteTableArrayInput                    `pulumi:"routeTables"`
+	SecurityGroup                  GetNetworkInsightsAnalysisExplanationSecurityGroupArrayInput                 `pulumi:"securityGroup"`
 	SecurityGroupRules             GetNetworkInsightsAnalysisExplanationSecurityGroupRuleArrayInput             `pulumi:"securityGroupRules"`
 	SecurityGroups                 GetNetworkInsightsAnalysisExplanationSecurityGroupArrayInput                 `pulumi:"securityGroups"`
 	SourceVpcs                     GetNetworkInsightsAnalysisExplanationSourceVpcArrayInput                     `pulumi:"sourceVpcs"`
@@ -40855,6 +40875,12 @@ func (o GetNetworkInsightsAnalysisExplanationOutput) LoadBalancerListenerPort() 
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanation) int { return v.LoadBalancerListenerPort }).(pulumi.IntOutput)
 }
 
+func (o GetNetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetGroup() GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayOutput {
+	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanation) []GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup {
+		return v.LoadBalancerTargetGroup
+	}).(GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayOutput)
+}
+
 func (o GetNetworkInsightsAnalysisExplanationOutput) LoadBalancerTargetGroups() GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrayOutput {
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanation) []GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup {
 		return v.LoadBalancerTargetGroups
@@ -40915,6 +40941,12 @@ func (o GetNetworkInsightsAnalysisExplanationOutput) RouteTables() GetNetworkIns
 	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanation) []GetNetworkInsightsAnalysisExplanationRouteTable {
 		return v.RouteTables
 	}).(GetNetworkInsightsAnalysisExplanationRouteTableArrayOutput)
+}
+
+func (o GetNetworkInsightsAnalysisExplanationOutput) SecurityGroup() GetNetworkInsightsAnalysisExplanationSecurityGroupArrayOutput {
+	return o.ApplyT(func(v GetNetworkInsightsAnalysisExplanation) []GetNetworkInsightsAnalysisExplanationSecurityGroup {
+		return v.SecurityGroup
+	}).(GetNetworkInsightsAnalysisExplanationSecurityGroupArrayOutput)
 }
 
 func (o GetNetworkInsightsAnalysisExplanationOutput) SecurityGroupRules() GetNetworkInsightsAnalysisExplanationSecurityGroupRuleArrayOutput {

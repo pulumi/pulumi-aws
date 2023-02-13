@@ -80,7 +80,7 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
                            ipam_pool_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolCidrsResult:
     """
-    `ec2.get_vpc_iam_pool_cidrs` provides details about an IPAM pool.
+    _ec2_get_vpc_iam_pool_cidrs_ provides details about an IPAM pool.
 
     This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 
@@ -106,7 +106,7 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
                                   ipam_pool_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolCidrsResult]:
     """
-    `ec2.get_vpc_iam_pool_cidrs` provides details about an IPAM pool.
+    _ec2_get_vpc_iam_pool_cidrs_ provides details about an IPAM pool.
 
     This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 

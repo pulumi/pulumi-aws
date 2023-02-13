@@ -11,7 +11,7 @@ namespace Pulumi.Aws.Fsx.Outputs
 {
 
     [OutputType]
-    public sealed class OntapStorageVirtualMachineEndpointIscse
+    public sealed class OntapStorageVirtualMachineEndpointIscsi
     {
         /// <summary>
         /// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         public readonly ImmutableArray<string> IpAddresses;
 
         [OutputConstructor]
-        private OntapStorageVirtualMachineEndpointIscse(
+        private OntapStorageVirtualMachineEndpointIscsi(
             string? dnsName,
 
             ImmutableArray<string> ipAddresses)

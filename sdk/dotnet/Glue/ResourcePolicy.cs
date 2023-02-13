@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var example = new Aws.Glue.ResourcePolicy("example", new()
     ///     {
-    ///         Policy = glue_example_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(glue_example_policy =&gt; glue_example_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         Policy = glue_example_policy.Apply(glue_example_policy =&gt; glue_example_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     });
     /// 
     /// });

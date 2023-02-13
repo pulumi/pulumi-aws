@@ -6349,6 +6349,8 @@ class NetworkInsightsAnalysisExplanation(dict):
             suggest = "load_balancer_arn"
         elif key == "loadBalancerListenerPort":
             suggest = "load_balancer_listener_port"
+        elif key == "loadBalancerTargetGroup":
+            suggest = "load_balancer_target_group"
         elif key == "loadBalancerTargetGroups":
             suggest = "load_balancer_target_groups"
         elif key == "loadBalancerTargetPort":
@@ -6369,6 +6371,8 @@ class NetworkInsightsAnalysisExplanation(dict):
             suggest = "route_table_routes"
         elif key == "routeTables":
             suggest = "route_tables"
+        elif key == "securityGroup":
+            suggest = "security_group"
         elif key == "securityGroupRules":
             suggest = "security_group_rules"
         elif key == "securityGroups":
@@ -6425,6 +6429,7 @@ class NetworkInsightsAnalysisExplanation(dict):
                  internet_gateways: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationInternetGateway']] = None,
                  load_balancer_arn: Optional[str] = None,
                  load_balancer_listener_port: Optional[int] = None,
+                 load_balancer_target_group: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup']] = None,
                  load_balancer_target_groups: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup']] = None,
                  load_balancer_target_port: Optional[int] = None,
                  missing_component: Optional[str] = None,
@@ -6437,6 +6442,7 @@ class NetworkInsightsAnalysisExplanation(dict):
                  protocols: Optional[Sequence[str]] = None,
                  route_table_routes: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationRouteTableRoute']] = None,
                  route_tables: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationRouteTable']] = None,
+                 security_group: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationSecurityGroup']] = None,
                  security_group_rules: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationSecurityGroupRule']] = None,
                  security_groups: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationSecurityGroup']] = None,
                  source_vpcs: Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationSourceVpc']] = None,
@@ -6490,6 +6496,8 @@ class NetworkInsightsAnalysisExplanation(dict):
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if load_balancer_listener_port is not None:
             pulumi.set(__self__, "load_balancer_listener_port", load_balancer_listener_port)
+        if load_balancer_target_group is not None:
+            pulumi.set(__self__, "load_balancer_target_group", load_balancer_target_group)
         if load_balancer_target_groups is not None:
             pulumi.set(__self__, "load_balancer_target_groups", load_balancer_target_groups)
         if load_balancer_target_port is not None:
@@ -6514,6 +6522,8 @@ class NetworkInsightsAnalysisExplanation(dict):
             pulumi.set(__self__, "route_table_routes", route_table_routes)
         if route_tables is not None:
             pulumi.set(__self__, "route_tables", route_tables)
+        if security_group is not None:
+            pulumi.set(__self__, "security_group", security_group)
         if security_group_rules is not None:
             pulumi.set(__self__, "security_group_rules", security_group_rules)
         if security_groups is not None:
@@ -6641,6 +6651,11 @@ class NetworkInsightsAnalysisExplanation(dict):
         return pulumi.get(self, "load_balancer_listener_port")
 
     @property
+    @pulumi.getter(name="loadBalancerTargetGroup")
+    def load_balancer_target_group(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup']]:
+        return pulumi.get(self, "load_balancer_target_group")
+
+    @property
     @pulumi.getter(name="loadBalancerTargetGroups")
     def load_balancer_target_groups(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup']]:
         return pulumi.get(self, "load_balancer_target_groups")
@@ -6699,6 +6714,11 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="routeTables")
     def route_tables(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationRouteTable']]:
         return pulumi.get(self, "route_tables")
+
+    @property
+    @pulumi.getter(name="securityGroup")
+    def security_group(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisExplanationSecurityGroup']]:
+        return pulumi.get(self, "security_group")
 
     @property
     @pulumi.getter(name="securityGroupRules")
@@ -17234,6 +17254,7 @@ class GetNetworkInsightsAnalysisExplanationResult(dict):
                  internet_gateways: Sequence['outputs.GetNetworkInsightsAnalysisExplanationInternetGatewayResult'],
                  load_balancer_arn: str,
                  load_balancer_listener_port: int,
+                 load_balancer_target_group: Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult'],
                  load_balancer_target_groups: Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult'],
                  load_balancer_target_port: int,
                  missing_component: str,
@@ -17246,6 +17267,7 @@ class GetNetworkInsightsAnalysisExplanationResult(dict):
                  protocols: Sequence[str],
                  route_table_routes: Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableRouteResult'],
                  route_tables: Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableResult'],
+                 security_group: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult'],
                  security_group_rules: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult'],
                  security_groups: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult'],
                  source_vpcs: Sequence['outputs.GetNetworkInsightsAnalysisExplanationSourceVpcResult'],
@@ -17280,6 +17302,7 @@ class GetNetworkInsightsAnalysisExplanationResult(dict):
         pulumi.set(__self__, "internet_gateways", internet_gateways)
         pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         pulumi.set(__self__, "load_balancer_listener_port", load_balancer_listener_port)
+        pulumi.set(__self__, "load_balancer_target_group", load_balancer_target_group)
         pulumi.set(__self__, "load_balancer_target_groups", load_balancer_target_groups)
         pulumi.set(__self__, "load_balancer_target_port", load_balancer_target_port)
         pulumi.set(__self__, "missing_component", missing_component)
@@ -17292,6 +17315,7 @@ class GetNetworkInsightsAnalysisExplanationResult(dict):
         pulumi.set(__self__, "protocols", protocols)
         pulumi.set(__self__, "route_table_routes", route_table_routes)
         pulumi.set(__self__, "route_tables", route_tables)
+        pulumi.set(__self__, "security_group", security_group)
         pulumi.set(__self__, "security_group_rules", security_group_rules)
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "source_vpcs", source_vpcs)
@@ -17404,6 +17428,11 @@ class GetNetworkInsightsAnalysisExplanationResult(dict):
         return pulumi.get(self, "load_balancer_listener_port")
 
     @property
+    @pulumi.getter(name="loadBalancerTargetGroup")
+    def load_balancer_target_group(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult']:
+        return pulumi.get(self, "load_balancer_target_group")
+
+    @property
     @pulumi.getter(name="loadBalancerTargetGroups")
     def load_balancer_target_groups(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult']:
         return pulumi.get(self, "load_balancer_target_groups")
@@ -17462,6 +17491,11 @@ class GetNetworkInsightsAnalysisExplanationResult(dict):
     @pulumi.getter(name="routeTables")
     def route_tables(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationRouteTableResult']:
         return pulumi.get(self, "route_tables")
+
+    @property
+    @pulumi.getter(name="securityGroup")
+    def security_group(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult']:
+        return pulumi.get(self, "security_group")
 
     @property
     @pulumi.getter(name="securityGroupRules")

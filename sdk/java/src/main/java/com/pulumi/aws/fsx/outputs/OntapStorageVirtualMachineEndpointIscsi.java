@@ -11,7 +11,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class OntapStorageVirtualMachineEndpointIscse {
+public final class OntapStorageVirtualMachineEndpointIscsi {
     /**
      * @return The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
@@ -23,7 +23,7 @@ public final class OntapStorageVirtualMachineEndpointIscse {
      */
     private @Nullable List<String> ipAddresses;
 
-    private OntapStorageVirtualMachineEndpointIscse() {}
+    private OntapStorageVirtualMachineEndpointIscsi() {}
     /**
      * @return The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
@@ -43,7 +43,7 @@ public final class OntapStorageVirtualMachineEndpointIscse {
         return new Builder();
     }
 
-    public static Builder builder(OntapStorageVirtualMachineEndpointIscse defaults) {
+    public static Builder builder(OntapStorageVirtualMachineEndpointIscsi defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -51,7 +51,7 @@ public final class OntapStorageVirtualMachineEndpointIscse {
         private @Nullable String dnsName;
         private @Nullable List<String> ipAddresses;
         public Builder() {}
-        public Builder(OntapStorageVirtualMachineEndpointIscse defaults) {
+        public Builder(OntapStorageVirtualMachineEndpointIscsi defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsName = defaults.dnsName;
     	      this.ipAddresses = defaults.ipAddresses;
@@ -70,8 +70,8 @@ public final class OntapStorageVirtualMachineEndpointIscse {
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
-        public OntapStorageVirtualMachineEndpointIscse build() {
-            final var o = new OntapStorageVirtualMachineEndpointIscse();
+        public OntapStorageVirtualMachineEndpointIscsi build() {
+            final var o = new OntapStorageVirtualMachineEndpointIscsi();
             o.dnsName = dnsName;
             o.ipAddresses = ipAddresses;
             return o;

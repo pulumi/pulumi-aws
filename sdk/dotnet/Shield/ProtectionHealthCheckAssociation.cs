@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Shield
     /// 
     ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
     ///     {
-    ///         ResourceArn = Output.Tuple(currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
+    ///         ResourceArn = Output.Tuple(currentPartition, currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
     ///         {
     ///             var currentPartition = values.Item1;
     ///             var currentRegion = values.Item2;

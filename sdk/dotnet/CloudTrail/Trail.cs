@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CloudTrail
     ///     var fooBucketPolicy = new Aws.S3.BucketPolicy("fooBucketPolicy", new()
     ///     {
     ///         Bucket = fooBucketV2.Id,
-    ///         Policy = Output.Tuple(fooBucketV2.Arn, fooBucketV2.Arn, current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         Policy = Output.Tuple(fooBucketV2.Arn, fooBucketV2.Arn, current).Apply(values =&gt;
     ///         {
     ///             var fooBucketV2Arn = values.Item1;
     ///             var fooBucketV2Arn1 = values.Item2;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                         Type = "AWS::S3::Object",
     ///                         Values = new[]
     ///                         {
-    ///                             important_bucket.Apply(getBucketResult =&gt; getBucketResult).Apply(important_bucket =&gt; $"{important_bucket.Apply(getBucketResult =&gt; getBucketResult.Arn)}/"),
+    ///                             important_bucket.Apply(important_bucket =&gt; $"{important_bucket.Apply(getBucketResult =&gt; getBucketResult.Arn)}/"),
     ///                         },
     ///                     },
     ///                 },

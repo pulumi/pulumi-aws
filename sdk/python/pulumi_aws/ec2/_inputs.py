@@ -6260,6 +6260,7 @@ class NetworkInsightsAnalysisExplanationArgs:
                  internet_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgs']]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  load_balancer_listener_port: Optional[pulumi.Input[int]] = None,
+                 load_balancer_target_group: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]] = None,
                  load_balancer_target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]] = None,
                  load_balancer_target_port: Optional[pulumi.Input[int]] = None,
                  missing_component: Optional[pulumi.Input[str]] = None,
@@ -6272,6 +6273,7 @@ class NetworkInsightsAnalysisExplanationArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgs']]]] = None,
                  route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]] = None,
+                 security_group: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]] = None,
                  security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs']]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]] = None,
                  source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgs']]]] = None,
@@ -6325,6 +6327,8 @@ class NetworkInsightsAnalysisExplanationArgs:
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if load_balancer_listener_port is not None:
             pulumi.set(__self__, "load_balancer_listener_port", load_balancer_listener_port)
+        if load_balancer_target_group is not None:
+            pulumi.set(__self__, "load_balancer_target_group", load_balancer_target_group)
         if load_balancer_target_groups is not None:
             pulumi.set(__self__, "load_balancer_target_groups", load_balancer_target_groups)
         if load_balancer_target_port is not None:
@@ -6349,6 +6353,8 @@ class NetworkInsightsAnalysisExplanationArgs:
             pulumi.set(__self__, "route_table_routes", route_table_routes)
         if route_tables is not None:
             pulumi.set(__self__, "route_tables", route_tables)
+        if security_group is not None:
+            pulumi.set(__self__, "security_group", security_group)
         if security_group_rules is not None:
             pulumi.set(__self__, "security_group_rules", security_group_rules)
         if security_groups is not None:
@@ -6552,6 +6558,15 @@ class NetworkInsightsAnalysisExplanationArgs:
         pulumi.set(self, "load_balancer_listener_port", value)
 
     @property
+    @pulumi.getter(name="loadBalancerTargetGroup")
+    def load_balancer_target_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]:
+        return pulumi.get(self, "load_balancer_target_group")
+
+    @load_balancer_target_group.setter
+    def load_balancer_target_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]):
+        pulumi.set(self, "load_balancer_target_group", value)
+
+    @property
     @pulumi.getter(name="loadBalancerTargetGroups")
     def load_balancer_target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]:
         return pulumi.get(self, "load_balancer_target_groups")
@@ -6658,6 +6673,15 @@ class NetworkInsightsAnalysisExplanationArgs:
     @route_tables.setter
     def route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]]):
         pulumi.set(self, "route_tables", value)
+
+    @property
+    @pulumi.getter(name="securityGroup")
+    def security_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]:
+        return pulumi.get(self, "security_group")
+
+    @security_group.setter
+    def security_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]):
+        pulumi.set(self, "security_group", value)
 
     @property
     @pulumi.getter(name="securityGroupRules")

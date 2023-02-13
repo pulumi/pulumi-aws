@@ -59,7 +59,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     ///     var ad_log_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", new()
     ///     {
-    ///         PolicyDocument = ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(ad_log_policyPolicyDocument =&gt; ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyDocument = ad_log_policyPolicyDocument.Apply(ad_log_policyPolicyDocument =&gt; ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///         PolicyName = "ad-log-policy",
     ///     });
     /// 

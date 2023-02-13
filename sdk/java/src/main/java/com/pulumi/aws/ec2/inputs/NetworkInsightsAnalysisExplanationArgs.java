@@ -182,6 +182,13 @@ public final class NetworkInsightsAnalysisExplanationArgs extends com.pulumi.res
         return Optional.ofNullable(this.loadBalancerListenerPort);
     }
 
+    @Import(name="loadBalancerTargetGroup")
+    private @Nullable Output<List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs>> loadBalancerTargetGroup;
+
+    public Optional<Output<List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs>>> loadBalancerTargetGroup() {
+        return Optional.ofNullable(this.loadBalancerTargetGroup);
+    }
+
     @Import(name="loadBalancerTargetGroups")
     private @Nullable Output<List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs>> loadBalancerTargetGroups;
 
@@ -264,6 +271,13 @@ public final class NetworkInsightsAnalysisExplanationArgs extends com.pulumi.res
 
     public Optional<Output<List<NetworkInsightsAnalysisExplanationRouteTableArgs>>> routeTables() {
         return Optional.ofNullable(this.routeTables);
+    }
+
+    @Import(name="securityGroup")
+    private @Nullable Output<List<NetworkInsightsAnalysisExplanationSecurityGroupArgs>> securityGroup;
+
+    public Optional<Output<List<NetworkInsightsAnalysisExplanationSecurityGroupArgs>>> securityGroup() {
+        return Optional.ofNullable(this.securityGroup);
     }
 
     @Import(name="securityGroupRules")
@@ -393,6 +407,7 @@ public final class NetworkInsightsAnalysisExplanationArgs extends com.pulumi.res
         this.internetGateways = $.internetGateways;
         this.loadBalancerArn = $.loadBalancerArn;
         this.loadBalancerListenerPort = $.loadBalancerListenerPort;
+        this.loadBalancerTargetGroup = $.loadBalancerTargetGroup;
         this.loadBalancerTargetGroups = $.loadBalancerTargetGroups;
         this.loadBalancerTargetPort = $.loadBalancerTargetPort;
         this.missingComponent = $.missingComponent;
@@ -405,6 +420,7 @@ public final class NetworkInsightsAnalysisExplanationArgs extends com.pulumi.res
         this.protocols = $.protocols;
         this.routeTableRoutes = $.routeTableRoutes;
         this.routeTables = $.routeTables;
+        this.securityGroup = $.securityGroup;
         this.securityGroupRules = $.securityGroupRules;
         this.securityGroups = $.securityGroups;
         this.sourceVpcs = $.sourceVpcs;
@@ -667,6 +683,19 @@ public final class NetworkInsightsAnalysisExplanationArgs extends com.pulumi.res
             return loadBalancerListenerPort(Output.of(loadBalancerListenerPort));
         }
 
+        public Builder loadBalancerTargetGroup(@Nullable Output<List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs>> loadBalancerTargetGroup) {
+            $.loadBalancerTargetGroup = loadBalancerTargetGroup;
+            return this;
+        }
+
+        public Builder loadBalancerTargetGroup(List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs> loadBalancerTargetGroup) {
+            return loadBalancerTargetGroup(Output.of(loadBalancerTargetGroup));
+        }
+
+        public Builder loadBalancerTargetGroup(NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs... loadBalancerTargetGroup) {
+            return loadBalancerTargetGroup(List.of(loadBalancerTargetGroup));
+        }
+
         public Builder loadBalancerTargetGroups(@Nullable Output<List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs>> loadBalancerTargetGroups) {
             $.loadBalancerTargetGroups = loadBalancerTargetGroups;
             return this;
@@ -805,6 +834,19 @@ public final class NetworkInsightsAnalysisExplanationArgs extends com.pulumi.res
 
         public Builder routeTables(NetworkInsightsAnalysisExplanationRouteTableArgs... routeTables) {
             return routeTables(List.of(routeTables));
+        }
+
+        public Builder securityGroup(@Nullable Output<List<NetworkInsightsAnalysisExplanationSecurityGroupArgs>> securityGroup) {
+            $.securityGroup = securityGroup;
+            return this;
+        }
+
+        public Builder securityGroup(List<NetworkInsightsAnalysisExplanationSecurityGroupArgs> securityGroup) {
+            return securityGroup(Output.of(securityGroup));
+        }
+
+        public Builder securityGroup(NetworkInsightsAnalysisExplanationSecurityGroupArgs... securityGroup) {
+            return securityGroup(List.of(securityGroup));
         }
 
         public Builder securityGroupRules(@Nullable Output<List<NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs>> securityGroupRules) {

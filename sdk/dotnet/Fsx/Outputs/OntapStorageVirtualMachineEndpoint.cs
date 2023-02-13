@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// <summary>
         /// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OntapStorageVirtualMachineEndpointIscse> Iscses;
+        public readonly ImmutableArray<Outputs.OntapStorageVirtualMachineEndpointIscsi> Iscsis;
         /// <summary>
         /// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Fsx.Outputs
 
         [OutputConstructor]
         private OntapStorageVirtualMachineEndpoint(
-            ImmutableArray<Outputs.OntapStorageVirtualMachineEndpointIscse> iscses,
+            ImmutableArray<Outputs.OntapStorageVirtualMachineEndpointIscsi> iscsis,
 
             ImmutableArray<Outputs.OntapStorageVirtualMachineEndpointManagement> managements,
 
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Fsx.Outputs
 
             ImmutableArray<Outputs.OntapStorageVirtualMachineEndpointSmb> smbs)
         {
-            Iscses = iscses;
+            Iscsis = iscsis;
             Managements = managements;
             Nfs = nfs;
             Smbs = smbs;

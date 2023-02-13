@@ -27,7 +27,7 @@ __all__ = [
     'OntapStorageVirtualMachineActiveDirectoryConfiguration',
     'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration',
     'OntapStorageVirtualMachineEndpoint',
-    'OntapStorageVirtualMachineEndpointIscse',
+    'OntapStorageVirtualMachineEndpointIscsi',
     'OntapStorageVirtualMachineEndpointManagement',
     'OntapStorageVirtualMachineEndpointNf',
     'OntapStorageVirtualMachineEndpointSmb',
@@ -822,18 +822,18 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
 @pulumi.output_type
 class OntapStorageVirtualMachineEndpoint(dict):
     def __init__(__self__, *,
-                 iscses: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscse']] = None,
+                 iscsis: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscsi']] = None,
                  managements: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']] = None,
                  nfs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']] = None,
                  smbs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']] = None):
         """
-        :param Sequence['OntapStorageVirtualMachineEndpointIscseArgs'] iscses: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointIscsiArgs'] iscsis: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         :param Sequence['OntapStorageVirtualMachineEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
         :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         """
-        if iscses is not None:
-            pulumi.set(__self__, "iscses", iscses)
+        if iscsis is not None:
+            pulumi.set(__self__, "iscsis", iscsis)
         if managements is not None:
             pulumi.set(__self__, "managements", managements)
         if nfs is not None:
@@ -843,11 +843,11 @@ class OntapStorageVirtualMachineEndpoint(dict):
 
     @property
     @pulumi.getter
-    def iscses(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscse']]:
+    def iscsis(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscsi']]:
         """
         An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         """
-        return pulumi.get(self, "iscses")
+        return pulumi.get(self, "iscsis")
 
     @property
     @pulumi.getter
@@ -875,7 +875,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
 
 
 @pulumi.output_type
-class OntapStorageVirtualMachineEndpointIscse(dict):
+class OntapStorageVirtualMachineEndpointIscsi(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -885,14 +885,14 @@ class OntapStorageVirtualMachineEndpointIscse(dict):
             suggest = "ip_addresses"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineEndpointIscse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineEndpointIscsi. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OntapStorageVirtualMachineEndpointIscse.__key_warning(key)
+        OntapStorageVirtualMachineEndpointIscsi.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OntapStorageVirtualMachineEndpointIscse.__key_warning(key)
+        OntapStorageVirtualMachineEndpointIscsi.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

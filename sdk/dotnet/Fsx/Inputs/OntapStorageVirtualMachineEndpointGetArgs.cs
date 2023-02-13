@@ -12,16 +12,16 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class OntapStorageVirtualMachineEndpointGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("iscses")]
-        private InputList<Inputs.OntapStorageVirtualMachineEndpointIscseGetArgs>? _iscses;
+        [Input("iscsis")]
+        private InputList<Inputs.OntapStorageVirtualMachineEndpointIscsiGetArgs>? _iscsis;
 
         /// <summary>
         /// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         /// </summary>
-        public InputList<Inputs.OntapStorageVirtualMachineEndpointIscseGetArgs> Iscses
+        public InputList<Inputs.OntapStorageVirtualMachineEndpointIscsiGetArgs> Iscsis
         {
-            get => _iscses ?? (_iscses = new InputList<Inputs.OntapStorageVirtualMachineEndpointIscseGetArgs>());
-            set => _iscses = value;
+            get => _iscsis ?? (_iscsis = new InputList<Inputs.OntapStorageVirtualMachineEndpointIscsiGetArgs>());
+            set => _iscsis = value;
         }
 
         [Input("managements")]

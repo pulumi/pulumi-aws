@@ -49,7 +49,7 @@ namespace Pulumi.Aws.S3Control
     ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointPolicyDetailsArgs
     ///         {
     ///             Name = exampleMultiRegionAccessPoint.Id.Apply(id =&gt; id.Split(":"))[1],
-    ///             Policy = Output.Tuple(currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleMultiRegionAccessPoint.Alias).Apply(values =&gt;
+    ///             Policy = Output.Tuple(currentCallerIdentity, currentPartition, currentCallerIdentity, exampleMultiRegionAccessPoint.Alias).Apply(values =&gt;
     ///             {
     ///                 var currentCallerIdentity = values.Item1;
     ///                 var currentPartition = values.Item2;

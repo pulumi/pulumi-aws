@@ -30,7 +30,7 @@ namespace Pulumi.Aws.MediaStore
     ///     var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("exampleContainerPolicy", new()
     ///     {
     ///         ContainerName = exampleContainer.Name,
-    ///         Policy = Output.Tuple(currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleContainer.Name).Apply(values =&gt;
+    ///         Policy = Output.Tuple(currentCallerIdentity, currentRegion, currentCallerIdentity, exampleContainer.Name).Apply(values =&gt;
     ///         {
     ///             var currentCallerIdentity = values.Item1;
     ///             var currentRegion = values.Item2;
