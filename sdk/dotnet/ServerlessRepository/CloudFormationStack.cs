@@ -35,7 +35,7 @@ namespace Pulumi.Aws.ServerlessRepository
     ///         },
     ///         Parameters = 
     ///         {
-    ///             { "endpoint", Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentPartition.Apply(getPartitionResult =&gt; getPartitionResult)).Apply(values =&gt;
+    ///             { "endpoint", Output.Tuple(currentRegion, currentPartition).Apply(values =&gt;
     ///             {
     ///                 var currentRegion = values.Item1;
     ///                 var currentPartition = values.Item2;

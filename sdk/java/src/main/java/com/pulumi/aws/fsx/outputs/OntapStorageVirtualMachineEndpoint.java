@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.fsx.outputs;
 
-import com.pulumi.aws.fsx.outputs.OntapStorageVirtualMachineEndpointIscse;
+import com.pulumi.aws.fsx.outputs.OntapStorageVirtualMachineEndpointIscsi;
 import com.pulumi.aws.fsx.outputs.OntapStorageVirtualMachineEndpointManagement;
 import com.pulumi.aws.fsx.outputs.OntapStorageVirtualMachineEndpointNf;
 import com.pulumi.aws.fsx.outputs.OntapStorageVirtualMachineEndpointSmb;
@@ -18,7 +18,7 @@ public final class OntapStorageVirtualMachineEndpoint {
      * @return An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
      * 
      */
-    private @Nullable List<OntapStorageVirtualMachineEndpointIscse> iscses;
+    private @Nullable List<OntapStorageVirtualMachineEndpointIscsi> iscsis;
     /**
      * @return An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
      * 
@@ -40,8 +40,8 @@ public final class OntapStorageVirtualMachineEndpoint {
      * @return An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
      * 
      */
-    public List<OntapStorageVirtualMachineEndpointIscse> iscses() {
-        return this.iscses == null ? List.of() : this.iscses;
+    public List<OntapStorageVirtualMachineEndpointIscsi> iscsis() {
+        return this.iscsis == null ? List.of() : this.iscsis;
     }
     /**
      * @return An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
@@ -74,26 +74,26 @@ public final class OntapStorageVirtualMachineEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<OntapStorageVirtualMachineEndpointIscse> iscses;
+        private @Nullable List<OntapStorageVirtualMachineEndpointIscsi> iscsis;
         private @Nullable List<OntapStorageVirtualMachineEndpointManagement> managements;
         private @Nullable List<OntapStorageVirtualMachineEndpointNf> nfs;
         private @Nullable List<OntapStorageVirtualMachineEndpointSmb> smbs;
         public Builder() {}
         public Builder(OntapStorageVirtualMachineEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.iscses = defaults.iscses;
+    	      this.iscsis = defaults.iscsis;
     	      this.managements = defaults.managements;
     	      this.nfs = defaults.nfs;
     	      this.smbs = defaults.smbs;
         }
 
         @CustomType.Setter
-        public Builder iscses(@Nullable List<OntapStorageVirtualMachineEndpointIscse> iscses) {
-            this.iscses = iscses;
+        public Builder iscsis(@Nullable List<OntapStorageVirtualMachineEndpointIscsi> iscsis) {
+            this.iscsis = iscsis;
             return this;
         }
-        public Builder iscses(OntapStorageVirtualMachineEndpointIscse... iscses) {
-            return iscses(List.of(iscses));
+        public Builder iscsis(OntapStorageVirtualMachineEndpointIscsi... iscsis) {
+            return iscsis(List.of(iscsis));
         }
         @CustomType.Setter
         public Builder managements(@Nullable List<OntapStorageVirtualMachineEndpointManagement> managements) {
@@ -121,7 +121,7 @@ public final class OntapStorageVirtualMachineEndpoint {
         }
         public OntapStorageVirtualMachineEndpoint build() {
             final var o = new OntapStorageVirtualMachineEndpoint();
-            o.iscses = iscses;
+            o.iscsis = iscsis;
             o.managements = managements;
             o.nfs = nfs;
             o.smbs = smbs;

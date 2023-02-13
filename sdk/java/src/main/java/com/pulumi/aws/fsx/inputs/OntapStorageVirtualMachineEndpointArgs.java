@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.fsx.inputs;
 
-import com.pulumi.aws.fsx.inputs.OntapStorageVirtualMachineEndpointIscseArgs;
+import com.pulumi.aws.fsx.inputs.OntapStorageVirtualMachineEndpointIscsiArgs;
 import com.pulumi.aws.fsx.inputs.OntapStorageVirtualMachineEndpointManagementArgs;
 import com.pulumi.aws.fsx.inputs.OntapStorageVirtualMachineEndpointNfArgs;
 import com.pulumi.aws.fsx.inputs.OntapStorageVirtualMachineEndpointSmbArgs;
@@ -23,15 +23,15 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
      * An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
      * 
      */
-    @Import(name="iscses")
-    private @Nullable Output<List<OntapStorageVirtualMachineEndpointIscseArgs>> iscses;
+    @Import(name="iscsis")
+    private @Nullable Output<List<OntapStorageVirtualMachineEndpointIscsiArgs>> iscsis;
 
     /**
      * @return An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
      * 
      */
-    public Optional<Output<List<OntapStorageVirtualMachineEndpointIscseArgs>>> iscses() {
-        return Optional.ofNullable(this.iscses);
+    public Optional<Output<List<OntapStorageVirtualMachineEndpointIscsiArgs>>> iscsis() {
+        return Optional.ofNullable(this.iscsis);
     }
 
     /**
@@ -82,7 +82,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
     private OntapStorageVirtualMachineEndpointArgs() {}
 
     private OntapStorageVirtualMachineEndpointArgs(OntapStorageVirtualMachineEndpointArgs $) {
-        this.iscses = $.iscses;
+        this.iscsis = $.iscsis;
         this.managements = $.managements;
         this.nfs = $.nfs;
         this.smbs = $.smbs;
@@ -107,34 +107,34 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param iscses An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * @param iscsis An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
          * 
          * @return builder
          * 
          */
-        public Builder iscses(@Nullable Output<List<OntapStorageVirtualMachineEndpointIscseArgs>> iscses) {
-            $.iscses = iscses;
+        public Builder iscsis(@Nullable Output<List<OntapStorageVirtualMachineEndpointIscsiArgs>> iscsis) {
+            $.iscsis = iscsis;
             return this;
         }
 
         /**
-         * @param iscses An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * @param iscsis An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
          * 
          * @return builder
          * 
          */
-        public Builder iscses(List<OntapStorageVirtualMachineEndpointIscseArgs> iscses) {
-            return iscses(Output.of(iscses));
+        public Builder iscsis(List<OntapStorageVirtualMachineEndpointIscsiArgs> iscsis) {
+            return iscsis(Output.of(iscsis));
         }
 
         /**
-         * @param iscses An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * @param iscsis An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
          * 
          * @return builder
          * 
          */
-        public Builder iscses(OntapStorageVirtualMachineEndpointIscseArgs... iscses) {
-            return iscses(List.of(iscses));
+        public Builder iscsis(OntapStorageVirtualMachineEndpointIscsiArgs... iscsis) {
+            return iscsis(List.of(iscsis));
         }
 
         /**

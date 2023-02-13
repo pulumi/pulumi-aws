@@ -139,6 +139,14 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("loadBalancerListenerPort")]
         public Input<int>? LoadBalancerListenerPort { get; set; }
 
+        [Input("loadBalancerTargetGroup")]
+        private InputList<Inputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupGetArgs>? _loadBalancerTargetGroup;
+        public InputList<Inputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupGetArgs> LoadBalancerTargetGroup
+        {
+            get => _loadBalancerTargetGroup ?? (_loadBalancerTargetGroup = new InputList<Inputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupGetArgs>());
+            set => _loadBalancerTargetGroup = value;
+        }
+
         [Input("loadBalancerTargetGroups")]
         private InputList<Inputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupGetArgs>? _loadBalancerTargetGroups;
         public InputList<Inputs.NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupGetArgs> LoadBalancerTargetGroups
@@ -213,6 +221,14 @@ namespace Pulumi.Aws.Ec2.Inputs
         {
             get => _routeTables ?? (_routeTables = new InputList<Inputs.NetworkInsightsAnalysisExplanationRouteTableGetArgs>());
             set => _routeTables = value;
+        }
+
+        [Input("securityGroup")]
+        private InputList<Inputs.NetworkInsightsAnalysisExplanationSecurityGroupGetArgs>? _securityGroup;
+        public InputList<Inputs.NetworkInsightsAnalysisExplanationSecurityGroupGetArgs> SecurityGroup
+        {
+            get => _securityGroup ?? (_securityGroup = new InputList<Inputs.NetworkInsightsAnalysisExplanationSecurityGroupGetArgs>());
+            set => _securityGroup = value;
         }
 
         [Input("securityGroupRules")]

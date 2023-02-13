@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudTrail
         ///     var allowCloudtrailLogging = new Aws.S3.BucketPolicy("allowCloudtrailLogging", new()
         ///     {
         ///         Bucket = bucket.Id,
-        ///         Policy = Output.Tuple(main.Apply(getServiceAccountResult =&gt; getServiceAccountResult), main.Apply(getServiceAccountResult =&gt; getServiceAccountResult)).Apply(values =&gt;
+        ///         Policy = Output.Tuple(main, main).Apply(values =&gt;
         ///         {
         ///             var main = values.Item1;
         ///             var main1 = values.Item2;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.CloudTrail
         ///     var allowCloudtrailLogging = new Aws.S3.BucketPolicy("allowCloudtrailLogging", new()
         ///     {
         ///         Bucket = bucket.Id,
-        ///         Policy = Output.Tuple(main.Apply(getServiceAccountResult =&gt; getServiceAccountResult), main.Apply(getServiceAccountResult =&gt; getServiceAccountResult)).Apply(values =&gt;
+        ///         Policy = Output.Tuple(main, main).Apply(values =&gt;
         ///         {
         ///             var main = values.Item1;
         ///             var main1 = values.Item2;

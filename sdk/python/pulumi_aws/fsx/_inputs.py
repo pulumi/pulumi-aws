@@ -26,7 +26,7 @@ __all__ = [
     'OntapStorageVirtualMachineActiveDirectoryConfigurationArgs',
     'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs',
     'OntapStorageVirtualMachineEndpointArgs',
-    'OntapStorageVirtualMachineEndpointIscseArgs',
+    'OntapStorageVirtualMachineEndpointIscsiArgs',
     'OntapStorageVirtualMachineEndpointManagementArgs',
     'OntapStorageVirtualMachineEndpointNfArgs',
     'OntapStorageVirtualMachineEndpointSmbArgs',
@@ -804,18 +804,18 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
 @pulumi.input_type
 class OntapStorageVirtualMachineEndpointArgs:
     def __init__(__self__, *,
-                 iscses: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscseArgs']]]] = None,
+                 iscsis: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]]] = None,
                  managements: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgs']]]] = None,
                  nfs: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgs']]]] = None,
                  smbs: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscseArgs']]] iscses: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]] iscsis: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgs']]] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgs']]] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgs']]] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         """
-        if iscses is not None:
-            pulumi.set(__self__, "iscses", iscses)
+        if iscsis is not None:
+            pulumi.set(__self__, "iscsis", iscsis)
         if managements is not None:
             pulumi.set(__self__, "managements", managements)
         if nfs is not None:
@@ -825,15 +825,15 @@ class OntapStorageVirtualMachineEndpointArgs:
 
     @property
     @pulumi.getter
-    def iscses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscseArgs']]]]:
+    def iscsis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]]]:
         """
         An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         """
-        return pulumi.get(self, "iscses")
+        return pulumi.get(self, "iscsis")
 
-    @iscses.setter
-    def iscses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscseArgs']]]]):
-        pulumi.set(self, "iscses", value)
+    @iscsis.setter
+    def iscsis(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]]]):
+        pulumi.set(self, "iscsis", value)
 
     @property
     @pulumi.getter
@@ -873,7 +873,7 @@ class OntapStorageVirtualMachineEndpointArgs:
 
 
 @pulumi.input_type
-class OntapStorageVirtualMachineEndpointIscseArgs:
+class OntapStorageVirtualMachineEndpointIscsiArgs:
     def __init__(__self__, *,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):

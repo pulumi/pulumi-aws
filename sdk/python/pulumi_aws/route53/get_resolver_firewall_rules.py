@@ -89,7 +89,7 @@ def get_resolver_firewall_rules(action: Optional[str] = None,
                                 priority: Optional[int] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRulesResult:
     """
-    `route53.get_resolver_firewall_rules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
+    _route53_get_resolver_firewall_rules_ Provides details about rules in a specific Route53 Resolver Firewall rule group.
 
     ## Example Usage
 
@@ -128,7 +128,7 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[st
                                        priority: Optional[pulumi.Input[Optional[int]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallRulesResult]:
     """
-    `route53.get_resolver_firewall_rules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
+    _route53_get_resolver_firewall_rules_ Provides details about rules in a specific Route53 Resolver Firewall rule group.
 
     ## Example Usage
 

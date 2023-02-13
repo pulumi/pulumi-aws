@@ -12,9 +12,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class OntapStorageVirtualMachineEndpointIscseArgs extends com.pulumi.resources.ResourceArgs {
+public final class OntapStorageVirtualMachineEndpointIscsiArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final OntapStorageVirtualMachineEndpointIscseArgs Empty = new OntapStorageVirtualMachineEndpointIscseArgs();
+    public static final OntapStorageVirtualMachineEndpointIscsiArgs Empty = new OntapStorageVirtualMachineEndpointIscsiArgs();
 
     /**
      * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
@@ -46,9 +46,9 @@ public final class OntapStorageVirtualMachineEndpointIscseArgs extends com.pulum
         return Optional.ofNullable(this.ipAddresses);
     }
 
-    private OntapStorageVirtualMachineEndpointIscseArgs() {}
+    private OntapStorageVirtualMachineEndpointIscsiArgs() {}
 
-    private OntapStorageVirtualMachineEndpointIscseArgs(OntapStorageVirtualMachineEndpointIscseArgs $) {
+    private OntapStorageVirtualMachineEndpointIscsiArgs(OntapStorageVirtualMachineEndpointIscsiArgs $) {
         this.dnsName = $.dnsName;
         this.ipAddresses = $.ipAddresses;
     }
@@ -56,19 +56,19 @@ public final class OntapStorageVirtualMachineEndpointIscseArgs extends com.pulum
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(OntapStorageVirtualMachineEndpointIscseArgs defaults) {
+    public static Builder builder(OntapStorageVirtualMachineEndpointIscsiArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private OntapStorageVirtualMachineEndpointIscseArgs $;
+        private OntapStorageVirtualMachineEndpointIscsiArgs $;
 
         public Builder() {
-            $ = new OntapStorageVirtualMachineEndpointIscseArgs();
+            $ = new OntapStorageVirtualMachineEndpointIscsiArgs();
         }
 
-        public Builder(OntapStorageVirtualMachineEndpointIscseArgs defaults) {
-            $ = new OntapStorageVirtualMachineEndpointIscseArgs(Objects.requireNonNull(defaults));
+        public Builder(OntapStorageVirtualMachineEndpointIscsiArgs defaults) {
+            $ = new OntapStorageVirtualMachineEndpointIscsiArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -123,7 +123,7 @@ public final class OntapStorageVirtualMachineEndpointIscseArgs extends com.pulum
             return ipAddresses(List.of(ipAddresses));
         }
 
-        public OntapStorageVirtualMachineEndpointIscseArgs build() {
+        public OntapStorageVirtualMachineEndpointIscsiArgs build() {
             return $;
         }
     }

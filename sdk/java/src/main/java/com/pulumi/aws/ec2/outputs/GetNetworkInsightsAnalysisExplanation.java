@@ -62,6 +62,7 @@ public final class GetNetworkInsightsAnalysisExplanation {
     private List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways;
     private String loadBalancerArn;
     private Integer loadBalancerListenerPort;
+    private List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup;
     private List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups;
     private Integer loadBalancerTargetPort;
     private String missingComponent;
@@ -74,6 +75,7 @@ public final class GetNetworkInsightsAnalysisExplanation {
     private List<String> protocols;
     private List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes;
     private List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables;
+    private List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup;
     private List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules;
     private List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups;
     private List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs;
@@ -148,6 +150,9 @@ public final class GetNetworkInsightsAnalysisExplanation {
     public Integer loadBalancerListenerPort() {
         return this.loadBalancerListenerPort;
     }
+    public List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup() {
+        return this.loadBalancerTargetGroup;
+    }
     public List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups() {
         return this.loadBalancerTargetGroups;
     }
@@ -183,6 +188,9 @@ public final class GetNetworkInsightsAnalysisExplanation {
     }
     public List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables() {
         return this.routeTables;
+    }
+    public List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup() {
+        return this.securityGroup;
     }
     public List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules() {
         return this.securityGroupRules;
@@ -258,6 +266,7 @@ public final class GetNetworkInsightsAnalysisExplanation {
         private List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways;
         private String loadBalancerArn;
         private Integer loadBalancerListenerPort;
+        private List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup;
         private List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups;
         private Integer loadBalancerTargetPort;
         private String missingComponent;
@@ -270,6 +279,7 @@ public final class GetNetworkInsightsAnalysisExplanation {
         private List<String> protocols;
         private List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes;
         private List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables;
+        private List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup;
         private List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules;
         private List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups;
         private List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs;
@@ -307,6 +317,7 @@ public final class GetNetworkInsightsAnalysisExplanation {
     	      this.internetGateways = defaults.internetGateways;
     	      this.loadBalancerArn = defaults.loadBalancerArn;
     	      this.loadBalancerListenerPort = defaults.loadBalancerListenerPort;
+    	      this.loadBalancerTargetGroup = defaults.loadBalancerTargetGroup;
     	      this.loadBalancerTargetGroups = defaults.loadBalancerTargetGroups;
     	      this.loadBalancerTargetPort = defaults.loadBalancerTargetPort;
     	      this.missingComponent = defaults.missingComponent;
@@ -319,6 +330,7 @@ public final class GetNetworkInsightsAnalysisExplanation {
     	      this.protocols = defaults.protocols;
     	      this.routeTableRoutes = defaults.routeTableRoutes;
     	      this.routeTables = defaults.routeTables;
+    	      this.securityGroup = defaults.securityGroup;
     	      this.securityGroupRules = defaults.securityGroupRules;
     	      this.securityGroups = defaults.securityGroups;
     	      this.sourceVpcs = defaults.sourceVpcs;
@@ -474,6 +486,14 @@ public final class GetNetworkInsightsAnalysisExplanation {
             return this;
         }
         @CustomType.Setter
+        public Builder loadBalancerTargetGroup(List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup) {
+            this.loadBalancerTargetGroup = Objects.requireNonNull(loadBalancerTargetGroup);
+            return this;
+        }
+        public Builder loadBalancerTargetGroup(GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup... loadBalancerTargetGroup) {
+            return loadBalancerTargetGroup(List.of(loadBalancerTargetGroup));
+        }
+        @CustomType.Setter
         public Builder loadBalancerTargetGroups(List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups) {
             this.loadBalancerTargetGroups = Objects.requireNonNull(loadBalancerTargetGroups);
             return this;
@@ -556,6 +576,14 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         public Builder routeTables(GetNetworkInsightsAnalysisExplanationRouteTable... routeTables) {
             return routeTables(List.of(routeTables));
+        }
+        @CustomType.Setter
+        public Builder securityGroup(List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup) {
+            this.securityGroup = Objects.requireNonNull(securityGroup);
+            return this;
+        }
+        public Builder securityGroup(GetNetworkInsightsAnalysisExplanationSecurityGroup... securityGroup) {
+            return securityGroup(List.of(securityGroup));
         }
         @CustomType.Setter
         public Builder securityGroupRules(List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules) {
@@ -695,6 +723,7 @@ public final class GetNetworkInsightsAnalysisExplanation {
             o.internetGateways = internetGateways;
             o.loadBalancerArn = loadBalancerArn;
             o.loadBalancerListenerPort = loadBalancerListenerPort;
+            o.loadBalancerTargetGroup = loadBalancerTargetGroup;
             o.loadBalancerTargetGroups = loadBalancerTargetGroups;
             o.loadBalancerTargetPort = loadBalancerTargetPort;
             o.missingComponent = missingComponent;
@@ -707,6 +736,7 @@ public final class GetNetworkInsightsAnalysisExplanation {
             o.protocols = protocols;
             o.routeTableRoutes = routeTableRoutes;
             o.routeTables = routeTables;
+            o.securityGroup = securityGroup;
             o.securityGroupRules = securityGroupRules;
             o.securityGroups = securityGroups;
             o.sourceVpcs = sourceVpcs;

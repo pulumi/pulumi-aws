@@ -2089,7 +2089,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 
 type OntapStorageVirtualMachineEndpoint struct {
 	// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-	Iscses []OntapStorageVirtualMachineEndpointIscse `pulumi:"iscses"`
+	Iscsis []OntapStorageVirtualMachineEndpointIscsi `pulumi:"iscsis"`
 	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
 	Managements []OntapStorageVirtualMachineEndpointManagement `pulumi:"managements"`
 	// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
@@ -2111,7 +2111,7 @@ type OntapStorageVirtualMachineEndpointInput interface {
 
 type OntapStorageVirtualMachineEndpointArgs struct {
 	// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-	Iscses OntapStorageVirtualMachineEndpointIscseArrayInput `pulumi:"iscses"`
+	Iscsis OntapStorageVirtualMachineEndpointIscsiArrayInput `pulumi:"iscsis"`
 	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
 	Managements OntapStorageVirtualMachineEndpointManagementArrayInput `pulumi:"managements"`
 	// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
@@ -2172,8 +2172,8 @@ func (o OntapStorageVirtualMachineEndpointOutput) ToOntapStorageVirtualMachineEn
 }
 
 // An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-func (o OntapStorageVirtualMachineEndpointOutput) Iscses() OntapStorageVirtualMachineEndpointIscseArrayOutput {
-	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointIscse { return v.Iscses }).(OntapStorageVirtualMachineEndpointIscseArrayOutput)
+func (o OntapStorageVirtualMachineEndpointOutput) Iscsis() OntapStorageVirtualMachineEndpointIscsiArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointIscsi { return v.Iscsis }).(OntapStorageVirtualMachineEndpointIscsiArrayOutput)
 }
 
 // An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
@@ -2213,110 +2213,110 @@ func (o OntapStorageVirtualMachineEndpointArrayOutput) Index(i pulumi.IntInput) 
 	}).(OntapStorageVirtualMachineEndpointOutput)
 }
 
-type OntapStorageVirtualMachineEndpointIscse struct {
+type OntapStorageVirtualMachineEndpointIscsi struct {
 	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName *string `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
-// OntapStorageVirtualMachineEndpointIscseInput is an input type that accepts OntapStorageVirtualMachineEndpointIscseArgs and OntapStorageVirtualMachineEndpointIscseOutput values.
-// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointIscseInput` via:
+// OntapStorageVirtualMachineEndpointIscsiInput is an input type that accepts OntapStorageVirtualMachineEndpointIscsiArgs and OntapStorageVirtualMachineEndpointIscsiOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointIscsiInput` via:
 //
-//	OntapStorageVirtualMachineEndpointIscseArgs{...}
-type OntapStorageVirtualMachineEndpointIscseInput interface {
+//	OntapStorageVirtualMachineEndpointIscsiArgs{...}
+type OntapStorageVirtualMachineEndpointIscsiInput interface {
 	pulumi.Input
 
-	ToOntapStorageVirtualMachineEndpointIscseOutput() OntapStorageVirtualMachineEndpointIscseOutput
-	ToOntapStorageVirtualMachineEndpointIscseOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointIscseOutput
+	ToOntapStorageVirtualMachineEndpointIscsiOutput() OntapStorageVirtualMachineEndpointIscsiOutput
+	ToOntapStorageVirtualMachineEndpointIscsiOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointIscsiOutput
 }
 
-type OntapStorageVirtualMachineEndpointIscseArgs struct {
+type OntapStorageVirtualMachineEndpointIscsiArgs struct {
 	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
-func (OntapStorageVirtualMachineEndpointIscseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscse)(nil)).Elem()
+func (OntapStorageVirtualMachineEndpointIscsiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscsi)(nil)).Elem()
 }
 
-func (i OntapStorageVirtualMachineEndpointIscseArgs) ToOntapStorageVirtualMachineEndpointIscseOutput() OntapStorageVirtualMachineEndpointIscseOutput {
-	return i.ToOntapStorageVirtualMachineEndpointIscseOutputWithContext(context.Background())
+func (i OntapStorageVirtualMachineEndpointIscsiArgs) ToOntapStorageVirtualMachineEndpointIscsiOutput() OntapStorageVirtualMachineEndpointIscsiOutput {
+	return i.ToOntapStorageVirtualMachineEndpointIscsiOutputWithContext(context.Background())
 }
 
-func (i OntapStorageVirtualMachineEndpointIscseArgs) ToOntapStorageVirtualMachineEndpointIscseOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointIscseOutput)
+func (i OntapStorageVirtualMachineEndpointIscsiArgs) ToOntapStorageVirtualMachineEndpointIscsiOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscsiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointIscsiOutput)
 }
 
-// OntapStorageVirtualMachineEndpointIscseArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointIscseArray and OntapStorageVirtualMachineEndpointIscseArrayOutput values.
-// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointIscseArrayInput` via:
+// OntapStorageVirtualMachineEndpointIscsiArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointIscsiArray and OntapStorageVirtualMachineEndpointIscsiArrayOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointIscsiArrayInput` via:
 //
-//	OntapStorageVirtualMachineEndpointIscseArray{ OntapStorageVirtualMachineEndpointIscseArgs{...} }
-type OntapStorageVirtualMachineEndpointIscseArrayInput interface {
+//	OntapStorageVirtualMachineEndpointIscsiArray{ OntapStorageVirtualMachineEndpointIscsiArgs{...} }
+type OntapStorageVirtualMachineEndpointIscsiArrayInput interface {
 	pulumi.Input
 
-	ToOntapStorageVirtualMachineEndpointIscseArrayOutput() OntapStorageVirtualMachineEndpointIscseArrayOutput
-	ToOntapStorageVirtualMachineEndpointIscseArrayOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointIscseArrayOutput
+	ToOntapStorageVirtualMachineEndpointIscsiArrayOutput() OntapStorageVirtualMachineEndpointIscsiArrayOutput
+	ToOntapStorageVirtualMachineEndpointIscsiArrayOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointIscsiArrayOutput
 }
 
-type OntapStorageVirtualMachineEndpointIscseArray []OntapStorageVirtualMachineEndpointIscseInput
+type OntapStorageVirtualMachineEndpointIscsiArray []OntapStorageVirtualMachineEndpointIscsiInput
 
-func (OntapStorageVirtualMachineEndpointIscseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointIscse)(nil)).Elem()
+func (OntapStorageVirtualMachineEndpointIscsiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointIscsi)(nil)).Elem()
 }
 
-func (i OntapStorageVirtualMachineEndpointIscseArray) ToOntapStorageVirtualMachineEndpointIscseArrayOutput() OntapStorageVirtualMachineEndpointIscseArrayOutput {
-	return i.ToOntapStorageVirtualMachineEndpointIscseArrayOutputWithContext(context.Background())
+func (i OntapStorageVirtualMachineEndpointIscsiArray) ToOntapStorageVirtualMachineEndpointIscsiArrayOutput() OntapStorageVirtualMachineEndpointIscsiArrayOutput {
+	return i.ToOntapStorageVirtualMachineEndpointIscsiArrayOutputWithContext(context.Background())
 }
 
-func (i OntapStorageVirtualMachineEndpointIscseArray) ToOntapStorageVirtualMachineEndpointIscseArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointIscseArrayOutput)
+func (i OntapStorageVirtualMachineEndpointIscsiArray) ToOntapStorageVirtualMachineEndpointIscsiArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscsiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointIscsiArrayOutput)
 }
 
-type OntapStorageVirtualMachineEndpointIscseOutput struct{ *pulumi.OutputState }
+type OntapStorageVirtualMachineEndpointIscsiOutput struct{ *pulumi.OutputState }
 
-func (OntapStorageVirtualMachineEndpointIscseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscse)(nil)).Elem()
+func (OntapStorageVirtualMachineEndpointIscsiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscsi)(nil)).Elem()
 }
 
-func (o OntapStorageVirtualMachineEndpointIscseOutput) ToOntapStorageVirtualMachineEndpointIscseOutput() OntapStorageVirtualMachineEndpointIscseOutput {
+func (o OntapStorageVirtualMachineEndpointIscsiOutput) ToOntapStorageVirtualMachineEndpointIscsiOutput() OntapStorageVirtualMachineEndpointIscsiOutput {
 	return o
 }
 
-func (o OntapStorageVirtualMachineEndpointIscseOutput) ToOntapStorageVirtualMachineEndpointIscseOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscseOutput {
+func (o OntapStorageVirtualMachineEndpointIscsiOutput) ToOntapStorageVirtualMachineEndpointIscsiOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscsiOutput {
 	return o
 }
 
 // The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
-func (o OntapStorageVirtualMachineEndpointIscseOutput) DnsName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointIscse) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+func (o OntapStorageVirtualMachineEndpointIscsiOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointIscsi) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 // IP addresses of the storage virtual machine endpoint.
-func (o OntapStorageVirtualMachineEndpointIscseOutput) IpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointIscse) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+func (o OntapStorageVirtualMachineEndpointIscsiOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointIscsi) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-type OntapStorageVirtualMachineEndpointIscseArrayOutput struct{ *pulumi.OutputState }
+type OntapStorageVirtualMachineEndpointIscsiArrayOutput struct{ *pulumi.OutputState }
 
-func (OntapStorageVirtualMachineEndpointIscseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointIscse)(nil)).Elem()
+func (OntapStorageVirtualMachineEndpointIscsiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointIscsi)(nil)).Elem()
 }
 
-func (o OntapStorageVirtualMachineEndpointIscseArrayOutput) ToOntapStorageVirtualMachineEndpointIscseArrayOutput() OntapStorageVirtualMachineEndpointIscseArrayOutput {
+func (o OntapStorageVirtualMachineEndpointIscsiArrayOutput) ToOntapStorageVirtualMachineEndpointIscsiArrayOutput() OntapStorageVirtualMachineEndpointIscsiArrayOutput {
 	return o
 }
 
-func (o OntapStorageVirtualMachineEndpointIscseArrayOutput) ToOntapStorageVirtualMachineEndpointIscseArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscseArrayOutput {
+func (o OntapStorageVirtualMachineEndpointIscsiArrayOutput) ToOntapStorageVirtualMachineEndpointIscsiArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscsiArrayOutput {
 	return o
 }
 
-func (o OntapStorageVirtualMachineEndpointIscseArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointIscseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapStorageVirtualMachineEndpointIscse {
-		return vs[0].([]OntapStorageVirtualMachineEndpointIscse)[vs[1].(int)]
-	}).(OntapStorageVirtualMachineEndpointIscseOutput)
+func (o OntapStorageVirtualMachineEndpointIscsiArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointIscsiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapStorageVirtualMachineEndpointIscsi {
+		return vs[0].([]OntapStorageVirtualMachineEndpointIscsi)[vs[1].(int)]
+	}).(OntapStorageVirtualMachineEndpointIscsiOutput)
 }
 
 type OntapStorageVirtualMachineEndpointManagement struct {
@@ -4595,8 +4595,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscseInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointIscseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscseArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointIscseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscsiInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointIscsiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscsiArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointIscsiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointManagementInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointManagementArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointManagementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointNfInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointNfArgs{})
@@ -4661,8 +4661,8 @@ func init() {
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointArrayOutput{})
-	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointIscseOutput{})
-	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointIscseArrayOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointIscsiOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointIscsiArrayOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointManagementOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointManagementArrayOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointNfOutput{})

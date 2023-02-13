@@ -44,7 +44,7 @@ namespace Pulumi.Aws.RedShift
         ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///         {
         ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///             ClusterJdbcurl = Output.Tuple(example.Apply(getClusterResult =&gt; getClusterResult), example.Apply(getClusterResult =&gt; getClusterResult)).Apply(values =&gt;
+        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
         ///             {
         ///                 var example = values.Item1;
         ///                 var example1 = values.Item2;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.RedShift
         ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///         {
         ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///             ClusterJdbcurl = Output.Tuple(example.Apply(getClusterResult =&gt; getClusterResult), example.Apply(getClusterResult =&gt; getClusterResult)).Apply(values =&gt;
+        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
         ///             {
         ///                 var example = values.Item1;
         ///                 var example1 = values.Item2;

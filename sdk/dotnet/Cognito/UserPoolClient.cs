@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Cognito
     ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
     ///     {
     ///         Role = testRole.Id,
-    ///         Policy = Output.Tuple(current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), testApp.ApplicationId).Apply(values =&gt;
+    ///         Policy = Output.Tuple(current, testApp.ApplicationId).Apply(values =&gt;
     ///         {
     ///             var current = values.Item1;
     ///             var applicationId = values.Item2;

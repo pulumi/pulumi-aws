@@ -38,7 +38,7 @@ namespace Pulumi.Aws
         ///     var allowBillingLogging = new Aws.S3.BucketPolicy("allowBillingLogging", new()
         ///     {
         ///         Bucket = billingLogs.Id,
-        ///         Policy = Output.Tuple(main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult), main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult)).Apply(values =&gt;
+        ///         Policy = Output.Tuple(main, main).Apply(values =&gt;
         ///         {
         ///             var main = values.Item1;
         ///             var main1 = values.Item2;

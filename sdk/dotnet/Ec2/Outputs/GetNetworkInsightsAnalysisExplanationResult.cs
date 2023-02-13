@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationInternetGatewayResult> InternetGateways;
         public readonly string LoadBalancerArn;
         public readonly int LoadBalancerListenerPort;
+        public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult> LoadBalancerTargetGroup;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult> LoadBalancerTargetGroups;
         public readonly int LoadBalancerTargetPort;
         public readonly string MissingComponent;
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<string> Protocols;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationRouteTableRouteResult> RouteTableRoutes;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationRouteTableResult> RouteTables;
+        public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult> SecurityGroup;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult> SecurityGroupRules;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult> SecurityGroups;
         public readonly ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSourceVpcResult> SourceVpcs;
@@ -100,6 +102,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int loadBalancerListenerPort,
 
+            ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult> loadBalancerTargetGroup,
+
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult> loadBalancerTargetGroups,
 
             int loadBalancerTargetPort,
@@ -123,6 +127,8 @@ namespace Pulumi.Aws.Ec2.Outputs
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationRouteTableRouteResult> routeTableRoutes,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationRouteTableResult> routeTables,
+
+            ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupResult> securityGroup,
 
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult> securityGroupRules,
 
@@ -173,6 +179,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             InternetGateways = internetGateways;
             LoadBalancerArn = loadBalancerArn;
             LoadBalancerListenerPort = loadBalancerListenerPort;
+            LoadBalancerTargetGroup = loadBalancerTargetGroup;
             LoadBalancerTargetGroups = loadBalancerTargetGroups;
             LoadBalancerTargetPort = loadBalancerTargetPort;
             MissingComponent = missingComponent;
@@ -185,6 +192,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Protocols = protocols;
             RouteTableRoutes = routeTableRoutes;
             RouteTables = routeTables;
+            SecurityGroup = securityGroup;
             SecurityGroupRules = securityGroupRules;
             SecurityGroups = securityGroups;
             SourceVpcs = sourceVpcs;

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CodeBuild
     ///     var exampleResourcePolicy = new Aws.CodeBuild.ResourcePolicy("exampleResourcePolicy", new()
     ///     {
     ///         ResourceArn = exampleReportGroup.Arn,
-    ///         Policy = Output.Tuple(currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleReportGroup.Arn).Apply(values =&gt;
+    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, exampleReportGroup.Arn).Apply(values =&gt;
     ///         {
     ///             var currentPartition = values.Item1;
     ///             var currentCallerIdentity = values.Item2;
