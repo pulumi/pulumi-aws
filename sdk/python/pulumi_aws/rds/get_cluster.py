@@ -267,6 +267,9 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -331,6 +334,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
 
 
     :param str cluster_identifier: Cluster identifier of the RDS cluster.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
@@ -390,5 +394,6 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
 
 
     :param str cluster_identifier: Cluster identifier of the RDS cluster.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     ...

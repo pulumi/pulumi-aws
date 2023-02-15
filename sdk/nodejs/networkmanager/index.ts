@@ -25,6 +25,11 @@ export type CoreNetwork = import("./coreNetwork").CoreNetwork;
 export const CoreNetwork: typeof import("./coreNetwork").CoreNetwork = null as any;
 utilities.lazyLoad(exports, ["CoreNetwork"], () => require("./coreNetwork"));
 
+export { CoreNetworkPolicyAttachmentArgs, CoreNetworkPolicyAttachmentState } from "./coreNetworkPolicyAttachment";
+export type CoreNetworkPolicyAttachment = import("./coreNetworkPolicyAttachment").CoreNetworkPolicyAttachment;
+export const CoreNetworkPolicyAttachment: typeof import("./coreNetworkPolicyAttachment").CoreNetworkPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["CoreNetworkPolicyAttachment"], () => require("./coreNetworkPolicyAttachment"));
+
 export { CustomerGatewayAssociationArgs, CustomerGatewayAssociationState } from "./customerGatewayAssociation";
 export type CustomerGatewayAssociation = import("./customerGatewayAssociation").CustomerGatewayAssociation;
 export const CustomerGatewayAssociation: typeof import("./customerGatewayAssociation").CustomerGatewayAssociation = null as any;
@@ -153,6 +158,8 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "aws:networkmanager/coreNetwork:CoreNetwork":
                 return new CoreNetwork(name, <any>undefined, { urn })
+            case "aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment":
+                return new CoreNetworkPolicyAttachment(name, <any>undefined, { urn })
             case "aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation":
                 return new CustomerGatewayAssociation(name, <any>undefined, { urn })
             case "aws:networkmanager/device:Device":
@@ -186,6 +193,7 @@ pulumi.runtime.registerResourceModule("aws", "networkmanager/attachmentAccepter"
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connectAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/coreNetwork", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/coreNetworkPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/customerGatewayAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/device", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/globalNetwork", _module)

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                     },
     ///                     new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
     ///                     {
-    ///                         Type = "HEAD_REF",
+    ///                         Type = "BASE_REF",
     ///                         Pattern = "master",
     ///                     },
     ///                 },

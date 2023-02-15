@@ -865,7 +865,7 @@ func (o GroupMixedInstancesPolicyPtrOutput) LaunchTemplate() GroupMixedInstances
 }
 
 type GroupMixedInstancesPolicyInstancesDistribution struct {
-	// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+	// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
 	OnDemandAllocationStrategy *string `pulumi:"onDemandAllocationStrategy"`
 	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
 	OnDemandBaseCapacity *int `pulumi:"onDemandBaseCapacity"`
@@ -891,7 +891,7 @@ type GroupMixedInstancesPolicyInstancesDistributionInput interface {
 }
 
 type GroupMixedInstancesPolicyInstancesDistributionArgs struct {
-	// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+	// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
 	OnDemandAllocationStrategy pulumi.StringPtrInput `pulumi:"onDemandAllocationStrategy"`
 	// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
 	OnDemandBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandBaseCapacity"`
@@ -982,7 +982,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionOutput) ToGroupMixedInstan
 	}).(GroupMixedInstancesPolicyInstancesDistributionPtrOutput)
 }
 
-// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *string { return v.OnDemandAllocationStrategy }).(pulumi.StringPtrOutput)
 }
@@ -1038,7 +1038,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) Elem() GroupMix
 	}).(GroupMixedInstancesPolicyInstancesDistributionOutput)
 }
 
-// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *string {
 		if v == nil {

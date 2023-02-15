@@ -34,6 +34,7 @@ class TableArgs:
                  stream_view_type: Optional[pulumi.Input[str]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
                  write_capacity: Optional[pulumi.Input[int]] = None):
         """
@@ -56,6 +57,7 @@ class TableArgs:
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
         :param pulumi.Input[int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
@@ -95,6 +97,8 @@ class TableArgs:
             pulumi.set(__self__, "table_class", table_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
         if write_capacity is not None:
@@ -317,6 +321,18 @@ class TableArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input['TableTtlArgs']]:
         """
@@ -387,7 +403,7 @@ class _TableState:
         :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
         :param pulumi.Input[str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
-        :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -652,7 +668,7 @@ class _TableState:
     @pulumi.getter(name="streamLabel")
     def stream_label(self) -> Optional[pulumi.Input[str]]:
         """
-        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
         return pulumi.get(self, "stream_label")
 
@@ -756,6 +772,7 @@ class Table(pulumi.CustomResource):
                  stream_view_type: Optional[pulumi.Input[str]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
                  write_capacity: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -879,6 +896,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Configuration block for TTL. See below.
         :param pulumi.Input[int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
@@ -1021,6 +1039,7 @@ class Table(pulumi.CustomResource):
                  stream_view_type: Optional[pulumi.Input[str]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
                  write_capacity: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -1050,12 +1069,12 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["stream_view_type"] = stream_view_type
             __props__.__dict__["table_class"] = table_class
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["write_capacity"] = write_capacity
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
             __props__.__dict__["stream_label"] = None
-            __props__.__dict__["tags_all"] = None
         super(Table, __self__).__init__(
             'aws:dynamodb/table:Table',
             resource_name,
@@ -1114,7 +1133,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
         :param pulumi.Input[str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
-        :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1292,7 +1311,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="streamLabel")
     def stream_label(self) -> pulumi.Output[str]:
         """
-        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
         return pulumi.get(self, "stream_label")
 

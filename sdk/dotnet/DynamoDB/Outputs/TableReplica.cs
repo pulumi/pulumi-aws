@@ -14,6 +14,10 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableReplica
     {
         /// <summary>
+        /// ARN of the table
+        /// </summary>
+        public readonly string? Arn;
+        /// <summary>
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         /// </summary>
         public readonly string? KmsKeyArn;
@@ -29,21 +33,38 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// Region name of the replica.
         /// </summary>
         public readonly string RegionName;
+        /// <summary>
+        /// ARN of the Table Stream. Only available when `stream_enabled = true`
+        /// </summary>
+        public readonly string? StreamArn;
+        /// <summary>
+        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+        /// </summary>
+        public readonly string? StreamLabel;
 
         [OutputConstructor]
         private TableReplica(
+            string? arn,
+
             string? kmsKeyArn,
 
             bool? pointInTimeRecovery,
 
             bool? propagateTags,
 
-            string regionName)
+            string regionName,
+
+            string? streamArn,
+
+            string? streamLabel)
         {
+            Arn = arn;
             KmsKeyArn = kmsKeyArn;
             PointInTimeRecovery = pointInTimeRecovery;
             PropagateTags = propagateTags;
             RegionName = regionName;
+            StreamArn = streamArn;
+            StreamLabel = streamLabel;
         }
     }
 }

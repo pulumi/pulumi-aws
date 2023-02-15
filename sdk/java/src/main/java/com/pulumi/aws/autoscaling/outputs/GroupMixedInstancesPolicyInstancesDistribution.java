@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupMixedInstancesPolicyInstancesDistribution {
     /**
-     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
      * 
      */
     private @Nullable String onDemandAllocationStrategy;
@@ -45,7 +45,7 @@ public final class GroupMixedInstancesPolicyInstancesDistribution {
 
     private GroupMixedInstancesPolicyInstancesDistribution() {}
     /**
-     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
      * 
      */
     public Optional<String> onDemandAllocationStrategy() {

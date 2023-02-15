@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? EncryptionMode { get; set; }
 
         /// <summary>
-        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        /// ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }

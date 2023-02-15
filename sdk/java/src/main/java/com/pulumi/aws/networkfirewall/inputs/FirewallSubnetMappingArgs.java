@@ -7,11 +7,28 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class FirewallSubnetMappingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallSubnetMappingArgs Empty = new FirewallSubnetMappingArgs();
+
+    /**
+     * The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
 
     /**
      * The unique identifier for the subnet.
@@ -31,6 +48,7 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
     private FirewallSubnetMappingArgs() {}
 
     private FirewallSubnetMappingArgs(FirewallSubnetMappingArgs $) {
+        this.ipAddressType = $.ipAddressType;
         this.subnetId = $.subnetId;
     }
 
@@ -50,6 +68,27 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
 
         public Builder(FirewallSubnetMappingArgs defaults) {
             $ = new FirewallSubnetMappingArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param ipAddressType The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

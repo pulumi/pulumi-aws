@@ -157,7 +157,7 @@ type VpcIpamPoolCidrAllocation struct {
 	IpamPoolAllocationId pulumi.StringOutput      `pulumi:"ipamPoolAllocationId"`
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
 	// The ID of the resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
@@ -208,7 +208,7 @@ type vpcIpamPoolCidrAllocationState struct {
 	IpamPoolAllocationId *string  `pulumi:"ipamPoolAllocationId"`
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId *string `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength *int `pulumi:"netmaskLength"`
 	// The ID of the resource.
 	ResourceId *string `pulumi:"resourceId"`
@@ -228,7 +228,7 @@ type VpcIpamPoolCidrAllocationState struct {
 	IpamPoolAllocationId pulumi.StringPtrInput
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringPtrInput
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength pulumi.IntPtrInput
 	// The ID of the resource.
 	ResourceId pulumi.StringPtrInput
@@ -251,7 +251,7 @@ type vpcIpamPoolCidrAllocationArgs struct {
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId string `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength *int `pulumi:"netmaskLength"`
 }
 
@@ -265,7 +265,7 @@ type VpcIpamPoolCidrAllocationArgs struct {
 	DisallowedCidrs pulumi.StringArrayInput
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringInput
-	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength pulumi.IntPtrInput
 }
 
@@ -380,7 +380,7 @@ func (o VpcIpamPoolCidrAllocationOutput) IpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
 }
 
-// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 func (o VpcIpamPoolCidrAllocationOutput) NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
 }

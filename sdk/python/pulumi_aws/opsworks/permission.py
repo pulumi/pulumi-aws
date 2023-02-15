@@ -14,19 +14,20 @@ __all__ = ['PermissionArgs', 'Permission']
 @pulumi.input_type
 class PermissionArgs:
     def __init__(__self__, *,
+                 stack_id: pulumi.Input[str],
                  user_arn: pulumi.Input[str],
                  allow_ssh: Optional[pulumi.Input[bool]] = None,
                  allow_sudo: Optional[pulumi.Input[bool]] = None,
-                 level: Optional[pulumi.Input[str]] = None,
-                 stack_id: Optional[pulumi.Input[str]] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Permission resource.
+        :param pulumi.Input[str] stack_id: The stack to set the permissions for
         :param pulumi.Input[str] user_arn: The user's IAM ARN to set permissions for
         :param pulumi.Input[bool] allow_ssh: Whether the user is allowed to use SSH to communicate with the instance
         :param pulumi.Input[bool] allow_sudo: Whether the user is allowed to use sudo to elevate privileges
         :param pulumi.Input[str] level: The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
-        :param pulumi.Input[str] stack_id: The stack to set the permissions for
         """
+        pulumi.set(__self__, "stack_id", stack_id)
         pulumi.set(__self__, "user_arn", user_arn)
         if allow_ssh is not None:
             pulumi.set(__self__, "allow_ssh", allow_ssh)
@@ -34,8 +35,18 @@ class PermissionArgs:
             pulumi.set(__self__, "allow_sudo", allow_sudo)
         if level is not None:
             pulumi.set(__self__, "level", level)
-        if stack_id is not None:
-            pulumi.set(__self__, "stack_id", stack_id)
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> pulumi.Input[str]:
+        """
+        The stack to set the permissions for
+        """
+        return pulumi.get(self, "stack_id")
+
+    @stack_id.setter
+    def stack_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stack_id", value)
 
     @property
     @pulumi.getter(name="userArn")
@@ -84,18 +95,6 @@ class PermissionArgs:
     @level.setter
     def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
-
-    @property
-    @pulumi.getter(name="stackId")
-    def stack_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The stack to set the permissions for
-        """
-        return pulumi.get(self, "stack_id")
-
-    @stack_id.setter
-    def stack_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "stack_id", value)
 
 
 @pulumi.input_type
@@ -277,6 +276,8 @@ class Permission(pulumi.CustomResource):
             __props__.__dict__["allow_ssh"] = allow_ssh
             __props__.__dict__["allow_sudo"] = allow_sudo
             __props__.__dict__["level"] = level
+            if stack_id is None and not opts.urn:
+                raise TypeError("Missing required property 'stack_id'")
             __props__.__dict__["stack_id"] = stack_id
             if user_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'user_arn'")

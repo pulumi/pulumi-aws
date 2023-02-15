@@ -91,6 +91,9 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["userArn"] = state ? state.userArn : undefined;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
+            if ((!args || args.stackId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'stackId'");
+            }
             if ((!args || args.userArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userArn'");
             }
@@ -150,7 +153,7 @@ export interface PermissionArgs {
     /**
      * The stack to set the permissions for
      */
-    stackId?: pulumi.Input<string>;
+    stackId: pulumi.Input<string>;
     /**
      * The user's IAM ARN to set permissions for
      */

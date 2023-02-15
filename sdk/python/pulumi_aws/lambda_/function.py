@@ -35,6 +35,8 @@ class FunctionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
+                 replace_security_groups_on_destroy: Optional[pulumi.Input[bool]] = None,
+                 replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
@@ -50,7 +52,7 @@ class FunctionArgs:
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
-        :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block. Detailed below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
@@ -59,17 +61,19 @@ class FunctionArgs:
         :param pulumi.Input['FunctionFileSystemConfigArgs'] file_system_config: Configuration block. Detailed below.
         :param pulumi.Input[str] handler: Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Configuration block. Detailed below.
-        :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+        :param pulumi.Input[bool] replace_security_groups_on_destroy: Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
@@ -113,6 +117,10 @@ class FunctionArgs:
             pulumi.set(__self__, "package_type", package_type)
         if publish is not None:
             pulumi.set(__self__, "publish", publish)
+        if replace_security_groups_on_destroy is not None:
+            pulumi.set(__self__, "replace_security_groups_on_destroy", replace_security_groups_on_destroy)
+        if replacement_security_group_ids is not None:
+            pulumi.set(__self__, "replacement_security_group_ids", replacement_security_group_ids)
         if reserved_concurrent_executions is not None:
             pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
         if runtime is not None:
@@ -164,7 +172,7 @@ class FunctionArgs:
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input[pulumi.Archive]]:
         """
-        Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         """
         return pulumi.get(self, "code")
 
@@ -272,7 +280,7 @@ class FunctionArgs:
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         """
         return pulumi.get(self, "image_uri")
 
@@ -353,6 +361,30 @@ class FunctionArgs:
         pulumi.set(self, "publish", value)
 
     @property
+    @pulumi.getter(name="replaceSecurityGroupsOnDestroy")
+    def replace_security_groups_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        """
+        return pulumi.get(self, "replace_security_groups_on_destroy")
+
+    @replace_security_groups_on_destroy.setter
+    def replace_security_groups_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace_security_groups_on_destroy", value)
+
+    @property
+    @pulumi.getter(name="replacementSecurityGroupIds")
+    def replacement_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        """
+        return pulumi.get(self, "replacement_security_group_ids")
+
+    @replacement_security_group_ids.setter
+    def replacement_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "replacement_security_group_ids", value)
+
+    @property
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> Optional[pulumi.Input[int]]:
         """
@@ -380,7 +412,7 @@ class FunctionArgs:
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -392,7 +424,7 @@ class FunctionArgs:
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         """
         return pulumi.get(self, "s3_key")
 
@@ -510,6 +542,8 @@ class _FunctionState:
                  publish: Optional[pulumi.Input[bool]] = None,
                  qualified_arn: Optional[pulumi.Input[str]] = None,
                  qualified_invoke_arn: Optional[pulumi.Input[str]] = None,
+                 replace_security_groups_on_destroy: Optional[pulumi.Input[bool]] = None,
+                 replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
@@ -531,7 +565,7 @@ class _FunctionState:
         Input properties used for looking up and filtering Function resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-        :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block. Detailed below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
@@ -540,7 +574,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionFileSystemConfigArgs'] file_system_config: Configuration block. Detailed below.
         :param pulumi.Input[str] handler: Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Configuration block. Detailed below.
-        :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         :param pulumi.Input[str] invoke_arn: ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[str] last_modified: Date this resource was last modified.
@@ -551,11 +585,13 @@ class _FunctionState:
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         :param pulumi.Input[str] qualified_invoke_arn: Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
+        :param pulumi.Input[bool] replace_security_groups_on_destroy: Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] signing_job_arn: ARN of the signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
@@ -615,6 +651,10 @@ class _FunctionState:
             pulumi.set(__self__, "qualified_arn", qualified_arn)
         if qualified_invoke_arn is not None:
             pulumi.set(__self__, "qualified_invoke_arn", qualified_invoke_arn)
+        if replace_security_groups_on_destroy is not None:
+            pulumi.set(__self__, "replace_security_groups_on_destroy", replace_security_groups_on_destroy)
+        if replacement_security_group_ids is not None:
+            pulumi.set(__self__, "replacement_security_group_ids", replacement_security_group_ids)
         if reserved_concurrent_executions is not None:
             pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
         if role is not None:
@@ -678,7 +718,7 @@ class _FunctionState:
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input[pulumi.Archive]]:
         """
-        Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         """
         return pulumi.get(self, "code")
 
@@ -786,7 +826,7 @@ class _FunctionState:
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         """
         return pulumi.get(self, "image_uri")
 
@@ -915,6 +955,30 @@ class _FunctionState:
         pulumi.set(self, "qualified_invoke_arn", value)
 
     @property
+    @pulumi.getter(name="replaceSecurityGroupsOnDestroy")
+    def replace_security_groups_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        """
+        return pulumi.get(self, "replace_security_groups_on_destroy")
+
+    @replace_security_groups_on_destroy.setter
+    def replace_security_groups_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace_security_groups_on_destroy", value)
+
+    @property
+    @pulumi.getter(name="replacementSecurityGroupIds")
+    def replacement_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        """
+        return pulumi.get(self, "replacement_security_group_ids")
+
+    @replacement_security_group_ids.setter
+    def replacement_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "replacement_security_group_ids", value)
+
+    @property
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> Optional[pulumi.Input[int]]:
         """
@@ -954,7 +1018,7 @@ class _FunctionState:
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -966,7 +1030,7 @@ class _FunctionState:
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         """
         return pulumi.get(self, "s3_key")
 
@@ -1143,6 +1207,8 @@ class Function(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
+                 replace_security_groups_on_destroy: Optional[pulumi.Input[bool]] = None,
+                 replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
@@ -1348,7 +1414,7 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
-        :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Configuration block. Detailed below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
@@ -1357,18 +1423,20 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']] file_system_config: Configuration block. Detailed below.
         :param pulumi.Input[str] handler: Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: Configuration block. Detailed below.
-        :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+        :param pulumi.Input[bool] replace_security_groups_on_destroy: Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
@@ -1604,6 +1672,8 @@ class Function(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
+                 replace_security_groups_on_destroy: Optional[pulumi.Input[bool]] = None,
+                 replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
@@ -1642,6 +1712,8 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["package_type"] = package_type
             __props__.__dict__["publish"] = publish
+            __props__.__dict__["replace_security_groups_on_destroy"] = replace_security_groups_on_destroy
+            __props__.__dict__["replacement_security_group_ids"] = replacement_security_group_ids
             __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
@@ -1698,6 +1770,8 @@ class Function(pulumi.CustomResource):
             publish: Optional[pulumi.Input[bool]] = None,
             qualified_arn: Optional[pulumi.Input[str]] = None,
             qualified_invoke_arn: Optional[pulumi.Input[str]] = None,
+            replace_security_groups_on_destroy: Optional[pulumi.Input[bool]] = None,
+            replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
             role: Optional[pulumi.Input[str]] = None,
             runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
@@ -1724,7 +1798,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-        :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Configuration block. Detailed below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
@@ -1733,7 +1807,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']] file_system_config: Configuration block. Detailed below.
         :param pulumi.Input[str] handler: Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: Configuration block. Detailed below.
-        :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         :param pulumi.Input[str] invoke_arn: ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[str] last_modified: Date this resource was last modified.
@@ -1744,11 +1818,13 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         :param pulumi.Input[str] qualified_invoke_arn: Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
+        :param pulumi.Input[bool] replace_security_groups_on_destroy: Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] signing_job_arn: ARN of the signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
@@ -1790,6 +1866,8 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["publish"] = publish
         __props__.__dict__["qualified_arn"] = qualified_arn
         __props__.__dict__["qualified_invoke_arn"] = qualified_invoke_arn
+        __props__.__dict__["replace_security_groups_on_destroy"] = replace_security_groups_on_destroy
+        __props__.__dict__["replacement_security_group_ids"] = replacement_security_group_ids
         __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
         __props__.__dict__["role"] = role
         __props__.__dict__["runtime"] = runtime
@@ -1829,7 +1907,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def code(self) -> pulumi.Output[Optional[pulumi.Archive]]:
         """
-        Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         """
         return pulumi.get(self, "code")
 
@@ -1901,7 +1979,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+        ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         """
         return pulumi.get(self, "image_uri")
 
@@ -1986,6 +2064,22 @@ class Function(pulumi.CustomResource):
         return pulumi.get(self, "qualified_invoke_arn")
 
     @property
+    @pulumi.getter(name="replaceSecurityGroupsOnDestroy")
+    def replace_security_groups_on_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        """
+        return pulumi.get(self, "replace_security_groups_on_destroy")
+
+    @property
+    @pulumi.getter(name="replacementSecurityGroupIds")
+    def replacement_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        """
+        return pulumi.get(self, "replacement_security_group_ids")
+
+    @property
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> pulumi.Output[Optional[int]]:
         """
@@ -2013,7 +2107,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
-        S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -2021,7 +2115,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> pulumi.Output[Optional[str]]:
         """
-        S3 key of an object containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         """
         return pulumi.get(self, "s3_key")
 

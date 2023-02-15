@@ -6,9 +6,16 @@ package com.pulumi.aws.networkfirewall.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallSubnetMapping {
+    /**
+     * @return The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+     * 
+     */
+    private @Nullable String ipAddressType;
     /**
      * @return The unique identifier for the subnet.
      * 
@@ -16,6 +23,13 @@ public final class FirewallSubnetMapping {
     private String subnetId;
 
     private FirewallSubnetMapping() {}
+    /**
+     * @return The subnet&#39;s IP address type. Valida values: `&#34;DUALSTACK&#34;`, `&#34;IPV4&#34;`.
+     * 
+     */
+    public Optional<String> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
     /**
      * @return The unique identifier for the subnet.
      * 
@@ -33,13 +47,20 @@ public final class FirewallSubnetMapping {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String ipAddressType;
         private String subnetId;
         public Builder() {}
         public Builder(FirewallSubnetMapping defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
+        public Builder ipAddressType(@Nullable String ipAddressType) {
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
@@ -47,6 +68,7 @@ public final class FirewallSubnetMapping {
         }
         public FirewallSubnetMapping build() {
             final var o = new FirewallSubnetMapping();
+            o.ipAddressType = ipAddressType;
             o.subnetId = subnetId;
             return o;
         }

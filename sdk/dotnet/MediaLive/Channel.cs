@@ -76,7 +76,7 @@ namespace Pulumi.Aws.MediaLive
     ///             {
     ///                 new Aws.MediaLive.Inputs.ChannelEncoderSettingsVideoDescriptionArgs
     ///                 {
-    ///                     Name = "example-vidoe",
+    ///                     Name = "example-video",
     ///                 },
     ///             },
     ///             OutputGroups = new[]
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.MediaLive
     ///                         new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputArgs
     ///                         {
     ///                             OutputName = "example-name",
-    ///                             VideoDescriptionName = "example-vidoe",
+    ///                             VideoDescriptionName = "example-video",
     ///                             AudioDescriptionNames = new[]
     ///                             {
     ///                                 "audio-selector",

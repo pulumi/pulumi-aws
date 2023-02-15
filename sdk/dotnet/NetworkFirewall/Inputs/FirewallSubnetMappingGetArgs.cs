@@ -13,6 +13,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class FirewallSubnetMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
         /// The unique identifier for the subnet.
         /// </summary>
         [Input("subnetId", required: true)]

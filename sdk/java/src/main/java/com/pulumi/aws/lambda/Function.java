@@ -387,14 +387,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     @Export(name="code", refs={Archive.class}, tree="[0]")
     private Output</* @Nullable */ Archive> code;
 
     /**
-     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * @return Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     public Output<Optional<Archive>> code() {
@@ -513,14 +513,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.imageConfig);
     }
     /**
-     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
      * 
      */
     @Export(name="imageUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageUri;
 
     /**
-     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * @return ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
      * 
      */
     public Output<Optional<String>> imageUri() {
@@ -667,6 +667,34 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.qualifiedInvokeArn;
     }
     /**
+     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * 
+     */
+    @Export(name="replaceSecurityGroupsOnDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> replaceSecurityGroupsOnDestroy;
+
+    /**
+     * @return Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * 
+     */
+    public Output<Optional<Boolean>> replaceSecurityGroupsOnDestroy() {
+        return Codegen.optional(this.replaceSecurityGroupsOnDestroy);
+    }
+    /**
+     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * 
+     */
+    @Export(name="replacementSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> replacementSecurityGroupIds;
+
+    /**
+     * @return List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * 
+     */
+    public Output<Optional<List<String>>> replacementSecurityGroupIds() {
+        return Codegen.optional(this.replacementSecurityGroupIds);
+    }
+    /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      * 
      */
@@ -709,28 +737,28 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runtime);
     }
     /**
-     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
     @Export(name="s3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Bucket;
 
     /**
-     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * @return S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
     public Output<Optional<String>> s3Bucket() {
         return Codegen.optional(this.s3Bucket);
     }
     /**
-     * S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
     @Export(name="s3Key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Key;
 
     /**
-     * @return S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * @return S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
     public Output<Optional<String>> s3Key() {

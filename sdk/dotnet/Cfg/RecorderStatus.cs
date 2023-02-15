@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Cfg
     ///     var rolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("rolePolicyAttachment", new()
     ///     {
     ///         Role = role.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
     ///     });
     /// 
     ///     var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new()

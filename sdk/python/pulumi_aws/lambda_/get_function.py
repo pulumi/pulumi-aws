@@ -217,7 +217,7 @@ class GetFunctionResult:
     @pulumi.getter(name="invokeArn")
     def invoke_arn(self) -> str:
         """
-        ARN to be used for invoking Lambda Function from API Gateway.
+        ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
         """
         return pulumi.get(self, "invoke_arn")
 

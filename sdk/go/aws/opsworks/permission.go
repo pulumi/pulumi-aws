@@ -64,6 +64,9 @@ func NewPermission(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.StackId == nil {
+		return nil, errors.New("invalid value for required argument 'StackId'")
+	}
 	if args.UserArn == nil {
 		return nil, errors.New("invalid value for required argument 'UserArn'")
 	}
@@ -126,7 +129,7 @@ type permissionArgs struct {
 	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
 	Level *string `pulumi:"level"`
 	// The stack to set the permissions for
-	StackId *string `pulumi:"stackId"`
+	StackId string `pulumi:"stackId"`
 	// The user's IAM ARN to set permissions for
 	UserArn string `pulumi:"userArn"`
 }
@@ -140,7 +143,7 @@ type PermissionArgs struct {
 	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
 	Level pulumi.StringPtrInput
 	// The stack to set the permissions for
-	StackId pulumi.StringPtrInput
+	StackId pulumi.StringInput
 	// The user's IAM ARN to set permissions for
 	UserArn pulumi.StringInput
 }

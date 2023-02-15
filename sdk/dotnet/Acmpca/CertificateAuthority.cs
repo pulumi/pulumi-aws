@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Acmpca
     /// <summary>
     /// Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
     /// 
-    /// &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
+    /// &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute. The `aws.acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
     /// 
     /// ## Example Usage
     /// ### Basic
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the certificate authority is enabled or disabled. Defaults to `true`.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs> CertificateAuthorityConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Whether the certificate authority is enabled or disabled. Defaults to `true`.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? CertificateSigningRequest { get; set; }
 
         /// <summary>
-        /// Whether the certificate authority is enabled or disabled. Defaults to `true`.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

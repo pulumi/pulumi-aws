@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a core network resource.
  *
+ * > **NOTE on Core Networks and Policy Attachments:** For a given core network, this resource's `policyDocument` argument is incompatible with using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. When using this resource's `policyDocument` argument and the `aws.networkmanager.CoreNetworkPolicyAttachment` resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference.
+ *
  * ## Example Usage
  * ### Basic
  *
@@ -30,17 +32,6 @@ import * as utilities from "../utilities";
  *     description: "example",
  * });
  * ```
- * ### With policy document
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.CoreNetwork("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     policyDocument: data.aws_networkmanager_core_network_policy_document.example.json,
- * });
- * ```
  * ### With tags
  *
  * ```typescript
@@ -52,6 +43,46 @@ import * as utilities from "../utilities";
  *     tags: {
  *         hello: "world",
  *     },
+ * });
+ * ```
+ * ### With VPC Attachment
+ *
+ * The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `createBasePolicy` argument to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `createBasePolicy` argument.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
+ * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("exampleCoreNetwork", {
+ *     globalNetworkId: exampleGlobalNetwork.id,
+ *     createBasePolicy: true,
+ * });
+ * const exampleVpcAttachment = new aws.networkmanager.VpcAttachment("exampleVpcAttachment", {
+ *     coreNetworkId: exampleCoreNetwork.id,
+ *     subnetArns: aws_subnet.example.map(__item => __item.arn),
+ *     vpcArn: aws_vpc.example.arn,
+ * });
+ * const exampleCoreNetworkPolicyDocument = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
+ *     coreNetworkConfigurations: [{
+ *         asnRanges: ["65022-65534"],
+ *         edgeLocations: [{
+ *             location: "us-west-2",
+ *         }],
+ *     }],
+ *     segments: [{
+ *         name: "segment",
+ *     }],
+ *     segmentActions: [{
+ *         action: "create-route",
+ *         segment: "segment",
+ *         destinationCidrBlocks: ["0.0.0.0/0"],
+ *         destinations: [exampleVpcAttachment.id],
+ *     }],
+ * });
+ * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", {
+ *     coreNetworkId: exampleCoreNetwork.id,
+ *     policyDocument: exampleCoreNetworkPolicyDocument.apply(exampleCoreNetworkPolicyDocument => exampleCoreNetworkPolicyDocument.json),
  * });
  * ```
  *
@@ -96,6 +127,14 @@ export class CoreNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+     */
+    public readonly basePolicyRegion!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policyDocument` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policyDocument`. An example of this snippet can be found above. An example of a base policy created is shown below. The region specified in the `location` key can be configured using the `basePolicyRegion` argument. If `basePolicyRegion` is not specified, the region defaults to the region specified in the `provider` block. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     */
+    public readonly createBasePolicy!: pulumi.Output<boolean | undefined>;
+    /**
      * Timestamp when a core network was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -112,9 +151,11 @@ export class CoreNetwork extends pulumi.CustomResource {
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `createBasePolicy`.
+     *
+     * @deprecated Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.
      */
-    public readonly policyDocument!: pulumi.Output<string | undefined>;
+    public readonly policyDocument!: pulumi.Output<string>;
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.
      */
@@ -146,6 +187,8 @@ export class CoreNetwork extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CoreNetworkState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["basePolicyRegion"] = state ? state.basePolicyRegion : undefined;
+            resourceInputs["createBasePolicy"] = state ? state.createBasePolicy : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["edges"] = state ? state.edges : undefined;
@@ -160,6 +203,8 @@ export class CoreNetwork extends pulumi.CustomResource {
             if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
+            resourceInputs["basePolicyRegion"] = args ? args.basePolicyRegion : undefined;
+            resourceInputs["createBasePolicy"] = args ? args.createBasePolicy : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
@@ -185,6 +230,14 @@ export interface CoreNetworkState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+     */
+    basePolicyRegion?: pulumi.Input<string>;
+    /**
+     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policyDocument` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policyDocument`. An example of this snippet can be found above. An example of a base policy created is shown below. The region specified in the `location` key can be configured using the `basePolicyRegion` argument. If `basePolicyRegion` is not specified, the region defaults to the region specified in the `provider` block. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     */
+    createBasePolicy?: pulumi.Input<boolean>;
+    /**
      * Timestamp when a core network was created.
      */
     createdAt?: pulumi.Input<string>;
@@ -201,7 +254,9 @@ export interface CoreNetworkState {
      */
     globalNetworkId?: pulumi.Input<string>;
     /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `createBasePolicy`.
+     *
+     * @deprecated Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.
      */
     policyDocument?: pulumi.Input<string>;
     /**
@@ -227,6 +282,14 @@ export interface CoreNetworkState {
  */
 export interface CoreNetworkArgs {
     /**
+     * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+     */
+    basePolicyRegion?: pulumi.Input<string>;
+    /**
+     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policyDocument` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policyDocument`. An example of this snippet can be found above. An example of a base policy created is shown below. The region specified in the `location` key can be configured using the `basePolicyRegion` argument. If `basePolicyRegion` is not specified, the region defaults to the region specified in the `provider` block. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     */
+    createBasePolicy?: pulumi.Input<boolean>;
+    /**
      * Description of the Core Network.
      */
     description?: pulumi.Input<string>;
@@ -235,7 +298,9 @@ export interface CoreNetworkArgs {
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `createBasePolicy`.
+     *
+     * @deprecated Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.
      */
     policyDocument?: pulumi.Input<string>;
     /**

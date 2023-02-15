@@ -129,7 +129,7 @@ class RecorderStatus(pulumi.CustomResource):
         \"\"\")
         role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
             role=role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRole")
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
@@ -201,7 +201,7 @@ class RecorderStatus(pulumi.CustomResource):
         \"\"\")
         role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
             role=role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRole")
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,

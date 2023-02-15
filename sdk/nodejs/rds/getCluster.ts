@@ -35,6 +35,9 @@ export interface GetClusterArgs {
      * Cluster identifier of the RDS cluster.
      */
     clusterIdentifier: string;
+    /**
+     * A map of tags assigned to the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -74,6 +77,9 @@ export interface GetClusterResult {
     readonly readerEndpoint: string;
     readonly replicationSourceIdentifier: string;
     readonly storageEncrypted: boolean;
+    /**
+     * A map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
     readonly vpcSecurityGroupIds: string[];
 }
@@ -103,5 +109,8 @@ export interface GetClusterOutputArgs {
      * Cluster identifier of the RDS cluster.
      */
     clusterIdentifier: pulumi.Input<string>;
+    /**
+     * A map of tags assigned to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

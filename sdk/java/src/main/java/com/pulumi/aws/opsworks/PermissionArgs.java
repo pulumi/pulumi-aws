@@ -65,15 +65,15 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
      * The stack to set the permissions for
      * 
      */
-    @Import(name="stackId")
-    private @Nullable Output<String> stackId;
+    @Import(name="stackId", required=true)
+    private Output<String> stackId;
 
     /**
      * @return The stack to set the permissions for
      * 
      */
-    public Optional<Output<String>> stackId() {
-        return Optional.ofNullable(this.stackId);
+    public Output<String> stackId() {
+        return this.stackId;
     }
 
     /**
@@ -188,7 +188,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder stackId(@Nullable Output<String> stackId) {
+        public Builder stackId(Output<String> stackId) {
             $.stackId = stackId;
             return this;
         }
@@ -225,6 +225,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PermissionArgs build() {
+            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
             $.userArn = Objects.requireNonNull($.userArn, "expected parameter 'userArn' to be non-null");
             return $;
         }

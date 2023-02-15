@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupMixedInstancesPolicyInstancesDistribution
     {
         /// <summary>
-        /// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+        /// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
         /// </summary>
         public readonly string? OnDemandAllocationStrategy;
         /// <summary>

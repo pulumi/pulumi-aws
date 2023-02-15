@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  *         var rolePolicyAttachment = new RolePolicyAttachment(&#34;rolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
  *             .role(role.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSConfigRole&#34;)
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWS_ConfigRole&#34;)
  *             .build());
  * 
  *         var fooRecorder = new Recorder(&#34;fooRecorder&#34;, RecorderArgs.builder()        

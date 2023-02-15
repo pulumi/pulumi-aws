@@ -710,6 +710,8 @@ class FirewallSubnetMapping(dict):
         suggest = None
         if key == "subnetId":
             suggest = "subnet_id"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallSubnetMapping. Access the value via the '{suggest}' property getter instead.")
@@ -723,11 +725,15 @@ class FirewallSubnetMapping(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 subnet_id: str):
+                 subnet_id: str,
+                 ip_address_type: Optional[str] = None):
         """
         :param str subnet_id: The unique identifier for the subnet.
+        :param str ip_address_type: The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -736,6 +742,14 @@ class FirewallSubnetMapping(dict):
         The unique identifier for the subnet.
         """
         return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
+        """
+        The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        """
+        return pulumi.get(self, "ip_address_type")
 
 
 @pulumi.output_type

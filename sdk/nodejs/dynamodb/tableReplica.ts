@@ -106,7 +106,7 @@ export class TableReplica extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a TableReplica resource with the given unique name, arguments, and options.
@@ -138,8 +138,8 @@ export class TableReplica extends pulumi.CustomResource {
             resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
             resourceInputs["tableClassOverride"] = args ? args.tableClassOverride : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TableReplica.__pulumiType, name, resourceInputs, opts);
@@ -204,4 +204,8 @@ export interface TableReplicaArgs {
      * Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

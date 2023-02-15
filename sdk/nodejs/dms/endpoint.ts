@@ -101,7 +101,9 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly engineName!: pulumi.Output<string>;
     /**
-     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html).
+     * Additional attributes associated with the connection.
+     * For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html).
+     * For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      */
     public readonly extraConnectionAttributes!: pulumi.Output<string>;
     /**
@@ -113,7 +115,12 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly kinesisSettings!: pulumi.Output<outputs.dms.EndpointKinesisSettings | undefined>;
     /**
-     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters.
+     * If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key.
+     * AWS KMS creates the default encryption key for your AWS account.
+     * Your AWS account has a different default encryption key for each AWS region.
+     * To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`.
+     * When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
@@ -142,7 +149,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly secretsManagerAccessRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
     public readonly secretsManagerArn!: pulumi.Output<string | undefined>;
     /**
@@ -285,7 +292,9 @@ export interface EndpointState {
      */
     engineName?: pulumi.Input<string>;
     /**
-     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html).
+     * Additional attributes associated with the connection.
+     * For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html).
+     * For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      */
     extraConnectionAttributes?: pulumi.Input<string>;
     /**
@@ -297,7 +306,12 @@ export interface EndpointState {
      */
     kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings>;
     /**
-     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters.
+     * If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key.
+     * AWS KMS creates the default encryption key for your AWS account.
+     * Your AWS account has a different default encryption key for each AWS region.
+     * To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`.
+     * When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -326,7 +340,7 @@ export interface EndpointState {
      */
     secretsManagerAccessRoleArn?: pulumi.Input<string>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
@@ -384,7 +398,9 @@ export interface EndpointArgs {
      */
     engineName: pulumi.Input<string>;
     /**
-     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html).
+     * Additional attributes associated with the connection.
+     * For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html).
+     * For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      */
     extraConnectionAttributes?: pulumi.Input<string>;
     /**
@@ -396,7 +412,12 @@ export interface EndpointArgs {
      */
     kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings>;
     /**
-     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters.
+     * If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key.
+     * AWS KMS creates the default encryption key for your AWS account.
+     * Your AWS account has a different default encryption key for each AWS region.
+     * To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`.
+     * When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -425,7 +446,7 @@ export interface EndpointArgs {
      */
     secretsManagerAccessRoleArn?: pulumi.Input<string>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**

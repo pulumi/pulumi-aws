@@ -185,7 +185,7 @@ type Table struct {
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
 	// Whether Streams are enabled.
 	StreamEnabled pulumi.BoolPtrOutput `pulumi:"streamEnabled"`
-	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
+	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	StreamLabel pulumi.StringOutput `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringOutput `pulumi:"streamViewType"`
@@ -264,7 +264,7 @@ type tableState struct {
 	StreamArn *string `pulumi:"streamArn"`
 	// Whether Streams are enabled.
 	StreamEnabled *bool `pulumi:"streamEnabled"`
-	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
+	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	StreamLabel *string `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
@@ -315,7 +315,7 @@ type TableState struct {
 	StreamArn pulumi.StringPtrInput
 	// Whether Streams are enabled.
 	StreamEnabled pulumi.BoolPtrInput
-	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
+	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	StreamLabel pulumi.StringPtrInput
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
@@ -372,6 +372,8 @@ type tableArgs struct {
 	TableClass *string `pulumi:"tableClass"`
 	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for TTL. See below.
 	Ttl *TableTtl `pulumi:"ttl"`
 	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
@@ -416,6 +418,8 @@ type TableArgs struct {
 	TableClass pulumi.StringPtrInput
 	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Configuration block for TTL. See below.
 	Ttl TableTtlPtrInput
 	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
@@ -594,7 +598,7 @@ func (o TableOutput) StreamEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.StreamEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
+// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 func (o TableOutput) StreamLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamLabel }).(pulumi.StringOutput)
 }

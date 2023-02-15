@@ -36,14 +36,14 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the certificate authority is enabled or disabled. Defaults to `true`.
+     * @return Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -177,7 +177,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabled Whether the certificate authority is enabled or disabled. Defaults to `true`.
+         * @param enabled Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabled Whether the certificate authority is enabled or disabled. Defaults to `true`.
+         * @param enabled Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
          * 
          * @return builder
          * 

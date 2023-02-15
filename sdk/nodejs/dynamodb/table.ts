@@ -206,7 +206,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly streamEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
+     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      */
     public /*out*/ readonly streamLabel!: pulumi.Output<string>;
     /**
@@ -224,7 +224,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for TTL. See below.
      */
@@ -291,12 +291,12 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["streamViewType"] = args ? args.streamViewType : undefined;
             resourceInputs["tableClass"] = args ? args.tableClass : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["writeCapacity"] = args ? args.writeCapacity : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
             resourceInputs["streamLabel"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Table.__pulumiType, name, resourceInputs, opts);
@@ -376,7 +376,7 @@ export interface TableState {
      */
     streamEnabled?: pulumi.Input<boolean>;
     /**
-     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
+     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      */
     streamLabel?: pulumi.Input<string>;
     /**
@@ -481,6 +481,10 @@ export interface TableArgs {
      * A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for TTL. See below.
      */

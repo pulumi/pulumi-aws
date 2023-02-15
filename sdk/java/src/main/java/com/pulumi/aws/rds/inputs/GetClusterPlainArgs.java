@@ -30,9 +30,17 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.clusterIdentifier;
     }
 
+    /**
+     * A map of tags assigned to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -73,6 +81,12 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        /**
+         * @param tags A map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

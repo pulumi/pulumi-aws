@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? RowGroupLength;
         /// <summary>
-        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        /// ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         /// </summary>
         public readonly string? ServerSideEncryptionKmsKeyId;
         /// <summary>

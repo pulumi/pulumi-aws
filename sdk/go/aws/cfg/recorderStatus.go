@@ -74,7 +74,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "rolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
 //				Role:      role.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRole"),
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"),
 //			})
 //			if err != nil {
 //				return err

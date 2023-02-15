@@ -290,22 +290,34 @@ class TablePointInTimeRecoveryArgs:
 class TableReplicaArgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[str],
+                 arn: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[bool]] = None,
-                 propagate_tags: Optional[pulumi.Input[bool]] = None):
+                 propagate_tags: Optional[pulumi.Input[bool]] = None,
+                 stream_arn: Optional[pulumi.Input[str]] = None,
+                 stream_label: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] region_name: Region name of the replica.
+        :param pulumi.Input[str] arn: ARN of the table
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
         :param pulumi.Input[bool] propagate_tags: Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+        :param pulumi.Input[str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
+        :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
         pulumi.set(__self__, "region_name", region_name)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
             pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if stream_arn is not None:
+            pulumi.set(__self__, "stream_arn", stream_arn)
+        if stream_label is not None:
+            pulumi.set(__self__, "stream_label", stream_label)
 
     @property
     @pulumi.getter(name="regionName")
@@ -318,6 +330,18 @@ class TableReplicaArgs:
     @region_name.setter
     def region_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "region_name", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the table
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
@@ -354,6 +378,30 @@ class TableReplicaArgs:
     @propagate_tags.setter
     def propagate_tags(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "propagate_tags", value)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Table Stream. Only available when `stream_enabled = true`
+        """
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_arn", value)
+
+    @property
+    @pulumi.getter(name="streamLabel")
+    def stream_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+        """
+        return pulumi.get(self, "stream_label")
+
+    @stream_label.setter
+    def stream_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_label", value)
 
 
 @pulumi.input_type

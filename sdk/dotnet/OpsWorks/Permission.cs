@@ -133,8 +133,8 @@ namespace Pulumi.Aws.OpsWorks
         /// <summary>
         /// The stack to set the permissions for
         /// </summary>
-        [Input("stackId")]
-        public Input<string>? StackId { get; set; }
+        [Input("stackId", required: true)]
+        public Input<string> StackId { get; set; } = null!;
 
         /// <summary>
         /// The user's IAM ARN to set permissions for

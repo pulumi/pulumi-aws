@@ -764,7 +764,7 @@ class EndpointRedshiftSettingsArgs:
         :param pulumi.Input[str] bucket_folder: Custom S3 Bucket Object prefix for intermediate storage.
         :param pulumi.Input[str] bucket_name: Custom S3 Bucket name for intermediate storage.
         :param pulumi.Input[str] encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-        :param pulumi.Input[str] server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        :param pulumi.Input[str] server_side_encryption_kms_key_id: ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         :param pulumi.Input[str] service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
         if bucket_folder is not None:
@@ -818,7 +818,7 @@ class EndpointRedshiftSettingsArgs:
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
@@ -914,7 +914,7 @@ class EndpointS3SettingsArgs:
         :param pulumi.Input[bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
         :param pulumi.Input[bool] rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param pulumi.Input[int] row_group_length: Number of rows in a row group. Default is `10000`.
-        :param pulumi.Input[str] server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        :param pulumi.Input[str] server_side_encryption_kms_key_id: ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         :param pulumi.Input[str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         :param pulumi.Input[bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
@@ -1399,7 +1399,7 @@ class EndpointS3SettingsArgs:
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 

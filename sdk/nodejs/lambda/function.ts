@@ -243,7 +243,7 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     * Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
     public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
@@ -279,7 +279,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly imageConfig!: pulumi.Output<outputs.lambda.FunctionImageConfig | undefined>;
     /**
-     * ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     * ECR image URI containing the function's deployment package. Exactly one of `filename`, `imageUri`,  or `s3Bucket` must be specified.
      */
     public readonly imageUri!: pulumi.Output<string | undefined>;
     /**
@@ -323,6 +323,14 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly qualifiedInvokeArn!: pulumi.Output<string>;
     /**
+     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     */
+    public readonly replaceSecurityGroupsOnDestroy!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+     */
+    public readonly replacementSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      */
     public readonly reservedConcurrentExecutions!: pulumi.Output<number | undefined>;
@@ -335,11 +343,11 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly runtime!: pulumi.Output<string | undefined>;
     /**
-     * S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
      */
     public readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
-     * S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+     * S3 key of an object containing the function's deployment package. When `s3Bucket` is set, `s3Key` is required.
      */
     public readonly s3Key!: pulumi.Output<string | undefined>;
     /**
@@ -428,6 +436,8 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["publish"] = state ? state.publish : undefined;
             resourceInputs["qualifiedArn"] = state ? state.qualifiedArn : undefined;
             resourceInputs["qualifiedInvokeArn"] = state ? state.qualifiedInvokeArn : undefined;
+            resourceInputs["replaceSecurityGroupsOnDestroy"] = state ? state.replaceSecurityGroupsOnDestroy : undefined;
+            resourceInputs["replacementSecurityGroupIds"] = state ? state.replacementSecurityGroupIds : undefined;
             resourceInputs["reservedConcurrentExecutions"] = state ? state.reservedConcurrentExecutions : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["runtime"] = state ? state.runtime : undefined;
@@ -467,6 +477,8 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["packageType"] = args ? args.packageType : undefined;
             resourceInputs["publish"] = args ? args.publish : undefined;
+            resourceInputs["replaceSecurityGroupsOnDestroy"] = args ? args.replaceSecurityGroupsOnDestroy : undefined;
+            resourceInputs["replacementSecurityGroupIds"] = args ? args.replacementSecurityGroupIds : undefined;
             resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["runtime"] = args ? args.runtime : undefined;
@@ -508,7 +520,7 @@ export interface FunctionState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     * Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
     /**
@@ -544,7 +556,7 @@ export interface FunctionState {
      */
     imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig>;
     /**
-     * ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     * ECR image URI containing the function's deployment package. Exactly one of `filename`, `imageUri`,  or `s3Bucket` must be specified.
      */
     imageUri?: pulumi.Input<string>;
     /**
@@ -588,6 +600,14 @@ export interface FunctionState {
      */
     qualifiedInvokeArn?: pulumi.Input<string>;
     /**
+     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     */
+    replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean>;
+    /**
+     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+     */
+    replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      */
     reservedConcurrentExecutions?: pulumi.Input<number>;
@@ -600,11 +620,11 @@ export interface FunctionState {
      */
     runtime?: pulumi.Input<string | enums.lambda.Runtime>;
     /**
-     * S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
      */
     s3Bucket?: pulumi.Input<string>;
     /**
-     * S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+     * S3 key of an object containing the function's deployment package. When `s3Bucket` is set, `s3Key` is required.
      */
     s3Key?: pulumi.Input<string>;
     /**
@@ -668,7 +688,7 @@ export interface FunctionArgs {
      */
     architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     * Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
     /**
@@ -704,7 +724,7 @@ export interface FunctionArgs {
      */
     imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig>;
     /**
-     * ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
+     * ECR image URI containing the function's deployment package. Exactly one of `filename`, `imageUri`,  or `s3Bucket` must be specified.
      */
     imageUri?: pulumi.Input<string>;
     /**
@@ -732,6 +752,14 @@ export interface FunctionArgs {
      */
     publish?: pulumi.Input<boolean>;
     /**
+     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     */
+    replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean>;
+    /**
+     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+     */
+    replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      */
     reservedConcurrentExecutions?: pulumi.Input<number>;
@@ -744,11 +772,11 @@ export interface FunctionArgs {
      */
     runtime?: pulumi.Input<string | enums.lambda.Runtime>;
     /**
-     * S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
      */
     s3Bucket?: pulumi.Input<string>;
     /**
-     * S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
+     * S3 key of an object containing the function's deployment package. When `s3Bucket` is set, `s3Key` is required.
      */
     s3Key?: pulumi.Input<string>;
     /**

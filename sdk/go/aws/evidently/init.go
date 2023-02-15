@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:evidently/feature:Feature":
 		r = &Feature{}
+	case "aws:evidently/launch:Launch":
+		r = &Launch{}
 	case "aws:evidently/project:Project":
 		r = &Project{}
 	case "aws:evidently/segment:Segment":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"evidently/feature",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"evidently/launch",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

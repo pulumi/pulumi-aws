@@ -626,6 +626,8 @@ func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TableReplicaType struct {
+	// ARN of the table
+	Arn *string `pulumi:"arn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
@@ -634,6 +636,10 @@ type TableReplicaType struct {
 	PropagateTags *bool `pulumi:"propagateTags"`
 	// Region name of the replica.
 	RegionName string `pulumi:"regionName"`
+	// ARN of the Table Stream. Only available when `streamEnabled = true`
+	StreamArn *string `pulumi:"streamArn"`
+	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
+	StreamLabel *string `pulumi:"streamLabel"`
 }
 
 // TableReplicaTypeInput is an input type that accepts TableReplicaTypeArgs and TableReplicaTypeOutput values.
@@ -648,6 +654,8 @@ type TableReplicaTypeInput interface {
 }
 
 type TableReplicaTypeArgs struct {
+	// ARN of the table
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
@@ -656,6 +664,10 @@ type TableReplicaTypeArgs struct {
 	PropagateTags pulumi.BoolPtrInput `pulumi:"propagateTags"`
 	// Region name of the replica.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
+	// ARN of the Table Stream. Only available when `streamEnabled = true`
+	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
+	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
+	StreamLabel pulumi.StringPtrInput `pulumi:"streamLabel"`
 }
 
 func (TableReplicaTypeArgs) ElementType() reflect.Type {
@@ -709,6 +721,11 @@ func (o TableReplicaTypeOutput) ToTableReplicaTypeOutputWithContext(ctx context.
 	return o
 }
 
+// ARN of the table
+func (o TableReplicaTypeOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableReplicaType) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
 // ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 func (o TableReplicaTypeOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
@@ -727,6 +744,16 @@ func (o TableReplicaTypeOutput) PropagateTags() pulumi.BoolPtrOutput {
 // Region name of the replica.
 func (o TableReplicaTypeOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableReplicaType) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+// ARN of the Table Stream. Only available when `streamEnabled = true`
+func (o TableReplicaTypeOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableReplicaType) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
+func (o TableReplicaTypeOutput) StreamLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableReplicaType) *string { return v.StreamLabel }).(pulumi.StringPtrOutput)
 }
 
 type TableReplicaTypeArrayOutput struct{ *pulumi.OutputState }

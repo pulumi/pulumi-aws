@@ -4858,6 +4858,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "evidently/launch",
+  "fqn": "pulumi_aws.evidently",
+  "classes": {
+   "aws:evidently/launch:Launch": "Launch"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "evidently/project",
   "fqn": "pulumi_aws.evidently",
   "classes": {
@@ -6258,6 +6266,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/bucketAccessKey",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/bucketAccessKey:BucketAccessKey": "BucketAccessKey"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/certificate",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6870,6 +6886,14 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/coreNetwork:CoreNetwork": "CoreNetwork"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/coreNetworkPolicyAttachment",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment": "CoreNetworkPolicyAttachment"
   }
  },
  {
