@@ -1874,6 +1874,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_evidently_project": {Tok: awsResource(evidentlyMod, "Project")},
 			"aws_evidently_segment": {Tok: awsResource(evidentlyMod, "Segment")},
 			"aws_evidently_feature": {Tok: awsResource(evidentlyMod, "Feature")},
+			"aws_evidently_launch":  {Tok: awsResource(evidentlyMod, "Launch")},
 
 			// FSX
 			"aws_fsx_backup":                        {Tok: awsResource(fsxMod, "Backup")},
@@ -2396,6 +2397,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_static_ip_attachment":                 {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
 			"aws_lightsail_static_ip":                            {Tok: awsResource(lightsailMod, "StaticIp")},
 			"aws_lightsail_bucket":                               {Tok: awsResource(lightsailMod, "Bucket")},
+			"aws_lightsail_bucket_access_key":                    {Tok: awsResource(lightsailMod, "BucketAccessKey")},
 
 			// Location
 			"aws_location_map":                 {Tok: awsResource(locationMod, "Map")},
@@ -2502,6 +2504,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_transit_gateway_peering":                  {Tok: awsResource(networkManagerMod, "TransitGatewayPeering")},
 			"aws_networkmanager_transit_gateway_route_table_attachment":   {Tok: awsResource(networkManagerMod, "TransitGatewayRouteTableAttachment")},
 			"aws_networkmanager_connect_attachment":                       {Tok: awsResource(networkManagerMod, "ConnectAttachment")},
+			"aws_networkmanager_core_network_policy_attachment":           {Tok: awsResource(networkManagerMod, "CoreNetworkPolicyAttachment")},
 
 			// OpenSearch
 			"aws_opensearch_domain": {
