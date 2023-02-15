@@ -407,7 +407,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 
 	config.SharedConfigFiles = []string{configPath}
 
-	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
+	if _, _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
 		return fmt.Errorf("unable to validate AWS credentials. \n"+
 			"Details: %v\n"+
 			"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`. \n", err)
