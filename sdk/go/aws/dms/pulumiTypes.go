@@ -1443,7 +1443,7 @@ type EndpointRedshiftSettings struct {
 	BucketName *string `pulumi:"bucketName"`
 	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 	EncryptionMode *string `pulumi:"encryptionMode"`
-	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
 	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
@@ -1467,7 +1467,7 @@ type EndpointRedshiftSettingsArgs struct {
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
 	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
-	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
 	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
@@ -1565,7 +1565,7 @@ func (o EndpointRedshiftSettingsOutput) EncryptionMode() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
-// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 func (o EndpointRedshiftSettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -1629,7 +1629,7 @@ func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -1716,7 +1716,7 @@ type EndpointS3Settings struct {
 	Rfc4180 *bool `pulumi:"rfc4180"`
 	// Number of rows in a row group. Default is `10000`.
 	RowGroupLength *int `pulumi:"rowGroupLength"`
-	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
@@ -1808,7 +1808,7 @@ type EndpointS3SettingsArgs struct {
 	Rfc4180 pulumi.BoolPtrInput `pulumi:"rfc4180"`
 	// Number of rows in a row group. Default is `10000`.
 	RowGroupLength pulumi.IntPtrInput `pulumi:"rowGroupLength"`
-	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
@@ -2064,7 +2064,7 @@ func (o EndpointS3SettingsOutput) RowGroupLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.RowGroupLength }).(pulumi.IntPtrOutput)
 }
 
-// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 func (o EndpointS3SettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -2445,7 +2445,7 @@ func (o EndpointS3SettingsPtrOutput) RowGroupLength() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 func (o EndpointS3SettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {

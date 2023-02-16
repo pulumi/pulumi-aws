@@ -45,7 +45,7 @@ import (
 //								Pattern: pulumi.String("PUSH"),
 //							},
 //							&codebuild.WebhookFilterGroupFilterArgs{
-//								Type:    pulumi.String("HEAD_REF"),
+//								Type:    pulumi.String("BASE_REF"),
 //								Pattern: pulumi.String("master"),
 //							},
 //						},

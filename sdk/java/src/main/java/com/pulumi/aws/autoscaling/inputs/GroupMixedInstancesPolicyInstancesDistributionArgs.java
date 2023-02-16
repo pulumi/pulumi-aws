@@ -17,14 +17,14 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs extends co
     public static final GroupMixedInstancesPolicyInstancesDistributionArgs Empty = new GroupMixedInstancesPolicyInstancesDistributionArgs();
 
     /**
-     * Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+     * Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
      * 
      */
     @Import(name="onDemandAllocationStrategy")
     private @Nullable Output<String> onDemandAllocationStrategy;
 
     /**
-     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+     * @return Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
      * 
      */
     public Optional<Output<String>> onDemandAllocationStrategy() {
@@ -136,7 +136,7 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs extends co
         }
 
         /**
-         * @param onDemandAllocationStrategy Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+         * @param onDemandAllocationStrategy Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs extends co
         }
 
         /**
-         * @param onDemandAllocationStrategy Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+         * @param onDemandAllocationStrategy Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
          * 
          * @return builder
          * 

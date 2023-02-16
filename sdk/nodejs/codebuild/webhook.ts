@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *                 pattern: "PUSH",
  *             },
  *             {
- *                 type: "HEAD_REF",
+ *                 type: "BASE_REF",
  *                 pattern: "master",
  *             },
  *         ],

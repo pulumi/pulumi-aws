@@ -182,7 +182,13 @@ namespace Pulumi.Aws.Ec2
         public Output<int> PoolDepth { get; private set; } = null!;
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        /// </summary>
+        [Output("publicIpSource")]
+        public Output<string?> PublicIpSource { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         /// </summary>
         [Output("publiclyAdvertisable")]
         public Output<bool?> PubliclyAdvertisable { get; private set; } = null!;
@@ -325,7 +331,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Locale { get; set; }
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        /// </summary>
+        [Input("publicIpSource")]
+        public Input<string>? PublicIpSource { get; set; }
+
+        /// <summary>
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }
@@ -436,7 +448,13 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? PoolDepth { get; set; }
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        /// </summary>
+        [Input("publicIpSource")]
+        public Input<string>? PublicIpSource { get; set; }
+
+        /// <summary>
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }

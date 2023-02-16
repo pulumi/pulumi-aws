@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
  * 
- * &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
+ * &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute. The `aws.acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
  * 
  * ## Example Usage
  * ### Basic
@@ -263,14 +263,14 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
         return this.certificateSigningRequest;
     }
     /**
-     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether the certificate authority is enabled or disabled. Defaults to `true`.
+     * @return Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * `});
  * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rolePolicyAttachment", {
  *     role: role.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
  * });
  * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
  * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {

@@ -419,7 +419,7 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
                  spot_instance_pools: Optional[int] = None,
                  spot_max_price: Optional[str] = None):
         """
-        :param str on_demand_allocation_strategy: Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+        :param str on_demand_allocation_strategy: Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
         :param int on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
         :param int on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
         :param str spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
@@ -443,7 +443,7 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
     @pulumi.getter(name="onDemandAllocationStrategy")
     def on_demand_allocation_strategy(self) -> Optional[str]:
         """
-        Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+        Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
         """
         return pulumi.get(self, "on_demand_allocation_strategy")
 

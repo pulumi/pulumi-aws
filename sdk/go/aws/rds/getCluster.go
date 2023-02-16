@@ -49,8 +49,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Cluster identifier of the RDS cluster.
-	ClusterIdentifier string            `pulumi:"clusterIdentifier"`
-	Tags              map[string]string `pulumi:"tags"`
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// A map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -75,18 +76,19 @@ type LookupClusterResult struct {
 	IamDatabaseAuthenticationEnabled bool     `pulumi:"iamDatabaseAuthenticationEnabled"`
 	IamRoles                         []string `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string            `pulumi:"id"`
-	KmsKeyId                    string            `pulumi:"kmsKeyId"`
-	MasterUsername              string            `pulumi:"masterUsername"`
-	NetworkType                 string            `pulumi:"networkType"`
-	Port                        int               `pulumi:"port"`
-	PreferredBackupWindow       string            `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  string            `pulumi:"preferredMaintenanceWindow"`
-	ReaderEndpoint              string            `pulumi:"readerEndpoint"`
-	ReplicationSourceIdentifier string            `pulumi:"replicationSourceIdentifier"`
-	StorageEncrypted            bool              `pulumi:"storageEncrypted"`
-	Tags                        map[string]string `pulumi:"tags"`
-	VpcSecurityGroupIds         []string          `pulumi:"vpcSecurityGroupIds"`
+	Id                          string `pulumi:"id"`
+	KmsKeyId                    string `pulumi:"kmsKeyId"`
+	MasterUsername              string `pulumi:"masterUsername"`
+	NetworkType                 string `pulumi:"networkType"`
+	Port                        int    `pulumi:"port"`
+	PreferredBackupWindow       string `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow  string `pulumi:"preferredMaintenanceWindow"`
+	ReaderEndpoint              string `pulumi:"readerEndpoint"`
+	ReplicationSourceIdentifier string `pulumi:"replicationSourceIdentifier"`
+	StorageEncrypted            bool   `pulumi:"storageEncrypted"`
+	// A map of tags assigned to the resource.
+	Tags                map[string]string `pulumi:"tags"`
+	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -105,8 +107,9 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
 	// Cluster identifier of the RDS cluster.
-	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
-	Tags              pulumi.StringMapInput `pulumi:"tags"`
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	// A map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {
@@ -245,6 +248,7 @@ func (o LookupClusterResultOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
+// A map of tags assigned to the resource.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

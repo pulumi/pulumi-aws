@@ -83,7 +83,7 @@ type LookupFunctionResult struct {
 	Id string `pulumi:"id"`
 	// URI of the container image.
 	ImageUri string `pulumi:"imageUri"`
-	// ARN to be used for invoking Lambda Function from API Gateway.
+	// ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
 	InvokeArn string `pulumi:"invokeArn"`
 	// ARN for the KMS encryption key.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
@@ -223,7 +223,7 @@ func (o LookupFunctionResultOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.ImageUri }).(pulumi.StringOutput)
 }
 
-// ARN to be used for invoking Lambda Function from API Gateway.
+// ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
 func (o LookupFunctionResultOutput) InvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.InvokeArn }).(pulumi.StringOutput)
 }

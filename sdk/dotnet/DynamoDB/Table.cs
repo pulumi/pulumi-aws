@@ -249,7 +249,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<bool?> StreamEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         /// </summary>
         [Output("streamLabel")]
         public Output<string> StreamLabel { get; private set; } = null!;
@@ -474,6 +474,18 @@ namespace Pulumi.Aws.DynamoDB
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
         /// Configuration block for TTL. See below.
         /// </summary>
@@ -621,7 +633,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<bool>? StreamEnabled { get; set; }
 
         /// <summary>
-        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         /// </summary>
         [Input("streamLabel")]
         public Input<string>? StreamLabel { get; set; }

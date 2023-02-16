@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.ec2.inputs.VpcIpamPoolCidrCidrAuthorizationContextArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,14 +18,14 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
     public static final VpcIpamPoolCidrArgs Empty = new VpcIpamPoolCidrArgs();
 
     /**
-     * The CIDR you want to assign to the pool.
+     * The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
      * 
      */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
     /**
-     * @return The CIDR you want to assign to the pool.
+     * @return The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
      * 
      */
     public Optional<Output<String>> cidr() {
@@ -61,12 +62,28 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         return this.ipamPoolId;
     }
 
+    /**
+     * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
+     * 
+     */
+    @Import(name="netmaskLength")
+    private @Nullable Output<Integer> netmaskLength;
+
+    /**
+     * @return If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
+     * 
+     */
+    public Optional<Output<Integer>> netmaskLength() {
+        return Optional.ofNullable(this.netmaskLength);
+    }
+
     private VpcIpamPoolCidrArgs() {}
 
     private VpcIpamPoolCidrArgs(VpcIpamPoolCidrArgs $) {
         this.cidr = $.cidr;
         this.cidrAuthorizationContext = $.cidrAuthorizationContext;
         this.ipamPoolId = $.ipamPoolId;
+        this.netmaskLength = $.netmaskLength;
     }
 
     public static Builder builder() {
@@ -88,7 +105,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool.
+         * @param cidr The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
          * 
          * @return builder
          * 
@@ -99,7 +116,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool.
+         * @param cidr The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
          * 
          * @return builder
          * 
@@ -148,6 +165,27 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder ipamPoolId(String ipamPoolId) {
             return ipamPoolId(Output.of(ipamPoolId));
+        }
+
+        /**
+         * @param netmaskLength If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder netmaskLength(@Nullable Output<Integer> netmaskLength) {
+            $.netmaskLength = netmaskLength;
+            return this;
+        }
+
+        /**
+         * @param netmaskLength If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder netmaskLength(Integer netmaskLength) {
+            return netmaskLength(Output.of(netmaskLength));
         }
 
         public VpcIpamPoolCidrArgs build() {

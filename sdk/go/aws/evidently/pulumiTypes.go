@@ -301,6 +301,790 @@ func (o FeatureVariationValueOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureVariationValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
+type LaunchExecution struct {
+	// The date and time that the launch ended.
+	EndedTime *string `pulumi:"endedTime"`
+	// The date and time that the launch started.
+	StartedTime *string `pulumi:"startedTime"`
+}
+
+// LaunchExecutionInput is an input type that accepts LaunchExecutionArgs and LaunchExecutionOutput values.
+// You can construct a concrete instance of `LaunchExecutionInput` via:
+//
+//	LaunchExecutionArgs{...}
+type LaunchExecutionInput interface {
+	pulumi.Input
+
+	ToLaunchExecutionOutput() LaunchExecutionOutput
+	ToLaunchExecutionOutputWithContext(context.Context) LaunchExecutionOutput
+}
+
+type LaunchExecutionArgs struct {
+	// The date and time that the launch ended.
+	EndedTime pulumi.StringPtrInput `pulumi:"endedTime"`
+	// The date and time that the launch started.
+	StartedTime pulumi.StringPtrInput `pulumi:"startedTime"`
+}
+
+func (LaunchExecutionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchExecution)(nil)).Elem()
+}
+
+func (i LaunchExecutionArgs) ToLaunchExecutionOutput() LaunchExecutionOutput {
+	return i.ToLaunchExecutionOutputWithContext(context.Background())
+}
+
+func (i LaunchExecutionArgs) ToLaunchExecutionOutputWithContext(ctx context.Context) LaunchExecutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchExecutionOutput)
+}
+
+// LaunchExecutionArrayInput is an input type that accepts LaunchExecutionArray and LaunchExecutionArrayOutput values.
+// You can construct a concrete instance of `LaunchExecutionArrayInput` via:
+//
+//	LaunchExecutionArray{ LaunchExecutionArgs{...} }
+type LaunchExecutionArrayInput interface {
+	pulumi.Input
+
+	ToLaunchExecutionArrayOutput() LaunchExecutionArrayOutput
+	ToLaunchExecutionArrayOutputWithContext(context.Context) LaunchExecutionArrayOutput
+}
+
+type LaunchExecutionArray []LaunchExecutionInput
+
+func (LaunchExecutionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchExecution)(nil)).Elem()
+}
+
+func (i LaunchExecutionArray) ToLaunchExecutionArrayOutput() LaunchExecutionArrayOutput {
+	return i.ToLaunchExecutionArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchExecutionArray) ToLaunchExecutionArrayOutputWithContext(ctx context.Context) LaunchExecutionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchExecutionArrayOutput)
+}
+
+type LaunchExecutionOutput struct{ *pulumi.OutputState }
+
+func (LaunchExecutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchExecution)(nil)).Elem()
+}
+
+func (o LaunchExecutionOutput) ToLaunchExecutionOutput() LaunchExecutionOutput {
+	return o
+}
+
+func (o LaunchExecutionOutput) ToLaunchExecutionOutputWithContext(ctx context.Context) LaunchExecutionOutput {
+	return o
+}
+
+// The date and time that the launch ended.
+func (o LaunchExecutionOutput) EndedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchExecution) *string { return v.EndedTime }).(pulumi.StringPtrOutput)
+}
+
+// The date and time that the launch started.
+func (o LaunchExecutionOutput) StartedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchExecution) *string { return v.StartedTime }).(pulumi.StringPtrOutput)
+}
+
+type LaunchExecutionArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchExecutionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchExecution)(nil)).Elem()
+}
+
+func (o LaunchExecutionArrayOutput) ToLaunchExecutionArrayOutput() LaunchExecutionArrayOutput {
+	return o
+}
+
+func (o LaunchExecutionArrayOutput) ToLaunchExecutionArrayOutputWithContext(ctx context.Context) LaunchExecutionArrayOutput {
+	return o
+}
+
+func (o LaunchExecutionArrayOutput) Index(i pulumi.IntInput) LaunchExecutionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchExecution {
+		return vs[0].([]LaunchExecution)[vs[1].(int)]
+	}).(LaunchExecutionOutput)
+}
+
+type LaunchGroup struct {
+	// Specifies the description of the launch group.
+	Description *string `pulumi:"description"`
+	// Specifies the name of the feature that the launch is using.
+	Feature string `pulumi:"feature"`
+	// Specifies the name of the lahnch group.
+	Name string `pulumi:"name"`
+	// Specifies the feature variation to use for this launch group.
+	Variation string `pulumi:"variation"`
+}
+
+// LaunchGroupInput is an input type that accepts LaunchGroupArgs and LaunchGroupOutput values.
+// You can construct a concrete instance of `LaunchGroupInput` via:
+//
+//	LaunchGroupArgs{...}
+type LaunchGroupInput interface {
+	pulumi.Input
+
+	ToLaunchGroupOutput() LaunchGroupOutput
+	ToLaunchGroupOutputWithContext(context.Context) LaunchGroupOutput
+}
+
+type LaunchGroupArgs struct {
+	// Specifies the description of the launch group.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies the name of the feature that the launch is using.
+	Feature pulumi.StringInput `pulumi:"feature"`
+	// Specifies the name of the lahnch group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the feature variation to use for this launch group.
+	Variation pulumi.StringInput `pulumi:"variation"`
+}
+
+func (LaunchGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchGroup)(nil)).Elem()
+}
+
+func (i LaunchGroupArgs) ToLaunchGroupOutput() LaunchGroupOutput {
+	return i.ToLaunchGroupOutputWithContext(context.Background())
+}
+
+func (i LaunchGroupArgs) ToLaunchGroupOutputWithContext(ctx context.Context) LaunchGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchGroupOutput)
+}
+
+// LaunchGroupArrayInput is an input type that accepts LaunchGroupArray and LaunchGroupArrayOutput values.
+// You can construct a concrete instance of `LaunchGroupArrayInput` via:
+//
+//	LaunchGroupArray{ LaunchGroupArgs{...} }
+type LaunchGroupArrayInput interface {
+	pulumi.Input
+
+	ToLaunchGroupArrayOutput() LaunchGroupArrayOutput
+	ToLaunchGroupArrayOutputWithContext(context.Context) LaunchGroupArrayOutput
+}
+
+type LaunchGroupArray []LaunchGroupInput
+
+func (LaunchGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchGroup)(nil)).Elem()
+}
+
+func (i LaunchGroupArray) ToLaunchGroupArrayOutput() LaunchGroupArrayOutput {
+	return i.ToLaunchGroupArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchGroupArray) ToLaunchGroupArrayOutputWithContext(ctx context.Context) LaunchGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchGroupArrayOutput)
+}
+
+type LaunchGroupOutput struct{ *pulumi.OutputState }
+
+func (LaunchGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchGroup)(nil)).Elem()
+}
+
+func (o LaunchGroupOutput) ToLaunchGroupOutput() LaunchGroupOutput {
+	return o
+}
+
+func (o LaunchGroupOutput) ToLaunchGroupOutputWithContext(ctx context.Context) LaunchGroupOutput {
+	return o
+}
+
+// Specifies the description of the launch group.
+func (o LaunchGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchGroup) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the feature that the launch is using.
+func (o LaunchGroupOutput) Feature() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchGroup) string { return v.Feature }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the lahnch group.
+func (o LaunchGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the feature variation to use for this launch group.
+func (o LaunchGroupOutput) Variation() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchGroup) string { return v.Variation }).(pulumi.StringOutput)
+}
+
+type LaunchGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchGroup)(nil)).Elem()
+}
+
+func (o LaunchGroupArrayOutput) ToLaunchGroupArrayOutput() LaunchGroupArrayOutput {
+	return o
+}
+
+func (o LaunchGroupArrayOutput) ToLaunchGroupArrayOutputWithContext(ctx context.Context) LaunchGroupArrayOutput {
+	return o
+}
+
+func (o LaunchGroupArrayOutput) Index(i pulumi.IntInput) LaunchGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchGroup {
+		return vs[0].([]LaunchGroup)[vs[1].(int)]
+	}).(LaunchGroupOutput)
+}
+
+type LaunchMetricMonitor struct {
+	// A block that defines the metric. Detailed below.
+	MetricDefinition LaunchMetricMonitorMetricDefinition `pulumi:"metricDefinition"`
+}
+
+// LaunchMetricMonitorInput is an input type that accepts LaunchMetricMonitorArgs and LaunchMetricMonitorOutput values.
+// You can construct a concrete instance of `LaunchMetricMonitorInput` via:
+//
+//	LaunchMetricMonitorArgs{...}
+type LaunchMetricMonitorInput interface {
+	pulumi.Input
+
+	ToLaunchMetricMonitorOutput() LaunchMetricMonitorOutput
+	ToLaunchMetricMonitorOutputWithContext(context.Context) LaunchMetricMonitorOutput
+}
+
+type LaunchMetricMonitorArgs struct {
+	// A block that defines the metric. Detailed below.
+	MetricDefinition LaunchMetricMonitorMetricDefinitionInput `pulumi:"metricDefinition"`
+}
+
+func (LaunchMetricMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchMetricMonitor)(nil)).Elem()
+}
+
+func (i LaunchMetricMonitorArgs) ToLaunchMetricMonitorOutput() LaunchMetricMonitorOutput {
+	return i.ToLaunchMetricMonitorOutputWithContext(context.Background())
+}
+
+func (i LaunchMetricMonitorArgs) ToLaunchMetricMonitorOutputWithContext(ctx context.Context) LaunchMetricMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchMetricMonitorOutput)
+}
+
+// LaunchMetricMonitorArrayInput is an input type that accepts LaunchMetricMonitorArray and LaunchMetricMonitorArrayOutput values.
+// You can construct a concrete instance of `LaunchMetricMonitorArrayInput` via:
+//
+//	LaunchMetricMonitorArray{ LaunchMetricMonitorArgs{...} }
+type LaunchMetricMonitorArrayInput interface {
+	pulumi.Input
+
+	ToLaunchMetricMonitorArrayOutput() LaunchMetricMonitorArrayOutput
+	ToLaunchMetricMonitorArrayOutputWithContext(context.Context) LaunchMetricMonitorArrayOutput
+}
+
+type LaunchMetricMonitorArray []LaunchMetricMonitorInput
+
+func (LaunchMetricMonitorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchMetricMonitor)(nil)).Elem()
+}
+
+func (i LaunchMetricMonitorArray) ToLaunchMetricMonitorArrayOutput() LaunchMetricMonitorArrayOutput {
+	return i.ToLaunchMetricMonitorArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchMetricMonitorArray) ToLaunchMetricMonitorArrayOutputWithContext(ctx context.Context) LaunchMetricMonitorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchMetricMonitorArrayOutput)
+}
+
+type LaunchMetricMonitorOutput struct{ *pulumi.OutputState }
+
+func (LaunchMetricMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchMetricMonitor)(nil)).Elem()
+}
+
+func (o LaunchMetricMonitorOutput) ToLaunchMetricMonitorOutput() LaunchMetricMonitorOutput {
+	return o
+}
+
+func (o LaunchMetricMonitorOutput) ToLaunchMetricMonitorOutputWithContext(ctx context.Context) LaunchMetricMonitorOutput {
+	return o
+}
+
+// A block that defines the metric. Detailed below.
+func (o LaunchMetricMonitorOutput) MetricDefinition() LaunchMetricMonitorMetricDefinitionOutput {
+	return o.ApplyT(func(v LaunchMetricMonitor) LaunchMetricMonitorMetricDefinition { return v.MetricDefinition }).(LaunchMetricMonitorMetricDefinitionOutput)
+}
+
+type LaunchMetricMonitorArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchMetricMonitorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchMetricMonitor)(nil)).Elem()
+}
+
+func (o LaunchMetricMonitorArrayOutput) ToLaunchMetricMonitorArrayOutput() LaunchMetricMonitorArrayOutput {
+	return o
+}
+
+func (o LaunchMetricMonitorArrayOutput) ToLaunchMetricMonitorArrayOutputWithContext(ctx context.Context) LaunchMetricMonitorArrayOutput {
+	return o
+}
+
+func (o LaunchMetricMonitorArrayOutput) Index(i pulumi.IntInput) LaunchMetricMonitorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchMetricMonitor {
+		return vs[0].([]LaunchMetricMonitor)[vs[1].(int)]
+	}).(LaunchMetricMonitorOutput)
+}
+
+type LaunchMetricMonitorMetricDefinition struct {
+	// Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
+	EntityIdKey string `pulumi:"entityIdKey"`
+	// Specifies The EventBridge event pattern that defines how the metric is recorded.
+	EventPattern *string `pulumi:"eventPattern"`
+	// Specifies the name for the metric.
+	Name string `pulumi:"name"`
+	// Specifies a label for the units that the metric is measuring.
+	UnitLabel *string `pulumi:"unitLabel"`
+	// Specifies the value that is tracked to produce the metric.
+	ValueKey string `pulumi:"valueKey"`
+}
+
+// LaunchMetricMonitorMetricDefinitionInput is an input type that accepts LaunchMetricMonitorMetricDefinitionArgs and LaunchMetricMonitorMetricDefinitionOutput values.
+// You can construct a concrete instance of `LaunchMetricMonitorMetricDefinitionInput` via:
+//
+//	LaunchMetricMonitorMetricDefinitionArgs{...}
+type LaunchMetricMonitorMetricDefinitionInput interface {
+	pulumi.Input
+
+	ToLaunchMetricMonitorMetricDefinitionOutput() LaunchMetricMonitorMetricDefinitionOutput
+	ToLaunchMetricMonitorMetricDefinitionOutputWithContext(context.Context) LaunchMetricMonitorMetricDefinitionOutput
+}
+
+type LaunchMetricMonitorMetricDefinitionArgs struct {
+	// Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
+	EntityIdKey pulumi.StringInput `pulumi:"entityIdKey"`
+	// Specifies The EventBridge event pattern that defines how the metric is recorded.
+	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
+	// Specifies the name for the metric.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a label for the units that the metric is measuring.
+	UnitLabel pulumi.StringPtrInput `pulumi:"unitLabel"`
+	// Specifies the value that is tracked to produce the metric.
+	ValueKey pulumi.StringInput `pulumi:"valueKey"`
+}
+
+func (LaunchMetricMonitorMetricDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchMetricMonitorMetricDefinition)(nil)).Elem()
+}
+
+func (i LaunchMetricMonitorMetricDefinitionArgs) ToLaunchMetricMonitorMetricDefinitionOutput() LaunchMetricMonitorMetricDefinitionOutput {
+	return i.ToLaunchMetricMonitorMetricDefinitionOutputWithContext(context.Background())
+}
+
+func (i LaunchMetricMonitorMetricDefinitionArgs) ToLaunchMetricMonitorMetricDefinitionOutputWithContext(ctx context.Context) LaunchMetricMonitorMetricDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchMetricMonitorMetricDefinitionOutput)
+}
+
+type LaunchMetricMonitorMetricDefinitionOutput struct{ *pulumi.OutputState }
+
+func (LaunchMetricMonitorMetricDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchMetricMonitorMetricDefinition)(nil)).Elem()
+}
+
+func (o LaunchMetricMonitorMetricDefinitionOutput) ToLaunchMetricMonitorMetricDefinitionOutput() LaunchMetricMonitorMetricDefinitionOutput {
+	return o
+}
+
+func (o LaunchMetricMonitorMetricDefinitionOutput) ToLaunchMetricMonitorMetricDefinitionOutputWithContext(ctx context.Context) LaunchMetricMonitorMetricDefinitionOutput {
+	return o
+}
+
+// Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
+func (o LaunchMetricMonitorMetricDefinitionOutput) EntityIdKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchMetricMonitorMetricDefinition) string { return v.EntityIdKey }).(pulumi.StringOutput)
+}
+
+// Specifies The EventBridge event pattern that defines how the metric is recorded.
+func (o LaunchMetricMonitorMetricDefinitionOutput) EventPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchMetricMonitorMetricDefinition) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name for the metric.
+func (o LaunchMetricMonitorMetricDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchMetricMonitorMetricDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a label for the units that the metric is measuring.
+func (o LaunchMetricMonitorMetricDefinitionOutput) UnitLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchMetricMonitorMetricDefinition) *string { return v.UnitLabel }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the value that is tracked to produce the metric.
+func (o LaunchMetricMonitorMetricDefinitionOutput) ValueKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchMetricMonitorMetricDefinition) string { return v.ValueKey }).(pulumi.StringOutput)
+}
+
+type LaunchScheduledSplitsConfig struct {
+	// One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
+	Steps []LaunchScheduledSplitsConfigStep `pulumi:"steps"`
+}
+
+// LaunchScheduledSplitsConfigInput is an input type that accepts LaunchScheduledSplitsConfigArgs and LaunchScheduledSplitsConfigOutput values.
+// You can construct a concrete instance of `LaunchScheduledSplitsConfigInput` via:
+//
+//	LaunchScheduledSplitsConfigArgs{...}
+type LaunchScheduledSplitsConfigInput interface {
+	pulumi.Input
+
+	ToLaunchScheduledSplitsConfigOutput() LaunchScheduledSplitsConfigOutput
+	ToLaunchScheduledSplitsConfigOutputWithContext(context.Context) LaunchScheduledSplitsConfigOutput
+}
+
+type LaunchScheduledSplitsConfigArgs struct {
+	// One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
+	Steps LaunchScheduledSplitsConfigStepArrayInput `pulumi:"steps"`
+}
+
+func (LaunchScheduledSplitsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchScheduledSplitsConfig)(nil)).Elem()
+}
+
+func (i LaunchScheduledSplitsConfigArgs) ToLaunchScheduledSplitsConfigOutput() LaunchScheduledSplitsConfigOutput {
+	return i.ToLaunchScheduledSplitsConfigOutputWithContext(context.Background())
+}
+
+func (i LaunchScheduledSplitsConfigArgs) ToLaunchScheduledSplitsConfigOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigOutput)
+}
+
+func (i LaunchScheduledSplitsConfigArgs) ToLaunchScheduledSplitsConfigPtrOutput() LaunchScheduledSplitsConfigPtrOutput {
+	return i.ToLaunchScheduledSplitsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchScheduledSplitsConfigArgs) ToLaunchScheduledSplitsConfigPtrOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigOutput).ToLaunchScheduledSplitsConfigPtrOutputWithContext(ctx)
+}
+
+// LaunchScheduledSplitsConfigPtrInput is an input type that accepts LaunchScheduledSplitsConfigArgs, LaunchScheduledSplitsConfigPtr and LaunchScheduledSplitsConfigPtrOutput values.
+// You can construct a concrete instance of `LaunchScheduledSplitsConfigPtrInput` via:
+//
+//	        LaunchScheduledSplitsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchScheduledSplitsConfigPtrInput interface {
+	pulumi.Input
+
+	ToLaunchScheduledSplitsConfigPtrOutput() LaunchScheduledSplitsConfigPtrOutput
+	ToLaunchScheduledSplitsConfigPtrOutputWithContext(context.Context) LaunchScheduledSplitsConfigPtrOutput
+}
+
+type launchScheduledSplitsConfigPtrType LaunchScheduledSplitsConfigArgs
+
+func LaunchScheduledSplitsConfigPtr(v *LaunchScheduledSplitsConfigArgs) LaunchScheduledSplitsConfigPtrInput {
+	return (*launchScheduledSplitsConfigPtrType)(v)
+}
+
+func (*launchScheduledSplitsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchScheduledSplitsConfig)(nil)).Elem()
+}
+
+func (i *launchScheduledSplitsConfigPtrType) ToLaunchScheduledSplitsConfigPtrOutput() LaunchScheduledSplitsConfigPtrOutput {
+	return i.ToLaunchScheduledSplitsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *launchScheduledSplitsConfigPtrType) ToLaunchScheduledSplitsConfigPtrOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigPtrOutput)
+}
+
+type LaunchScheduledSplitsConfigOutput struct{ *pulumi.OutputState }
+
+func (LaunchScheduledSplitsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchScheduledSplitsConfig)(nil)).Elem()
+}
+
+func (o LaunchScheduledSplitsConfigOutput) ToLaunchScheduledSplitsConfigOutput() LaunchScheduledSplitsConfigOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigOutput) ToLaunchScheduledSplitsConfigOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigOutput) ToLaunchScheduledSplitsConfigPtrOutput() LaunchScheduledSplitsConfigPtrOutput {
+	return o.ToLaunchScheduledSplitsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchScheduledSplitsConfigOutput) ToLaunchScheduledSplitsConfigPtrOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchScheduledSplitsConfig) *LaunchScheduledSplitsConfig {
+		return &v
+	}).(LaunchScheduledSplitsConfigPtrOutput)
+}
+
+// One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
+func (o LaunchScheduledSplitsConfigOutput) Steps() LaunchScheduledSplitsConfigStepArrayOutput {
+	return o.ApplyT(func(v LaunchScheduledSplitsConfig) []LaunchScheduledSplitsConfigStep { return v.Steps }).(LaunchScheduledSplitsConfigStepArrayOutput)
+}
+
+type LaunchScheduledSplitsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchScheduledSplitsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchScheduledSplitsConfig)(nil)).Elem()
+}
+
+func (o LaunchScheduledSplitsConfigPtrOutput) ToLaunchScheduledSplitsConfigPtrOutput() LaunchScheduledSplitsConfigPtrOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigPtrOutput) ToLaunchScheduledSplitsConfigPtrOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigPtrOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigPtrOutput) Elem() LaunchScheduledSplitsConfigOutput {
+	return o.ApplyT(func(v *LaunchScheduledSplitsConfig) LaunchScheduledSplitsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchScheduledSplitsConfig
+		return ret
+	}).(LaunchScheduledSplitsConfigOutput)
+}
+
+// One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
+func (o LaunchScheduledSplitsConfigPtrOutput) Steps() LaunchScheduledSplitsConfigStepArrayOutput {
+	return o.ApplyT(func(v *LaunchScheduledSplitsConfig) []LaunchScheduledSplitsConfigStep {
+		if v == nil {
+			return nil
+		}
+		return v.Steps
+	}).(LaunchScheduledSplitsConfigStepArrayOutput)
+}
+
+type LaunchScheduledSplitsConfigStep struct {
+	// The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
+	GroupWeights map[string]int `pulumi:"groupWeights"`
+	// One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
+	SegmentOverrides []LaunchScheduledSplitsConfigStepSegmentOverride `pulumi:"segmentOverrides"`
+	// Specifies the date and time that this step of the launch starts.
+	StartTime string `pulumi:"startTime"`
+}
+
+// LaunchScheduledSplitsConfigStepInput is an input type that accepts LaunchScheduledSplitsConfigStepArgs and LaunchScheduledSplitsConfigStepOutput values.
+// You can construct a concrete instance of `LaunchScheduledSplitsConfigStepInput` via:
+//
+//	LaunchScheduledSplitsConfigStepArgs{...}
+type LaunchScheduledSplitsConfigStepInput interface {
+	pulumi.Input
+
+	ToLaunchScheduledSplitsConfigStepOutput() LaunchScheduledSplitsConfigStepOutput
+	ToLaunchScheduledSplitsConfigStepOutputWithContext(context.Context) LaunchScheduledSplitsConfigStepOutput
+}
+
+type LaunchScheduledSplitsConfigStepArgs struct {
+	// The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
+	GroupWeights pulumi.IntMapInput `pulumi:"groupWeights"`
+	// One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
+	SegmentOverrides LaunchScheduledSplitsConfigStepSegmentOverrideArrayInput `pulumi:"segmentOverrides"`
+	// Specifies the date and time that this step of the launch starts.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (LaunchScheduledSplitsConfigStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchScheduledSplitsConfigStep)(nil)).Elem()
+}
+
+func (i LaunchScheduledSplitsConfigStepArgs) ToLaunchScheduledSplitsConfigStepOutput() LaunchScheduledSplitsConfigStepOutput {
+	return i.ToLaunchScheduledSplitsConfigStepOutputWithContext(context.Background())
+}
+
+func (i LaunchScheduledSplitsConfigStepArgs) ToLaunchScheduledSplitsConfigStepOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigStepOutput)
+}
+
+// LaunchScheduledSplitsConfigStepArrayInput is an input type that accepts LaunchScheduledSplitsConfigStepArray and LaunchScheduledSplitsConfigStepArrayOutput values.
+// You can construct a concrete instance of `LaunchScheduledSplitsConfigStepArrayInput` via:
+//
+//	LaunchScheduledSplitsConfigStepArray{ LaunchScheduledSplitsConfigStepArgs{...} }
+type LaunchScheduledSplitsConfigStepArrayInput interface {
+	pulumi.Input
+
+	ToLaunchScheduledSplitsConfigStepArrayOutput() LaunchScheduledSplitsConfigStepArrayOutput
+	ToLaunchScheduledSplitsConfigStepArrayOutputWithContext(context.Context) LaunchScheduledSplitsConfigStepArrayOutput
+}
+
+type LaunchScheduledSplitsConfigStepArray []LaunchScheduledSplitsConfigStepInput
+
+func (LaunchScheduledSplitsConfigStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchScheduledSplitsConfigStep)(nil)).Elem()
+}
+
+func (i LaunchScheduledSplitsConfigStepArray) ToLaunchScheduledSplitsConfigStepArrayOutput() LaunchScheduledSplitsConfigStepArrayOutput {
+	return i.ToLaunchScheduledSplitsConfigStepArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchScheduledSplitsConfigStepArray) ToLaunchScheduledSplitsConfigStepArrayOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigStepArrayOutput)
+}
+
+type LaunchScheduledSplitsConfigStepOutput struct{ *pulumi.OutputState }
+
+func (LaunchScheduledSplitsConfigStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchScheduledSplitsConfigStep)(nil)).Elem()
+}
+
+func (o LaunchScheduledSplitsConfigStepOutput) ToLaunchScheduledSplitsConfigStepOutput() LaunchScheduledSplitsConfigStepOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepOutput) ToLaunchScheduledSplitsConfigStepOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepOutput {
+	return o
+}
+
+// The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
+func (o LaunchScheduledSplitsConfigStepOutput) GroupWeights() pulumi.IntMapOutput {
+	return o.ApplyT(func(v LaunchScheduledSplitsConfigStep) map[string]int { return v.GroupWeights }).(pulumi.IntMapOutput)
+}
+
+// One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
+func (o LaunchScheduledSplitsConfigStepOutput) SegmentOverrides() LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput {
+	return o.ApplyT(func(v LaunchScheduledSplitsConfigStep) []LaunchScheduledSplitsConfigStepSegmentOverride {
+		return v.SegmentOverrides
+	}).(LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput)
+}
+
+// Specifies the date and time that this step of the launch starts.
+func (o LaunchScheduledSplitsConfigStepOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchScheduledSplitsConfigStep) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type LaunchScheduledSplitsConfigStepArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchScheduledSplitsConfigStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchScheduledSplitsConfigStep)(nil)).Elem()
+}
+
+func (o LaunchScheduledSplitsConfigStepArrayOutput) ToLaunchScheduledSplitsConfigStepArrayOutput() LaunchScheduledSplitsConfigStepArrayOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepArrayOutput) ToLaunchScheduledSplitsConfigStepArrayOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepArrayOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepArrayOutput) Index(i pulumi.IntInput) LaunchScheduledSplitsConfigStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchScheduledSplitsConfigStep {
+		return vs[0].([]LaunchScheduledSplitsConfigStep)[vs[1].(int)]
+	}).(LaunchScheduledSplitsConfigStepOutput)
+}
+
+type LaunchScheduledSplitsConfigStepSegmentOverride struct {
+	// Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
+	EvaluationOrder int `pulumi:"evaluationOrder"`
+	// The name or ARN of the segment to use.
+	Segment string `pulumi:"segment"`
+	// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+	Weights map[string]int `pulumi:"weights"`
+}
+
+// LaunchScheduledSplitsConfigStepSegmentOverrideInput is an input type that accepts LaunchScheduledSplitsConfigStepSegmentOverrideArgs and LaunchScheduledSplitsConfigStepSegmentOverrideOutput values.
+// You can construct a concrete instance of `LaunchScheduledSplitsConfigStepSegmentOverrideInput` via:
+//
+//	LaunchScheduledSplitsConfigStepSegmentOverrideArgs{...}
+type LaunchScheduledSplitsConfigStepSegmentOverrideInput interface {
+	pulumi.Input
+
+	ToLaunchScheduledSplitsConfigStepSegmentOverrideOutput() LaunchScheduledSplitsConfigStepSegmentOverrideOutput
+	ToLaunchScheduledSplitsConfigStepSegmentOverrideOutputWithContext(context.Context) LaunchScheduledSplitsConfigStepSegmentOverrideOutput
+}
+
+type LaunchScheduledSplitsConfigStepSegmentOverrideArgs struct {
+	// Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
+	EvaluationOrder pulumi.IntInput `pulumi:"evaluationOrder"`
+	// The name or ARN of the segment to use.
+	Segment pulumi.StringInput `pulumi:"segment"`
+	// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+	Weights pulumi.IntMapInput `pulumi:"weights"`
+}
+
+func (LaunchScheduledSplitsConfigStepSegmentOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchScheduledSplitsConfigStepSegmentOverride)(nil)).Elem()
+}
+
+func (i LaunchScheduledSplitsConfigStepSegmentOverrideArgs) ToLaunchScheduledSplitsConfigStepSegmentOverrideOutput() LaunchScheduledSplitsConfigStepSegmentOverrideOutput {
+	return i.ToLaunchScheduledSplitsConfigStepSegmentOverrideOutputWithContext(context.Background())
+}
+
+func (i LaunchScheduledSplitsConfigStepSegmentOverrideArgs) ToLaunchScheduledSplitsConfigStepSegmentOverrideOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepSegmentOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigStepSegmentOverrideOutput)
+}
+
+// LaunchScheduledSplitsConfigStepSegmentOverrideArrayInput is an input type that accepts LaunchScheduledSplitsConfigStepSegmentOverrideArray and LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput values.
+// You can construct a concrete instance of `LaunchScheduledSplitsConfigStepSegmentOverrideArrayInput` via:
+//
+//	LaunchScheduledSplitsConfigStepSegmentOverrideArray{ LaunchScheduledSplitsConfigStepSegmentOverrideArgs{...} }
+type LaunchScheduledSplitsConfigStepSegmentOverrideArrayInput interface {
+	pulumi.Input
+
+	ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput() LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput
+	ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutputWithContext(context.Context) LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput
+}
+
+type LaunchScheduledSplitsConfigStepSegmentOverrideArray []LaunchScheduledSplitsConfigStepSegmentOverrideInput
+
+func (LaunchScheduledSplitsConfigStepSegmentOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchScheduledSplitsConfigStepSegmentOverride)(nil)).Elem()
+}
+
+func (i LaunchScheduledSplitsConfigStepSegmentOverrideArray) ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput() LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput {
+	return i.ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchScheduledSplitsConfigStepSegmentOverrideArray) ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput)
+}
+
+type LaunchScheduledSplitsConfigStepSegmentOverrideOutput struct{ *pulumi.OutputState }
+
+func (LaunchScheduledSplitsConfigStepSegmentOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchScheduledSplitsConfigStepSegmentOverride)(nil)).Elem()
+}
+
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) ToLaunchScheduledSplitsConfigStepSegmentOverrideOutput() LaunchScheduledSplitsConfigStepSegmentOverrideOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) ToLaunchScheduledSplitsConfigStepSegmentOverrideOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepSegmentOverrideOutput {
+	return o
+}
+
+// Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) EvaluationOrder() pulumi.IntOutput {
+	return o.ApplyT(func(v LaunchScheduledSplitsConfigStepSegmentOverride) int { return v.EvaluationOrder }).(pulumi.IntOutput)
+}
+
+// The name or ARN of the segment to use.
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) Segment() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchScheduledSplitsConfigStepSegmentOverride) string { return v.Segment }).(pulumi.StringOutput)
+}
+
+// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) Weights() pulumi.IntMapOutput {
+	return o.ApplyT(func(v LaunchScheduledSplitsConfigStepSegmentOverride) map[string]int { return v.Weights }).(pulumi.IntMapOutput)
+}
+
+type LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchScheduledSplitsConfigStepSegmentOverride)(nil)).Elem()
+}
+
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput) ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput() LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput) ToLaunchScheduledSplitsConfigStepSegmentOverrideArrayOutputWithContext(ctx context.Context) LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput {
+	return o
+}
+
+func (o LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput) Index(i pulumi.IntInput) LaunchScheduledSplitsConfigStepSegmentOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchScheduledSplitsConfigStepSegmentOverride {
+		return vs[0].([]LaunchScheduledSplitsConfigStepSegmentOverride)[vs[1].(int)]
+	}).(LaunchScheduledSplitsConfigStepSegmentOverrideOutput)
+}
+
 type ProjectDataDelivery struct {
 	// A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
 	CloudwatchLogs *ProjectDataDeliveryCloudwatchLogs `pulumi:"cloudwatchLogs"`
@@ -756,6 +1540,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureVariationInput)(nil)).Elem(), FeatureVariationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureVariationArrayInput)(nil)).Elem(), FeatureVariationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureVariationValueInput)(nil)).Elem(), FeatureVariationValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchExecutionInput)(nil)).Elem(), LaunchExecutionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchExecutionArrayInput)(nil)).Elem(), LaunchExecutionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchGroupInput)(nil)).Elem(), LaunchGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchGroupArrayInput)(nil)).Elem(), LaunchGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchMetricMonitorInput)(nil)).Elem(), LaunchMetricMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchMetricMonitorArrayInput)(nil)).Elem(), LaunchMetricMonitorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchMetricMonitorMetricDefinitionInput)(nil)).Elem(), LaunchMetricMonitorMetricDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchScheduledSplitsConfigInput)(nil)).Elem(), LaunchScheduledSplitsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchScheduledSplitsConfigPtrInput)(nil)).Elem(), LaunchScheduledSplitsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchScheduledSplitsConfigStepInput)(nil)).Elem(), LaunchScheduledSplitsConfigStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchScheduledSplitsConfigStepArrayInput)(nil)).Elem(), LaunchScheduledSplitsConfigStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchScheduledSplitsConfigStepSegmentOverrideInput)(nil)).Elem(), LaunchScheduledSplitsConfigStepSegmentOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchScheduledSplitsConfigStepSegmentOverrideArrayInput)(nil)).Elem(), LaunchScheduledSplitsConfigStepSegmentOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryInput)(nil)).Elem(), ProjectDataDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryPtrInput)(nil)).Elem(), ProjectDataDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryCloudwatchLogsInput)(nil)).Elem(), ProjectDataDeliveryCloudwatchLogsArgs{})
@@ -767,6 +1564,19 @@ func init() {
 	pulumi.RegisterOutputType(FeatureVariationOutput{})
 	pulumi.RegisterOutputType(FeatureVariationArrayOutput{})
 	pulumi.RegisterOutputType(FeatureVariationValueOutput{})
+	pulumi.RegisterOutputType(LaunchExecutionOutput{})
+	pulumi.RegisterOutputType(LaunchExecutionArrayOutput{})
+	pulumi.RegisterOutputType(LaunchGroupOutput{})
+	pulumi.RegisterOutputType(LaunchGroupArrayOutput{})
+	pulumi.RegisterOutputType(LaunchMetricMonitorOutput{})
+	pulumi.RegisterOutputType(LaunchMetricMonitorArrayOutput{})
+	pulumi.RegisterOutputType(LaunchMetricMonitorMetricDefinitionOutput{})
+	pulumi.RegisterOutputType(LaunchScheduledSplitsConfigOutput{})
+	pulumi.RegisterOutputType(LaunchScheduledSplitsConfigPtrOutput{})
+	pulumi.RegisterOutputType(LaunchScheduledSplitsConfigStepOutput{})
+	pulumi.RegisterOutputType(LaunchScheduledSplitsConfigStepArrayOutput{})
+	pulumi.RegisterOutputType(LaunchScheduledSplitsConfigStepSegmentOverrideOutput{})
+	pulumi.RegisterOutputType(LaunchScheduledSplitsConfigStepSegmentOverrideArrayOutput{})
 	pulumi.RegisterOutputType(ProjectDataDeliveryOutput{})
 	pulumi.RegisterOutputType(ProjectDataDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ProjectDataDeliveryCloudwatchLogsOutput{})

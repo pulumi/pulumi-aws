@@ -159,7 +159,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly dropInvalidHeaderFields!: pulumi.Output<boolean | undefined>;
     /**
-     * If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
+     * If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
      */
     public readonly enableCrossZoneLoadBalancing!: pulumi.Output<boolean | undefined>;
     /**
@@ -338,7 +338,7 @@ export interface LoadBalancerState {
      */
     dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
-     * If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
+     * If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
      */
     enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**
@@ -433,7 +433,7 @@ export interface LoadBalancerArgs {
      */
     dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
-     * If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
+     * If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
      */
     enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**

@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,8 @@ import javax.annotation.Nullable;
 
 /**
  * Provides a core network resource.
+ * 
+ * &gt; **NOTE on Core Networks and Policy Attachments:** For a given core network, this resource&#39;s `policy_document` argument is incompatible with using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. When using this resource&#39;s `policy_document` argument and the `aws.networkmanager.CoreNetworkPolicyAttachment` resource, both will attempt to manage the core network&#39;s policy document and Pulumi will show a permanent difference.
  * 
  * ## Example Usage
  * ### Basic
@@ -81,36 +84,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With policy document
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.CoreNetwork;
- * import com.pulumi.aws.networkmanager.CoreNetworkArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CoreNetwork(&#34;example&#34;, CoreNetworkArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
- *             .policyDocument(data.aws_networkmanager_core_network_policy_document().example().json())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### With tags
  * ```java
  * package generated_program;
@@ -141,6 +114,76 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### With VPC Attachment
+ * 
+ * The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.GlobalNetwork;
+ * import com.pulumi.aws.networkmanager.CoreNetwork;
+ * import com.pulumi.aws.networkmanager.CoreNetworkArgs;
+ * import com.pulumi.aws.networkmanager.VpcAttachment;
+ * import com.pulumi.aws.networkmanager.VpcAttachmentArgs;
+ * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+ * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+ * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachment;
+ * import com.pulumi.aws.networkmanager.CoreNetworkPolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;);
+ * 
+ *         var exampleCoreNetwork = new CoreNetwork(&#34;exampleCoreNetwork&#34;, CoreNetworkArgs.builder()        
+ *             .globalNetworkId(exampleGlobalNetwork.id())
+ *             .createBasePolicy(true)
+ *             .build());
+ * 
+ *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
+ *             .coreNetworkId(exampleCoreNetwork.id())
+ *             .subnetArns(aws_subnet.example().stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .vpcArn(aws_vpc.example().arn())
+ *             .build());
+ * 
+ *         final var exampleCoreNetworkPolicyDocument = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+ *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
+ *                 .asnRanges(&#34;65022-65534&#34;)
+ *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
+ *                     .location(&#34;us-west-2&#34;)
+ *                     .build())
+ *                 .build())
+ *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
+ *                 .name(&#34;segment&#34;)
+ *                 .build())
+ *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
+ *                 .action(&#34;create-route&#34;)
+ *                 .segment(&#34;segment&#34;)
+ *                 .destinationCidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .destinations(exampleVpcAttachment.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
+ *             .coreNetworkId(exampleCoreNetwork.id())
+ *             .policyDocument(exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(exampleCoreNetworkPolicyDocument -&gt; exampleCoreNetworkPolicyDocument.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -166,6 +209,34 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+     * 
+     */
+    @Export(name="basePolicyRegion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> basePolicyRegion;
+
+    /**
+     * @return The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+     * 
+     */
+    public Output<Optional<String>> basePolicyRegion() {
+        return Codegen.optional(this.basePolicyRegion);
+    }
+    /**
+     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above. An example of a base policy created is shown below. The region specified in the `location` key can be configured using the `base_policy_region` argument. If `base_policy_region` is not specified, the region defaults to the region specified in the `provider` block. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * 
+     */
+    @Export(name="createBasePolicy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> createBasePolicy;
+
+    /**
+     * @return Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above. An example of a base policy created is shown below. The region specified in the `location` key can be configured using the `base_policy_region` argument. If `base_policy_region` is not specified, the region defaults to the region specified in the `provider` block. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * 
+     */
+    public Output<Optional<Boolean>> createBasePolicy() {
+        return Codegen.optional(this.createBasePolicy);
     }
     /**
      * Timestamp when a core network was created.
@@ -224,18 +295,22 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
         return this.globalNetworkId;
     }
     /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `create_base_policy`.
+     * 
+     * @deprecated
+     * Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.
      * 
      */
+    @Deprecated /* Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider. */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> policyDocument;
+    private Output<String> policyDocument;
 
     /**
-     * @return Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+     * @return Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `create_base_policy`.
      * 
      */
-    public Output<Optional<String>> policyDocument() {
-        return Codegen.optional(this.policyDocument);
+    public Output<String> policyDocument() {
+        return this.policyDocument;
     }
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.

@@ -184,7 +184,7 @@ type ServerCertificate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The IAM path for the server certificate.  If it is not
 	// included, it defaults to a slash (/). If this certificate is for use with
 	// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
@@ -480,8 +480,8 @@ func (o ServerCertificateOutput) Name() pulumi.StringOutput {
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (o ServerCertificateOutput) NamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerCertificate) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
+func (o ServerCertificateOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // The IAM path for the server certificate.  If it is not

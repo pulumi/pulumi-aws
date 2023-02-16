@@ -77,7 +77,7 @@ public final class GetFunctionResult {
      */
     private String imageUri;
     /**
-     * @return ARN to be used for invoking Lambda Function from API Gateway.
+     * @return ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
      * 
      */
     private String invokeArn;
@@ -251,7 +251,7 @@ public final class GetFunctionResult {
         return this.imageUri;
     }
     /**
-     * @return ARN to be used for invoking Lambda Function from API Gateway.
+     * @return ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
      * 
      */
     public String invokeArn() {

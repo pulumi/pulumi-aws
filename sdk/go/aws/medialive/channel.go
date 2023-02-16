@@ -69,7 +69,7 @@ import (
 //					},
 //					VideoDescriptions: medialive.ChannelEncoderSettingsVideoDescriptionArray{
 //						&medialive.ChannelEncoderSettingsVideoDescriptionArgs{
-//							Name: pulumi.String("example-vidoe"),
+//							Name: pulumi.String("example-video"),
 //						},
 //					},
 //					OutputGroups: medialive.ChannelEncoderSettingsOutputGroupArray{
@@ -86,7 +86,7 @@ import (
 //							Outputs: medialive.ChannelEncoderSettingsOutputGroupOutputTypeArray{
 //								&medialive.ChannelEncoderSettingsOutputGroupOutputTypeArgs{
 //									OutputName:           pulumi.String("example-name"),
-//									VideoDescriptionName: pulumi.String("example-vidoe"),
+//									VideoDescriptionName: pulumi.String("example-video"),
 //									AudioDescriptionNames: pulumi.StringArray{
 //										pulumi.String("audio-selector"),
 //									},

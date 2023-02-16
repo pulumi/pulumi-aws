@@ -598,11 +598,15 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs:
 @pulumi.input_type
 class FirewallSubnetMappingArgs:
     def __init__(__self__, *,
-                 subnet_id: pulumi.Input[str]):
+                 subnet_id: pulumi.Input[str],
+                 ip_address_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] subnet_id: The unique identifier for the subnet.
+        :param pulumi.Input[str] ip_address_type: The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -615,6 +619,18 @@ class FirewallSubnetMappingArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_type", value)
 
 
 @pulumi.input_type

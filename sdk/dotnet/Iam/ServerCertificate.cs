@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Iam
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The IAM path for the server certificate.  If it is not

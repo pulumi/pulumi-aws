@@ -240,7 +240,7 @@ class Webhook(pulumi.CustomResource):
                         pattern="PUSH",
                     ),
                     aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="HEAD_REF",
+                        type="BASE_REF",
                         pattern="master",
                     ),
                 ],
@@ -317,7 +317,7 @@ class Webhook(pulumi.CustomResource):
                         pattern="PUSH",
                     ),
                     aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="HEAD_REF",
+                        type="BASE_REF",
                         pattern="master",
                     ),
                 ],

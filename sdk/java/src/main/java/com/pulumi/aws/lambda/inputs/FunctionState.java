@@ -61,14 +61,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     @Import(name="code")
     private @Nullable Output<Archive> code;
 
     /**
-     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * @return Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     public Optional<Output<Archive>> code() {
@@ -196,14 +196,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
      * 
      */
     @Import(name="imageUri")
     private @Nullable Output<String> imageUri;
 
     /**
-     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+     * @return ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
      * 
      */
     public Optional<Output<String>> imageUri() {
@@ -361,6 +361,36 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * 
+     */
+    @Import(name="replaceSecurityGroupsOnDestroy")
+    private @Nullable Output<Boolean> replaceSecurityGroupsOnDestroy;
+
+    /**
+     * @return Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * 
+     */
+    public Optional<Output<Boolean>> replaceSecurityGroupsOnDestroy() {
+        return Optional.ofNullable(this.replaceSecurityGroupsOnDestroy);
+    }
+
+    /**
+     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * 
+     */
+    @Import(name="replacementSecurityGroupIds")
+    private @Nullable Output<List<String>> replacementSecurityGroupIds;
+
+    /**
+     * @return List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * 
+     */
+    public Optional<Output<List<String>>> replacementSecurityGroupIds() {
+        return Optional.ofNullable(this.replacementSecurityGroupIds);
+    }
+
+    /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      * 
      */
@@ -406,14 +436,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
     @Import(name="s3Bucket")
     private @Nullable Output<String> s3Bucket;
 
     /**
-     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     * @return S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
     public Optional<Output<String>> s3Bucket() {
@@ -421,14 +451,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
     @Import(name="s3Key")
     private @Nullable Output<String> s3Key;
 
     /**
-     * @return S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * @return S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
     public Optional<Output<String>> s3Key() {
@@ -644,6 +674,8 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         this.publish = $.publish;
         this.qualifiedArn = $.qualifiedArn;
         this.qualifiedInvokeArn = $.qualifiedInvokeArn;
+        this.replaceSecurityGroupsOnDestroy = $.replaceSecurityGroupsOnDestroy;
+        this.replacementSecurityGroupIds = $.replacementSecurityGroupIds;
         this.reservedConcurrentExecutions = $.reservedConcurrentExecutions;
         this.role = $.role;
         this.runtime = $.runtime;
@@ -734,7 +766,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+         * @param code Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -745,7 +777,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+         * @param code Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -923,7 +955,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+         * @param imageUri ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -934,7 +966,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename`, `s3_bucket`, `s3_key`, and `s3_object_version`.
+         * @param imageUri ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -1164,6 +1196,58 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param replaceSecurityGroupsOnDestroy Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replaceSecurityGroupsOnDestroy(@Nullable Output<Boolean> replaceSecurityGroupsOnDestroy) {
+            $.replaceSecurityGroupsOnDestroy = replaceSecurityGroupsOnDestroy;
+            return this;
+        }
+
+        /**
+         * @param replaceSecurityGroupsOnDestroy Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replaceSecurityGroupsOnDestroy(Boolean replaceSecurityGroupsOnDestroy) {
+            return replaceSecurityGroupsOnDestroy(Output.of(replaceSecurityGroupsOnDestroy));
+        }
+
+        /**
+         * @param replacementSecurityGroupIds List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replacementSecurityGroupIds(@Nullable Output<List<String>> replacementSecurityGroupIds) {
+            $.replacementSecurityGroupIds = replacementSecurityGroupIds;
+            return this;
+        }
+
+        /**
+         * @param replacementSecurityGroupIds List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replacementSecurityGroupIds(List<String> replacementSecurityGroupIds) {
+            return replacementSecurityGroupIds(Output.of(replacementSecurityGroupIds));
+        }
+
+        /**
+         * @param replacementSecurityGroupIds List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replacementSecurityGroupIds(String... replacementSecurityGroupIds) {
+            return replacementSecurityGroupIds(List.of(replacementSecurityGroupIds));
+        }
+
+        /**
          * @param reservedConcurrentExecutions Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
          * 
          * @return builder
@@ -1247,7 +1331,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
          * 
          * @return builder
          * 
@@ -1258,7 +1342,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
          * 
          * @return builder
          * 
@@ -1268,7 +1352,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+         * @param s3Key S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
          * 
          * @return builder
          * 
@@ -1279,7 +1363,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+         * @param s3Key S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
          * 
          * @return builder
          * 

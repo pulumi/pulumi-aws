@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:lightsail/bucket:Bucket":
 		r = &Bucket{}
+	case "aws:lightsail/bucketAccessKey:BucketAccessKey":
+		r = &BucketAccessKey{}
 	case "aws:lightsail/certificate:Certificate":
 		r = &Certificate{}
 	case "aws:lightsail/containerService:ContainerService":
@@ -77,6 +79,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/bucket",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/bucketAccessKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

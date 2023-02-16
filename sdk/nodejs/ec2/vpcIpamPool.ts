@@ -140,7 +140,11 @@ export class VpcIpamPool extends pulumi.CustomResource {
     public readonly locale!: pulumi.Output<string | undefined>;
     public /*out*/ readonly poolDepth!: pulumi.Output<number>;
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+     * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+     */
+    public readonly publicIpSource!: pulumi.Output<string | undefined>;
+    /**
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
      */
     public readonly publiclyAdvertisable!: pulumi.Output<boolean | undefined>;
     /**
@@ -186,6 +190,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["ipamScopeType"] = state ? state.ipamScopeType : undefined;
             resourceInputs["locale"] = state ? state.locale : undefined;
             resourceInputs["poolDepth"] = state ? state.poolDepth : undefined;
+            resourceInputs["publicIpSource"] = state ? state.publicIpSource : undefined;
             resourceInputs["publiclyAdvertisable"] = state ? state.publiclyAdvertisable : undefined;
             resourceInputs["sourceIpamPoolId"] = state ? state.sourceIpamPoolId : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -209,6 +214,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
             resourceInputs["locale"] = args ? args.locale : undefined;
+            resourceInputs["publicIpSource"] = args ? args.publicIpSource : undefined;
             resourceInputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
             resourceInputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -275,7 +281,11 @@ export interface VpcIpamPoolState {
     locale?: pulumi.Input<string>;
     poolDepth?: pulumi.Input<number>;
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+     * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+     */
+    publicIpSource?: pulumi.Input<string>;
+    /**
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
      */
     publiclyAdvertisable?: pulumi.Input<boolean>;
     /**
@@ -342,7 +352,11 @@ export interface VpcIpamPoolArgs {
      */
     locale?: pulumi.Input<string>;
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+     * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+     */
+    publicIpSource?: pulumi.Input<string>;
+    /**
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
      */
     publiclyAdvertisable?: pulumi.Input<boolean>;
     /**

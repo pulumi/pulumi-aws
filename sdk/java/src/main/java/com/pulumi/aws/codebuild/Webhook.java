@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                         .pattern(&#34;PUSH&#34;)
  *                         .build(),
  *                     WebhookFilterGroupFilterArgs.builder()
- *                         .type(&#34;HEAD_REF&#34;)
+ *                         .type(&#34;BASE_REF&#34;)
  *                         .pattern(&#34;master&#34;)
  *                         .build())
  *                 .build())

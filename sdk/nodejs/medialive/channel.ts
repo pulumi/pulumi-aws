@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *             name: "audio-selector",
  *         }],
  *         videoDescriptions: [{
- *             name: "example-vidoe",
+ *             name: "example-video",
  *         }],
  *         outputGroups: [{
  *             outputGroupSettings: {
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *             },
  *             outputs: [{
  *                 outputName: "example-name",
- *                 videoDescriptionName: "example-vidoe",
+ *                 videoDescriptionName: "example-video",
  *                 audioDescriptionNames: ["audio-selector"],
  *                 outputSettings: {
  *                     archiveOutputSettings: {

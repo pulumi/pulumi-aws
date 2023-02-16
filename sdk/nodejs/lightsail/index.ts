@@ -10,6 +10,11 @@ export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
 utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
+export { BucketAccessKeyArgs, BucketAccessKeyState } from "./bucketAccessKey";
+export type BucketAccessKey = import("./bucketAccessKey").BucketAccessKey;
+export const BucketAccessKey: typeof import("./bucketAccessKey").BucketAccessKey = null as any;
+utilities.lazyLoad(exports, ["BucketAccessKey"], () => require("./bucketAccessKey"));
+
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
@@ -112,6 +117,8 @@ const _module = {
         switch (type) {
             case "aws:lightsail/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
+            case "aws:lightsail/bucketAccessKey:BucketAccessKey":
+                return new BucketAccessKey(name, <any>undefined, { urn })
             case "aws:lightsail/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "aws:lightsail/containerService:ContainerService":
@@ -156,6 +163,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "lightsail/bucket", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/bucketAccessKey", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerService", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerServiceDeploymentVersion", _module)

@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableReplica {
     /**
+     * @return ARN of the table
+     * 
+     */
+    private @Nullable String arn;
+    /**
      * @return ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
@@ -32,8 +37,25 @@ public final class TableReplica {
      * 
      */
     private String regionName;
+    /**
+     * @return ARN of the Table Stream. Only available when `stream_enabled = true`
+     * 
+     */
+    private @Nullable String streamArn;
+    /**
+     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+     * 
+     */
+    private @Nullable String streamLabel;
 
     private TableReplica() {}
+    /**
+     * @return ARN of the table
+     * 
+     */
+    public Optional<String> arn() {
+        return Optional.ofNullable(this.arn);
+    }
     /**
      * @return ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
@@ -62,6 +84,20 @@ public final class TableReplica {
     public String regionName() {
         return this.regionName;
     }
+    /**
+     * @return ARN of the Table Stream. Only available when `stream_enabled = true`
+     * 
+     */
+    public Optional<String> streamArn() {
+        return Optional.ofNullable(this.streamArn);
+    }
+    /**
+     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+     * 
+     */
+    public Optional<String> streamLabel() {
+        return Optional.ofNullable(this.streamLabel);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -72,19 +108,30 @@ public final class TableReplica {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String arn;
         private @Nullable String kmsKeyArn;
         private @Nullable Boolean pointInTimeRecovery;
         private @Nullable Boolean propagateTags;
         private String regionName;
+        private @Nullable String streamArn;
+        private @Nullable String streamLabel;
         public Builder() {}
         public Builder(TableReplica defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.pointInTimeRecovery = defaults.pointInTimeRecovery;
     	      this.propagateTags = defaults.propagateTags;
     	      this.regionName = defaults.regionName;
+    	      this.streamArn = defaults.streamArn;
+    	      this.streamLabel = defaults.streamLabel;
         }
 
+        @CustomType.Setter
+        public Builder arn(@Nullable String arn) {
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
             this.kmsKeyArn = kmsKeyArn;
@@ -105,12 +152,25 @@ public final class TableReplica {
             this.regionName = Objects.requireNonNull(regionName);
             return this;
         }
+        @CustomType.Setter
+        public Builder streamArn(@Nullable String streamArn) {
+            this.streamArn = streamArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder streamLabel(@Nullable String streamLabel) {
+            this.streamLabel = streamLabel;
+            return this;
+        }
         public TableReplica build() {
             final var o = new TableReplica();
+            o.arn = arn;
             o.kmsKeyArn = kmsKeyArn;
             o.pointInTimeRecovery = pointInTimeRecovery;
             o.propagateTags = propagateTags;
             o.regionName = regionName;
+            o.streamArn = streamArn;
+            o.streamLabel = streamLabel;
             return o;
         }
     }

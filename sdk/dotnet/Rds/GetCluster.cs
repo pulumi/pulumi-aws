@@ -77,6 +77,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -99,6 +103,10 @@ namespace Pulumi.Aws.Rds
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -147,6 +155,9 @@ namespace Pulumi.Aws.Rds
         public readonly string ReaderEndpoint;
         public readonly string ReplicationSourceIdentifier;
         public readonly bool StorageEncrypted;
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupMixedInstancesPolicyInstancesDistributionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
+        /// Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
         /// </summary>
         [Input("onDemandAllocationStrategy")]
         public Input<string>? OnDemandAllocationStrategy { get; set; }

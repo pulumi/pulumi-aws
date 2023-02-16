@@ -118,7 +118,7 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
      */
     public readonly ipamPoolId!: pulumi.Output<string>;
     /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      */
     public readonly netmaskLength!: pulumi.Output<number | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface VpcIpamPoolCidrAllocationState {
      */
     ipamPoolId?: pulumi.Input<string>;
     /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      */
     netmaskLength?: pulumi.Input<number>;
     /**
@@ -236,7 +236,7 @@ export interface VpcIpamPoolCidrAllocationArgs {
      */
     ipamPoolId: pulumi.Input<string>;
     /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      */
     netmaskLength?: pulumi.Input<number>;
 }

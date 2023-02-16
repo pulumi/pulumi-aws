@@ -46,6 +46,10 @@ public final class GetClusterResult {
     private String readerEndpoint;
     private String replicationSourceIdentifier;
     private Boolean storageEncrypted;
+    /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
     private List<String> vpcSecurityGroupIds;
 
@@ -141,6 +145,10 @@ public final class GetClusterResult {
     public Boolean storageEncrypted() {
         return this.storageEncrypted;
     }
+    /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

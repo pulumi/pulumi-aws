@@ -200,14 +200,29 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+     * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+     * 
+     */
+    @Import(name="publicIpSource")
+    private @Nullable Output<String> publicIpSource;
+
+    /**
+     * @return The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+     * 
+     */
+    public Optional<Output<String>> publicIpSource() {
+        return Optional.ofNullable(this.publicIpSource);
+    }
+
+    /**
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`.
      * 
      */
     @Import(name="publiclyAdvertisable")
     private @Nullable Output<Boolean> publiclyAdvertisable;
 
     /**
-     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`.
      * 
      */
     public Optional<Output<Boolean>> publiclyAdvertisable() {
@@ -290,6 +305,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         this.ipamScopeType = $.ipamScopeType;
         this.locale = $.locale;
         this.poolDepth = $.poolDepth;
+        this.publicIpSource = $.publicIpSource;
         this.publiclyAdvertisable = $.publiclyAdvertisable;
         this.sourceIpamPoolId = $.sourceIpamPoolId;
         this.state = $.state;
@@ -567,7 +583,28 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAdvertisable Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+         * @param publicIpSource The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicIpSource(@Nullable Output<String> publicIpSource) {
+            $.publicIpSource = publicIpSource;
+            return this;
+        }
+
+        /**
+         * @param publicIpSource The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicIpSource(String publicIpSource) {
+            return publicIpSource(Output.of(publicIpSource));
+        }
+
+        /**
+         * @param publiclyAdvertisable Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`.
          * 
          * @return builder
          * 
@@ -578,7 +615,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAdvertisable Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+         * @param publiclyAdvertisable Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`.
          * 
          * @return builder
          * 

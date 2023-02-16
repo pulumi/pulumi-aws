@@ -24,6 +24,7 @@ class VpcIpamPoolArgs:
                  aws_service: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
+                 public_ip_source: Optional[pulumi.Input[str]] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -40,7 +41,8 @@ class VpcIpamPoolArgs:
         :param pulumi.Input[str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        :param pulumi.Input[str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -62,6 +64,8 @@ class VpcIpamPoolArgs:
             pulumi.set(__self__, "description", description)
         if locale is not None:
             pulumi.set(__self__, "locale", locale)
+        if public_ip_source is not None:
+            pulumi.set(__self__, "public_ip_source", public_ip_source)
         if publicly_advertisable is not None:
             pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
         if source_ipam_pool_id is not None:
@@ -191,10 +195,22 @@ class VpcIpamPoolArgs:
         pulumi.set(self, "locale", value)
 
     @property
+    @pulumi.getter(name="publicIpSource")
+    def public_ip_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        """
+        return pulumi.get(self, "public_ip_source")
+
+    @public_ip_source.setter
+    def public_ip_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_source", value)
+
+    @property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         """
         return pulumi.get(self, "publicly_advertisable")
 
@@ -243,6 +259,7 @@ class _VpcIpamPoolState:
                  ipam_scope_type: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  pool_depth: Optional[pulumi.Input[int]] = None,
+                 public_ip_source: Optional[pulumi.Input[str]] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -262,7 +279,8 @@ class _VpcIpamPoolState:
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        :param pulumi.Input[str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[str] state: The ID of the IPAM
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -294,6 +312,8 @@ class _VpcIpamPoolState:
             pulumi.set(__self__, "locale", locale)
         if pool_depth is not None:
             pulumi.set(__self__, "pool_depth", pool_depth)
+        if public_ip_source is not None:
+            pulumi.set(__self__, "public_ip_source", public_ip_source)
         if publicly_advertisable is not None:
             pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
         if source_ipam_pool_id is not None:
@@ -457,10 +477,22 @@ class _VpcIpamPoolState:
         pulumi.set(self, "pool_depth", value)
 
     @property
+    @pulumi.getter(name="publicIpSource")
+    def public_ip_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        """
+        return pulumi.get(self, "public_ip_source")
+
+    @public_ip_source.setter
+    def public_ip_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_source", value)
+
+    @property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         """
         return pulumi.get(self, "publicly_advertisable")
 
@@ -532,6 +564,7 @@ class VpcIpamPool(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
+                 public_ip_source: Optional[pulumi.Input[str]] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -604,7 +637,8 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        :param pulumi.Input[str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -694,6 +728,7 @@ class VpcIpamPool(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
+                 public_ip_source: Optional[pulumi.Input[str]] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -720,6 +755,7 @@ class VpcIpamPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ipam_scope_id'")
             __props__.__dict__["ipam_scope_id"] = ipam_scope_id
             __props__.__dict__["locale"] = locale
+            __props__.__dict__["public_ip_source"] = public_ip_source
             __props__.__dict__["publicly_advertisable"] = publicly_advertisable
             __props__.__dict__["source_ipam_pool_id"] = source_ipam_pool_id
             __props__.__dict__["tags"] = tags
@@ -751,6 +787,7 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_type: Optional[pulumi.Input[str]] = None,
             locale: Optional[pulumi.Input[str]] = None,
             pool_depth: Optional[pulumi.Input[int]] = None,
+            public_ip_source: Optional[pulumi.Input[str]] = None,
             publicly_advertisable: Optional[pulumi.Input[bool]] = None,
             source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -775,7 +812,8 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        :param pulumi.Input[str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[str] state: The ID of the IPAM
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -798,6 +836,7 @@ class VpcIpamPool(pulumi.CustomResource):
         __props__.__dict__["ipam_scope_type"] = ipam_scope_type
         __props__.__dict__["locale"] = locale
         __props__.__dict__["pool_depth"] = pool_depth
+        __props__.__dict__["public_ip_source"] = public_ip_source
         __props__.__dict__["publicly_advertisable"] = publicly_advertisable
         __props__.__dict__["source_ipam_pool_id"] = source_ipam_pool_id
         __props__.__dict__["state"] = state
@@ -905,10 +944,18 @@ class VpcIpamPool(pulumi.CustomResource):
         return pulumi.get(self, "pool_depth")
 
     @property
+    @pulumi.getter(name="publicIpSource")
+    def public_ip_source(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        """
+        return pulumi.get(self, "public_ip_source")
+
+    @property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> pulumi.Output[Optional[bool]]:
         """
-        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         """
         return pulumi.get(self, "publicly_advertisable")
 

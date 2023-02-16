@@ -179,7 +179,7 @@ public final class EndpointS3Settings {
      */
     private @Nullable Integer rowGroupLength;
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+     * @return ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
      * 
      */
     private @Nullable String serverSideEncryptionKmsKeyId;
@@ -439,7 +439,7 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.rowGroupLength);
     }
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+     * @return ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
      * 
      */
     public Optional<String> serverSideEncryptionKmsKeyId() {

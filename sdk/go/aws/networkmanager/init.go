@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connection{}
 	case "aws:networkmanager/coreNetwork:CoreNetwork":
 		r = &CoreNetwork{}
+	case "aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment":
+		r = &CoreNetworkPolicyAttachment{}
 	case "aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation":
 		r = &CustomerGatewayAssociation{}
 	case "aws:networkmanager/device:Device":
@@ -84,6 +86,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkmanager/coreNetwork",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkmanager/coreNetworkPolicyAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

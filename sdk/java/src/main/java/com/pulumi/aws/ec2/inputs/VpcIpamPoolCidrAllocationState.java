@@ -85,14 +85,14 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
     }
 
     /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
     @Import(name="netmaskLength")
     private @Nullable Output<Integer> netmaskLength;
 
     /**
-     * @return The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+     * @return The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
     public Optional<Output<Integer>> netmaskLength() {
@@ -280,7 +280,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
+         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
          * 
          * @return builder
          * 

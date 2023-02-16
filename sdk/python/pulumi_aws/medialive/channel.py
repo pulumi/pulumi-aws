@@ -545,7 +545,7 @@ class Channel(pulumi.CustomResource):
                     name="audio-selector",
                 )],
                 video_descriptions=[aws.medialive.ChannelEncoderSettingsVideoDescriptionArgs(
-                    name="example-vidoe",
+                    name="example-video",
                 )],
                 output_groups=[aws.medialive.ChannelEncoderSettingsOutputGroupArgs(
                     output_group_settings=aws.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs(
@@ -557,7 +557,7 @@ class Channel(pulumi.CustomResource):
                     ),
                     outputs=[aws.medialive.ChannelEncoderSettingsOutputGroupOutputArgs(
                         output_name="example-name",
-                        video_description_name="example-vidoe",
+                        video_description_name="example-video",
                         audio_description_names=["audio-selector"],
                         output_settings=aws.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs(
                             archive_output_settings=aws.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs(
@@ -649,7 +649,7 @@ class Channel(pulumi.CustomResource):
                     name="audio-selector",
                 )],
                 video_descriptions=[aws.medialive.ChannelEncoderSettingsVideoDescriptionArgs(
-                    name="example-vidoe",
+                    name="example-video",
                 )],
                 output_groups=[aws.medialive.ChannelEncoderSettingsOutputGroupArgs(
                     output_group_settings=aws.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs(
@@ -661,7 +661,7 @@ class Channel(pulumi.CustomResource):
                     ),
                     outputs=[aws.medialive.ChannelEncoderSettingsOutputGroupOutputArgs(
                         output_name="example-name",
-                        video_description_name="example-vidoe",
+                        video_description_name="example-video",
                         audio_description_names=["audio-selector"],
                         output_settings=aws.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs(
                             archive_output_settings=aws.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs(

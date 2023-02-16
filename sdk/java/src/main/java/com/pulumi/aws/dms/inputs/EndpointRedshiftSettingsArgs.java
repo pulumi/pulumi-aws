@@ -61,14 +61,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+     * ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
      * 
      */
     @Import(name="serverSideEncryptionKmsKeyId")
     private @Nullable Output<String> serverSideEncryptionKmsKeyId;
 
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+     * @return ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
      * 
      */
     public Optional<Output<String>> serverSideEncryptionKmsKeyId() {
@@ -182,7 +182,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
          * 
          * @return builder
          * 
