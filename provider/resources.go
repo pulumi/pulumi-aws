@@ -4412,6 +4412,8 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "AWSHealthFullAccess", Value: "arn:aws:iam::aws:policy/AWSHealthFullAccess"},
 					{Name: "AWSImportExportFullAccess", Value: "arn:aws:iam::aws:policy/AWSImportExportFullAccess"},
 					{Name: "AWSImportExportReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSImportExportReadOnlyAccess"},
+					{Name: "AWSIncidentManagerServiceRolePolicy", Value: "arn:aws:iam::aws:policy/AWSIncidentManagerServiceRolePolicy"},
+					{Name: "AWSIncidentManagerResolverAccess", Value: "arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess"},
 					{Name: "AWSIoTConfigAccess", Value: "arn:aws:iam::aws:policy/AWSIoTConfigAccess"},
 					{Name: "AWSIoTConfigReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSIoTConfigReadOnlyAccess"},
 					{Name: "AWSIoTDataAccess", Value: "arn:aws:iam::aws:policy/AWSIoTDataAccess"},
