@@ -80,6 +80,8 @@ import java.util.StringJoiner;
         AWSHealthFullAccess("arn:aws:iam::aws:policy/AWSHealthFullAccess"),
         AWSImportExportFullAccess("arn:aws:iam::aws:policy/AWSImportExportFullAccess"),
         AWSImportExportReadOnlyAccess("arn:aws:iam::aws:policy/AWSImportExportReadOnlyAccess"),
+        AWSIncidentManagerServiceRolePolicy("arn:aws:iam::aws:policy/AWSIncidentManagerServiceRolePolicy"),
+        AWSIncidentManagerResolverAccess("arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess"),
         AWSIoTConfigAccess("arn:aws:iam::aws:policy/AWSIoTConfigAccess"),
         AWSIoTConfigReadOnlyAccess("arn:aws:iam::aws:policy/AWSIoTConfigReadOnlyAccess"),
         AWSIoTDataAccess("arn:aws:iam::aws:policy/AWSIoTDataAccess"),

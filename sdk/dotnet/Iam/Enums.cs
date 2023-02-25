@@ -79,6 +79,8 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSHealthFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSHealthFullAccess");
         public static ManagedPolicy AWSImportExportFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSImportExportFullAccess");
         public static ManagedPolicy AWSImportExportReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSImportExportReadOnlyAccess");
+        public static ManagedPolicy AWSIncidentManagerServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSIncidentManagerServiceRolePolicy");
+        public static ManagedPolicy AWSIncidentManagerResolverAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess");
         public static ManagedPolicy AWSIoTConfigAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTConfigAccess");
         public static ManagedPolicy AWSIoTConfigReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTConfigReadOnlyAccess");
         public static ManagedPolicy AWSIoTDataAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTDataAccess");

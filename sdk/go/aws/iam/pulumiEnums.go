@@ -75,6 +75,8 @@ const (
 	ManagedPolicyAWSHealthFullAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSHealthFullAccess")
 	ManagedPolicyAWSImportExportFullAccess             = ManagedPolicy("arn:aws:iam::aws:policy/AWSImportExportFullAccess")
 	ManagedPolicyAWSImportExportReadOnlyAccess         = ManagedPolicy("arn:aws:iam::aws:policy/AWSImportExportReadOnlyAccess")
+	ManagedPolicyAWSIncidentManagerServiceRolePolicy   = ManagedPolicy("arn:aws:iam::aws:policy/AWSIncidentManagerServiceRolePolicy")
+	ManagedPolicyAWSIncidentManagerResolverAccess      = ManagedPolicy("arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess")
 	ManagedPolicyAWSIoTConfigAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTConfigAccess")
 	ManagedPolicyAWSIoTConfigReadOnlyAccess            = ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTConfigReadOnlyAccess")
 	ManagedPolicyAWSIoTDataAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTDataAccess")

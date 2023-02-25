@@ -70,6 +70,8 @@ class ManagedPolicy(str, Enum):
     AWS_HEALTH_FULL_ACCESS = "arn:aws:iam::aws:policy/AWSHealthFullAccess"
     AWS_IMPORT_EXPORT_FULL_ACCESS = "arn:aws:iam::aws:policy/AWSImportExportFullAccess"
     AWS_IMPORT_EXPORT_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/AWSImportExportReadOnlyAccess"
+    AWS_INCIDENT_MANAGER_SERVICE_ROLE_POLICY = "arn:aws:iam::aws:policy/AWSIncidentManagerServiceRolePolicy"
+    AWS_INCIDENT_MANAGER_RESOLVER_ACCESS = "arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess"
     AWS_IO_T_CONFIG_ACCESS = "arn:aws:iam::aws:policy/AWSIoTConfigAccess"
     AWS_IO_T_CONFIG_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/AWSIoTConfigReadOnlyAccess"
     AWS_IO_T_DATA_ACCESS = "arn:aws:iam::aws:policy/AWSIoTDataAccess"
