@@ -40,6 +40,11 @@ export interface TableEventSubscriptionArgs {
     readonly destinationConfig?: pulumi.Input<types.input.lambda.EventSourceMappingDestinationConfig>;
 
     /**
+     * The criteria to use for event filtering the event source.
+     */
+    readonly filterCriteria?: pulumi.Input<types.input.lambda.EventSourceMappingFilterCriteria>
+
+    /**
      * A list of current response type enums applied to the event source mapping. Where valid values are:
      * * `ReportBatchItemFailures`
      */
@@ -147,6 +152,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
             parallelizationFactor: args.parallelizationFactor,
             startingPosition: args.startingPosition,
             functionResponseTypes: args.functionResponseTypes,
+            filterCriteria: args.filterCriteria,
         }, parentOpts);
 
         this.table = table;
