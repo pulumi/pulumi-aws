@@ -64,6 +64,11 @@ jobs:
         cache: gradle
         distribution: temurin
         java-version: ${{matrix.javaversion}}
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        # Pin to known good version until #2262 is resolved
+        gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -336,6 +341,11 @@ jobs:
         cache: gradle
         distribution: temurin
         java-version: ${{matrix.javaversion}}
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        # Pin to known good version until #2262 is resolved
+        gradle-version: "7.6"
     - name: Download java SDK
       uses: actions/download-artifact@v2
       with:
@@ -490,6 +500,11 @@ jobs:
         cache: gradle
         distribution: temurin
         java-version: ${{matrix.javaversion}}
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        # Pin to known good version until #2262 is resolved
+        gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
