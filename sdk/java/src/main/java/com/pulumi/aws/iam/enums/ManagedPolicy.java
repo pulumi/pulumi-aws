@@ -454,9 +454,9 @@ import java.util.StringJoiner;
         AWSOpsWorksCloudWatchLogs("arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs"),
         /**
          * @deprecated
-         * This policy is deprecated and will be removed in a future release. Please use AWSOpsWorks_FullAccess instead.
+         * This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead.
          */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Please use AWSOpsWorks_FullAccess instead. */
+        @Deprecated /* This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead. */
         AWSOpsWorksFullAccess("arn:aws:iam::aws:policy/AWSOpsWorksFullAccess"),
         AWSOpsWorksInstanceRegistration("arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration"),
         /**
@@ -479,7 +479,7 @@ import java.util.StringJoiner;
         AWSQuickSightDescribeRD("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS"),
         AWSOpsWorksRegisterCLI_EC2("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2"),
         AWSOpsWorksRegisterCLI_OnPremises("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises"),
-        AWSOpsWorks_FullAccess("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess"),
+        OpsWorks_FullAccess("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess"),
         AWSOrganizationsFullAccess("arn:aws:iam::aws:policy/AWSOrganizationsFullAccess"),
         AWSOrganizationsReadOnlyAccess("arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess"),
         AWSOrganizationsServiceTrustPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy"),
@@ -1183,9 +1183,9 @@ import java.util.StringJoiner;
         ServerMigrationConnector("arn:aws:iam::aws:policy/ServerMigrationConnector"),
         /**
          * @deprecated
-         * This policy is deprecated and will be removed in a future release.
+         * This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead.
          */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
+        @Deprecated /* This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead. */
         ServerMigrationServiceRole("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole"),
         /**
          * @deprecated
@@ -1214,7 +1214,7 @@ import java.util.StringJoiner;
         ServerMigrationServiceConsoleFullAccess("arn:aws:iam::aws:policy/ServerMigrationServiceConsoleFullAccess"),
         ServerMigrationServiceLaunchRole("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceLaunchRole"),
         ServerMigrationServiceRoleForInstanceValidation("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRoleForInstanceValidation"),
-        ServerMigration_ServiceRole("arn:aws:iam::aws:policy/service-role/ServerMigration_ServiceRole"),
+        AWSServerMigration_ServiceRole("arn:aws:iam::aws:policy/service-role/ServerMigration_ServiceRole"),
         ServiceQuotasFullAccess("arn:aws:iam::aws:policy/ServiceQuotasFullAccess"),
         ServiceQuotasReadOnlyAccess("arn:aws:iam::aws:policy/ServiceQuotasReadOnlyAccess"),
         ServiceQuotasServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/ServiceQuotasServiceRolePolicy"),

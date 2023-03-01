@@ -420,7 +420,7 @@ export const ManagedPolicy = {
     AWSOpsWorksCMServiceRole: "arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole",
     AWSOpsWorksCloudWatchLogs: "arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs",
     /**
-     * @deprecated This policy is deprecated and will be removed in a future release. Please use AWSOpsWorks_FullAccess instead.
+     * @deprecated This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead.
      */
     AWSOpsWorksFullAccess: "arn:aws:iam::aws:policy/AWSOpsWorksFullAccess",
     AWSOpsWorksInstanceRegistration: "arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration",
@@ -438,7 +438,7 @@ export const ManagedPolicy = {
     AWSQuickSightDescribeRD: "arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS",
     AWSOpsWorksRegisterCLI_EC2: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2",
     AWSOpsWorksRegisterCLI_OnPremises: "arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises",
-    AWSOpsWorks_FullAccess: "arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess",
+    OpsWorks_FullAccess: "arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess",
     AWSOrganizationsFullAccess: "arn:aws:iam::aws:policy/AWSOrganizationsFullAccess",
     AWSOrganizationsReadOnlyAccess: "arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess",
     AWSOrganizationsServiceTrustPolicy: "arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy",
@@ -1127,7 +1127,7 @@ export const ManagedPolicy = {
     SecurityLakeServiceLinkedRole: "arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole",
     ServerMigrationConnector: "arn:aws:iam::aws:policy/ServerMigrationConnector",
     /**
-     * @deprecated This policy is deprecated and will be removed in a future release.
+     * @deprecated This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead.
      */
     ServerMigrationServiceRole: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole",
     /**
@@ -1149,7 +1149,7 @@ export const ManagedPolicy = {
     ServerMigrationServiceConsoleFullAccess: "arn:aws:iam::aws:policy/ServerMigrationServiceConsoleFullAccess",
     ServerMigrationServiceLaunchRole: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceLaunchRole",
     ServerMigrationServiceRoleForInstanceValidation: "arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRoleForInstanceValidation",
-    ServerMigration_ServiceRole: "arn:aws:iam::aws:policy/service-role/ServerMigration_ServiceRole",
+    AWSServerMigration_ServiceRole: "arn:aws:iam::aws:policy/service-role/ServerMigration_ServiceRole",
     ServiceQuotasFullAccess: "arn:aws:iam::aws:policy/ServiceQuotasFullAccess",
     ServiceQuotasReadOnlyAccess: "arn:aws:iam::aws:policy/ServiceQuotasReadOnlyAccess",
     ServiceQuotasServiceRolePolicy: "arn:aws:iam::aws:policy/aws-service-role/ServiceQuotasServiceRolePolicy",

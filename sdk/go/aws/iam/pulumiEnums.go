@@ -403,7 +403,7 @@ const (
 	ManagedPolicyAWSOpsWorksCMInstanceProfileRole           = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksCMInstanceProfileRole")
 	ManagedPolicyAWSOpsWorksCMServiceRole                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole")
 	ManagedPolicyAWSOpsWorksCloudWatchLogs                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs")
-	// Deprecated: This policy is deprecated and will be removed in a future release. Please use AWSOpsWorks_FullAccess instead.
+	// Deprecated: This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead.
 	ManagedPolicyAWSOpsWorksFullAccess           = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksFullAccess")
 	ManagedPolicyAWSOpsWorksInstanceRegistration = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksRegisterCLI_EC2 or AWSOpsWorksRegisterCLI_OnPremises instead.
@@ -414,7 +414,7 @@ const (
 	ManagedPolicyAWSQuickSightDescribeRD                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS")
 	ManagedPolicy_AWSOpsWorksRegisterCLI_EC2                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2")
 	ManagedPolicy_AWSOpsWorksRegisterCLI_OnPremises                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises")
-	ManagedPolicy_AWSOpsWorks_FullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess")
+	ManagedPolicy_OpsWorks_FullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess")
 	ManagedPolicyAWSOrganizationsFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsFullAccess")
 	ManagedPolicyAWSOrganizationsReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess")
 	ManagedPolicyAWSOrganizationsServiceTrustPolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy")
@@ -1088,7 +1088,7 @@ const (
 	ManagedPolicySecurityAudit                                                        = ManagedPolicy("arn:aws:iam::aws:policy/SecurityAudit")
 	ManagedPolicySecurityLakeServiceLinkedRole                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole")
 	ManagedPolicyServerMigrationConnector                                             = ManagedPolicy("arn:aws:iam::aws:policy/ServerMigrationConnector")
-	// Deprecated: This policy is deprecated and will be removed in a future release.
+	// Deprecated: This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead.
 	ManagedPolicyServerMigrationServiceRole = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminFullAccess instead.
 	ManagedPolicyServiceCatalogAdminFullAccess = ManagedPolicy("arn:aws:iam::aws:policy/ServiceCatalogAdminFullAccess")
@@ -1101,7 +1101,7 @@ const (
 	ManagedPolicyServerMigrationServiceConsoleFullAccess         = ManagedPolicy("arn:aws:iam::aws:policy/ServerMigrationServiceConsoleFullAccess")
 	ManagedPolicyServerMigrationServiceLaunchRole                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceLaunchRole")
 	ManagedPolicyServerMigrationServiceRoleForInstanceValidation = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRoleForInstanceValidation")
-	ManagedPolicy_ServerMigration_ServiceRole                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigration_ServiceRole")
+	ManagedPolicy_AWSServerMigration_ServiceRole                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigration_ServiceRole")
 	ManagedPolicyServiceQuotasFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/ServiceQuotasFullAccess")
 	ManagedPolicyServiceQuotasReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/ServiceQuotasReadOnlyAccess")
 	ManagedPolicyServiceQuotasServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ServiceQuotasServiceRolePolicy")
