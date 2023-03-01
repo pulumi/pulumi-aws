@@ -1,5 +1,3 @@
-#!/usr/bin/jq -Mfr
-
 .Policies
   | sort_by(.PolicyName)
   | map(
