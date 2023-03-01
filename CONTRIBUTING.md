@@ -16,7 +16,7 @@ Please read about our [contribution guidelines here.](https://github.com/pulumi/
 ### Pulumi prerequisites
 
 Please refer to the [main Pulumi repo](https://github.com/pulumi/pulumi/)'s [CONTRIBUTING.md file](
-https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md#developing) for details on how to get set up with Pulumi.
+<https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md#developing>) for details on how to get set up with Pulumi.
 
 ## Committing Generated Code
 
@@ -39,3 +39,11 @@ created, but in the event of bugs or test failures you may need to go into the A
 and delete resources yourself.
 
 Once you have set `AWS_REGION` and configured your AWS credentials, `make test` will run your integration tests.
+
+## Generating IAM Policies
+
+```bash
+aws iam list-policies | jq -f docs/generate-iam-policies.jq -r > policies.go
+```
+
+Copy the content of `policies.go` and insert into the resources.go file, merging with any existing manual changes. If policies have been removed, we should keep them but mark them as deprecated.
