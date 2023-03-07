@@ -1551,7 +1551,14 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_ec2_fleet":               {Tok: awsResource(ec2Mod, "Fleet")},
+			"aws_ec2_fleet": {
+				Tok: awsResource(ec2Mod, "Fleet"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"fleet_state": {
+						CSharpName: "State",
+					},
+				},
+			},
 			"aws_route_table_association": {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
 			"aws_security_group": {
 				Tok: awsResource(ec2Mod, "SecurityGroup"),
@@ -1658,6 +1665,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_network_insights_path":           {Tok: awsResource(ec2Mod, "NetworkInsightsPath")},
 			"aws_ec2_serial_console_access":           {Tok: awsResource(ec2Mod, "SerialConsoleAccess")},
 			"aws_ec2_network_insights_analysis":       {Tok: awsResource(ec2Mod, "NetworkInsightsAnalysis")},
+
+			"aws_vpc_ipam_resource_discovery":             {Tok: awsResource(ec2Mod, "VpcIpamResourceDiscovery")},
+			"aws_vpc_ipam_resource_discovery_association": {Tok: awsResource(ec2Mod, "VpcIpamResourceDiscoveryAssociation")},
+
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -2398,6 +2409,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_static_ip":                            {Tok: awsResource(lightsailMod, "StaticIp")},
 			"aws_lightsail_bucket":                               {Tok: awsResource(lightsailMod, "Bucket")},
 			"aws_lightsail_bucket_access_key":                    {Tok: awsResource(lightsailMod, "BucketAccessKey")},
+			"aws_lightsail_bucket_resource_access":               {Tok: awsResource(lightsailMod, "BucketResourceAccess")},
 
 			// Location
 			"aws_location_map":                 {Tok: awsResource(locationMod, "Map")},
@@ -2504,6 +2516,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_transit_gateway_peering":                  {Tok: awsResource(networkManagerMod, "TransitGatewayPeering")},
 			"aws_networkmanager_transit_gateway_route_table_attachment":   {Tok: awsResource(networkManagerMod, "TransitGatewayRouteTableAttachment")},
 			"aws_networkmanager_connect_attachment":                       {Tok: awsResource(networkManagerMod, "ConnectAttachment")},
+			"aws_networkmanager_connect_peer":                             {Tok: awsResource(networkManagerMod, "ConnectPeer")},
 			"aws_networkmanager_core_network_policy_attachment":           {Tok: awsResource(networkManagerMod, "CoreNetworkPolicyAttachment")},
 
 			// OpenSearch
@@ -6139,11 +6152,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_rate_based_rule":       {Tok: awsDataSource(wafregionalMod, "getRateBasedMod")},
 			"aws_wafregional_subscribed_rule_group": {Tok: awsDataSource(wafregionalMod, "getSubscribedRuleGroup")},
 			// Organizations
-			"aws_organizations_organization":             {Tok: awsDataSource(organizationsMod, "getOrganization")},
-			"aws_organizations_organizational_units":     {Tok: awsDataSource(organizationsMod, "getOrganizationalUnits")},
-			"aws_organizations_delegated_services":       {Tok: awsDataSource(organizationsMod, "getDelegatedServices")},
-			"aws_organizations_delegated_administrators": {Tok: awsDataSource(organizationsMod, "getDelegatedAdministrators")},
-			"aws_organizations_resource_tags":            {Tok: awsDataSource(organizationsMod, "getResourceTags")},
+			"aws_organizations_organization":                            {Tok: awsDataSource(organizationsMod, "getOrganization")},
+			"aws_organizations_organizational_units":                    {Tok: awsDataSource(organizationsMod, "getOrganizationalUnits")},
+			"aws_organizations_organizational_unit_child_accounts":      {Tok: awsDataSource(organizationsMod, "getOrganizationalUnitChildAccounts")},
+			"aws_organizations_organizational_unit_descendant_accounts": {Tok: awsDataSource(organizationsMod, "getOrganizationalUnitDescendantAccounts")},
+			"aws_organizations_delegated_services":                      {Tok: awsDataSource(organizationsMod, "getDelegatedServices")},
+			"aws_organizations_delegated_administrators":                {Tok: awsDataSource(organizationsMod, "getDelegatedAdministrators")},
+			"aws_organizations_resource_tags":                           {Tok: awsDataSource(organizationsMod, "getResourceTags")},
 			// ElasticSearch
 			"aws_elasticsearch_domain": {Tok: awsDataSource(elasticsearchMod, "getDomain")},
 			// QLDB
