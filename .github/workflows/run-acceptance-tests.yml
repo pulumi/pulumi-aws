@@ -240,6 +240,22 @@ jobs:
     steps:
     - name: Is workflow a success
       run: echo yes
+
+  go_test:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    name: Run go tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ env.PR_COMMIT_SHA }}
+        submodules: true
+    - run: |
+        cd provider/shim
+        go test -v .
+
   test:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
