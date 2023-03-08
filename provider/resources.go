@@ -3721,6 +3721,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "ap-southeast-1", Name: "APSoutheast1"},
 					{Value: "ap-southeast-2", Name: "APSoutheast2"},
 					{Value: "ap-southeast-3", Name: "APSoutheast3"},
+					{Value: "ap-southeast-4", Name: "APSoutheast4"},
 					{Value: "ca-central-1", Name: "CACentral"},
 					{Value: "cn-north-1", Name: "CNNorth1"},
 					{Value: "cn-northwest-1", Name: "CNNorthwest1"},
