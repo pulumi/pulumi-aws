@@ -241,10 +241,10 @@ jobs:
     - name: Is workflow a success
       run: echo yes
 
-  go_test:
+  go_test_shim:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
-    name: Run go tests
+    name: Run test of provider shim
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
@@ -252,7 +252,8 @@ jobs:
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
-    - run: |
+    - name: go test
+      run: |
         cd provider/shim
         go test -v .
 
