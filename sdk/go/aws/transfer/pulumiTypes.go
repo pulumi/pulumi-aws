@@ -505,6 +505,8 @@ func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type ServerWorkflowDetails struct {
+	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+	OnPartialUpload *ServerWorkflowDetailsOnPartialUpload `pulumi:"onPartialUpload"`
 	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
 	OnUpload *ServerWorkflowDetailsOnUpload `pulumi:"onUpload"`
 }
@@ -521,6 +523,8 @@ type ServerWorkflowDetailsInput interface {
 }
 
 type ServerWorkflowDetailsArgs struct {
+	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+	OnPartialUpload ServerWorkflowDetailsOnPartialUploadPtrInput `pulumi:"onPartialUpload"`
 	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
 	OnUpload ServerWorkflowDetailsOnUploadPtrInput `pulumi:"onUpload"`
 }
@@ -602,6 +606,11 @@ func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext
 	}).(ServerWorkflowDetailsPtrOutput)
 }
 
+// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+func (o ServerWorkflowDetailsOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload { return v.OnPartialUpload }).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
+}
+
 // A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
 func (o ServerWorkflowDetailsOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload { return v.OnUpload }).(ServerWorkflowDetailsOnUploadPtrOutput)
@@ -631,6 +640,16 @@ func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
 	}).(ServerWorkflowDetailsOutput)
 }
 
+// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload {
+		if v == nil {
+			return nil
+		}
+		return v.OnPartialUpload
+	}).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
+}
+
 // A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
 func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload {
@@ -639,6 +658,162 @@ func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailsOnUpload
 		}
 		return v.OnUpload
 	}).(ServerWorkflowDetailsOnUploadPtrOutput)
+}
+
+type ServerWorkflowDetailsOnPartialUpload struct {
+	// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+	ExecutionRole string `pulumi:"executionRole"`
+	// A unique identifier for the workflow.
+	WorkflowId string `pulumi:"workflowId"`
+}
+
+// ServerWorkflowDetailsOnPartialUploadInput is an input type that accepts ServerWorkflowDetailsOnPartialUploadArgs and ServerWorkflowDetailsOnPartialUploadOutput values.
+// You can construct a concrete instance of `ServerWorkflowDetailsOnPartialUploadInput` via:
+//
+//	ServerWorkflowDetailsOnPartialUploadArgs{...}
+type ServerWorkflowDetailsOnPartialUploadInput interface {
+	pulumi.Input
+
+	ToServerWorkflowDetailsOnPartialUploadOutput() ServerWorkflowDetailsOnPartialUploadOutput
+	ToServerWorkflowDetailsOnPartialUploadOutputWithContext(context.Context) ServerWorkflowDetailsOnPartialUploadOutput
+}
+
+type ServerWorkflowDetailsOnPartialUploadArgs struct {
+	// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// A unique identifier for the workflow.
+	WorkflowId pulumi.StringInput `pulumi:"workflowId"`
+}
+
+func (ServerWorkflowDetailsOnPartialUploadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerWorkflowDetailsOnPartialUpload)(nil)).Elem()
+}
+
+func (i ServerWorkflowDetailsOnPartialUploadArgs) ToServerWorkflowDetailsOnPartialUploadOutput() ServerWorkflowDetailsOnPartialUploadOutput {
+	return i.ToServerWorkflowDetailsOnPartialUploadOutputWithContext(context.Background())
+}
+
+func (i ServerWorkflowDetailsOnPartialUploadArgs) ToServerWorkflowDetailsOnPartialUploadOutputWithContext(ctx context.Context) ServerWorkflowDetailsOnPartialUploadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOnPartialUploadOutput)
+}
+
+func (i ServerWorkflowDetailsOnPartialUploadArgs) ToServerWorkflowDetailsOnPartialUploadPtrOutput() ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return i.ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(context.Background())
+}
+
+func (i ServerWorkflowDetailsOnPartialUploadArgs) ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOnPartialUploadOutput).ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(ctx)
+}
+
+// ServerWorkflowDetailsOnPartialUploadPtrInput is an input type that accepts ServerWorkflowDetailsOnPartialUploadArgs, ServerWorkflowDetailsOnPartialUploadPtr and ServerWorkflowDetailsOnPartialUploadPtrOutput values.
+// You can construct a concrete instance of `ServerWorkflowDetailsOnPartialUploadPtrInput` via:
+//
+//	        ServerWorkflowDetailsOnPartialUploadArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerWorkflowDetailsOnPartialUploadPtrInput interface {
+	pulumi.Input
+
+	ToServerWorkflowDetailsOnPartialUploadPtrOutput() ServerWorkflowDetailsOnPartialUploadPtrOutput
+	ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(context.Context) ServerWorkflowDetailsOnPartialUploadPtrOutput
+}
+
+type serverWorkflowDetailsOnPartialUploadPtrType ServerWorkflowDetailsOnPartialUploadArgs
+
+func ServerWorkflowDetailsOnPartialUploadPtr(v *ServerWorkflowDetailsOnPartialUploadArgs) ServerWorkflowDetailsOnPartialUploadPtrInput {
+	return (*serverWorkflowDetailsOnPartialUploadPtrType)(v)
+}
+
+func (*serverWorkflowDetailsOnPartialUploadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerWorkflowDetailsOnPartialUpload)(nil)).Elem()
+}
+
+func (i *serverWorkflowDetailsOnPartialUploadPtrType) ToServerWorkflowDetailsOnPartialUploadPtrOutput() ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return i.ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(context.Background())
+}
+
+func (i *serverWorkflowDetailsOnPartialUploadPtrType) ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
+}
+
+type ServerWorkflowDetailsOnPartialUploadOutput struct{ *pulumi.OutputState }
+
+func (ServerWorkflowDetailsOnPartialUploadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerWorkflowDetailsOnPartialUpload)(nil)).Elem()
+}
+
+func (o ServerWorkflowDetailsOnPartialUploadOutput) ToServerWorkflowDetailsOnPartialUploadOutput() ServerWorkflowDetailsOnPartialUploadOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailsOnPartialUploadOutput) ToServerWorkflowDetailsOnPartialUploadOutputWithContext(ctx context.Context) ServerWorkflowDetailsOnPartialUploadOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailsOnPartialUploadOutput) ToServerWorkflowDetailsOnPartialUploadPtrOutput() ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return o.ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(context.Background())
+}
+
+func (o ServerWorkflowDetailsOnPartialUploadOutput) ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerWorkflowDetailsOnPartialUpload) *ServerWorkflowDetailsOnPartialUpload {
+		return &v
+	}).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
+}
+
+// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+func (o ServerWorkflowDetailsOnPartialUploadOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerWorkflowDetailsOnPartialUpload) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// A unique identifier for the workflow.
+func (o ServerWorkflowDetailsOnPartialUploadOutput) WorkflowId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerWorkflowDetailsOnPartialUpload) string { return v.WorkflowId }).(pulumi.StringOutput)
+}
+
+type ServerWorkflowDetailsOnPartialUploadPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerWorkflowDetailsOnPartialUploadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerWorkflowDetailsOnPartialUpload)(nil)).Elem()
+}
+
+func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) ToServerWorkflowDetailsOnPartialUploadPtrOutput() ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) ToServerWorkflowDetailsOnPartialUploadPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsOnPartialUploadPtrOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) Elem() ServerWorkflowDetailsOnPartialUploadOutput {
+	return o.ApplyT(func(v *ServerWorkflowDetailsOnPartialUpload) ServerWorkflowDetailsOnPartialUpload {
+		if v != nil {
+			return *v
+		}
+		var ret ServerWorkflowDetailsOnPartialUpload
+		return ret
+	}).(ServerWorkflowDetailsOnPartialUploadOutput)
+}
+
+// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerWorkflowDetailsOnPartialUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the workflow.
+func (o ServerWorkflowDetailsOnPartialUploadPtrOutput) WorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerWorkflowDetailsOnPartialUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkflowId
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServerWorkflowDetailsOnUpload struct {
@@ -3963,6 +4138,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsPtrInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsOnPartialUploadInput)(nil)).Elem(), ServerWorkflowDetailsOnPartialUploadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsOnPartialUploadPtrInput)(nil)).Elem(), ServerWorkflowDetailsOnPartialUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsOnUploadInput)(nil)).Elem(), ServerWorkflowDetailsOnUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsOnUploadPtrInput)(nil)).Elem(), ServerWorkflowDetailsOnUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMappingInput)(nil)).Elem(), UserHomeDirectoryMappingArgs{})
@@ -4013,6 +4190,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerWorkflowDetailsOnPartialUploadOutput{})
+	pulumi.RegisterOutputType(ServerWorkflowDetailsOnPartialUploadPtrOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOnUploadOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOnUploadPtrOutput{})
 	pulumi.RegisterOutputType(UserHomeDirectoryMappingOutput{})

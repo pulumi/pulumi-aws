@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -48,52 +50,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dlmLifecycleRole = new Role(&#34;dlmLifecycleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;dlm.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;dlm.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
  *             .build());
  * 
- *         var dlmLifecycle = new RolePolicy(&#34;dlmLifecycle&#34;, RolePolicyArgs.builder()        
+ *         var dlmLifecycleRole = new Role(&#34;dlmLifecycleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         final var dlmLifecyclePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;ec2:CreateSnapshot&#34;,
+ *                         &#34;ec2:CreateSnapshots&#34;,
+ *                         &#34;ec2:DeleteSnapshot&#34;,
+ *                         &#34;ec2:DescribeInstances&#34;,
+ *                         &#34;ec2:DescribeVolumes&#34;,
+ *                         &#34;ec2:DescribeSnapshots&#34;)
+ *                     .resources(&#34;*&#34;)
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(&#34;ec2:CreateTags&#34;)
+ *                     .resources(&#34;arn:aws:ec2:*::snapshot/*&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var dlmLifecycleRolePolicy = new RolePolicy(&#34;dlmLifecycleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(dlmLifecycleRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *    &#34;Version&#34;: &#34;2012-10-17&#34;,
- *    &#34;Statement&#34;: [
- *       {
- *          &#34;Effect&#34;: &#34;Allow&#34;,
- *          &#34;Action&#34;: [
- *             &#34;ec2:CreateSnapshot&#34;,
- *             &#34;ec2:CreateSnapshots&#34;,
- *             &#34;ec2:DeleteSnapshot&#34;,
- *             &#34;ec2:DescribeInstances&#34;,
- *             &#34;ec2:DescribeVolumes&#34;,
- *             &#34;ec2:DescribeSnapshots&#34;
- *          ],
- *          &#34;Resource&#34;: &#34;*&#34;
- *       },
- *       {
- *          &#34;Effect&#34;: &#34;Allow&#34;,
- *          &#34;Action&#34;: [
- *             &#34;ec2:CreateTags&#34;
- *          ],
- *          &#34;Resource&#34;: &#34;arn:aws:ec2:*::snapshot/*&#34;
- *       }
- *    ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(dlmLifecyclePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var example = new LifecyclePolicy(&#34;example&#34;, LifecyclePolicyArgs.builder()        
@@ -131,6 +125,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.dlm.LifecyclePolicy;
@@ -152,25 +148,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
+ *         final var key = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;Enable IAM User Permissions&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     .build())
+ *                 .actions(&#34;kms:*&#34;)
+ *                 .resources(&#34;*&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var dlmCrossRegionCopyCmk = new Key(&#34;dlmCrossRegionCopyCmk&#34;, KeyArgs.builder()        
  *             .description(&#34;Example Alternate Region KMS Key&#34;)
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Id&#34;: &#34;dlm-cross-region-copy-cmk&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;Enable IAM User Permissions&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;AWS&#34;: &#34;arn:aws:iam::%s:root&#34;
- *       },
- *       &#34;Action&#34;: &#34;kms:*&#34;,
- *       &#34;Resource&#34;: &#34;*&#34;
- *     }
- *   ]
- * }
- * &#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *             .policy(key.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.alternate())
  *                 .build());

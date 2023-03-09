@@ -76,11 +76,11 @@ export class BucketPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket to which to apply the policy.
+     * Name of the bucket to which to apply the policy.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     * Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
      */
     public readonly policy!: pulumi.Output<string>;
 
@@ -120,11 +120,11 @@ export class BucketPolicy extends pulumi.CustomResource {
  */
 export interface BucketPolicyState {
     /**
-     * The name of the bucket to which to apply the policy.
+     * Name of the bucket to which to apply the policy.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     * Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
      */
     policy?: pulumi.Input<string | PolicyDocument>;
 }
@@ -134,11 +134,11 @@ export interface BucketPolicyState {
  */
 export interface BucketPolicyArgs {
     /**
-     * The name of the bucket to which to apply the policy.
+     * Name of the bucket to which to apply the policy.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     * Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
      */
     policy: pulumi.Input<string | PolicyDocument>;
 }

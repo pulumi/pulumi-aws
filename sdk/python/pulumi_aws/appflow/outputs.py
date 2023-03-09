@@ -5922,20 +5922,37 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
 
 @pulumi.output_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSapoData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectPath":
+            suggest = "object_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSourceFlowConfigSourceConnectorPropertiesSapoData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSourceFlowConfigSourceConnectorPropertiesSapoData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSourceFlowConfigSourceConnectorPropertiesSapoData.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 object: str):
+                 object_path: str):
         """
-        :param str object: Object specified in the flow destination.
+        :param str object_path: Object path specified in the SAPOData flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        pulumi.set(__self__, "object_path", object_path)
 
     @property
-    @pulumi.getter
-    def object(self) -> str:
+    @pulumi.getter(name="objectPath")
+    def object_path(self) -> str:
         """
-        Object specified in the flow destination.
+        Object path specified in the SAPOData flow destination.
         """
-        return pulumi.get(self, "object")
+        return pulumi.get(self, "object_path")
 
 
 @pulumi.output_type

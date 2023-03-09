@@ -228,7 +228,7 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * const bucket_config = new aws.s3.BucketLifecycleConfigurationV2("bucket-config", {
- *     bucket: bucket.bucket,
+ *     bucket: bucket.id,
  *     rules: [
  *         {
  *             id: "log",
@@ -349,15 +349,15 @@ export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     * Name of the source S3 bucket you want Amazon S3 to monitor.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
-     * List of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication. See below.
      */
     public readonly rules!: pulumi.Output<outputs.s3.BucketLifecycleConfigurationV2Rule[]>;
 
@@ -399,15 +399,15 @@ export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
  */
 export interface BucketLifecycleConfigurationV2State {
     /**
-     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     * Name of the source S3 bucket you want Amazon S3 to monitor.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * List of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication. See below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationV2Rule>[]>;
 }
@@ -417,15 +417,15 @@ export interface BucketLifecycleConfigurationV2State {
  */
 export interface BucketLifecycleConfigurationV2Args {
     /**
-     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     * Name of the source S3 bucket you want Amazon S3 to monitor.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * List of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication. See below.
      */
     rules: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationV2Rule>[]>;
 }

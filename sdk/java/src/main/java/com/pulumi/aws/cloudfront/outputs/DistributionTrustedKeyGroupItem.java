@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionTrustedKeyGroupItem {
     /**
-     * @return The ID of the key group that contains the public keys
+     * @return ID of the key group that contains the public keys.
      * 
      */
     private @Nullable String keyGroupId;
@@ -25,7 +25,7 @@ public final class DistributionTrustedKeyGroupItem {
 
     private DistributionTrustedKeyGroupItem() {}
     /**
-     * @return The ID of the key group that contains the public keys
+     * @return ID of the key group that contains the public keys.
      * 
      */
     public Optional<String> keyGroupId() {

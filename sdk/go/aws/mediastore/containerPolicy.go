@@ -23,6 +23,7 @@ import (
 //	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediastore"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -42,26 +43,44 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("MediaStoreFullAccess"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String(fmt.Sprintf("arn:aws:iam::%v:root", currentCallerIdentity.AccountId)),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("mediastore:*"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleContainer.Name.ApplyT(func(name string) (string, error) {
+//								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", currentRegion.Name, currentCallerIdentity.AccountId, name), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("Bool"),
+//								Variable: pulumi.String("aws:SecureTransport"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("true"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = mediastore.NewContainerPolicy(ctx, "exampleContainerPolicy", &mediastore.ContainerPolicyArgs{
 //				ContainerName: exampleContainer.Name,
-//				Policy: exampleContainer.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf(`{
-//		"Version": "2012-10-17",
-//		"Statement": [{
-//			"Sid": "MediaStoreFullAccess",
-//			"Action": [ "mediastore:*" ],
-//			"Principal": {"AWS" : "arn:aws:iam::%v:root"},
-//			"Effect": "Allow",
-//			"Resource": "arn:aws:mediastore:%v:%v:container/%v/*",
-//			"Condition": {
-//				"Bool": { "aws:SecureTransport": "true" }
-//			}
-//		}]
-//	}
-//
-// `, currentCallerIdentity.AccountId, currentRegion.Name, currentCallerIdentity.AccountId, name), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &examplePolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

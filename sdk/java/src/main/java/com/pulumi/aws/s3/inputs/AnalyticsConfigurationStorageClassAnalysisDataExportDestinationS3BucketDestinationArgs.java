@@ -16,14 +16,14 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
     public static final AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs Empty = new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs();
 
     /**
-     * The account ID that owns the destination bucket.
+     * Account ID that owns the destination bucket.
      * 
      */
     @Import(name="bucketAccountId")
     private @Nullable Output<String> bucketAccountId;
 
     /**
-     * @return The account ID that owns the destination bucket.
+     * @return Account ID that owns the destination bucket.
      * 
      */
     public Optional<Output<String>> bucketAccountId() {
@@ -31,14 +31,14 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
     }
 
     /**
-     * The ARN of the destination bucket.
+     * ARN of the destination bucket.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The ARN of the destination bucket.
+     * @return ARN of the destination bucket.
      * 
      */
     public Output<String> bucketArn() {
@@ -46,14 +46,14 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
     }
 
     /**
-     * The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+     * Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
      * 
      */
     @Import(name="format")
     private @Nullable Output<String> format;
 
     /**
-     * @return The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+     * @return Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
      * 
      */
     public Optional<Output<String>> format() {
@@ -103,7 +103,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         /**
-         * @param bucketAccountId The account ID that owns the destination bucket.
+         * @param bucketAccountId Account ID that owns the destination bucket.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         /**
-         * @param bucketAccountId The account ID that owns the destination bucket.
+         * @param bucketAccountId Account ID that owns the destination bucket.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         /**
-         * @param bucketArn The ARN of the destination bucket.
+         * @param bucketArn ARN of the destination bucket.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         /**
-         * @param bucketArn The ARN of the destination bucket.
+         * @param bucketArn ARN of the destination bucket.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         /**
-         * @param format The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+         * @param format Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         /**
-         * @param format The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+         * @param format Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
          * 
          * @return builder
          * 

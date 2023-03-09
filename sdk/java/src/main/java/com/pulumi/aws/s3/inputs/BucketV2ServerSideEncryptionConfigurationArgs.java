@@ -15,14 +15,14 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
     public static final BucketV2ServerSideEncryptionConfigurationArgs Empty = new BucketV2ServerSideEncryptionConfigurationArgs();
 
     /**
-     * A single object for server-side encryption by default configuration. (documented below)
+     * Single object for server-side encryption by default configuration. (documented below)
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules;
 
     /**
-     * @return A single object for server-side encryption by default configuration. (documented below)
+     * @return Single object for server-side encryption by default configuration. (documented below)
      * 
      */
     public Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules() {
@@ -54,7 +54,7 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
         }
 
         /**
-         * @param rules A single object for server-side encryption by default configuration. (documented below)
+         * @param rules Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
         }
 
         /**
-         * @param rules A single object for server-side encryption by default configuration. (documented below)
+         * @param rules Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
         }
 
         /**
-         * @param rules A single object for server-side encryption by default configuration. (documented below)
+         * @param rules Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 

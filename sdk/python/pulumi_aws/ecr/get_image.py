@@ -21,7 +21,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, id=None, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, registry_id=None, repository_name=None):
+    def __init__(__self__, id=None, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, most_recent=None, registry_id=None, repository_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,9 @@ class GetImageResult:
         if image_tags and not isinstance(image_tags, list):
             raise TypeError("Expected argument 'image_tags' to be a list")
         pulumi.set(__self__, "image_tags", image_tags)
+        if most_recent and not isinstance(most_recent, bool):
+            raise TypeError("Expected argument 'most_recent' to be a bool")
+        pulumi.set(__self__, "most_recent", most_recent)
         if registry_id and not isinstance(registry_id, str):
             raise TypeError("Expected argument 'registry_id' to be a str")
         pulumi.set(__self__, "registry_id", registry_id)
@@ -90,6 +93,11 @@ class GetImageResult:
         return pulumi.get(self, "image_tags")
 
     @property
+    @pulumi.getter(name="mostRecent")
+    def most_recent(self) -> Optional[bool]:
+        return pulumi.get(self, "most_recent")
+
+    @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> str:
         return pulumi.get(self, "registry_id")
@@ -112,12 +120,14 @@ class AwaitableGetImageResult(GetImageResult):
             image_size_in_bytes=self.image_size_in_bytes,
             image_tag=self.image_tag,
             image_tags=self.image_tags,
+            most_recent=self.most_recent,
             registry_id=self.registry_id,
             repository_name=self.repository_name)
 
 
 def get_image(image_digest: Optional[str] = None,
               image_tag: Optional[str] = None,
+              most_recent: Optional[bool] = None,
               registry_id: Optional[str] = None,
               repository_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
@@ -135,14 +145,16 @@ def get_image(image_digest: Optional[str] = None,
     ```
 
 
-    :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-    :param str image_tag: Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+    :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+    :param str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+    :param bool most_recent: Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param str registry_id: ID of the Registry where the repository resides.
     :param str repository_name: Name of the ECR Repository.
     """
     __args__ = dict()
     __args__['imageDigest'] = image_digest
     __args__['imageTag'] = image_tag
+    __args__['mostRecent'] = most_recent
     __args__['registryId'] = registry_id
     __args__['repositoryName'] = repository_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -155,6 +167,7 @@ def get_image(image_digest: Optional[str] = None,
         image_size_in_bytes=__ret__.image_size_in_bytes,
         image_tag=__ret__.image_tag,
         image_tags=__ret__.image_tags,
+        most_recent=__ret__.most_recent,
         registry_id=__ret__.registry_id,
         repository_name=__ret__.repository_name)
 
@@ -162,6 +175,7 @@ def get_image(image_digest: Optional[str] = None,
 @_utilities.lift_output_func(get_image)
 def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
                      image_tag: Optional[pulumi.Input[Optional[str]]] = None,
+                     most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                      registry_id: Optional[pulumi.Input[Optional[str]]] = None,
                      repository_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
@@ -179,8 +193,9 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
-    :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-    :param str image_tag: Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+    :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+    :param str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+    :param bool most_recent: Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param str registry_id: ID of the Registry where the repository resides.
     :param str repository_name: Name of the ECR Repository.
     """

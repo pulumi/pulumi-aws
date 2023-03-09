@@ -49,8 +49,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -59,16 +57,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Pattern: pulumi.String(fmt.Sprintf(`  {
-//	    "Price": [
-//	      {
-//	        "numeric": [">",10,"<=",20]
-//	      }
-//	    ]
-//	  }
-//
-// `)),
-//
+//				Pattern: pulumi.String("  {\n    \"Price\": [\n      {\n        \"numeric\": [\">\",10,\"<=\",20]\n      }\n    ]\n  }\n  \n"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Segment"),
 //				},

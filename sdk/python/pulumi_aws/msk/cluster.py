@@ -655,20 +655,15 @@ class Cluster(pulumi.CustomResource):
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
-        "Version": "2012-10-17",
-        "Statement": [
-          {
-            "Action": "sts:AssumeRole",
-            "Principal": {
-              "Service": "firehose.amazonaws.com"
-            },
-            "Effect": "Allow",
-            "Sid": ""
-          }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="s3",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
@@ -822,20 +817,15 @@ class Cluster(pulumi.CustomResource):
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
-        "Version": "2012-10-17",
-        "Statement": [
-          {
-            "Action": "sts:AssumeRole",
-            "Principal": {
-              "Service": "firehose.amazonaws.com"
-            },
-            "Effect": "Allow",
-            "Sid": ""
-          }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="s3",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(

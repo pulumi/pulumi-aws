@@ -14,33 +14,30 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const fs = new aws.efs.FileSystem("fs", {});
- * const policy = new aws.efs.FileSystemPolicy("policy", {
+ * const policyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         sid: "ExampleStatement01",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: [
+ *             "elasticfilesystem:ClientMount",
+ *             "elasticfilesystem:ClientWrite",
+ *         ],
+ *         resources: [fs.arn],
+ *         conditions: [{
+ *             test: "Bool",
+ *             variable: "aws:SecureTransport",
+ *             values: ["true"],
+ *         }],
+ *     }],
+ * });
+ * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policyFileSystemPolicy", {
  *     fileSystemId: fs.id,
  *     bypassPolicyLockoutSafetyCheck: true,
- *     policy: pulumi.interpolate`{
- *     "Version": "2012-10-17",
- *     "Id": "ExamplePolicy01",
- *     "Statement": [
- *         {
- *             "Sid": "ExampleStatement01",
- *             "Effect": "Allow",
- *             "Principal": {
- *                 "AWS": "*"
- *             },
- *             "Resource": "${fs.arn}",
- *             "Action": [
- *                 "elasticfilesystem:ClientMount",
- *                 "elasticfilesystem:ClientWrite"
- *             ],
- *             "Condition": {
- *                 "Bool": {
- *                     "aws:SecureTransport": "true"
- *                 }
- *             }
- *         }
- *     ]
- * }
- * `,
+ *     policy: policyPolicyDocument.apply(policyPolicyDocument => policyPolicyDocument.json),
  * });
  * ```
  *

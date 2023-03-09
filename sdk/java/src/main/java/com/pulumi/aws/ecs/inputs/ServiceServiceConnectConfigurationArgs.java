@@ -9,6 +9,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -67,15 +68,15 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
      * The list of Service Connect service objects. See below.
      * 
      */
-    @Import(name="service")
-    private @Nullable Output<ServiceServiceConnectConfigurationServiceArgs> service;
+    @Import(name="services")
+    private @Nullable Output<List<ServiceServiceConnectConfigurationServiceArgs>> services;
 
     /**
      * @return The list of Service Connect service objects. See below.
      * 
      */
-    public Optional<Output<ServiceServiceConnectConfigurationServiceArgs>> service() {
-        return Optional.ofNullable(this.service);
+    public Optional<Output<List<ServiceServiceConnectConfigurationServiceArgs>>> services() {
+        return Optional.ofNullable(this.services);
     }
 
     private ServiceServiceConnectConfigurationArgs() {}
@@ -84,7 +85,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         this.enabled = $.enabled;
         this.logConfiguration = $.logConfiguration;
         this.namespace = $.namespace;
-        this.service = $.service;
+        this.services = $.services;
     }
 
     public static Builder builder() {
@@ -169,24 +170,34 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param service The list of Service Connect service objects. See below.
+         * @param services The list of Service Connect service objects. See below.
          * 
          * @return builder
          * 
          */
-        public Builder service(@Nullable Output<ServiceServiceConnectConfigurationServiceArgs> service) {
-            $.service = service;
+        public Builder services(@Nullable Output<List<ServiceServiceConnectConfigurationServiceArgs>> services) {
+            $.services = services;
             return this;
         }
 
         /**
-         * @param service The list of Service Connect service objects. See below.
+         * @param services The list of Service Connect service objects. See below.
          * 
          * @return builder
          * 
          */
-        public Builder service(ServiceServiceConnectConfigurationServiceArgs service) {
-            return service(Output.of(service));
+        public Builder services(List<ServiceServiceConnectConfigurationServiceArgs> services) {
+            return services(Output.of(services));
+        }
+
+        /**
+         * @param services The list of Service Connect service objects. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder services(ServiceServiceConnectConfigurationServiceArgs... services) {
+            return services(List.of(services));
         }
 
         public ServiceServiceConnectConfigurationArgs build() {

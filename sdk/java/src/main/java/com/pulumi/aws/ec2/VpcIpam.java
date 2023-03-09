@@ -22,83 +22,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an IPAM resource.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpam;
- * import com.pulumi.aws.ec2.VpcIpamArgs;
- * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
- * 
- *         var main = new VpcIpam(&#34;main&#34;, VpcIpamArgs.builder()        
- *             .description(&#34;My IPAM&#34;)
- *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .build())
- *             .tags(Map.of(&#34;Test&#34;, &#34;Main&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Shared with multiple operating_regions:
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcIpam;
- * import com.pulumi.aws.ec2.VpcIpamArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var ipamRegions = config.get(&#34;ipamRegions&#34;).orElse(        
- *             &#34;us-east-1&#34;,
- *             &#34;us-west-2&#34;);
- *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
- *             .description(&#34;test4&#34;)
- *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * IPAMs can be imported using the `ipam id`, e.g.
@@ -137,6 +60,18 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> cascade() {
         return Codegen.optional(this.cascade);
+    }
+    @Export(name="defaultResourceDiscoveryAssociationId", refs={String.class}, tree="[0]")
+    private Output<String> defaultResourceDiscoveryAssociationId;
+
+    public Output<String> defaultResourceDiscoveryAssociationId() {
+        return this.defaultResourceDiscoveryAssociationId;
+    }
+    @Export(name="defaultResourceDiscoveryId", refs={String.class}, tree="[0]")
+    private Output<String> defaultResourceDiscoveryId;
+
+    public Output<String> defaultResourceDiscoveryId() {
+        return this.defaultResourceDiscoveryId;
     }
     /**
      * A description for the IPAM.

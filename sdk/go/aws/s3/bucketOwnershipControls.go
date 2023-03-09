@@ -58,7 +58,7 @@ import (
 type BucketOwnershipControls struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket that you want to associate this access point with.
+	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRuleOutput `pulumi:"rule"`
@@ -99,14 +99,14 @@ func GetBucketOwnershipControls(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketOwnershipControls resources.
 type bucketOwnershipControlsState struct {
-	// The name of the bucket that you want to associate this access point with.
+	// Name of the bucket that you want to associate this access point with.
 	Bucket *string `pulumi:"bucket"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule *BucketOwnershipControlsRule `pulumi:"rule"`
 }
 
 type BucketOwnershipControlsState struct {
-	// The name of the bucket that you want to associate this access point with.
+	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringPtrInput
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRulePtrInput
@@ -117,7 +117,7 @@ func (BucketOwnershipControlsState) ElementType() reflect.Type {
 }
 
 type bucketOwnershipControlsArgs struct {
-	// The name of the bucket that you want to associate this access point with.
+	// Name of the bucket that you want to associate this access point with.
 	Bucket string `pulumi:"bucket"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRule `pulumi:"rule"`
@@ -125,7 +125,7 @@ type bucketOwnershipControlsArgs struct {
 
 // The set of arguments for constructing a BucketOwnershipControls resource.
 type BucketOwnershipControlsArgs struct {
-	// The name of the bucket that you want to associate this access point with.
+	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRuleInput
@@ -218,7 +218,7 @@ func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutputWithContex
 	return o
 }
 
-// The name of the bucket that you want to associate this access point with.
+// Name of the bucket that you want to associate this access point with.
 func (o BucketOwnershipControlsOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

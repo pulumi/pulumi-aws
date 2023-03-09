@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.acmpca.Policy;
  * import com.pulumi.aws.acmpca.PolicyArgs;
  * import java.util.List;
@@ -39,46 +41,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid(&#34;1&#34;)
+ *                     .effect(&#34;Allow&#34;)
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type(&#34;AWS&#34;)
+ *                         .identifiers(data.aws_caller_identity().current().account_id())
+ *                         .build())
+ *                     .actions(                    
+ *                         &#34;acm-pca:DescribeCertificateAuthority&#34;,
+ *                         &#34;acm-pca:GetCertificate&#34;,
+ *                         &#34;acm-pca:GetCertificateAuthorityCertificate&#34;,
+ *                         &#34;acm-pca:ListPermissions&#34;,
+ *                         &#34;acm-pca:ListTags&#34;)
+ *                     .resources(aws_acmpca_certificate_authority.example().arn())
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid(&#34;2&#34;)
+ *                     .effect(Allow)
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type(&#34;AWS&#34;)
+ *                         .identifiers(data.aws_caller_identity().current().account_id())
+ *                         .build())
+ *                     .actions(&#34;acm-pca:IssueCertificate&#34;)
+ *                     .resources(aws_acmpca_certificate_authority.example().arn())
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test(&#34;StringEquals&#34;)
+ *                         .variable(&#34;acm-pca:TemplateArn&#34;)
+ *                         .values(&#34;arn:aws:acm-pca:::template/EndEntityCertificate/V1&#34;)
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
+ *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
  *             .resourceArn(aws_acmpca_certificate_authority.example().arn())
- *             .policy(&#34;&#34;&#34;
- * {                        
- *    &#34;Version&#34;:&#34;2012-10-17&#34;,
- *    &#34;Statement&#34;:[
- *       {    
- *          &#34;Sid&#34;:&#34;1&#34;,
- *          &#34;Effect&#34;:&#34;Allow&#34;,         
- *          &#34;Principal&#34;:{                                                                                                                                               
- *             &#34;AWS&#34;:&#34;%s&#34;                                                                                
- *          },
- *          &#34;Action&#34;:[
- *             &#34;acm-pca:DescribeCertificateAuthority&#34;,
- *             &#34;acm-pca:GetCertificate&#34;,
- *             &#34;acm-pca:GetCertificateAuthorityCertificate&#34;,
- *             &#34;acm-pca:ListPermissions&#34;,
- *             &#34;acm-pca:ListTags&#34;                                                                                   
- *          ],                                                                                              
- *          &#34;Resource&#34;:&#34;%s&#34;
- *       },
- *       {
- *          &#34;Sid&#34;:&#34;1&#34;,  
- *          &#34;Effect&#34;:&#34;Allow&#34;,
- *          &#34;Principal&#34;:{
- *             &#34;AWS&#34;:&#34;%s&#34;
- *          },
- *          &#34;Action&#34;:[
- *             &#34;acm-pca:IssueCertificate&#34;
- *          ],
- *          &#34;Resource&#34;:&#34;%s&#34;,
- *          &#34;Condition&#34;:{
- *             &#34;StringEquals&#34;:{
- *                &#34;acm-pca:TemplateArn&#34;:&#34;arn:aws:acm-pca:::template/EndEntityCertificate/V1&#34;
- *             }
- *          }
- *       }
- *    ]
- * }
- * &#34;, data.aws_caller_identity().current().account_id(),aws_acmpca_certificate_authority.example().arn(),data.aws_caller_identity().current().account_id(),aws_acmpca_certificate_authority.example().arn()))
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

@@ -20,9 +20,8 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -43,24 +42,32 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = codeartifact.NewDomainPermissions(ctx, "test", &codeartifact.DomainPermissionsArgs{
+//			testPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("*"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("codeartifact:CreateRepository"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleDomain.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = codeartifact.NewDomainPermissions(ctx, "testDomainPermissions", &codeartifact.DomainPermissionsArgs{
 //				Domain: exampleDomain.Domain,
-//				PolicyDocument: exampleDomain.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Action": "codeartifact:CreateRepository",
-//	            "Effect": "Allow",
-//	            "Principal": "*",
-//	            "Resource": "%v"
-//	        }
-//	    ]
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
+//				PolicyDocument: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &testPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

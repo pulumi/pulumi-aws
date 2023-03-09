@@ -510,7 +510,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             )],
             task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
                 run_command_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs(
-                    output_s3_bucket=aws_s3_bucket["example"]["bucket"],
+                    output_s3_bucket=aws_s3_bucket["example"]["id"],
                     output_s3_key_prefix="output",
                     service_role_arn=aws_iam_role["example"]["arn"],
                     timeout_seconds=600,
@@ -630,7 +630,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             )],
             task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
                 run_command_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs(
-                    output_s3_bucket=aws_s3_bucket["example"]["bucket"],
+                    output_s3_bucket=aws_s3_bucket["example"]["id"],
                     output_s3_key_prefix="output",
                     service_role_arn=aws_iam_role["example"]["arn"],
                     timeout_seconds=600,

@@ -2086,9 +2086,9 @@ class ChannelEncoderSettingsOutputGroupOutput(dict):
         """
         :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs' output_settings: Settings for output. See Output Settings for more details.
         :param Sequence[str] audio_description_names: The names of the audio descriptions used as audio sources for the output.
-        :param Sequence[str] caption_description_names: The names of the caption descriptions used as audio sources for the output.
+        :param Sequence[str] caption_description_names: The names of the caption descriptions used as caption sources for the output.
         :param str output_name: The name used to identify an output.
-        :param str video_description_name: The name of the video description used as audio sources for the output.
+        :param str video_description_name: The name of the video description used as video source for the output.
         """
         pulumi.set(__self__, "output_settings", output_settings)
         if audio_description_names is not None:
@@ -2120,7 +2120,7 @@ class ChannelEncoderSettingsOutputGroupOutput(dict):
     @pulumi.getter(name="captionDescriptionNames")
     def caption_description_names(self) -> Optional[Sequence[str]]:
         """
-        The names of the caption descriptions used as audio sources for the output.
+        The names of the caption descriptions used as caption sources for the output.
         """
         return pulumi.get(self, "caption_description_names")
 
@@ -2136,7 +2136,7 @@ class ChannelEncoderSettingsOutputGroupOutput(dict):
     @pulumi.getter(name="videoDescriptionName")
     def video_description_name(self) -> Optional[str]:
         """
-        The name of the video description used as audio sources for the output.
+        The name of the video description used as video source for the output.
         """
         return pulumi.get(self, "video_description_name")
 
@@ -6643,7 +6643,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
                  row_length: Optional[int] = None):
         """
         :param int column_depth: The height of the FEC protection matrix.
-        :param str include_fec: Enables column oly or column and row based FEC.
+        :param str include_fec: Enables column only or column and row based FEC.
         :param int row_length: The width of the FEC protection matrix.
         """
         if column_depth is not None:
@@ -6665,7 +6665,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
     @pulumi.getter(name="includeFec")
     def include_fec(self) -> Optional[str]:
         """
-        Enables column oly or column and row based FEC.
+        Enables column only or column and row based FEC.
         """
         return pulumi.get(self, "include_fec")
 

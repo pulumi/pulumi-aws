@@ -314,6 +314,7 @@ class LifecycleHook(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         foobar_group = aws.autoscaling.Group("foobarGroup",
@@ -330,10 +331,9 @@ class LifecycleHook(pulumi.CustomResource):
             default_result="CONTINUE",
             heartbeat_timeout=2000,
             lifecycle_transition="autoscaling:EC2_INSTANCE_LAUNCHING",
-            notification_metadata=\"\"\"{
-          "foo": "bar"
-        }
-        \"\"\",
+            notification_metadata=json.dumps({
+                "foo": "bar",
+            }),
             notification_target_arn="arn:aws:sqs:us-east-1:444455556666:queue1*",
             role_arn="arn:aws:iam::123456789012:role/S3Access")
         ```
@@ -382,6 +382,7 @@ class LifecycleHook(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         foobar_group = aws.autoscaling.Group("foobarGroup",
@@ -398,10 +399,9 @@ class LifecycleHook(pulumi.CustomResource):
             default_result="CONTINUE",
             heartbeat_timeout=2000,
             lifecycle_transition="autoscaling:EC2_INSTANCE_LAUNCHING",
-            notification_metadata=\"\"\"{
-          "foo": "bar"
-        }
-        \"\"\",
+            notification_metadata=json.dumps({
+                "foo": "bar",
+            }),
             notification_target_arn="arn:aws:sqs:us-east-1:444455556666:queue1*",
             role_arn="arn:aws:iam::123456789012:role/S3Access")
         ```

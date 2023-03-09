@@ -21,15 +21,15 @@ public final class FleetLaunchTemplateConfigArgs extends com.pulumi.resources.Re
      * Nested argument containing EC2 Launch Template to use. Defined below.
      * 
      */
-    @Import(name="launchTemplateSpecification", required=true)
-    private Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> launchTemplateSpecification;
+    @Import(name="launchTemplateSpecification")
+    private @Nullable Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> launchTemplateSpecification;
 
     /**
      * @return Nested argument containing EC2 Launch Template to use. Defined below.
      * 
      */
-    public Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> launchTemplateSpecification() {
-        return this.launchTemplateSpecification;
+    public Optional<Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs>> launchTemplateSpecification() {
+        return Optional.ofNullable(this.launchTemplateSpecification);
     }
 
     /**
@@ -78,7 +78,7 @@ public final class FleetLaunchTemplateConfigArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder launchTemplateSpecification(Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> launchTemplateSpecification) {
+        public Builder launchTemplateSpecification(@Nullable Output<FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> launchTemplateSpecification) {
             $.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
@@ -125,7 +125,6 @@ public final class FleetLaunchTemplateConfigArgs extends com.pulumi.resources.Re
         }
 
         public FleetLaunchTemplateConfigArgs build() {
-            $.launchTemplateSpecification = Objects.requireNonNull($.launchTemplateSpecification, "expected parameter 'launchTemplateSpecification' to be non-null");
             return $;
         }
     }

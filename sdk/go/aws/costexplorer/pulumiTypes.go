@@ -6367,9 +6367,9 @@ type GetCostCategoryRuleRule struct {
 	CostCategories []GetCostCategoryRuleRuleCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleDimension `pulumi:"dimensions"`
-	// Return results that match both `Dimension` object.
+	// Return results that do not match the `Dimension` object.
 	Nots []GetCostCategoryRuleRuleNot `pulumi:"nots"`
-	// Return results that match both `Dimension` object.
+	// Return results that match either `Dimension` object.
 	Ors []GetCostCategoryRuleRuleOr `pulumi:"ors"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags []GetCostCategoryRuleRuleTag `pulumi:"tags"`
@@ -6393,9 +6393,9 @@ type GetCostCategoryRuleRuleArgs struct {
 	CostCategories GetCostCategoryRuleRuleCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleDimensionArrayInput `pulumi:"dimensions"`
-	// Return results that match both `Dimension` object.
+	// Return results that do not match the `Dimension` object.
 	Nots GetCostCategoryRuleRuleNotArrayInput `pulumi:"nots"`
-	// Return results that match both `Dimension` object.
+	// Return results that match either `Dimension` object.
 	Ors GetCostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
 	// Configuration block for the specific `Tag` to use for `Expression`. See below.
 	Tags GetCostCategoryRuleRuleTagArrayInput `pulumi:"tags"`
@@ -6467,12 +6467,12 @@ func (o GetCostCategoryRuleRuleOutput) Dimensions() GetCostCategoryRuleRuleDimen
 	return o.ApplyT(func(v GetCostCategoryRuleRule) []GetCostCategoryRuleRuleDimension { return v.Dimensions }).(GetCostCategoryRuleRuleDimensionArrayOutput)
 }
 
-// Return results that match both `Dimension` object.
+// Return results that do not match the `Dimension` object.
 func (o GetCostCategoryRuleRuleOutput) Nots() GetCostCategoryRuleRuleNotArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRule) []GetCostCategoryRuleRuleNot { return v.Nots }).(GetCostCategoryRuleRuleNotArrayOutput)
 }
 
-// Return results that match both `Dimension` object.
+// Return results that match either `Dimension` object.
 func (o GetCostCategoryRuleRuleOutput) Ors() GetCostCategoryRuleRuleOrArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRule) []GetCostCategoryRuleRuleOr { return v.Ors }).(GetCostCategoryRuleRuleOrArrayOutput)
 }

@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.batch.JobDefinition;
  * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,43 +47,45 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
- *             .containerProperties(&#34;&#34;&#34;
- * {
- * 	&#34;command&#34;: [&#34;ls&#34;, &#34;-la&#34;],
- * 	&#34;image&#34;: &#34;busybox&#34;,
- * 	&#34;resourceRequirements&#34;: [
- *     {&#34;type&#34;: &#34;VCPU&#34;, &#34;value&#34;: &#34;0.25&#34;},
- *     {&#34;type&#34;: &#34;MEMORY&#34;, &#34;value&#34;: &#34;512&#34;}
- *   ],
- * 	&#34;volumes&#34;: [
- *       {
- *         &#34;host&#34;: {
- *           &#34;sourcePath&#34;: &#34;/tmp&#34;
- *         },
- *         &#34;name&#34;: &#34;tmp&#34;
- *       }
- *     ],
- * 	&#34;environment&#34;: [
- * 		{&#34;name&#34;: &#34;VARNAME&#34;, &#34;value&#34;: &#34;VARVAL&#34;}
- * 	],
- * 	&#34;mountPoints&#34;: [
- * 		{
- *           &#34;sourceVolume&#34;: &#34;tmp&#34;,
- *           &#34;containerPath&#34;: &#34;/tmp&#34;,
- *           &#34;readOnly&#34;: false
- *         }
- * 	],
- *     &#34;ulimits&#34;: [
- *       {
- *         &#34;hardLimit&#34;: 1024,
- *         &#34;name&#34;: &#34;nofile&#34;,
- *         &#34;softLimit&#34;: 1024
- *       }
- *     ]
- * }
- * 
- *             &#34;&#34;&#34;)
  *             .type(&#34;container&#34;)
+ *             .containerProperties(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;command&#34;, jsonArray(
+ *                         &#34;ls&#34;, 
+ *                         &#34;-la&#34;
+ *                     )),
+ *                     jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
+ *                     jsonProperty(&#34;resourceRequirements&#34;, jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;VCPU&#34;),
+ *                             jsonProperty(&#34;value&#34;, &#34;0.25&#34;)
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;MEMORY&#34;),
+ *                             jsonProperty(&#34;value&#34;, &#34;512&#34;)
+ *                         )
+ *                     )),
+ *                     jsonProperty(&#34;volumes&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;host&#34;, jsonObject(
+ *                             jsonProperty(&#34;sourcePath&#34;, &#34;/tmp&#34;)
+ *                         )),
+ *                         jsonProperty(&#34;name&#34;, &#34;tmp&#34;)
+ *                     ))),
+ *                     jsonProperty(&#34;environment&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;name&#34;, &#34;VARNAME&#34;),
+ *                         jsonProperty(&#34;value&#34;, &#34;VARVAL&#34;)
+ *                     ))),
+ *                     jsonProperty(&#34;mountPoints&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;sourceVolume&#34;, &#34;tmp&#34;),
+ *                         jsonProperty(&#34;containerPath&#34;, &#34;/tmp&#34;),
+ *                         jsonProperty(&#34;readOnly&#34;, false)
+ *                     ))),
+ *                     jsonProperty(&#34;ulimits&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;hardLimit&#34;, 1024),
+ *                         jsonProperty(&#34;name&#34;, &#34;nofile&#34;),
+ *                         jsonProperty(&#34;softLimit&#34;, 1024)
+ *                     )))
+ *                 )))
  *             .build());
  * 
  *     }
@@ -103,6 +106,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.batch.JobDefinition;
  * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -138,20 +142,28 @@ import javax.annotation.Nullable;
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
  *             .type(&#34;container&#34;)
  *             .platformCapabilities(&#34;FARGATE&#34;)
- *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;command&#34;: [&#34;echo&#34;, &#34;test&#34;],
- *   &#34;image&#34;: &#34;busybox&#34;,
- *   &#34;fargatePlatformConfiguration&#34;: {
- *     &#34;platformVersion&#34;: &#34;LATEST&#34;
- *   },
- *   &#34;resourceRequirements&#34;: [
- *     {&#34;type&#34;: &#34;VCPU&#34;, &#34;value&#34;: &#34;0.25&#34;},
- *     {&#34;type&#34;: &#34;MEMORY&#34;, &#34;value&#34;: &#34;512&#34;}
- *   ],
- *   &#34;executionRoleArn&#34;: &#34;%s&#34;
- * }
- * &#34;, arn)))
+ *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -&gt; serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;command&#34;, jsonArray(
+ *                         &#34;echo&#34;, 
+ *                         &#34;test&#34;
+ *                     )),
+ *                     jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
+ *                     jsonProperty(&#34;fargatePlatformConfiguration&#34;, jsonObject(
+ *                         jsonProperty(&#34;platformVersion&#34;, &#34;LATEST&#34;)
+ *                     )),
+ *                     jsonProperty(&#34;resourceRequirements&#34;, jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;VCPU&#34;),
+ *                             jsonProperty(&#34;value&#34;, &#34;0.25&#34;)
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;MEMORY&#34;),
+ *                             jsonProperty(&#34;value&#34;, &#34;512&#34;)
+ *                         )
+ *                     )),
+ *                     jsonProperty(&#34;executionRoleArn&#34;, arn)
+ *                 ))))
  *             .build());
  * 
  *     }

@@ -17,14 +17,16 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
     public static final LaunchTemplateBlockDeviceMappingEbsArgs Empty = new LaunchTemplateBlockDeviceMappingEbsArgs();
 
     /**
-     * Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * Whether the volume should be destroyed on instance termination.
+     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
      * 
      */
     @Import(name="deleteOnTermination")
     private @Nullable Output<String> deleteOnTermination;
 
     /**
-     * @return Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * @return Whether the volume should be destroyed on instance termination.
+     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
      * 
      */
     public Optional<Output<String>> deleteOnTermination() {
@@ -32,16 +34,16 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
     }
 
     /**
-     * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-     * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+     * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+     * Cannot be used with `snapshot_id`.
      * 
      */
     @Import(name="encrypted")
     private @Nullable Output<String> encrypted;
 
     /**
-     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-     * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+     * Cannot be used with `snapshot_id`.
      * 
      */
     public Optional<Output<String>> encrypted() {
@@ -49,8 +51,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
     }
 
     /**
-     * The amount of provisioned
-     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
      * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
      * 
      */
@@ -58,8 +59,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
     private @Nullable Output<Integer> iops;
 
     /**
-     * @return The amount of provisioned
-     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
      * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
      * 
      */
@@ -130,14 +130,16 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
     }
 
     /**
-     * The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * The volume type.
+     * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
      * 
      */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
     /**
-     * @return The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * @return The volume type.
+     * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
      * 
      */
     public Optional<Output<String>> volumeType() {
@@ -176,7 +178,8 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param deleteOnTermination Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+         * @param deleteOnTermination Whether the volume should be destroyed on instance termination.
+         * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
          * 
          * @return builder
          * 
@@ -187,7 +190,8 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param deleteOnTermination Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+         * @param deleteOnTermination Whether the volume should be destroyed on instance termination.
+         * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
          * 
          * @return builder
          * 
@@ -197,8 +201,8 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param encrypted Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-         * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+         * @param encrypted Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+         * Cannot be used with `snapshot_id`.
          * 
          * @return builder
          * 
@@ -209,8 +213,8 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param encrypted Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-         * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+         * @param encrypted Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+         * Cannot be used with `snapshot_id`.
          * 
          * @return builder
          * 
@@ -220,8 +224,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param iops The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+         * @param iops The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
          * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
          * 
          * @return builder
@@ -233,8 +236,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param iops The amount of provisioned
-         * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+         * @param iops The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
          * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
          * 
          * @return builder
@@ -331,7 +333,8 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param volumeType The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * @param volumeType The volume type.
+         * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
          * 
          * @return builder
          * 
@@ -342,7 +345,8 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param volumeType The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * @param volumeType The volume type.
+         * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
          * 
          * @return builder
          * 

@@ -311,7 +311,7 @@ class Database(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_database = aws.athena.Database("exampleDatabase",
             name="database_name",
-            bucket=example_bucket_v2.bucket)
+            bucket=example_bucket_v2.id)
         ```
 
         ## Import
@@ -328,7 +328,7 @@ class Database(pulumi.CustomResource):
 
          = "database_name"
 
-         bucket = aws_s3_bucket.example.bucket
+         bucket = aws_s3_bucket.example.id
 
         # There is no API for reading bucket
 
@@ -367,7 +367,7 @@ class Database(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_database = aws.athena.Database("exampleDatabase",
             name="database_name",
-            bucket=example_bucket_v2.bucket)
+            bucket=example_bucket_v2.id)
         ```
 
         ## Import
@@ -384,7 +384,7 @@ class Database(pulumi.CustomResource):
 
          = "database_name"
 
-         bucket = aws_s3_bucket.example.bucket
+         bucket = aws_s3_bucket.example.id
 
         # There is no API for reading bucket
 

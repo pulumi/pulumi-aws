@@ -206,50 +206,6 @@ class PolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user = aws.iam.User("user")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "ec2.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        group = aws.iam.Group("group")
-        policy = aws.iam.Policy("policy",
-            description="A test policy",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
-        test_attach = aws.iam.PolicyAttachment("test-attach",
-            users=[user.name],
-            roles=[role.name],
-            groups=[group.name],
-            policy_arn=policy.arn)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The group(s) the policy should be applied to
@@ -272,50 +228,6 @@ class PolicyAttachment(pulumi.CustomResource):
         > **NOTE:** The usage of this resource conflicts with the `iam.GroupPolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
 
         > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user = aws.iam.User("user")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "ec2.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        group = aws.iam.Group("group")
-        policy = aws.iam.Policy("policy",
-            description="A test policy",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
-        test_attach = aws.iam.PolicyAttachment("test-attach",
-            users=[user.name],
-            roles=[role.name],
-            groups=[group.name],
-            policy_arn=policy.arn)
-        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? EmailAddress { get; set; }
 
         /// <summary>
-        /// The canonical user ID of the grantee.
+        /// Canonical user ID of the grantee.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -22,7 +23,7 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    private UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
+    private @Nullable UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
      * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
@@ -41,8 +42,8 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    public UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        return this.defaultResourceSpec;
+    public Optional<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec> defaultResourceSpec() {
+        return Optional.ofNullable(this.defaultResourceSpec);
     }
     /**
      * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -62,7 +63,7 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages;
-        private UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
+        private @Nullable UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
         private @Nullable List<String> lifecycleConfigArns;
         public Builder() {}
         public Builder(UserProfileUserSettingsKernelGatewayAppSettings defaults) {
@@ -81,8 +82,8 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
             return customImages(List.of(customImages));
         }
         @CustomType.Setter
-        public Builder defaultResourceSpec(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec) {
-            this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
+        public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec) {
+            this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter

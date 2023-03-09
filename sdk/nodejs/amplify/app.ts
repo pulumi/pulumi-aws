@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  *         target: "https://api.example.com/api/<*>",
  *     },
  *     {
- *         source: `</^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>`,
+ *         source: "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
  *         status: "200",
  *         target: "/index.html",
  *     },

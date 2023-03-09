@@ -340,7 +340,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucket_config = new Aws.S3.BucketLifecycleConfigurationV2("bucket-config", new()
     ///     {
-    ///         Bucket = bucket.Bucket,
+    ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
@@ -471,19 +471,19 @@ namespace Pulumi.Aws.S3
     public partial class BucketLifecycleConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the source S3 bucket you want Amazon S3 to monitor.
+        /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// List of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BucketLifecycleConfigurationV2Rule>> Rules { get; private set; } = null!;
@@ -535,13 +535,13 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLifecycleConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the source S3 bucket you want Amazon S3 to monitor.
+        /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
@@ -550,7 +550,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketLifecycleConfigurationV2RuleArgs>? _rules;
 
         /// <summary>
-        /// List of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
         public InputList<Inputs.BucketLifecycleConfigurationV2RuleArgs> Rules
         {
@@ -567,13 +567,13 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLifecycleConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the source S3 bucket you want Amazon S3 to monitor.
+        /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
@@ -582,7 +582,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketLifecycleConfigurationV2RuleGetArgs>? _rules;
 
         /// <summary>
-        /// List of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
         public InputList<Inputs.BucketLifecycleConfigurationV2RuleGetArgs> Rules
         {

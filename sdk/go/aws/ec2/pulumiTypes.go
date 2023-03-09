@@ -1770,9 +1770,133 @@ func (o DefaultSecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) Default
 	}).(DefaultSecurityGroupIngressOutput)
 }
 
+type FleetFleetInstanceSet struct {
+	// The IDs of the instances.
+	InstanceIds []string `pulumi:"instanceIds"`
+	// Instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+	Lifecycle *string `pulumi:"lifecycle"`
+	// The value is `Windows` for Windows instances. Otherwise, the value is blank.
+	Platform *string `pulumi:"platform"`
+}
+
+// FleetFleetInstanceSetInput is an input type that accepts FleetFleetInstanceSetArgs and FleetFleetInstanceSetOutput values.
+// You can construct a concrete instance of `FleetFleetInstanceSetInput` via:
+//
+//	FleetFleetInstanceSetArgs{...}
+type FleetFleetInstanceSetInput interface {
+	pulumi.Input
+
+	ToFleetFleetInstanceSetOutput() FleetFleetInstanceSetOutput
+	ToFleetFleetInstanceSetOutputWithContext(context.Context) FleetFleetInstanceSetOutput
+}
+
+type FleetFleetInstanceSetArgs struct {
+	// The IDs of the instances.
+	InstanceIds pulumi.StringArrayInput `pulumi:"instanceIds"`
+	// Instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+	Lifecycle pulumi.StringPtrInput `pulumi:"lifecycle"`
+	// The value is `Windows` for Windows instances. Otherwise, the value is blank.
+	Platform pulumi.StringPtrInput `pulumi:"platform"`
+}
+
+func (FleetFleetInstanceSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetFleetInstanceSet)(nil)).Elem()
+}
+
+func (i FleetFleetInstanceSetArgs) ToFleetFleetInstanceSetOutput() FleetFleetInstanceSetOutput {
+	return i.ToFleetFleetInstanceSetOutputWithContext(context.Background())
+}
+
+func (i FleetFleetInstanceSetArgs) ToFleetFleetInstanceSetOutputWithContext(ctx context.Context) FleetFleetInstanceSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetFleetInstanceSetOutput)
+}
+
+// FleetFleetInstanceSetArrayInput is an input type that accepts FleetFleetInstanceSetArray and FleetFleetInstanceSetArrayOutput values.
+// You can construct a concrete instance of `FleetFleetInstanceSetArrayInput` via:
+//
+//	FleetFleetInstanceSetArray{ FleetFleetInstanceSetArgs{...} }
+type FleetFleetInstanceSetArrayInput interface {
+	pulumi.Input
+
+	ToFleetFleetInstanceSetArrayOutput() FleetFleetInstanceSetArrayOutput
+	ToFleetFleetInstanceSetArrayOutputWithContext(context.Context) FleetFleetInstanceSetArrayOutput
+}
+
+type FleetFleetInstanceSetArray []FleetFleetInstanceSetInput
+
+func (FleetFleetInstanceSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetFleetInstanceSet)(nil)).Elem()
+}
+
+func (i FleetFleetInstanceSetArray) ToFleetFleetInstanceSetArrayOutput() FleetFleetInstanceSetArrayOutput {
+	return i.ToFleetFleetInstanceSetArrayOutputWithContext(context.Background())
+}
+
+func (i FleetFleetInstanceSetArray) ToFleetFleetInstanceSetArrayOutputWithContext(ctx context.Context) FleetFleetInstanceSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetFleetInstanceSetArrayOutput)
+}
+
+type FleetFleetInstanceSetOutput struct{ *pulumi.OutputState }
+
+func (FleetFleetInstanceSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetFleetInstanceSet)(nil)).Elem()
+}
+
+func (o FleetFleetInstanceSetOutput) ToFleetFleetInstanceSetOutput() FleetFleetInstanceSetOutput {
+	return o
+}
+
+func (o FleetFleetInstanceSetOutput) ToFleetFleetInstanceSetOutputWithContext(ctx context.Context) FleetFleetInstanceSetOutput {
+	return o
+}
+
+// The IDs of the instances.
+func (o FleetFleetInstanceSetOutput) InstanceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetFleetInstanceSet) []string { return v.InstanceIds }).(pulumi.StringArrayOutput)
+}
+
+// Instance type.
+func (o FleetFleetInstanceSetOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetFleetInstanceSet) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+func (o FleetFleetInstanceSetOutput) Lifecycle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetFleetInstanceSet) *string { return v.Lifecycle }).(pulumi.StringPtrOutput)
+}
+
+// The value is `Windows` for Windows instances. Otherwise, the value is blank.
+func (o FleetFleetInstanceSetOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetFleetInstanceSet) *string { return v.Platform }).(pulumi.StringPtrOutput)
+}
+
+type FleetFleetInstanceSetArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetFleetInstanceSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetFleetInstanceSet)(nil)).Elem()
+}
+
+func (o FleetFleetInstanceSetArrayOutput) ToFleetFleetInstanceSetArrayOutput() FleetFleetInstanceSetArrayOutput {
+	return o
+}
+
+func (o FleetFleetInstanceSetArrayOutput) ToFleetFleetInstanceSetArrayOutputWithContext(ctx context.Context) FleetFleetInstanceSetArrayOutput {
+	return o
+}
+
+func (o FleetFleetInstanceSetArrayOutput) Index(i pulumi.IntInput) FleetFleetInstanceSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetFleetInstanceSet {
+		return vs[0].([]FleetFleetInstanceSet)[vs[1].(int)]
+	}).(FleetFleetInstanceSetOutput)
+}
+
 type FleetLaunchTemplateConfig struct {
 	// Nested argument containing EC2 Launch Template to use. Defined below.
-	LaunchTemplateSpecification FleetLaunchTemplateConfigLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
+	LaunchTemplateSpecification *FleetLaunchTemplateConfigLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
 	// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
 	Overrides []FleetLaunchTemplateConfigOverride `pulumi:"overrides"`
 }
@@ -1790,7 +1914,7 @@ type FleetLaunchTemplateConfigInput interface {
 
 type FleetLaunchTemplateConfigArgs struct {
 	// Nested argument containing EC2 Launch Template to use. Defined below.
-	LaunchTemplateSpecification FleetLaunchTemplateConfigLaunchTemplateSpecificationInput `pulumi:"launchTemplateSpecification"`
+	LaunchTemplateSpecification FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrInput `pulumi:"launchTemplateSpecification"`
 	// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
 	Overrides FleetLaunchTemplateConfigOverrideArrayInput `pulumi:"overrides"`
 }
@@ -1807,45 +1931,29 @@ func (i FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOutput)
 }
 
-func (i FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput {
-	return i.ToFleetLaunchTemplateConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOutput).ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx)
-}
-
-// FleetLaunchTemplateConfigPtrInput is an input type that accepts FleetLaunchTemplateConfigArgs, FleetLaunchTemplateConfigPtr and FleetLaunchTemplateConfigPtrOutput values.
-// You can construct a concrete instance of `FleetLaunchTemplateConfigPtrInput` via:
+// FleetLaunchTemplateConfigArrayInput is an input type that accepts FleetLaunchTemplateConfigArray and FleetLaunchTemplateConfigArrayOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigArrayInput` via:
 //
-//	        FleetLaunchTemplateConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type FleetLaunchTemplateConfigPtrInput interface {
+//	FleetLaunchTemplateConfigArray{ FleetLaunchTemplateConfigArgs{...} }
+type FleetLaunchTemplateConfigArrayInput interface {
 	pulumi.Input
 
-	ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput
-	ToFleetLaunchTemplateConfigPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigPtrOutput
+	ToFleetLaunchTemplateConfigArrayOutput() FleetLaunchTemplateConfigArrayOutput
+	ToFleetLaunchTemplateConfigArrayOutputWithContext(context.Context) FleetLaunchTemplateConfigArrayOutput
 }
 
-type fleetLaunchTemplateConfigPtrType FleetLaunchTemplateConfigArgs
+type FleetLaunchTemplateConfigArray []FleetLaunchTemplateConfigInput
 
-func FleetLaunchTemplateConfigPtr(v *FleetLaunchTemplateConfigArgs) FleetLaunchTemplateConfigPtrInput {
-	return (*fleetLaunchTemplateConfigPtrType)(v)
+func (FleetLaunchTemplateConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetLaunchTemplateConfig)(nil)).Elem()
 }
 
-func (*fleetLaunchTemplateConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetLaunchTemplateConfig)(nil)).Elem()
+func (i FleetLaunchTemplateConfigArray) ToFleetLaunchTemplateConfigArrayOutput() FleetLaunchTemplateConfigArrayOutput {
+	return i.ToFleetLaunchTemplateConfigArrayOutputWithContext(context.Background())
 }
 
-func (i *fleetLaunchTemplateConfigPtrType) ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput {
-	return i.ToFleetLaunchTemplateConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *fleetLaunchTemplateConfigPtrType) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigPtrOutput)
+func (i FleetLaunchTemplateConfigArray) ToFleetLaunchTemplateConfigArrayOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigArrayOutput)
 }
 
 type FleetLaunchTemplateConfigOutput struct{ *pulumi.OutputState }
@@ -1862,21 +1970,11 @@ func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigOutputWithCo
 	return o
 }
 
-func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput {
-	return o.ToFleetLaunchTemplateConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfig) *FleetLaunchTemplateConfig {
-		return &v
-	}).(FleetLaunchTemplateConfigPtrOutput)
-}
-
 // Nested argument containing EC2 Launch Template to use. Defined below.
-func (o FleetLaunchTemplateConfigOutput) LaunchTemplateSpecification() FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
-	return o.ApplyT(func(v FleetLaunchTemplateConfig) FleetLaunchTemplateConfigLaunchTemplateSpecification {
+func (o FleetLaunchTemplateConfigOutput) LaunchTemplateSpecification() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfig) *FleetLaunchTemplateConfigLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecification
-	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput)
 }
 
 // Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
@@ -1884,56 +1982,32 @@ func (o FleetLaunchTemplateConfigOutput) Overrides() FleetLaunchTemplateConfigOv
 	return o.ApplyT(func(v FleetLaunchTemplateConfig) []FleetLaunchTemplateConfigOverride { return v.Overrides }).(FleetLaunchTemplateConfigOverrideArrayOutput)
 }
 
-type FleetLaunchTemplateConfigPtrOutput struct{ *pulumi.OutputState }
+type FleetLaunchTemplateConfigArrayOutput struct{ *pulumi.OutputState }
 
-func (FleetLaunchTemplateConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetLaunchTemplateConfig)(nil)).Elem()
+func (FleetLaunchTemplateConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetLaunchTemplateConfig)(nil)).Elem()
 }
 
-func (o FleetLaunchTemplateConfigPtrOutput) ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput {
+func (o FleetLaunchTemplateConfigArrayOutput) ToFleetLaunchTemplateConfigArrayOutput() FleetLaunchTemplateConfigArrayOutput {
 	return o
 }
 
-func (o FleetLaunchTemplateConfigPtrOutput) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
+func (o FleetLaunchTemplateConfigArrayOutput) ToFleetLaunchTemplateConfigArrayOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigArrayOutput {
 	return o
 }
 
-func (o FleetLaunchTemplateConfigPtrOutput) Elem() FleetLaunchTemplateConfigOutput {
-	return o.ApplyT(func(v *FleetLaunchTemplateConfig) FleetLaunchTemplateConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FleetLaunchTemplateConfig
-		return ret
+func (o FleetLaunchTemplateConfigArrayOutput) Index(i pulumi.IntInput) FleetLaunchTemplateConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetLaunchTemplateConfig {
+		return vs[0].([]FleetLaunchTemplateConfig)[vs[1].(int)]
 	}).(FleetLaunchTemplateConfigOutput)
 }
 
-// Nested argument containing EC2 Launch Template to use. Defined below.
-func (o FleetLaunchTemplateConfigPtrOutput) LaunchTemplateSpecification() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
-	return o.ApplyT(func(v *FleetLaunchTemplateConfig) *FleetLaunchTemplateConfigLaunchTemplateSpecification {
-		if v == nil {
-			return nil
-		}
-		return &v.LaunchTemplateSpecification
-	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput)
-}
-
-// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-func (o FleetLaunchTemplateConfigPtrOutput) Overrides() FleetLaunchTemplateConfigOverrideArrayOutput {
-	return o.ApplyT(func(v *FleetLaunchTemplateConfig) []FleetLaunchTemplateConfigOverride {
-		if v == nil {
-			return nil
-		}
-		return v.Overrides
-	}).(FleetLaunchTemplateConfigOverrideArrayOutput)
-}
-
 type FleetLaunchTemplateConfigLaunchTemplateSpecification struct {
-	// ID of the launch template.
+	// The ID of the launch template.
 	LaunchTemplateId *string `pulumi:"launchTemplateId"`
-	// Name of the launch template.
+	// The name of the launch template.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	// Version number of the launch template.
+	// The launch template version number, `$Latest`, or `$Default.`
 	Version string `pulumi:"version"`
 }
 
@@ -1949,11 +2023,11 @@ type FleetLaunchTemplateConfigLaunchTemplateSpecificationInput interface {
 }
 
 type FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs struct {
-	// ID of the launch template.
+	// The ID of the launch template.
 	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
-	// Name of the launch template.
+	// The name of the launch template.
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	// Version number of the launch template.
+	// The launch template version number, `$Latest`, or `$Default.`
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -2034,17 +2108,17 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunc
 	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput)
 }
 
-// ID of the launch template.
+// The ID of the launch template.
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template.
+// The name of the launch template.
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
-// Version number of the launch template.
+// The launch template version number, `$Latest`, or `$Default.`
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -2073,7 +2147,7 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) Elem() Fl
 	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
 }
 
-// ID of the launch template.
+// The ID of the launch template.
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -2083,7 +2157,7 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) LaunchTem
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the launch template.
+// The name of the launch template.
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -2093,7 +2167,7 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) LaunchTem
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version number of the launch template.
+// The launch template version number, `$Latest`, or `$Default.`
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -2257,7 +2331,7 @@ func (o FleetLaunchTemplateConfigOverrideArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirements struct {
-	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
 	AcceleratorCount *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
@@ -2265,28 +2339,33 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirements struct {
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
-	// List of accelerator types. Default is any accelerator type.
+	// The accelerator types that must be on the instance type. Default is any accelerator type.
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
 	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal *string `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
 	BurstablePerformance *string `pulumi:"burstablePerformance"`
-	// List of CPU manufacturer names. Default is any manufacturer.
+	// The CPU manufacturers to include. Default is any manufacturer.
+	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
-	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
-	// List of instance generation names. Default is any generation.
+	// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
-	// List of local storage type names. Default any storage type.
+	// List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
-	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	// The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
 	MemoryMib FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
+	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+	NetworkBandwidthGbps *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps `pulumi:"networkBandwidthGbps"`
 	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
 	NetworkInterfaceCount *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
@@ -2313,7 +2392,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsInput interface {
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
-	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
 	AcceleratorCount FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
@@ -2321,28 +2400,33 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
-	// List of accelerator types. Default is any accelerator type.
+	// The accelerator types that must be on the instance type. Default is any accelerator type.
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
 	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
 	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
-	// List of CPU manufacturer names. Default is any manufacturer.
+	// The CPU manufacturers to include. Default is any manufacturer.
+	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
-	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
-	// List of instance generation names. Default is any generation.
+	// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
-	// List of local storage type names. Default any storage type.
+	// List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
-	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	// The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
 	MemoryMib FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput `pulumi:"memoryMib"`
+	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+	NetworkBandwidthGbps FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput `pulumi:"networkBandwidthGbps"`
 	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
 	NetworkInterfaceCount FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
@@ -2434,7 +2518,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToFleetLaun
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput)
 }
 
-// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorCount() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
 		return v.AcceleratorCount
@@ -2460,9 +2544,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) Accelerator
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// List of accelerator types. Default is any accelerator type.
+// The accelerator types that must be on the instance type. Default is any accelerator type.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
+}
+
+// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
 // Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
@@ -2477,22 +2566,23 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) BaselineEbs
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.BurstablePerformance }).(pulumi.StringPtrOutput)
 }
 
-// List of CPU manufacturer names. Default is any manufacturer.
+// The CPU manufacturers to include. Default is any manufacturer.
+// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// List of instance generation names. Default is any generation.
+// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
 }
@@ -2502,7 +2592,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorag
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.LocalStorage }).(pulumi.StringPtrOutput)
 }
 
-// List of local storage type names. Default any storage type.
+// List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
 }
@@ -2514,11 +2604,18 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) MemoryGibPe
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+// The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) MemoryMib() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
 		return v.MemoryMib
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
+}
+
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) NetworkBandwidthGbps() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
+		return v.NetworkBandwidthGbps
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
 // Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -2585,7 +2682,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Elem() F
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput)
 }
 
-// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorCount() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
 		if v == nil {
@@ -2625,13 +2722,23 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Accelera
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// List of accelerator types. Default is any accelerator type.
+// The accelerator types that must be on the instance type. Default is any accelerator type.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
 			return nil
 		}
 		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -2655,7 +2762,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Baseline
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *string {
 		if v == nil {
@@ -2665,7 +2772,8 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Burstabl
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of CPU manufacturer names. Default is any manufacturer.
+// The CPU manufacturers to include. Default is any manufacturer.
+// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2675,7 +2783,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) CpuManuf
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2685,7 +2793,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Excluded
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance generation names. Default is any generation.
+// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2705,7 +2813,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalSto
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of local storage type names. Default any storage type.
+// List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -2725,7 +2833,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MemoryGi
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+// The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MemoryMib() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
 		if v == nil {
@@ -2733,6 +2841,16 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MemoryMi
 		}
 		return &v.MemoryMib
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) NetworkBandwidthGbps() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkBandwidthGbps
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
 // Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -3583,6 +3701,166 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps struct {
+	// Maximum. Set to `0` to exclude instance types with accelerators.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsInput` via:
+//
+//	FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs struct {
+	// Maximum. Set to `0` to exclude instance types with accelerators.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput` via:
+//
+//	        FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+// Maximum. Set to `0` to exclude instance types with accelerators.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
+}
+
+// Maximum. Set to `0` to exclude instance types with accelerators.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount struct {
 	// Maximum. Set to `0` to exclude instance types with accelerators.
 	Max *int `pulumi:"max"`
@@ -4058,6 +4336,15 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
 type FleetOnDemandOptions struct {
 	// The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+	MaxTotalPrice *string `pulumi:"maxTotalPrice"`
+	// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+	// If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
+	MinTargetCapacity *int `pulumi:"minTargetCapacity"`
+	// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+	SingleAvailabilityZone *bool `pulumi:"singleAvailabilityZone"`
+	// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
+	SingleInstanceType *bool `pulumi:"singleInstanceType"`
 }
 
 // FleetOnDemandOptionsInput is an input type that accepts FleetOnDemandOptionsArgs and FleetOnDemandOptionsOutput values.
@@ -4074,6 +4361,15 @@ type FleetOnDemandOptionsInput interface {
 type FleetOnDemandOptionsArgs struct {
 	// The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+	MaxTotalPrice pulumi.StringPtrInput `pulumi:"maxTotalPrice"`
+	// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+	// If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
+	MinTargetCapacity pulumi.IntPtrInput `pulumi:"minTargetCapacity"`
+	// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+	SingleAvailabilityZone pulumi.BoolPtrInput `pulumi:"singleAvailabilityZone"`
+	// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
+	SingleInstanceType pulumi.BoolPtrInput `pulumi:"singleInstanceType"`
 }
 
 func (FleetOnDemandOptionsArgs) ElementType() reflect.Type {
@@ -4158,6 +4454,27 @@ func (o FleetOnDemandOptionsOutput) AllocationStrategy() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v FleetOnDemandOptions) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
+// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+func (o FleetOnDemandOptionsOutput) MaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetOnDemandOptions) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
+}
+
+// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+// If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
+func (o FleetOnDemandOptionsOutput) MinTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetOnDemandOptions) *int { return v.MinTargetCapacity }).(pulumi.IntPtrOutput)
+}
+
+// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+func (o FleetOnDemandOptionsOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FleetOnDemandOptions) *bool { return v.SingleAvailabilityZone }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
+func (o FleetOnDemandOptionsOutput) SingleInstanceType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FleetOnDemandOptions) *bool { return v.SingleInstanceType }).(pulumi.BoolPtrOutput)
+}
+
 type FleetOnDemandOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (FleetOnDemandOptionsPtrOutput) ElementType() reflect.Type {
@@ -4190,6 +4507,47 @@ func (o FleetOnDemandOptionsPtrOutput) AllocationStrategy() pulumi.StringPtrOutp
 		}
 		return v.AllocationStrategy
 	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum amount per hour for On-Demand Instances that you're willing to pay.
+func (o FleetOnDemandOptionsPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetOnDemandOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTotalPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+// If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
+func (o FleetOnDemandOptionsPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetOnDemandOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinTargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+func (o FleetOnDemandOptionsPtrOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FleetOnDemandOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SingleAvailabilityZone
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
+func (o FleetOnDemandOptionsPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FleetOnDemandOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SingleInstanceType
+	}).(pulumi.BoolPtrOutput)
 }
 
 type FleetSpotOptions struct {
@@ -4528,6 +4886,7 @@ func (o FleetSpotOptionsMaintenanceStrategiesPtrOutput) CapacityRebalance() Flee
 type FleetSpotOptionsMaintenanceStrategiesCapacityRebalance struct {
 	// The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
 	ReplacementStrategy *string `pulumi:"replacementStrategy"`
+	TerminationDelay    *int    `pulumi:"terminationDelay"`
 }
 
 // FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceInput is an input type that accepts FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs and FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutput values.
@@ -4544,6 +4903,7 @@ type FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceInput interface {
 type FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs struct {
 	// The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
 	ReplacementStrategy pulumi.StringPtrInput `pulumi:"replacementStrategy"`
+	TerminationDelay    pulumi.IntPtrInput    `pulumi:"terminationDelay"`
 }
 
 func (FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs) ElementType() reflect.Type {
@@ -4628,6 +4988,10 @@ func (o FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutput) Replacemen
 	return o.ApplyT(func(v FleetSpotOptionsMaintenanceStrategiesCapacityRebalance) *string { return v.ReplacementStrategy }).(pulumi.StringPtrOutput)
 }
 
+func (o FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutput) TerminationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetSpotOptionsMaintenanceStrategiesCapacityRebalance) *int { return v.TerminationDelay }).(pulumi.IntPtrOutput)
+}
+
 type FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput struct{ *pulumi.OutputState }
 
 func (FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput) ElementType() reflect.Type {
@@ -4662,6 +5026,15 @@ func (o FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput) Replace
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetSpotOptionsMaintenanceStrategiesCapacityRebalance) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationDelay
+	}).(pulumi.IntPtrOutput)
+}
+
 type FleetTargetCapacitySpecification struct {
 	// Default target capacity type. Valid values: `on-demand`, `spot`.
 	DefaultTargetCapacityType string `pulumi:"defaultTargetCapacityType"`
@@ -4669,7 +5042,8 @@ type FleetTargetCapacitySpecification struct {
 	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
 	// The number of Spot units to request.
 	SpotTargetCapacity *int `pulumi:"spotTargetCapacity"`
-	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	// The unit for the target capacity.
+	// If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
 	TargetCapacityUnitType *string `pulumi:"targetCapacityUnitType"`
 	// The number of units to request, filled using `defaultTargetCapacityType`.
 	TotalTargetCapacity int `pulumi:"totalTargetCapacity"`
@@ -4693,7 +5067,8 @@ type FleetTargetCapacitySpecificationArgs struct {
 	OnDemandTargetCapacity pulumi.IntPtrInput `pulumi:"onDemandTargetCapacity"`
 	// The number of Spot units to request.
 	SpotTargetCapacity pulumi.IntPtrInput `pulumi:"spotTargetCapacity"`
-	// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+	// The unit for the target capacity.
+	// If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
 	TargetCapacityUnitType pulumi.StringPtrInput `pulumi:"targetCapacityUnitType"`
 	// The number of units to request, filled using `defaultTargetCapacityType`.
 	TotalTargetCapacity pulumi.IntInput `pulumi:"totalTargetCapacity"`
@@ -4791,7 +5166,8 @@ func (o FleetTargetCapacitySpecificationOutput) SpotTargetCapacity() pulumi.IntP
 	return o.ApplyT(func(v FleetTargetCapacitySpecification) *int { return v.SpotTargetCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+// The unit for the target capacity.
+// If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
 func (o FleetTargetCapacitySpecificationOutput) TargetCapacityUnitType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetTargetCapacitySpecification) *string { return v.TargetCapacityUnitType }).(pulumi.StringPtrOutput)
 }
@@ -4855,7 +5231,8 @@ func (o FleetTargetCapacitySpecificationPtrOutput) SpotTargetCapacity() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for the target capacity. This can only be done with `instanceRequirements` defined
+// The unit for the target capacity.
+// If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
 func (o FleetTargetCapacitySpecificationPtrOutput) TargetCapacityUnitType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetTargetCapacitySpecification) *string {
 		if v == nil {
@@ -7819,13 +8196,13 @@ func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) La
 }
 
 type LaunchTemplateBlockDeviceMappingEbs struct {
-	// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+	// Whether the volume should be destroyed on instance termination.
+	// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
-	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`.
+	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+	// Cannot be used with `snapshotId`.
 	Encrypted *string `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+	// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
 	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops *int `pulumi:"iops"`
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
@@ -7837,7 +8214,8 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	Throughput *int `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	// The volume type.
+	// Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -7853,13 +8231,13 @@ type LaunchTemplateBlockDeviceMappingEbsInput interface {
 }
 
 type LaunchTemplateBlockDeviceMappingEbsArgs struct {
-	// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+	// Whether the volume should be destroyed on instance termination.
+	// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
-	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`.
+	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+	// Cannot be used with `snapshotId`.
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
-	// The amount of provisioned
-	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+	// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
 	// This must be set with a `volumeType` of `"io1/io2"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
@@ -7871,7 +8249,8 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	// The volume type.
+	// Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -7952,19 +8331,19 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) ToLaunchTemplateBlockDeviceMa
 	}).(LaunchTemplateBlockDeviceMappingEbsPtrOutput)
 }
 
-// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+// Whether the volume should be destroyed on instance termination.
+// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
 
-// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-// on the volume (Default: `false`). Cannot be used with `snapshotId`.
+// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+// Cannot be used with `snapshotId`.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
-// The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
 // This must be set with a `volumeType` of `"io1/io2"`.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -7991,7 +8370,8 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOut
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+// The volume type.
+// Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -8020,7 +8400,8 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Elem() LaunchTemplateBlock
 	}).(LaunchTemplateBlockDeviceMappingEbsOutput)
 }
 
-// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+// Whether the volume should be destroyed on instance termination.
+// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -8030,8 +8411,8 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-// on the volume (Default: `false`). Cannot be used with `snapshotId`.
+// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+// Cannot be used with `snapshotId`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -8041,8 +8422,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of provisioned
-// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
 // This must be set with a `volumeType` of `"io1/io2"`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
@@ -8094,7 +8474,8 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+// The volume type.
+// Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -9769,6 +10150,8 @@ type LaunchTemplateInstanceRequirements struct {
 	AcceleratorTotalMemoryMib *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
 	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal *string `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
@@ -9777,7 +10160,7 @@ type LaunchTemplateInstanceRequirements struct {
 	BurstablePerformance *string `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names. Default is any manufacturer.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
-	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
@@ -9789,6 +10172,8 @@ type LaunchTemplateInstanceRequirements struct {
 	MemoryGibPerVcpu *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
 	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
 	MemoryMib LaunchTemplateInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+	NetworkBandwidthGbps *LaunchTemplateInstanceRequirementsNetworkBandwidthGbps `pulumi:"networkBandwidthGbps"`
 	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
 	NetworkInterfaceCount *LaunchTemplateInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
@@ -9825,6 +10210,8 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	AcceleratorTotalMemoryMib LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
 	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
@@ -9833,7 +10220,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names. Default is any manufacturer.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
-	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
@@ -9845,6 +10232,8 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	MemoryGibPerVcpu LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
 	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
 	MemoryMib LaunchTemplateInstanceRequirementsMemoryMibInput `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+	NetworkBandwidthGbps LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput `pulumi:"networkBandwidthGbps"`
 	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
 	NetworkInterfaceCount LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
@@ -9965,6 +10354,11 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.Stri
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
 }
 
+// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+func (o LaunchTemplateInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
 // Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o LaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
@@ -9987,7 +10381,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.Stri
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 func (o LaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
@@ -10019,6 +10413,13 @@ func (o LaunchTemplateInstanceRequirementsOutput) MemoryMib() LaunchTemplateInst
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) LaunchTemplateInstanceRequirementsMemoryMib {
 		return v.MemoryMib
 	}).(LaunchTemplateInstanceRequirementsMemoryMibOutput)
+}
+
+// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) NetworkBandwidthGbps() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+		return v.NetworkBandwidthGbps
+	}).(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
 // Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -10131,6 +10532,16 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 // Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
@@ -10171,7 +10582,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -10229,6 +10640,16 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryMib() LaunchTemplateI
 		}
 		return &v.MemoryMib
 	}).(LaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkBandwidthGbps() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkBandwidthGbps
+	}).(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
 // Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -11069,6 +11490,162 @@ func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPt
 		}
 		return &v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsNetworkBandwidthGbps struct {
+	// Maximum. Set to `0` to exclude instance types with accelerators.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput is an input type that accepts LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs and LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput` via:
+//
+//	LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs{...}
+type LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput
+	ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput
+}
+
+type LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs struct {
+	// Maximum. Set to `0` to exclude instance types with accelerators.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return i.ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput).ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs, LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtr and LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput` via:
+//
+//	        LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput
+	ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput
+}
+
+type launchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs
+
+func LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtr(v *LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput {
+	return (*launchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrType) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *LaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+// Maximum. Set to `0` to exclude instance types with accelerators.
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Elem() LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) LaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsNetworkBandwidthGbps
+		return ret
+	}).(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput)
+}
+
+// Maximum. Set to `0` to exclude instance types with accelerators.
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
 }
 
 type LaunchTemplateInstanceRequirementsNetworkInterfaceCount struct {
@@ -12124,11 +12701,14 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type LaunchTemplateNetworkInterface struct {
-	// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+	// Associate a Carrier IP address with `eth0` for a new network interface.
+	// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+	// Boolean value, can be left unset.
 	AssociateCarrierIpAddress *string `pulumi:"associateCarrierIpAddress"`
-	// Associate a public ip address with the network interface.  Boolean value.
+	// Associate a public ip address with the network interface.
+	// Boolean value, can be left unset.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
-	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+	// Whether the network interface should be destroyed on instance termination.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
 	Description *string `pulumi:"description"`
@@ -12176,11 +12756,14 @@ type LaunchTemplateNetworkInterfaceInput interface {
 }
 
 type LaunchTemplateNetworkInterfaceArgs struct {
-	// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+	// Associate a Carrier IP address with `eth0` for a new network interface.
+	// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+	// Boolean value, can be left unset.
 	AssociateCarrierIpAddress pulumi.StringPtrInput `pulumi:"associateCarrierIpAddress"`
-	// Associate a public ip address with the network interface.  Boolean value.
+	// Associate a public ip address with the network interface.
+	// Boolean value, can be left unset.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
-	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+	// Whether the network interface should be destroyed on instance termination.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -12267,17 +12850,20 @@ func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOu
 	return o
 }
 
-// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+// Associate a Carrier IP address with `eth0` for a new network interface.
+// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+// Boolean value, can be left unset.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociateCarrierIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Associate a public ip address with the network interface.  Boolean value.
+// Associate a public ip address with the network interface.
+// Boolean value, can be left unset.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociatePublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+// Whether the network interface should be destroyed on instance termination.
 func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
@@ -25041,6 +25627,8 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	AcceleratorTotalMemoryMib *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
 	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal *string `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
@@ -25049,7 +25637,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	BurstablePerformance *string `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names. Default is any manufacturer.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
-	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
@@ -25061,6 +25649,8 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	MemoryGibPerVcpu *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
 	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
 	MemoryMib *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+	NetworkBandwidthGbps *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps `pulumi:"networkBandwidthGbps"`
 	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
 	NetworkInterfaceCount *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
@@ -25097,6 +25687,8 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	AcceleratorTotalMemoryMib SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
 	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
@@ -25105,7 +25697,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names. Default is any manufacturer.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
-	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
@@ -25117,6 +25709,8 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	MemoryGibPerVcpu SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
 	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
 	MemoryMib SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+	NetworkBandwidthGbps SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput `pulumi:"networkBandwidthGbps"`
 	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
 	NetworkInterfaceCount SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
@@ -25243,6 +25837,13 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 // Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
@@ -25269,7 +25870,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.ExcludedInstanceTypes
@@ -25309,6 +25910,13 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
 		return v.MemoryMib
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) NetworkBandwidthGbps() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
+		return v.NetworkBandwidthGbps
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
 // Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -25427,6 +26035,16 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 // Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string {
@@ -25467,7 +26085,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -25525,6 +26143,16 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 		}
 		return v.MemoryMib
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) NetworkBandwidthGbps() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkBandwidthGbps
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
 // Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -26381,6 +27009,166 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
 		}
 		return v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps struct {
+	// Maximum. Set to `0` to exclude instance types with accelerators.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsInput` via:
+//
+//	SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs struct {
+	// Maximum. Set to `0` to exclude instance types with accelerators.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput` via:
+//
+//	        SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+// Maximum. Set to `0` to exclude instance types with accelerators.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
+}
+
+// Maximum. Set to `0` to exclude instance types with accelerators.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount struct {
@@ -30069,6 +30857,103 @@ func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Signature() pulumi.Str
 		}
 		return v.Signature
 	}).(pulumi.StringPtrOutput)
+}
+
+type VpcIpamResourceDiscoveryOperatingRegion struct {
+	// The name of the Region you want to add to the IPAM.
+	RegionName string `pulumi:"regionName"`
+}
+
+// VpcIpamResourceDiscoveryOperatingRegionInput is an input type that accepts VpcIpamResourceDiscoveryOperatingRegionArgs and VpcIpamResourceDiscoveryOperatingRegionOutput values.
+// You can construct a concrete instance of `VpcIpamResourceDiscoveryOperatingRegionInput` via:
+//
+//	VpcIpamResourceDiscoveryOperatingRegionArgs{...}
+type VpcIpamResourceDiscoveryOperatingRegionInput interface {
+	pulumi.Input
+
+	ToVpcIpamResourceDiscoveryOperatingRegionOutput() VpcIpamResourceDiscoveryOperatingRegionOutput
+	ToVpcIpamResourceDiscoveryOperatingRegionOutputWithContext(context.Context) VpcIpamResourceDiscoveryOperatingRegionOutput
+}
+
+type VpcIpamResourceDiscoveryOperatingRegionArgs struct {
+	// The name of the Region you want to add to the IPAM.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (VpcIpamResourceDiscoveryOperatingRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamResourceDiscoveryOperatingRegion)(nil)).Elem()
+}
+
+func (i VpcIpamResourceDiscoveryOperatingRegionArgs) ToVpcIpamResourceDiscoveryOperatingRegionOutput() VpcIpamResourceDiscoveryOperatingRegionOutput {
+	return i.ToVpcIpamResourceDiscoveryOperatingRegionOutputWithContext(context.Background())
+}
+
+func (i VpcIpamResourceDiscoveryOperatingRegionArgs) ToVpcIpamResourceDiscoveryOperatingRegionOutputWithContext(ctx context.Context) VpcIpamResourceDiscoveryOperatingRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamResourceDiscoveryOperatingRegionOutput)
+}
+
+// VpcIpamResourceDiscoveryOperatingRegionArrayInput is an input type that accepts VpcIpamResourceDiscoveryOperatingRegionArray and VpcIpamResourceDiscoveryOperatingRegionArrayOutput values.
+// You can construct a concrete instance of `VpcIpamResourceDiscoveryOperatingRegionArrayInput` via:
+//
+//	VpcIpamResourceDiscoveryOperatingRegionArray{ VpcIpamResourceDiscoveryOperatingRegionArgs{...} }
+type VpcIpamResourceDiscoveryOperatingRegionArrayInput interface {
+	pulumi.Input
+
+	ToVpcIpamResourceDiscoveryOperatingRegionArrayOutput() VpcIpamResourceDiscoveryOperatingRegionArrayOutput
+	ToVpcIpamResourceDiscoveryOperatingRegionArrayOutputWithContext(context.Context) VpcIpamResourceDiscoveryOperatingRegionArrayOutput
+}
+
+type VpcIpamResourceDiscoveryOperatingRegionArray []VpcIpamResourceDiscoveryOperatingRegionInput
+
+func (VpcIpamResourceDiscoveryOperatingRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcIpamResourceDiscoveryOperatingRegion)(nil)).Elem()
+}
+
+func (i VpcIpamResourceDiscoveryOperatingRegionArray) ToVpcIpamResourceDiscoveryOperatingRegionArrayOutput() VpcIpamResourceDiscoveryOperatingRegionArrayOutput {
+	return i.ToVpcIpamResourceDiscoveryOperatingRegionArrayOutputWithContext(context.Background())
+}
+
+func (i VpcIpamResourceDiscoveryOperatingRegionArray) ToVpcIpamResourceDiscoveryOperatingRegionArrayOutputWithContext(ctx context.Context) VpcIpamResourceDiscoveryOperatingRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamResourceDiscoveryOperatingRegionArrayOutput)
+}
+
+type VpcIpamResourceDiscoveryOperatingRegionOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamResourceDiscoveryOperatingRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamResourceDiscoveryOperatingRegion)(nil)).Elem()
+}
+
+func (o VpcIpamResourceDiscoveryOperatingRegionOutput) ToVpcIpamResourceDiscoveryOperatingRegionOutput() VpcIpamResourceDiscoveryOperatingRegionOutput {
+	return o
+}
+
+func (o VpcIpamResourceDiscoveryOperatingRegionOutput) ToVpcIpamResourceDiscoveryOperatingRegionOutputWithContext(ctx context.Context) VpcIpamResourceDiscoveryOperatingRegionOutput {
+	return o
+}
+
+// The name of the Region you want to add to the IPAM.
+func (o VpcIpamResourceDiscoveryOperatingRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcIpamResourceDiscoveryOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type VpcIpamResourceDiscoveryOperatingRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamResourceDiscoveryOperatingRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcIpamResourceDiscoveryOperatingRegion)(nil)).Elem()
+}
+
+func (o VpcIpamResourceDiscoveryOperatingRegionArrayOutput) ToVpcIpamResourceDiscoveryOperatingRegionArrayOutput() VpcIpamResourceDiscoveryOperatingRegionArrayOutput {
+	return o
+}
+
+func (o VpcIpamResourceDiscoveryOperatingRegionArrayOutput) ToVpcIpamResourceDiscoveryOperatingRegionArrayOutputWithContext(ctx context.Context) VpcIpamResourceDiscoveryOperatingRegionArrayOutput {
+	return o
+}
+
+func (o VpcIpamResourceDiscoveryOperatingRegionArrayOutput) Index(i pulumi.IntInput) VpcIpamResourceDiscoveryOperatingRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpamResourceDiscoveryOperatingRegion {
+		return vs[0].([]VpcIpamResourceDiscoveryOperatingRegion)[vs[1].(int)]
+	}).(VpcIpamResourceDiscoveryOperatingRegionOutput)
 }
 
 type VpcPeeringConnectionAccepterType struct {
@@ -37122,6 +38007,7 @@ type GetLaunchTemplateInstanceRequirement struct {
 	AcceleratorNames                          []string                                                        `pulumi:"acceleratorNames"`
 	AcceleratorTotalMemoryMibs                []GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMibs"`
 	AcceleratorTypes                          []string                                                        `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                      []string                                                        `pulumi:"allowedInstanceTypes"`
 	BareMetal                                 string                                                          `pulumi:"bareMetal"`
 	BaselineEbsBandwidthMbps                  []GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp   `pulumi:"baselineEbsBandwidthMbps"`
 	BurstablePerformance                      string                                                          `pulumi:"burstablePerformance"`
@@ -37132,6 +38018,7 @@ type GetLaunchTemplateInstanceRequirement struct {
 	LocalStorageTypes                         []string                                                        `pulumi:"localStorageTypes"`
 	MemoryGibPerVcpus                         []GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus         `pulumi:"memoryGibPerVcpus"`
 	MemoryMibs                                []GetLaunchTemplateInstanceRequirementMemoryMib                 `pulumi:"memoryMibs"`
+	NetworkBandwidthGbps                      []GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp       `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCounts                    []GetLaunchTemplateInstanceRequirementNetworkInterfaceCount     `pulumi:"networkInterfaceCounts"`
 	OnDemandMaxPricePercentageOverLowestPrice int                                                             `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   bool                                                            `pulumi:"requireHibernateSupport"`
@@ -37157,6 +38044,7 @@ type GetLaunchTemplateInstanceRequirementArgs struct {
 	AcceleratorNames                          pulumi.StringArrayInput                                                 `pulumi:"acceleratorNames"`
 	AcceleratorTotalMemoryMibs                GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayInput `pulumi:"acceleratorTotalMemoryMibs"`
 	AcceleratorTypes                          pulumi.StringArrayInput                                                 `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                      pulumi.StringArrayInput                                                 `pulumi:"allowedInstanceTypes"`
 	BareMetal                                 pulumi.StringInput                                                      `pulumi:"bareMetal"`
 	BaselineEbsBandwidthMbps                  GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayInput   `pulumi:"baselineEbsBandwidthMbps"`
 	BurstablePerformance                      pulumi.StringInput                                                      `pulumi:"burstablePerformance"`
@@ -37167,6 +38055,7 @@ type GetLaunchTemplateInstanceRequirementArgs struct {
 	LocalStorageTypes                         pulumi.StringArrayInput                                                 `pulumi:"localStorageTypes"`
 	MemoryGibPerVcpus                         GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput         `pulumi:"memoryGibPerVcpus"`
 	MemoryMibs                                GetLaunchTemplateInstanceRequirementMemoryMibArrayInput                 `pulumi:"memoryMibs"`
+	NetworkBandwidthGbps                      GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayInput       `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCounts                    GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput     `pulumi:"networkInterfaceCounts"`
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolInput                                                        `pulumi:"requireHibernateSupport"`
@@ -37250,6 +38139,10 @@ func (o GetLaunchTemplateInstanceRequirementOutput) AcceleratorTypes() pulumi.St
 	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
 }
 
+func (o GetLaunchTemplateInstanceRequirementOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
 func (o GetLaunchTemplateInstanceRequirementOutput) BareMetal() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) string { return v.BareMetal }).(pulumi.StringOutput)
 }
@@ -37294,6 +38187,12 @@ func (o GetLaunchTemplateInstanceRequirementOutput) MemoryMibs() GetLaunchTempla
 	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementMemoryMib {
 		return v.MemoryMibs
 	}).(GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) NetworkBandwidthGbps() GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp {
+		return v.NetworkBandwidthGbps
+	}).(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput)
 }
 
 func (o GetLaunchTemplateInstanceRequirementOutput) NetworkInterfaceCounts() GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput {
@@ -37844,6 +38743,106 @@ func (o GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementMemoryMib {
 		return vs[0].([]GetLaunchTemplateInstanceRequirementMemoryMib)[vs[1].(int)]
 	}).(GetLaunchTemplateInstanceRequirementMemoryMibOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp struct {
+	Max float64 `pulumi:"max"`
+	Min float64 `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpInput is an input type that accepts GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArgs and GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpInput` via:
+//
+//	GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArgs{...}
+type GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput() GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput
+	ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArgs struct {
+	Max pulumi.Float64Input `pulumi:"max"`
+	Min pulumi.Float64Input `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArgs) ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput() GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArgs) ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArray and GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayInput` via:
+//
+//	GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArray{ GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArgs{...} }
+type GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput() GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput
+	ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArray []GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpInput
+
+func (GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArray) ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput() GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArray) ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput) ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput() GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput) ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput) Max() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp) float64 { return v.Max }).(pulumi.Float64Output)
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput) Min() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp) float64 { return v.Min }).(pulumi.Float64Output)
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput) ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput() GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput) ToGetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput)
 }
 
 type GetLaunchTemplateInstanceRequirementNetworkInterfaceCount struct {
@@ -54354,8 +55353,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupEgressArrayInput)(nil)).Elem(), DefaultSecurityGroupEgressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupIngressInput)(nil)).Elem(), DefaultSecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupIngressArrayInput)(nil)).Elem(), DefaultSecurityGroupIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetFleetInstanceSetInput)(nil)).Elem(), FleetFleetInstanceSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetFleetInstanceSetArrayInput)(nil)).Elem(), FleetFleetInstanceSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigInput)(nil)).Elem(), FleetLaunchTemplateConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigArrayInput)(nil)).Elem(), FleetLaunchTemplateConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigLaunchTemplateSpecificationInput)(nil)).Elem(), FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideArgs{})
@@ -54372,6 +55373,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{})
@@ -54460,6 +55463,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryMibInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsMemoryMibArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryMibPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkInterfaceCountInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsTotalLocalStorageGbInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{})
@@ -54685,6 +55690,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{})
@@ -54733,6 +55740,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamOperatingRegionArrayInput)(nil)).Elem(), VpcIpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContextInput)(nil)).Elem(), VpcIpamPoolCidrCidrAuthorizationContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContextPtrInput)(nil)).Elem(), VpcIpamPoolCidrCidrAuthorizationContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamResourceDiscoveryOperatingRegionInput)(nil)).Elem(), VpcIpamResourceDiscoveryOperatingRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamResourceDiscoveryOperatingRegionArrayInput)(nil)).Elem(), VpcIpamResourceDiscoveryOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterTypeInput)(nil)).Elem(), VpcPeeringConnectionAccepterTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterTypePtrInput)(nil)).Elem(), VpcPeeringConnectionAccepterTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterAccepterInput)(nil)).Elem(), VpcPeeringConnectionAccepterAccepterArgs{})
@@ -54861,6 +55870,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryMibInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementMemoryMibArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryMibArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementMemoryMibArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkInterfaceCountInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementTotalLocalStorageGbInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs{})
@@ -55163,8 +56174,10 @@ func init() {
 	pulumi.RegisterOutputType(DefaultSecurityGroupEgressArrayOutput{})
 	pulumi.RegisterOutputType(DefaultSecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(DefaultSecurityGroupIngressArrayOutput{})
+	pulumi.RegisterOutputType(FleetFleetInstanceSetOutput{})
+	pulumi.RegisterOutputType(FleetFleetInstanceSetArrayOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOutput{})
-	pulumi.RegisterOutputType(FleetLaunchTemplateConfigPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigArrayOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideOutput{})
@@ -55181,6 +56194,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput{})
@@ -55269,6 +56284,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsMemoryMibOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput{})
@@ -55494,6 +56511,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput{})
@@ -55542,6 +56561,8 @@ func init() {
 	pulumi.RegisterOutputType(VpcIpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrCidrAuthorizationContextOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrCidrAuthorizationContextPtrOutput{})
+	pulumi.RegisterOutputType(VpcIpamResourceDiscoveryOperatingRegionOutput{})
+	pulumi.RegisterOutputType(VpcIpamResourceDiscoveryOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypeOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterAccepterOutput{})
@@ -55670,6 +56691,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementMemoryMibOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput{})

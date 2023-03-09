@@ -29,6 +29,16 @@ export { GetOrganizationResult } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
 utilities.lazyLoad(exports, ["getOrganization"], () => require("./getOrganization"));
 
+export { GetOrganizationalUnitChildAccountsArgs, GetOrganizationalUnitChildAccountsResult, GetOrganizationalUnitChildAccountsOutputArgs } from "./getOrganizationalUnitChildAccounts";
+export const getOrganizationalUnitChildAccounts: typeof import("./getOrganizationalUnitChildAccounts").getOrganizationalUnitChildAccounts = null as any;
+export const getOrganizationalUnitChildAccountsOutput: typeof import("./getOrganizationalUnitChildAccounts").getOrganizationalUnitChildAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationalUnitChildAccounts","getOrganizationalUnitChildAccountsOutput"], () => require("./getOrganizationalUnitChildAccounts"));
+
+export { GetOrganizationalUnitDescendantAccountsArgs, GetOrganizationalUnitDescendantAccountsResult, GetOrganizationalUnitDescendantAccountsOutputArgs } from "./getOrganizationalUnitDescendantAccounts";
+export const getOrganizationalUnitDescendantAccounts: typeof import("./getOrganizationalUnitDescendantAccounts").getOrganizationalUnitDescendantAccounts = null as any;
+export const getOrganizationalUnitDescendantAccountsOutput: typeof import("./getOrganizationalUnitDescendantAccounts").getOrganizationalUnitDescendantAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationalUnitDescendantAccounts","getOrganizationalUnitDescendantAccountsOutput"], () => require("./getOrganizationalUnitDescendantAccounts"));
+
 export { GetOrganizationalUnitsArgs, GetOrganizationalUnitsResult, GetOrganizationalUnitsOutputArgs } from "./getOrganizationalUnits";
 export const getOrganizationalUnits: typeof import("./getOrganizationalUnits").getOrganizationalUnits = null as any;
 export const getOrganizationalUnitsOutput: typeof import("./getOrganizationalUnits").getOrganizationalUnitsOutput = null as any;

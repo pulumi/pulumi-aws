@@ -16,14 +16,14 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
     public static final BucketWebsiteConfigurationV2RoutingRuleRedirectArgs Empty = new BucketWebsiteConfigurationV2RoutingRuleRedirectArgs();
 
     /**
-     * The host name to use in the redirect request.
+     * Host name to use in the redirect request.
      * 
      */
     @Import(name="hostName")
     private @Nullable Output<String> hostName;
 
     /**
-     * @return The host name to use in the redirect request.
+     * @return Host name to use in the redirect request.
      * 
      */
     public Optional<Output<String>> hostName() {
@@ -31,14 +31,14 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
     }
 
     /**
-     * The HTTP redirect code to use on the response.
+     * HTTP redirect code to use on the response.
      * 
      */
     @Import(name="httpRedirectCode")
     private @Nullable Output<String> httpRedirectCode;
 
     /**
-     * @return The HTTP redirect code to use on the response.
+     * @return HTTP redirect code to use on the response.
      * 
      */
     public Optional<Output<String>> httpRedirectCode() {
@@ -61,14 +61,14 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
     }
 
     /**
-     * The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+     * Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
      * 
      */
     @Import(name="replaceKeyPrefixWith")
     private @Nullable Output<String> replaceKeyPrefixWith;
 
     /**
-     * @return The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+     * @return Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
      * 
      */
     public Optional<Output<String>> replaceKeyPrefixWith() {
@@ -76,14 +76,14 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
     }
 
     /**
-     * The specific object key to use in the redirect request. For example, redirect request to `error.html`.
+     * Specific object key to use in the redirect request. For example, redirect request to `error.html`.
      * 
      */
     @Import(name="replaceKeyWith")
     private @Nullable Output<String> replaceKeyWith;
 
     /**
-     * @return The specific object key to use in the redirect request. For example, redirect request to `error.html`.
+     * @return Specific object key to use in the redirect request. For example, redirect request to `error.html`.
      * 
      */
     public Optional<Output<String>> replaceKeyWith() {
@@ -119,7 +119,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
         }
 
         /**
-         * @param hostName The host name to use in the redirect request.
+         * @param hostName Host name to use in the redirect request.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
         }
 
         /**
-         * @param hostName The host name to use in the redirect request.
+         * @param hostName Host name to use in the redirect request.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
         }
 
         /**
-         * @param httpRedirectCode The HTTP redirect code to use on the response.
+         * @param httpRedirectCode HTTP redirect code to use on the response.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
         }
 
         /**
-         * @param httpRedirectCode The HTTP redirect code to use on the response.
+         * @param httpRedirectCode HTTP redirect code to use on the response.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
         }
 
         /**
-         * @param replaceKeyPrefixWith The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+         * @param replaceKeyPrefixWith Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
         }
 
         /**
-         * @param replaceKeyPrefixWith The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+         * @param replaceKeyPrefixWith Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
         }
 
         /**
-         * @param replaceKeyWith The specific object key to use in the redirect request. For example, redirect request to `error.html`.
+         * @param replaceKeyWith Specific object key to use in the redirect request. For example, redirect request to `error.html`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
         }
 
         /**
-         * @param replaceKeyWith The specific object key to use in the redirect request. For example, redirect request to `error.html`.
+         * @param replaceKeyWith Specific object key to use in the redirect request. For example, redirect request to `error.html`.
          * 
          * @return builder
          * 

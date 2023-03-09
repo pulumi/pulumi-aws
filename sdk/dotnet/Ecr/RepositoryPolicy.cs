@@ -25,36 +25,50 @@ namespace Pulumi.Aws.Ecr
     /// {
     ///     var foo = new Aws.Ecr.Repository("foo");
     /// 
-    ///     var foopolicy = new Aws.Ecr.RepositoryPolicy("foopolicy", new()
+    ///     var foopolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "new policy",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ecr:GetDownloadUrlForLayer",
+    ///                     "ecr:BatchGetImage",
+    ///                     "ecr:BatchCheckLayerAvailability",
+    ///                     "ecr:PutImage",
+    ///                     "ecr:InitiateLayerUpload",
+    ///                     "ecr:UploadLayerPart",
+    ///                     "ecr:CompleteLayerUpload",
+    ///                     "ecr:DescribeRepositories",
+    ///                     "ecr:GetRepositoryPolicy",
+    ///                     "ecr:ListImages",
+    ///                     "ecr:DeleteRepository",
+    ///                     "ecr:BatchDeleteImage",
+    ///                     "ecr:SetRepositoryPolicy",
+    ///                     "ecr:DeleteRepositoryPolicy",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var foopolicyRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("foopolicyRepositoryPolicy", new()
     ///     {
     ///         Repository = foo.Name,
-    ///         Policy = @"{
-    ///     ""Version"": ""2008-10-17"",
-    ///     ""Statement"": [
-    ///         {
-    ///             ""Sid"": ""new policy"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": ""*"",
-    ///             ""Action"": [
-    ///                 ""ecr:GetDownloadUrlForLayer"",
-    ///                 ""ecr:BatchGetImage"",
-    ///                 ""ecr:BatchCheckLayerAvailability"",
-    ///                 ""ecr:PutImage"",
-    ///                 ""ecr:InitiateLayerUpload"",
-    ///                 ""ecr:UploadLayerPart"",
-    ///                 ""ecr:CompleteLayerUpload"",
-    ///                 ""ecr:DescribeRepositories"",
-    ///                 ""ecr:GetRepositoryPolicy"",
-    ///                 ""ecr:ListImages"",
-    ///                 ""ecr:DeleteRepository"",
-    ///                 ""ecr:BatchDeleteImage"",
-    ///                 ""ecr:SetRepositoryPolicy"",
-    ///                 ""ecr:DeleteRepositoryPolicy""
-    ///             ]
-    ///         }
-    ///     ]
-    /// }
-    /// ",
+    ///         Policy = foopolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

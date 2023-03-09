@@ -46,6 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iot.TopicRule;
@@ -72,21 +74,19 @@ import javax.annotation.Nullable;
  * 
  *         var myerrortopic = new Topic(&#34;myerrortopic&#34;);
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;iot.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;iot.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var rule = new TopicRule(&#34;rule&#34;, TopicRuleArgs.builder()        
@@ -108,22 +108,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iamPolicyForLambda = new RolePolicy(&#34;iamPolicyForLambda&#34;, RolePolicyArgs.builder()        
+ *         final var iamPolicyForLambdaPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(&#34;sns:Publish&#34;)
+ *                 .resources(mytopic.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var iamPolicyForLambdaRolePolicy = new RolePolicy(&#34;iamPolicyForLambdaRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(role.id())
- *             .policy(mytopic.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *         &#34;Effect&#34;: &#34;Allow&#34;,
- *         &#34;Action&#34;: [
- *             &#34;sns:Publish&#34;
- *         ],
- *         &#34;Resource&#34;: &#34;%s&#34;
- *     }
- *   ]
- * }
- * &#34;, arn)))
+ *             .policy(iamPolicyForLambdaPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(iamPolicyForLambdaPolicyDocument -&gt; iamPolicyForLambdaPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

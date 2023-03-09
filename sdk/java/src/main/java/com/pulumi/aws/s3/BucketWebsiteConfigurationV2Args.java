@@ -21,14 +21,14 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
     public static final BucketWebsiteConfigurationV2Args Empty = new BucketWebsiteConfigurationV2Args();
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
@@ -36,14 +36,14 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
     }
 
     /**
-     * The name of the error document for the website detailed below.
+     * Name of the error document for the website. See below.
      * 
      */
     @Import(name="errorDocument")
     private @Nullable Output<BucketWebsiteConfigurationV2ErrorDocumentArgs> errorDocument;
 
     /**
-     * @return The name of the error document for the website detailed below.
+     * @return Name of the error document for the website. See below.
      * 
      */
     public Optional<Output<BucketWebsiteConfigurationV2ErrorDocumentArgs>> errorDocument() {
@@ -51,14 +51,14 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
     }
 
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -66,14 +66,14 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
     }
 
     /**
-     * The name of the index document for the website detailed below.
+     * Name of the index document for the website. See below.
      * 
      */
     @Import(name="indexDocument")
     private @Nullable Output<BucketWebsiteConfigurationV2IndexDocumentArgs> indexDocument;
 
     /**
-     * @return The name of the index document for the website detailed below.
+     * @return Name of the index document for the website. See below.
      * 
      */
     public Optional<Output<BucketWebsiteConfigurationV2IndexDocumentArgs>> indexDocument() {
@@ -81,14 +81,14 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
     }
 
     /**
-     * The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+     * Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
      * 
      */
     @Import(name="redirectAllRequestsTo")
     private @Nullable Output<BucketWebsiteConfigurationV2RedirectAllRequestsToArgs> redirectAllRequestsTo;
 
     /**
-     * @return The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+     * @return Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
      * 
      */
     public Optional<Output<BucketWebsiteConfigurationV2RedirectAllRequestsToArgs>> redirectAllRequestsTo() {
@@ -96,7 +96,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
     }
 
     /**
-     * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+     * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
      */
@@ -104,7 +104,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
     private @Nullable Output<String> routingRuleDetails;
 
     /**
-     * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
      */
@@ -113,14 +113,14 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
     }
 
     /**
-     * List of rules that define when a redirect is applied and the redirect behavior detailed below.
+     * List of rules that define when a redirect is applied and the redirect behavior. See below.
      * 
      */
     @Import(name="routingRules")
     private @Nullable Output<List<BucketWebsiteConfigurationV2RoutingRuleArgs>> routingRules;
 
     /**
-     * @return List of rules that define when a redirect is applied and the redirect behavior detailed below.
+     * @return List of rules that define when a redirect is applied and the redirect behavior. See below.
      * 
      */
     public Optional<Output<List<BucketWebsiteConfigurationV2RoutingRuleArgs>>> routingRules() {
@@ -158,7 +158,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param errorDocument The name of the error document for the website detailed below.
+         * @param errorDocument Name of the error document for the website. See below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param errorDocument The name of the error document for the website detailed below.
+         * @param errorDocument Name of the error document for the website. See below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param indexDocument The name of the index document for the website detailed below.
+         * @param indexDocument Name of the index document for the website. See below.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param indexDocument The name of the index document for the website detailed below.
+         * @param indexDocument Name of the index document for the website. See below.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param redirectAllRequestsTo The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+         * @param redirectAllRequestsTo Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param redirectAllRequestsTo The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+         * @param redirectAllRequestsTo Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param routingRuleDetails A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * @param routingRuleDetails JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
          * 
          * @return builder
@@ -275,7 +275,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param routingRuleDetails A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * @param routingRuleDetails JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
          * 
          * @return builder
@@ -286,7 +286,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior detailed below.
+         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior. See below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior detailed below.
+         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior. See below.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         /**
-         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior detailed below.
+         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior. See below.
          * 
          * @return builder
          * 

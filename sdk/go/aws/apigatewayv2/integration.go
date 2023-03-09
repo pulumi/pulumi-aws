@@ -91,8 +91,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -107,8 +105,8 @@ import (
 //				IntegrationType:    pulumi.String("AWS_PROXY"),
 //				IntegrationSubtype: pulumi.String("SQS-SendMessage"),
 //				RequestParameters: pulumi.StringMap{
-//					"QueueUrl":    pulumi.String(fmt.Sprintf("$request.header.queueUrl")),
-//					"MessageBody": pulumi.String(fmt.Sprintf("$request.body.message")),
+//					"QueueUrl":    pulumi.String("$request.header.queueUrl"),
+//					"MessageBody": pulumi.String("$request.body.message"),
 //				},
 //			})
 //			if err != nil {
@@ -125,8 +123,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -148,14 +144,14 @@ import (
 //					ServerNameToVerify: pulumi.String("example.com"),
 //				},
 //				RequestParameters: pulumi.StringMap{
-//					"append:header.authforintegration": pulumi.String(fmt.Sprintf("$context.authorizer.authorizerResponse")),
+//					"append:header.authforintegration": pulumi.String("$context.authorizer.authorizerResponse"),
 //					"overwrite:path":                   pulumi.String("staticValueForIntegration"),
 //				},
 //				ResponseParameters: apigatewayv2.IntegrationResponseParameterArray{
 //					&apigatewayv2.IntegrationResponseParameterArgs{
 //						StatusCode: pulumi.String("403"),
 //						Mappings: pulumi.StringMap{
-//							"append:header.auth": pulumi.String(fmt.Sprintf("$context.authorizer.authorizerResponse")),
+//							"append:header.auth": pulumi.String("$context.authorizer.authorizerResponse"),
 //						},
 //					},
 //					&apigatewayv2.IntegrationResponseParameterArgs{

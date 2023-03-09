@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sns.Topic;
  * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.ec2.VpcEndpointService;
@@ -45,20 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var topic = new Topic(&#34;topic&#34;, TopicArgs.builder()        
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;:&#34;2012-10-17&#34;,
- *     &#34;Statement&#34;:[{
- *         &#34;Effect&#34;: &#34;Allow&#34;,
- *         &#34;Principal&#34;: {
- *             &#34;Service&#34;: &#34;vpce.amazonaws.com&#34;
- *         },
- *         &#34;Action&#34;: &#34;SNS:Publish&#34;,
- *         &#34;Resource&#34;: &#34;arn:aws:sns:*:*:vpce-notification-topic&#34;
- *     }]
- * }
- *             &#34;&#34;&#34;)
+ *         final var topicPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;vpce.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;SNS:Publish&#34;)
+ *                 .resources(&#34;arn:aws:sns:*:*:vpce-notification-topic&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var topicTopic = new Topic(&#34;topicTopic&#34;, TopicArgs.builder()        
+ *             .policy(topicPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var fooVpcEndpointService = new VpcEndpointService(&#34;fooVpcEndpointService&#34;, VpcEndpointServiceArgs.builder()        
@@ -68,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification(&#34;fooVpcEndpointConnectionNotification&#34;, VpcEndpointConnectionNotificationArgs.builder()        
  *             .vpcEndpointServiceId(fooVpcEndpointService.id())
- *             .connectionNotificationArn(topic.arn())
+ *             .connectionNotificationArn(topicTopic.arn())
  *             .connectionEvents(            
  *                 &#34;Accept&#34;,
  *                 &#34;Reject&#34;)

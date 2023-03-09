@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *         secretToken: webhookSecret,
  *     },
  *     filters: [{
- *         jsonPath: `$.ref`,
+ *         jsonPath: "$.ref",
  *         matchEquals: "refs/heads/{Branch}",
  *     }],
  * });

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", new()
     ///     {
-    ///         Bucket = defaultBucketV2.Bucket,
+    ///         Bucket = defaultBucketV2.Id,
     ///         Prefix = "my_subdirectory",
     ///     });
     /// 

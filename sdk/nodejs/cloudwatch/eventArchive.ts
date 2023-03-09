@@ -29,10 +29,9 @@ import * as utilities from "../utilities";
  *     description: "Archived events from order service",
  *     eventSourceArn: orderEventBus.arn,
  *     retentionDays: 7,
- *     eventPattern: `{
- *   "source": ["company.team.order"]
- * }
- * `,
+ *     eventPattern: JSON.stringify({
+ *         source: ["company.team.order"],
+ *     }),
  * });
  * ```
  *

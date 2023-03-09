@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -31,26 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testGraphQLApi, err := appsync.NewGraphQLApi(ctx, "testGraphQLApi", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
-//				Schema: pulumi.String(fmt.Sprintf(`type Mutation {
-//		putPost(id: ID!, title: String!): Post
-//	}
-//
-//	type Post {
-//		id: ID!
-//		title: String!
-//	}
-//
-//	type Query {
-//		singlePost(id: ID!): Post
-//	}
-//
-//	schema {
-//		query: Query
-//		mutation: Mutation
-//	}
-//
-// `)),
-//
+//				Schema:             pulumi.String("type Mutation {\n	putPost(id: ID!, title: String!): Post\n}\n\ntype Post {\n	id: ID!\n	title: String!\n}\n\ntype Query {\n	singlePost(id: ID!): Post\n}\n\nschema {\n	query: Query\n	mutation: Mutation\n}\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -67,26 +46,16 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
-//				ApiId:      testGraphQLApi.ID(),
-//				Field:      pulumi.String("singlePost"),
-//				Type:       pulumi.String("Query"),
-//				DataSource: testDataSource.Name,
-//				RequestTemplate: pulumi.String(fmt.Sprintf(`{
-//	    "version": "2018-05-29",
-//	    "method": "GET",
-//	    "resourcePath": "/",
-//	    "params":{
-//	        "headers": $utils.http.copyheaders($ctx.request.headers)
-//	    }
-//	}
-//
-// `)),
-//
-//				ResponseTemplate: pulumi.String(fmt.Sprintf("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n")),
+//				ApiId:            testGraphQLApi.ID(),
+//				Field:            pulumi.String("singlePost"),
+//				Type:             pulumi.String("Query"),
+//				DataSource:       testDataSource.Name,
+//				RequestTemplate:  pulumi.String("{\n    \"version\": \"2018-05-29\",\n    \"method\": \"GET\",\n    \"resourcePath\": \"/\",\n    \"params\":{\n        \"headers\": $utils.http.copyheaders($ctx.request.headers)\n    }\n}\n"),
+//				ResponseTemplate: pulumi.String("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n"),
 //				CachingConfig: &appsync.ResolverCachingConfigArgs{
 //					CachingKeys: pulumi.StringArray{
-//						pulumi.String(fmt.Sprintf("$context.identity.sub")),
-//						pulumi.String(fmt.Sprintf("$context.arguments.id")),
+//						pulumi.String("$context.identity.sub"),
+//						pulumi.String("$context.arguments.id"),
 //					},
 //					Ttl: pulumi.Int(60),
 //				},
@@ -99,7 +68,7 @@ import (
 //				ApiId:            testGraphQLApi.ID(),
 //				Field:            pulumi.String("pipelineTest"),
 //				RequestTemplate:  pulumi.String("{}"),
-//				ResponseTemplate: pulumi.String(fmt.Sprintf("$util.toJson($ctx.result)")),
+//				ResponseTemplate: pulumi.String("$util.toJson($ctx.result)"),
 //				Kind:             pulumi.String("PIPELINE"),
 //				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
 //					Functions: pulumi.StringArray{

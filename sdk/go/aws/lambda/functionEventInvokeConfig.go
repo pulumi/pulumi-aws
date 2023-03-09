@@ -109,8 +109,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -120,7 +118,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
 //				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
-//				Qualifier:    pulumi.String(fmt.Sprintf("$LATEST")),
+//				Qualifier:    pulumi.String("$LATEST"),
 //			})
 //			if err != nil {
 //				return err

@@ -17,14 +17,14 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
     public static final BucketAclV2State Empty = new BucketAclV2State();
 
     /**
-     * A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * Configuration block that sets the ACL permissions for an object per grantee. See below.
      * 
      */
     @Import(name="accessControlPolicy")
     private @Nullable Output<BucketAclV2AccessControlPolicyArgs> accessControlPolicy;
 
     /**
-     * @return A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * @return Configuration block that sets the ACL permissions for an object per grantee. See below.
      * 
      */
     public Optional<Output<BucketAclV2AccessControlPolicyArgs>> accessControlPolicy() {
@@ -32,14 +32,14 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The canned ACL to apply to the bucket.
+     * Canned ACL to apply to the bucket.
      * 
      */
     @Import(name="acl")
     private @Nullable Output<String> acl;
 
     /**
-     * @return The canned ACL to apply to the bucket.
+     * @return Canned ACL to apply to the bucket.
      * 
      */
     public Optional<Output<String>> acl() {
@@ -47,14 +47,14 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -62,14 +62,14 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -104,7 +104,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessControlPolicy A configuration block that sets the ACL permissions for an object per grantee documented below.
+         * @param accessControlPolicy Configuration block that sets the ACL permissions for an object per grantee. See below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessControlPolicy A configuration block that sets the ACL permissions for an object per grantee documented below.
+         * @param accessControlPolicy Configuration block that sets the ACL permissions for an object per grantee. See below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acl The canned ACL to apply to the bucket.
+         * @param acl Canned ACL to apply to the bucket.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acl The canned ACL to apply to the bucket.
+         * @param acl Canned ACL to apply to the bucket.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 

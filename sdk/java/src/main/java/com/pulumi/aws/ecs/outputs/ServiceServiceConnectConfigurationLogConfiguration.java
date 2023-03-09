@@ -9,7 +9,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -18,7 +17,7 @@ public final class ServiceServiceConnectConfigurationLogConfiguration {
      * @return The log driver to use for the container.
      * 
      */
-    private @Nullable String logDriver;
+    private String logDriver;
     /**
      * @return The configuration options to send to the log driver.
      * 
@@ -35,8 +34,8 @@ public final class ServiceServiceConnectConfigurationLogConfiguration {
      * @return The log driver to use for the container.
      * 
      */
-    public Optional<String> logDriver() {
-        return Optional.ofNullable(this.logDriver);
+    public String logDriver() {
+        return this.logDriver;
     }
     /**
      * @return The configuration options to send to the log driver.
@@ -62,7 +61,7 @@ public final class ServiceServiceConnectConfigurationLogConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String logDriver;
+        private String logDriver;
         private @Nullable Map<String,String> options;
         private @Nullable List<ServiceServiceConnectConfigurationLogConfigurationSecretOption> secretOptions;
         public Builder() {}
@@ -74,8 +73,8 @@ public final class ServiceServiceConnectConfigurationLogConfiguration {
         }
 
         @CustomType.Setter
-        public Builder logDriver(@Nullable String logDriver) {
-            this.logDriver = logDriver;
+        public Builder logDriver(String logDriver) {
+            this.logDriver = Objects.requireNonNull(logDriver);
             return this;
         }
         @CustomType.Setter

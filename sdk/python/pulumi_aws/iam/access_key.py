@@ -240,21 +240,14 @@ class AccessKey(pulumi.CustomResource):
         lb_access_key = aws.iam.AccessKey("lbAccessKey",
             user=lb_user.name,
             pgp_key="keybase:some_person_that_exists")
-        lb_ro = aws.iam.UserPolicy("lbRo",
+        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:Describe*"],
+            resources=["*"],
+        )])
+        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
             user=lb_user.name,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=lb_ro_policy_document.json)
         pulumi.export("secret", lb_access_key.encrypted_secret)
         ```
 
@@ -302,21 +295,14 @@ class AccessKey(pulumi.CustomResource):
         lb_access_key = aws.iam.AccessKey("lbAccessKey",
             user=lb_user.name,
             pgp_key="keybase:some_person_that_exists")
-        lb_ro = aws.iam.UserPolicy("lbRo",
+        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:Describe*"],
+            resources=["*"],
+        )])
+        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
             user=lb_user.name,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=lb_ro_policy_document.json)
         pulumi.export("secret", lb_access_key.encrypted_secret)
         ```
 

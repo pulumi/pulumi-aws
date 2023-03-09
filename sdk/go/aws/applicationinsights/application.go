@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/applicationinsights"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroups"
@@ -30,24 +30,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"ResourceTypeFilters": []string{
+//					"AWS::EC2::Instance",
+//				},
+//				"TagFilters": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Key": "Stage",
+//						"Values": []string{
+//							"Test",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			exampleGroup, err := resourcegroups.NewGroup(ctx, "exampleGroup", &resourcegroups.GroupArgs{
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String(fmt.Sprintf(`	{
-//			"ResourceTypeFilters": [
-//			  "AWS::EC2::Instance"
-//			],
-//			"TagFilters": [
-//			  {
-//				"Key": "Stage",
-//				"Values": [
-//				  "Test"
-//				]
-//			  }
-//			]
-//		  }
-//
-// `)),
-//
+//					Query: pulumi.String(json0),
 //				},
 //			})
 //			if err != nil {

@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.Policy("example", {content: `{
- *   "Version": "2012-10-17",
- *   "Statement": {
- *     "Effect": "Allow",
- *     "Action": "*",
- *     "Resource": "*"
- *   }
- * }
- *
- * `});
- * ```
- *
  * ## Import
  *
  * `aws_organizations_policy` can be imported by using the policy ID, e.g.,
@@ -78,6 +60,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     */
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -107,6 +93,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["content"] = state ? state.content : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -118,6 +105,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -149,6 +137,10 @@ export interface PolicyState {
      */
     name?: pulumi.Input<string>;
     /**
+     * If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -178,6 +170,10 @@ export interface PolicyArgs {
      * The friendly name to assign to the policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -17,14 +17,14 @@ public final class DistributionTrustedKeyGroupItemArgs extends com.pulumi.resour
     public static final DistributionTrustedKeyGroupItemArgs Empty = new DistributionTrustedKeyGroupItemArgs();
 
     /**
-     * The ID of the key group that contains the public keys
+     * ID of the key group that contains the public keys.
      * 
      */
     @Import(name="keyGroupId")
     private @Nullable Output<String> keyGroupId;
 
     /**
-     * @return The ID of the key group that contains the public keys
+     * @return ID of the key group that contains the public keys.
      * 
      */
     public Optional<Output<String>> keyGroupId() {
@@ -72,7 +72,7 @@ public final class DistributionTrustedKeyGroupItemArgs extends com.pulumi.resour
         }
 
         /**
-         * @param keyGroupId The ID of the key group that contains the public keys
+         * @param keyGroupId ID of the key group that contains the public keys.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DistributionTrustedKeyGroupItemArgs extends com.pulumi.resour
         }
 
         /**
-         * @param keyGroupId The ID of the key group that contains the public keys
+         * @param keyGroupId ID of the key group that contains the public keys.
          * 
          * @return builder
          * 

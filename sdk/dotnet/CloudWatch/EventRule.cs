@@ -18,6 +18,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -26,12 +27,13 @@ namespace Pulumi.Aws.CloudWatch
     ///     var console = new Aws.CloudWatch.EventRule("console", new()
     ///     {
     ///         Description = "Capture each AWS Console Sign In",
-    ///         EventPattern = @"{
-    ///   ""detail-type"": [
-    ///     ""AWS Console Sign In via CloudTrail""
-    ///   ]
-    /// }
-    /// ",
+    ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["detail-type"] = new[]
+    ///             {
+    ///                 "AWS Console Sign In via CloudTrail",
+    ///             },
+    ///         }),
     ///     });
     /// 
     ///     var awsLogins = new Aws.Sns.Topic("awsLogins");

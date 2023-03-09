@@ -42,36 +42,30 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const testUserPool = new aws.cognito.UserPool("testUserPool", {});
  * const testApp = new aws.pinpoint.App("testApp", {});
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "cognito-idp.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["cognito-idp.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "mobiletargeting:UpdateEndpoint",
+ *             "mobiletargeting:PutItems",
+ *         ],
+ *         resources: [pulumi.all([current, testApp.applicationId]).apply(([current, applicationId]) => `arn:aws:mobiletargeting:*:${current.accountId}:apps/${applicationId}*`)],
+ *     }],
+ * });
  * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
  *     role: testRole.id,
- *     policy: pulumi.all([current, testApp.applicationId]).apply(([current, applicationId]) => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "mobiletargeting:UpdateEndpoint",
- *         "mobiletargeting:PutItems"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:mobiletargeting:*:${current.accountId}:apps/${applicationId}*"
- *     }
- *   ]
- * }
- * `),
+ *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
  * });
  * const testUserPoolClient = new aws.cognito.UserPoolClient("testUserPoolClient", {
  *     userPoolId: testUserPool.id,

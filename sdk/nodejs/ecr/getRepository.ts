@@ -73,6 +73,10 @@ export interface GetRepositoryResult {
      * The tag mutability setting for the repository.
      */
     readonly imageTagMutability: string;
+    /**
+     * List of image tags associated with the most recently pushed image in the repository.
+     */
+    readonly mostRecentImageTags: string[];
     readonly name: string;
     readonly registryId: string;
     /**

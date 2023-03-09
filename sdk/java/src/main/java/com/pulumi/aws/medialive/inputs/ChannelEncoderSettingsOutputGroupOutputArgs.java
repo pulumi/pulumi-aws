@@ -33,14 +33,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputArgs extends com.pulum
     }
 
     /**
-     * The names of the caption descriptions used as audio sources for the output.
+     * The names of the caption descriptions used as caption sources for the output.
      * 
      */
     @Import(name="captionDescriptionNames")
     private @Nullable Output<List<String>> captionDescriptionNames;
 
     /**
-     * @return The names of the caption descriptions used as audio sources for the output.
+     * @return The names of the caption descriptions used as caption sources for the output.
      * 
      */
     public Optional<Output<List<String>>> captionDescriptionNames() {
@@ -78,14 +78,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputArgs extends com.pulum
     }
 
     /**
-     * The name of the video description used as audio sources for the output.
+     * The name of the video description used as video source for the output.
      * 
      */
     @Import(name="videoDescriptionName")
     private @Nullable Output<String> videoDescriptionName;
 
     /**
-     * @return The name of the video description used as audio sources for the output.
+     * @return The name of the video description used as video source for the output.
      * 
      */
     public Optional<Output<String>> videoDescriptionName() {
@@ -152,7 +152,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputArgs extends com.pulum
         }
 
         /**
-         * @param captionDescriptionNames The names of the caption descriptions used as audio sources for the output.
+         * @param captionDescriptionNames The names of the caption descriptions used as caption sources for the output.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputArgs extends com.pulum
         }
 
         /**
-         * @param captionDescriptionNames The names of the caption descriptions used as audio sources for the output.
+         * @param captionDescriptionNames The names of the caption descriptions used as caption sources for the output.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputArgs extends com.pulum
         }
 
         /**
-         * @param captionDescriptionNames The names of the caption descriptions used as audio sources for the output.
+         * @param captionDescriptionNames The names of the caption descriptions used as caption sources for the output.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputArgs extends com.pulum
         }
 
         /**
-         * @param videoDescriptionName The name of the video description used as audio sources for the output.
+         * @param videoDescriptionName The name of the video description used as video source for the output.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputArgs extends com.pulum
         }
 
         /**
-         * @param videoDescriptionName The name of the video description used as audio sources for the output.
+         * @param videoDescriptionName The name of the video description used as video source for the output.
          * 
          * @return builder
          * 

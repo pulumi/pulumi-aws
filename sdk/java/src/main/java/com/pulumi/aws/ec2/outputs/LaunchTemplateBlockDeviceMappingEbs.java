@@ -13,19 +13,19 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LaunchTemplateBlockDeviceMappingEbs {
     /**
-     * @return Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * @return Whether the volume should be destroyed on instance termination.
+     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
      * 
      */
     private @Nullable String deleteOnTermination;
     /**
-     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-     * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+     * Cannot be used with `snapshot_id`.
      * 
      */
     private @Nullable String encrypted;
     /**
-     * @return The amount of provisioned
-     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
      * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
      * 
      */
@@ -52,30 +52,31 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      */
     private @Nullable Integer volumeSize;
     /**
-     * @return The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * @return The volume type.
+     * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
      * 
      */
     private @Nullable String volumeType;
 
     private LaunchTemplateBlockDeviceMappingEbs() {}
     /**
-     * @return Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * @return Whether the volume should be destroyed on instance termination.
+     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
      * 
      */
     public Optional<String> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
     /**
-     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-     * on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+     * Cannot be used with `snapshot_id`.
      * 
      */
     public Optional<String> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
     /**
-     * @return The amount of provisioned
-     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
      * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
      * 
      */
@@ -112,7 +113,8 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
         return Optional.ofNullable(this.volumeSize);
     }
     /**
-     * @return The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * @return The volume type.
+     * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
      * 
      */
     public Optional<String> volumeType() {

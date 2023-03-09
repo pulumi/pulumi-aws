@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -77,6 +78,21 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
+    /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -128,6 +144,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         this.content = $.content;
         this.description = $.description;
         this.name = $.name;
+        this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.type = $.type;
@@ -233,6 +250,27 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param skipDestroy If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

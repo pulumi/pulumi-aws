@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionGetArgs>? _defaultRetentions;
 
         /// <summary>
-        /// The default retention period that you want to apply to new objects placed in this bucket (documented below).
+        /// Default retention period that you want to apply to new objects placed in this bucket (documented below).
         /// </summary>
         public InputList<Inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionGetArgs> DefaultRetentions
         {

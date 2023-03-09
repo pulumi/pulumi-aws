@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigurationV2RuleExpiration {
     /**
-     * @return The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     private @Nullable String date;
     /**
-     * @return The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+     * @return Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
     private @Nullable Integer days;
@@ -31,14 +31,14 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
 
     private BucketLifecycleConfigurationV2RuleExpiration() {}
     /**
-     * @return The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<String> date() {
         return Optional.ofNullable(this.date);
     }
     /**
-     * @return The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+     * @return Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
     public Optional<Integer> days() {

@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.ssm.ResourceDataSync;
@@ -45,38 +47,38 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var hogeBucketV2 = new BucketV2(&#34;hogeBucketV2&#34;);
  * 
+ *         final var hogePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid(&#34;SSMBucketPermissionsCheck&#34;)
+ *                     .effect(&#34;Allow&#34;)
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type(&#34;Service&#34;)
+ *                         .identifiers(&#34;ssm.amazonaws.com&#34;)
+ *                         .build())
+ *                     .actions(&#34;s3:GetBucketAcl&#34;)
+ *                     .resources(&#34;arn:aws:s3:::tf-test-bucket-1234&#34;)
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid(&#34;SSMBucketDelivery&#34;)
+ *                     .effect(&#34;Allow&#34;)
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type(&#34;Service&#34;)
+ *                         .identifiers(&#34;ssm.amazonaws.com&#34;)
+ *                         .build())
+ *                     .actions(&#34;s3:PutObject&#34;)
+ *                     .resources(&#34;arn:aws:s3:::tf-test-bucket-1234/*&#34;)
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test(&#34;StringEquals&#34;)
+ *                         .variable(&#34;s3:x-amz-acl&#34;)
+ *                         .values(&#34;bucket-owner-full-control&#34;)
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
  *         var hogeBucketPolicy = new BucketPolicy(&#34;hogeBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(hogeBucketV2.bucket())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Sid&#34;: &#34;SSMBucketPermissionsCheck&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: {
- *                 &#34;Service&#34;: &#34;ssm.amazonaws.com&#34;
- *             },
- *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
- *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-test-bucket-1234&#34;
- *         },
- *         {
- *             &#34;Sid&#34;: &#34; SSMBucketDelivery&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: {
- *                 &#34;Service&#34;: &#34;ssm.amazonaws.com&#34;
- *             },
- *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
- *             &#34;Resource&#34;: [&#34;arn:aws:s3:::tf-test-bucket-1234/*&#34;],
- *             &#34;Condition&#34;: {
- *                 &#34;StringEquals&#34;: {
- *                     &#34;s3:x-amz-acl&#34;: &#34;bucket-owner-full-control&#34;
- *                 }
- *             }
- *         }
- *     ]
- * }
- *             &#34;&#34;&#34;)
+ *             .bucket(hogeBucketV2.id())
+ *             .policy(hogePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var foo = new ResourceDataSync(&#34;foo&#34;, ResourceDataSyncArgs.builder()        

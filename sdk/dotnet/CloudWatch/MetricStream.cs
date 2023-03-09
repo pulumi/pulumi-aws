@@ -22,43 +22,68 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+    ///     var streamsAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "streams.metrics.cloudwatch.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var metricStreamToFirehoseRole = new Aws.Iam.Role("metricStreamToFirehoseRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""streams.metrics.cloudwatch.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = streamsAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var bucket = new Aws.S3.BucketV2("bucket");
     /// 
+    ///     var firehoseAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "firehose.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var firehoseToS3Role = new Aws.Iam.Role("firehoseToS3Role", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""firehose.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = firehoseAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var s3Stream = new Aws.Kinesis.FirehoseDeliveryStream("s3Stream", new()
@@ -89,24 +114,30 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///     });
     /// 
-    ///     // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+    ///     var metricStreamToFirehosePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "firehose:PutRecord",
+    ///                     "firehose:PutRecordBatch",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     s3Stream.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var metricStreamToFirehoseRolePolicy = new Aws.Iam.RolePolicy("metricStreamToFirehoseRolePolicy", new()
     ///     {
     ///         Role = metricStreamToFirehoseRole.Id,
-    ///         Policy = s3Stream.Arn.Apply(arn =&gt; @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Effect"": ""Allow"",
-    ///             ""Action"": [
-    ///                 ""firehose:PutRecord"",
-    ///                 ""firehose:PutRecordBatch""
-    ///             ],
-    ///             ""Resource"": ""{arn}""
-    ///         }}
-    ///     ]
-    /// }}
-    /// "),
+    ///         Policy = metricStreamToFirehosePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
@@ -115,35 +146,35 @@ namespace Pulumi.Aws.CloudWatch
     ///         Acl = "private",
     ///     });
     /// 
+    ///     var firehoseToS3PolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:AbortMultipartUpload",
+    ///                     "s3:GetBucketLocation",
+    ///                     "s3:GetObject",
+    ///                     "s3:ListBucket",
+    ///                     "s3:ListBucketMultipartUploads",
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     bucket.Arn,
+    ///                     $"{bucket.Arn}/*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var firehoseToS3RolePolicy = new Aws.Iam.RolePolicy("firehoseToS3RolePolicy", new()
     ///     {
     ///         Role = firehoseToS3Role.Id,
-    ///         Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
-    ///         {
-    ///             var bucketArn = values.Item1;
-    ///             var bucketArn1 = values.Item2;
-    ///             return @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Effect"": ""Allow"",
-    ///             ""Action"": [
-    ///                 ""s3:AbortMultipartUpload"",
-    ///                 ""s3:GetBucketLocation"",
-    ///                 ""s3:GetObject"",
-    ///                 ""s3:ListBucket"",
-    ///                 ""s3:ListBucketMultipartUploads"",
-    ///                 ""s3:PutObject""
-    ///             ],
-    ///             ""Resource"": [
-    ///                 ""{bucketArn}"",
-    ///                 ""{bucketArn1}/*""
-    ///             ]
-    ///         }}
-    ///     ]
-    /// }}
-    /// ";
-    ///         }),
+    ///         Policy = firehoseToS3PolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

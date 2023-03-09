@@ -11,7 +11,7 @@ import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMet
 import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
+import java.lang.Double;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -116,13 +116,13 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
      * 
      */
     @Import(name="targetValue", required=true)
-    private Output<Integer> targetValue;
+    private Output<Double> targetValue;
 
     /**
      * @return Target value for the metric.
      * 
      */
-    public Output<Integer> targetValue() {
+    public Output<Double> targetValue() {
         return this.targetValue;
     }
 
@@ -288,7 +288,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
          * @return builder
          * 
          */
-        public Builder targetValue(Output<Integer> targetValue) {
+        public Builder targetValue(Output<Double> targetValue) {
             $.targetValue = targetValue;
             return this;
         }
@@ -299,7 +299,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
          * @return builder
          * 
          */
-        public Builder targetValue(Integer targetValue) {
+        public Builder targetValue(Double targetValue) {
             return targetValue(Output.of(targetValue));
         }
 

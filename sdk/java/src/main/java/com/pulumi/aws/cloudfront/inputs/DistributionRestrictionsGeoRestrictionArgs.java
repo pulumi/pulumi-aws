@@ -17,18 +17,14 @@ public final class DistributionRestrictionsGeoRestrictionArgs extends com.pulumi
     public static final DistributionRestrictionsGeoRestrictionArgs Empty = new DistributionRestrictionsGeoRestrictionArgs();
 
     /**
-     * The [ISO 3166-1-alpha-2 codes][4] for which you
-     * want CloudFront either to distribute your content (`whitelist`) or not
-     * distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+     * [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
      * 
      */
     @Import(name="locations")
     private @Nullable Output<List<String>> locations;
 
     /**
-     * @return The [ISO 3166-1-alpha-2 codes][4] for which you
-     * want CloudFront either to distribute your content (`whitelist`) or not
-     * distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+     * @return [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
      * 
      */
     public Optional<Output<List<String>>> locations() {
@@ -36,18 +32,14 @@ public final class DistributionRestrictionsGeoRestrictionArgs extends com.pulumi
     }
 
     /**
-     * The method that you want to use to restrict
-     * distribution of your content by country: `none`, `whitelist`, or
-     * `blacklist`.
+     * Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
      * 
      */
     @Import(name="restrictionType", required=true)
     private Output<String> restrictionType;
 
     /**
-     * @return The method that you want to use to restrict
-     * distribution of your content by country: `none`, `whitelist`, or
-     * `blacklist`.
+     * @return Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
      * 
      */
     public Output<String> restrictionType() {
@@ -80,9 +72,7 @@ public final class DistributionRestrictionsGeoRestrictionArgs extends com.pulumi
         }
 
         /**
-         * @param locations The [ISO 3166-1-alpha-2 codes][4] for which you
-         * want CloudFront either to distribute your content (`whitelist`) or not
-         * distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+         * @param locations [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
          * 
          * @return builder
          * 
@@ -93,9 +83,7 @@ public final class DistributionRestrictionsGeoRestrictionArgs extends com.pulumi
         }
 
         /**
-         * @param locations The [ISO 3166-1-alpha-2 codes][4] for which you
-         * want CloudFront either to distribute your content (`whitelist`) or not
-         * distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+         * @param locations [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
          * 
          * @return builder
          * 
@@ -105,9 +93,7 @@ public final class DistributionRestrictionsGeoRestrictionArgs extends com.pulumi
         }
 
         /**
-         * @param locations The [ISO 3166-1-alpha-2 codes][4] for which you
-         * want CloudFront either to distribute your content (`whitelist`) or not
-         * distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+         * @param locations [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
          * 
          * @return builder
          * 
@@ -117,9 +103,7 @@ public final class DistributionRestrictionsGeoRestrictionArgs extends com.pulumi
         }
 
         /**
-         * @param restrictionType The method that you want to use to restrict
-         * distribution of your content by country: `none`, `whitelist`, or
-         * `blacklist`.
+         * @param restrictionType Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
          * 
          * @return builder
          * 
@@ -130,9 +114,7 @@ public final class DistributionRestrictionsGeoRestrictionArgs extends com.pulumi
         }
 
         /**
-         * @param restrictionType The method that you want to use to restrict
-         * distribution of your content by country: `none`, `whitelist`, or
-         * `blacklist`.
+         * @param restrictionType Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
          * 
          * @return builder
          * 

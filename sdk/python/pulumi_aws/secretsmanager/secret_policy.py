@@ -141,23 +141,19 @@ class SecretPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_secret = aws.secretsmanager.Secret("exampleSecret")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="EnableAnotherAWSAccountToReadTheSecret",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["arn:aws:iam::123456789012:root"],
+            )],
+            actions=["secretsmanager:GetSecretValue"],
+            resources=["*"],
+        )])
         example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
             secret_arn=example_secret.arn,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-        	{
-        	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
-        	  "Effect": "Allow",
-        	  "Principal": {
-        		"AWS": "arn:aws:iam::123456789012:root"
-        	  },
-        	  "Action": "secretsmanager:GetSecretValue",
-        	  "Resource": "*"
-        	}
-          ]
-        }
-        \"\"\")
+            policy=example_policy_document.json)
         ```
 
         ## Import
@@ -191,23 +187,19 @@ class SecretPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_secret = aws.secretsmanager.Secret("exampleSecret")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="EnableAnotherAWSAccountToReadTheSecret",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["arn:aws:iam::123456789012:root"],
+            )],
+            actions=["secretsmanager:GetSecretValue"],
+            resources=["*"],
+        )])
         example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
             secret_arn=example_secret.arn,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-        	{
-        	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
-        	  "Effect": "Allow",
-        	  "Principal": {
-        		"AWS": "arn:aws:iam::123456789012:root"
-        	  },
-        	  "Action": "secretsmanager:GetSecretValue",
-        	  "Resource": "*"
-        	}
-          ]
-        }
-        \"\"\")
+            policy=example_policy_document.json)
         ```
 
         ## Import

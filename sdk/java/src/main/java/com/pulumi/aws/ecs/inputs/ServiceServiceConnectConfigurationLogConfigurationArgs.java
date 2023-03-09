@@ -22,15 +22,15 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
      * The log driver to use for the container.
      * 
      */
-    @Import(name="logDriver")
-    private @Nullable Output<String> logDriver;
+    @Import(name="logDriver", required=true)
+    private Output<String> logDriver;
 
     /**
      * @return The log driver to use for the container.
      * 
      */
-    public Optional<Output<String>> logDriver() {
-        return Optional.ofNullable(this.logDriver);
+    public Output<String> logDriver() {
+        return this.logDriver;
     }
 
     /**
@@ -95,7 +95,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
          * @return builder
          * 
          */
-        public Builder logDriver(@Nullable Output<String> logDriver) {
+        public Builder logDriver(Output<String> logDriver) {
             $.logDriver = logDriver;
             return this;
         }
@@ -163,6 +163,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         public ServiceServiceConnectConfigurationLogConfigurationArgs build() {
+            $.logDriver = Objects.requireNonNull($.logDriver, "expected parameter 'logDriver' to be non-null");
             return $;
         }
     }

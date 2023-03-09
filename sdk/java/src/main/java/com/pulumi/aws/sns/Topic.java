@@ -480,6 +480,20 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return this.policy;
     }
     /**
+     * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+     * 
+     */
+    @Export(name="signatureVersion", refs={Integer.class}, tree="[0]")
+    private Output<Integer> signatureVersion;
+
+    /**
+     * @return If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+     * 
+     */
+    public Output<Integer> signatureVersion() {
+        return this.signatureVersion;
+    }
+    /**
      * IAM role for failure feedback
      * 
      */
@@ -548,6 +562,20 @@ public class Topic extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
+     * 
+     */
+    @Export(name="tracingConfig", refs={String.class}, tree="[0]")
+    private Output<String> tracingConfig;
+
+    /**
+     * @return Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
+     * 
+     */
+    public Output<String> tracingConfig() {
+        return this.tracingConfig;
     }
 
     /**

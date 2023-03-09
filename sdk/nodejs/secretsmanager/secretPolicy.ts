@@ -15,23 +15,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {});
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "EnableAnotherAWSAccountToReadTheSecret",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["arn:aws:iam::123456789012:root"],
+ *         }],
+ *         actions: ["secretsmanager:GetSecretValue"],
+ *         resources: ["*"],
+ *     }],
+ * });
  * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("exampleSecretPolicy", {
  *     secretArn: exampleSecret.arn,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- * 	{
- * 	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
- * 	  "Effect": "Allow",
- * 	  "Principal": {
- * 		"AWS": "arn:aws:iam::123456789012:root"
- * 	  },
- * 	  "Action": "secretsmanager:GetSecretValue",
- * 	  "Resource": "*"
- * 	}
- *   ]
- * }
- * `,
+ *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

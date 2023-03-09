@@ -26,40 +26,66 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var bucket = new Aws.S3.BucketV2("bucket");
     /// 
+    ///     var firehoseAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "firehose.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///         AssumeRolePolicy = firehoseAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var lambdaAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""firehose.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "lambda.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var lambdaIam = new Aws.Iam.Role("lambdaIam", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""lambda.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = lambdaAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var lambdaProcessor = new Aws.Lambda.Function("lambdaProcessor", new()
@@ -124,9 +150,13 @@ namespace Pulumi.Aws.Kinesis
     ///         {
     ///             RoleArn = aws_iam_role.Firehose_role.Arn,
     ///             BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///             BufferSize = 64,
+    ///             DynamicPartitioningConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
     ///             Prefix = "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
     ///             ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-    ///             BufferSize = 64,
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
     ///             {
     ///                 Enabled = true,
@@ -189,22 +219,35 @@ namespace Pulumi.Aws.Kinesis
     ///         Acl = "private",
     ///     });
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "firehose.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""firehose.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
@@ -365,46 +408,49 @@ namespace Pulumi.Aws.Kinesis
     ///         },
     ///     });
     /// 
-    ///     var firehose_elasticsearch = new Aws.Iam.RolePolicy("firehose-elasticsearch", new()
+    ///     var firehose_elasticsearchPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "es:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     testCluster.Arn,
+    ///                     $"{testCluster.Arn}/*",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ec2:DescribeVpcs",
+    ///                     "ec2:DescribeVpcAttribute",
+    ///                     "ec2:DescribeSubnets",
+    ///                     "ec2:DescribeSecurityGroups",
+    ///                     "ec2:DescribeNetworkInterfaces",
+    ///                     "ec2:CreateNetworkInterface",
+    ///                     "ec2:CreateNetworkInterfacePermission",
+    ///                     "ec2:DeleteNetworkInterface",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var firehose_elasticsearchRolePolicy = new Aws.Iam.RolePolicy("firehose-elasticsearchRolePolicy", new()
     ///     {
     ///         Role = aws_iam_role.Firehose.Id,
-    ///         Policy = Output.Tuple(testCluster.Arn, testCluster.Arn).Apply(values =&gt;
-    ///         {
-    ///             var testClusterArn = values.Item1;
-    ///             var testClusterArn1 = values.Item2;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""es:*""
-    ///       ],
-    ///       ""Resource"": [
-    ///         ""{testClusterArn}"",
-    ///         ""{testClusterArn1}/*""
-    ///       ]
-    ///         }},
-    ///         {{
-    ///           ""Effect"": ""Allow"",
-    ///           ""Action"": [
-    ///             ""ec2:DescribeVpcs"",
-    ///             ""ec2:DescribeVpcAttribute"",
-    ///             ""ec2:DescribeSubnets"",
-    ///             ""ec2:DescribeSecurityGroups"",
-    ///             ""ec2:DescribeNetworkInterfaces"",
-    ///             ""ec2:CreateNetworkInterface"",
-    ///             ""ec2:CreateNetworkInterfacePermission"",
-    ///             ""ec2:DeleteNetworkInterface""
-    ///           ],
-    ///           ""Resource"": [
-    ///             ""*""
-    ///           ]
-    ///         }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
+    ///         Policy = firehose_elasticsearchPolicyDocument.Apply(firehose_elasticsearchPolicyDocument =&gt; firehose_elasticsearchPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     });
     /// 
     ///     var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new()
@@ -439,7 +485,7 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         DependsOn = new[]
     ///         {
-    ///             firehose_elasticsearch,
+    ///             firehose_elasticsearchRolePolicy,
     ///         },
     ///     });
     /// 

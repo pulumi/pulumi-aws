@@ -33,14 +33,14 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+     * Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
      * 
      */
     @Import(name="includeGlobalResourceTypes")
     private @Nullable Output<Boolean> includeGlobalResourceTypes;
 
     /**
-     * @return Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+     * @return Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
      * 
      */
     public Optional<Output<Boolean>> includeGlobalResourceTypes() {
@@ -110,7 +110,7 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param includeGlobalResourceTypes Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+         * @param includeGlobalResourceTypes Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param includeGlobalResourceTypes Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+         * @param includeGlobalResourceTypes Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
          * 
          * @return builder
          * 

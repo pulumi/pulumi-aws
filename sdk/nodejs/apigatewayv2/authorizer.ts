@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     apiId: aws_apigatewayv2_api.example.id,
  *     authorizerType: "REQUEST",
  *     authorizerUri: aws_lambda_function.example.invoke_arn,
- *     identitySources: [`$request.header.Authorization`],
+ *     identitySources: ["$request.header.Authorization"],
  *     authorizerPayloadFormatVersion: "2.0",
  * });
  * ```

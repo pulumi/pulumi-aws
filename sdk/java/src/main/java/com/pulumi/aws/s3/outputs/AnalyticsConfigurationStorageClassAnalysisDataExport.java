@@ -18,7 +18,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExport {
      */
     private AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination;
     /**
-     * @return The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+     * @return Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
      * 
      */
     private @Nullable String outputSchemaVersion;
@@ -32,7 +32,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExport {
         return this.destination;
     }
     /**
-     * @return The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+     * @return Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
      * 
      */
     public Optional<String> outputSchemaVersion() {

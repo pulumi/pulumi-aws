@@ -82,7 +82,7 @@ type Canary struct {
 	RunConfig CanaryRunConfigOutput `pulumi:"runConfig"`
 	// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
 	RuntimeVersion pulumi.StringOutput `pulumi:"runtimeVersion"`
-	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
 	S3Bucket pulumi.StringPtrOutput `pulumi:"s3Bucket"`
 	// S3 key of your script. **Conflicts with `zipFile`.**
 	S3Key pulumi.StringPtrOutput `pulumi:"s3Key"`
@@ -176,7 +176,7 @@ type canaryState struct {
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
 	// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
-	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// S3 key of your script. **Conflicts with `zipFile`.**
 	S3Key *string `pulumi:"s3Key"`
@@ -227,7 +227,7 @@ type CanaryState struct {
 	RunConfig CanaryRunConfigPtrInput
 	// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
 	RuntimeVersion pulumi.StringPtrInput
-	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
 	S3Bucket pulumi.StringPtrInput
 	// S3 key of your script. **Conflicts with `zipFile`.**
 	S3Key pulumi.StringPtrInput
@@ -278,7 +278,7 @@ type canaryArgs struct {
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
 	// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
 	RuntimeVersion string `pulumi:"runtimeVersion"`
-	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// S3 key of your script. **Conflicts with `zipFile`.**
 	S3Key *string `pulumi:"s3Key"`
@@ -318,7 +318,7 @@ type CanaryArgs struct {
 	RunConfig CanaryRunConfigPtrInput
 	// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
 	RuntimeVersion pulumi.StringInput
-	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+	// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
 	S3Bucket pulumi.StringPtrInput
 	// S3 key of your script. **Conflicts with `zipFile`.**
 	S3Key pulumi.StringPtrInput
@@ -480,7 +480,7 @@ func (o CanaryOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
 
-// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
 func (o CanaryOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringPtrOutput { return v.S3Bucket }).(pulumi.StringPtrOutput)
 }

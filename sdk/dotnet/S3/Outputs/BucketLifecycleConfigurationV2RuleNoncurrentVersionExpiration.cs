@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
     {
         /// <summary>
-        /// The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+        /// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         /// </summary>
         public readonly string? NewerNoncurrentVersions;
         /// <summary>
-        /// The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+        /// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         /// </summary>
         public readonly int? NoncurrentDays;
 

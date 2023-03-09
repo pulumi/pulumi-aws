@@ -108,6 +108,10 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+     */
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      */
     public readonly multiRegionEnabled!: pulumi.Output<boolean | undefined>;
@@ -151,6 +155,7 @@ export class EventDataStore extends pulumi.CustomResource {
             const state = argsOrState as EventDataStoreState | undefined;
             resourceInputs["advancedEventSelectors"] = state ? state.advancedEventSelectors : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["multiRegionEnabled"] = state ? state.multiRegionEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["organizationEnabled"] = state ? state.organizationEnabled : undefined;
@@ -161,6 +166,7 @@ export class EventDataStore extends pulumi.CustomResource {
         } else {
             const args = argsOrState as EventDataStoreArgs | undefined;
             resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["multiRegionEnabled"] = args ? args.multiRegionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organizationEnabled"] = args ? args.organizationEnabled : undefined;
@@ -187,6 +193,10 @@ export interface EventDataStoreState {
      * ARN of the event data store.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      */
@@ -225,6 +235,10 @@ export interface EventDataStoreArgs {
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      */
     advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelector>[]>;
+    /**
+     * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      */

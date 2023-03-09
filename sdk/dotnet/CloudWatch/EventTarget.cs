@@ -19,6 +19,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -27,18 +28,20 @@ namespace Pulumi.Aws.CloudWatch
     ///     var console = new Aws.CloudWatch.EventRule("console", new()
     ///     {
     ///         Description = "Capture all EC2 scaling events",
-    ///         EventPattern = @"{
-    ///   ""source"": [
-    ///     ""aws.autoscaling""
-    ///   ],
-    ///   ""detail-type"": [
-    ///     ""EC2 Instance Launch Successful"",
-    ///     ""EC2 Instance Terminate Successful"",
-    ///     ""EC2 Instance Launch Unsuccessful"",
-    ///     ""EC2 Instance Terminate Unsuccessful""
-    ///   ]
-    /// }
-    /// ",
+    ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["source"] = new[]
+    ///             {
+    ///                 "aws.autoscaling",
+    ///             },
+    ///             ["detail-type"] = new[]
+    ///             {
+    ///                 "EC2 Instance Launch Successful",
+    ///                 "EC2 Instance Terminate Successful",
+    ///                 "EC2 Instance Launch Unsuccessful",
+    ///                 "EC2 Instance Terminate Unsuccessful",
+    ///             },
+    ///         }),
     ///     });
     /// 
     ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
@@ -77,6 +80,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -110,24 +114,31 @@ namespace Pulumi.Aws.CloudWatch
     ///     var stopInstance = new Aws.Ssm.Document("stopInstance", new()
     ///     {
     ///         DocumentType = "Command",
-    ///         Content = @"  {
-    ///     ""schemaVersion"": ""1.2"",
-    ///     ""description"": ""Stop an instance"",
-    ///     ""parameters"": {
-    /// 
-    ///     },
-    ///     ""runtimeConfig"": {
-    ///       ""aws:runShellScript"": {
-    ///         ""properties"": [
-    ///           {
-    ///             ""id"": ""0.aws:runShellScript"",
-    ///             ""runCommand"": [""halt""]
-    ///           }
-    ///         ]
-    ///       }
-    ///     }
-    ///   }
-    /// ",
+    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["schemaVersion"] = "1.2",
+    ///             ["description"] = "Stop an instance",
+    ///             ["parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///             },
+    ///             ["runtimeConfig"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["aws:runShellScript"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["properties"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["id"] = "0.aws:runShellScript",
+    ///                             ["runCommand"] = new[]
+    ///                             {
+    ///                                 "halt",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     ///     var ssmLifecyclePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -291,77 +302,6 @@ namespace Pulumi.Aws.CloudWatch
     ///                 { "Env", "Test" },
     ///             },
     ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Cross-Account Event Bus target
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var eventBusInvokeRemoteEventBusRole = new Aws.Iam.Role("eventBusInvokeRemoteEventBusRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""events.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var eventBusInvokeRemoteEventBusPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "events:PutEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var eventBusInvokeRemoteEventBusPolicy = new Aws.Iam.Policy("eventBusInvokeRemoteEventBusPolicy", new()
-    ///     {
-    ///         PolicyDocument = eventBusInvokeRemoteEventBusPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var eventBusInvokeRemoteEventBusRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", new()
-    ///     {
-    ///         Role = eventBusInvokeRemoteEventBusRole.Name,
-    ///         PolicyArn = eventBusInvokeRemoteEventBusPolicy.Arn,
-    ///     });
-    /// 
-    ///     var stopInstancesEventRule = new Aws.CloudWatch.EventRule("stopInstancesEventRule", new()
-    ///     {
-    ///         Description = "Stop instances nightly",
-    ///         ScheduleExpression = "cron(0 0 * * ? *)",
-    ///     });
-    /// 
-    ///     var stopInstancesEventTarget = new Aws.CloudWatch.EventTarget("stopInstancesEventTarget", new()
-    ///     {
-    ///         Arn = "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
-    ///         Rule = stopInstancesEventRule.Name,
-    ///         RoleArn = eventBusInvokeRemoteEventBusRole.Arn,
     ///     });
     /// 
     /// });

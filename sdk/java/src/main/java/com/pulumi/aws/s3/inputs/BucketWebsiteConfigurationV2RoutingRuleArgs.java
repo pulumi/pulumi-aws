@@ -17,14 +17,14 @@ public final class BucketWebsiteConfigurationV2RoutingRuleArgs extends com.pulum
     public static final BucketWebsiteConfigurationV2RoutingRuleArgs Empty = new BucketWebsiteConfigurationV2RoutingRuleArgs();
 
     /**
-     * A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
+     * Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<BucketWebsiteConfigurationV2RoutingRuleConditionArgs> condition;
 
     /**
-     * @return A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
+     * @return Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
      * 
      */
     public Optional<Output<BucketWebsiteConfigurationV2RoutingRuleConditionArgs>> condition() {
@@ -32,14 +32,14 @@ public final class BucketWebsiteConfigurationV2RoutingRuleArgs extends com.pulum
     }
 
     /**
-     * A configuration block for redirect information detailed below.
+     * Configuration block for redirect information. See below.
      * 
      */
     @Import(name="redirect", required=true)
     private Output<BucketWebsiteConfigurationV2RoutingRuleRedirectArgs> redirect;
 
     /**
-     * @return A configuration block for redirect information detailed below.
+     * @return Configuration block for redirect information. See below.
      * 
      */
     public Output<BucketWebsiteConfigurationV2RoutingRuleRedirectArgs> redirect() {
@@ -72,7 +72,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleArgs extends com.pulum
         }
 
         /**
-         * @param condition A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
+         * @param condition Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleArgs extends com.pulum
         }
 
         /**
-         * @param condition A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
+         * @param condition Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleArgs extends com.pulum
         }
 
         /**
-         * @param redirect A configuration block for redirect information detailed below.
+         * @param redirect Configuration block for redirect information. See below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketWebsiteConfigurationV2RoutingRuleArgs extends com.pulum
         }
 
         /**
-         * @param redirect A configuration block for redirect information detailed below.
+         * @param redirect Configuration block for redirect information. See below.
          * 
          * @return builder
          * 

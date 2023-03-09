@@ -108,27 +108,24 @@ class QueuePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue")
-        test = aws.sqs.QueuePolicy("test",
+        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="First",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["sqs:SendMessage"],
+            resources=[arn],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ArnEquals",
+                variable="aws:SourceArn",
+                values=[aws_sns_topic["example"]["arn"]],
+            )],
+        )]))
+        test_queue_policy = aws.sqs.QueuePolicy("testQueuePolicy",
             queue_url=queue.id,
-            policy=queue.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Id": "sqspolicy",
-          "Statement": [
-            {{
-              "Sid": "First",
-              "Effect": "Allow",
-              "Principal": "*",
-              "Action": "sqs:SendMessage",
-              "Resource": "{arn}",
-              "Condition": {{
-                "ArnEquals": {{
-                  "aws:SourceArn": "{aws_sns_topic["example"]["arn"]}"
-                }}
-              }}
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=test_policy_document.json)
         ```
 
         ## Import
@@ -161,27 +158,24 @@ class QueuePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue")
-        test = aws.sqs.QueuePolicy("test",
+        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="First",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["sqs:SendMessage"],
+            resources=[arn],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ArnEquals",
+                variable="aws:SourceArn",
+                values=[aws_sns_topic["example"]["arn"]],
+            )],
+        )]))
+        test_queue_policy = aws.sqs.QueuePolicy("testQueuePolicy",
             queue_url=queue.id,
-            policy=queue.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Id": "sqspolicy",
-          "Statement": [
-            {{
-              "Sid": "First",
-              "Effect": "Allow",
-              "Principal": "*",
-              "Action": "sqs:SendMessage",
-              "Resource": "{arn}",
-              "Condition": {{
-                "ArnEquals": {{
-                  "aws:SourceArn": "{aws_sns_topic["example"]["arn"]}"
-                }}
-              }}
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=test_policy_document.json)
         ```
 
         ## Import

@@ -10,6 +10,8 @@ from .delegated_administrator import *
 from .get_delegated_administrators import *
 from .get_delegated_services import *
 from .get_organization import *
+from .get_organizational_unit_child_accounts import *
+from .get_organizational_unit_descendant_accounts import *
 from .get_organizational_units import *
 from .get_resource_tags import *
 from .organization import *

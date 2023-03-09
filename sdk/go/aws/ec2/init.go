@@ -181,6 +181,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcIpamPoolCidrAllocation{}
 	case "aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr":
 		r = &VpcIpamPreviewNextCidr{}
+	case "aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery":
+		r = &VpcIpamResourceDiscovery{}
+	case "aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation":
+		r = &VpcIpamResourceDiscoveryAssociation{}
 	case "aws:ec2/vpcIpamScope:VpcIpamScope":
 		r = &VpcIpamScope{}
 	case "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation":
@@ -614,6 +618,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/vpcIpamPreviewNextCidr",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcIpamResourceDiscovery",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcIpamResourceDiscoveryAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

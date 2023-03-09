@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? DataFormatConversionConfiguration;
         /// <summary>
-        /// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+        /// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
         /// <summary>

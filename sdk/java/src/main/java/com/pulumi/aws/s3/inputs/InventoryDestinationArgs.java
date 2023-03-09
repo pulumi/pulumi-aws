@@ -14,14 +14,14 @@ public final class InventoryDestinationArgs extends com.pulumi.resources.Resourc
     public static final InventoryDestinationArgs Empty = new InventoryDestinationArgs();
 
     /**
-     * The S3 bucket configuration where inventory results are published (documented below).
+     * S3 bucket configuration where inventory results are published (documented below).
      * 
      */
     @Import(name="bucket", required=true)
     private Output<InventoryDestinationBucketArgs> bucket;
 
     /**
-     * @return The S3 bucket configuration where inventory results are published (documented below).
+     * @return S3 bucket configuration where inventory results are published (documented below).
      * 
      */
     public Output<InventoryDestinationBucketArgs> bucket() {
@@ -53,7 +53,7 @@ public final class InventoryDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param bucket The S3 bucket configuration where inventory results are published (documented below).
+         * @param bucket S3 bucket configuration where inventory results are published (documented below).
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class InventoryDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param bucket The S3 bucket configuration where inventory results are published (documented below).
+         * @param bucket S3 bucket configuration where inventory results are published (documented below).
          * 
          * @return builder
          * 

@@ -699,6 +699,16 @@ export type VpcIpamPreviewNextCidr = import("./vpcIpamPreviewNextCidr").VpcIpamP
 export const VpcIpamPreviewNextCidr: typeof import("./vpcIpamPreviewNextCidr").VpcIpamPreviewNextCidr = null as any;
 utilities.lazyLoad(exports, ["VpcIpamPreviewNextCidr"], () => require("./vpcIpamPreviewNextCidr"));
 
+export { VpcIpamResourceDiscoveryArgs, VpcIpamResourceDiscoveryState } from "./vpcIpamResourceDiscovery";
+export type VpcIpamResourceDiscovery = import("./vpcIpamResourceDiscovery").VpcIpamResourceDiscovery;
+export const VpcIpamResourceDiscovery: typeof import("./vpcIpamResourceDiscovery").VpcIpamResourceDiscovery = null as any;
+utilities.lazyLoad(exports, ["VpcIpamResourceDiscovery"], () => require("./vpcIpamResourceDiscovery"));
+
+export { VpcIpamResourceDiscoveryAssociationArgs, VpcIpamResourceDiscoveryAssociationState } from "./vpcIpamResourceDiscoveryAssociation";
+export type VpcIpamResourceDiscoveryAssociation = import("./vpcIpamResourceDiscoveryAssociation").VpcIpamResourceDiscoveryAssociation;
+export const VpcIpamResourceDiscoveryAssociation: typeof import("./vpcIpamResourceDiscoveryAssociation").VpcIpamResourceDiscoveryAssociation = null as any;
+utilities.lazyLoad(exports, ["VpcIpamResourceDiscoveryAssociation"], () => require("./vpcIpamResourceDiscoveryAssociation"));
+
 export { VpcIpamScopeArgs, VpcIpamScopeState } from "./vpcIpamScope";
 export type VpcIpamScope = import("./vpcIpamScope").VpcIpamScope;
 export const VpcIpamScope: typeof import("./vpcIpamScope").VpcIpamScope = null as any;
@@ -922,6 +932,10 @@ const _module = {
                 return new VpcIpamPoolCidrAllocation(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr":
                 return new VpcIpamPreviewNextCidr(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery":
+                return new VpcIpamResourceDiscovery(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation":
+                return new VpcIpamResourceDiscoveryAssociation(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpamScope:VpcIpamScope":
                 return new VpcIpamScope(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation":
@@ -1029,6 +1043,8 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPool", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPoolCidr", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPoolCidrAllocation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPreviewNextCidr", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamResourceDiscovery", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamResourceDiscoveryAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamScope", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv4CidrBlockAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv6CidrBlockAssociation", _module)

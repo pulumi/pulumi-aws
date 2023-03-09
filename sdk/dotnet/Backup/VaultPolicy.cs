@@ -23,34 +23,47 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var exampleVault = new Aws.Backup.Vault("exampleVault");
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "backup:DescribeBackupVault",
+    ///                     "backup:DeleteBackupVault",
+    ///                     "backup:PutBackupVaultAccessPolicy",
+    ///                     "backup:DeleteBackupVaultAccessPolicy",
+    ///                     "backup:GetBackupVaultAccessPolicy",
+    ///                     "backup:StartBackupJob",
+    ///                     "backup:GetBackupVaultNotifications",
+    ///                     "backup:PutBackupVaultNotifications",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleVault.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleVaultPolicy = new Aws.Backup.VaultPolicy("exampleVaultPolicy", new()
     ///     {
     ///         BackupVaultName = exampleVault.Name,
-    ///         Policy = exampleVault.Arn.Apply(arn =&gt; @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Id"": ""default"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Sid"": ""default"",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {{
-    ///         ""AWS"": ""*""
-    ///       }},
-    ///       ""Action"": [
-    /// 		""backup:DescribeBackupVault"",
-    /// 		""backup:DeleteBackupVault"",
-    /// 		""backup:PutBackupVaultAccessPolicy"",
-    /// 		""backup:DeleteBackupVaultAccessPolicy"",
-    /// 		""backup:GetBackupVaultAccessPolicy"",
-    /// 		""backup:StartBackupJob"",
-    /// 		""backup:GetBackupVaultNotifications"",
-    /// 		""backup:PutBackupVaultNotifications""
-    ///       ],
-    ///       ""Resource"": ""{arn}""
-    ///     }}
-    ///   ]
-    /// }}
-    /// "),
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

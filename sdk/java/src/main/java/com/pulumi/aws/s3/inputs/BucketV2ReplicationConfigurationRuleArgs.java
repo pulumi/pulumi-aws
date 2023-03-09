@@ -96,14 +96,14 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
     }
 
     /**
-     * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -126,14 +126,14 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
     }
 
     /**
-     * The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
      */
     public Output<String> status() {
@@ -297,7 +297,7 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param priority The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * @param priority Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param priority The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * @param priority Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param status The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+         * @param status Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param status The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+         * @param status Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          * 
          * @return builder
          * 

@@ -20,34 +20,28 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "firehose.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const lambdaIam = new aws.iam.Role("lambdaIam", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const firehoseAssumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["firehose.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: firehoseAssumeRole.then(firehoseAssumeRole => firehoseAssumeRole.json)});
+ * const lambdaAssumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["lambda.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const lambdaIam = new aws.iam.Role("lambdaIam", {assumeRolePolicy: lambdaAssumeRole.then(lambdaAssumeRole => lambdaAssumeRole.json)});
  * const lambdaProcessor = new aws.lambda.Function("lambdaProcessor", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
  *     role: lambdaIam.arn,
@@ -88,9 +82,12 @@ import * as utilities from "../utilities";
  *     extendedS3Configuration: {
  *         roleArn: aws_iam_role.firehose_role.arn,
  *         bucketArn: aws_s3_bucket.bucket.arn,
+ *         bufferSize: 64,
+ *         dynamicPartitioningConfiguration: {
+ *             enabled: true,
+ *         },
  *         prefix: "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
  *         errorOutputPrefix: "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
- *         bufferSize: 64,
  *         processingConfiguration: {
  *             enabled: true,
  *             processors: [
@@ -133,20 +130,17 @@ import * as utilities from "../utilities";
  *     bucket: bucket.id,
  *     acl: "private",
  * });
- * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "firehose.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["firehose.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "s3",
  *     s3Configuration: {
@@ -255,40 +249,35 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  * });
- * const firehose_elasticsearch = new aws.iam.RolePolicy("firehose-elasticsearch", {
- *     role: aws_iam_role.firehose.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "es:*"
- *       ],
- *       "Resource": [
- *         "${testCluster.arn}",
- *         "${testCluster.arn}/*"
- *       ]
+ * const firehose-elasticsearchPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [
+ *         {
+ *             effect: "Allow",
+ *             actions: ["es:*"],
+ *             resources: [
+ *                 testCluster.arn,
+ *                 pulumi.interpolate`${testCluster.arn}/*`,
+ *             ],
  *         },
  *         {
- *           "Effect": "Allow",
- *           "Action": [
- *             "ec2:DescribeVpcs",
- *             "ec2:DescribeVpcAttribute",
- *             "ec2:DescribeSubnets",
- *             "ec2:DescribeSecurityGroups",
- *             "ec2:DescribeNetworkInterfaces",
- *             "ec2:CreateNetworkInterface",
- *             "ec2:CreateNetworkInterfacePermission",
- *             "ec2:DeleteNetworkInterface"
- *           ],
- *           "Resource": [
- *             "*"
- *           ]
- *         }
- *   ]
- * }
- * `,
+ *             effect: "Allow",
+ *             actions: [
+ *                 "ec2:DescribeVpcs",
+ *                 "ec2:DescribeVpcAttribute",
+ *                 "ec2:DescribeSubnets",
+ *                 "ec2:DescribeSecurityGroups",
+ *                 "ec2:DescribeNetworkInterfaces",
+ *                 "ec2:CreateNetworkInterface",
+ *                 "ec2:CreateNetworkInterfacePermission",
+ *                 "ec2:DeleteNetworkInterface",
+ *             ],
+ *             resources: ["*"],
+ *         },
+ *     ],
+ * });
+ * const firehose_elasticsearchRolePolicy = new aws.iam.RolePolicy("firehose-elasticsearchRolePolicy", {
+ *     role: aws_iam_role.firehose.id,
+ *     policy: firehose_elasticsearchPolicyDocument.apply(firehose_elasticsearchPolicyDocument => firehose_elasticsearchPolicyDocument.json),
  * });
  * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
  *     destination: "elasticsearch",
@@ -311,7 +300,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * }, {
- *     dependsOn: [firehose_elasticsearch],
+ *     dependsOn: [firehose_elasticsearchRolePolicy],
  * });
  * ```
  * ### Splunk Destination

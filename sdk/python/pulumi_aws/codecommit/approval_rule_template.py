@@ -218,21 +218,20 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         example = aws.codecommit.ApprovalRuleTemplate("example",
-            content=\"\"\"{
-            "Version": "2018-11-08",
-            "DestinationReferences": ["refs/heads/master"],
-            "Statements": [{
-                "Type": "Approvers",
-                "NumberOfApprovalsNeeded": 2,
-                "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"]
-            }]
-        }
-
-        \"\"\",
-            description="This is an example approval rule template")
+            description="This is an example approval rule template",
+            content=json.dumps({
+                "Version": "2018-11-08",
+                "DestinationReferences": ["refs/heads/master"],
+                "Statements": [{
+                    "Type": "Approvers",
+                    "NumberOfApprovalsNeeded": 2,
+                    "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
+                }],
+            }))
         ```
 
         ## Import
@@ -262,21 +261,20 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         example = aws.codecommit.ApprovalRuleTemplate("example",
-            content=\"\"\"{
-            "Version": "2018-11-08",
-            "DestinationReferences": ["refs/heads/master"],
-            "Statements": [{
-                "Type": "Approvers",
-                "NumberOfApprovalsNeeded": 2,
-                "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"]
-            }]
-        }
-
-        \"\"\",
-            description="This is an example approval rule template")
+            description="This is an example approval rule template",
+            content=json.dumps({
+                "Version": "2018-11-08",
+                "DestinationReferences": ["refs/heads/master"],
+                "Statements": [{
+                    "Type": "Approvers",
+                    "NumberOfApprovalsNeeded": 2,
+                    "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
+                }],
+            }))
         ```
 
         ## Import

@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.ProviderArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.s3.BucketV2;
@@ -67,22 +69,19 @@ import javax.annotation.Nullable;
  *             .region(&#34;eu-central-1&#34;)
  *             .build());
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;s3.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var replicationRole = new Role(&#34;replicationRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;s3.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var destinationBucketV2 = new BucketV2(&#34;destinationBucketV2&#34;);
@@ -91,49 +90,35 @@ import javax.annotation.Nullable;
  *             .provider(aws.central())
  *             .build());
  * 
+ *         final var replicationPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;s3:GetReplicationConfiguration&#34;,
+ *                         &#34;s3:ListBucket&#34;)
+ *                     .resources(sourceBucketV2.arn())
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;s3:GetObjectVersionForReplication&#34;,
+ *                         &#34;s3:GetObjectVersionAcl&#34;,
+ *                         &#34;s3:GetObjectVersionTagging&#34;)
+ *                     .resources(sourceBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;s3:ReplicateObject&#34;,
+ *                         &#34;s3:ReplicateDelete&#34;,
+ *                         &#34;s3:ReplicateTags&#34;)
+ *                     .resources(destinationBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     .build())
+ *             .build());
+ * 
  *         var replicationPolicy = new Policy(&#34;replicationPolicy&#34;, PolicyArgs.builder()        
- *             .policy(Output.tuple(sourceBucketV2.arn(), sourceBucketV2.arn(), destinationBucketV2.arn()).applyValue(values -&gt; {
- *                 var sourceBucketV2Arn = values.t1;
- *                 var sourceBucketV2Arn1 = values.t2;
- *                 var destinationBucketV2Arn = values.t3;
- *                 return &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;s3:GetReplicationConfiguration&#34;,
- *         &#34;s3:ListBucket&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;
- *       ]
- *     },
- *     {
- *       &#34;Action&#34;: [
- *         &#34;s3:GetObjectVersionForReplication&#34;,
- *         &#34;s3:GetObjectVersionAcl&#34;,
- *          &#34;s3:GetObjectVersionTagging&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;%s/*&#34;
- *       ]
- *     },
- *     {
- *       &#34;Action&#34;: [
- *         &#34;s3:ReplicateObject&#34;,
- *         &#34;s3:ReplicateDelete&#34;,
- *         &#34;s3:ReplicateTags&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;%s/*&#34;
- *     }
- *   ]
- * }
- * &#34;, sourceBucketV2Arn,sourceBucketV2Arn1,destinationBucketV2Arn);
- *             }))
+ *             .policy(replicationPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(replicationPolicyDocument -&gt; replicationPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var replicationRolePolicyAttachment = new RolePolicyAttachment(&#34;replicationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
@@ -292,49 +277,49 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketReplicationConfig:BucketReplicationConfig")
 public class BucketReplicationConfig extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     * Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the source S3 bucket you want Amazon S3 to monitor.
+     * @return Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
-     * @return The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     * @return ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
     public Output<String> role() {
         return this.role;
     }
     /**
-     * List of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     @Export(name="rules", refs={List.class,BucketReplicationConfigRule.class}, tree="[0,1]")
     private Output<List<BucketReplicationConfigRule>> rules;
 
     /**
-     * @return List of configuration blocks describing the rules managing the replication documented below.
+     * @return List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     public Output<List<BucketReplicationConfigRule>> rules() {
         return this.rules;
     }
     /**
-     * A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
+     * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */
@@ -342,7 +327,7 @@ public class BucketReplicationConfig extends com.pulumi.resources.CustomResource
     private Output</* @Nullable */ String> token;
 
     /**
-     * @return A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
+     * @return Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */

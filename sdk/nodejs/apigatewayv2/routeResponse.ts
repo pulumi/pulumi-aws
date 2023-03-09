@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const example = new aws.apigatewayv2.RouteResponse("example", {
  *     apiId: aws_apigatewayv2_api.example.id,
  *     routeId: aws_apigatewayv2_route.example.id,
- *     routeResponseKey: `$default`,
+ *     routeResponseKey: "$default",
  * });
  * ```
  *

@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementAccelerato
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementMemoryMib;
+import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCount;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementTotalLocalStorageGb;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementVcpuCount;
@@ -25,6 +26,7 @@ public final class GetLaunchTemplateInstanceRequirement {
     private List<String> acceleratorNames;
     private List<GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
     private List<String> acceleratorTypes;
+    private List<String> allowedInstanceTypes;
     private String bareMetal;
     private List<GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
     private String burstablePerformance;
@@ -35,6 +37,7 @@ public final class GetLaunchTemplateInstanceRequirement {
     private List<String> localStorageTypes;
     private List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
     private List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs;
+    private List<GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
     private List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
     private Integer onDemandMaxPricePercentageOverLowestPrice;
     private Boolean requireHibernateSupport;
@@ -57,6 +60,9 @@ public final class GetLaunchTemplateInstanceRequirement {
     }
     public List<String> acceleratorTypes() {
         return this.acceleratorTypes;
+    }
+    public List<String> allowedInstanceTypes() {
+        return this.allowedInstanceTypes;
     }
     public String bareMetal() {
         return this.bareMetal;
@@ -87,6 +93,9 @@ public final class GetLaunchTemplateInstanceRequirement {
     }
     public List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs() {
         return this.memoryMibs;
+    }
+    public List<GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps() {
+        return this.networkBandwidthGbps;
     }
     public List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts() {
         return this.networkInterfaceCounts;
@@ -121,6 +130,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         private List<String> acceleratorNames;
         private List<GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs;
         private List<String> acceleratorTypes;
+        private List<String> allowedInstanceTypes;
         private String bareMetal;
         private List<GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps;
         private String burstablePerformance;
@@ -131,6 +141,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         private List<String> localStorageTypes;
         private List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
         private List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs;
+        private List<GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
         private List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts;
         private Integer onDemandMaxPricePercentageOverLowestPrice;
         private Boolean requireHibernateSupport;
@@ -145,6 +156,7 @@ public final class GetLaunchTemplateInstanceRequirement {
     	      this.acceleratorNames = defaults.acceleratorNames;
     	      this.acceleratorTotalMemoryMibs = defaults.acceleratorTotalMemoryMibs;
     	      this.acceleratorTypes = defaults.acceleratorTypes;
+    	      this.allowedInstanceTypes = defaults.allowedInstanceTypes;
     	      this.bareMetal = defaults.bareMetal;
     	      this.baselineEbsBandwidthMbps = defaults.baselineEbsBandwidthMbps;
     	      this.burstablePerformance = defaults.burstablePerformance;
@@ -155,6 +167,7 @@ public final class GetLaunchTemplateInstanceRequirement {
     	      this.localStorageTypes = defaults.localStorageTypes;
     	      this.memoryGibPerVcpus = defaults.memoryGibPerVcpus;
     	      this.memoryMibs = defaults.memoryMibs;
+    	      this.networkBandwidthGbps = defaults.networkBandwidthGbps;
     	      this.networkInterfaceCounts = defaults.networkInterfaceCounts;
     	      this.onDemandMaxPricePercentageOverLowestPrice = defaults.onDemandMaxPricePercentageOverLowestPrice;
     	      this.requireHibernateSupport = defaults.requireHibernateSupport;
@@ -202,6 +215,14 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         public Builder acceleratorTypes(String... acceleratorTypes) {
             return acceleratorTypes(List.of(acceleratorTypes));
+        }
+        @CustomType.Setter
+        public Builder allowedInstanceTypes(List<String> allowedInstanceTypes) {
+            this.allowedInstanceTypes = Objects.requireNonNull(allowedInstanceTypes);
+            return this;
+        }
+        public Builder allowedInstanceTypes(String... allowedInstanceTypes) {
+            return allowedInstanceTypes(List.of(allowedInstanceTypes));
         }
         @CustomType.Setter
         public Builder bareMetal(String bareMetal) {
@@ -275,6 +296,14 @@ public final class GetLaunchTemplateInstanceRequirement {
             return memoryMibs(List.of(memoryMibs));
         }
         @CustomType.Setter
+        public Builder networkBandwidthGbps(List<GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps) {
+            this.networkBandwidthGbps = Objects.requireNonNull(networkBandwidthGbps);
+            return this;
+        }
+        public Builder networkBandwidthGbps(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp... networkBandwidthGbps) {
+            return networkBandwidthGbps(List.of(networkBandwidthGbps));
+        }
+        @CustomType.Setter
         public Builder networkInterfaceCounts(List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts) {
             this.networkInterfaceCounts = Objects.requireNonNull(networkInterfaceCounts);
             return this;
@@ -320,6 +349,7 @@ public final class GetLaunchTemplateInstanceRequirement {
             o.acceleratorNames = acceleratorNames;
             o.acceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
             o.acceleratorTypes = acceleratorTypes;
+            o.allowedInstanceTypes = allowedInstanceTypes;
             o.bareMetal = bareMetal;
             o.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             o.burstablePerformance = burstablePerformance;
@@ -330,6 +360,7 @@ public final class GetLaunchTemplateInstanceRequirement {
             o.localStorageTypes = localStorageTypes;
             o.memoryGibPerVcpus = memoryGibPerVcpus;
             o.memoryMibs = memoryMibs;
+            o.networkBandwidthGbps = networkBandwidthGbps;
             o.networkInterfaceCounts = networkInterfaceCounts;
             o.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             o.requireHibernateSupport = requireHibernateSupport;

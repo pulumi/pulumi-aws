@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const orderFlowersBot = aws.lex.getBot({
  *     name: "OrderFlowers",
- *     version: `$LATEST`,
+ *     version: "$LATEST",
  * });
  * ```
  */
@@ -126,7 +126,7 @@ export interface GetBotResult {
  *
  * const orderFlowersBot = aws.lex.getBot({
  *     name: "OrderFlowers",
- *     version: `$LATEST`,
+ *     version: "$LATEST",
  * });
  * ```
  */

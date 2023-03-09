@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The time in seconds that your browser is to cache the preflight response for the specified resource.
+        /// Time in seconds that your browser is to cache the preflight response for the specified resource.
         /// </summary>
         public readonly int? MaxAgeSeconds;
 

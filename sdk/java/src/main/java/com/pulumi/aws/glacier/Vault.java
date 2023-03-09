@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.glacier.Vault;
  * import com.pulumi.aws.glacier.VaultArgs;
  * import com.pulumi.aws.glacier.inputs.VaultNotificationArgs;
@@ -47,30 +49,29 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var awsSnsTopic = new Topic(&#34;awsSnsTopic&#34;);
  * 
- *         var myArchive = new Vault(&#34;myArchive&#34;, VaultArgs.builder()        
+ *         final var myArchivePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;add-read-only-perm&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;glacier:InitiateJob&#34;,
+ *                     &#34;glacier:GetJobOutput&#34;)
+ *                 .resources(&#34;arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var myArchiveVault = new Vault(&#34;myArchiveVault&#34;, VaultArgs.builder()        
  *             .notification(VaultNotificationArgs.builder()
  *                 .snsTopic(awsSnsTopic.arn())
  *                 .events(                
  *                     &#34;ArchiveRetrievalCompleted&#34;,
  *                     &#34;InventoryRetrievalCompleted&#34;)
  *                 .build())
- *             .accessPolicy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;:&#34;2012-10-17&#34;,
- *     &#34;Statement&#34;:[
- *        {
- *           &#34;Sid&#34;: &#34;add-read-only-perm&#34;,
- *           &#34;Principal&#34;: &#34;*&#34;,
- *           &#34;Effect&#34;: &#34;Allow&#34;,
- *           &#34;Action&#34;: [
- *              &#34;glacier:InitiateJob&#34;,
- *              &#34;glacier:GetJobOutput&#34;
- *           ],
- *           &#34;Resource&#34;: &#34;arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive&#34;
- *        }
- *     ]
- * }
- *             &#34;&#34;&#34;)
+ *             .accessPolicy(myArchivePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .tags(Map.of(&#34;Test&#34;, &#34;MyArchive&#34;))
  *             .build());
  * 

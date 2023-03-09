@@ -18,14 +18,14 @@ public final class BucketV2ServerSideEncryptionConfigurationRuleArgs extends com
     public static final BucketV2ServerSideEncryptionConfigurationRuleArgs Empty = new BucketV2ServerSideEncryptionConfigurationRuleArgs();
 
     /**
-     * A single object for setting server-side encryption by default. (documented below)
+     * Single object for setting server-side encryption by default. (documented below)
      * 
      */
     @Import(name="applyServerSideEncryptionByDefaults", required=true)
     private Output<List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefaults;
 
     /**
-     * @return A single object for setting server-side encryption by default. (documented below)
+     * @return Single object for setting server-side encryption by default. (documented below)
      * 
      */
     public Output<List<BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefaults() {
@@ -73,7 +73,7 @@ public final class BucketV2ServerSideEncryptionConfigurationRuleArgs extends com
         }
 
         /**
-         * @param applyServerSideEncryptionByDefaults A single object for setting server-side encryption by default. (documented below)
+         * @param applyServerSideEncryptionByDefaults Single object for setting server-side encryption by default. (documented below)
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class BucketV2ServerSideEncryptionConfigurationRuleArgs extends com
         }
 
         /**
-         * @param applyServerSideEncryptionByDefaults A single object for setting server-side encryption by default. (documented below)
+         * @param applyServerSideEncryptionByDefaults Single object for setting server-side encryption by default. (documented below)
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class BucketV2ServerSideEncryptionConfigurationRuleArgs extends com
         }
 
         /**
-         * @param applyServerSideEncryptionByDefaults A single object for setting server-side encryption by default. (documented below)
+         * @param applyServerSideEncryptionByDefaults Single object for setting server-side encryption by default. (documented below)
          * 
          * @return builder
          * 

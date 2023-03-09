@@ -31,6 +31,21 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+     * 
+     */
+    @Import(name="clientPasswordAuthType")
+    private @Nullable Output<String> clientPasswordAuthType;
+
+    /**
+     * @return The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+     * 
+     */
+    public Optional<Output<String>> clientPasswordAuthType() {
+        return Optional.ofNullable(this.clientPasswordAuthType);
+    }
+
+    /**
      * A user-specified description about the authentication used by a proxy to log in as a specific database user.
      * 
      */
@@ -94,6 +109,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProxyAuthArgs(ProxyAuthArgs $) {
         this.authScheme = $.authScheme;
+        this.clientPasswordAuthType = $.clientPasswordAuthType;
         this.description = $.description;
         this.iamAuth = $.iamAuth;
         this.secretArn = $.secretArn;
@@ -137,6 +153,27 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder authScheme(String authScheme) {
             return authScheme(Output.of(authScheme));
+        }
+
+        /**
+         * @param clientPasswordAuthType The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientPasswordAuthType(@Nullable Output<String> clientPasswordAuthType) {
+            $.clientPasswordAuthType = clientPasswordAuthType;
+            return this;
+        }
+
+        /**
+         * @param clientPasswordAuthType The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientPasswordAuthType(String clientPasswordAuthType) {
+            return clientPasswordAuthType(Output.of(clientPasswordAuthType));
         }
 
         /**

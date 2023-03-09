@@ -17,20 +17,14 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
     public static final DistributionViewerCertificateArgs Empty = new DistributionViewerCertificateArgs();
 
     /**
-     * The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
-     * certificate that you wish to use with this distribution. Specify this,
-     * `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
-     * certificate must be in  US-EAST-1.
+     * ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM certificate must be in  US-EAST-1.
      * 
      */
     @Import(name="acmCertificateArn")
     private @Nullable Output<String> acmCertificateArn;
 
     /**
-     * @return The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
-     * certificate that you wish to use with this distribution. Specify this,
-     * `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
-     * certificate must be in  US-EAST-1.
+     * @return ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM certificate must be in  US-EAST-1.
      * 
      */
     public Optional<Output<String>> acmCertificateArn() {
@@ -38,18 +32,14 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
     }
 
     /**
-     * `true` if you want viewers to use HTTPS
-     * to request your objects and you&#39;re using the CloudFront domain name for your
-     * distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
+     * `true` if you want viewers to use HTTPS to request your objects and you&#39;re using the CloudFront domain name for your distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
      * 
      */
     @Import(name="cloudfrontDefaultCertificate")
     private @Nullable Output<Boolean> cloudfrontDefaultCertificate;
 
     /**
-     * @return `true` if you want viewers to use HTTPS
-     * to request your objects and you&#39;re using the CloudFront domain name for your
-     * distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
+     * @return `true` if you want viewers to use HTTPS to request your objects and you&#39;re using the CloudFront domain name for your distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
      * 
      */
     public Optional<Output<Boolean>> cloudfrontDefaultCertificate() {
@@ -57,18 +47,14 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
     }
 
     /**
-     * The IAM certificate identifier of the custom viewer
-     * certificate for this distribution if you are using a custom domain. Specify
-     * this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
+     * IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
      * 
      */
     @Import(name="iamCertificateId")
     private @Nullable Output<String> iamCertificateId;
 
     /**
-     * @return The IAM certificate identifier of the custom viewer
-     * certificate for this distribution if you are using a custom domain. Specify
-     * this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
+     * @return IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
      * 
      */
     public Optional<Output<String>> iamCertificateId() {
@@ -76,36 +62,14 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
     }
 
     /**
-     * The minimum version of the SSL protocol that
-     * you want CloudFront to use for HTTPS connections. Can only be set if
-     * `cloudfront_default_certificate = false`. See all possible values in
-     * [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
-     * table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and
-     * `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
-     * If you are using a custom certificate (specified with `acm_certificate_arn`
-     * or `iam_certificate_id`), and have specified `sni-only` in
-     * `ssl_support_method`, `TLSv1` or later must be specified. If you have
-     * specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be
-     * specified. If you have specified `cloudfront_default_certificate`, `TLSv1`
-     * must be specified.
+     * Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
      * 
      */
     @Import(name="minimumProtocolVersion")
     private @Nullable Output<String> minimumProtocolVersion;
 
     /**
-     * @return The minimum version of the SSL protocol that
-     * you want CloudFront to use for HTTPS connections. Can only be set if
-     * `cloudfront_default_certificate = false`. See all possible values in
-     * [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
-     * table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and
-     * `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
-     * If you are using a custom certificate (specified with `acm_certificate_arn`
-     * or `iam_certificate_id`), and have specified `sni-only` in
-     * `ssl_support_method`, `TLSv1` or later must be specified. If you have
-     * specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be
-     * specified. If you have specified `cloudfront_default_certificate`, `TLSv1`
-     * must be specified.
+     * @return Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
      * 
      */
     public Optional<Output<String>> minimumProtocolVersion() {
@@ -113,20 +77,14 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies how you want CloudFront to serve HTTPS
-     * requests. One of `vip` or `sni-only`. Required if you specify
-     * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
-     * CloudFront to use a dedicated IP address and may incur extra charges.
+     * How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
      * 
      */
     @Import(name="sslSupportMethod")
     private @Nullable Output<String> sslSupportMethod;
 
     /**
-     * @return Specifies how you want CloudFront to serve HTTPS
-     * requests. One of `vip` or `sni-only`. Required if you specify
-     * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
-     * CloudFront to use a dedicated IP address and may incur extra charges.
+     * @return How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
      * 
      */
     public Optional<Output<String>> sslSupportMethod() {
@@ -162,10 +120,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param acmCertificateArn The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
-         * certificate that you wish to use with this distribution. Specify this,
-         * `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
-         * certificate must be in  US-EAST-1.
+         * @param acmCertificateArn ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM certificate must be in  US-EAST-1.
          * 
          * @return builder
          * 
@@ -176,10 +131,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param acmCertificateArn The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
-         * certificate that you wish to use with this distribution. Specify this,
-         * `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
-         * certificate must be in  US-EAST-1.
+         * @param acmCertificateArn ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM certificate must be in  US-EAST-1.
          * 
          * @return builder
          * 
@@ -189,9 +141,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param cloudfrontDefaultCertificate `true` if you want viewers to use HTTPS
-         * to request your objects and you&#39;re using the CloudFront domain name for your
-         * distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
+         * @param cloudfrontDefaultCertificate `true` if you want viewers to use HTTPS to request your objects and you&#39;re using the CloudFront domain name for your distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
          * 
          * @return builder
          * 
@@ -202,9 +152,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param cloudfrontDefaultCertificate `true` if you want viewers to use HTTPS
-         * to request your objects and you&#39;re using the CloudFront domain name for your
-         * distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
+         * @param cloudfrontDefaultCertificate `true` if you want viewers to use HTTPS to request your objects and you&#39;re using the CloudFront domain name for your distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
          * 
          * @return builder
          * 
@@ -214,9 +162,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param iamCertificateId The IAM certificate identifier of the custom viewer
-         * certificate for this distribution if you are using a custom domain. Specify
-         * this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
+         * @param iamCertificateId IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
          * 
          * @return builder
          * 
@@ -227,9 +173,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param iamCertificateId The IAM certificate identifier of the custom viewer
-         * certificate for this distribution if you are using a custom domain. Specify
-         * this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
+         * @param iamCertificateId IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
          * 
          * @return builder
          * 
@@ -239,18 +183,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param minimumProtocolVersion The minimum version of the SSL protocol that
-         * you want CloudFront to use for HTTPS connections. Can only be set if
-         * `cloudfront_default_certificate = false`. See all possible values in
-         * [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
-         * table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and
-         * `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
-         * If you are using a custom certificate (specified with `acm_certificate_arn`
-         * or `iam_certificate_id`), and have specified `sni-only` in
-         * `ssl_support_method`, `TLSv1` or later must be specified. If you have
-         * specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be
-         * specified. If you have specified `cloudfront_default_certificate`, `TLSv1`
-         * must be specified.
+         * @param minimumProtocolVersion Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
          * 
          * @return builder
          * 
@@ -261,18 +194,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param minimumProtocolVersion The minimum version of the SSL protocol that
-         * you want CloudFront to use for HTTPS connections. Can only be set if
-         * `cloudfront_default_certificate = false`. See all possible values in
-         * [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
-         * table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and
-         * `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
-         * If you are using a custom certificate (specified with `acm_certificate_arn`
-         * or `iam_certificate_id`), and have specified `sni-only` in
-         * `ssl_support_method`, `TLSv1` or later must be specified. If you have
-         * specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be
-         * specified. If you have specified `cloudfront_default_certificate`, `TLSv1`
-         * must be specified.
+         * @param minimumProtocolVersion Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
          * 
          * @return builder
          * 
@@ -282,10 +204,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sslSupportMethod Specifies how you want CloudFront to serve HTTPS
-         * requests. One of `vip` or `sni-only`. Required if you specify
-         * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
-         * CloudFront to use a dedicated IP address and may incur extra charges.
+         * @param sslSupportMethod How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
          * 
          * @return builder
          * 
@@ -296,10 +215,7 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sslSupportMethod Specifies how you want CloudFront to serve HTTPS
-         * requests. One of `vip` or `sni-only`. Required if you specify
-         * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
-         * CloudFront to use a dedicated IP address and may incur extra charges.
+         * @param sslSupportMethod How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
          * 
          * @return builder
          * 

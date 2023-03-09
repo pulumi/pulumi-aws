@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -29,44 +29,58 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-//				ContainerProperties: pulumi.String(fmt.Sprintf(`{
-//		"command": ["ls", "-la"],
-//		"image": "busybox",
-//		"resourceRequirements": [
-//	    {"type": "VCPU", "value": "0.25"},
-//	    {"type": "MEMORY", "value": "512"}
-//	  ],
-//		"volumes": [
-//	      {
-//	        "host": {
-//	          "sourcePath": "/tmp"
-//	        },
-//	        "name": "tmp"
-//	      }
-//	    ],
-//		"environment": [
-//			{"name": "VARNAME", "value": "VARVAL"}
-//		],
-//		"mountPoints": [
-//			{
-//	          "sourceVolume": "tmp",
-//	          "containerPath": "/tmp",
-//	          "readOnly": false
-//	        }
-//		],
-//	    "ulimits": [
-//	      {
-//	        "hardLimit": 1024,
-//	        "name": "nofile",
-//	        "softLimit": 1024
-//	      }
-//	    ]
-//	}
-//
-// `)),
-//
-//				Type: pulumi.String("container"),
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"command": []string{
+//					"ls",
+//					"-la",
+//				},
+//				"image": "busybox",
+//				"resourceRequirements": []map[string]interface{}{
+//					map[string]interface{}{
+//						"type":  "VCPU",
+//						"value": "0.25",
+//					},
+//					map[string]interface{}{
+//						"type":  "MEMORY",
+//						"value": "512",
+//					},
+//				},
+//				"volumes": []map[string]interface{}{
+//					map[string]interface{}{
+//						"host": map[string]interface{}{
+//							"sourcePath": "/tmp",
+//						},
+//						"name": "tmp",
+//					},
+//				},
+//				"environment": []map[string]interface{}{
+//					map[string]interface{}{
+//						"name":  "VARNAME",
+//						"value": "VARVAL",
+//					},
+//				},
+//				"mountPoints": []map[string]interface{}{
+//					map[string]interface{}{
+//						"sourceVolume":  "tmp",
+//						"containerPath": "/tmp",
+//						"readOnly":      false,
+//					},
+//				},
+//				"ulimits": []map[string]interface{}{
+//					map[string]interface{}{
+//						"hardLimit": 1024,
+//						"name":      "nofile",
+//						"softLimit": 1024,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Type:                pulumi.String("container"),
+//				ContainerProperties: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -83,7 +97,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
@@ -131,22 +145,34 @@ import (
 //				PlatformCapabilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
 //				},
-//				ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "command": ["echo", "test"],
-//	  "image": "busybox",
-//	  "fargatePlatformConfiguration": {
-//	    "platformVersion": "LATEST"
-//	  },
-//	  "resourceRequirements": [
-//	    {"type": "VCPU", "value": "0.25"},
-//	    {"type": "MEMORY", "value": "512"}
-//	  ],
-//	  "executionRoleArn": "%v"
-//	}
-//
-// `, arn), nil
-//
+//				ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"command": []string{
+//							"echo",
+//							"test",
+//						},
+//						"image": "busybox",
+//						"fargatePlatformConfiguration": map[string]interface{}{
+//							"platformVersion": "LATEST",
+//						},
+//						"resourceRequirements": []map[string]interface{}{
+//							map[string]interface{}{
+//								"type":  "VCPU",
+//								"value": "0.25",
+//							},
+//							map[string]interface{}{
+//								"type":  "MEMORY",
+//								"value": "512",
+//							},
+//						},
+//						"executionRoleArn": arn,
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {

@@ -42,8 +42,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -52,26 +50,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-//				DeliveryPolicy: pulumi.String(fmt.Sprintf(`{
-//	  "http": {
-//	    "defaultHealthyRetryPolicy": {
-//	      "minDelayTarget": 20,
-//	      "maxDelayTarget": 20,
-//	      "numRetries": 3,
-//	      "numMaxDelayRetries": 0,
-//	      "numNoDelayRetries": 0,
-//	      "numMinDelayRetries": 0,
-//	      "backoffFunction": "linear"
-//	    },
-//	    "disableSubscriptionOverrides": false,
-//	    "defaultThrottlePolicy": {
-//	      "maxReceivesPerSecond": 1
-//	    }
-//	  }
-//	}
-//
-// `)),
-//
+//				DeliveryPolicy: pulumi.String("{\n  \"http\": {\n    \"defaultHealthyRetryPolicy\": {\n      \"minDelayTarget\": 20,\n      \"maxDelayTarget\": 20,\n      \"numRetries\": 3,\n      \"numMaxDelayRetries\": 0,\n      \"numNoDelayRetries\": 0,\n      \"numMinDelayRetries\": 0,\n      \"backoffFunction\": \"linear\"\n    },\n    \"disableSubscriptionOverrides\": false,\n    \"defaultThrottlePolicy\": {\n      \"maxReceivesPerSecond\": 1\n    }\n  }\n}\n\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -195,6 +174,8 @@ type Topic struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+	SignatureVersion pulumi.IntOutput `pulumi:"signatureVersion"`
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"sqsFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -205,6 +186,8 @@ type Topic struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+	TracingConfig pulumi.StringOutput `pulumi:"tracingConfig"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -280,6 +263,8 @@ type topicState struct {
 	Owner *string `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy *string `pulumi:"policy"`
+	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+	SignatureVersion *int `pulumi:"signatureVersion"`
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn *string `pulumi:"sqsFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -290,6 +275,8 @@ type topicState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+	TracingConfig *string `pulumi:"tracingConfig"`
 }
 
 type TopicState struct {
@@ -337,6 +324,8 @@ type TopicState struct {
 	Owner pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringPtrInput
+	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+	SignatureVersion pulumi.IntPtrInput
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this topic
@@ -347,6 +336,8 @@ type TopicState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+	TracingConfig pulumi.StringPtrInput
 }
 
 func (TopicState) ElementType() reflect.Type {
@@ -394,6 +385,8 @@ type topicArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The fully-formed AWS policy as JSON.
 	Policy *string `pulumi:"policy"`
+	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+	SignatureVersion *int `pulumi:"signatureVersion"`
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn *string `pulumi:"sqsFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -402,6 +395,8 @@ type topicArgs struct {
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+	TracingConfig *string `pulumi:"tracingConfig"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -446,6 +441,8 @@ type TopicArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringPtrInput
+	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+	SignatureVersion pulumi.IntPtrInput
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this topic
@@ -454,6 +451,8 @@ type TopicArgs struct {
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+	TracingConfig pulumi.StringPtrInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {
@@ -653,6 +652,11 @@ func (o TopicOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
+// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+func (o TopicOutput) SignatureVersion() pulumi.IntOutput {
+	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.SignatureVersion }).(pulumi.IntOutput)
+}
+
 // IAM role for failure feedback
 func (o TopicOutput) SqsFailureFeedbackRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.SqsFailureFeedbackRoleArn }).(pulumi.StringPtrOutput)
@@ -676,6 +680,11 @@ func (o TopicOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TopicOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+func (o TopicOutput) TracingConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.TracingConfig }).(pulumi.StringOutput)
 }
 
 type TopicArrayOutput struct{ *pulumi.OutputState }

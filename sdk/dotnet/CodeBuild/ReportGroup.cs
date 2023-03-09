@@ -23,26 +23,42 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "Enable IAM User Permissions",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "kms:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
     ///     {
     ///         Description = "my test kms key",
     ///         DeletionWindowInDays = 7,
-    ///         Policy = @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Id"": ""kms-tf-1"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Sid"": ""Enable IAM User Permissions"",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {{
-    ///         ""AWS"": ""arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""
-    ///       }},
-    ///       ""Action"": ""kms:*"",
-    ///       ""Resource"": ""*""
-    ///     }}
-    ///   ]
-    /// }}
-    /// ",
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");

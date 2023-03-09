@@ -18,14 +18,14 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
     public static final BucketLoggingV2State Empty = new BucketLoggingV2State();
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -33,14 +33,14 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -48,14 +48,14 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
+     * Name of the bucket where you want Amazon S3 to store server access logs.
      * 
      */
     @Import(name="targetBucket")
     private @Nullable Output<String> targetBucket;
 
     /**
-     * @return The name of the bucket where you want Amazon S3 to store server access logs.
+     * @return Name of the bucket where you want Amazon S3 to store server access logs.
      * 
      */
     public Optional<Output<String>> targetBucket() {
@@ -63,14 +63,14 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Set of configuration blocks with information for granting permissions documented below.
+     * Set of configuration blocks with information for granting permissions. See below.
      * 
      */
     @Import(name="targetGrants")
     private @Nullable Output<List<BucketLoggingV2TargetGrantArgs>> targetGrants;
 
     /**
-     * @return Set of configuration blocks with information for granting permissions documented below.
+     * @return Set of configuration blocks with information for granting permissions. See below.
      * 
      */
     public Optional<Output<List<BucketLoggingV2TargetGrantArgs>>> targetGrants() {
@@ -78,14 +78,14 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A prefix for all log object keys.
+     * Prefix for all log object keys.
      * 
      */
     @Import(name="targetPrefix")
     private @Nullable Output<String> targetPrefix;
 
     /**
-     * @return A prefix for all log object keys.
+     * @return Prefix for all log object keys.
      * 
      */
     public Optional<Output<String>> targetPrefix() {
@@ -121,7 +121,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetBucket The name of the bucket where you want Amazon S3 to store server access logs.
+         * @param targetBucket Name of the bucket where you want Amazon S3 to store server access logs.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetBucket The name of the bucket where you want Amazon S3 to store server access logs.
+         * @param targetBucket Name of the bucket where you want Amazon S3 to store server access logs.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions documented below.
+         * @param targetGrants Set of configuration blocks with information for granting permissions. See below.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions documented below.
+         * @param targetGrants Set of configuration blocks with information for granting permissions. See below.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions documented below.
+         * @param targetGrants Set of configuration blocks with information for granting permissions. See below.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetPrefix A prefix for all log object keys.
+         * @param targetPrefix Prefix for all log object keys.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class BucketLoggingV2State extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetPrefix A prefix for all log object keys.
+         * @param targetPrefix Prefix for all log object keys.
          * 
          * @return builder
          * 

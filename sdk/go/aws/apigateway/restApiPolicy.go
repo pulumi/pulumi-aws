@@ -23,9 +23,8 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,31 +35,41 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			testPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("execute-api:Invoke"),
+//						},
+//						Resources: pulumi.StringArray{
+//							testRestApi.ExecutionArn,
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("IpAddress"),
+//								Variable: pulumi.String("aws:SourceIp"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("123.123.123.123/32"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
 //				RestApiId: testRestApi.ID(),
-//				Policy: testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "AWS": "*"
-//	      },
-//	      "Action": "execute-api:Invoke",
-//	      "Resource": "%v",
-//	      "Condition": {
-//	        "IpAddress": {
-//	          "aws:SourceIp": "123.123.123.123/32"
-//	        }
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `, executionArn), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &testPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

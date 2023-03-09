@@ -55,7 +55,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        /// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+        /// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

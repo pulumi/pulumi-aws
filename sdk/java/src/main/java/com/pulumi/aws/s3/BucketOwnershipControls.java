@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketOwnershipControls:BucketOwnershipControls")
 public class BucketOwnershipControls extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket that you want to associate this access point with.
+     * Name of the bucket that you want to associate this access point with.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket that you want to associate this access point with.
+     * @return Name of the bucket that you want to associate this access point with.
      * 
      */
     public Output<String> bucket() {

@@ -104,8 +104,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -115,7 +113,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
-//				AlarmDescription:        pulumi.String(fmt.Sprintf("Request error rate has exceeded 10%v", "%")),
+//				AlarmDescription:        pulumi.String("Request error rate has exceeded 10%"),
 //				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
 //				EvaluationPeriods:       pulumi.Int(2),
 //				InsufficientDataActions: pulumi.AnyArray{},

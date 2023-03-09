@@ -46,20 +46,17 @@ import * as utilities from "../utilities";
  *     bucket: bucket.id,
  *     acl: "private",
  * });
- * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
- * "Version": "2012-10-17",
- * "Statement": [
- *   {
- *     "Action": "sts:AssumeRole",
- *     "Principal": {
- *       "Service": "firehose.amazonaws.com"
- *     },
- *     "Effect": "Allow",
- *     "Sid": ""
- *   }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["firehose.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "s3",
  *     s3Configuration: {

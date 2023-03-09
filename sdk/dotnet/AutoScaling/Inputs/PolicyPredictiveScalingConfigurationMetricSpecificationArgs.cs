@@ -52,7 +52,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         /// Target value for the metric.
         /// </summary>
         [Input("targetValue", required: true)]
-        public Input<int> TargetValue { get; set; } = null!;
+        public Input<double> TargetValue { get; set; } = null!;
 
         public PolicyPredictiveScalingConfigurationMetricSpecificationArgs()
         {

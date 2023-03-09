@@ -204,6 +204,8 @@ public final class CloudtrailFunctions {
      * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -225,33 +227,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         var allowCloudtrailLogging = new BucketPolicy(&#34;allowCloudtrailLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Version&#34;: &#34;2008-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Sid&#34;: &#34;Put bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*&#34;
-     *     },
-     *     {
-     *       &#34;Sid&#34;: &#34;Get bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket&#34;
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -277,6 +279,8 @@ public final class CloudtrailFunctions {
      * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -298,33 +302,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         var allowCloudtrailLogging = new BucketPolicy(&#34;allowCloudtrailLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Version&#34;: &#34;2008-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Sid&#34;: &#34;Put bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*&#34;
-     *     },
-     *     {
-     *       &#34;Sid&#34;: &#34;Get bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket&#34;
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -350,6 +354,8 @@ public final class CloudtrailFunctions {
      * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -371,33 +377,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         var allowCloudtrailLogging = new BucketPolicy(&#34;allowCloudtrailLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Version&#34;: &#34;2008-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Sid&#34;: &#34;Put bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*&#34;
-     *     },
-     *     {
-     *       &#34;Sid&#34;: &#34;Get bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket&#34;
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -423,6 +429,8 @@ public final class CloudtrailFunctions {
      * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -444,33 +452,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         var allowCloudtrailLogging = new BucketPolicy(&#34;allowCloudtrailLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Version&#34;: &#34;2008-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Sid&#34;: &#34;Put bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*&#34;
-     *     },
-     *     {
-     *       &#34;Sid&#34;: &#34;Get bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket&#34;
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -496,6 +504,8 @@ public final class CloudtrailFunctions {
      * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -517,33 +527,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         var allowCloudtrailLogging = new BucketPolicy(&#34;allowCloudtrailLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Version&#34;: &#34;2008-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Sid&#34;: &#34;Put bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*&#34;
-     *     },
-     *     {
-     *       &#34;Sid&#34;: &#34;Get bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket&#34;
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -569,6 +579,8 @@ public final class CloudtrailFunctions {
      * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -590,33 +602,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         var allowCloudtrailLogging = new BucketPolicy(&#34;allowCloudtrailLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowCloudtrailLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Put bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid(&#34;Get bucket policy needed for trails&#34;)
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:GetBucketAcl&#34;)
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy(&#34;allowCloudtrailLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Version&#34;: &#34;2008-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Sid&#34;: &#34;Put bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*&#34;
-     *     },
-     *     {
-     *       &#34;Sid&#34;: &#34;Get bucket policy needed for trails&#34;,
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: &#34;%s&#34;
-     *       },
-     *       &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::tf-cloudtrail-logging-test-bucket&#34;
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowCloudtrailLoggingPolicyDocument -&gt; allowCloudtrailLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }

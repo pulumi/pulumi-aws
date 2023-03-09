@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigatewayv2.Model;
  * import com.pulumi.aws.apigatewayv2.ModelArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *         var example = new Model(&#34;example&#34;, ModelArgs.builder()        
  *             .apiId(aws_apigatewayv2_api.example().id())
  *             .contentType(&#34;application/json&#34;)
- *             .schema(&#34;&#34;&#34;
- * {
- *   &#34;$schema&#34;: &#34;http://json-schema.org/draft-04/schema#&#34;,
- *   &#34;title&#34;: &#34;ExampleModel&#34;,
- *   &#34;type&#34;: &#34;object&#34;,
- *   &#34;properties&#34;: {
- *     &#34;id&#34;: { &#34;type&#34;: &#34;string&#34; }
- *   }
- * }
- *             &#34;&#34;&#34;)
+ *             .schema(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;$schema&#34;, &#34;http://json-schema.org/draft-04/schema#&#34;),
+ *                     jsonProperty(&#34;title&#34;, &#34;ExampleModel&#34;),
+ *                     jsonProperty(&#34;type&#34;, &#34;object&#34;),
+ *                     jsonProperty(&#34;properties&#34;, jsonObject(
+ *                         jsonProperty(&#34;id&#34;, jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;string&#34;)
+ *                         ))
+ *                     ))
+ *                 )))
  *             .build());
  * 
  *     }

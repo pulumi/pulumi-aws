@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.Bucket,
+//				Bucket: example.ID(),
 //				StorageClassAnalysis: &s3.AnalyticsConfigurationStorageClassAnalysisArgs{
 //					DataExport: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs{
 //						Destination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{
@@ -75,7 +75,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.Bucket,
+//				Bucket: example.ID(),
 //				Filter: &s3.AnalyticsConfigurationFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{
@@ -105,7 +105,7 @@ import (
 type AnalyticsConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket this analytics configuration is associated with.
+	// Name of the bucket this analytics configuration is associated with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter AnalyticsConfigurationFilterPtrOutput `pulumi:"filter"`
@@ -147,7 +147,7 @@ func GetAnalyticsConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsConfiguration resources.
 type analyticsConfigurationState struct {
-	// The name of the bucket this analytics configuration is associated with.
+	// Name of the bucket this analytics configuration is associated with.
 	Bucket *string `pulumi:"bucket"`
 	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
@@ -158,7 +158,7 @@ type analyticsConfigurationState struct {
 }
 
 type AnalyticsConfigurationState struct {
-	// The name of the bucket this analytics configuration is associated with.
+	// Name of the bucket this analytics configuration is associated with.
 	Bucket pulumi.StringPtrInput
 	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter AnalyticsConfigurationFilterPtrInput
@@ -173,7 +173,7 @@ func (AnalyticsConfigurationState) ElementType() reflect.Type {
 }
 
 type analyticsConfigurationArgs struct {
-	// The name of the bucket this analytics configuration is associated with.
+	// Name of the bucket this analytics configuration is associated with.
 	Bucket string `pulumi:"bucket"`
 	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
@@ -185,7 +185,7 @@ type analyticsConfigurationArgs struct {
 
 // The set of arguments for constructing a AnalyticsConfiguration resource.
 type AnalyticsConfigurationArgs struct {
-	// The name of the bucket this analytics configuration is associated with.
+	// Name of the bucket this analytics configuration is associated with.
 	Bucket pulumi.StringInput
 	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter AnalyticsConfigurationFilterPtrInput
@@ -282,7 +282,7 @@ func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationOutputWithContext(
 	return o
 }
 
-// The name of the bucket this analytics configuration is associated with.
+// Name of the bucket this analytics configuration is associated with.
 func (o AnalyticsConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

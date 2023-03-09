@@ -23,30 +23,56 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     var mainUserPool = new Aws.Cognito.UserPool("mainUserPool");
     /// 
-    ///     var groupRole = new Aws.Iam.Role("groupRole", new()
+    ///     var groupRolePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Sid"": """",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Federated"": ""cognito-identity.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRoleWithWebIdentity"",
-    ///       ""Condition"": {
-    ///         ""StringEquals"": {
-    ///           ""cognito-identity.amazonaws.com:aud"": ""us-east-1:12345678-dead-beef-cafe-123456790ab""
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Federated",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cognito-identity.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRoleWithWebIdentity",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "cognito-identity.amazonaws.com:aud",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "us-east-1:12345678-dead-beef-cafe-123456790ab",
+    ///                         },
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ForAnyValue:StringLike",
+    ///                         Variable = "cognito-identity.amazonaws.com:amr",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "authenticated",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
-    ///         ""ForAnyValue:StringLike"": {
-    ///           ""cognito-identity.amazonaws.com:amr"": ""authenticated""
-    ///         }
-    ///       }
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///     });
+    /// 
+    ///     var groupRoleRole = new Aws.Iam.Role("groupRoleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = groupRolePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var mainUserGroup = new Aws.Cognito.UserGroup("mainUserGroup", new()
@@ -54,7 +80,7 @@ namespace Pulumi.Aws.Cognito
     ///         UserPoolId = mainUserPool.Id,
     ///         Description = "Managed by Pulumi",
     ///         Precedence = 42,
-    ///         RoleArn = groupRole.Arn,
+    ///         RoleArn = groupRoleRole.Arn,
     ///     });
     /// 
     /// });

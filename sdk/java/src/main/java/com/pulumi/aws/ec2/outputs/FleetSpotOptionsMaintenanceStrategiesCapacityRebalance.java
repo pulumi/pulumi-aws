@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,7 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
      * 
      */
     private @Nullable String replacementStrategy;
+    private @Nullable Integer terminationDelay;
 
     private FleetSpotOptionsMaintenanceStrategiesCapacityRebalance() {}
     /**
@@ -24,6 +26,9 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
      */
     public Optional<String> replacementStrategy() {
         return Optional.ofNullable(this.replacementStrategy);
+    }
+    public Optional<Integer> terminationDelay() {
+        return Optional.ofNullable(this.terminationDelay);
     }
 
     public static Builder builder() {
@@ -36,10 +41,12 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String replacementStrategy;
+        private @Nullable Integer terminationDelay;
         public Builder() {}
         public Builder(FleetSpotOptionsMaintenanceStrategiesCapacityRebalance defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.replacementStrategy = defaults.replacementStrategy;
+    	      this.terminationDelay = defaults.terminationDelay;
         }
 
         @CustomType.Setter
@@ -47,9 +54,15 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
             this.replacementStrategy = replacementStrategy;
             return this;
         }
+        @CustomType.Setter
+        public Builder terminationDelay(@Nullable Integer terminationDelay) {
+            this.terminationDelay = terminationDelay;
+            return this;
+        }
         public FleetSpotOptionsMaintenanceStrategiesCapacityRebalance build() {
             final var o = new FleetSpotOptionsMaintenanceStrategiesCapacityRebalance();
             o.replacementStrategy = replacementStrategy;
+            o.terminationDelay = terminationDelay;
             return o;
         }
     }

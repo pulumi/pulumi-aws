@@ -271,21 +271,14 @@ class User(pulumi.CustomResource):
                 "tag-key": "tag-value",
             })
         lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro = aws.iam.UserPolicy("lbRo",
+        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:Describe*"],
+            resources=["*"],
+        )])
+        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
             user=lb_user.name,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=lb_ro_policy_document.json)
         ```
 
         ## Import
@@ -329,21 +322,14 @@ class User(pulumi.CustomResource):
                 "tag-key": "tag-value",
             })
         lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro = aws.iam.UserPolicy("lbRo",
+        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:Describe*"],
+            resources=["*"],
+        )])
+        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
             user=lb_user.name,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=lb_ro_policy_document.json)
         ```
 
         ## Import

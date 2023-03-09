@@ -89,6 +89,8 @@ class _VpcIpamState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cascade: Optional[pulumi.Input[bool]] = None,
+                 default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
+                 default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]] = None,
                  private_default_scope_id: Optional[pulumi.Input[str]] = None,
@@ -113,6 +115,10 @@ class _VpcIpamState:
             pulumi.set(__self__, "arn", arn)
         if cascade is not None:
             pulumi.set(__self__, "cascade", cascade)
+        if default_resource_discovery_association_id is not None:
+            pulumi.set(__self__, "default_resource_discovery_association_id", default_resource_discovery_association_id)
+        if default_resource_discovery_id is not None:
+            pulumi.set(__self__, "default_resource_discovery_id", default_resource_discovery_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if operating_regions is not None:
@@ -151,6 +157,24 @@ class _VpcIpamState:
     @cascade.setter
     def cascade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "cascade", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
+    def default_resource_discovery_association_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_resource_discovery_association_id")
+
+    @default_resource_discovery_association_id.setter
+    def default_resource_discovery_association_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_resource_discovery_association_id", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryId")
+    def default_resource_discovery_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_resource_discovery_id")
+
+    @default_resource_discovery_id.setter
+    def default_resource_discovery_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_resource_discovery_id", value)
 
     @property
     @pulumi.getter
@@ -318,6 +342,8 @@ class VpcIpam(pulumi.CustomResource):
             __props__.__dict__["operating_regions"] = operating_regions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["default_resource_discovery_association_id"] = None
+            __props__.__dict__["default_resource_discovery_id"] = None
             __props__.__dict__["private_default_scope_id"] = None
             __props__.__dict__["public_default_scope_id"] = None
             __props__.__dict__["scope_count"] = None
@@ -334,6 +360,8 @@ class VpcIpam(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cascade: Optional[pulumi.Input[bool]] = None,
+            default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
+            default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]]] = None,
             private_default_scope_id: Optional[pulumi.Input[str]] = None,
@@ -365,6 +393,8 @@ class VpcIpam(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cascade"] = cascade
+        __props__.__dict__["default_resource_discovery_association_id"] = default_resource_discovery_association_id
+        __props__.__dict__["default_resource_discovery_id"] = default_resource_discovery_id
         __props__.__dict__["description"] = description
         __props__.__dict__["operating_regions"] = operating_regions
         __props__.__dict__["private_default_scope_id"] = private_default_scope_id
@@ -389,6 +419,16 @@ class VpcIpam(pulumi.CustomResource):
         Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         """
         return pulumi.get(self, "cascade")
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
+    def default_resource_discovery_association_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "default_resource_discovery_association_id")
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryId")
+    def default_resource_discovery_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "default_resource_discovery_id")
 
     @property
     @pulumi.getter

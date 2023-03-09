@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.resourcegroups.inputs.GroupResourceQueryArgs;
  * import com.pulumi.aws.applicationinsights.Application;
  * import com.pulumi.aws.applicationinsights.ApplicationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,21 +47,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
  *             .resourceQuery(GroupResourceQueryArgs.builder()
- *                 .query(&#34;&#34;&#34;
- * 	{
- * 		&#34;ResourceTypeFilters&#34;: [
- * 		  &#34;AWS::EC2::Instance&#34;
- * 		],
- * 		&#34;TagFilters&#34;: [
- * 		  {
- * 			&#34;Key&#34;: &#34;Stage&#34;,
- * 			&#34;Values&#34;: [
- * 			  &#34;Test&#34;
- * 			]
- * 		  }
- * 		]
- * 	  }
- *                 &#34;&#34;&#34;)
+ *                 .query(serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty(&#34;ResourceTypeFilters&#34;, jsonArray(&#34;AWS::EC2::Instance&#34;)),
+ *                         jsonProperty(&#34;TagFilters&#34;, jsonArray(jsonObject(
+ *                             jsonProperty(&#34;Key&#34;, &#34;Stage&#34;),
+ *                             jsonProperty(&#34;Values&#34;, jsonArray(&#34;Test&#34;))
+ *                         )))
+ *                     )))
  *                 .build())
  *             .build());
  * 

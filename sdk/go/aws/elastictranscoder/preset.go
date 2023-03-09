@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elastictranscoder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -75,8 +73,8 @@ import (
 //						HorizontalAlign:  pulumi.String("Right"),
 //						HorizontalOffset: pulumi.String("10px"),
 //						Id:               pulumi.String("Test"),
-//						MaxHeight:        pulumi.String(fmt.Sprintf("20%v", "%")),
-//						MaxWidth:         pulumi.String(fmt.Sprintf("20%v", "%")),
+//						MaxHeight:        pulumi.String("20%"),
+//						MaxWidth:         pulumi.String("20%"),
 //						Opacity:          pulumi.String("55.5"),
 //						SizingPolicy:     pulumi.String("ShrinkToFit"),
 //						Target:           pulumi.String("Content"),

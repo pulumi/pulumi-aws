@@ -12,146 +12,6 @@ namespace Pulumi.Aws.AppFlow
     /// <summary>
     /// Provides an AppFlow flow resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSourceBucketV2 = new Aws.S3.BucketV2("exampleSourceBucketV2");
-    /// 
-    ///     var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("exampleSourceBucketPolicy", new()
-    ///     {
-    ///         Bucket = exampleSourceBucketV2.Id,
-    ///         Policy = @"{
-    ///     ""Statement"": [
-    ///         {
-    ///             ""Effect"": ""Allow"",
-    ///             ""Sid"": ""AllowAppFlowSourceActions"",
-    ///             ""Principal"": {
-    ///                 ""Service"": ""appflow.amazonaws.com""
-    ///             },
-    ///             ""Action"": [
-    ///                 ""s3:ListBucket"",
-    ///                 ""s3:GetObject""
-    ///             ],
-    ///             ""Resource"": [
-    ///                 ""arn:aws:s3:::example_source"",
-    ///                 ""arn:aws:s3:::example_source/*""
-    ///             ]
-    ///         }
-    ///     ],
-    /// 	""Version"": ""2012-10-17""
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
-    ///     {
-    ///         Bucket = exampleSourceBucketV2.Id,
-    ///         Key = "example_source.csv",
-    ///         Source = new FileAsset("example_source.csv"),
-    ///     });
-    /// 
-    ///     var exampleDestinationBucketV2 = new Aws.S3.BucketV2("exampleDestinationBucketV2");
-    /// 
-    ///     var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("exampleDestinationBucketPolicy", new()
-    ///     {
-    ///         Bucket = exampleDestinationBucketV2.Id,
-    ///         Policy = @"
-    /// {
-    ///     ""Statement"": [
-    ///         {
-    ///             ""Effect"": ""Allow"",
-    ///             ""Sid"": ""AllowAppFlowDestinationActions"",
-    ///             ""Principal"": {
-    ///                 ""Service"": ""appflow.amazonaws.com""
-    ///             },
-    ///             ""Action"": [
-    ///                 ""s3:PutObject"",
-    ///                 ""s3:AbortMultipartUpload"",
-    ///                 ""s3:ListMultipartUploadParts"",
-    ///                 ""s3:ListBucketMultipartUploads"",
-    ///                 ""s3:GetBucketAcl"",
-    ///                 ""s3:PutObjectAcl""
-    ///             ],
-    ///             ""Resource"": [
-    ///                 ""arn:aws:s3:::example_destination"",
-    ///                 ""arn:aws:s3:::example_destination/*""
-    ///             ]
-    ///         }
-    ///     ],
-    /// 	""Version"": ""2012-10-17""
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleFlow = new Aws.AppFlow.Flow("exampleFlow", new()
-    ///     {
-    ///         SourceFlowConfig = new Aws.AppFlow.Inputs.FlowSourceFlowConfigArgs
-    ///         {
-    ///             ConnectorType = "S3",
-    ///             SourceConnectorProperties = new Aws.AppFlow.Inputs.FlowSourceFlowConfigSourceConnectorPropertiesArgs
-    ///             {
-    ///                 S3 = new Aws.AppFlow.Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args
-    ///                 {
-    ///                     BucketName = exampleSourceBucketPolicy.Bucket,
-    ///                     BucketPrefix = "example",
-    ///                 },
-    ///             },
-    ///         },
-    ///         DestinationFlowConfigs = new[]
-    ///         {
-    ///             new Aws.AppFlow.Inputs.FlowDestinationFlowConfigArgs
-    ///             {
-    ///                 ConnectorType = "S3",
-    ///                 DestinationConnectorProperties = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs
-    ///                 {
-    ///                     S3 = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
-    ///                     {
-    ///                         BucketName = exampleDestinationBucketPolicy.Bucket,
-    ///                         S3OutputFormatConfig = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs
-    ///                         {
-    ///                             PrefixConfig = new Aws.AppFlow.Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs
-    ///                             {
-    ///                                 PrefixType = "PATH",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tasks = new[]
-    ///         {
-    ///             new Aws.AppFlow.Inputs.FlowTaskArgs
-    ///             {
-    ///                 SourceFields = new[]
-    ///                 {
-    ///                     "exampleField",
-    ///                 },
-    ///                 DestinationField = "exampleField",
-    ///                 TaskType = "Map",
-    ///                 ConnectorOperators = new[]
-    ///                 {
-    ///                     new Aws.AppFlow.Inputs.FlowTaskConnectorOperatorArgs
-    ///                     {
-    ///                         S3 = "NO_OP",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         TriggerConfig = new Aws.AppFlow.Inputs.FlowTriggerConfigArgs
-    ///         {
-    ///             TriggerType = "OnDemand",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// AppFlow flows can be imported using the `arn`, e.g.
@@ -315,6 +175,18 @@ namespace Pulumi.Aws.AppFlow
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         [Input("tasks", required: true)]

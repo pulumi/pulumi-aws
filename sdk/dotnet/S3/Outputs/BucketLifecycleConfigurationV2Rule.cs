@@ -14,15 +14,15 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLifecycleConfigurationV2Rule
     {
         /// <summary>
-        /// Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
+        /// Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload? AbortIncompleteMultipartUpload;
         /// <summary>
-        /// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
+        /// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleExpiration? Expiration;
         /// <summary>
-        /// Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
+        /// Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleFilter? Filter;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Configuration block that specifies when noncurrent object versions expire documented below.
+        /// Configuration block that specifies when noncurrent object versions expire. See below.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration? NoncurrentVersionExpiration;
         /// <summary>
-        /// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
+        /// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> NoncurrentVersionTransitions;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class documented below.
+        /// Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketLifecycleConfigurationV2RuleTransition> Transitions;
 

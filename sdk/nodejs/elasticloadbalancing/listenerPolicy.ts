@@ -130,6 +130,10 @@ export class ListenerPolicy extends pulumi.CustomResource {
      * List of Policy Names to apply to the backend server.
      */
     public readonly policyNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger an update.
+     */
+    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ListenerPolicy resource with the given unique name, arguments, and options.
@@ -150,6 +154,7 @@ export class ListenerPolicy extends pulumi.CustomResource {
             resourceInputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             resourceInputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
             resourceInputs["policyNames"] = state ? state.policyNames : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as ListenerPolicyArgs | undefined;
             if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
@@ -161,6 +166,7 @@ export class ListenerPolicy extends pulumi.CustomResource {
             resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             resourceInputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
             resourceInputs["policyNames"] = args ? args.policyNames : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ListenerPolicy.__pulumiType, name, resourceInputs, opts);
@@ -183,6 +189,10 @@ export interface ListenerPolicyState {
      * List of Policy Names to apply to the backend server.
      */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger an update.
+     */
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -201,4 +211,8 @@ export interface ListenerPolicyArgs {
      * List of Policy Names to apply to the backend server.
      */
     policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger an update.
+     */
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

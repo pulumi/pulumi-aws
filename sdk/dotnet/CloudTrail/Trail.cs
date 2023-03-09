@@ -43,44 +43,77 @@ namespace Pulumi.Aws.CloudTrail
     ///         IncludeGlobalServiceEvents = false,
     ///     });
     /// 
+    ///     var fooPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AWSCloudTrailAclCheck",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cloudtrail.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetBucketAcl",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     fooBucketV2.Arn,
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AWSCloudTrailWrite",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cloudtrail.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{fooBucketV2.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "s3:x-amz-acl",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "bucket-owner-full-control",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var fooBucketPolicy = new Aws.S3.BucketPolicy("fooBucketPolicy", new()
     ///     {
     ///         Bucket = fooBucketV2.Id,
-    ///         Policy = Output.Tuple(fooBucketV2.Arn, fooBucketV2.Arn, current).Apply(values =&gt;
-    ///         {
-    ///             var fooBucketV2Arn = values.Item1;
-    ///             var fooBucketV2Arn1 = values.Item2;
-    ///             var current = values.Item3;
-    ///             return @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Sid"": ""AWSCloudTrailAclCheck"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {{
-    ///               ""Service"": ""cloudtrail.amazonaws.com""
-    ///             }},
-    ///             ""Action"": ""s3:GetBucketAcl"",
-    ///             ""Resource"": ""{fooBucketV2Arn}""
-    ///         }},
-    ///         {{
-    ///             ""Sid"": ""AWSCloudTrailWrite"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {{
-    ///               ""Service"": ""cloudtrail.amazonaws.com""
-    ///             }},
-    ///             ""Action"": ""s3:PutObject"",
-    ///             ""Resource"": ""{fooBucketV2Arn1}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*"",
-    ///             ""Condition"": {{
-    ///                 ""StringEquals"": {{
-    ///                     ""s3:x-amz-acl"": ""bucket-owner-full-control""
-    ///                 }}
-    ///             }}
-    ///         }}
-    ///     ]
-    /// }}
-    /// ";
-    ///         }),
+    ///         Policy = fooPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

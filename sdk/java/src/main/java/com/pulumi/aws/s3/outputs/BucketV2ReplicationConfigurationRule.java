@@ -42,7 +42,7 @@ public final class BucketV2ReplicationConfigurationRule {
      */
     private @Nullable String prefix;
     /**
-     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     private @Nullable Integer priority;
@@ -52,7 +52,7 @@ public final class BucketV2ReplicationConfigurationRule {
      */
     private @Nullable List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias;
     /**
-     * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
      */
     private String status;
@@ -94,7 +94,7 @@ public final class BucketV2ReplicationConfigurationRule {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     public Optional<Integer> priority() {
@@ -108,7 +108,7 @@ public final class BucketV2ReplicationConfigurationRule {
         return this.sourceSelectionCriterias == null ? List.of() : this.sourceSelectionCriterias;
     }
     /**
-     * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
      */
     public String status() {

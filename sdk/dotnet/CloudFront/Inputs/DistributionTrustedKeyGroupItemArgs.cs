@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionTrustedKeyGroupItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the key group that contains the public keys
+        /// ID of the key group that contains the public keys.
         /// </summary>
         [Input("keyGroupId")]
         public Input<string>? KeyGroupId { get; set; }

@@ -35,45 +35,64 @@ namespace Pulumi.Aws
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowBillingLogging = new Aws.S3.BucketPolicy("allowBillingLogging", new()
+        ///     var allowBillingLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:GetBucketAcl",
+        ///                     "s3:GetBucketPolicy",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     billingLogs.Arn,
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{billingLogs.Arn}/*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowBillingLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowBillingLoggingBucketPolicy", new()
         ///     {
         ///         Bucket = billingLogs.Id,
-        ///         Policy = Output.Tuple(main, main).Apply(values =&gt;
-        ///         {
-        ///             var main = values.Item1;
-        ///             var main1 = values.Item2;
-        ///             return @$"{{
-        ///   ""Id"": ""Policy"",
-        ///   ""Version"": ""2012-10-17"",
-        ///   ""Statement"": [
-        ///     {{
-        ///       ""Action"": [
-        ///         ""s3:GetBucketAcl"", ""s3:GetBucketPolicy""
-        ///       ],
-        ///       ""Effect"": ""Allow"",
-        ///       ""Resource"": ""arn:aws:s3:::my-billing-tf-test-bucket"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": [
-        ///           ""{main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult.Arn)}""
-        ///         ]
-        ///       }}
-        ///     }},
-        ///     {{
-        ///       ""Action"": [
-        ///         ""s3:PutObject""
-        ///       ],
-        ///       ""Effect"": ""Allow"",
-        ///       ""Resource"": ""arn:aws:s3:::my-billing-tf-test-bucket/*"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": [
-        ///           ""{main1.Arn}""
-        ///         ]
-        ///       }}
-        ///     }}
-        ///   ]
-        /// }}
-        /// ";
-        ///         }),
+        ///         Policy = allowBillingLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });

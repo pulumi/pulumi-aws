@@ -16,14 +16,14 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
     public static final FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs Empty = new FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs();
 
     /**
-     * ID of the launch template.
+     * The ID of the launch template.
      * 
      */
     @Import(name="launchTemplateId")
     private @Nullable Output<String> launchTemplateId;
 
     /**
-     * @return ID of the launch template.
+     * @return The ID of the launch template.
      * 
      */
     public Optional<Output<String>> launchTemplateId() {
@@ -31,14 +31,14 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
     }
 
     /**
-     * Name of the launch template.
+     * The name of the launch template.
      * 
      */
     @Import(name="launchTemplateName")
     private @Nullable Output<String> launchTemplateName;
 
     /**
-     * @return Name of the launch template.
+     * @return The name of the launch template.
      * 
      */
     public Optional<Output<String>> launchTemplateName() {
@@ -46,14 +46,14 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
     }
 
     /**
-     * Version number of the launch template.
+     * The launch template version number, `$Latest`, or `$Default.`
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return Version number of the launch template.
+     * @return The launch template version number, `$Latest`, or `$Default.`
      * 
      */
     public Output<String> version() {
@@ -87,7 +87,7 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
         }
 
         /**
-         * @param launchTemplateId ID of the launch template.
+         * @param launchTemplateId The ID of the launch template.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
         }
 
         /**
-         * @param launchTemplateId ID of the launch template.
+         * @param launchTemplateId The ID of the launch template.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
         }
 
         /**
-         * @param launchTemplateName Name of the launch template.
+         * @param launchTemplateName The name of the launch template.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
         }
 
         /**
-         * @param launchTemplateName Name of the launch template.
+         * @param launchTemplateName The name of the launch template.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
         }
 
         /**
-         * @param version Version number of the launch template.
+         * @param version The launch template version number, `$Latest`, or `$Default.`
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs exte
         }
 
         /**
-         * @param version Version number of the launch template.
+         * @param version The launch template version number, `$Latest`, or `$Default.`
          * 
          * @return builder
          * 

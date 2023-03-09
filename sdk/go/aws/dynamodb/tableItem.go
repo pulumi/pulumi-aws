@@ -24,8 +24,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -50,16 +48,7 @@ import (
 //			_, err = dynamodb.NewTableItem(ctx, "exampleTableItem", &dynamodb.TableItemArgs{
 //				TableName: exampleTable.Name,
 //				HashKey:   exampleTable.HashKey,
-//				Item: pulumi.String(fmt.Sprintf(`{
-//	  "exampleHashKey": {"S": "something"},
-//	  "one": {"N": "11111"},
-//	  "two": {"N": "22222"},
-//	  "three": {"N": "33333"},
-//	  "four": {"N": "44444"}
-//	}
-//
-// `)),
-//
+//				Item:      pulumi.String("{\n  \"exampleHashKey\": {\"S\": \"something\"},\n  \"one\": {\"N\": \"11111\"},\n  \"two\": {\"N\": \"22222\"},\n  \"three\": {\"N\": \"33333\"},\n  \"four\": {\"N\": \"44444\"}\n}\n"),
 //			})
 //			if err != nil {
 //				return err

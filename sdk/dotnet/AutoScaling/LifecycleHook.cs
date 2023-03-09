@@ -28,6 +28,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -61,10 +62,10 @@ namespace Pulumi.Aws.AutoScaling
     ///         DefaultResult = "CONTINUE",
     ///         HeartbeatTimeout = 2000,
     ///         LifecycleTransition = "autoscaling:EC2_INSTANCE_LAUNCHING",
-    ///         NotificationMetadata = @"{
-    ///   ""foo"": ""bar""
-    /// }
-    /// ",
+    ///         NotificationMetadata = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["foo"] = "bar",
+    ///         }),
     ///         NotificationTargetArn = "arn:aws:sqs:us-east-1:444455556666:queue1*",
     ///         RoleArn = "arn:aws:iam::123456789012:role/S3Access",
     ///     });

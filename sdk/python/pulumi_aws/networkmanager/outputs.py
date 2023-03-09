@@ -12,6 +12,9 @@ from . import outputs
 
 __all__ = [
     'ConnectAttachmentOptions',
+    'ConnectPeerBgpOptions',
+    'ConnectPeerConfiguration',
+    'ConnectPeerConfigurationBgpConfiguration',
     'CoreNetworkEdge',
     'CoreNetworkSegment',
     'DeviceAwsLocation',
@@ -43,6 +46,188 @@ class ConnectAttachmentOptions(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class ConnectPeerBgpOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "peerAsn":
+            suggest = "peer_asn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectPeerBgpOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectPeerBgpOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectPeerBgpOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 peer_asn: Optional[int] = None):
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[int]:
+        return pulumi.get(self, "peer_asn")
+
+
+@pulumi.output_type
+class ConnectPeerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bgpConfigurations":
+            suggest = "bgp_configurations"
+        elif key == "coreNetworkAddress":
+            suggest = "core_network_address"
+        elif key == "insideCidrBlocks":
+            suggest = "inside_cidr_blocks"
+        elif key == "peerAddress":
+            suggest = "peer_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectPeerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectPeerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectPeerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bgp_configurations: Optional[Sequence['outputs.ConnectPeerConfigurationBgpConfiguration']] = None,
+                 core_network_address: Optional[str] = None,
+                 inside_cidr_blocks: Optional[Sequence[str]] = None,
+                 peer_address: Optional[str] = None,
+                 protocol: Optional[str] = None):
+        """
+        :param str core_network_address: A Connect peer core network address.
+        :param Sequence[str] inside_cidr_blocks: The inside IP addresses used for BGP peering.
+        :param str peer_address: The Connect peer address.
+        """
+        if bgp_configurations is not None:
+            pulumi.set(__self__, "bgp_configurations", bgp_configurations)
+        if core_network_address is not None:
+            pulumi.set(__self__, "core_network_address", core_network_address)
+        if inside_cidr_blocks is not None:
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+        if peer_address is not None:
+            pulumi.set(__self__, "peer_address", peer_address)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="bgpConfigurations")
+    def bgp_configurations(self) -> Optional[Sequence['outputs.ConnectPeerConfigurationBgpConfiguration']]:
+        return pulumi.get(self, "bgp_configurations")
+
+    @property
+    @pulumi.getter(name="coreNetworkAddress")
+    def core_network_address(self) -> Optional[str]:
+        """
+        A Connect peer core network address.
+        """
+        return pulumi.get(self, "core_network_address")
+
+    @property
+    @pulumi.getter(name="insideCidrBlocks")
+    def inside_cidr_blocks(self) -> Optional[Sequence[str]]:
+        """
+        The inside IP addresses used for BGP peering.
+        """
+        return pulumi.get(self, "inside_cidr_blocks")
+
+    @property
+    @pulumi.getter(name="peerAddress")
+    def peer_address(self) -> Optional[str]:
+        """
+        The Connect peer address.
+        """
+        return pulumi.get(self, "peer_address")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class ConnectPeerConfigurationBgpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coreNetworkAddress":
+            suggest = "core_network_address"
+        elif key == "coreNetworkAsn":
+            suggest = "core_network_asn"
+        elif key == "peerAddress":
+            suggest = "peer_address"
+        elif key == "peerAsn":
+            suggest = "peer_asn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectPeerConfigurationBgpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectPeerConfigurationBgpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectPeerConfigurationBgpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 core_network_address: Optional[str] = None,
+                 core_network_asn: Optional[int] = None,
+                 peer_address: Optional[str] = None,
+                 peer_asn: Optional[int] = None):
+        """
+        :param str core_network_address: A Connect peer core network address.
+        :param str peer_address: The Connect peer address.
+        """
+        if core_network_address is not None:
+            pulumi.set(__self__, "core_network_address", core_network_address)
+        if core_network_asn is not None:
+            pulumi.set(__self__, "core_network_asn", core_network_asn)
+        if peer_address is not None:
+            pulumi.set(__self__, "peer_address", peer_address)
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+
+    @property
+    @pulumi.getter(name="coreNetworkAddress")
+    def core_network_address(self) -> Optional[str]:
+        """
+        A Connect peer core network address.
+        """
+        return pulumi.get(self, "core_network_address")
+
+    @property
+    @pulumi.getter(name="coreNetworkAsn")
+    def core_network_asn(self) -> Optional[int]:
+        return pulumi.get(self, "core_network_asn")
+
+    @property
+    @pulumi.getter(name="peerAddress")
+    def peer_address(self) -> Optional[str]:
+        """
+        The Connect peer address.
+        """
+        return pulumi.get(self, "peer_address")
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[int]:
+        return pulumi.get(self, "peer_asn")
 
 
 @pulumi.output_type

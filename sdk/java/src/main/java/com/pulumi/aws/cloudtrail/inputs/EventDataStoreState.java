@@ -51,6 +51,21 @@ public final class EventDataStoreState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+     * 
+     */
+    @Import(name="kmsKeyId")
+    private @Nullable Output<String> kmsKeyId;
+
+    /**
+     * @return Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
+    }
+
+    /**
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      * 
      */
@@ -160,6 +175,7 @@ public final class EventDataStoreState extends com.pulumi.resources.ResourceArgs
     private EventDataStoreState(EventDataStoreState $) {
         this.advancedEventSelectors = $.advancedEventSelectors;
         this.arn = $.arn;
+        this.kmsKeyId = $.kmsKeyId;
         this.multiRegionEnabled = $.multiRegionEnabled;
         this.name = $.name;
         this.organizationEnabled = $.organizationEnabled;
@@ -237,6 +253,27 @@ public final class EventDataStoreState extends com.pulumi.resources.ResourceArgs
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param kmsKeyId Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
+            $.kmsKeyId = kmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyId Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyId(String kmsKeyId) {
+            return kmsKeyId(Output.of(kmsKeyId));
         }
 
         /**

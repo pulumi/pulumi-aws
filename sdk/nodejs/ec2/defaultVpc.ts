@@ -86,7 +86,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     public readonly enableClassiclinkDnsSupport!: pulumi.Output<boolean>;
     public readonly enableDnsHostnames!: pulumi.Output<boolean | undefined>;
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
-    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean | undefined>;
+    public readonly enableNetworkAddressUsageMetrics!: pulumi.Output<boolean>;
     public /*out*/ readonly existingDefaultVpc!: pulumi.Output<boolean>;
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`

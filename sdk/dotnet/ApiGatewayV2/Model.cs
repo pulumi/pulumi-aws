@@ -17,6 +17,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -26,15 +27,19 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
     ///         ContentType = "application/json",
-    ///         Schema = @"{
-    ///   ""$schema"": ""http://json-schema.org/draft-04/schema#"",
-    ///   ""title"": ""ExampleModel"",
-    ///   ""type"": ""object"",
-    ///   ""properties"": {
-    ///     ""id"": { ""type"": ""string"" }
-    ///   }
-    /// }
-    /// ",
+    ///         Schema = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["$schema"] = "http://json-schema.org/draft-04/schema#",
+    ///             ["title"] = "ExampleModel",
+    ///             ["type"] = "object",
+    ///             ["properties"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["id"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = "string",
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });

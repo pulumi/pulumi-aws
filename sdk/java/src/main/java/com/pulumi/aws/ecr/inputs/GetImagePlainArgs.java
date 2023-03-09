@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,14 +16,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImagePlainArgs Empty = new GetImagePlainArgs();
 
     /**
-     * Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+     * Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
      * 
      */
     @Import(name="imageDigest")
     private @Nullable String imageDigest;
 
     /**
-     * @return Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+     * @return Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
      * 
      */
     public Optional<String> imageDigest() {
@@ -30,18 +31,33 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+     * Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
      * 
      */
     @Import(name="imageTag")
     private @Nullable String imageTag;
 
     /**
-     * @return Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+     * @return Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
      * 
      */
     public Optional<String> imageTag() {
         return Optional.ofNullable(this.imageTag);
+    }
+
+    /**
+     * Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+     * 
+     */
+    @Import(name="mostRecent")
+    private @Nullable Boolean mostRecent;
+
+    /**
+     * @return Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+     * 
+     */
+    public Optional<Boolean> mostRecent() {
+        return Optional.ofNullable(this.mostRecent);
     }
 
     /**
@@ -79,6 +95,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetImagePlainArgs(GetImagePlainArgs $) {
         this.imageDigest = $.imageDigest;
         this.imageTag = $.imageTag;
+        this.mostRecent = $.mostRecent;
         this.registryId = $.registryId;
         this.repositoryName = $.repositoryName;
     }
@@ -102,7 +119,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageDigest Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+         * @param imageDigest Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
          * 
          * @return builder
          * 
@@ -113,13 +130,24 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageTag Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+         * @param imageTag Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
          * 
          * @return builder
          * 
          */
         public Builder imageTag(@Nullable String imageTag) {
             $.imageTag = imageTag;
+            return this;
+        }
+
+        /**
+         * @param mostRecent Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mostRecent(@Nullable Boolean mostRecent) {
+            $.mostRecent = mostRecent;
             return this;
         }
 

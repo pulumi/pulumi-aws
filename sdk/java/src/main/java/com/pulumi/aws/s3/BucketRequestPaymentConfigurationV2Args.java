@@ -16,14 +16,14 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
     public static final BucketRequestPaymentConfigurationV2Args Empty = new BucketRequestPaymentConfigurationV2Args();
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
@@ -31,14 +31,14 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
     }
 
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -87,7 +87,7 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class BucketRequestPaymentConfigurationV2Args extends com.pulumi.re
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 

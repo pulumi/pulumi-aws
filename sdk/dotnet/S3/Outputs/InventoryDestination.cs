@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class InventoryDestination
     {
         /// <summary>
-        /// The S3 bucket configuration where inventory results are published (documented below).
+        /// S3 bucket configuration where inventory results are published (documented below).
         /// </summary>
         public readonly Outputs.InventoryDestinationBucket Bucket;
 

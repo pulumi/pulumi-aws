@@ -64,26 +64,24 @@ import {PolicyDocument} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["es.amazonaws.com"],
+ *         }],
+ *         actions: [
+ *             "logs:PutLogEvents",
+ *             "logs:PutLogEventsBatch",
+ *             "logs:CreateLogStream",
+ *         ],
+ *         resources: ["arn:aws:logs:*"],
+ *     }],
+ * });
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
  *     policyName: "example",
- *     policyDocument: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "es.amazonaws.com"
- *       },
- *       "Action": [
- *         "logs:PutLogEvents",
- *         "logs:PutLogEventsBatch",
- *         "logs:CreateLogStream"
- *       ],
- *       "Resource": "arn:aws:logs:*"
- *     }
- *   ]
- * }
- * `,
+ *     policyDocument: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * // .. other configuration ...
  * const exampleDomain = new aws.elasticsearch.Domain("exampleDomain", {logPublishingOptions: [{

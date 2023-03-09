@@ -604,22 +604,20 @@ class EventTarget(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
             description="Capture all EC2 scaling events",
-            event_pattern=\"\"\"{
-          "source": [
-            "aws.autoscaling"
-          ],
-          "detail-type": [
-            "EC2 Instance Launch Successful",
-            "EC2 Instance Terminate Successful",
-            "EC2 Instance Launch Unsuccessful",
-            "EC2 Instance Terminate Unsuccessful"
-          ]
-        }
-        \"\"\")
+            event_pattern=json.dumps({
+                "source": ["aws.autoscaling"],
+                "detail-type": [
+                    "EC2 Instance Launch Successful",
+                    "EC2 Instance Terminate Successful",
+                    "EC2 Instance Launch Unsuccessful",
+                    "EC2 Instance Terminate Unsuccessful",
+                ],
+            }))
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
         yada = aws.cloudwatch.EventTarget("yada",
             rule=console.name,
@@ -639,6 +637,7 @@ class EventTarget(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -650,24 +649,19 @@ class EventTarget(pulumi.CustomResource):
         )])
         stop_instance = aws.ssm.Document("stopInstance",
             document_type="Command",
-            content=\"\"\"  {
-            "schemaVersion": "1.2",
-            "description": "Stop an instance",
-            "parameters": {
-
-            },
-            "runtimeConfig": {
-              "aws:runShellScript": {
-                "properties": [
-                  {
-                    "id": "0.aws:runShellScript",
-                    "runCommand": ["halt"]
-                  }
-                ]
-              }
-            }
-          }
-        \"\"\")
+            content=json.dumps({
+                "schemaVersion": "1.2",
+                "description": "Stop an instance",
+                "parameters": {},
+                "runtimeConfig": {
+                    "aws:runShellScript": {
+                        "properties": [{
+                            "id": "0.aws:runShellScript",
+                            "runCommand": ["halt"],
+                        }],
+                    },
+                },
+            }))
         ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
@@ -746,42 +740,6 @@ class EventTarget(pulumi.CustomResource):
                     "Env": "Test",
                 },
             ))
-        ```
-        ### Cross-Account Event Bus target
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "events.amazonaws.com"
-              },
-              "Effect": "Allow"
-            }
-          ]
-        }
-        \"\"\")
-        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["events:PutEvents"],
-            resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
-        )])
-        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
-        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
-            role=event_bus_invoke_remote_event_bus_role.name,
-            policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
-            description="Stop instances nightly",
-            schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
-            rule=stop_instances_event_rule.name,
-            role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
         ### Input Transformer Usage - JSON Object
 
@@ -918,22 +876,20 @@ class EventTarget(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
             description="Capture all EC2 scaling events",
-            event_pattern=\"\"\"{
-          "source": [
-            "aws.autoscaling"
-          ],
-          "detail-type": [
-            "EC2 Instance Launch Successful",
-            "EC2 Instance Terminate Successful",
-            "EC2 Instance Launch Unsuccessful",
-            "EC2 Instance Terminate Unsuccessful"
-          ]
-        }
-        \"\"\")
+            event_pattern=json.dumps({
+                "source": ["aws.autoscaling"],
+                "detail-type": [
+                    "EC2 Instance Launch Successful",
+                    "EC2 Instance Terminate Successful",
+                    "EC2 Instance Launch Unsuccessful",
+                    "EC2 Instance Terminate Unsuccessful",
+                ],
+            }))
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
         yada = aws.cloudwatch.EventTarget("yada",
             rule=console.name,
@@ -953,6 +909,7 @@ class EventTarget(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -964,24 +921,19 @@ class EventTarget(pulumi.CustomResource):
         )])
         stop_instance = aws.ssm.Document("stopInstance",
             document_type="Command",
-            content=\"\"\"  {
-            "schemaVersion": "1.2",
-            "description": "Stop an instance",
-            "parameters": {
-
-            },
-            "runtimeConfig": {
-              "aws:runShellScript": {
-                "properties": [
-                  {
-                    "id": "0.aws:runShellScript",
-                    "runCommand": ["halt"]
-                  }
-                ]
-              }
-            }
-          }
-        \"\"\")
+            content=json.dumps({
+                "schemaVersion": "1.2",
+                "description": "Stop an instance",
+                "parameters": {},
+                "runtimeConfig": {
+                    "aws:runShellScript": {
+                        "properties": [{
+                            "id": "0.aws:runShellScript",
+                            "runCommand": ["halt"],
+                        }],
+                    },
+                },
+            }))
         ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
@@ -1060,42 +1012,6 @@ class EventTarget(pulumi.CustomResource):
                     "Env": "Test",
                 },
             ))
-        ```
-        ### Cross-Account Event Bus target
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "events.amazonaws.com"
-              },
-              "Effect": "Allow"
-            }
-          ]
-        }
-        \"\"\")
-        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["events:PutEvents"],
-            resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
-        )])
-        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
-        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
-            role=event_bus_invoke_remote_event_bus_role.name,
-            policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
-            description="Stop instances nightly",
-            schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
-            rule=stop_instances_event_rule.name,
-            role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
         ### Input Transformer Usage - JSON Object
 

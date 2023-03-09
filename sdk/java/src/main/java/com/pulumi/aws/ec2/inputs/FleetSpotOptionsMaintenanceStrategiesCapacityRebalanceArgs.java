@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,18 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs ex
         return Optional.ofNullable(this.replacementStrategy);
     }
 
+    @Import(name="terminationDelay")
+    private @Nullable Output<Integer> terminationDelay;
+
+    public Optional<Output<Integer>> terminationDelay() {
+        return Optional.ofNullable(this.terminationDelay);
+    }
+
     private FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs() {}
 
     private FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs(FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs $) {
         this.replacementStrategy = $.replacementStrategy;
+        this.terminationDelay = $.terminationDelay;
     }
 
     public static Builder builder() {
@@ -73,6 +82,15 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs ex
          */
         public Builder replacementStrategy(String replacementStrategy) {
             return replacementStrategy(Output.of(replacementStrategy));
+        }
+
+        public Builder terminationDelay(@Nullable Output<Integer> terminationDelay) {
+            $.terminationDelay = terminationDelay;
+            return this;
+        }
+
+        public Builder terminationDelay(Integer terminationDelay) {
+            return terminationDelay(Output.of(terminationDelay));
         }
 
         public FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs build() {

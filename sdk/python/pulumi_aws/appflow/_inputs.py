@@ -5455,23 +5455,23 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs:
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs:
     def __init__(__self__, *,
-                 object: pulumi.Input[str]):
+                 object_path: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the flow destination.
+        :param pulumi.Input[str] object_path: Object path specified in the SAPOData flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        pulumi.set(__self__, "object_path", object_path)
 
     @property
-    @pulumi.getter
-    def object(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="objectPath")
+    def object_path(self) -> pulumi.Input[str]:
         """
-        Object specified in the flow destination.
+        Object path specified in the SAPOData flow destination.
         """
-        return pulumi.get(self, "object")
+        return pulumi.get(self, "object_path")
 
-    @object.setter
-    def object(self, value: pulumi.Input[str]):
-        pulumi.set(self, "object", value)
+    @object_path.setter
+    def object_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_path", value)
 
 
 @pulumi.input_type

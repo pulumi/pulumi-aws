@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Nested argument containing EC2 Launch Template to use. Defined below.
         /// </summary>
-        public readonly Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification LaunchTemplateSpecification;
+        public readonly Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification? LaunchTemplateSpecification;
         /// <summary>
         /// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
         [OutputConstructor]
         private FleetLaunchTemplateConfig(
-            Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification,
+            Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification? launchTemplateSpecification,
 
             ImmutableArray<Outputs.FleetLaunchTemplateConfigOverride> overrides)
         {

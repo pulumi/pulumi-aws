@@ -52,7 +52,7 @@ func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opt
 
 // A collection of arguments for invoking getDelegationSet.
 type LookupDelegationSetArgs struct {
-	// Hosted Zone id of the desired delegation set.
+	// Delegation set ID.
 	Id string `pulumi:"id"`
 }
 
@@ -79,7 +79,7 @@ func LookupDelegationSetOutput(ctx *pulumi.Context, args LookupDelegationSetOutp
 
 // A collection of arguments for invoking getDelegationSet.
 type LookupDelegationSetOutputArgs struct {
-	// Hosted Zone id of the desired delegation set.
+	// Delegation set ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

@@ -192,20 +192,18 @@ class DomainPermissions(pulumi.CustomResource):
         example_domain = aws.codeartifact.Domain("exampleDomain",
             domain="example",
             encryption_key=example_key.arn)
-        test = aws.codeartifact.DomainPermissions("test",
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["codeartifact:CreateRepository"],
+            resources=[example_domain.arn],
+        )])
+        test_domain_permissions = aws.codeartifact.DomainPermissions("testDomainPermissions",
             domain=example_domain.domain,
-            policy_document=example_domain.arn.apply(lambda arn: f\"\"\"{{
-            "Version": "2012-10-17",
-            "Statement": [
-                {{
-                    "Action": "codeartifact:CreateRepository",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "{arn}"
-                }}
-            ]
-        }}
-        \"\"\"))
+            policy_document=test_policy_document.json)
         ```
 
         ## Import
@@ -242,20 +240,18 @@ class DomainPermissions(pulumi.CustomResource):
         example_domain = aws.codeartifact.Domain("exampleDomain",
             domain="example",
             encryption_key=example_key.arn)
-        test = aws.codeartifact.DomainPermissions("test",
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["codeartifact:CreateRepository"],
+            resources=[example_domain.arn],
+        )])
+        test_domain_permissions = aws.codeartifact.DomainPermissions("testDomainPermissions",
             domain=example_domain.domain,
-            policy_document=example_domain.arn.apply(lambda arn: f\"\"\"{{
-            "Version": "2012-10-17",
-            "Statement": [
-                {{
-                    "Action": "codeartifact:CreateRepository",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "{arn}"
-                }}
-            ]
-        }}
-        \"\"\"))
+            policy_document=test_policy_document.json)
         ```
 
         ## Import

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     subnets: .map(subnet => subnet.id),
  *     enableDeletionProtection: true,
  *     accessLogs: {
- *         bucket: aws_s3_bucket.lb_logs.bucket,
+ *         bucket: aws_s3_bucket.lb_logs.id,
  *         prefix: "test-lb",
  *         enabled: true,
  *     },

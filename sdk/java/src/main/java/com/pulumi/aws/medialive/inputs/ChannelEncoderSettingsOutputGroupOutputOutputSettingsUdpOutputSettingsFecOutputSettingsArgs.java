@@ -32,14 +32,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
     }
 
     /**
-     * Enables column oly or column and row based FEC.
+     * Enables column only or column and row based FEC.
      * 
      */
     @Import(name="includeFec")
     private @Nullable Output<String> includeFec;
 
     /**
-     * @return Enables column oly or column and row based FEC.
+     * @return Enables column only or column and row based FEC.
      * 
      */
     public Optional<Output<String>> includeFec() {
@@ -109,7 +109,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         }
 
         /**
-         * @param includeFec Enables column oly or column and row based FEC.
+         * @param includeFec Enables column only or column and row based FEC.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         }
 
         /**
-         * @param includeFec Enables column oly or column and row based FEC.
+         * @param includeFec Enables column only or column and row based FEC.
          * 
          * @return builder
          * 

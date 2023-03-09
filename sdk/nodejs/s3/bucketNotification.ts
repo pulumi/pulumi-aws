@@ -20,23 +20,27 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * const topic = new aws.sns.Topic("topic", {policy: pulumi.interpolate`{
- *     "Version":"2012-10-17",
- *     "Statement":[{
- *         "Effect": "Allow",
- *         "Principal": { "Service": "s3.amazonaws.com" },
- *         "Action": "SNS:Publish",
- *         "Resource": "arn:aws:sns:*:*:s3-event-notification-topic",
- *         "Condition":{
- *             "ArnLike":{"aws:SourceArn":"${bucket.arn}"}
- *         }
- *     }]
- * }
- * `});
+ * const topicPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["s3.amazonaws.com"],
+ *         }],
+ *         actions: ["SNS:Publish"],
+ *         resources: ["arn:aws:sns:*:*:s3-event-notification-topic"],
+ *         conditions: [{
+ *             test: "ArnLike",
+ *             variable: "aws:SourceArn",
+ *             values: [bucket.arn],
+ *         }],
+ *     }],
+ * });
+ * const topicTopic = new aws.sns.Topic("topicTopic", {policy: topicPolicyDocument.apply(topicPolicyDocument => topicPolicyDocument.json)});
  * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     topics: [{
- *         topicArn: topic.arn,
+ *         topicArn: topicTopic.arn,
  *         events: ["s3:ObjectCreated:*"],
  *         filterSuffix: ".log",
  *     }],
@@ -49,25 +53,27 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * const queue = new aws.sqs.Queue("queue", {policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": "*",
- *       "Action": "sqs:SendMessage",
- * 	  "Resource": "arn:aws:sqs:*:*:s3-event-notification-queue",
- *       "Condition": {
- *         "ArnEquals": { "aws:SourceArn": "${bucket.arn}" }
- *       }
- *     }
- *   ]
- * }
- * `});
+ * const queuePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["sqs:SendMessage"],
+ *         resources: ["arn:aws:sqs:*:*:s3-event-notification-queue"],
+ *         conditions: [{
+ *             test: "ArnEquals",
+ *             variable: "aws:SourceArn",
+ *             values: [bucket.arn],
+ *         }],
+ *     }],
+ * });
+ * const queueQueue = new aws.sqs.Queue("queueQueue", {policy: queuePolicyDocument.apply(queuePolicyDocument => queuePolicyDocument.json)});
  * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     queues: [{
- *         queueArn: queue.arn,
+ *         queueArn: queueQueue.arn,
  *         events: ["s3:ObjectCreated:*"],
  *         filterSuffix: ".log",
  *     }],
@@ -79,19 +85,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow"
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["lambda.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("your-function.zip"),
  *     role: iamForLambda.arn,
@@ -117,72 +121,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [allowBucket],
  * });
  * ```
- * ### Trigger multiple Lambda functions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow"
- *     }
- *   ]
- * }
- * `});
- * const func1 = new aws.lambda.Function("func1", {
- *     code: new pulumi.asset.FileArchive("your-function1.zip"),
- *     role: iamForLambda.arn,
- *     handler: "exports.example",
- *     runtime: "go1.x",
- * });
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const allowBucket1 = new aws.lambda.Permission("allowBucket1", {
- *     action: "lambda:InvokeFunction",
- *     "function": func1.arn,
- *     principal: "s3.amazonaws.com",
- *     sourceArn: bucket.arn,
- * });
- * const func2 = new aws.lambda.Function("func2", {
- *     code: new pulumi.asset.FileArchive("your-function2.zip"),
- *     role: iamForLambda.arn,
- *     handler: "exports.example",
- * });
- * const allowBucket2 = new aws.lambda.Permission("allowBucket2", {
- *     action: "lambda:InvokeFunction",
- *     "function": func2.arn,
- *     principal: "s3.amazonaws.com",
- *     sourceArn: bucket.arn,
- * });
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
- *     bucket: bucket.id,
- *     lambdaFunctions: [
- *         {
- *             lambdaFunctionArn: func1.arn,
- *             events: ["s3:ObjectCreated:*"],
- *             filterPrefix: "AWSLogs/",
- *             filterSuffix: ".log",
- *         },
- *         {
- *             lambdaFunctionArn: func2.arn,
- *             events: ["s3:ObjectCreated:*"],
- *             filterPrefix: "OtherLogs/",
- *             filterSuffix: ".log",
- *         },
- *     ],
- * }, {
- *     dependsOn: [
- *         allowBucket1,
- *         allowBucket2,
- *     ],
- * });
- * ```
  * ### Add multiple notification configurations to SQS Queue
  *
  * ```typescript
@@ -190,33 +128,35 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * const queue = new aws.sqs.Queue("queue", {policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": "*",
- *       "Action": "sqs:SendMessage",
- * 	  "Resource": "arn:aws:sqs:*:*:s3-event-notification-queue",
- *       "Condition": {
- *         "ArnEquals": { "aws:SourceArn": "${bucket.arn}" }
- *       }
- *     }
- *   ]
- * }
- * `});
+ * const queuePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["sqs:SendMessage"],
+ *         resources: ["arn:aws:sqs:*:*:s3-event-notification-queue"],
+ *         conditions: [{
+ *             test: "ArnEquals",
+ *             variable: "aws:SourceArn",
+ *             values: [bucket.arn],
+ *         }],
+ *     }],
+ * });
+ * const queueQueue = new aws.sqs.Queue("queueQueue", {policy: queuePolicyDocument.apply(queuePolicyDocument => queuePolicyDocument.json)});
  * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     queues: [
  *         {
  *             id: "image-upload-event",
- *             queueArn: queue.arn,
+ *             queueArn: queueQueue.arn,
  *             events: ["s3:ObjectCreated:*"],
  *             filterPrefix: "images/",
  *         },
  *         {
  *             id: "video-upload-event",
- *             queueArn: queue.arn,
+ *             queueArn: queueQueue.arn,
  *             events: ["s3:ObjectCreated:*"],
  *             filterPrefix: "videos/",
  *         },

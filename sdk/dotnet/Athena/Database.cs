@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Athena
     ///     var exampleDatabase = new Aws.Athena.Database("exampleDatabase", new()
     ///     {
     ///         Name = "database_name",
-    ///         Bucket = exampleBucketV2.Bucket,
+    ///         Bucket = exampleBucketV2.Id,
     ///     });
     /// 
     /// });
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Athena
     /// 
     ///  = "database_name"
     /// 
-    ///  bucket = aws_s3_bucket.example.bucket
+    ///  bucket = aws_s3_bucket.example.id
     /// 
     /// # There is no API for reading bucket
     /// 

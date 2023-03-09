@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.apigatewayv2.Api("example", {
  *     protocolType: "WEBSOCKET",
- *     routeSelectionExpression: `$request.body.action`,
+ *     routeSelectionExpression: "$request.body.action",
  * });
  * ```
  * ### Basic HTTP API

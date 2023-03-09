@@ -56,6 +56,51 @@ import (
 //	}
 //
 // ```
+// ### Threshold Expression
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewAnomalySubscription(ctx, "test", &costexplorer.AnomalySubscriptionArgs{
+//				Frequency: pulumi.String("DAILY"),
+//				MonitorArnLists: pulumi.StringArray{
+//					aws_ce_anomaly_monitor.Test.Arn,
+//				},
+//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
+//					&costexplorer.AnomalySubscriptionSubscriberArgs{
+//						Type:    pulumi.String("EMAIL"),
+//						Address: pulumi.String("abc@example.com"),
+//					},
+//				},
+//				ThresholdExpression: &costexplorer.AnomalySubscriptionThresholdExpressionArgs{
+//					Dimension: &costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs{
+//						Key: pulumi.String("ANOMALY_TOTAL_IMPACT_ABSOLUTE"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("100.0"),
+//						},
+//						MatchOptions: pulumi.StringArray{
+//							pulumi.String("GREATER_THAN_OR_EQUAL"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

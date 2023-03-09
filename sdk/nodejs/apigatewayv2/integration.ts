@@ -59,8 +59,8 @@ import * as utilities from "../utilities";
  *     integrationType: "AWS_PROXY",
  *     integrationSubtype: "SQS-SendMessage",
  *     requestParameters: {
- *         QueueUrl: `$request.header.queueUrl`,
- *         MessageBody: `$request.body.message`,
+ *         QueueUrl: "$request.header.queueUrl",
+ *         MessageBody: "$request.body.message",
  *     },
  * });
  * ```
@@ -83,14 +83,14 @@ import * as utilities from "../utilities";
  *         serverNameToVerify: "example.com",
  *     },
  *     requestParameters: {
- *         "append:header.authforintegration": `$context.authorizer.authorizerResponse`,
+ *         "append:header.authforintegration": "$context.authorizer.authorizerResponse",
  *         "overwrite:path": "staticValueForIntegration",
  *     },
  *     responseParameters: [
  *         {
  *             statusCode: "403",
  *             mappings: {
- *                 "append:header.auth": `$context.authorizer.authorizerResponse`,
+ *                 "append:header.auth": "$context.authorizer.authorizerResponse",
  *             },
  *         },
  *         {

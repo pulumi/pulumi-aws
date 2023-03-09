@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EnableDnsSupport { get; private set; } = null!;
 
         [Output("enableNetworkAddressUsageMetrics")]
-        public Output<bool?> EnableNetworkAddressUsageMetrics { get; private set; } = null!;
+        public Output<bool> EnableNetworkAddressUsageMetrics { get; private set; } = null!;
 
         [Output("existingDefaultVpc")]
         public Output<bool> ExistingDefaultVpc { get; private set; } = null!;

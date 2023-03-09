@@ -15,6 +15,7 @@ __all__ = [
     'AccessPosixProfile',
     'ServerEndpointDetails',
     'ServerWorkflowDetails',
+    'ServerWorkflowDetailsOnPartialUpload',
     'ServerWorkflowDetailsOnUpload',
     'UserHomeDirectoryMapping',
     'UserPosixProfile',
@@ -222,7 +223,9 @@ class ServerWorkflowDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "onUpload":
+        if key == "onPartialUpload":
+            suggest = "on_partial_upload"
+        elif key == "onUpload":
             suggest = "on_upload"
 
         if suggest:
@@ -237,12 +240,24 @@ class ServerWorkflowDetails(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 on_partial_upload: Optional['outputs.ServerWorkflowDetailsOnPartialUpload'] = None,
                  on_upload: Optional['outputs.ServerWorkflowDetailsOnUpload'] = None):
         """
+        :param 'ServerWorkflowDetailsOnPartialUploadArgs' on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
         :param 'ServerWorkflowDetailsOnUploadArgs' on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
         """
+        if on_partial_upload is not None:
+            pulumi.set(__self__, "on_partial_upload", on_partial_upload)
         if on_upload is not None:
             pulumi.set(__self__, "on_upload", on_upload)
+
+    @property
+    @pulumi.getter(name="onPartialUpload")
+    def on_partial_upload(self) -> Optional['outputs.ServerWorkflowDetailsOnPartialUpload']:
+        """
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+        """
+        return pulumi.get(self, "on_partial_upload")
 
     @property
     @pulumi.getter(name="onUpload")
@@ -251,6 +266,54 @@ class ServerWorkflowDetails(dict):
         A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
         """
         return pulumi.get(self, "on_upload")
+
+
+@pulumi.output_type
+class ServerWorkflowDetailsOnPartialUpload(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRole":
+            suggest = "execution_role"
+        elif key == "workflowId":
+            suggest = "workflow_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerWorkflowDetailsOnPartialUpload. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerWorkflowDetailsOnPartialUpload.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerWorkflowDetailsOnPartialUpload.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role: str,
+                 workflow_id: str):
+        """
+        :param str execution_role: Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+        :param str workflow_id: A unique identifier for the workflow.
+        """
+        pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "workflow_id", workflow_id)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> str:
+        """
+        Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+        """
+        return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="workflowId")
+    def workflow_id(self) -> str:
+        """
+        A unique identifier for the workflow.
+        """
+        return pulumi.get(self, "workflow_id")
 
 
 @pulumi.output_type

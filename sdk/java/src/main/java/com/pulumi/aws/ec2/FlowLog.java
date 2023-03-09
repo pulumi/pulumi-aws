@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.ec2.FlowLog;
@@ -51,22 +53,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;vpc-flow-logs.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;vpc-flow-logs.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
@@ -76,32 +75,29 @@ import javax.annotation.Nullable;
  *             .vpcId(aws_vpc.example().id())
  *             .build());
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(                
+ *                     &#34;logs:CreateLogGroup&#34;,
+ *                     &#34;logs:CreateLogStream&#34;,
+ *                     &#34;logs:PutLogEvents&#34;,
+ *                     &#34;logs:DescribeLogGroups&#34;,
+ *                     &#34;logs:DescribeLogStreams&#34;)
+ *                 .resources(&#34;*&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;logs:CreateLogGroup&#34;,
- *         &#34;logs:CreateLogStream&#34;,
- *         &#34;logs:PutLogEvents&#34;,
- *         &#34;logs:DescribeLogGroups&#34;,
- *         &#34;logs:DescribeLogStreams&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;*&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Amazon Kinesis Data Firehose logging
+ * 
  * ```java
  * package generated_program;
  * 
@@ -109,6 +105,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
@@ -135,22 +133,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- *  {
- *    &#34;Version&#34;:&#34;2012-10-17&#34;,
- *    &#34;Statement&#34;: [
- *      {
- *        &#34;Action&#34;:&#34;sts:AssumeRole&#34;,
- *        &#34;Principal&#34;:{
- *          &#34;Service&#34;:&#34;firehose.amazonaws.com&#34;
- *        },
- *        &#34;Effect&#34;:&#34;Allow&#34;,
- *        &#34;Sid&#34;:&#34;&#34;
- *      }
- *    ]
- *  }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
@@ -174,26 +169,20 @@ import javax.annotation.Nullable;
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .effect(&#34;Allow&#34;)
+ *             .actions(            
+ *                 &#34;logs:CreateLogDelivery&#34;,
+ *                 &#34;logs:DeleteLogDelivery&#34;,
+ *                 &#34;logs:ListLogDeliveries&#34;,
+ *                 &#34;logs:GetLogDelivery&#34;,
+ *                 &#34;firehose:TagDeliveryStream&#34;)
+ *             .resources(&#34;*&#34;)
+ *             .build());
+ * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.id())
- *             .policy(&#34;&#34;&#34;
- *  {
- *    &#34;Version&#34;:&#34;2012-10-17&#34;,
- *    &#34;Statement&#34;:[
- *      {
- *        &#34;Action&#34;: [
- *          &#34;logs:CreateLogDelivery&#34;,
- *          &#34;logs:DeleteLogDelivery&#34;,
- *          &#34;logs:ListLogDeliveries&#34;,
- *          &#34;logs:GetLogDelivery&#34;,
- *          &#34;firehose:TagDeliveryStream&#34;
- *        ],
- *        &#34;Effect&#34;:&#34;Allow&#34;,
- *        &#34;Resource&#34;:&#34;*&#34;
- *      }
- *    ]
- *  }
- *             &#34;&#34;&#34;)
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
@@ -406,7 +395,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
     @Export(name="maxAggregationInterval", refs={Integer.class}, tree="[0]")
@@ -416,7 +405,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * @return The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
     public Output<Optional<Integer>> maxAggregationInterval() {

@@ -50,6 +50,20 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.cascade);
     }
 
+    @Import(name="defaultResourceDiscoveryAssociationId")
+    private @Nullable Output<String> defaultResourceDiscoveryAssociationId;
+
+    public Optional<Output<String>> defaultResourceDiscoveryAssociationId() {
+        return Optional.ofNullable(this.defaultResourceDiscoveryAssociationId);
+    }
+
+    @Import(name="defaultResourceDiscoveryId")
+    private @Nullable Output<String> defaultResourceDiscoveryId;
+
+    public Optional<Output<String>> defaultResourceDiscoveryId() {
+        return Optional.ofNullable(this.defaultResourceDiscoveryId);
+    }
+
     /**
      * A description for the IPAM.
      * 
@@ -162,6 +176,8 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     private VpcIpamState(VpcIpamState $) {
         this.arn = $.arn;
         this.cascade = $.cascade;
+        this.defaultResourceDiscoveryAssociationId = $.defaultResourceDiscoveryAssociationId;
+        this.defaultResourceDiscoveryId = $.defaultResourceDiscoveryId;
         this.description = $.description;
         this.operatingRegions = $.operatingRegions;
         this.privateDefaultScopeId = $.privateDefaultScopeId;
@@ -229,6 +245,24 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cascade(Boolean cascade) {
             return cascade(Output.of(cascade));
+        }
+
+        public Builder defaultResourceDiscoveryAssociationId(@Nullable Output<String> defaultResourceDiscoveryAssociationId) {
+            $.defaultResourceDiscoveryAssociationId = defaultResourceDiscoveryAssociationId;
+            return this;
+        }
+
+        public Builder defaultResourceDiscoveryAssociationId(String defaultResourceDiscoveryAssociationId) {
+            return defaultResourceDiscoveryAssociationId(Output.of(defaultResourceDiscoveryAssociationId));
+        }
+
+        public Builder defaultResourceDiscoveryId(@Nullable Output<String> defaultResourceDiscoveryId) {
+            $.defaultResourceDiscoveryId = defaultResourceDiscoveryId;
+            return this;
+        }
+
+        public Builder defaultResourceDiscoveryId(String defaultResourceDiscoveryId) {
+            return defaultResourceDiscoveryId(Output.of(defaultResourceDiscoveryId));
         }
 
         /**

@@ -39,23 +39,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"config.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "config.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -74,30 +80,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			policyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:*"),
+//						},
+//						Resources: pulumi.StringArray{
+//							bucketV2.Arn,
+//							bucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
 //				Role: role.ID(),
-//				Policy: pulumi.All(bucketV2.Arn, bucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					bucketV2Arn := _args[0].(string)
-//					bucketV2Arn1 := _args[1].(string)
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "s3:*"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": [
-//	        "%v",
-//	        "%v/*"
-//	      ]
-//	    }
-//	  ]
-//	}
-//
-// `, bucketV2Arn, bucketV2Arn1), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: policyDocument.ApplyT(func(policyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &policyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

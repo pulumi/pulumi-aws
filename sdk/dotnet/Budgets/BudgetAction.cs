@@ -21,45 +21,62 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ec2:Describe*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
     ///     {
     ///         Description = "My example policy",
-    ///         PolicyDocument = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""ec2:Describe*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""*""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var current = Aws.GetPartition.Invoke();
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             $"budgets.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {{
-    ///         ""Service"": [
-    ///           ""budgets.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}""
-    ///         ]
-    ///       }},
-    ///       ""Action"": [
-    ///         ""sts:AssumeRole""
-    ///       ]
-    ///     }}
-    ///   ]
-    /// }}
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleBudget = new Aws.Budgets.Budget("exampleBudget", new()

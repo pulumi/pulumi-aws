@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// <summary>
         /// Number of days until a certificate expires. Must be between 1 and 5000.
         /// </summary>
-        public readonly int ExpirationInDays;
+        public readonly int? ExpirationInDays;
         /// <summary>
-        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
+        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
         /// </summary>
         public readonly string? S3BucketName;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
 
             bool? enabled,
 
-            int expirationInDays,
+            int? expirationInDays,
 
             string? s3BucketName,
 

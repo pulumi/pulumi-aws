@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+        /// Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

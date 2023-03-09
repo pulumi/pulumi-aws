@@ -135,25 +135,30 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"autoscaling.amazonaws.com",
+//									"gamelift.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Service": [
-//	          "autoscaling.amazonaws.com",
-//	          "gamelift.amazonaws.com"
-//	        ]
-//	      },
-//	      "Action": "sts:AssumeRole"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

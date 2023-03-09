@@ -17,14 +17,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs();
 
     /**
-     * Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+     * Enables or disables dynamic partitioning. Defaults to `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+     * @return Enables or disables dynamic partitioning. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -72,7 +72,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
         }
 
         /**
-         * @param enabled Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+         * @param enabled Enables or disables dynamic partitioning. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
         }
 
         /**
-         * @param enabled Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+         * @param enabled Enables or disables dynamic partitioning. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -73,6 +73,7 @@ public final class Endpoints {
     private @Nullable String cloudwatchevidently;
     private @Nullable String cloudwatchlog;
     private @Nullable String cloudwatchlogs;
+    private @Nullable String cloudwatchobservabilityaccessmanager;
     private @Nullable String cloudwatchrum;
     private @Nullable String codeartifact;
     private @Nullable String codebuild;
@@ -269,6 +270,7 @@ public final class Endpoints {
     private @Nullable String networkmanager;
     private @Nullable String nimble;
     private @Nullable String nimblestudio;
+    private @Nullable String oam;
     private @Nullable String opensearch;
     private @Nullable String opensearchserverless;
     private @Nullable String opensearchservice;
@@ -573,6 +575,9 @@ public final class Endpoints {
     }
     public Optional<String> cloudwatchlogs() {
         return Optional.ofNullable(this.cloudwatchlogs);
+    }
+    public Optional<String> cloudwatchobservabilityaccessmanager() {
+        return Optional.ofNullable(this.cloudwatchobservabilityaccessmanager);
     }
     public Optional<String> cloudwatchrum() {
         return Optional.ofNullable(this.cloudwatchrum);
@@ -1162,6 +1167,9 @@ public final class Endpoints {
     public Optional<String> nimblestudio() {
         return Optional.ofNullable(this.nimblestudio);
     }
+    public Optional<String> oam() {
+        return Optional.ofNullable(this.oam);
+    }
     public Optional<String> opensearch() {
         return Optional.ofNullable(this.opensearch);
     }
@@ -1585,6 +1593,7 @@ public final class Endpoints {
         private @Nullable String cloudwatchevidently;
         private @Nullable String cloudwatchlog;
         private @Nullable String cloudwatchlogs;
+        private @Nullable String cloudwatchobservabilityaccessmanager;
         private @Nullable String cloudwatchrum;
         private @Nullable String codeartifact;
         private @Nullable String codebuild;
@@ -1781,6 +1790,7 @@ public final class Endpoints {
         private @Nullable String networkmanager;
         private @Nullable String nimble;
         private @Nullable String nimblestudio;
+        private @Nullable String oam;
         private @Nullable String opensearch;
         private @Nullable String opensearchserverless;
         private @Nullable String opensearchservice;
@@ -1963,6 +1973,7 @@ public final class Endpoints {
     	      this.cloudwatchevidently = defaults.cloudwatchevidently;
     	      this.cloudwatchlog = defaults.cloudwatchlog;
     	      this.cloudwatchlogs = defaults.cloudwatchlogs;
+    	      this.cloudwatchobservabilityaccessmanager = defaults.cloudwatchobservabilityaccessmanager;
     	      this.cloudwatchrum = defaults.cloudwatchrum;
     	      this.codeartifact = defaults.codeartifact;
     	      this.codebuild = defaults.codebuild;
@@ -2159,6 +2170,7 @@ public final class Endpoints {
     	      this.networkmanager = defaults.networkmanager;
     	      this.nimble = defaults.nimble;
     	      this.nimblestudio = defaults.nimblestudio;
+    	      this.oam = defaults.oam;
     	      this.opensearch = defaults.opensearch;
     	      this.opensearchserverless = defaults.opensearchserverless;
     	      this.opensearchservice = defaults.opensearchservice;
@@ -2586,6 +2598,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder cloudwatchlogs(@Nullable String cloudwatchlogs) {
             this.cloudwatchlogs = cloudwatchlogs;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cloudwatchobservabilityaccessmanager(@Nullable String cloudwatchobservabilityaccessmanager) {
+            this.cloudwatchobservabilityaccessmanager = cloudwatchobservabilityaccessmanager;
             return this;
         }
         @CustomType.Setter
@@ -3569,6 +3586,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder oam(@Nullable String oam) {
+            this.oam = oam;
+            return this;
+        }
+        @CustomType.Setter
         public Builder opensearch(@Nullable String opensearch) {
             this.opensearch = opensearch;
             return this;
@@ -4217,6 +4239,7 @@ public final class Endpoints {
             o.cloudwatchevidently = cloudwatchevidently;
             o.cloudwatchlog = cloudwatchlog;
             o.cloudwatchlogs = cloudwatchlogs;
+            o.cloudwatchobservabilityaccessmanager = cloudwatchobservabilityaccessmanager;
             o.cloudwatchrum = cloudwatchrum;
             o.codeartifact = codeartifact;
             o.codebuild = codebuild;
@@ -4413,6 +4436,7 @@ public final class Endpoints {
             o.networkmanager = networkmanager;
             o.nimble = nimble;
             o.nimblestudio = nimblestudio;
+            o.oam = oam;
             o.opensearch = opensearch;
             o.opensearchserverless = opensearchserverless;
             o.opensearchservice = opensearchservice;

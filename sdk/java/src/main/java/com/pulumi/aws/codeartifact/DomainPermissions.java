@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.codeartifact.Domain;
  * import com.pulumi.aws.codeartifact.DomainArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.codeartifact.DomainPermissions;
  * import com.pulumi.aws.codeartifact.DomainPermissionsArgs;
  * import java.util.List;
@@ -51,21 +53,21 @@ import javax.annotation.Nullable;
  *             .encryptionKey(exampleKey.arn())
  *             .build());
  * 
- *         var test = new DomainPermissions(&#34;test&#34;, DomainPermissionsArgs.builder()        
+ *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(&#34;codeartifact:CreateRepository&#34;)
+ *                 .resources(exampleDomain.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var testDomainPermissions = new DomainPermissions(&#34;testDomainPermissions&#34;, DomainPermissionsArgs.builder()        
  *             .domain(exampleDomain.domain())
- *             .policyDocument(exampleDomain.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Action&#34;: &#34;codeartifact:CreateRepository&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: &#34;*&#34;,
- *             &#34;Resource&#34;: &#34;%s&#34;
- *         }
- *     ]
- * }
- * &#34;, arn)))
+ *             .policyDocument(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

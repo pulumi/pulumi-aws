@@ -197,8 +197,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -208,16 +206,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("AWS_IAM"),
-//				Schema: pulumi.String(fmt.Sprintf(`schema {
-//		query: Query
-//	}
-//
-//	type Query {
-//	  test: Int
-//	}
-//
-// `)),
-//
+//				Schema:             pulumi.String("schema {\n	query: Query\n}\ntype Query {\n  test: Int\n}\n\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -234,8 +223,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -244,22 +231,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"appsync.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	        "Effect": "Allow",
-//	        "Principal": {
-//	            "Service": "appsync.amazonaws.com"
-//	        },
-//	        "Action": "sts:AssumeRole"
-//	        }
-//	    ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

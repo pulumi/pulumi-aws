@@ -62,7 +62,7 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket that you want to associate this access point with.
+     * Name of the bucket that you want to associate this access point with.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -106,7 +106,7 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
  */
 export interface BucketOwnershipControlsState {
     /**
-     * The name of the bucket that you want to associate this access point with.
+     * Name of the bucket that you want to associate this access point with.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -120,7 +120,7 @@ export interface BucketOwnershipControlsState {
  */
 export interface BucketOwnershipControlsArgs {
     /**
-     * The name of the bucket that you want to associate this access point with.
+     * Name of the bucket that you want to associate this access point with.
      */
     bucket: pulumi.Input<string>;
     /**

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<string> AcceleratorNames;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult> AcceleratorTotalMemoryMibs;
         public readonly ImmutableArray<string> AcceleratorTypes;
+        public readonly ImmutableArray<string> AllowedInstanceTypes;
         public readonly string BareMetal;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult> BaselineEbsBandwidthMbps;
         public readonly string BurstablePerformance;
@@ -28,6 +29,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<string> LocalStorageTypes;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult> MemoryGibPerVcpus;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult> MemoryMibs;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult> NetworkBandwidthGbps;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult> NetworkInterfaceCounts;
         public readonly int OnDemandMaxPricePercentageOverLowestPrice;
         public readonly bool RequireHibernateSupport;
@@ -46,6 +48,8 @@ namespace Pulumi.Aws.Ec2.Outputs
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult> acceleratorTotalMemoryMibs,
 
             ImmutableArray<string> acceleratorTypes,
+
+            ImmutableArray<string> allowedInstanceTypes,
 
             string bareMetal,
 
@@ -67,6 +71,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult> memoryMibs,
 
+            ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult> networkBandwidthGbps,
+
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult> networkInterfaceCounts,
 
             int onDemandMaxPricePercentageOverLowestPrice,
@@ -84,6 +90,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             AcceleratorNames = acceleratorNames;
             AcceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
             AcceleratorTypes = acceleratorTypes;
+            AllowedInstanceTypes = allowedInstanceTypes;
             BareMetal = bareMetal;
             BaselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             BurstablePerformance = burstablePerformance;
@@ -94,6 +101,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             LocalStorageTypes = localStorageTypes;
             MemoryGibPerVcpus = memoryGibPerVcpus;
             MemoryMibs = memoryMibs;
+            NetworkBandwidthGbps = networkBandwidthGbps;
             NetworkInterfaceCounts = networkInterfaceCounts;
             OnDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             RequireHibernateSupport = requireHibernateSupport;

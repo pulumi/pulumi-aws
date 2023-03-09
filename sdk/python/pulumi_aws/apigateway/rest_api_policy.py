@@ -110,27 +110,23 @@ class RestApiPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_rest_api = aws.apigateway.RestApi("testRestApi")
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["*"],
+            )],
+            actions=["execute-api:Invoke"],
+            resources=[test_rest_api.execution_arn],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="IpAddress",
+                variable="aws:SourceIp",
+                values=["123.123.123.123/32"],
+            )],
+        )])
         test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
             rest_api_id=test_rest_api.id,
-            policy=test_rest_api.execution_arn.apply(lambda execution_arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Principal": {{
-                "AWS": "*"
-              }},
-              "Action": "execute-api:Invoke",
-              "Resource": "{execution_arn}",
-              "Condition": {{
-                "IpAddress": {{
-                  "aws:SourceIp": "123.123.123.123/32"
-                }}
-              }}
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=test_policy_document.json)
         ```
 
         ## Import
@@ -165,27 +161,23 @@ class RestApiPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_rest_api = aws.apigateway.RestApi("testRestApi")
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["*"],
+            )],
+            actions=["execute-api:Invoke"],
+            resources=[test_rest_api.execution_arn],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="IpAddress",
+                variable="aws:SourceIp",
+                values=["123.123.123.123/32"],
+            )],
+        )])
         test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
             rest_api_id=test_rest_api.id,
-            policy=test_rest_api.execution_arn.apply(lambda execution_arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Principal": {{
-                "AWS": "*"
-              }},
-              "Action": "execute-api:Invoke",
-              "Resource": "{execution_arn}",
-              "Condition": {{
-                "IpAddress": {{
-                  "aws:SourceIp": "123.123.123.123/32"
-                }}
-              }}
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=test_policy_document.json)
         ```
 
         ## Import

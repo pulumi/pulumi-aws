@@ -33,6 +33,7 @@ class ClusterArgs:
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  neptune_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 neptune_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -63,6 +64,7 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] neptune_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
         :param pulumi.Input[str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
         :param pulumi.Input[int] port: The port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -109,6 +111,8 @@ class ClusterArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if neptune_cluster_parameter_group_name is not None:
             pulumi.set(__self__, "neptune_cluster_parameter_group_name", neptune_cluster_parameter_group_name)
+        if neptune_instance_parameter_group_name is not None:
+            pulumi.set(__self__, "neptune_instance_parameter_group_name", neptune_instance_parameter_group_name)
         if neptune_subnet_group_name is not None:
             pulumi.set(__self__, "neptune_subnet_group_name", neptune_subnet_group_name)
         if port is not None:
@@ -337,6 +341,18 @@ class ClusterArgs:
         pulumi.set(self, "neptune_cluster_parameter_group_name", value)
 
     @property
+    @pulumi.getter(name="neptuneInstanceParameterGroupName")
+    def neptune_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster.
+        """
+        return pulumi.get(self, "neptune_instance_parameter_group_name")
+
+    @neptune_instance_parameter_group_name.setter
+    def neptune_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "neptune_instance_parameter_group_name", value)
+
+    @property
     @pulumi.getter(name="neptuneSubnetGroupName")
     def neptune_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -494,6 +510,7 @@ class _ClusterState:
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  neptune_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 neptune_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -531,6 +548,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] neptune_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
         :param pulumi.Input[str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
         :param pulumi.Input[int] port: The port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -589,6 +607,8 @@ class _ClusterState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if neptune_cluster_parameter_group_name is not None:
             pulumi.set(__self__, "neptune_cluster_parameter_group_name", neptune_cluster_parameter_group_name)
+        if neptune_instance_parameter_group_name is not None:
+            pulumi.set(__self__, "neptune_instance_parameter_group_name", neptune_instance_parameter_group_name)
         if neptune_subnet_group_name is not None:
             pulumi.set(__self__, "neptune_subnet_group_name", neptune_subnet_group_name)
         if port is not None:
@@ -881,6 +901,18 @@ class _ClusterState:
         pulumi.set(self, "neptune_cluster_parameter_group_name", value)
 
     @property
+    @pulumi.getter(name="neptuneInstanceParameterGroupName")
+    def neptune_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster.
+        """
+        return pulumi.get(self, "neptune_instance_parameter_group_name")
+
+    @neptune_instance_parameter_group_name.setter
+    def neptune_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "neptune_instance_parameter_group_name", value)
+
+    @property
     @pulumi.getter(name="neptuneSubnetGroupName")
     def neptune_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1059,6 +1091,7 @@ class Cluster(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  neptune_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 neptune_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -1128,6 +1161,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] neptune_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
         :param pulumi.Input[str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
         :param pulumi.Input[int] port: The port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -1216,6 +1250,7 @@ class Cluster(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  neptune_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 neptune_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -1253,6 +1288,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["neptune_cluster_parameter_group_name"] = neptune_cluster_parameter_group_name
+            __props__.__dict__["neptune_instance_parameter_group_name"] = neptune_instance_parameter_group_name
             __props__.__dict__["neptune_subnet_group_name"] = neptune_subnet_group_name
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
@@ -1303,6 +1339,7 @@ class Cluster(pulumi.CustomResource):
             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             neptune_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+            neptune_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
             neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -1345,6 +1382,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] neptune_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
         :param pulumi.Input[str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
         :param pulumi.Input[int] port: The port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
@@ -1385,6 +1423,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["iam_roles"] = iam_roles
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["neptune_cluster_parameter_group_name"] = neptune_cluster_parameter_group_name
+        __props__.__dict__["neptune_instance_parameter_group_name"] = neptune_instance_parameter_group_name
         __props__.__dict__["neptune_subnet_group_name"] = neptune_subnet_group_name
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
@@ -1575,6 +1614,14 @@ class Cluster(pulumi.CustomResource):
         A cluster parameter group to associate with the cluster.
         """
         return pulumi.get(self, "neptune_cluster_parameter_group_name")
+
+    @property
+    @pulumi.getter(name="neptuneInstanceParameterGroupName")
+    def neptune_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster.
+        """
+        return pulumi.get(self, "neptune_instance_parameter_group_name")
 
     @property
     @pulumi.getter(name="neptuneSubnetGroupName")

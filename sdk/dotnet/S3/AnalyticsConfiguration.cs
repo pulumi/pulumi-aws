@@ -28,7 +28,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new()
     ///     {
-    ///         Bucket = example.Bucket,
+    ///         Bucket = example.Id,
     ///         StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
     ///         {
     ///             DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new()
     ///     {
-    ///         Bucket = example.Bucket,
+    ///         Bucket = example.Id,
     ///         Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
     ///         {
     ///             Prefix = "documents/",
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.S3
     public partial class AnalyticsConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket this analytics configuration is associated with.
+        /// Name of the bucket this analytics configuration is associated with.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.S3
     public sealed class AnalyticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket this analytics configuration is associated with.
+        /// Name of the bucket this analytics configuration is associated with.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.S3
     public sealed class AnalyticsConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket this analytics configuration is associated with.
+        /// Name of the bucket this analytics configuration is associated with.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

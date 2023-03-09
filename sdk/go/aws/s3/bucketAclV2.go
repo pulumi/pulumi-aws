@@ -139,13 +139,13 @@ import (
 type BucketAclV2 struct {
 	pulumi.CustomResourceState
 
-	// A configuration block that sets the ACL permissions for an object per grantee documented below.
+	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclV2AccessControlPolicyOutput `pulumi:"accessControlPolicy"`
-	// The canned ACL to apply to the bucket.
+	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 }
 
@@ -181,24 +181,24 @@ func GetBucketAclV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketAclV2 resources.
 type bucketAclV2State struct {
-	// A configuration block that sets the ACL permissions for an object per grantee documented below.
+	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy *BucketAclV2AccessControlPolicy `pulumi:"accessControlPolicy"`
-	// The canned ACL to apply to the bucket.
+	// Canned ACL to apply to the bucket.
 	Acl *string `pulumi:"acl"`
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 }
 
 type BucketAclV2State struct {
-	// A configuration block that sets the ACL permissions for an object per grantee documented below.
+	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclV2AccessControlPolicyPtrInput
-	// The canned ACL to apply to the bucket.
+	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrInput
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
 }
 
@@ -207,25 +207,25 @@ func (BucketAclV2State) ElementType() reflect.Type {
 }
 
 type bucketAclV2Args struct {
-	// A configuration block that sets the ACL permissions for an object per grantee documented below.
+	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy *BucketAclV2AccessControlPolicy `pulumi:"accessControlPolicy"`
-	// The canned ACL to apply to the bucket.
+	// Canned ACL to apply to the bucket.
 	Acl *string `pulumi:"acl"`
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 }
 
 // The set of arguments for constructing a BucketAclV2 resource.
 type BucketAclV2Args struct {
-	// A configuration block that sets the ACL permissions for an object per grantee documented below.
+	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclV2AccessControlPolicyPtrInput
-	// The canned ACL to apply to the bucket.
+	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrInput
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
 }
 
@@ -316,22 +316,22 @@ func (o BucketAclV2Output) ToBucketAclV2OutputWithContext(ctx context.Context) B
 	return o
 }
 
-// A configuration block that sets the ACL permissions for an object per grantee documented below.
+// Configuration block that sets the ACL permissions for an object per grantee. See below.
 func (o BucketAclV2Output) AccessControlPolicy() BucketAclV2AccessControlPolicyOutput {
 	return o.ApplyT(func(v *BucketAclV2) BucketAclV2AccessControlPolicyOutput { return v.AccessControlPolicy }).(BucketAclV2AccessControlPolicyOutput)
 }
 
-// The canned ACL to apply to the bucket.
+// Canned ACL to apply to the bucket.
 func (o BucketAclV2Output) Acl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
 }
 
-// The name of the bucket.
+// Name of the bucket.
 func (o BucketAclV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAclV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner.
+// Account ID of the expected bucket owner.
 func (o BucketAclV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

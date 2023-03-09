@@ -33,7 +33,7 @@ import (
 //			}
 //			_, err = athena.NewDatabase(ctx, "exampleDatabase", &athena.DatabaseArgs{
 //				Name:   pulumi.String("database_name"),
-//				Bucket: exampleBucketV2.Bucket,
+//				Bucket: exampleBucketV2.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //
 //	= "database_name"
 //
-//	bucket = aws_s3_bucket.example.bucket
+//	bucket = aws_s3_bucket.example.id
 //
 // # There is no API for reading bucket
 //

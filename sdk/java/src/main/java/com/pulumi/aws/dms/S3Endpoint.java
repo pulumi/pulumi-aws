@@ -462,6 +462,20 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.datePartitionTimezone);
     }
     /**
+     * Undocumented argument for use as directed by AWS Support.
+     * 
+     */
+    @Export(name="detachTargetOnLobLookupFailureParquet", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> detachTargetOnLobLookupFailureParquet;
+
+    /**
+     * @return Undocumented argument for use as directed by AWS Support.
+     * 
+     */
+    public Output<Optional<Boolean>> detachTargetOnLobLookupFailureParquet() {
+        return Codegen.optional(this.detachTargetOnLobLookupFailureParquet);
+    }
+    /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      * 
      */

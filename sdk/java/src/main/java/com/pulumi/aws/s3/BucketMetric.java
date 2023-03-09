@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new BucketV2(&#34;example&#34;);
  * 
  *         var example_entire_bucket = new BucketMetric(&#34;example-entire-bucket&#34;, BucketMetricArgs.builder()        
- *             .bucket(example.bucket())
+ *             .bucket(example.id())
  *             .build());
  * 
  *     }
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *         var example = new BucketV2(&#34;example&#34;);
  * 
  *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
- *             .bucket(example.bucket())
+ *             .bucket(example.id())
  *             .filter(BucketMetricFilterArgs.builder()
  *                 .prefix(&#34;documents/&#34;)
  *                 .tags(Map.ofEntries(
@@ -104,14 +104,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketMetric:BucketMetric")
 public class BucketMetric extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket to put metric configuration.
+     * Name of the bucket to put metric configuration.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket to put metric configuration.
+     * @return Name of the bucket to put metric configuration.
      * 
      */
     public Output<String> bucket() {

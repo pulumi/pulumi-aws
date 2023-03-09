@@ -123,33 +123,27 @@ class VaultPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vault = aws.backup.Vault("exampleVault")
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["*"],
+            )],
+            actions=[
+                "backup:DescribeBackupVault",
+                "backup:DeleteBackupVault",
+                "backup:PutBackupVaultAccessPolicy",
+                "backup:DeleteBackupVaultAccessPolicy",
+                "backup:GetBackupVaultAccessPolicy",
+                "backup:StartBackupJob",
+                "backup:GetBackupVaultNotifications",
+                "backup:PutBackupVaultNotifications",
+            ],
+            resources=[example_vault.arn],
+        )])
         example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
             backup_vault_name=example_vault.name,
-            policy=example_vault.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Id": "default",
-          "Statement": [
-            {{
-              "Sid": "default",
-              "Effect": "Allow",
-              "Principal": {{
-                "AWS": "*"
-              }},
-              "Action": [
-        		"backup:DescribeBackupVault",
-        		"backup:DeleteBackupVault",
-        		"backup:PutBackupVaultAccessPolicy",
-        		"backup:DeleteBackupVaultAccessPolicy",
-        		"backup:GetBackupVaultAccessPolicy",
-        		"backup:StartBackupJob",
-        		"backup:GetBackupVaultNotifications",
-        		"backup:PutBackupVaultNotifications"
-              ],
-              "Resource": "{arn}"
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=example_policy_document.json)
         ```
 
         ## Import
@@ -181,33 +175,27 @@ class VaultPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vault = aws.backup.Vault("exampleVault")
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["*"],
+            )],
+            actions=[
+                "backup:DescribeBackupVault",
+                "backup:DeleteBackupVault",
+                "backup:PutBackupVaultAccessPolicy",
+                "backup:DeleteBackupVaultAccessPolicy",
+                "backup:GetBackupVaultAccessPolicy",
+                "backup:StartBackupJob",
+                "backup:GetBackupVaultNotifications",
+                "backup:PutBackupVaultNotifications",
+            ],
+            resources=[example_vault.arn],
+        )])
         example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
             backup_vault_name=example_vault.name,
-            policy=example_vault.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Id": "default",
-          "Statement": [
-            {{
-              "Sid": "default",
-              "Effect": "Allow",
-              "Principal": {{
-                "AWS": "*"
-              }},
-              "Action": [
-        		"backup:DescribeBackupVault",
-        		"backup:DeleteBackupVault",
-        		"backup:PutBackupVaultAccessPolicy",
-        		"backup:DeleteBackupVaultAccessPolicy",
-        		"backup:GetBackupVaultAccessPolicy",
-        		"backup:StartBackupJob",
-        		"backup:GetBackupVaultNotifications",
-        		"backup:PutBackupVaultNotifications"
-              ],
-              "Resource": "{arn}"
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=example_policy_document.json)
         ```
 
         ## Import

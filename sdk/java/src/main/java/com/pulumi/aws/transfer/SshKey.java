@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.transfer.Server;
  * import com.pulumi.aws.transfer.ServerArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.transfer.User;
@@ -51,21 +53,19 @@ import javax.annotation.Nullable;
  *             .tags(Map.of(&#34;NAME&#34;, &#34;tf-acc-test-transfer-server&#34;))
  *             .build());
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;transfer.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- * 	&#34;Version&#34;: &#34;2012-10-17&#34;,
- * 	&#34;Statement&#34;: [
- * 		{
- * 		&#34;Effect&#34;: &#34;Allow&#34;,
- * 		&#34;Principal&#34;: {
- * 			&#34;Service&#34;: &#34;transfer.amazonaws.com&#34;
- * 		},
- * 		&#34;Action&#34;: &#34;sts:AssumeRole&#34;
- * 		}
- * 	]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
@@ -81,23 +81,18 @@ import javax.annotation.Nullable;
  *             .body(&#34;... SSH key ...&#34;)
  *             .build());
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;AllowFullAccesstoS3&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(&#34;s3:*&#34;)
+ *                 .resources(&#34;*&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- * 	&#34;Version&#34;: &#34;2012-10-17&#34;,
- * 	&#34;Statement&#34;: [
- * 		{
- * 			&#34;Sid&#34;: &#34;AllowFullAccesstoS3&#34;,
- * 			&#34;Effect&#34;: &#34;Allow&#34;,
- * 			&#34;Action&#34;: [
- * 				&#34;s3:*&#34;
- * 			],
- * 			&#34;Resource&#34;: &#34;*&#34;
- * 		}
- * 	]
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

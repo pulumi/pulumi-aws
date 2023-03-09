@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -34,31 +32,45 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			groupRole, err := iam.NewRole(ctx, "groupRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Sid": "",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Federated": "cognito-identity.amazonaws.com"
-//	      },
-//	      "Action": "sts:AssumeRoleWithWebIdentity",
-//	      "Condition": {
-//	        "StringEquals": {
-//	          "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
-//	        },
-//	        "ForAnyValue:StringLike": {
-//	          "cognito-identity.amazonaws.com:amr": "authenticated"
-//	        }
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//			groupRolePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Federated",
+//								Identifiers: []string{
+//									"cognito-identity.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRoleWithWebIdentity",
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "StringEquals",
+//								Variable: "cognito-identity.amazonaws.com:aud",
+//								Values: []string{
+//									"us-east-1:12345678-dead-beef-cafe-123456790ab",
+//								},
+//							},
+//							{
+//								Test:     "ForAnyValue:StringLike",
+//								Variable: "cognito-identity.amazonaws.com:amr",
+//								Values: []string{
+//									"authenticated",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			groupRoleRole, err := iam.NewRole(ctx, "groupRoleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(groupRolePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -67,7 +79,7 @@ import (
 //				UserPoolId:  mainUserPool.ID(),
 //				Description: pulumi.String("Managed by Pulumi"),
 //				Precedence:  pulumi.Int(42),
-//				RoleArn:     groupRole.Arn,
+//				RoleArn:     groupRoleRole.Arn,
 //			})
 //			if err != nil {
 //				return err

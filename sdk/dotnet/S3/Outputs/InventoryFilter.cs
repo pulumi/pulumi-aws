@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class InventoryFilter
     {
         /// <summary>
-        /// The prefix that an object must have to be included in the inventory results.
+        /// Prefix that an object must have to be included in the inventory results.
         /// </summary>
         public readonly string? Prefix;
 

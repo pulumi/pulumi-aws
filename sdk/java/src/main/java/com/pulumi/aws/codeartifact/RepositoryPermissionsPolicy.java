@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codeartifact.DomainArgs;
  * import com.pulumi.aws.codeartifact.Repository;
  * import com.pulumi.aws.codeartifact.RepositoryArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.codeartifact.RepositoryPermissionsPolicy;
  * import com.pulumi.aws.codeartifact.RepositoryPermissionsPolicyArgs;
  * import java.util.List;
@@ -58,22 +60,22 @@ import javax.annotation.Nullable;
  *             .domain(exampleDomain.domain())
  *             .build());
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(&#34;codeartifact:CreateRepository&#34;)
+ *                 .resources(exampleDomain.arn())
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRepositoryPermissionsPolicy = new RepositoryPermissionsPolicy(&#34;exampleRepositoryPermissionsPolicy&#34;, RepositoryPermissionsPolicyArgs.builder()        
  *             .repository(exampleRepository.repository())
  *             .domain(exampleDomain.domain())
- *             .policyDocument(exampleDomain.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Action&#34;: &#34;codeartifact:CreateRepository&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: &#34;*&#34;,
- *             &#34;Resource&#34;: &#34;%s&#34;
- *         }
- *     ]
- * }
- * &#34;, arn)))
+ *             .policyDocument(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

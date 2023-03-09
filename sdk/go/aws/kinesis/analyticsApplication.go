@@ -25,8 +25,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -53,7 +51,7 @@ import (
 //					Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
 //						RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
 //							&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
-//								Mapping: pulumi.String(fmt.Sprintf("$.test")),
+//								Mapping: pulumi.String("$.test"),
 //								Name:    pulumi.String("test"),
 //								SqlType: pulumi.String("VARCHAR(8)"),
 //							},

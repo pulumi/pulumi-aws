@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class DistributionOriginGroup {
     /**
-     * @return The failover criteria for when to failover to the secondary origin
+     * @return The failover criteria for when to failover to the secondary origin.
      * 
      */
     private DistributionOriginGroupFailoverCriteria failoverCriteria;
@@ -23,14 +23,14 @@ public final class DistributionOriginGroup {
      */
     private List<DistributionOriginGroupMember> members;
     /**
-     * @return A unique identifier for the origin.
+     * @return Unique identifier for the origin.
      * 
      */
     private String originId;
 
     private DistributionOriginGroup() {}
     /**
-     * @return The failover criteria for when to failover to the secondary origin
+     * @return The failover criteria for when to failover to the secondary origin.
      * 
      */
     public DistributionOriginGroupFailoverCriteria failoverCriteria() {
@@ -44,7 +44,7 @@ public final class DistributionOriginGroup {
         return this.members;
     }
     /**
-     * @return A unique identifier for the origin.
+     * @return Unique identifier for the origin.
      * 
      */
     public String originId() {

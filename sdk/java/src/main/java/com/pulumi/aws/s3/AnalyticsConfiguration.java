@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *         var analytics = new BucketV2(&#34;analytics&#34;);
  * 
  *         var example_entire_bucket = new AnalyticsConfiguration(&#34;example-entire-bucket&#34;, AnalyticsConfigurationArgs.builder()        
- *             .bucket(example.bucket())
+ *             .bucket(example.id())
  *             .storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs.builder()
  *                 .dataExport(AnalyticsConfigurationStorageClassAnalysisDataExportArgs.builder()
  *                     .destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.builder()
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *         var example = new BucketV2(&#34;example&#34;);
  * 
  *         var example_filtered = new AnalyticsConfiguration(&#34;example-filtered&#34;, AnalyticsConfigurationArgs.builder()        
- *             .bucket(example.bucket())
+ *             .bucket(example.id())
  *             .filter(AnalyticsConfigurationFilterArgs.builder()
  *                 .prefix(&#34;documents/&#34;)
  *                 .tags(Map.ofEntries(
@@ -120,14 +120,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/analyticsConfiguration:AnalyticsConfiguration")
 public class AnalyticsConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket this analytics configuration is associated with.
+     * Name of the bucket this analytics configuration is associated with.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket this analytics configuration is associated with.
+     * @return Name of the bucket this analytics configuration is associated with.
      * 
      */
     public Output<String> bucket() {

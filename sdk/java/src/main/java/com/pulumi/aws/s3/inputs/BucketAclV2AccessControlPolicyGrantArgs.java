@@ -17,14 +17,14 @@ public final class BucketAclV2AccessControlPolicyGrantArgs extends com.pulumi.re
     public static final BucketAclV2AccessControlPolicyGrantArgs Empty = new BucketAclV2AccessControlPolicyGrantArgs();
 
     /**
-     * Configuration block for the person being granted permissions documented below.
+     * Configuration block for the person being granted permissions. See below.
      * 
      */
     @Import(name="grantee")
     private @Nullable Output<BucketAclV2AccessControlPolicyGrantGranteeArgs> grantee;
 
     /**
-     * @return Configuration block for the person being granted permissions documented below.
+     * @return Configuration block for the person being granted permissions. See below.
      * 
      */
     public Optional<Output<BucketAclV2AccessControlPolicyGrantGranteeArgs>> grantee() {
@@ -72,7 +72,7 @@ public final class BucketAclV2AccessControlPolicyGrantArgs extends com.pulumi.re
         }
 
         /**
-         * @param grantee Configuration block for the person being granted permissions documented below.
+         * @param grantee Configuration block for the person being granted permissions. See below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketAclV2AccessControlPolicyGrantArgs extends com.pulumi.re
         }
 
         /**
-         * @param grantee Configuration block for the person being granted permissions documented below.
+         * @param grantee Configuration block for the person being granted permissions. See below.
          * 
          * @return builder
          * 

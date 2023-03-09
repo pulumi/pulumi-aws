@@ -523,25 +523,20 @@ class ContainerService(pulumi.CustomResource):
                 is_active=True,
             ),
         ))
+        default_policy_document = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[private_registry_access.ecr_image_puller_role.principal_arn],
+            )],
+            actions=[
+                "ecr:BatchGetImage",
+                "ecr:GetDownloadUrlForLayer",
+            ],
+        )]))
         default_repository_policy = aws.ecr.RepositoryPolicy("defaultRepositoryPolicy",
             repository=aws_ecr_repository["default"]["name"],
-            policy=default_container_service.private_registry_access.apply(lambda private_registry_access: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Sid": "AllowLightsailPull",
-              "Effect": "Allow",
-              "Principal": {{
-                "AWS": "{private_registry_access.ecr_image_puller_role.principal_arn}"
-              }},
-              "Action": [
-                "ecr:BatchGetImage",
-                "ecr:GetDownloadUrlForLayer"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=default_policy_document.json)
         ```
 
         ## Import
@@ -628,25 +623,20 @@ class ContainerService(pulumi.CustomResource):
                 is_active=True,
             ),
         ))
+        default_policy_document = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[private_registry_access.ecr_image_puller_role.principal_arn],
+            )],
+            actions=[
+                "ecr:BatchGetImage",
+                "ecr:GetDownloadUrlForLayer",
+            ],
+        )]))
         default_repository_policy = aws.ecr.RepositoryPolicy("defaultRepositoryPolicy",
             repository=aws_ecr_repository["default"]["name"],
-            policy=default_container_service.private_registry_access.apply(lambda private_registry_access: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Sid": "AllowLightsailPull",
-              "Effect": "Allow",
-              "Principal": {{
-                "AWS": "{private_registry_access.ecr_image_puller_role.principal_arn}"
-              }},
-              "Action": [
-                "ecr:BatchGetImage",
-                "ecr:GetDownloadUrlForLayer"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=default_policy_document.json)
         ```
 
         ## Import

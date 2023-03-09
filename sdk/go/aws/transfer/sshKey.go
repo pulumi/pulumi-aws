@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -39,22 +37,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//		"Version": "2012-10-17",
-//		"Statement": [
-//			{
-//			"Effect": "Allow",
-//			"Principal": {
-//				"Service": "transfer.amazonaws.com"
-//			},
-//			"Action": "sts:AssumeRole"
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"transfer.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
 //			}
-//		]
-//	}
-//
-// `)),
-//
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -78,24 +83,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-//				Role: exampleRole.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//		"Version": "2012-10-17",
-//		"Statement": [
-//			{
-//				"Sid": "AllowFullAccesstoS3",
-//				"Effect": "Allow",
-//				"Action": [
-//					"s3:*"
-//				],
-//				"Resource": "*"
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("AllowFullAccesstoS3"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
 //			}
-//		]
-//	}
-//
-// `)),
-//
+//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+//				Role:   exampleRole.ID(),
+//				Policy: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

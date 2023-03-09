@@ -19,7 +19,8 @@ class SslNegotiationPolicyArgs:
                  lb_port: pulumi.Input[int],
                  load_balancer: pulumi.Input[str],
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SslNegotiationPolicy resource.
         :param pulumi.Input[int] lb_port: The load balancer port to which the policy
@@ -29,6 +30,7 @@ class SslNegotiationPolicyArgs:
                should be attached.
         :param pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]] attributes: An SSL Negotiation policy attribute. Each has two properties:
         :param pulumi.Input[str] name: The name of the attribute
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         pulumi.set(__self__, "lb_port", lb_port)
         pulumi.set(__self__, "load_balancer", load_balancer)
@@ -36,6 +38,8 @@ class SslNegotiationPolicyArgs:
             pulumi.set(__self__, "attributes", attributes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter(name="lbPort")
@@ -88,6 +92,18 @@ class SslNegotiationPolicyArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
 
 @pulumi.input_type
 class _SslNegotiationPolicyState:
@@ -95,7 +111,8 @@ class _SslNegotiationPolicyState:
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]]] = None,
                  lb_port: Optional[pulumi.Input[int]] = None,
                  load_balancer: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SslNegotiationPolicy resources.
         :param pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]] attributes: An SSL Negotiation policy attribute. Each has two properties:
@@ -105,6 +122,7 @@ class _SslNegotiationPolicyState:
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -114,6 +132,8 @@ class _SslNegotiationPolicyState:
             pulumi.set(__self__, "load_balancer", load_balancer)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter
@@ -166,6 +186,18 @@ class _SslNegotiationPolicyState:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
 
 warnings.warn("""aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy""", DeprecationWarning)
 
@@ -181,6 +213,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                  lb_port: Optional[pulumi.Input[int]] = None,
                  load_balancer: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
@@ -244,6 +277,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         ...
     @overload
@@ -323,6 +357,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                  lb_port: Optional[pulumi.Input[int]] = None,
                  load_balancer: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""SslNegotiationPolicy is deprecated: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -341,6 +376,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'load_balancer'")
             __props__.__dict__["load_balancer"] = load_balancer
             __props__.__dict__["name"] = name
+            __props__.__dict__["triggers"] = triggers
         super(SslNegotiationPolicy, __self__).__init__(
             'aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy',
             resource_name,
@@ -354,7 +390,8 @@ class SslNegotiationPolicy(pulumi.CustomResource):
             attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SslNegotiationPolicyAttributeArgs']]]]] = None,
             lb_port: Optional[pulumi.Input[int]] = None,
             load_balancer: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'SslNegotiationPolicy':
+            name: Optional[pulumi.Input[str]] = None,
+            triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SslNegotiationPolicy':
         """
         Get an existing SslNegotiationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -369,6 +406,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -378,6 +416,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         __props__.__dict__["lb_port"] = lb_port
         __props__.__dict__["load_balancer"] = load_balancer
         __props__.__dict__["name"] = name
+        __props__.__dict__["triggers"] = triggers
         return SslNegotiationPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -414,4 +453,12 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         The name of the attribute
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        """
+        return pulumi.get(self, "triggers")
 

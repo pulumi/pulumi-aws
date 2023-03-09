@@ -109,6 +109,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lightsail.ContainerServiceArgs;
  * import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessArgs;
  * import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.ecr.RepositoryPolicy;
  * import com.pulumi.aws.ecr.RepositoryPolicyArgs;
  * import java.util.List;
@@ -132,26 +134,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         final var defaultPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(defaultContainerService.privateRegistryAccess().applyValue(privateRegistryAccess -&gt; privateRegistryAccess.ecrImagePullerRole().principalArn()))
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;ecr:BatchGetImage&#34;,
+ *                     &#34;ecr:GetDownloadUrlForLayer&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var defaultRepositoryPolicy = new RepositoryPolicy(&#34;defaultRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
  *             .repository(aws_ecr_repository.default().name())
- *             .policy(defaultContainerService.privateRegistryAccess().applyValue(privateRegistryAccess -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;AllowLightsailPull&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;AWS&#34;: &#34;%s&#34;
- *       },
- *       &#34;Action&#34;: [
- *         &#34;ecr:BatchGetImage&#34;,
- *         &#34;ecr:GetDownloadUrlForLayer&#34;
- *       ]
- *     }
- *   ]
- * }
- * &#34;, privateRegistryAccess.ecrImagePullerRole().principalArn())))
+ *             .policy(defaultPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(defaultPolicyDocument -&gt; defaultPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

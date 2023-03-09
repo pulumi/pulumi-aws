@@ -23,11 +23,11 @@ class BucketLoggingV2Args:
                  target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None):
         """
         The set of arguments for constructing a BucketLoggingV2 resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] target_bucket: The name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[str] target_prefix: A prefix for all log object keys.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions documented below.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
+        :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "target_bucket", target_bucket)
@@ -41,7 +41,7 @@ class BucketLoggingV2Args:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -53,7 +53,7 @@ class BucketLoggingV2Args:
     @pulumi.getter(name="targetBucket")
     def target_bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket where you want Amazon S3 to store server access logs.
+        Name of the bucket where you want Amazon S3 to store server access logs.
         """
         return pulumi.get(self, "target_bucket")
 
@@ -65,7 +65,7 @@ class BucketLoggingV2Args:
     @pulumi.getter(name="targetPrefix")
     def target_prefix(self) -> pulumi.Input[str]:
         """
-        A prefix for all log object keys.
+        Prefix for all log object keys.
         """
         return pulumi.get(self, "target_prefix")
 
@@ -77,7 +77,7 @@ class BucketLoggingV2Args:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -89,7 +89,7 @@ class BucketLoggingV2Args:
     @pulumi.getter(name="targetGrants")
     def target_grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]:
         """
-        Set of configuration blocks with information for granting permissions documented below.
+        Set of configuration blocks with information for granting permissions. See below.
         """
         return pulumi.get(self, "target_grants")
 
@@ -108,11 +108,11 @@ class _BucketLoggingV2State:
                  target_prefix: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketLoggingV2 resources.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] target_bucket: The name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions documented below.
-        :param pulumi.Input[str] target_prefix: A prefix for all log object keys.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -129,7 +129,7 @@ class _BucketLoggingV2State:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -141,7 +141,7 @@ class _BucketLoggingV2State:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -153,7 +153,7 @@ class _BucketLoggingV2State:
     @pulumi.getter(name="targetBucket")
     def target_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket where you want Amazon S3 to store server access logs.
+        Name of the bucket where you want Amazon S3 to store server access logs.
         """
         return pulumi.get(self, "target_bucket")
 
@@ -165,7 +165,7 @@ class _BucketLoggingV2State:
     @pulumi.getter(name="targetGrants")
     def target_grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]:
         """
-        Set of configuration blocks with information for granting permissions documented below.
+        Set of configuration blocks with information for granting permissions. See below.
         """
         return pulumi.get(self, "target_grants")
 
@@ -177,7 +177,7 @@ class _BucketLoggingV2State:
     @pulumi.getter(name="targetPrefix")
     def target_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        A prefix for all log object keys.
+        Prefix for all log object keys.
         """
         return pulumi.get(self, "target_prefix")
 
@@ -240,11 +240,11 @@ class BucketLoggingV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] target_bucket: The name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]] target_grants: Set of configuration blocks with information for granting permissions documented below.
-        :param pulumi.Input[str] target_prefix: A prefix for all log object keys.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
         """
         ...
     @overload
@@ -355,11 +355,11 @@ class BucketLoggingV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] target_bucket: The name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]] target_grants: Set of configuration blocks with information for granting permissions documented below.
-        :param pulumi.Input[str] target_prefix: A prefix for all log object keys.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLoggingV2TargetGrantArgs']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -376,7 +376,7 @@ class BucketLoggingV2(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -384,7 +384,7 @@ class BucketLoggingV2(pulumi.CustomResource):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -392,7 +392,7 @@ class BucketLoggingV2(pulumi.CustomResource):
     @pulumi.getter(name="targetBucket")
     def target_bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket where you want Amazon S3 to store server access logs.
+        Name of the bucket where you want Amazon S3 to store server access logs.
         """
         return pulumi.get(self, "target_bucket")
 
@@ -400,7 +400,7 @@ class BucketLoggingV2(pulumi.CustomResource):
     @pulumi.getter(name="targetGrants")
     def target_grants(self) -> pulumi.Output[Optional[Sequence['outputs.BucketLoggingV2TargetGrant']]]:
         """
-        Set of configuration blocks with information for granting permissions documented below.
+        Set of configuration blocks with information for granting permissions. See below.
         """
         return pulumi.get(self, "target_grants")
 
@@ -408,7 +408,7 @@ class BucketLoggingV2(pulumi.CustomResource):
     @pulumi.getter(name="targetPrefix")
     def target_prefix(self) -> pulumi.Output[str]:
         """
-        A prefix for all log object keys.
+        Prefix for all log object keys.
         """
         return pulumi.get(self, "target_prefix")
 

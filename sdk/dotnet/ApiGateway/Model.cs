@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -31,10 +32,10 @@ namespace Pulumi.Aws.ApiGateway
     ///         RestApi = myDemoAPI.Id,
     ///         Description = "a JSON schema",
     ///         ContentType = "application/json",
-    ///         Schema = @"{
-    ///   ""type"": ""object""
-    /// }
-    /// ",
+    ///         Schema = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["type"] = "object",
+    ///         }),
     ///     });
     /// 
     /// });

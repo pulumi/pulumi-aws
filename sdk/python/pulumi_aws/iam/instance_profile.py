@@ -271,22 +271,17 @@ class InstanceProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ec2.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
         role = aws.iam.Role("role",
             path="/",
-            assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                       "Service": "ec2.amazonaws.com"
-                    },
-                    "Effect": "Allow",
-                    "Sid": ""
-                }
-            ]
-        }
-        \"\"\")
+            assume_role_policy=assume_role.json)
         test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
         ```
 
@@ -321,22 +316,17 @@ class InstanceProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ec2.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
         role = aws.iam.Role("role",
             path="/",
-            assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                       "Service": "ec2.amazonaws.com"
-                    },
-                    "Effect": "Allow",
-                    "Sid": ""
-                }
-            ]
-        }
-        \"\"\")
+            assume_role_policy=assume_role.json)
         test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
         ```
 

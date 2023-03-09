@@ -15,62 +15,8 @@ namespace Pulumi.Aws.RedShift
         /// Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         /// in a given region for the purpose of allowing Redshift to store audit data in S3.
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var main = Aws.RedShift.GetServiceAccount.Invoke();
-        /// 
-        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
-        ///     {
-        ///         ForceDestroy = true,
-        ///     });
-        /// 
-        ///     var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new()
-        ///     {
-        ///         Bucket = bucket.Id,
-        ///         Policy = Output.Tuple(main, main).Apply(values =&gt;
-        ///         {
-        ///             var main = values.Item1;
-        ///             var main1 = values.Item2;
-        ///             return @$"{{
-        /// 	""Version"": ""2008-10-17"",
-        /// 	""Statement"": [
-        /// 		{{
-        ///             ""Sid"": ""Put bucket policy needed for audit logging"",
-        ///             ""Effect"": ""Allow"",
-        ///             ""Principal"": {{
-        /// 		        ""AWS"": ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
-        ///             }},
-        ///             ""Action"": ""s3:PutObject"",
-        ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket/*""
-        ///         }},
-        ///         {{
-        ///             ""Sid"": ""Get bucket policy needed for audit logging "",
-        ///             ""Effect"": ""Allow"",
-        ///             ""Principal"": {{
-        /// 		        ""AWS"": ""{main1.Arn}""
-        ///             }},
-        ///             ""Action"": ""s3:GetBucketAcl"",
-        ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket""
-        ///         }}
-        /// 	]
-        /// }}
-        /// ";
-        ///         }),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
         /// </summary>
         public static Task<GetServiceAccountResult> InvokeAsync(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:redshift/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithDefaults());
@@ -79,62 +25,8 @@ namespace Pulumi.Aws.RedShift
         /// Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         /// in a given region for the purpose of allowing Redshift to store audit data in S3.
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var main = Aws.RedShift.GetServiceAccount.Invoke();
-        /// 
-        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
-        ///     {
-        ///         ForceDestroy = true,
-        ///     });
-        /// 
-        ///     var allowAuditLogging = new Aws.S3.BucketPolicy("allowAuditLogging", new()
-        ///     {
-        ///         Bucket = bucket.Id,
-        ///         Policy = Output.Tuple(main, main).Apply(values =&gt;
-        ///         {
-        ///             var main = values.Item1;
-        ///             var main1 = values.Item2;
-        ///             return @$"{{
-        /// 	""Version"": ""2008-10-17"",
-        /// 	""Statement"": [
-        /// 		{{
-        ///             ""Sid"": ""Put bucket policy needed for audit logging"",
-        ///             ""Effect"": ""Allow"",
-        ///             ""Principal"": {{
-        /// 		        ""AWS"": ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
-        ///             }},
-        ///             ""Action"": ""s3:PutObject"",
-        ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket/*""
-        ///         }},
-        ///         {{
-        ///             ""Sid"": ""Get bucket policy needed for audit logging "",
-        ///             ""Effect"": ""Allow"",
-        ///             ""Principal"": {{
-        /// 		        ""AWS"": ""{main1.Arn}""
-        ///             }},
-        ///             ""Action"": ""s3:GetBucketAcl"",
-        ///             ""Resource"": ""arn:aws:s3:::tf-redshift-logging-test-bucket""
-        ///         }}
-        /// 	]
-        /// }}
-        /// ";
-        ///         }),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
         /// </summary>
         public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:redshift/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());

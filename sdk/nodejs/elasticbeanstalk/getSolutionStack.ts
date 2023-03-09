@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const multiDocker = aws.elasticbeanstalk.getSolutionStack({
  *     mostRecent: true,
- *     nameRegex: `^64bit Amazon Linux (.*) Multi-container Docker (.*)$`,
+ *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
  * });
  * ```
  */
@@ -71,7 +71,7 @@ export interface GetSolutionStackResult {
  *
  * const multiDocker = aws.elasticbeanstalk.getSolutionStack({
  *     mostRecent: true,
- *     nameRegex: `^64bit Amazon Linux (.*) Multi-container Docker (.*)$`,
+ *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
  * });
  * ```
  */

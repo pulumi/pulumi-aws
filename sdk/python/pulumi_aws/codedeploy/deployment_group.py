@@ -635,20 +635,15 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "codedeploy.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["codedeploy.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("aWSCodeDeployRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
             role=example_role.name)
@@ -815,20 +810,15 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "codedeploy.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["codedeploy.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("aWSCodeDeployRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
             role=example_role.name)

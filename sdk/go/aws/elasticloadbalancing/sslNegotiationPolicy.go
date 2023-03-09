@@ -102,6 +102,8 @@ type SslNegotiationPolicy struct {
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
 	// The name of the attribute
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 }
 
 // NewSslNegotiationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -150,6 +152,8 @@ type sslNegotiationPolicyState struct {
 	LoadBalancer *string `pulumi:"loadBalancer"`
 	// The name of the attribute
 	Name *string `pulumi:"name"`
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers map[string]string `pulumi:"triggers"`
 }
 
 type SslNegotiationPolicyState struct {
@@ -164,6 +168,8 @@ type SslNegotiationPolicyState struct {
 	LoadBalancer pulumi.StringPtrInput
 	// The name of the attribute
 	Name pulumi.StringPtrInput
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapInput
 }
 
 func (SslNegotiationPolicyState) ElementType() reflect.Type {
@@ -182,6 +188,8 @@ type sslNegotiationPolicyArgs struct {
 	LoadBalancer string `pulumi:"loadBalancer"`
 	// The name of the attribute
 	Name *string `pulumi:"name"`
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers map[string]string `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a SslNegotiationPolicy resource.
@@ -197,6 +205,8 @@ type SslNegotiationPolicyArgs struct {
 	LoadBalancer pulumi.StringInput
 	// The name of the attribute
 	Name pulumi.StringPtrInput
+	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+	Triggers pulumi.StringMapInput
 }
 
 func (SslNegotiationPolicyArgs) ElementType() reflect.Type {
@@ -307,6 +317,11 @@ func (o SslNegotiationPolicyOutput) LoadBalancer() pulumi.StringOutput {
 // The name of the attribute
 func (o SslNegotiationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+func (o SslNegotiationPolicyOutput) Triggers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }
 
 type SslNegotiationPolicyArrayOutput struct{ *pulumi.OutputState }

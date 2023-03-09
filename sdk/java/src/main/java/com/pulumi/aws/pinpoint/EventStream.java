@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.pinpoint.App;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.pinpoint.EventStream;
@@ -51,22 +53,19 @@ import javax.annotation.Nullable;
  *             .shardCount(1)
  *             .build());
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;pinpoint.us-east-1.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;pinpoint.us-east-1.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var stream = new EventStream(&#34;stream&#34;, EventStreamArgs.builder()        
@@ -75,23 +74,19 @@ import javax.annotation.Nullable;
  *             .roleArn(testRole.arn())
  *             .build());
  * 
- *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
+ *         final var testRolePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(                
+ *                     &#34;kinesis:PutRecords&#34;,
+ *                     &#34;kinesis:DescribeStream&#34;)
+ *                 .resources(&#34;arn:aws:kinesis:us-east-1:*:*{@literal /}*&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var testRolePolicyRolePolicy = new RolePolicy(&#34;testRolePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(testRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: {
- *     &#34;Action&#34;: [
- *       &#34;kinesis:PutRecords&#34;,
- *       &#34;kinesis:DescribeStream&#34;
- *     ],
- *     &#34;Effect&#34;: &#34;Allow&#34;,
- *     &#34;Resource&#34;: [
- *       &#34;arn:aws:kinesis:us-east-1:*:*{@literal /}*&#34;
- *     ]
- *   }
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(testRolePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

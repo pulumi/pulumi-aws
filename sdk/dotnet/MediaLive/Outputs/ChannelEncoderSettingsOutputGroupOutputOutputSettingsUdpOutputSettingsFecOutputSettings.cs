@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? ColumnDepth;
         /// <summary>
-        /// Enables column oly or column and row based FEC.
+        /// Enables column only or column and row based FEC.
         /// </summary>
         public readonly string? IncludeFec;
         /// <summary>

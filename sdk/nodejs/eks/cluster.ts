@@ -40,36 +40,6 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
- * ### Example IAM Role for EKS Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.Role("example", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "eks.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `});
- * const example_AmazonEKSClusterPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
- *     role: example.name,
- * });
- * // Optionally, enable Security Groups for Pods
- * // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
- * const example_AmazonEKSVPCResourceController = new aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
- *     role: example.name,
- * });
- * ```
  * ### Enabling Control Plane Logging
  *
  * [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabledClusterLogTypes` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.

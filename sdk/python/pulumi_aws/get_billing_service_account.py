@@ -70,39 +70,32 @@ def get_billing_service_account(opts: Optional[pulumi.InvokeOptions] = None) -> 
     billing_logs_acl = aws.s3.BucketAclV2("billingLogsAcl",
         bucket=billing_logs.id,
         acl="private")
-    allow_billing_logging = aws.s3.BucketPolicy("allowBillingLogging",
+    allow_billing_logging_policy_document = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
+        aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[main.arn],
+            )],
+            actions=[
+                "s3:GetBucketAcl",
+                "s3:GetBucketPolicy",
+            ],
+            resources=[billing_logs_arn],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[main.arn],
+            )],
+            actions=["s3:PutObject"],
+            resources=[f"{billing_logs_arn1}/*"],
+        ),
+    ]))
+    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allowBillingLoggingBucketPolicy",
         bucket=billing_logs.id,
-        policy=f\"\"\"{{
-      "Id": "Policy",
-      "Version": "2012-10-17",
-      "Statement": [
-        {{
-          "Action": [
-            "s3:GetBucketAcl", "s3:GetBucketPolicy"
-          ],
-          "Effect": "Allow",
-          "Resource": "arn:aws:s3:::my-billing-tf-test-bucket",
-          "Principal": {{
-            "AWS": [
-              "{main.arn}"
-            ]
-          }}
-        }},
-        {{
-          "Action": [
-            "s3:PutObject"
-          ],
-          "Effect": "Allow",
-          "Resource": "arn:aws:s3:::my-billing-tf-test-bucket/*",
-          "Principal": {{
-            "AWS": [
-              "{main.arn}"
-            ]
-          }}
-        }}
-      ]
-    }}
-    \"\"\")
+        policy=allow_billing_logging_policy_document.json)
     ```
     """
     __args__ = dict()

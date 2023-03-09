@@ -23,7 +23,7 @@ public final class BucketV2ObjectLockConfiguration {
     @Deprecated /* Use the top-level parameter object_lock_enabled instead */
     private @Nullable String objectLockEnabled;
     /**
-     * @return The Object Lock rule in place for this bucket (documented below).
+     * @return Object Lock rule in place for this bucket (documented below).
      * 
      * @deprecated
      * Use the aws_s3_bucket_object_lock_configuration resource instead
@@ -45,7 +45,7 @@ public final class BucketV2ObjectLockConfiguration {
         return Optional.ofNullable(this.objectLockEnabled);
     }
     /**
-     * @return The Object Lock rule in place for this bucket (documented below).
+     * @return Object Lock rule in place for this bucket (documented below).
      * 
      * @deprecated
      * Use the aws_s3_bucket_object_lock_configuration resource instead

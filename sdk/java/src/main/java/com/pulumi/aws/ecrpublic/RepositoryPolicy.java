@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecrpublic.Repository;
  * import com.pulumi.aws.ecrpublic.RepositoryArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.ecrpublic.RepositoryPolicy;
  * import com.pulumi.aws.ecrpublic.RepositoryPolicyArgs;
  * import java.util.List;
@@ -48,36 +50,35 @@ import javax.annotation.Nullable;
  *             .repositoryName(&#34;example&#34;)
  *             .build());
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;new policy&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;ecr:GetDownloadUrlForLayer&#34;,
+ *                     &#34;ecr:BatchGetImage&#34;,
+ *                     &#34;ecr:BatchCheckLayerAvailability&#34;,
+ *                     &#34;ecr:PutImage&#34;,
+ *                     &#34;ecr:InitiateLayerUpload&#34;,
+ *                     &#34;ecr:UploadLayerPart&#34;,
+ *                     &#34;ecr:CompleteLayerUpload&#34;,
+ *                     &#34;ecr:DescribeRepositories&#34;,
+ *                     &#34;ecr:GetRepositoryPolicy&#34;,
+ *                     &#34;ecr:ListImages&#34;,
+ *                     &#34;ecr:DeleteRepository&#34;,
+ *                     &#34;ecr:BatchDeleteImage&#34;,
+ *                     &#34;ecr:SetRepositoryPolicy&#34;,
+ *                     &#34;ecr:DeleteRepositoryPolicy&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRepositoryPolicy = new RepositoryPolicy(&#34;exampleRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
  *             .repositoryName(exampleRepository.repositoryName())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2008-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Sid&#34;: &#34;new policy&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: &#34;*&#34;,
- *             &#34;Action&#34;: [
- *                 &#34;ecr:GetDownloadUrlForLayer&#34;,
- *                 &#34;ecr:BatchGetImage&#34;,
- *                 &#34;ecr:BatchCheckLayerAvailability&#34;,
- *                 &#34;ecr:PutImage&#34;,
- *                 &#34;ecr:InitiateLayerUpload&#34;,
- *                 &#34;ecr:UploadLayerPart&#34;,
- *                 &#34;ecr:CompleteLayerUpload&#34;,
- *                 &#34;ecr:DescribeRepositories&#34;,
- *                 &#34;ecr:GetRepositoryPolicy&#34;,
- *                 &#34;ecr:ListImages&#34;,
- *                 &#34;ecr:DeleteRepository&#34;,
- *                 &#34;ecr:BatchDeleteImage&#34;,
- *                 &#34;ecr:SetRepositoryPolicy&#34;,
- *                 &#34;ecr:DeleteRepositoryPolicy&#34;
- *             ]
- *         }
- *     ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

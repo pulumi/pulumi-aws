@@ -46,6 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
  * import com.pulumi.aws.msk.ScramSecretAssociation;
  * import com.pulumi.aws.msk.ScramSecretAssociationArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.secretsmanager.SecretPolicy;
  * import com.pulumi.aws.secretsmanager.SecretPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -95,22 +97,22 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleSecretVersion)
  *                 .build());
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;AWSKafkaResourcePolicy&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;kafka.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;secretsmanager:getSecretValue&#34;)
+ *                 .resources(exampleSecret.arn())
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
  *             .secretArn(exampleSecret.arn())
- *             .policy(exampleSecret.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34; : &#34;2012-10-17&#34;,
- *   &#34;Statement&#34; : [ {
- *     &#34;Sid&#34;: &#34;AWSKafkaResourcePolicy&#34;,
- *     &#34;Effect&#34; : &#34;Allow&#34;,
- *     &#34;Principal&#34; : {
- *       &#34;Service&#34; : &#34;kafka.amazonaws.com&#34;
- *     },
- *     &#34;Action&#34; : &#34;secretsmanager:getSecretValue&#34;,
- *     &#34;Resource&#34; : &#34;%s&#34;
- *   } ]
- * }
- * &#34;, arn)))
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

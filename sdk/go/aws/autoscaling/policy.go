@@ -62,6 +62,81 @@ import (
 //	}
 //
 // ```
+// ### Create target tarcking scaling policy using metric math
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := autoscaling.NewPolicy(ctx, "example", &autoscaling.PolicyArgs{
+//				AutoscalingGroupName: pulumi.String("my-test-asg"),
+//				PolicyType:           pulumi.String("TargetTrackingScaling"),
+//				TargetTrackingConfiguration: &autoscaling.PolicyTargetTrackingConfigurationArgs{
+//					CustomizedMetricSpecification: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{
+//						Metrics: autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArray{
+//							&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs{
+//								Id:    pulumi.String("m1"),
+//								Label: pulumi.String("Get the queue size (the number of messages waiting to be processed)"),
+//								MetricStat: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs{
+//									Metric: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs{
+//										Dimensions: autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArray{
+//											&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs{
+//												Name:  pulumi.String("QueueName"),
+//												Value: pulumi.String("my-queue"),
+//											},
+//										},
+//										MetricName: pulumi.String("ApproximateNumberOfMessagesVisible"),
+//										Namespace:  pulumi.String("AWS/SQS"),
+//									},
+//									Stat: pulumi.String("Sum"),
+//								},
+//								ReturnData: pulumi.Bool(false),
+//							},
+//							&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs{
+//								Id:    pulumi.String("m2"),
+//								Label: pulumi.String("Get the group size (the number of InService instances)"),
+//								MetricStat: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs{
+//									Metric: &autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs{
+//										Dimensions: autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArray{
+//											&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs{
+//												Name:  pulumi.String("AutoScalingGroupName"),
+//												Value: pulumi.String("my-asg"),
+//											},
+//										},
+//										MetricName: pulumi.String("GroupInServiceInstances"),
+//										Namespace:  pulumi.String("AWS/AutoScaling"),
+//									},
+//									Stat: pulumi.String("Average"),
+//								},
+//								ReturnData: pulumi.Bool(false),
+//							},
+//							&autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs{
+//								Expression: pulumi.String("m1 / m2"),
+//								Id:         pulumi.String("e1"),
+//								Label:      pulumi.String("Calculate the backlog per instance"),
+//								ReturnData: pulumi.Bool(true),
+//							},
+//						},
+//					},
+//					TargetValue: pulumi.Float64(100),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Create predictive scaling policy using customized metrics
 //
 // ```go
@@ -115,7 +190,7 @@ import (
 //								},
 //							},
 //						},
-//						TargetValue: pulumi.Int(10),
+//						TargetValue: pulumi.Float64(10),
 //					},
 //				},
 //			})
@@ -170,7 +245,7 @@ import (
 //							PredefinedMetricType: pulumi.String("ASGTotalCPUUtilization"),
 //							ResourceLabel:        pulumi.String("testLabel"),
 //						},
-//						TargetValue: pulumi.Int(10),
+//						TargetValue: pulumi.Float64(10),
 //					},
 //				},
 //			})

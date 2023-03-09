@@ -13,8 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionOrderedCacheBehaviorForwardedValuesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The forwarded values cookies
-        /// that specifies how CloudFront handles cookies (maximum one).
+        /// The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
         /// </summary>
         [Input("cookies", required: true)]
         public Input<Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesGetArgs> Cookies { get; set; } = null!;
@@ -23,9 +22,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         private InputList<string>? _headers;
 
         /// <summary>
-        /// Headers, if any, that you want
-        /// CloudFront to vary upon for this cache behavior. Specify `*` to include all
-        /// headers.
+        /// Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
         /// </summary>
         public InputList<string> Headers
         {
@@ -34,8 +31,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// Indicates whether you want CloudFront to forward
-        /// query strings to the origin that is associated with this cache behavior.
+        /// Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
         /// </summary>
         [Input("queryString", required: true)]
         public Input<bool> QueryString { get; set; } = null!;
@@ -44,10 +40,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         private InputList<string>? _queryStringCacheKeys;
 
         /// <summary>
-        /// When specified, along with a value of
-        /// `true` for `query_string`, all query strings are forwarded, however only the
-        /// query string keys listed in this argument are cached. When omitted with a
-        /// value of `true` for `query_string`, all query string keys are cached.
+        /// When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
         /// </summary>
         public InputList<string> QueryStringCacheKeys
         {

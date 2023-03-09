@@ -29,22 +29,35 @@ namespace Pulumi.Aws.S3
     ///         Region = "eu-central-1",
     ///     });
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "s3.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var replicationRole = new Aws.Iam.Role("replicationRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""s3.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var destinationBucketV2 = new Aws.S3.BucketV2("destinationBucketV2");
@@ -56,50 +69,57 @@ namespace Pulumi.Aws.S3
     ///         Provider = aws.Central,
     ///     });
     /// 
+    ///     var replicationPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetReplicationConfiguration",
+    ///                     "s3:ListBucket",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     sourceBucketV2.Arn,
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetObjectVersionForReplication",
+    ///                     "s3:GetObjectVersionAcl",
+    ///                     "s3:GetObjectVersionTagging",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{sourceBucketV2.Arn}/*",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:ReplicateObject",
+    ///                     "s3:ReplicateDelete",
+    ///                     "s3:ReplicateTags",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{destinationBucketV2.Arn}/*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new()
     ///     {
-    ///         PolicyDocument = Output.Tuple(sourceBucketV2.Arn, sourceBucketV2.Arn, destinationBucketV2.Arn).Apply(values =&gt;
-    ///         {
-    ///             var sourceBucketV2Arn = values.Item1;
-    ///             var sourceBucketV2Arn1 = values.Item2;
-    ///             var destinationBucketV2Arn = values.Item3;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Action"": [
-    ///         ""s3:GetReplicationConfiguration"",
-    ///         ""s3:ListBucket""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": [
-    ///         ""{sourceBucketV2Arn}""
-    ///       ]
-    ///     }},
-    ///     {{
-    ///       ""Action"": [
-    ///         ""s3:GetObjectVersionForReplication"",
-    ///         ""s3:GetObjectVersionAcl"",
-    ///          ""s3:GetObjectVersionTagging""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": [
-    ///         ""{sourceBucketV2Arn1}/*""
-    ///       ]
-    ///     }},
-    ///     {{
-    ///       ""Action"": [
-    ///         ""s3:ReplicateObject"",
-    ///         ""s3:ReplicateDelete"",
-    ///         ""s3:ReplicateTags""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""{destinationBucketV2Arn}/*""
-    ///     }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
+    ///         PolicyDocument = replicationPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var replicationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("replicationRolePolicyAttachment", new()
@@ -284,25 +304,25 @@ namespace Pulumi.Aws.S3
     public partial class BucketReplicationConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the source S3 bucket you want Amazon S3 to monitor.
+        /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// List of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BucketReplicationConfigRule>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+        /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
         /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         /// </summary>
         [Output("token")]
@@ -359,13 +379,13 @@ namespace Pulumi.Aws.S3
     public sealed class BucketReplicationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the source S3 bucket you want Amazon S3 to monitor.
+        /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -374,7 +394,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketReplicationConfigRuleArgs>? _rules;
 
         /// <summary>
-        /// List of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
         public InputList<Inputs.BucketReplicationConfigRuleArgs> Rules
         {
@@ -386,7 +406,7 @@ namespace Pulumi.Aws.S3
         private Input<string>? _token;
 
         /// <summary>
-        /// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+        /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
         /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         /// </summary>
         public Input<string>? Token
@@ -408,13 +428,13 @@ namespace Pulumi.Aws.S3
     public sealed class BucketReplicationConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the source S3 bucket you want Amazon S3 to monitor.
+        /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -423,7 +443,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketReplicationConfigRuleGetArgs>? _rules;
 
         /// <summary>
-        /// List of configuration blocks describing the rules managing the replication documented below.
+        /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
         public InputList<Inputs.BucketReplicationConfigRuleGetArgs> Rules
         {
@@ -435,7 +455,7 @@ namespace Pulumi.Aws.S3
         private Input<string>? _token;
 
         /// <summary>
-        /// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+        /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
         /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         /// </summary>
         public Input<string>? Token

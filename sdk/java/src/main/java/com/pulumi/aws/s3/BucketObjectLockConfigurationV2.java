@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketObjectLockConfigurationV2 = new BucketObjectLockConfigurationV2(&#34;exampleBucketObjectLockConfigurationV2&#34;, BucketObjectLockConfigurationV2Args.builder()        
- *             .bucket(exampleBucketV2.bucket())
+ *             .bucket(exampleBucketV2.id())
  *             .rule(BucketObjectLockConfigurationV2RuleArgs.builder()
  *                 .defaultRetention(BucketObjectLockConfigurationV2RuleDefaultRetentionArgs.builder()
  *                     .mode(&#34;COMPLIANCE&#34;)
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
  * 
  *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
- *             .bucket(exampleBucketV2.bucket())
+ *             .bucket(exampleBucketV2.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status(&#34;Enabled&#34;)
  *                 .build())
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketObjectLockConfigurationV2(&#34;example&#34;, BucketObjectLockConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.example().bucket())
+ *             .bucket(aws_s3_bucket.example().id())
  *             .rule(BucketObjectLockConfigurationV2RuleArgs.builder()
  *                 .defaultRetention(BucketObjectLockConfigurationV2RuleDefaultRetentionArgs.builder()
  *                     .mode(&#34;COMPLIANCE&#34;)
@@ -173,28 +173,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")
 public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {
@@ -215,21 +215,21 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
         return Codegen.optional(this.objectLockEnabled);
     }
     /**
-     * Configuration block for specifying the Object Lock rule for the specified object detailed below.
+     * Configuration block for specifying the Object Lock rule for the specified object. See below.
      * 
      */
     @Export(name="rule", refs={BucketObjectLockConfigurationV2Rule.class}, tree="[0]")
     private Output</* @Nullable */ BucketObjectLockConfigurationV2Rule> rule;
 
     /**
-     * @return Configuration block for specifying the Object Lock rule for the specified object detailed below.
+     * @return Configuration block for specifying the Object Lock rule for the specified object. See below.
      * 
      */
     public Output<Optional<BucketObjectLockConfigurationV2Rule>> rule() {
         return Codegen.optional(this.rule);
     }
     /**
-     * A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
+     * Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
      * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      * 
      */
@@ -237,7 +237,7 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
     private Output</* @Nullable */ String> token;
 
     /**
-     * @return A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
+     * @return Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
      * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      * 
      */

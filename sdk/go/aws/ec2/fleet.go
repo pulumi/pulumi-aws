@@ -28,10 +28,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewFleet(ctx, "example", &ec2.FleetArgs{
-//				LaunchTemplateConfig: &ec2.FleetLaunchTemplateConfigArgs{
-//					LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//						LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
-//						Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
+//				LaunchTemplateConfigs: ec2.FleetLaunchTemplateConfigArray{
+//					&ec2.FleetLaunchTemplateConfigArgs{
+//						LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+//							LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
+//							Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
+//						},
 //					},
 //				},
 //				TargetCapacitySpecification: &ec2.FleetTargetCapacitySpecificationArgs{
@@ -64,13 +66,21 @@ type Fleet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
-	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
 	ExcessCapacityTerminationPolicy pulumi.StringPtrOutput `pulumi:"excessCapacityTerminationPolicy"`
+	// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+	FleetInstanceSets FleetFleetInstanceSetArrayOutput `pulumi:"fleetInstanceSets"`
+	// The state of the EC2 Fleet.
+	FleetState pulumi.StringOutput `pulumi:"fleetState"`
+	// The number of units fulfilled by this request compared to the set target capacity.
+	FulfilledCapacity pulumi.Float64Output `pulumi:"fulfilledCapacity"`
+	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+	FulfilledOnDemandCapacity pulumi.Float64Output `pulumi:"fulfilledOnDemandCapacity"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig FleetLaunchTemplateConfigOutput `pulumi:"launchTemplateConfig"`
+	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayOutput `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrOutput `pulumi:"onDemandOptions"`
-	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrOutput `pulumi:"spotOptions"`
@@ -84,8 +94,12 @@ type Fleet struct {
 	TerminateInstances pulumi.BoolPtrOutput `pulumi:"terminateInstances"`
 	// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
 	TerminateInstancesWithExpiration pulumi.BoolPtrOutput `pulumi:"terminateInstancesWithExpiration"`
-	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+	ValidFrom pulumi.StringPtrOutput `pulumi:"validFrom"`
+	// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+	ValidUntil pulumi.StringPtrOutput `pulumi:"validUntil"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -95,8 +109,8 @@ func NewFleet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LaunchTemplateConfig == nil {
-		return nil, errors.New("invalid value for required argument 'LaunchTemplateConfig'")
+	if args.LaunchTemplateConfigs == nil {
+		return nil, errors.New("invalid value for required argument 'LaunchTemplateConfigs'")
 	}
 	if args.TargetCapacitySpecification == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCapacitySpecification'")
@@ -127,13 +141,21 @@ type fleetState struct {
 	Arn *string `pulumi:"arn"`
 	// Reserved.
 	Context *string `pulumi:"context"`
-	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
 	ExcessCapacityTerminationPolicy *string `pulumi:"excessCapacityTerminationPolicy"`
+	// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+	FleetInstanceSets []FleetFleetInstanceSet `pulumi:"fleetInstanceSets"`
+	// The state of the EC2 Fleet.
+	FleetState *string `pulumi:"fleetState"`
+	// The number of units fulfilled by this request compared to the set target capacity.
+	FulfilledCapacity *float64 `pulumi:"fulfilledCapacity"`
+	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+	FulfilledOnDemandCapacity *float64 `pulumi:"fulfilledOnDemandCapacity"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig *FleetLaunchTemplateConfig `pulumi:"launchTemplateConfig"`
+	LaunchTemplateConfigs []FleetLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions *FleetOnDemandOptions `pulumi:"onDemandOptions"`
-	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions *FleetSpotOptions `pulumi:"spotOptions"`
@@ -147,8 +169,12 @@ type fleetState struct {
 	TerminateInstances *bool `pulumi:"terminateInstances"`
 	// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
-	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
 	Type *string `pulumi:"type"`
+	// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+	ValidFrom *string `pulumi:"validFrom"`
+	// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+	ValidUntil *string `pulumi:"validUntil"`
 }
 
 type FleetState struct {
@@ -156,13 +182,21 @@ type FleetState struct {
 	Arn pulumi.StringPtrInput
 	// Reserved.
 	Context pulumi.StringPtrInput
-	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
 	ExcessCapacityTerminationPolicy pulumi.StringPtrInput
+	// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+	FleetInstanceSets FleetFleetInstanceSetArrayInput
+	// The state of the EC2 Fleet.
+	FleetState pulumi.StringPtrInput
+	// The number of units fulfilled by this request compared to the set target capacity.
+	FulfilledCapacity pulumi.Float64PtrInput
+	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+	FulfilledOnDemandCapacity pulumi.Float64PtrInput
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig FleetLaunchTemplateConfigPtrInput
+	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayInput
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrInput
-	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrInput
@@ -176,8 +210,12 @@ type FleetState struct {
 	TerminateInstances pulumi.BoolPtrInput
 	// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
-	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
 	Type pulumi.StringPtrInput
+	// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+	ValidFrom pulumi.StringPtrInput
+	// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+	ValidUntil pulumi.StringPtrInput
 }
 
 func (FleetState) ElementType() reflect.Type {
@@ -187,13 +225,21 @@ func (FleetState) ElementType() reflect.Type {
 type fleetArgs struct {
 	// Reserved.
 	Context *string `pulumi:"context"`
-	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
 	ExcessCapacityTerminationPolicy *string `pulumi:"excessCapacityTerminationPolicy"`
+	// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+	FleetInstanceSets []FleetFleetInstanceSet `pulumi:"fleetInstanceSets"`
+	// The state of the EC2 Fleet.
+	FleetState *string `pulumi:"fleetState"`
+	// The number of units fulfilled by this request compared to the set target capacity.
+	FulfilledCapacity *float64 `pulumi:"fulfilledCapacity"`
+	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+	FulfilledOnDemandCapacity *float64 `pulumi:"fulfilledOnDemandCapacity"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig FleetLaunchTemplateConfig `pulumi:"launchTemplateConfig"`
+	LaunchTemplateConfigs []FleetLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions *FleetOnDemandOptions `pulumi:"onDemandOptions"`
-	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions *FleetSpotOptions `pulumi:"spotOptions"`
@@ -205,21 +251,33 @@ type fleetArgs struct {
 	TerminateInstances *bool `pulumi:"terminateInstances"`
 	// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
-	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
 	Type *string `pulumi:"type"`
+	// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+	ValidFrom *string `pulumi:"validFrom"`
+	// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+	ValidUntil *string `pulumi:"validUntil"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
 	// Reserved.
 	Context pulumi.StringPtrInput
-	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
 	ExcessCapacityTerminationPolicy pulumi.StringPtrInput
+	// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+	FleetInstanceSets FleetFleetInstanceSetArrayInput
+	// The state of the EC2 Fleet.
+	FleetState pulumi.StringPtrInput
+	// The number of units fulfilled by this request compared to the set target capacity.
+	FulfilledCapacity pulumi.Float64PtrInput
+	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+	FulfilledOnDemandCapacity pulumi.Float64PtrInput
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig FleetLaunchTemplateConfigInput
+	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayInput
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrInput
-	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrInput
@@ -231,8 +289,12 @@ type FleetArgs struct {
 	TerminateInstances pulumi.BoolPtrInput
 	// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
-	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
 	Type pulumi.StringPtrInput
+	// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+	ValidFrom pulumi.StringPtrInput
+	// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+	ValidUntil pulumi.StringPtrInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {
@@ -332,14 +394,34 @@ func (o FleetOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
 }
 
-// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
 func (o FleetOutput) ExcessCapacityTerminationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ExcessCapacityTerminationPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+func (o FleetOutput) FleetInstanceSets() FleetFleetInstanceSetArrayOutput {
+	return o.ApplyT(func(v *Fleet) FleetFleetInstanceSetArrayOutput { return v.FleetInstanceSets }).(FleetFleetInstanceSetArrayOutput)
+}
+
+// The state of the EC2 Fleet.
+func (o FleetOutput) FleetState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.FleetState }).(pulumi.StringOutput)
+}
+
+// The number of units fulfilled by this request compared to the set target capacity.
+func (o FleetOutput) FulfilledCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v *Fleet) pulumi.Float64Output { return v.FulfilledCapacity }).(pulumi.Float64Output)
+}
+
+// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+func (o FleetOutput) FulfilledOnDemandCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v *Fleet) pulumi.Float64Output { return v.FulfilledOnDemandCapacity }).(pulumi.Float64Output)
+}
+
 // Nested argument containing EC2 Launch Template configurations. Defined below.
-func (o FleetOutput) LaunchTemplateConfig() FleetLaunchTemplateConfigOutput {
-	return o.ApplyT(func(v *Fleet) FleetLaunchTemplateConfigOutput { return v.LaunchTemplateConfig }).(FleetLaunchTemplateConfigOutput)
+func (o FleetOutput) LaunchTemplateConfigs() FleetLaunchTemplateConfigArrayOutput {
+	return o.ApplyT(func(v *Fleet) FleetLaunchTemplateConfigArrayOutput { return v.LaunchTemplateConfigs }).(FleetLaunchTemplateConfigArrayOutput)
 }
 
 // Nested argument containing On-Demand configurations. Defined below.
@@ -347,7 +429,7 @@ func (o FleetOutput) OnDemandOptions() FleetOnDemandOptionsPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetOnDemandOptionsPtrOutput { return v.OnDemandOptions }).(FleetOnDemandOptionsPtrOutput)
 }
 
-// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 func (o FleetOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.BoolPtrOutput { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
 }
@@ -382,9 +464,19 @@ func (o FleetOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.BoolPtrOutput { return v.TerminateInstancesWithExpiration }).(pulumi.BoolPtrOutput)
 }
 
-// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
 func (o FleetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+func (o FleetOutput) ValidFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ValidFrom }).(pulumi.StringPtrOutput)
+}
+
+// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+func (o FleetOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }
 
 type FleetArrayOutput struct{ *pulumi.OutputState }

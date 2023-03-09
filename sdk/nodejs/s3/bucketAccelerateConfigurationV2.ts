@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const mybucket = new aws.s3.BucketV2("mybucket", {});
  * const example = new aws.s3.BucketAccelerateConfigurationV2("example", {
- *     bucket: mybucket.bucket,
+ *     bucket: mybucket.id,
  *     status: "Enabled",
  * });
  * ```
@@ -63,15 +63,15 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
-     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */
     public readonly status!: pulumi.Output<string>;
 
@@ -113,15 +113,15 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
  */
 export interface BucketAccelerateConfigurationV2State {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */
     status?: pulumi.Input<string>;
 }
@@ -131,15 +131,15 @@ export interface BucketAccelerateConfigurationV2State {
  */
 export interface BucketAccelerateConfigurationV2Args {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */
     status: pulumi.Input<string>;
 }

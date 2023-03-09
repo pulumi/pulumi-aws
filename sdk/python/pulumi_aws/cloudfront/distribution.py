@@ -37,52 +37,25 @@ class DistributionArgs:
                  web_acl_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Distribution resource.
-        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: The default cache behavior for this distribution (maximum
-               one).
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
-               user requests for content.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this
-               distribution (multiples allowed).
-        :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction
-               configuration for this distribution (maximum one).
-        :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL
-               configuration for this distribution (maximum
-               one).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for
-               this distribution.
-        :param pulumi.Input[str] comment: Any comments you want to include about the
-               distribution.
+        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed).
+        :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction configuration for this distribution (maximum one).
+        :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements (multiples allowed).
-        :param pulumi.Input[str] default_root_object: The object that you want CloudFront to
-               return (for example, index.html) when an end user requests the root URL.
-        :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
-               distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-               `http2`.
+        :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+        :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
-        :param pulumi.Input['DistributionLoggingConfigArgs'] logging_config: The logging
-               configuration that controls how logs are written
-               to your distribution (maximum one).
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]] ordered_cache_behaviors: An ordered list of cache behaviors
-               resource for this distribution. List from top to bottom
-               in order of precedence. The topmost cache behavior will have precedence 0.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this
-               distribution (multiples allowed).
-        :param pulumi.Input[str] price_class: The price class for this distribution. One of
-               `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
-        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
-               deleting it when destroying the resource. If this is set,
-               the distribution needs to be deleted manually afterwards. Default: `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for
-               the distribution status to change from `InProgress` to `Deployed`. Setting
-               this to`false` will skip the process. Default: `true`.
-        :param pulumi.Input[str] web_acl_id: A unique identifier that specifies the AWS WAF web ACL,
-               if any, to associate with this distribution.
-               To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-               for example `aws_wafv2_web_acl.example.arn`. To specify a web
-               ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-               The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-               credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+        :param pulumi.Input['DistributionLoggingConfigArgs'] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one).
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this distribution (multiples allowed).
+        :param pulumi.Input[str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+        :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         pulumi.set(__self__, "enabled", enabled)
@@ -122,8 +95,7 @@ class DistributionArgs:
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> pulumi.Input['DistributionDefaultCacheBehaviorArgs']:
         """
-        The default cache behavior for this distribution (maximum
-        one).
+        Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         """
         return pulumi.get(self, "default_cache_behavior")
 
@@ -135,8 +107,7 @@ class DistributionArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether the distribution is enabled to accept end
-        user requests for content.
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -148,8 +119,7 @@ class DistributionArgs:
     @pulumi.getter
     def origins(self) -> pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]:
         """
-        One or more origins for this
-        distribution (multiples allowed).
+        One or more origins for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origins")
 
@@ -161,8 +131,7 @@ class DistributionArgs:
     @pulumi.getter
     def restrictions(self) -> pulumi.Input['DistributionRestrictionsArgs']:
         """
-        The restriction
-        configuration for this distribution (maximum one).
+        The restriction configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "restrictions")
 
@@ -174,9 +143,7 @@ class DistributionArgs:
     @pulumi.getter(name="viewerCertificate")
     def viewer_certificate(self) -> pulumi.Input['DistributionViewerCertificateArgs']:
         """
-        The SSL
-        configuration for this distribution (maximum
-        one).
+        The SSL configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "viewer_certificate")
 
@@ -188,8 +155,7 @@ class DistributionArgs:
     @pulumi.getter
     def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Extra CNAMEs (alternate domain names), if any, for
-        this distribution.
+        Extra CNAMEs (alternate domain names), if any, for this distribution.
         """
         return pulumi.get(self, "aliases")
 
@@ -201,8 +167,7 @@ class DistributionArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
-        Any comments you want to include about the
-        distribution.
+        Any comments you want to include about the distribution.
         """
         return pulumi.get(self, "comment")
 
@@ -226,8 +191,7 @@ class DistributionArgs:
     @pulumi.getter(name="defaultRootObject")
     def default_root_object(self) -> Optional[pulumi.Input[str]]:
         """
-        The object that you want CloudFront to
-        return (for example, index.html) when an end user requests the root URL.
+        Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         """
         return pulumi.get(self, "default_root_object")
 
@@ -239,9 +203,7 @@ class DistributionArgs:
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The maximum HTTP version to support on the
-        distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-        `http2`.
+        Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         """
         return pulumi.get(self, "http_version")
 
@@ -265,9 +227,7 @@ class DistributionArgs:
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['DistributionLoggingConfigArgs']]:
         """
-        The logging
-        configuration that controls how logs are written
-        to your distribution (maximum one).
+        The logging configuration that controls how logs are written to your distribution (maximum one).
         """
         return pulumi.get(self, "logging_config")
 
@@ -279,9 +239,7 @@ class DistributionArgs:
     @pulumi.getter(name="orderedCacheBehaviors")
     def ordered_cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]:
         """
-        An ordered list of cache behaviors
-        resource for this distribution. List from top to bottom
-        in order of precedence. The topmost cache behavior will have precedence 0.
+        Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
         """
         return pulumi.get(self, "ordered_cache_behaviors")
 
@@ -293,8 +251,7 @@ class DistributionArgs:
     @pulumi.getter(name="originGroups")
     def origin_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]:
         """
-        One or more origin_group for this
-        distribution (multiples allowed).
+        One or more origin_group for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origin_groups")
 
@@ -306,8 +263,7 @@ class DistributionArgs:
     @pulumi.getter(name="priceClass")
     def price_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The price class for this distribution. One of
-        `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+        Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         """
         return pulumi.get(self, "price_class")
 
@@ -319,9 +275,7 @@ class DistributionArgs:
     @pulumi.getter(name="retainOnDelete")
     def retain_on_delete(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disables the distribution instead of
-        deleting it when destroying the resource. If this is set,
-        the distribution needs to be deleted manually afterwards. Default: `false`.
+        Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         """
         return pulumi.get(self, "retain_on_delete")
 
@@ -333,7 +287,7 @@ class DistributionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -345,9 +299,7 @@ class DistributionArgs:
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, the resource will wait for
-        the distribution status to change from `InProgress` to `Deployed`. Setting
-        this to`false` will skip the process. Default: `true`.
+        If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_deployment")
 
@@ -359,13 +311,7 @@ class DistributionArgs:
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique identifier that specifies the AWS WAF web ACL,
-        if any, to associate with this distribution.
-        To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-        for example `aws_wafv2_web_acl.example.arn`. To specify a web
-        ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-        The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-        credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+        Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         return pulumi.get(self, "web_acl_id")
 
@@ -409,73 +355,36 @@ class _DistributionState:
                  web_acl_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Distribution resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for
-               this distribution.
-        :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
-        :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future
-               updates to the distribution configuration.
-        :param pulumi.Input[str] comment: Any comments you want to include about the
-               distribution.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+        :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
+        :param pulumi.Input[str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements (multiples allowed).
-        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: The default cache behavior for this distribution (maximum
-               one).
-        :param pulumi.Input[str] default_root_object: The object that you want CloudFront to
-               return (for example, index.html) when an end user requests the root URL.
-        :param pulumi.Input[str] domain_name: The DNS domain name of either the S3 bucket, or
-               web site of your custom origin.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
-               user requests for content.
-        :param pulumi.Input[str] etag: The current version of the distribution's information. For example:
-               `E2QWRUHAPOMQZL`.
-        :param pulumi.Input[str] hosted_zone_id: The CloudFront Route 53 zone ID that can be used to
-               route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
-               alias for the zone ID `Z2FDTNDATAQYW2`.
-        :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
-               distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-               `http2`.
-        :param pulumi.Input[int] in_progress_validation_batches: The number of invalidation batches
-               currently in progress.
+        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+        :param pulumi.Input[str] domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[str] etag: Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
+        :param pulumi.Input[str] hosted_zone_id: CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
+        :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+        :param pulumi.Input[int] in_progress_validation_batches: Number of invalidation batches currently in progress.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
-        :param pulumi.Input[str] last_modified_time: The date and time the distribution was last modified.
-        :param pulumi.Input['DistributionLoggingConfigArgs'] logging_config: The logging
-               configuration that controls how logs are written
-               to your distribution (maximum one).
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]] ordered_cache_behaviors: An ordered list of cache behaviors
-               resource for this distribution. List from top to bottom
-               in order of precedence. The topmost cache behavior will have precedence 0.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this
-               distribution (multiples allowed).
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this
-               distribution (multiples allowed).
-        :param pulumi.Input[str] price_class: The price class for this distribution. One of
-               `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
-        :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction
-               configuration for this distribution (maximum one).
-        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
-               deleting it when destroying the resource. If this is set,
-               the distribution needs to be deleted manually afterwards. Default: `false`.
-        :param pulumi.Input[str] status: The current status of the distribution. `Deployed` if the
-               distribution's information is fully propagated throughout the Amazon
-               CloudFront system.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
-        :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL
-               configuration for this distribution (maximum
-               one).
-        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for
-               the distribution status to change from `InProgress` to `Deployed`. Setting
-               this to`false` will skip the process. Default: `true`.
-        :param pulumi.Input[str] web_acl_id: A unique identifier that specifies the AWS WAF web ACL,
-               if any, to associate with this distribution.
-               To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-               for example `aws_wafv2_web_acl.example.arn`. To specify a web
-               ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-               The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-               credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+        :param pulumi.Input[str] last_modified_time: Date and time the distribution was last modified.
+        :param pulumi.Input['DistributionLoggingConfigArgs'] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one).
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this distribution (multiples allowed).
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed).
+        :param pulumi.Input[str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+        :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction configuration for this distribution (maximum one).
+        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        :param pulumi.Input[str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]] trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+        :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
@@ -542,8 +451,7 @@ class _DistributionState:
     @pulumi.getter
     def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Extra CNAMEs (alternate domain names), if any, for
-        this distribution.
+        Extra CNAMEs (alternate domain names), if any, for this distribution.
         """
         return pulumi.get(self, "aliases")
 
@@ -555,7 +463,7 @@ class _DistributionState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+        ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         """
         return pulumi.get(self, "arn")
 
@@ -567,8 +475,7 @@ class _DistributionState:
     @pulumi.getter(name="callerReference")
     def caller_reference(self) -> Optional[pulumi.Input[str]]:
         """
-        Internal value used by CloudFront to allow future
-        updates to the distribution configuration.
+        Internal value used by CloudFront to allow future updates to the distribution configuration.
         """
         return pulumi.get(self, "caller_reference")
 
@@ -580,8 +487,7 @@ class _DistributionState:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
-        Any comments you want to include about the
-        distribution.
+        Any comments you want to include about the distribution.
         """
         return pulumi.get(self, "comment")
 
@@ -605,8 +511,7 @@ class _DistributionState:
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]:
         """
-        The default cache behavior for this distribution (maximum
-        one).
+        Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         """
         return pulumi.get(self, "default_cache_behavior")
 
@@ -618,8 +523,7 @@ class _DistributionState:
     @pulumi.getter(name="defaultRootObject")
     def default_root_object(self) -> Optional[pulumi.Input[str]]:
         """
-        The object that you want CloudFront to
-        return (for example, index.html) when an end user requests the root URL.
+        Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         """
         return pulumi.get(self, "default_root_object")
 
@@ -631,8 +535,7 @@ class _DistributionState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The DNS domain name of either the S3 bucket, or
-        web site of your custom origin.
+        DNS domain name of either the S3 bucket, or web site of your custom origin.
         """
         return pulumi.get(self, "domain_name")
 
@@ -644,8 +547,7 @@ class _DistributionState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the distribution is enabled to accept end
-        user requests for content.
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -657,8 +559,7 @@ class _DistributionState:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        The current version of the distribution's information. For example:
-        `E2QWRUHAPOMQZL`.
+        Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         """
         return pulumi.get(self, "etag")
 
@@ -670,9 +571,7 @@ class _DistributionState:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The CloudFront Route 53 zone ID that can be used to
-        route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
-        alias for the zone ID `Z2FDTNDATAQYW2`.
+        CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -684,9 +583,7 @@ class _DistributionState:
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The maximum HTTP version to support on the
-        distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-        `http2`.
+        Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         """
         return pulumi.get(self, "http_version")
 
@@ -698,8 +595,7 @@ class _DistributionState:
     @pulumi.getter(name="inProgressValidationBatches")
     def in_progress_validation_batches(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of invalidation batches
-        currently in progress.
+        Number of invalidation batches currently in progress.
         """
         return pulumi.get(self, "in_progress_validation_batches")
 
@@ -723,7 +619,7 @@ class _DistributionState:
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The date and time the distribution was last modified.
+        Date and time the distribution was last modified.
         """
         return pulumi.get(self, "last_modified_time")
 
@@ -735,9 +631,7 @@ class _DistributionState:
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['DistributionLoggingConfigArgs']]:
         """
-        The logging
-        configuration that controls how logs are written
-        to your distribution (maximum one).
+        The logging configuration that controls how logs are written to your distribution (maximum one).
         """
         return pulumi.get(self, "logging_config")
 
@@ -749,9 +643,7 @@ class _DistributionState:
     @pulumi.getter(name="orderedCacheBehaviors")
     def ordered_cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]:
         """
-        An ordered list of cache behaviors
-        resource for this distribution. List from top to bottom
-        in order of precedence. The topmost cache behavior will have precedence 0.
+        Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
         """
         return pulumi.get(self, "ordered_cache_behaviors")
 
@@ -763,8 +655,7 @@ class _DistributionState:
     @pulumi.getter(name="originGroups")
     def origin_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]:
         """
-        One or more origin_group for this
-        distribution (multiples allowed).
+        One or more origin_group for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origin_groups")
 
@@ -776,8 +667,7 @@ class _DistributionState:
     @pulumi.getter
     def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]:
         """
-        One or more origins for this
-        distribution (multiples allowed).
+        One or more origins for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origins")
 
@@ -789,8 +679,7 @@ class _DistributionState:
     @pulumi.getter(name="priceClass")
     def price_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The price class for this distribution. One of
-        `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+        Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         """
         return pulumi.get(self, "price_class")
 
@@ -802,8 +691,7 @@ class _DistributionState:
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input['DistributionRestrictionsArgs']]:
         """
-        The restriction
-        configuration for this distribution (maximum one).
+        The restriction configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "restrictions")
 
@@ -815,9 +703,7 @@ class _DistributionState:
     @pulumi.getter(name="retainOnDelete")
     def retain_on_delete(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disables the distribution instead of
-        deleting it when destroying the resource. If this is set,
-        the distribution needs to be deleted manually afterwards. Default: `false`.
+        Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         """
         return pulumi.get(self, "retain_on_delete")
 
@@ -829,9 +715,7 @@ class _DistributionState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The current status of the distribution. `Deployed` if the
-        distribution's information is fully propagated throughout the Amazon
-        CloudFront system.
+        Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         """
         return pulumi.get(self, "status")
 
@@ -843,7 +727,7 @@ class _DistributionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -855,7 +739,7 @@ class _DistributionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -867,8 +751,7 @@ class _DistributionState:
     @pulumi.getter(name="trustedKeyGroups")
     def trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]]:
         """
-        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
         return pulumi.get(self, "trusted_key_groups")
 
@@ -880,8 +763,7 @@ class _DistributionState:
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]]:
         """
-        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
         return pulumi.get(self, "trusted_signers")
 
@@ -893,9 +775,7 @@ class _DistributionState:
     @pulumi.getter(name="viewerCertificate")
     def viewer_certificate(self) -> Optional[pulumi.Input['DistributionViewerCertificateArgs']]:
         """
-        The SSL
-        configuration for this distribution (maximum
-        one).
+        The SSL configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "viewer_certificate")
 
@@ -907,9 +787,7 @@ class _DistributionState:
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled, the resource will wait for
-        the distribution status to change from `InProgress` to `Deployed`. Setting
-        this to`false` will skip the process. Default: `true`.
+        If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_deployment")
 
@@ -921,13 +799,7 @@ class _DistributionState:
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique identifier that specifies the AWS WAF web ACL,
-        if any, to associate with this distribution.
-        To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-        for example `aws_wafv2_web_acl.example.arn`. To specify a web
-        ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-        The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-        credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+        Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         return pulumi.get(self, "web_acl_id")
 
@@ -964,199 +836,13 @@ class Distribution(pulumi.CustomResource):
         """
         Creates an Amazon CloudFront web distribution.
 
-        For information about CloudFront distributions, see the
-        [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating
-        CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon
-        CloudFront API Reference.
+        For information about CloudFront distributions, see the [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon CloudFront API Reference.
 
-        > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed
-        state after creation or modification. During this time, deletes to resources will
-        be blocked. If you need to delete a distribution that is enabled and you do not
-        want to wait, you need to use the `retain_on_delete` flag.
-
-        ## Example Usage
-
-        The following example below creates a CloudFront distribution with an S3 origin.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
-        })
-        b_acl = aws.s3.BucketAclV2("bAcl",
-            bucket=bucket_v2.id,
-            acl="private")
-        s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=bucket_v2.bucket_regional_domain_name,
-                origin_access_control_id=aws_cloudfront_origin_access_control["default"]["id"],
-                origin_id=s3_origin_id,
-            )],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            logging_config=aws.cloudfront.DistributionLoggingConfigArgs(
-                include_cookies=False,
-                bucket="mylogs.s3.amazonaws.com",
-                prefix="myprefix",
-            ),
-            aliases=[
-                "mysite.example.com",
-                "yoursite.example.com",
-            ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                allowed_methods=[
-                    "DELETE",
-                    "GET",
-                    "HEAD",
-                    "OPTIONS",
-                    "PATCH",
-                    "POST",
-                    "PUT",
-                ],
-                cached_methods=[
-                    "GET",
-                    "HEAD",
-                ],
-                target_origin_id=s3_origin_id,
-                forwarded_values=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs(
-                    query_string=False,
-                    cookies=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs(
-                        forward="none",
-                    ),
-                ),
-                viewer_protocol_policy="allow-all",
-                min_ttl=0,
-                default_ttl=3600,
-                max_ttl=86400,
-            ),
-            ordered_cache_behaviors=[
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/immutable/*",
-                    allowed_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    cached_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        headers=["Origin"],
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=86400,
-                    max_ttl=31536000,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/*",
-                    allowed_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    cached_methods=[
-                        "GET",
-                        "HEAD",
-                    ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=3600,
-                    max_ttl=86400,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-            ],
-            price_class="PriceClass_200",
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                ),
-            ),
-            tags={
-                "Environment": "production",
-            },
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
-        ```
-
-        The following example below creates a Cloudfront distribution with an origin group for failover routing:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origin_groups=[aws.cloudfront.DistributionOriginGroupArgs(
-                origin_id="groupS3",
-                failover_criteria=aws.cloudfront.DistributionOriginGroupFailoverCriteriaArgs(
-                    status_codes=[
-                        403,
-                        404,
-                        500,
-                        502,
-                    ],
-                ),
-                members=[
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="primaryS3",
-                    ),
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="failoverS3",
-                    ),
-                ],
-            )],
-            origins=[
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
-                    origin_id="primaryS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    ),
-                ),
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["failover"]["bucket_regional_domain_name"],
-                    origin_id="failoverS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    ),
-                ),
-            ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                target_origin_id="groupS3",
-            ))
-        # ... other configuration ...
-        ```
+        > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Import
 
-        Cloudfront Distributions can be imported using the `id`, e.g.,
+        CloudFront Distributions can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
@@ -1164,52 +850,25 @@ class Distribution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for
-               this distribution.
-        :param pulumi.Input[str] comment: Any comments you want to include about the
-               distribution.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
-        :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: The default cache behavior for this distribution (maximum
-               one).
-        :param pulumi.Input[str] default_root_object: The object that you want CloudFront to
-               return (for example, index.html) when an end user requests the root URL.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
-               user requests for content.
-        :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
-               distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-               `http2`.
+        :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
-        :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging
-               configuration that controls how logs are written
-               to your distribution (maximum one).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]] ordered_cache_behaviors: An ordered list of cache behaviors
-               resource for this distribution. List from top to bottom
-               in order of precedence. The topmost cache behavior will have precedence 0.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]] origin_groups: One or more origin_group for this
-               distribution (multiples allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]] origins: One or more origins for this
-               distribution (multiples allowed).
-        :param pulumi.Input[str] price_class: The price class for this distribution. One of
-               `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
-        :param pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']] restrictions: The restriction
-               configuration for this distribution (maximum one).
-        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
-               deleting it when destroying the resource. If this is set,
-               the distribution needs to be deleted manually afterwards. Default: `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL
-               configuration for this distribution (maximum
-               one).
-        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for
-               the distribution status to change from `InProgress` to `Deployed`. Setting
-               this to`false` will skip the process. Default: `true`.
-        :param pulumi.Input[str] web_acl_id: A unique identifier that specifies the AWS WAF web ACL,
-               if any, to associate with this distribution.
-               To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-               for example `aws_wafv2_web_acl.example.arn`. To specify a web
-               ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-               The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-               credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+        :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]] origin_groups: One or more origin_group for this distribution (multiples allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]] origins: One or more origins for this distribution (multiples allowed).
+        :param pulumi.Input[str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+        :param pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']] restrictions: The restriction configuration for this distribution (maximum one).
+        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+        :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         ...
     @overload
@@ -1220,199 +879,13 @@ class Distribution(pulumi.CustomResource):
         """
         Creates an Amazon CloudFront web distribution.
 
-        For information about CloudFront distributions, see the
-        [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating
-        CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon
-        CloudFront API Reference.
+        For information about CloudFront distributions, see the [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon CloudFront API Reference.
 
-        > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed
-        state after creation or modification. During this time, deletes to resources will
-        be blocked. If you need to delete a distribution that is enabled and you do not
-        want to wait, you need to use the `retain_on_delete` flag.
-
-        ## Example Usage
-
-        The following example below creates a CloudFront distribution with an S3 origin.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
-        })
-        b_acl = aws.s3.BucketAclV2("bAcl",
-            bucket=bucket_v2.id,
-            acl="private")
-        s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=bucket_v2.bucket_regional_domain_name,
-                origin_access_control_id=aws_cloudfront_origin_access_control["default"]["id"],
-                origin_id=s3_origin_id,
-            )],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            logging_config=aws.cloudfront.DistributionLoggingConfigArgs(
-                include_cookies=False,
-                bucket="mylogs.s3.amazonaws.com",
-                prefix="myprefix",
-            ),
-            aliases=[
-                "mysite.example.com",
-                "yoursite.example.com",
-            ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                allowed_methods=[
-                    "DELETE",
-                    "GET",
-                    "HEAD",
-                    "OPTIONS",
-                    "PATCH",
-                    "POST",
-                    "PUT",
-                ],
-                cached_methods=[
-                    "GET",
-                    "HEAD",
-                ],
-                target_origin_id=s3_origin_id,
-                forwarded_values=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs(
-                    query_string=False,
-                    cookies=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs(
-                        forward="none",
-                    ),
-                ),
-                viewer_protocol_policy="allow-all",
-                min_ttl=0,
-                default_ttl=3600,
-                max_ttl=86400,
-            ),
-            ordered_cache_behaviors=[
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/immutable/*",
-                    allowed_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    cached_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        headers=["Origin"],
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=86400,
-                    max_ttl=31536000,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/*",
-                    allowed_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    cached_methods=[
-                        "GET",
-                        "HEAD",
-                    ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=3600,
-                    max_ttl=86400,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-            ],
-            price_class="PriceClass_200",
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                ),
-            ),
-            tags={
-                "Environment": "production",
-            },
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
-        ```
-
-        The following example below creates a Cloudfront distribution with an origin group for failover routing:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origin_groups=[aws.cloudfront.DistributionOriginGroupArgs(
-                origin_id="groupS3",
-                failover_criteria=aws.cloudfront.DistributionOriginGroupFailoverCriteriaArgs(
-                    status_codes=[
-                        403,
-                        404,
-                        500,
-                        502,
-                    ],
-                ),
-                members=[
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="primaryS3",
-                    ),
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="failoverS3",
-                    ),
-                ],
-            )],
-            origins=[
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
-                    origin_id="primaryS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    ),
-                ),
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["failover"]["bucket_regional_domain_name"],
-                    origin_id="failoverS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    ),
-                ),
-            ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                target_origin_id="groupS3",
-            ))
-        # ... other configuration ...
-        ```
+        > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Import
 
-        Cloudfront Distributions can be imported using the `id`, e.g.,
+        CloudFront Distributions can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
@@ -1548,73 +1021,36 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for
-               this distribution.
-        :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
-        :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future
-               updates to the distribution configuration.
-        :param pulumi.Input[str] comment: Any comments you want to include about the
-               distribution.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+        :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
+        :param pulumi.Input[str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
-        :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: The default cache behavior for this distribution (maximum
-               one).
-        :param pulumi.Input[str] default_root_object: The object that you want CloudFront to
-               return (for example, index.html) when an end user requests the root URL.
-        :param pulumi.Input[str] domain_name: The DNS domain name of either the S3 bucket, or
-               web site of your custom origin.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
-               user requests for content.
-        :param pulumi.Input[str] etag: The current version of the distribution's information. For example:
-               `E2QWRUHAPOMQZL`.
-        :param pulumi.Input[str] hosted_zone_id: The CloudFront Route 53 zone ID that can be used to
-               route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
-               alias for the zone ID `Z2FDTNDATAQYW2`.
-        :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
-               distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-               `http2`.
-        :param pulumi.Input[int] in_progress_validation_batches: The number of invalidation batches
-               currently in progress.
+        :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+        :param pulumi.Input[str] domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
+        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[str] etag: Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
+        :param pulumi.Input[str] hosted_zone_id: CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
+        :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+        :param pulumi.Input[int] in_progress_validation_batches: Number of invalidation batches currently in progress.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
-        :param pulumi.Input[str] last_modified_time: The date and time the distribution was last modified.
-        :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging
-               configuration that controls how logs are written
-               to your distribution (maximum one).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]] ordered_cache_behaviors: An ordered list of cache behaviors
-               resource for this distribution. List from top to bottom
-               in order of precedence. The topmost cache behavior will have precedence 0.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]] origin_groups: One or more origin_group for this
-               distribution (multiples allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]] origins: One or more origins for this
-               distribution (multiples allowed).
-        :param pulumi.Input[str] price_class: The price class for this distribution. One of
-               `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
-        :param pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']] restrictions: The restriction
-               configuration for this distribution (maximum one).
-        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
-               deleting it when destroying the resource. If this is set,
-               the distribution needs to be deleted manually afterwards. Default: `false`.
-        :param pulumi.Input[str] status: The current status of the distribution. `Deployed` if the
-               distribution's information is fully propagated throughout the Amazon
-               CloudFront system.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedKeyGroupArgs']]]] trusted_key_groups: A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
-        :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL
-               configuration for this distribution (maximum
-               one).
-        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for
-               the distribution status to change from `InProgress` to `Deployed`. Setting
-               this to`false` will skip the process. Default: `true`.
-        :param pulumi.Input[str] web_acl_id: A unique identifier that specifies the AWS WAF web ACL,
-               if any, to associate with this distribution.
-               To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-               for example `aws_wafv2_web_acl.example.arn`. To specify a web
-               ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-               The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-               credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+        :param pulumi.Input[str] last_modified_time: Date and time the distribution was last modified.
+        :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]] origin_groups: One or more origin_group for this distribution (multiples allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]] origins: One or more origins for this distribution (multiples allowed).
+        :param pulumi.Input[str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+        :param pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']] restrictions: The restriction configuration for this distribution (maximum one).
+        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        :param pulumi.Input[str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedKeyGroupArgs']]]] trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL configuration for this distribution (maximum one).
+        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+        :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1656,8 +1092,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def aliases(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Extra CNAMEs (alternate domain names), if any, for
-        this distribution.
+        Extra CNAMEs (alternate domain names), if any, for this distribution.
         """
         return pulumi.get(self, "aliases")
 
@@ -1665,7 +1100,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+        ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         """
         return pulumi.get(self, "arn")
 
@@ -1673,8 +1108,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="callerReference")
     def caller_reference(self) -> pulumi.Output[str]:
         """
-        Internal value used by CloudFront to allow future
-        updates to the distribution configuration.
+        Internal value used by CloudFront to allow future updates to the distribution configuration.
         """
         return pulumi.get(self, "caller_reference")
 
@@ -1682,8 +1116,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[str]]:
         """
-        Any comments you want to include about the
-        distribution.
+        Any comments you want to include about the distribution.
         """
         return pulumi.get(self, "comment")
 
@@ -1699,8 +1132,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> pulumi.Output['outputs.DistributionDefaultCacheBehavior']:
         """
-        The default cache behavior for this distribution (maximum
-        one).
+        Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         """
         return pulumi.get(self, "default_cache_behavior")
 
@@ -1708,8 +1140,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="defaultRootObject")
     def default_root_object(self) -> pulumi.Output[Optional[str]]:
         """
-        The object that you want CloudFront to
-        return (for example, index.html) when an end user requests the root URL.
+        Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         """
         return pulumi.get(self, "default_root_object")
 
@@ -1717,8 +1148,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The DNS domain name of either the S3 bucket, or
-        web site of your custom origin.
+        DNS domain name of either the S3 bucket, or web site of your custom origin.
         """
         return pulumi.get(self, "domain_name")
 
@@ -1726,8 +1156,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
-        Whether the distribution is enabled to accept end
-        user requests for content.
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -1735,8 +1164,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        The current version of the distribution's information. For example:
-        `E2QWRUHAPOMQZL`.
+        Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         """
         return pulumi.get(self, "etag")
 
@@ -1744,9 +1172,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
         """
-        The CloudFront Route 53 zone ID that can be used to
-        route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
-        alias for the zone ID `Z2FDTNDATAQYW2`.
+        CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -1754,9 +1180,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The maximum HTTP version to support on the
-        distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-        `http2`.
+        Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         """
         return pulumi.get(self, "http_version")
 
@@ -1764,8 +1188,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="inProgressValidationBatches")
     def in_progress_validation_batches(self) -> pulumi.Output[int]:
         """
-        The number of invalidation batches
-        currently in progress.
+        Number of invalidation batches currently in progress.
         """
         return pulumi.get(self, "in_progress_validation_batches")
 
@@ -1781,7 +1204,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
         """
-        The date and time the distribution was last modified.
+        Date and time the distribution was last modified.
         """
         return pulumi.get(self, "last_modified_time")
 
@@ -1789,9 +1212,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Output[Optional['outputs.DistributionLoggingConfig']]:
         """
-        The logging
-        configuration that controls how logs are written
-        to your distribution (maximum one).
+        The logging configuration that controls how logs are written to your distribution (maximum one).
         """
         return pulumi.get(self, "logging_config")
 
@@ -1799,9 +1220,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="orderedCacheBehaviors")
     def ordered_cache_behaviors(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionOrderedCacheBehavior']]]:
         """
-        An ordered list of cache behaviors
-        resource for this distribution. List from top to bottom
-        in order of precedence. The topmost cache behavior will have precedence 0.
+        Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
         """
         return pulumi.get(self, "ordered_cache_behaviors")
 
@@ -1809,8 +1228,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="originGroups")
     def origin_groups(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionOriginGroup']]]:
         """
-        One or more origin_group for this
-        distribution (multiples allowed).
+        One or more origin_group for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origin_groups")
 
@@ -1818,8 +1236,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def origins(self) -> pulumi.Output[Sequence['outputs.DistributionOrigin']]:
         """
-        One or more origins for this
-        distribution (multiples allowed).
+        One or more origins for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origins")
 
@@ -1827,8 +1244,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="priceClass")
     def price_class(self) -> pulumi.Output[Optional[str]]:
         """
-        The price class for this distribution. One of
-        `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+        Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         """
         return pulumi.get(self, "price_class")
 
@@ -1836,8 +1252,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def restrictions(self) -> pulumi.Output['outputs.DistributionRestrictions']:
         """
-        The restriction
-        configuration for this distribution (maximum one).
+        The restriction configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "restrictions")
 
@@ -1845,9 +1260,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="retainOnDelete")
     def retain_on_delete(self) -> pulumi.Output[Optional[bool]]:
         """
-        Disables the distribution instead of
-        deleting it when destroying the resource. If this is set,
-        the distribution needs to be deleted manually afterwards. Default: `false`.
+        Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         """
         return pulumi.get(self, "retain_on_delete")
 
@@ -1855,9 +1268,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        The current status of the distribution. `Deployed` if the
-        distribution's information is fully propagated throughout the Amazon
-        CloudFront system.
+        Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         """
         return pulumi.get(self, "status")
 
@@ -1865,7 +1276,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1873,7 +1284,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1881,8 +1292,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="trustedKeyGroups")
     def trusted_key_groups(self) -> pulumi.Output[Sequence['outputs.DistributionTrustedKeyGroup']]:
         """
-        A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
         return pulumi.get(self, "trusted_key_groups")
 
@@ -1890,8 +1300,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> pulumi.Output[Sequence['outputs.DistributionTrustedSigner']]:
         """
-        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
         return pulumi.get(self, "trusted_signers")
 
@@ -1899,9 +1308,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="viewerCertificate")
     def viewer_certificate(self) -> pulumi.Output['outputs.DistributionViewerCertificate']:
         """
-        The SSL
-        configuration for this distribution (maximum
-        one).
+        The SSL configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "viewer_certificate")
 
@@ -1909,9 +1316,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="waitForDeployment")
     def wait_for_deployment(self) -> pulumi.Output[Optional[bool]]:
         """
-        If enabled, the resource will wait for
-        the distribution status to change from `InProgress` to `Deployed`. Setting
-        this to`false` will skip the process. Default: `true`.
+        If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_deployment")
 
@@ -1919,13 +1324,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> pulumi.Output[Optional[str]]:
         """
-        A unique identifier that specifies the AWS WAF web ACL,
-        if any, to associate with this distribution.
-        To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-        for example `aws_wafv2_web_acl.example.arn`. To specify a web
-        ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-        The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-        credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+        Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         return pulumi.get(self, "web_acl_id")
 

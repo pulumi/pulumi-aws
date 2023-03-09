@@ -42,6 +42,7 @@ class FunctionArgs:
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -75,6 +76,7 @@ class FunctionArgs:
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -131,6 +133,8 @@ class FunctionArgs:
             pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if snap_start is not None:
             pulumi.set(__self__, "snap_start", snap_start)
         if source_code_hash is not None:
@@ -445,6 +449,18 @@ class FunctionArgs:
         pulumi.set(self, "s3_object_version", value)
 
     @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
+    @property
     @pulumi.getter(name="snapStart")
     def snap_start(self) -> Optional[pulumi.Input['FunctionSnapStartArgs']]:
         """
@@ -552,6 +568,7 @@ class _FunctionState:
                  s3_object_version: Optional[pulumi.Input[str]] = None,
                  signing_job_arn: Optional[pulumi.Input[str]] = None,
                  signing_profile_version_arn: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  source_code_size: Optional[pulumi.Input[int]] = None,
@@ -596,6 +613,7 @@ class _FunctionState:
         :param pulumi.Input[str] signing_job_arn: ARN of the signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
                * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+        :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
@@ -671,6 +689,8 @@ class _FunctionState:
             pulumi.set(__self__, "signing_job_arn", signing_job_arn)
         if signing_profile_version_arn is not None:
             pulumi.set(__self__, "signing_profile_version_arn", signing_profile_version_arn)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if snap_start is not None:
             pulumi.set(__self__, "snap_start", snap_start)
         if source_code_hash is not None:
@@ -1076,6 +1096,18 @@ class _FunctionState:
         pulumi.set(self, "signing_profile_version_arn", value)
 
     @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
+    @property
     @pulumi.getter(name="snapStart")
     def snap_start(self) -> Optional[pulumi.Input['FunctionSnapStartArgs']]:
         """
@@ -1215,6 +1247,7 @@ class Function(pulumi.CustomResource):
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1232,37 +1265,6 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        test_lambda = aws.lambda_.Function("testLambda",
-            code=pulumi.FileArchive("lambda_function_payload.zip"),
-            role=iam_for_lambda.arn,
-            handler="index.test",
-            runtime="nodejs16.x",
-            environment=aws.lambda_.FunctionEnvironmentArgs(
-                variables={
-                    "foo": "bar",
-                },
-            ))
-        ```
         ### Lambda Layers
 
         ```python
@@ -1281,20 +1283,15 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
         test_lambda = aws.lambda_.Function("testLambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
             role=iam_for_lambda.arn,
@@ -1367,28 +1364,22 @@ class Function(pulumi.CustomResource):
         # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
         # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
         example = aws.cloudwatch.LogGroup("example", retention_in_days=14)
-        # See also the following AWS managed policy: AWSLambdaBasicExecutionRole
-        lambda_logging = aws.iam.Policy("lambdaLogging",
-            path="/",
-            description="IAM policy for logging from a lambda",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
+        lambda_logging_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ],
-              "Resource": "arn:aws:logs:*:*:*",
-              "Effect": "Allow"
-            }
-          ]
-        }
-        \"\"\")
+                "logs:PutLogEvents",
+            ],
+            resources=["arn:aws:logs:*:*:*"],
+        )])
+        lambda_logging_policy = aws.iam.Policy("lambdaLoggingPolicy",
+            path="/",
+            description="IAM policy for logging from a lambda",
+            policy=lambda_logging_policy_document.json)
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
             role=aws_iam_role["iam_for_lambda"]["name"],
-            policy_arn=lambda_logging.arn)
+            policy_arn=lambda_logging_policy.arn)
         test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
                 lambda_logs,
                 example,
@@ -1438,6 +1429,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1461,37 +1453,6 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        test_lambda = aws.lambda_.Function("testLambda",
-            code=pulumi.FileArchive("lambda_function_payload.zip"),
-            role=iam_for_lambda.arn,
-            handler="index.test",
-            runtime="nodejs16.x",
-            environment=aws.lambda_.FunctionEnvironmentArgs(
-                variables={
-                    "foo": "bar",
-                },
-            ))
-        ```
         ### Lambda Layers
 
         ```python
@@ -1510,20 +1471,15 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
         test_lambda = aws.lambda_.Function("testLambda",
             code=pulumi.FileArchive("lambda_function_payload.zip"),
             role=iam_for_lambda.arn,
@@ -1596,28 +1552,22 @@ class Function(pulumi.CustomResource):
         # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
         # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
         example = aws.cloudwatch.LogGroup("example", retention_in_days=14)
-        # See also the following AWS managed policy: AWSLambdaBasicExecutionRole
-        lambda_logging = aws.iam.Policy("lambdaLogging",
-            path="/",
-            description="IAM policy for logging from a lambda",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
+        lambda_logging_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ],
-              "Resource": "arn:aws:logs:*:*:*",
-              "Effect": "Allow"
-            }
-          ]
-        }
-        \"\"\")
+                "logs:PutLogEvents",
+            ],
+            resources=["arn:aws:logs:*:*:*"],
+        )])
+        lambda_logging_policy = aws.iam.Policy("lambdaLoggingPolicy",
+            path="/",
+            description="IAM policy for logging from a lambda",
+            policy=lambda_logging_policy_document.json)
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
             role=aws_iam_role["iam_for_lambda"]["name"],
-            policy_arn=lambda_logging.arn)
+            policy_arn=lambda_logging_policy.arn)
         test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
                 lambda_logs,
                 example,
@@ -1680,6 +1630,7 @@ class Function(pulumi.CustomResource):
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
                  source_code_hash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1722,6 +1673,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["s3_bucket"] = s3_bucket
             __props__.__dict__["s3_key"] = s3_key
             __props__.__dict__["s3_object_version"] = s3_object_version
+            __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["source_code_hash"] = source_code_hash
             __props__.__dict__["tags"] = tags
@@ -1780,6 +1732,7 @@ class Function(pulumi.CustomResource):
             s3_object_version: Optional[pulumi.Input[str]] = None,
             signing_job_arn: Optional[pulumi.Input[str]] = None,
             signing_profile_version_arn: Optional[pulumi.Input[str]] = None,
+            skip_destroy: Optional[pulumi.Input[bool]] = None,
             snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
             source_code_hash: Optional[pulumi.Input[str]] = None,
             source_code_size: Optional[pulumi.Input[int]] = None,
@@ -1829,6 +1782,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] signing_job_arn: ARN of the signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
                * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+        :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
@@ -1876,6 +1830,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["s3_object_version"] = s3_object_version
         __props__.__dict__["signing_job_arn"] = signing_job_arn
         __props__.__dict__["signing_profile_version_arn"] = signing_profile_version_arn
+        __props__.__dict__["skip_destroy"] = skip_destroy
         __props__.__dict__["snap_start"] = snap_start
         __props__.__dict__["source_code_hash"] = source_code_hash
         __props__.__dict__["source_code_size"] = source_code_size
@@ -2143,6 +2098,14 @@ class Function(pulumi.CustomResource):
         * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         """
         return pulumi.get(self, "signing_profile_version_arn")
+
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        """
+        return pulumi.get(self, "skip_destroy")
 
     @property
     @pulumi.getter(name="snapStart")

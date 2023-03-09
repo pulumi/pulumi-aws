@@ -11,28 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class DistributionOriginOriginShield {
     /**
-     * @return Whether the distribution is enabled to accept end
-     * user requests for content.
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     private Boolean enabled;
     /**
-     * @return The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
      * 
      */
     private String originShieldRegion;
 
     private DistributionOriginOriginShield() {}
     /**
-     * @return Whether the distribution is enabled to accept end
-     * user requests for content.
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
      * 
      */
     public String originShieldRegion() {

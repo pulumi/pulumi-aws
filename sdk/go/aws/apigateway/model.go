@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -35,11 +35,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"type": "object",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = apigateway.NewModel(ctx, "myDemoModel", &apigateway.ModelArgs{
 //				RestApi:     myDemoAPI.ID(),
 //				Description: pulumi.String("a JSON schema"),
 //				ContentType: pulumi.String("application/json"),
-//				Schema:      pulumi.String(fmt.Sprintf("{\n  \"type\": \"object\"\n}\n")),
+//				Schema:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

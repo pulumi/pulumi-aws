@@ -35,14 +35,14 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
     }
 
     /**
-     * The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -50,14 +50,14 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
     }
 
     /**
-     * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * @return ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      * 
      */
     public Output<String> bucket() {
@@ -188,7 +188,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param accountId The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+         * @param accountId Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param accountId The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+         * @param accountId Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param bucket The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+         * @param bucket ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param bucket The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+         * @param bucket ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
          * 
          * @return builder
          * 

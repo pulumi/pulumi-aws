@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -35,6 +36,7 @@ public final class GetImageResult {
      * 
      */
     private List<String> imageTags;
+    private @Nullable Boolean mostRecent;
     private String registryId;
     private String repositoryName;
 
@@ -73,6 +75,9 @@ public final class GetImageResult {
     public List<String> imageTags() {
         return this.imageTags;
     }
+    public Optional<Boolean> mostRecent() {
+        return Optional.ofNullable(this.mostRecent);
+    }
     public String registryId() {
         return this.registryId;
     }
@@ -95,6 +100,7 @@ public final class GetImageResult {
         private Integer imageSizeInBytes;
         private @Nullable String imageTag;
         private List<String> imageTags;
+        private @Nullable Boolean mostRecent;
         private String registryId;
         private String repositoryName;
         public Builder() {}
@@ -106,6 +112,7 @@ public final class GetImageResult {
     	      this.imageSizeInBytes = defaults.imageSizeInBytes;
     	      this.imageTag = defaults.imageTag;
     	      this.imageTags = defaults.imageTags;
+    	      this.mostRecent = defaults.mostRecent;
     	      this.registryId = defaults.registryId;
     	      this.repositoryName = defaults.repositoryName;
         }
@@ -144,6 +151,11 @@ public final class GetImageResult {
             return imageTags(List.of(imageTags));
         }
         @CustomType.Setter
+        public Builder mostRecent(@Nullable Boolean mostRecent) {
+            this.mostRecent = mostRecent;
+            return this;
+        }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             this.registryId = Objects.requireNonNull(registryId);
             return this;
@@ -161,6 +173,7 @@ public final class GetImageResult {
             o.imageSizeInBytes = imageSizeInBytes;
             o.imageTag = imageTag;
             o.imageTags = imageTags;
+            o.mostRecent = mostRecent;
             o.registryId = registryId;
             o.repositoryName = repositoryName;
             return o;

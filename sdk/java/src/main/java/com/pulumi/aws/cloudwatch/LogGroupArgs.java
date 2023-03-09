@@ -69,7 +69,7 @@ public final class LogGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifies the number of days
-     * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
+     * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
      * If you select 0, the events in the log group are always retained and never expire.
      * 
      */
@@ -78,7 +78,7 @@ public final class LogGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies the number of days
-     * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
+     * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
      * If you select 0, the events in the log group are always retained and never expire.
      * 
      */
@@ -214,7 +214,7 @@ public final class LogGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param retentionInDays Specifies the number of days
-         * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
+         * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
          * If you select 0, the events in the log group are always retained and never expire.
          * 
          * @return builder
@@ -227,7 +227,7 @@ public final class LogGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param retentionInDays Specifies the number of days
-         * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
+         * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
          * If you select 0, the events in the log group are always retained and never expire.
          * 
          * @return builder

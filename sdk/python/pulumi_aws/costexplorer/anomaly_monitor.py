@@ -249,26 +249,23 @@ class AnomalyMonitor(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalyMonitor("test",
-            monitor_specification=\"\"\"{
-        	"And": null,
-        	"CostCategories": null,
-        	"Dimensions": null,
-        	"Not": null,
-        	"Or": null,
-        	"Tags": {
-        		"Key": "CostCenter",
-        		"MatchOptions": null,
-        		"Values": [
-        			"10000"
-        		]
-        	}
-        }
-
-        \"\"\",
-            monitor_type="CUSTOM")
+            monitor_type="CUSTOM",
+            monitor_specification=json.dumps({
+                "And": None,
+                "CostCategories": None,
+                "Dimensions": None,
+                "Not": None,
+                "Or": None,
+                "Tags": {
+                    "Key": "CostCenter",
+                    "MatchOptions": None,
+                    "Values": ["10000"],
+                },
+            }))
         ```
 
         ## Import
@@ -313,26 +310,23 @@ class AnomalyMonitor(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         test = aws.costexplorer.AnomalyMonitor("test",
-            monitor_specification=\"\"\"{
-        	"And": null,
-        	"CostCategories": null,
-        	"Dimensions": null,
-        	"Not": null,
-        	"Or": null,
-        	"Tags": {
-        		"Key": "CostCenter",
-        		"MatchOptions": null,
-        		"Values": [
-        			"10000"
-        		]
-        	}
-        }
-
-        \"\"\",
-            monitor_type="CUSTOM")
+            monitor_type="CUSTOM",
+            monitor_specification=json.dumps({
+                "And": None,
+                "CostCategories": None,
+                "Dimensions": None,
+                "Not": None,
+                "Or": None,
+                "Tags": {
+                    "Key": "CostCenter",
+                    "MatchOptions": None,
+                    "Values": ["10000"],
+                },
+            }))
         ```
 
         ## Import

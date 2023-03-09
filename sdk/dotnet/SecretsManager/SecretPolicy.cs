@@ -24,24 +24,41 @@ namespace Pulumi.Aws.SecretsManager
     /// {
     ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "EnableAnotherAWSAccountToReadTheSecret",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "arn:aws:iam::123456789012:root",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "secretsmanager:GetSecretValue",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
     ///     {
     ///         SecretArn = exampleSecret.Arn,
-    ///         Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    /// 	{
-    /// 	  ""Sid"": ""EnableAnotherAWSAccountToReadTheSecret"",
-    /// 	  ""Effect"": ""Allow"",
-    /// 	  ""Principal"": {
-    /// 		""AWS"": ""arn:aws:iam::123456789012:root""
-    /// 	  },
-    /// 	  ""Action"": ""secretsmanager:GetSecretValue"",
-    /// 	  ""Resource"": ""*""
-    /// 	}
-    ///   ]
-    /// }
-    /// ",
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

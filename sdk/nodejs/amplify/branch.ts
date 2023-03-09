@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *     arn: amplifyAppMasterTopic.arn,
  *     inputTransformer: {
  *         inputPaths: {
- *             jobId: `$.detail.jobId`,
- *             appId: `$.detail.appId`,
- *             region: `$.region`,
- *             branch: `$.detail.branchName`,
- *             status: `$.detail.jobStatus`,
+ *             jobId: "$.detail.jobId",
+ *             appId: "$.detail.appId",
+ *             region: "$.region",
+ *             branch: "$.detail.branchName",
+ *             status: "$.detail.jobStatus",
  *         },
  *         inputTemplate: "\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
  *     },

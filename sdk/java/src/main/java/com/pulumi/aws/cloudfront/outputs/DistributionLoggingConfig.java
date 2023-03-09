@@ -13,44 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionLoggingConfig {
     /**
-     * @return The Amazon S3 bucket to store the access logs in, for
-     * example, `myawslogbucket.s3.amazonaws.com`.
+     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
      * 
      */
     private String bucket;
     /**
-     * @return Specifies whether you want CloudFront to
-     * include cookies in access logs (default: `false`).
+     * @return Whether to include cookies in access logs (default: `false`).
      * 
      */
     private @Nullable Boolean includeCookies;
     /**
-     * @return An optional string that you want CloudFront to prefix
-     * to the access log filenames for this distribution, for example, `myprefix/`.
+     * @return Prefix to the access log filenames for this distribution, for example, `myprefix/`.
      * 
      */
     private @Nullable String prefix;
 
     private DistributionLoggingConfig() {}
     /**
-     * @return The Amazon S3 bucket to store the access logs in, for
-     * example, `myawslogbucket.s3.amazonaws.com`.
+     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
      * 
      */
     public String bucket() {
         return this.bucket;
     }
     /**
-     * @return Specifies whether you want CloudFront to
-     * include cookies in access logs (default: `false`).
+     * @return Whether to include cookies in access logs (default: `false`).
      * 
      */
     public Optional<Boolean> includeCookies() {
         return Optional.ofNullable(this.includeCookies);
     }
     /**
-     * @return An optional string that you want CloudFront to prefix
-     * to the access log filenames for this distribution, for example, `myprefix/`.
+     * @return Prefix to the access log filenames for this distribution, for example, `myprefix/`.
      * 
      */
     public Optional<String> prefix() {

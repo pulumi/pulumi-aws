@@ -26,11 +26,11 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleDimensionResult> Dimensions;
         /// <summary>
-        /// Return results that match both `Dimension` object.
+        /// Return results that do not match the `Dimension` object.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleNotResult> Nots;
         /// <summary>
-        /// Return results that match both `Dimension` object.
+        /// Return results that match either `Dimension` object.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrResult> Ors;
         /// <summary>

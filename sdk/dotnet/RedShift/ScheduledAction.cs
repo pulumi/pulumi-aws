@@ -20,44 +20,61 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "scheduler.redshift.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": [
-    ///           ""scheduler.redshift.amazonaws.com""
-    ///         ]
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "redshift:PauseCluster",
+    ///                     "redshift:ResumeCluster",
+    ///                     "redshift:ResizeCluster",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
     ///     {
-    ///         PolicyDocument = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///       {
-    ///           ""Sid"": ""VisualEditor0"",
-    ///           ""Effect"": ""Allow"",
-    ///           ""Action"": [
-    ///               ""redshift:PauseCluster"",
-    ///               ""redshift:ResumeCluster"",
-    ///               ""redshift:ResizeCluster""
-    ///           ],
-    ///           ""Resource"": ""*""
-    ///       }
-    ///   ]
-    /// }
-    /// ",
+    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()

@@ -17,14 +17,14 @@ public final class BucketMetricState extends com.pulumi.resources.ResourceArgs {
     public static final BucketMetricState Empty = new BucketMetricState();
 
     /**
-     * The name of the bucket to put metric configuration.
+     * Name of the bucket to put metric configuration.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return The name of the bucket to put metric configuration.
+     * @return Name of the bucket to put metric configuration.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -88,7 +88,7 @@ public final class BucketMetricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket The name of the bucket to put metric configuration.
+         * @param bucket Name of the bucket to put metric configuration.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class BucketMetricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket The name of the bucket to put metric configuration.
+         * @param bucket Name of the bucket to put metric configuration.
          * 
          * @return builder
          * 

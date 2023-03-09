@@ -56,21 +56,23 @@ import * as utilities from "../utilities";
  * const domain = config.get("domain") || "tf-test";
  * const currentRegion = aws.getRegion({});
  * const currentCallerIdentity = aws.getCallerIdentity({});
- * const example = new aws.opensearch.Domain("example", {accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "es:*",
- *       "Principal": "*",
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
- *       "Condition": {
- *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
- *       }
- *     }
- *   ]
- * }
- * `)});
+ * const examplePolicyDocument = Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["es:*"],
+ *         resources: [`arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*`],
+ *         conditions: [{
+ *             test: "IpAddress",
+ *             variable: "aws:SourceIp",
+ *             values: ["66.193.100.22/32"],
+ *         }],
+ *     }],
+ * }));
+ * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {accessPolicies: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
  * ```
  * ### Log publishing to CloudWatch Logs
  *
@@ -79,26 +81,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["es.amazonaws.com"],
+ *         }],
+ *         actions: [
+ *             "logs:PutLogEvents",
+ *             "logs:PutLogEventsBatch",
+ *             "logs:CreateLogStream",
+ *         ],
+ *         resources: ["arn:aws:logs:*"],
+ *     }],
+ * });
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
  *     policyName: "example",
- *     policyDocument: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "es.amazonaws.com"
- *       },
- *       "Action": [
- *         "logs:PutLogEvents",
- *         "logs:PutLogEventsBatch",
- *         "logs:CreateLogStream"
- *       ],
- *       "Resource": "arn:aws:logs:*"
- *     }
- *   ]
- * }
- * `,
+ *     policyDocument: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * // .. other configuration ...
  * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {logPublishingOptions: [{
@@ -139,6 +139,17 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleServiceLinkedRole = new aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", {awsServiceName: "opensearchservice.amazonaws.com"});
+ * const examplePolicyDocument = Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["es:*"],
+ *         resources: [`arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*`],
+ *     }],
+ * }));
  * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
  *     engineVersion: "OpenSearch_1.0",
  *     clusterConfig: {
@@ -155,18 +166,7 @@ import * as utilities from "../utilities";
  *     advancedOptions: {
  *         "rest.action.multi.allow_explicit_index": "true",
  *     },
- *     accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Action": "es:*",
- * 			"Principal": "*",
- * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
- * 		}
- * 	]
- * }
- * `),
+ *     accessPolicies: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  *     tags: {
  *         Domain: "TestDomain",
  *     },

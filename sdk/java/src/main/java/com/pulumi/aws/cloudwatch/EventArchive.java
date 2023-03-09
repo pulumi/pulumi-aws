@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventBus;
  * import com.pulumi.aws.cloudwatch.EventArchive;
  * import com.pulumi.aws.cloudwatch.EventArchiveArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,11 +82,10 @@ import javax.annotation.Nullable;
  *             .description(&#34;Archived events from order service&#34;)
  *             .eventSourceArn(orderEventBus.arn())
  *             .retentionDays(7)
- *             .eventPattern(&#34;&#34;&#34;
- * {
- *   &#34;source&#34;: [&#34;company.team.order&#34;]
- * }
- *             &#34;&#34;&#34;)
+ *             .eventPattern(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;source&#34;, jsonArray(&#34;company.team.order&#34;))
+ *                 )))
  *             .build());
  * 
  *     }

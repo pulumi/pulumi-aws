@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Ecs.Inputs
         /// <summary>
         /// The log driver to use for the container.
         /// </summary>
-        [Input("logDriver")]
-        public Input<string>? LogDriver { get; set; }
+        [Input("logDriver", required: true)]
+        public Input<string> LogDriver { get; set; } = null!;
 
         [Input("options")]
         private InputMap<string>? _options;

@@ -81,7 +81,7 @@ type ObjectCopy struct {
 	CustomerKey pulumi.StringPtrOutput `pulumi:"customerKey"`
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 	CustomerKeyMd5 pulumi.StringOutput `pulumi:"customerKeyMd5"`
-	// The ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
@@ -103,15 +103,15 @@ type ObjectCopy struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
 	MetadataDirective pulumi.StringPtrOutput `pulumi:"metadataDirective"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringOutput `pulumi:"objectLockLegalHoldStatus"`
-	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	ObjectLockMode pulumi.StringOutput `pulumi:"objectLockMode"`
-	// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringOutput `pulumi:"objectLockRetainUntilDate"`
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged pulumi.BoolOutput `pulumi:"requestCharged"`
@@ -119,7 +119,7 @@ type ObjectCopy struct {
 	RequestPayer pulumi.StringPtrOutput `pulumi:"requestPayer"`
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
-	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm pulumi.StringPtrOutput `pulumi:"sourceCustomerAlgorithm"`
@@ -133,9 +133,9 @@ type ObjectCopy struct {
 	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective pulumi.StringPtrOutput `pulumi:"taggingDirective"`
-	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Version ID of the newly created copy.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -229,7 +229,7 @@ type objectCopyState struct {
 	CustomerKey *string `pulumi:"customerKey"`
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 	CustomerKeyMd5 *string `pulumi:"customerKeyMd5"`
-	// The ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
 	Etag *string `pulumi:"etag"`
 	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
@@ -251,15 +251,15 @@ type objectCopyState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified *string `pulumi:"lastModified"`
-	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
 	MetadataDirective *string `pulumi:"metadataDirective"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus *string `pulumi:"objectLockLegalHoldStatus"`
-	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	ObjectLockMode *string `pulumi:"objectLockMode"`
-	// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged *bool `pulumi:"requestCharged"`
@@ -267,7 +267,7 @@ type objectCopyState struct {
 	RequestPayer *string `pulumi:"requestPayer"`
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
-	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 	Source *string `pulumi:"source"`
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm *string `pulumi:"sourceCustomerAlgorithm"`
@@ -281,9 +281,9 @@ type objectCopyState struct {
 	StorageClass *string `pulumi:"storageClass"`
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective *string `pulumi:"taggingDirective"`
-	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version ID of the newly created copy.
 	VersionId *string `pulumi:"versionId"`
@@ -321,7 +321,7 @@ type ObjectCopyState struct {
 	CustomerKey pulumi.StringPtrInput
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 	CustomerKeyMd5 pulumi.StringPtrInput
-	// The ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+	// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
 	Etag pulumi.StringPtrInput
 	// Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
@@ -343,15 +343,15 @@ type ObjectCopyState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringPtrInput
-	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
 	// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
 	MetadataDirective pulumi.StringPtrInput
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrInput
-	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	ObjectLockMode pulumi.StringPtrInput
-	// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged pulumi.BoolPtrInput
@@ -359,7 +359,7 @@ type ObjectCopyState struct {
 	RequestPayer pulumi.StringPtrInput
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption pulumi.StringPtrInput
-	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 	Source pulumi.StringPtrInput
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm pulumi.StringPtrInput
@@ -373,9 +373,9 @@ type ObjectCopyState struct {
 	StorageClass pulumi.StringPtrInput
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective pulumi.StringPtrInput
-	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Version ID of the newly created copy.
 	VersionId pulumi.StringPtrInput
@@ -433,21 +433,21 @@ type objectCopyArgs struct {
 	KmsEncryptionContext *string `pulumi:"kmsEncryptionContext"`
 	// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
 	MetadataDirective *string `pulumi:"metadataDirective"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus *string `pulumi:"objectLockLegalHoldStatus"`
-	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	ObjectLockMode *string `pulumi:"objectLockMode"`
-	// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
 	RequestPayer *string `pulumi:"requestPayer"`
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
-	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 	Source string `pulumi:"source"`
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm *string `pulumi:"sourceCustomerAlgorithm"`
@@ -459,7 +459,7 @@ type objectCopyArgs struct {
 	StorageClass *string `pulumi:"storageClass"`
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective *string `pulumi:"taggingDirective"`
-	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
@@ -512,21 +512,21 @@ type ObjectCopyArgs struct {
 	KmsEncryptionContext pulumi.StringPtrInput
 	// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
 	KmsKeyId pulumi.StringPtrInput
-	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
 	// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
 	MetadataDirective pulumi.StringPtrInput
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrInput
-	// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	ObjectLockMode pulumi.StringPtrInput
-	// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
 	RequestPayer pulumi.StringPtrInput
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption pulumi.StringPtrInput
-	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 	Source pulumi.StringInput
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm pulumi.StringPtrInput
@@ -538,7 +538,7 @@ type ObjectCopyArgs struct {
 	StorageClass pulumi.StringPtrInput
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective pulumi.StringPtrInput
-	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect pulumi.StringPtrInput
@@ -705,7 +705,7 @@ func (o ObjectCopyOutput) CustomerKeyMd5() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.CustomerKeyMd5 }).(pulumi.StringOutput)
 }
 
-// The ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
+// ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
 func (o ObjectCopyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
@@ -760,7 +760,7 @@ func (o ObjectCopyOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 func (o ObjectCopyOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
 }
@@ -775,12 +775,12 @@ func (o ObjectCopyOutput) ObjectLockLegalHoldStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ObjectLockLegalHoldStatus }).(pulumi.StringOutput)
 }
 
-// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 func (o ObjectCopyOutput) ObjectLockMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ObjectLockMode }).(pulumi.StringOutput)
 }
 
-// The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
+// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 func (o ObjectCopyOutput) ObjectLockRetainUntilDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringOutput)
 }
@@ -800,7 +800,7 @@ func (o ObjectCopyOutput) ServerSideEncryption() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ServerSideEncryption }).(pulumi.StringOutput)
 }
 
-// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 func (o ObjectCopyOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
@@ -835,12 +835,12 @@ func (o ObjectCopyOutput) TaggingDirective() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.TaggingDirective }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ObjectCopyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ObjectCopyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

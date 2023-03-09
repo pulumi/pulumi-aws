@@ -57,25 +57,22 @@ import * as utilities from "../utilities";
  *         isActive: true,
  *     },
  * }});
+ * const defaultPolicyDocument = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: [privateRegistryAccess.ecrImagePullerRole?.principalArn],
+ *         }],
+ *         actions: [
+ *             "ecr:BatchGetImage",
+ *             "ecr:GetDownloadUrlForLayer",
+ *         ],
+ *     }],
+ * }));
  * const defaultRepositoryPolicy = new aws.ecr.RepositoryPolicy("defaultRepositoryPolicy", {
  *     repository: aws_ecr_repository["default"].name,
- *     policy: defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "AllowLightsailPull",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "AWS": "${privateRegistryAccess.ecrImagePullerRole?.principalArn}"
- *       },
- *       "Action": [
- *         "ecr:BatchGetImage",
- *         "ecr:GetDownloadUrlForLayer"
- *       ]
- *     }
- *   ]
- * }
- * `),
+ *     policy: defaultPolicyDocument.apply(defaultPolicyDocument => defaultPolicyDocument.json),
  * });
  * ```
  *

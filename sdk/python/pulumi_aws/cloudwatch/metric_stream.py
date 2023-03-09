@@ -419,36 +419,25 @@ class MetricStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
-        metric_stream_to_firehose_role = aws.iam.Role("metricStreamToFirehoseRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "streams.metrics.cloudwatch.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        streams_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["streams.metrics.cloudwatch.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        metric_stream_to_firehose_role = aws.iam.Role("metricStreamToFirehoseRole", assume_role_policy=streams_assume_role.json)
         bucket = aws.s3.BucketV2("bucket")
-        firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "firehose.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=firehose_assume_role.json)
         s3_stream = aws.kinesis.FirehoseDeliveryStream("s3Stream",
             destination="s3",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
@@ -467,49 +456,38 @@ class MetricStream(pulumi.CustomResource):
                     namespace="AWS/EBS",
                 ),
             ])
-        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+        metric_stream_to_firehose_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "firehose:PutRecord",
+                "firehose:PutRecordBatch",
+            ],
+            resources=[s3_stream.arn],
+        )])
         metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy",
             role=metric_stream_to_firehose_role.id,
-            policy=s3_stream.arn.apply(lambda arn: f\"\"\"{{
-            "Version": "2012-10-17",
-            "Statement": [
-                {{
-                    "Effect": "Allow",
-                    "Action": [
-                        "firehose:PutRecord",
-                        "firehose:PutRecordBatch"
-                    ],
-                    "Resource": "{arn}"
-                }}
-            ]
-        }}
-        \"\"\"))
+            policy=metric_stream_to_firehose_policy_document.json)
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
+        firehose_to_s3_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "s3:AbortMultipartUpload",
+                "s3:GetBucketLocation",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:PutObject",
+            ],
+            resources=[
+                bucket.arn,
+                bucket.arn.apply(lambda arn: f"{arn}/*"),
+            ],
+        )])
         firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
             role=firehose_to_s3_role.id,
-            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
-            "Version": "2012-10-17",
-            "Statement": [
-                {{
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:AbortMultipartUpload",
-                        "s3:GetBucketLocation",
-                        "s3:GetObject",
-                        "s3:ListBucket",
-                        "s3:ListBucketMultipartUploads",
-                        "s3:PutObject"
-                    ],
-                    "Resource": [
-                        "{bucket_arn}",
-                        "{bucket_arn1}/*"
-                    ]
-                }}
-            ]
-        }}
-        \"\"\"))
+            policy=firehose_to_s3_policy_document.json)
         ```
         ### Additional Statistics
 
@@ -578,36 +556,25 @@ class MetricStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
-        metric_stream_to_firehose_role = aws.iam.Role("metricStreamToFirehoseRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "streams.metrics.cloudwatch.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        streams_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["streams.metrics.cloudwatch.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        metric_stream_to_firehose_role = aws.iam.Role("metricStreamToFirehoseRole", assume_role_policy=streams_assume_role.json)
         bucket = aws.s3.BucketV2("bucket")
-        firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "firehose.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=firehose_assume_role.json)
         s3_stream = aws.kinesis.FirehoseDeliveryStream("s3Stream",
             destination="s3",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
@@ -626,49 +593,38 @@ class MetricStream(pulumi.CustomResource):
                     namespace="AWS/EBS",
                 ),
             ])
-        # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+        metric_stream_to_firehose_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "firehose:PutRecord",
+                "firehose:PutRecordBatch",
+            ],
+            resources=[s3_stream.arn],
+        )])
         metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy",
             role=metric_stream_to_firehose_role.id,
-            policy=s3_stream.arn.apply(lambda arn: f\"\"\"{{
-            "Version": "2012-10-17",
-            "Statement": [
-                {{
-                    "Effect": "Allow",
-                    "Action": [
-                        "firehose:PutRecord",
-                        "firehose:PutRecordBatch"
-                    ],
-                    "Resource": "{arn}"
-                }}
-            ]
-        }}
-        \"\"\"))
+            policy=metric_stream_to_firehose_policy_document.json)
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
+        firehose_to_s3_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "s3:AbortMultipartUpload",
+                "s3:GetBucketLocation",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:PutObject",
+            ],
+            resources=[
+                bucket.arn,
+                bucket.arn.apply(lambda arn: f"{arn}/*"),
+            ],
+        )])
         firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
             role=firehose_to_s3_role.id,
-            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
-            "Version": "2012-10-17",
-            "Statement": [
-                {{
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:AbortMultipartUpload",
-                        "s3:GetBucketLocation",
-                        "s3:GetObject",
-                        "s3:ListBucket",
-                        "s3:ListBucketMultipartUploads",
-                        "s3:PutObject"
-                    ],
-                    "Resource": [
-                        "{bucket_arn}",
-                        "{bucket_arn1}/*"
-                    ]
-                }}
-            ]
-        }}
-        \"\"\"))
+            policy=firehose_to_s3_policy_document.json)
         ```
         ### Additional Statistics
 

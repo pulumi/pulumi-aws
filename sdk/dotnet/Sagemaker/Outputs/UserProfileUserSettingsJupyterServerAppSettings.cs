@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         /// </summary>
-        public readonly Outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec DefaultResourceSpec;
+        public readonly Outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec? DefaultResourceSpec;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private UserProfileUserSettingsJupyterServerAppSettings(
             ImmutableArray<Outputs.UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories,
 
-            Outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec,
+            Outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec? defaultResourceSpec,
 
             ImmutableArray<string> lifecycleConfigArns)
         {

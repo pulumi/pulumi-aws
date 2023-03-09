@@ -38,6 +38,11 @@ public final class GetRepositoryResult {
      * 
      */
     private String imageTagMutability;
+    /**
+     * @return List of image tags associated with the most recently pushed image in the repository.
+     * 
+     */
+    private List<String> mostRecentImageTags;
     private String name;
     private String registryId;
     /**
@@ -87,6 +92,13 @@ public final class GetRepositoryResult {
     public String imageTagMutability() {
         return this.imageTagMutability;
     }
+    /**
+     * @return List of image tags associated with the most recently pushed image in the repository.
+     * 
+     */
+    public List<String> mostRecentImageTags() {
+        return this.mostRecentImageTags;
+    }
     public String name() {
         return this.name;
     }
@@ -122,6 +134,7 @@ public final class GetRepositoryResult {
         private String id;
         private List<GetRepositoryImageScanningConfiguration> imageScanningConfigurations;
         private String imageTagMutability;
+        private List<String> mostRecentImageTags;
         private String name;
         private String registryId;
         private String repositoryUrl;
@@ -134,6 +147,7 @@ public final class GetRepositoryResult {
     	      this.id = defaults.id;
     	      this.imageScanningConfigurations = defaults.imageScanningConfigurations;
     	      this.imageTagMutability = defaults.imageTagMutability;
+    	      this.mostRecentImageTags = defaults.mostRecentImageTags;
     	      this.name = defaults.name;
     	      this.registryId = defaults.registryId;
     	      this.repositoryUrl = defaults.repositoryUrl;
@@ -172,6 +186,14 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder mostRecentImageTags(List<String> mostRecentImageTags) {
+            this.mostRecentImageTags = Objects.requireNonNull(mostRecentImageTags);
+            return this;
+        }
+        public Builder mostRecentImageTags(String... mostRecentImageTags) {
+            return mostRecentImageTags(List.of(mostRecentImageTags));
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -198,6 +220,7 @@ public final class GetRepositoryResult {
             o.id = id;
             o.imageScanningConfigurations = imageScanningConfigurations;
             o.imageTagMutability = imageTagMutability;
+            o.mostRecentImageTags = mostRecentImageTags;
             o.name = name;
             o.registryId = registryId;
             o.repositoryUrl = repositoryUrl;

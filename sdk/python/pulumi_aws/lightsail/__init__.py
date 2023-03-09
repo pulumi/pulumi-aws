@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .bucket import *
 from .bucket_access_key import *
+from .bucket_resource_access import *
 from .certificate import *
 from .container_service import *
 from .container_service_deployment_version import *

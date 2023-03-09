@@ -68,7 +68,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// ### With VPC Attachment
+    /// ### With VPC Attachment (Single Region)
     /// 
     /// The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument.
     /// 
@@ -147,6 +147,121 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
+    /// ### With VPC Attachment (Multi-Region)
+    /// 
+    /// The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument of the `aws.networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument. For multi-region in a core network that does not yet have a `LIVE` policy, pass a list of regions to the `aws.networkmanager.CoreNetwork` `base_policy_regions` argument. In the example below, `us-west-2` and `us-east-1` are specified in the base policy.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
+    /// 
+    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("exampleCoreNetwork", new()
+    ///     {
+    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         BasePolicyRegions = new[]
+    ///         {
+    ///             "us-west-2",
+    ///             "us-east-1",
+    ///         },
+    ///         CreateBasePolicy = true,
+    ///     });
+    /// 
+    ///     var exampleUsWest2 = new Aws.NetworkManager.VpcAttachment("exampleUsWest2", new()
+    ///     {
+    ///         CoreNetworkId = exampleCoreNetwork.Id,
+    ///         SubnetArns = aws_subnet.Example_us_west_2.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = aws_vpc.Example_us_west_2.Arn,
+    ///     });
+    /// 
+    ///     var exampleUsEast1 = new Aws.NetworkManager.VpcAttachment("exampleUsEast1", new()
+    ///     {
+    ///         CoreNetworkId = exampleCoreNetwork.Id,
+    ///         SubnetArns = aws_subnet.Example_us_east_1.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = aws_vpc.Example_us_east_1.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "alternate",
+    ///     });
+    /// 
+    ///     var exampleCoreNetworkPolicyDocument = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
+    ///     {
+    ///         CoreNetworkConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
+    ///             {
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "65022-65534",
+    ///                 },
+    ///                 EdgeLocations = new[]
+    ///                 {
+    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
+    ///                     {
+    ///                         Location = "us-west-2",
+    ///                     },
+    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
+    ///                     {
+    ///                         Location = "us-east-1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Segments = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment",
+    ///             },
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment2",
+    ///             },
+    ///         },
+    ///         SegmentActions = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
+    ///             {
+    ///                 Action = "create-route",
+    ///                 Segment = "segment",
+    ///                 DestinationCidrBlocks = new[]
+    ///                 {
+    ///                     "10.0.0.0/16",
+    ///                 },
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     exampleUsWest2.Id,
+    ///                 },
+    ///             },
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
+    ///             {
+    ///                 Action = "create-route",
+    ///                 Segment = "segment",
+    ///                 DestinationCidrBlocks = new[]
+    ///                 {
+    ///                     "10.1.0.0/16",
+    ///                 },
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     exampleUsEast1.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", new()
+    ///     {
+    ///         CoreNetworkId = exampleCoreNetwork.Id,
+    ///         PolicyDocument = exampleCoreNetworkPolicyDocument.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -172,7 +287,13 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string?> BasePolicyRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above. An example of a base policy created is shown below. The region specified in the `location` key can be configured using the `base_policy_region` argument. If `base_policy_region` is not specified, the region defaults to the region specified in the `provider` block. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+        /// A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+        /// </summary>
+        [Output("basePolicyRegions")]
+        public Output<ImmutableArray<string>> BasePolicyRegions { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
         /// </summary>
         [Output("createBasePolicy")]
         public Output<bool?> CreateBasePolicy { get; private set; } = null!;
@@ -283,8 +404,20 @@ namespace Pulumi.Aws.NetworkManager
         [Input("basePolicyRegion")]
         public Input<string>? BasePolicyRegion { get; set; }
 
+        [Input("basePolicyRegions")]
+        private InputList<string>? _basePolicyRegions;
+
         /// <summary>
-        /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above. An example of a base policy created is shown below. The region specified in the `location` key can be configured using the `base_policy_region` argument. If `base_policy_region` is not specified, the region defaults to the region specified in the `provider` block. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+        /// A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+        /// </summary>
+        public InputList<string> BasePolicyRegions
+        {
+            get => _basePolicyRegions ?? (_basePolicyRegions = new InputList<string>());
+            set => _basePolicyRegions = value;
+        }
+
+        /// <summary>
+        /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
         /// </summary>
         [Input("createBasePolicy")]
         public Input<bool>? CreateBasePolicy { get; set; }
@@ -339,8 +472,20 @@ namespace Pulumi.Aws.NetworkManager
         [Input("basePolicyRegion")]
         public Input<string>? BasePolicyRegion { get; set; }
 
+        [Input("basePolicyRegions")]
+        private InputList<string>? _basePolicyRegions;
+
         /// <summary>
-        /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above. An example of a base policy created is shown below. The region specified in the `location` key can be configured using the `base_policy_region` argument. If `base_policy_region` is not specified, the region defaults to the region specified in the `provider` block. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+        /// A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+        /// </summary>
+        public InputList<string> BasePolicyRegions
+        {
+            get => _basePolicyRegions ?? (_basePolicyRegions = new InputList<string>());
+            set => _basePolicyRegions = value;
+        }
+
+        /// <summary>
+        /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
         /// </summary>
         [Input("createBasePolicy")]
         public Input<bool>? CreateBasePolicy { get; set; }

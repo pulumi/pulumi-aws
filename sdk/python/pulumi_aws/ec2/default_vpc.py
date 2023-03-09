@@ -784,7 +784,7 @@ class DefaultVpc(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
-    def enable_network_address_usage_metrics(self) -> pulumi.Output[Optional[bool]]:
+    def enable_network_address_usage_metrics(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @property

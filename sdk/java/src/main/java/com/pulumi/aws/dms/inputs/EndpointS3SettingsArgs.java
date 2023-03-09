@@ -63,14 +63,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+     * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
      * 
      */
     @Import(name="cannedAclForObjects")
     private @Nullable Output<String> cannedAclForObjects;
 
     /**
-     * @return Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+     * @return Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
      * 
      */
     public Optional<Output<String>> cannedAclForObjects() {
@@ -573,18 +573,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-     * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-     * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+     * When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
      * 
      */
     @Import(name="useTaskStartTimeForFullLoadTimestamp")
     private @Nullable Output<Boolean> useTaskStartTimeForFullLoadTimestamp;
 
     /**
-     * @return When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-     * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-     * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+     * @return When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> useTaskStartTimeForFullLoadTimestamp() {
@@ -716,7 +712,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cannedAclForObjects Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+         * @param cannedAclForObjects Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
          * 
          * @return builder
          * 
@@ -727,7 +723,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cannedAclForObjects Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+         * @param cannedAclForObjects Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
          * 
          * @return builder
          * 
@@ -1430,9 +1426,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param useTaskStartTimeForFullLoadTimestamp When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-         * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-         * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+         * @param useTaskStartTimeForFullLoadTimestamp When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
          * 
          * @return builder
          * 
@@ -1443,9 +1437,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param useTaskStartTimeForFullLoadTimestamp When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-         * For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-         * When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+         * @param useTaskStartTimeForFullLoadTimestamp When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
          * 
          * @return builder
          * 

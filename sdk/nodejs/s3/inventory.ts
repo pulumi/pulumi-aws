@@ -97,7 +97,7 @@ export class Inventory extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export class Inventory extends pulumi.CustomResource {
  */
 export interface InventoryState {
     /**
-     * The name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface InventoryState {
  */
 export interface InventoryArgs {
     /**
-     * The name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for.
      */
     bucket: pulumi.Input<string>;
     /**

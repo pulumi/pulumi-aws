@@ -78,14 +78,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
     }
 
     /**
-     * Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+     * Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
      * 
      */
     @Import(name="returnData")
     private @Nullable Output<Boolean> returnData;
 
     /**
-     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
      * 
      */
     public Optional<Output<Boolean>> returnData() {
@@ -205,7 +205,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param returnData Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+         * @param returnData Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         /**
-         * @param returnData Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+         * @param returnData Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
          * 
          * @return builder
          * 

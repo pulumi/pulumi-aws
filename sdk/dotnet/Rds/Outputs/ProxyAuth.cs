@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string? AuthScheme;
         /// <summary>
+        /// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        /// </summary>
+        public readonly string? ClientPasswordAuthType;
+        /// <summary>
         /// A user-specified description about the authentication used by a proxy to log in as a specific database user.
         /// </summary>
         public readonly string? Description;
@@ -38,6 +42,8 @@ namespace Pulumi.Aws.Rds.Outputs
         private ProxyAuth(
             string? authScheme,
 
+            string? clientPasswordAuthType,
+
             string? description,
 
             string? iamAuth,
@@ -47,6 +53,7 @@ namespace Pulumi.Aws.Rds.Outputs
             string? username)
         {
             AuthScheme = authScheme;
+            ClientPasswordAuthType = clientPasswordAuthType;
             Description = description;
             IamAuth = iamAuth;
             SecretArn = secretArn;

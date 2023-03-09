@@ -17,14 +17,14 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
     public static final BucketObjectLockConfigurationV2RuleDefaultRetentionArgs Empty = new BucketObjectLockConfigurationV2RuleDefaultRetentionArgs();
 
     /**
-     * The number of days that you want to specify for the default retention period.
+     * Number of days that you want to specify for the default retention period.
      * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
-     * @return The number of days that you want to specify for the default retention period.
+     * @return Number of days that you want to specify for the default retention period.
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -32,14 +32,14 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
     }
 
     /**
-     * The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
+     * Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
+     * @return Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -47,14 +47,14 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
     }
 
     /**
-     * The number of years that you want to specify for the default retention period.
+     * Number of years that you want to specify for the default retention period.
      * 
      */
     @Import(name="years")
     private @Nullable Output<Integer> years;
 
     /**
-     * @return The number of years that you want to specify for the default retention period.
+     * @return Number of years that you want to specify for the default retention period.
      * 
      */
     public Optional<Output<Integer>> years() {
@@ -88,7 +88,7 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
         }
 
         /**
-         * @param days The number of days that you want to specify for the default retention period.
+         * @param days Number of days that you want to specify for the default retention period.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
         }
 
         /**
-         * @param days The number of days that you want to specify for the default retention period.
+         * @param days Number of days that you want to specify for the default retention period.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
         }
 
         /**
-         * @param mode The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
+         * @param mode Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
         }
 
         /**
-         * @param mode The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
+         * @param mode Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
         }
 
         /**
-         * @param years The number of years that you want to specify for the default retention period.
+         * @param years Number of years that you want to specify for the default retention period.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs exten
         }
 
         /**
-         * @param years The number of years that you want to specify for the default retention period.
+         * @param years Number of years that you want to specify for the default retention period.
          * 
          * @return builder
          * 

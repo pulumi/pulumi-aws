@@ -8,7 +8,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,15 +21,15 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
      * The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
-    @Import(name="clientAliases", required=true)
-    private Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAliases;
+    @Import(name="clientAlias")
+    private @Nullable Output<ServiceServiceConnectConfigurationServiceClientAliasArgs> clientAlias;
 
     /**
      * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
-    public Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAliases() {
-        return this.clientAliases;
+    public Optional<Output<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAlias() {
+        return Optional.ofNullable(this.clientAlias);
     }
 
     /**
@@ -81,7 +80,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
     private ServiceServiceConnectConfigurationServiceArgs() {}
 
     private ServiceServiceConnectConfigurationServiceArgs(ServiceServiceConnectConfigurationServiceArgs $) {
-        this.clientAliases = $.clientAliases;
+        this.clientAlias = $.clientAlias;
         this.discoveryName = $.discoveryName;
         this.ingressPortOverride = $.ingressPortOverride;
         this.portName = $.portName;
@@ -106,34 +105,24 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param clientAliases The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * @param clientAlias The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
          * 
          * @return builder
          * 
          */
-        public Builder clientAliases(Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAliases) {
-            $.clientAliases = clientAliases;
+        public Builder clientAlias(@Nullable Output<ServiceServiceConnectConfigurationServiceClientAliasArgs> clientAlias) {
+            $.clientAlias = clientAlias;
             return this;
         }
 
         /**
-         * @param clientAliases The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * @param clientAlias The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
          * 
          * @return builder
          * 
          */
-        public Builder clientAliases(List<ServiceServiceConnectConfigurationServiceClientAliasArgs> clientAliases) {
-            return clientAliases(Output.of(clientAliases));
-        }
-
-        /**
-         * @param clientAliases The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clientAliases(ServiceServiceConnectConfigurationServiceClientAliasArgs... clientAliases) {
-            return clientAliases(List.of(clientAliases));
+        public Builder clientAlias(ServiceServiceConnectConfigurationServiceClientAliasArgs clientAlias) {
+            return clientAlias(Output.of(clientAlias));
         }
 
         /**
@@ -200,7 +189,6 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         public ServiceServiceConnectConfigurationServiceArgs build() {
-            $.clientAliases = Objects.requireNonNull($.clientAliases, "expected parameter 'clientAliases' to be non-null");
             $.portName = Objects.requireNonNull($.portName, "expected parameter 'portName' to be non-null");
             return $;
         }

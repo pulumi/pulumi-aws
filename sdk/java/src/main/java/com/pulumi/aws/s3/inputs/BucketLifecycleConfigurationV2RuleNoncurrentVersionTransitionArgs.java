@@ -17,14 +17,14 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
     public static final BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs Empty = new BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs();
 
     /**
-     * The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+     * Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
     @Import(name="newerNoncurrentVersions")
     private @Nullable Output<String> newerNoncurrentVersions;
 
     /**
-     * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+     * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
     public Optional<Output<String>> newerNoncurrentVersions() {
@@ -32,14 +32,14 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
     }
 
     /**
-     * The number of days an object is noncurrent before Amazon S3 can perform the associated action.
+     * Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
     @Import(name="noncurrentDays")
     private @Nullable Output<Integer> noncurrentDays;
 
     /**
-     * @return The number of days an object is noncurrent before Amazon S3 can perform the associated action.
+     * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
     public Optional<Output<Integer>> noncurrentDays() {
@@ -47,14 +47,14 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
     }
 
     /**
-     * The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
+     * Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
      */
     @Import(name="storageClass", required=true)
     private Output<String> storageClass;
 
     /**
-     * @return The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
+     * @return Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
      */
     public Output<String> storageClass() {
@@ -88,7 +88,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
         }
 
         /**
-         * @param newerNoncurrentVersions The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+         * @param newerNoncurrentVersions Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
         }
 
         /**
-         * @param newerNoncurrentVersions The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+         * @param newerNoncurrentVersions Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
         }
 
         /**
-         * @param noncurrentDays The number of days an object is noncurrent before Amazon S3 can perform the associated action.
+         * @param noncurrentDays Number of days an object is noncurrent before Amazon S3 can perform the associated action.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
         }
 
         /**
-         * @param noncurrentDays The number of days an object is noncurrent before Amazon S3 can perform the associated action.
+         * @param noncurrentDays Number of days an object is noncurrent before Amazon S3 can perform the associated action.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
         }
 
         /**
-         * @param storageClass The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
+         * @param storageClass Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
         }
 
         /**
-         * @param storageClass The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
+         * @param storageClass Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
          * 
          * @return builder
          * 

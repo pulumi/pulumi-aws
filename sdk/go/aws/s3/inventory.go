@@ -117,7 +117,7 @@ import (
 type Inventory struct {
 	pulumi.CustomResourceState
 
-	// The name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationOutput `pulumi:"destination"`
@@ -176,7 +176,7 @@ func GetInventory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Inventory resources.
 type inventoryState struct {
-	// The name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for.
 	Bucket *string `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination *InventoryDestination `pulumi:"destination"`
@@ -195,7 +195,7 @@ type inventoryState struct {
 }
 
 type InventoryState struct {
-	// The name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for.
 	Bucket pulumi.StringPtrInput
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationPtrInput
@@ -218,7 +218,7 @@ func (InventoryState) ElementType() reflect.Type {
 }
 
 type inventoryArgs struct {
-	// The name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for.
 	Bucket string `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestination `pulumi:"destination"`
@@ -238,7 +238,7 @@ type inventoryArgs struct {
 
 // The set of arguments for constructing a Inventory resource.
 type InventoryArgs struct {
-	// The name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for.
 	Bucket pulumi.StringInput
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationInput
@@ -343,7 +343,7 @@ func (o InventoryOutput) ToInventoryOutputWithContext(ctx context.Context) Inven
 	return o
 }
 
-// The name of the source bucket that inventory lists the objects for.
+// Name of the source bucket that inventory lists the objects for.
 func (o InventoryOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

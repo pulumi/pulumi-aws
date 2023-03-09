@@ -681,21 +681,15 @@ class Integration(pulumi.CustomResource):
             resource_id=resource.id,
             http_method="GET",
             authorization="NONE")
-        # IAM
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         lambda_ = aws.lambda_.Function("lambda",
             code=pulumi.FileArchive("lambda.zip"),
             role=role.arn,
@@ -815,21 +809,15 @@ class Integration(pulumi.CustomResource):
             resource_id=resource.id,
             http_method="GET",
             authorization="NONE")
-        # IAM
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         lambda_ = aws.lambda_.Function("lambda",
             code=pulumi.FileArchive("lambda.zip"),
             role=role.arn,

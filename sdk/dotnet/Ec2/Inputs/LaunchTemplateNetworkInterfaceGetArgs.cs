@@ -13,19 +13,22 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class LaunchTemplateNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+        /// Associate a Carrier IP address with `eth0` for a new network interface.
+        /// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+        /// Boolean value, can be left unset.
         /// </summary>
         [Input("associateCarrierIpAddress")]
         public Input<string>? AssociateCarrierIpAddress { get; set; }
 
         /// <summary>
-        /// Associate a public ip address with the network interface.  Boolean value.
+        /// Associate a public ip address with the network interface.
+        /// Boolean value, can be left unset.
         /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<string>? AssociatePublicIpAddress { get; set; }
 
         /// <summary>
-        /// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+        /// Whether the network interface should be destroyed on instance termination.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<string>? DeleteOnTermination { get; set; }

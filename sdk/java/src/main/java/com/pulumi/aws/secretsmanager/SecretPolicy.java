@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.secretsmanager.SecretPolicy;
  * import com.pulumi.aws.secretsmanager.SecretPolicyArgs;
  * import java.util.List;
@@ -44,24 +46,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleSecret = new Secret(&#34;exampleSecret&#34;);
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;EnableAnotherAWSAccountToReadTheSecret&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(&#34;arn:aws:iam::123456789012:root&#34;)
+ *                     .build())
+ *                 .actions(&#34;secretsmanager:GetSecretValue&#34;)
+ *                 .resources(&#34;*&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
  *             .secretArn(exampleSecret.arn())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- * 	{
- * 	  &#34;Sid&#34;: &#34;EnableAnotherAWSAccountToReadTheSecret&#34;,
- * 	  &#34;Effect&#34;: &#34;Allow&#34;,
- * 	  &#34;Principal&#34;: {
- * 		&#34;AWS&#34;: &#34;arn:aws:iam::123456789012:root&#34;
- * 	  },
- * 	  &#34;Action&#34;: &#34;secretsmanager:GetSecretValue&#34;,
- * 	  &#34;Resource&#34;: &#34;*&#34;
- * 	}
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

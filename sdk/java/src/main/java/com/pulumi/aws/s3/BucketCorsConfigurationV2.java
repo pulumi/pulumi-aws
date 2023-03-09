@@ -87,42 +87,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")
 public class BucketCorsConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
      * 
      */
     @Export(name="corsRules", refs={List.class,BucketCorsConfigurationV2CorsRule.class}, tree="[0,1]")
     private Output<List<BucketCorsConfigurationV2CorsRule>> corsRules;
 
     /**
-     * @return Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     * @return Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
      * 
      */
     public Output<List<BucketCorsConfigurationV2CorsRule>> corsRules() {
         return this.corsRules;
     }
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {

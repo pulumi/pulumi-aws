@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Synthetics
         public Output<string> RuntimeVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         /// </summary>
         [Output("s3Bucket")]
         public Output<string?> S3Bucket { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<string> RuntimeVersion { get; set; } = null!;
 
         /// <summary>
-        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Synthetics
         public Input<string>? RuntimeVersion { get; set; }
 
         /// <summary>
-        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }

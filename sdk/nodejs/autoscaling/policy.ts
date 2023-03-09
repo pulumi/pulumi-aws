@@ -38,6 +38,62 @@ import * as utilities from "../utilities";
  *     autoscalingGroupName: bar.name,
  * });
  * ```
+ * ### Create target tarcking scaling policy using metric math
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.autoscaling.Policy("example", {
+ *     autoscalingGroupName: "my-test-asg",
+ *     policyType: "TargetTrackingScaling",
+ *     targetTrackingConfiguration: {
+ *         customizedMetricSpecification: {
+ *             metrics: [
+ *                 {
+ *                     id: "m1",
+ *                     label: "Get the queue size (the number of messages waiting to be processed)",
+ *                     metricStat: {
+ *                         metric: {
+ *                             dimensions: [{
+ *                                 name: "QueueName",
+ *                                 value: "my-queue",
+ *                             }],
+ *                             metricName: "ApproximateNumberOfMessagesVisible",
+ *                             namespace: "AWS/SQS",
+ *                         },
+ *                         stat: "Sum",
+ *                     },
+ *                     returnData: false,
+ *                 },
+ *                 {
+ *                     id: "m2",
+ *                     label: "Get the group size (the number of InService instances)",
+ *                     metricStat: {
+ *                         metric: {
+ *                             dimensions: [{
+ *                                 name: "AutoScalingGroupName",
+ *                                 value: "my-asg",
+ *                             }],
+ *                             metricName: "GroupInServiceInstances",
+ *                             namespace: "AWS/AutoScaling",
+ *                         },
+ *                         stat: "Average",
+ *                     },
+ *                     returnData: false,
+ *                 },
+ *                 {
+ *                     expression: "m1 / m2",
+ *                     id: "e1",
+ *                     label: "Calculate the backlog per instance",
+ *                     returnData: true,
+ *                 },
+ *             ],
+ *         },
+ *         targetValue: 100,
+ *     },
+ * });
+ * ```
  * ### Create predictive scaling policy using customized metrics
  *
  * ```typescript

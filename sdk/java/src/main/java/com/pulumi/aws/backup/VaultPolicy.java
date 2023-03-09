@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.backup.Vault;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.backup.VaultPolicy;
  * import com.pulumi.aws.backup.VaultPolicyArgs;
  * import java.util.List;
@@ -41,34 +43,29 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleVault = new Vault(&#34;exampleVault&#34;);
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;backup:DescribeBackupVault&#34;,
+ *                     &#34;backup:DeleteBackupVault&#34;,
+ *                     &#34;backup:PutBackupVaultAccessPolicy&#34;,
+ *                     &#34;backup:DeleteBackupVaultAccessPolicy&#34;,
+ *                     &#34;backup:GetBackupVaultAccessPolicy&#34;,
+ *                     &#34;backup:StartBackupJob&#34;,
+ *                     &#34;backup:GetBackupVaultNotifications&#34;,
+ *                     &#34;backup:PutBackupVaultNotifications&#34;)
+ *                 .resources(exampleVault.arn())
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleVaultPolicy = new VaultPolicy(&#34;exampleVaultPolicy&#34;, VaultPolicyArgs.builder()        
  *             .backupVaultName(exampleVault.name())
- *             .policy(exampleVault.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Id&#34;: &#34;default&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;default&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;AWS&#34;: &#34;*&#34;
- *       },
- *       &#34;Action&#34;: [
- * 		&#34;backup:DescribeBackupVault&#34;,
- * 		&#34;backup:DeleteBackupVault&#34;,
- * 		&#34;backup:PutBackupVaultAccessPolicy&#34;,
- * 		&#34;backup:DeleteBackupVaultAccessPolicy&#34;,
- * 		&#34;backup:GetBackupVaultAccessPolicy&#34;,
- * 		&#34;backup:StartBackupJob&#34;,
- * 		&#34;backup:GetBackupVaultNotifications&#34;,
- * 		&#34;backup:PutBackupVaultNotifications&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;%s&#34;
- *     }
- *   ]
- * }
- * &#34;, arn)))
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

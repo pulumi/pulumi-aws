@@ -23,8 +23,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
@@ -102,25 +100,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"firehose.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//
-// "Version": "2012-10-17",
-// "Statement": [
-//
-//	  {
-//	    "Action": "sts:AssumeRole",
-//	    "Principal": {
-//	      "Service": "firehose.amazonaws.com"
-//	    },
-//	    "Effect": "Allow",
-//	    "Sid": ""
-//	  }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

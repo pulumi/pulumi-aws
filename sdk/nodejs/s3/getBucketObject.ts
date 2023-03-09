@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     key: "hello-world.zip",
  * });
  * const testLambda = new aws.lambda.Function("testLambda", {
- *     s3Bucket: lambda.then(lambda => lambda.bucket),
+ *     s3Bucket: lambda.then(lambda => lambda.id),
  *     s3Key: lambda.then(lambda => lambda.key),
  *     s3ObjectVersion: lambda.then(lambda => lambda.versionId),
  *     role: aws_iam_role.iam_for_lambda.arn,
@@ -238,7 +238,7 @@ export interface GetBucketObjectResult {
  *     key: "hello-world.zip",
  * });
  * const testLambda = new aws.lambda.Function("testLambda", {
- *     s3Bucket: lambda.then(lambda => lambda.bucket),
+ *     s3Bucket: lambda.then(lambda => lambda.id),
  *     s3Key: lambda.then(lambda => lambda.key),
  *     s3ObjectVersion: lambda.then(lambda => lambda.versionId),
  *     role: aws_iam_role.iam_for_lambda.arn,

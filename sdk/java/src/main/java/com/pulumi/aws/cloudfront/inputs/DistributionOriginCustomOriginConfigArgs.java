@@ -18,14 +18,14 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
     public static final DistributionOriginCustomOriginConfigArgs Empty = new DistributionOriginCustomOriginConfigArgs();
 
     /**
-     * The HTTP port the custom origin listens on.
+     * HTTP port the custom origin listens on.
      * 
      */
     @Import(name="httpPort", required=true)
     private Output<Integer> httpPort;
 
     /**
-     * @return The HTTP port the custom origin listens on.
+     * @return HTTP port the custom origin listens on.
      * 
      */
     public Output<Integer> httpPort() {
@@ -33,14 +33,14 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
     }
 
     /**
-     * The HTTPS port the custom origin listens on.
+     * HTTPS port the custom origin listens on.
      * 
      */
     @Import(name="httpsPort", required=true)
     private Output<Integer> httpsPort;
 
     /**
-     * @return The HTTPS port the custom origin listens on.
+     * @return HTTPS port the custom origin listens on.
      * 
      */
     public Output<Integer> httpsPort() {
@@ -63,16 +63,14 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
     }
 
     /**
-     * The origin protocol policy to apply to
-     * your origin. One of `http-only`, `https-only`, or `match-viewer`.
+     * Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
      * 
      */
     @Import(name="originProtocolPolicy", required=true)
     private Output<String> originProtocolPolicy;
 
     /**
-     * @return The origin protocol policy to apply to
-     * your origin. One of `http-only`, `https-only`, or `match-viewer`.
+     * @return Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
      * 
      */
     public Output<String> originProtocolPolicy() {
@@ -95,18 +93,14 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
     }
 
     /**
-     * The SSL/TLS protocols that you want
-     * CloudFront to use when communicating with your origin over HTTPS. A list of
-     * one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+     * SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
      * 
      */
     @Import(name="originSslProtocols", required=true)
     private Output<List<String>> originSslProtocols;
 
     /**
-     * @return The SSL/TLS protocols that you want
-     * CloudFront to use when communicating with your origin over HTTPS. A list of
-     * one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+     * @return SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
      * 
      */
     public Output<List<String>> originSslProtocols() {
@@ -143,7 +137,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param httpPort The HTTP port the custom origin listens on.
+         * @param httpPort HTTP port the custom origin listens on.
          * 
          * @return builder
          * 
@@ -154,7 +148,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param httpPort The HTTP port the custom origin listens on.
+         * @param httpPort HTTP port the custom origin listens on.
          * 
          * @return builder
          * 
@@ -164,7 +158,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param httpsPort The HTTPS port the custom origin listens on.
+         * @param httpsPort HTTPS port the custom origin listens on.
          * 
          * @return builder
          * 
@@ -175,7 +169,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param httpsPort The HTTPS port the custom origin listens on.
+         * @param httpsPort HTTPS port the custom origin listens on.
          * 
          * @return builder
          * 
@@ -206,8 +200,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param originProtocolPolicy The origin protocol policy to apply to
-         * your origin. One of `http-only`, `https-only`, or `match-viewer`.
+         * @param originProtocolPolicy Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
          * 
          * @return builder
          * 
@@ -218,8 +211,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param originProtocolPolicy The origin protocol policy to apply to
-         * your origin. One of `http-only`, `https-only`, or `match-viewer`.
+         * @param originProtocolPolicy Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
          * 
          * @return builder
          * 
@@ -250,9 +242,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param originSslProtocols The SSL/TLS protocols that you want
-         * CloudFront to use when communicating with your origin over HTTPS. A list of
-         * one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+         * @param originSslProtocols SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
          * 
          * @return builder
          * 
@@ -263,9 +253,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param originSslProtocols The SSL/TLS protocols that you want
-         * CloudFront to use when communicating with your origin over HTTPS. A list of
-         * one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+         * @param originSslProtocols SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
          * 
          * @return builder
          * 
@@ -275,9 +263,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param originSslProtocols The SSL/TLS protocols that you want
-         * CloudFront to use when communicating with your origin over HTTPS. A list of
-         * one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+         * @param originSslProtocols SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
          * 
          * @return builder
          * 

@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupInstanceRefreshPreferences {
     /**
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean autoRollback;
+    /**
      * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
      */
@@ -41,6 +46,13 @@ public final class GroupInstanceRefreshPreferences {
     private @Nullable Boolean skipMatching;
 
     private GroupInstanceRefreshPreferences() {}
+    /**
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> autoRollback() {
+        return Optional.ofNullable(this.autoRollback);
+    }
     /**
      * @return Number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
@@ -86,6 +98,7 @@ public final class GroupInstanceRefreshPreferences {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean autoRollback;
         private @Nullable String checkpointDelay;
         private @Nullable List<Integer> checkpointPercentages;
         private @Nullable String instanceWarmup;
@@ -94,6 +107,7 @@ public final class GroupInstanceRefreshPreferences {
         public Builder() {}
         public Builder(GroupInstanceRefreshPreferences defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoRollback = defaults.autoRollback;
     	      this.checkpointDelay = defaults.checkpointDelay;
     	      this.checkpointPercentages = defaults.checkpointPercentages;
     	      this.instanceWarmup = defaults.instanceWarmup;
@@ -101,6 +115,11 @@ public final class GroupInstanceRefreshPreferences {
     	      this.skipMatching = defaults.skipMatching;
         }
 
+        @CustomType.Setter
+        public Builder autoRollback(@Nullable Boolean autoRollback) {
+            this.autoRollback = autoRollback;
+            return this;
+        }
         @CustomType.Setter
         public Builder checkpointDelay(@Nullable String checkpointDelay) {
             this.checkpointDelay = checkpointDelay;
@@ -131,6 +150,7 @@ public final class GroupInstanceRefreshPreferences {
         }
         public GroupInstanceRefreshPreferences build() {
             final var o = new GroupInstanceRefreshPreferences();
+            o.autoRollback = autoRollback;
             o.checkpointDelay = checkpointDelay;
             o.checkpointPercentages = checkpointPercentages;
             o.instanceWarmup = instanceWarmup;

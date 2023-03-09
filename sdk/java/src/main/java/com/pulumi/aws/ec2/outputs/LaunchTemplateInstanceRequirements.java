@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsAcceleratorT
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsMemoryGibPerVcpu;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsMemoryMib;
+import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsNetworkBandwidthGbps;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsNetworkInterfaceCount;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsTotalLocalStorageGb;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsVcpuCount;
@@ -48,6 +49,11 @@ public final class LaunchTemplateInstanceRequirements {
      */
     private @Nullable List<String> acceleratorTypes;
     /**
+     * @return List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+     * 
+     */
+    private @Nullable List<String> allowedInstanceTypes;
+    /**
      * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
@@ -68,7 +74,7 @@ public final class LaunchTemplateInstanceRequirements {
      */
     private @Nullable List<String> cpuManufacturers;
     /**
-     * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+     * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
      * 
      */
     private @Nullable List<String> excludedInstanceTypes;
@@ -97,6 +103,11 @@ public final class LaunchTemplateInstanceRequirements {
      * 
      */
     private LaunchTemplateInstanceRequirementsMemoryMib memoryMib;
+    /**
+     * @return Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+     * 
+     */
+    private @Nullable LaunchTemplateInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps;
     /**
      * @return Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
      * 
@@ -165,6 +176,13 @@ public final class LaunchTemplateInstanceRequirements {
         return this.acceleratorTypes == null ? List.of() : this.acceleratorTypes;
     }
     /**
+     * @return List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+     * 
+     */
+    public List<String> allowedInstanceTypes() {
+        return this.allowedInstanceTypes == null ? List.of() : this.allowedInstanceTypes;
+    }
+    /**
      * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
@@ -193,7 +211,7 @@ public final class LaunchTemplateInstanceRequirements {
         return this.cpuManufacturers == null ? List.of() : this.cpuManufacturers;
     }
     /**
-     * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+     * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
      * 
      */
     public List<String> excludedInstanceTypes() {
@@ -233,6 +251,13 @@ public final class LaunchTemplateInstanceRequirements {
      */
     public LaunchTemplateInstanceRequirementsMemoryMib memoryMib() {
         return this.memoryMib;
+    }
+    /**
+     * @return Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+     * 
+     */
+    public Optional<LaunchTemplateInstanceRequirementsNetworkBandwidthGbps> networkBandwidthGbps() {
+        return Optional.ofNullable(this.networkBandwidthGbps);
     }
     /**
      * @return Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -291,6 +316,7 @@ public final class LaunchTemplateInstanceRequirements {
         private @Nullable List<String> acceleratorNames;
         private @Nullable LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
         private @Nullable List<String> acceleratorTypes;
+        private @Nullable List<String> allowedInstanceTypes;
         private @Nullable String bareMetal;
         private @Nullable LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps;
         private @Nullable String burstablePerformance;
@@ -301,6 +327,7 @@ public final class LaunchTemplateInstanceRequirements {
         private @Nullable List<String> localStorageTypes;
         private @Nullable LaunchTemplateInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu;
         private LaunchTemplateInstanceRequirementsMemoryMib memoryMib;
+        private @Nullable LaunchTemplateInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps;
         private @Nullable LaunchTemplateInstanceRequirementsNetworkInterfaceCount networkInterfaceCount;
         private @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
         private @Nullable Boolean requireHibernateSupport;
@@ -315,6 +342,7 @@ public final class LaunchTemplateInstanceRequirements {
     	      this.acceleratorNames = defaults.acceleratorNames;
     	      this.acceleratorTotalMemoryMib = defaults.acceleratorTotalMemoryMib;
     	      this.acceleratorTypes = defaults.acceleratorTypes;
+    	      this.allowedInstanceTypes = defaults.allowedInstanceTypes;
     	      this.bareMetal = defaults.bareMetal;
     	      this.baselineEbsBandwidthMbps = defaults.baselineEbsBandwidthMbps;
     	      this.burstablePerformance = defaults.burstablePerformance;
@@ -325,6 +353,7 @@ public final class LaunchTemplateInstanceRequirements {
     	      this.localStorageTypes = defaults.localStorageTypes;
     	      this.memoryGibPerVcpu = defaults.memoryGibPerVcpu;
     	      this.memoryMib = defaults.memoryMib;
+    	      this.networkBandwidthGbps = defaults.networkBandwidthGbps;
     	      this.networkInterfaceCount = defaults.networkInterfaceCount;
     	      this.onDemandMaxPricePercentageOverLowestPrice = defaults.onDemandMaxPricePercentageOverLowestPrice;
     	      this.requireHibernateSupport = defaults.requireHibernateSupport;
@@ -366,6 +395,14 @@ public final class LaunchTemplateInstanceRequirements {
         }
         public Builder acceleratorTypes(String... acceleratorTypes) {
             return acceleratorTypes(List.of(acceleratorTypes));
+        }
+        @CustomType.Setter
+        public Builder allowedInstanceTypes(@Nullable List<String> allowedInstanceTypes) {
+            this.allowedInstanceTypes = allowedInstanceTypes;
+            return this;
+        }
+        public Builder allowedInstanceTypes(String... allowedInstanceTypes) {
+            return allowedInstanceTypes(List.of(allowedInstanceTypes));
         }
         @CustomType.Setter
         public Builder bareMetal(@Nullable String bareMetal) {
@@ -430,6 +467,11 @@ public final class LaunchTemplateInstanceRequirements {
             return this;
         }
         @CustomType.Setter
+        public Builder networkBandwidthGbps(@Nullable LaunchTemplateInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps) {
+            this.networkBandwidthGbps = networkBandwidthGbps;
+            return this;
+        }
+        @CustomType.Setter
         public Builder networkInterfaceCount(@Nullable LaunchTemplateInstanceRequirementsNetworkInterfaceCount networkInterfaceCount) {
             this.networkInterfaceCount = networkInterfaceCount;
             return this;
@@ -466,6 +508,7 @@ public final class LaunchTemplateInstanceRequirements {
             o.acceleratorNames = acceleratorNames;
             o.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
             o.acceleratorTypes = acceleratorTypes;
+            o.allowedInstanceTypes = allowedInstanceTypes;
             o.bareMetal = bareMetal;
             o.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             o.burstablePerformance = burstablePerformance;
@@ -476,6 +519,7 @@ public final class LaunchTemplateInstanceRequirements {
             o.localStorageTypes = localStorageTypes;
             o.memoryGibPerVcpu = memoryGibPerVcpu;
             o.memoryMib = memoryMib;
+            o.networkBandwidthGbps = networkBandwidthGbps;
             o.networkInterfaceCount = networkInterfaceCount;
             o.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             o.requireHibernateSupport = requireHibernateSupport;

@@ -78,22 +78,41 @@ namespace Pulumi.Aws.Msk
     ///         },
     ///     });
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AWSKafkaResourcePolicy",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "kafka.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "secretsmanager:getSecretValue",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleSecret.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
     ///     {
     ///         SecretArn = exampleSecret.Arn,
-    ///         Policy = exampleSecret.Arn.Apply(arn =&gt; @$"{{
-    ///   ""Version"" : ""2012-10-17"",
-    ///   ""Statement"" : [ {{
-    ///     ""Sid"": ""AWSKafkaResourcePolicy"",
-    ///     ""Effect"" : ""Allow"",
-    ///     ""Principal"" : {{
-    ///       ""Service"" : ""kafka.amazonaws.com""
-    ///     }},
-    ///     ""Action"" : ""secretsmanager:getSecretValue"",
-    ///     ""Resource"" : ""{arn}""
-    ///   }} ]
-    /// }}
-    /// "),
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

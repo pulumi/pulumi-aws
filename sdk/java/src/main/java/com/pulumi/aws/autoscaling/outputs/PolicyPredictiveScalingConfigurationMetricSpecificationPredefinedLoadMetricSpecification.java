@@ -6,6 +6,8 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
@@ -18,7 +20,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
      * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
-    private String resourceLabel;
+    private @Nullable String resourceLabel;
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification() {}
     /**
@@ -32,8 +34,8 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
      * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
-    public String resourceLabel() {
-        return this.resourceLabel;
+    public Optional<String> resourceLabel() {
+        return Optional.ofNullable(this.resourceLabel);
     }
 
     public static Builder builder() {
@@ -46,7 +48,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
     @CustomType.Builder
     public static final class Builder {
         private String predefinedMetricType;
-        private String resourceLabel;
+        private @Nullable String resourceLabel;
         public Builder() {}
         public Builder(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,8 +62,8 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
             return this;
         }
         @CustomType.Setter
-        public Builder resourceLabel(String resourceLabel) {
-            this.resourceLabel = Objects.requireNonNull(resourceLabel);
+        public Builder resourceLabel(@Nullable String resourceLabel) {
+            this.resourceLabel = resourceLabel;
             return this;
         }
         public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification build() {

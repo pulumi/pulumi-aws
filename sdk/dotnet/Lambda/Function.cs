@@ -19,50 +19,6 @@ namespace Pulumi.Aws.Lambda
     /// &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
     /// 
     /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""lambda.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
-    ///     {
-    ///         Code = new FileArchive("lambda_function_payload.zip"),
-    ///         Role = iamForLambda.Arn,
-    ///         Handler = "index.test",
-    ///         Runtime = "nodejs16.x",
-    ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
-    ///         {
-    ///             Variables = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Lambda Layers
     /// 
     /// ```csharp
@@ -96,22 +52,35 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "lambda.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""lambda.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
@@ -233,32 +202,38 @@ namespace Pulumi.Aws.Lambda
     ///         RetentionInDays = 14,
     ///     });
     /// 
-    ///     // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
-    ///     var lambdaLogging = new Aws.Iam.Policy("lambdaLogging", new()
+    ///     var lambdaLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogGroup",
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:logs:*:*:*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var lambdaLoggingPolicy = new Aws.Iam.Policy("lambdaLoggingPolicy", new()
     ///     {
     ///         Path = "/",
     ///         Description = "IAM policy for logging from a lambda",
-    ///         PolicyDocument = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""logs:CreateLogGroup"",
-    ///         ""logs:CreateLogStream"",
-    ///         ""logs:PutLogEvents""
-    ///       ],
-    ///       ""Resource"": ""arn:aws:logs:*:*:*"",
-    ///       ""Effect"": ""Allow""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         PolicyDocument = lambdaLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambdaLogs", new()
     ///     {
     ///         Role = aws_iam_role.Iam_for_lambda.Name,
-    ///         PolicyArn = lambdaLogging.Arn,
+    ///         PolicyArn = lambdaLoggingPolicy.Arn,
     ///     });
     /// 
     ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
@@ -486,6 +461,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("signingProfileVersionArn")]
         public Output<string> SigningProfileVersionArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
         /// Snap start settings block. Detailed below.
@@ -757,6 +738,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? S3ObjectVersion { get; set; }
 
         /// <summary>
+        /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
+        /// <summary>
         /// Snap start settings block. Detailed below.
         /// </summary>
         [Input("snapStart")]
@@ -1016,6 +1003,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("signingProfileVersionArn")]
         public Input<string>? SigningProfileVersionArn { get; set; }
+
+        /// <summary>
+        /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
         /// Snap start settings block. Detailed below.

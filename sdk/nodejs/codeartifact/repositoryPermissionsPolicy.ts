@@ -22,21 +22,21 @@ import * as utilities from "../utilities";
  *     repository: "example",
  *     domain: exampleDomain.domain,
  * });
+ * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["codeartifact:CreateRepository"],
+ *         resources: [exampleDomain.arn],
+ *     }],
+ * });
  * const exampleRepositoryPermissionsPolicy = new aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", {
  *     repository: exampleRepository.repository,
  *     domain: exampleDomain.domain,
- *     policyDocument: pulumi.interpolate`{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Action": "codeartifact:CreateRepository",
- *             "Effect": "Allow",
- *             "Principal": "*",
- *             "Resource": "${exampleDomain.arn}"
- *         }
- *     ]
- * }
- * `,
+ *     policyDocument: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

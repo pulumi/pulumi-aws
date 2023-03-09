@@ -134,21 +134,19 @@ class ScramSecretAssociation(pulumi.CustomResource):
             cluster_arn=example_cluster.arn,
             secret_arn_lists=[example_secret.arn],
             opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="AWSKafkaResourcePolicy",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["kafka.amazonaws.com"],
+            )],
+            actions=["secretsmanager:getSecretValue"],
+            resources=[example_secret.arn],
+        )])
         example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
             secret_arn=example_secret.arn,
-            policy=example_secret.arn.apply(lambda arn: f\"\"\"{{
-          "Version" : "2012-10-17",
-          "Statement" : [ {{
-            "Sid": "AWSKafkaResourcePolicy",
-            "Effect" : "Allow",
-            "Principal" : {{
-              "Service" : "kafka.amazonaws.com"
-            }},
-            "Action" : "secretsmanager:getSecretValue",
-            "Resource" : "{arn}"
-          }} ]
-        }}
-        \"\"\"))
+            policy=example_policy_document.json)
         ```
 
         ## Import
@@ -207,21 +205,19 @@ class ScramSecretAssociation(pulumi.CustomResource):
             cluster_arn=example_cluster.arn,
             secret_arn_lists=[example_secret.arn],
             opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="AWSKafkaResourcePolicy",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["kafka.amazonaws.com"],
+            )],
+            actions=["secretsmanager:getSecretValue"],
+            resources=[example_secret.arn],
+        )])
         example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
             secret_arn=example_secret.arn,
-            policy=example_secret.arn.apply(lambda arn: f\"\"\"{{
-          "Version" : "2012-10-17",
-          "Statement" : [ {{
-            "Sid": "AWSKafkaResourcePolicy",
-            "Effect" : "Allow",
-            "Principal" : {{
-              "Service" : "kafka.amazonaws.com"
-            }},
-            "Action" : "secretsmanager:getSecretValue",
-            "Resource" : "{arn}"
-          }} ]
-        }}
-        \"\"\"))
+            policy=example_policy_document.json)
         ```
 
         ## Import

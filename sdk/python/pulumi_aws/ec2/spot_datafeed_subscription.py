@@ -112,7 +112,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
         default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
-            bucket=default_bucket_v2.bucket,
+            bucket=default_bucket_v2.id,
             prefix="my_subdirectory")
         ```
 
@@ -149,7 +149,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
         default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
-            bucket=default_bucket_v2.bucket,
+            bucket=default_bucket_v2.id,
             prefix="my_subdirectory")
         ```
 

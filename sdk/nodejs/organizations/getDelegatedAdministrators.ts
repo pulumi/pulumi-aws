@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a list the AWS accounts that are designated as delegated administrators in this organization
+ * Get a list of AWS accounts that are designated as delegated administrators in this organization
  *
  * ## Example Usage
  *
@@ -55,7 +55,7 @@ export interface GetDelegatedAdministratorsResult {
     readonly servicePrincipal?: string;
 }
 /**
- * Get a list the AWS accounts that are designated as delegated administrators in this organization
+ * Get a list of AWS accounts that are designated as delegated administrators in this organization
  *
  * ## Example Usage
  *

@@ -25,8 +25,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -35,23 +33,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"config.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "config.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -73,22 +77,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			policyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"config:Put*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-//				Role: role.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	  	{
-//	  		"Action": "config:Put*",
-//	  		"Effect": "Allow",
-//	  		"Resource": "*"
-//
-//	  	}
-//	  ]
-//	}
-//
-// `)),
-//
+//				Role:   role.ID(),
+//				Policy: *pulumi.String(policyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -155,8 +162,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -174,19 +179,7 @@ import (
 //					},
 //					CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
 //						PolicyRuntime: pulumi.String("guard-2.x.x"),
-//						PolicyText: pulumi.String(fmt.Sprintf(`	  rule tableisactive when
-//			  resourceType == "AWS::DynamoDB::Table" {
-//			  configuration.tableStatus == ['ACTIVE']
-//		  }
-//
-//		  rule checkcompliance when
-//			  resourceType == "AWS::DynamoDB::Table"
-//			  tableisactive {
-//				  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
-//		  }
-//
-// `)),
-//
+//						PolicyText:    pulumi.String("	  rule tableisactive when\n		  resourceType == \"AWS::DynamoDB::Table\" {\n		  configuration.tableStatus == ['ACTIVE']\n	  }\n	  \n	  rule checkcompliance when\n		  resourceType == \"AWS::DynamoDB::Table\"\n		  tableisactive {\n			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \"ENABLED\"\n	  }\n"),
 //					},
 //				},
 //			})

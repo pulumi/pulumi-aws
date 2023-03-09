@@ -37,15 +37,15 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsArgs extends c
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    @Import(name="defaultResourceSpec", required=true)
-    private Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
+    @Import(name="defaultResourceSpec")
+    private @Nullable Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    public Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
-        return this.defaultResourceSpec;
+    public Optional<Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
+        return Optional.ofNullable(this.defaultResourceSpec);
     }
 
     /**
@@ -126,7 +126,7 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsArgs extends c
          * @return builder
          * 
          */
-        public Builder defaultResourceSpec(Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
+        public Builder defaultResourceSpec(@Nullable Output<UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec) {
             $.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
@@ -173,7 +173,6 @@ public final class UserProfileUserSettingsKernelGatewayAppSettingsArgs extends c
         }
 
         public UserProfileUserSettingsKernelGatewayAppSettingsArgs build() {
-            $.defaultResourceSpec = Objects.requireNonNull($.defaultResourceSpec, "expected parameter 'defaultResourceSpec' to be non-null");
             return $;
         }
     }

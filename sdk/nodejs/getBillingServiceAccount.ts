@@ -19,39 +19,34 @@ import * as utilities from "./utilities";
  *     bucket: billingLogs.id,
  *     acl: "private",
  * });
- * const allowBillingLogging = new aws.s3.BucketPolicy("allowBillingLogging", {
+ * const allowBillingLoggingPolicyDocument = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [
+ *         {
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [main.arn],
+ *             }],
+ *             actions: [
+ *                 "s3:GetBucketAcl",
+ *                 "s3:GetBucketPolicy",
+ *             ],
+ *             resources: [billingLogsArn],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [main1.arn],
+ *             }],
+ *             actions: ["s3:PutObject"],
+ *             resources: [`${billingLogsArn1}/*`],
+ *         },
+ *     ],
+ * }));
+ * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allowBillingLoggingBucketPolicy", {
  *     bucket: billingLogs.id,
- *     policy: Promise.all([main, main]).then(([main, main1]) => `{
- *   "Id": "Policy",
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:GetBucketAcl", "s3:GetBucketPolicy"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:s3:::my-billing-tf-test-bucket",
- *       "Principal": {
- *         "AWS": [
- *           "${main.arn}"
- *         ]
- *       }
- *     },
- *     {
- *       "Action": [
- *         "s3:PutObject"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:s3:::my-billing-tf-test-bucket/*",
- *       "Principal": {
- *         "AWS": [
- *           "${main1.arn}"
- *         ]
- *       }
- *     }
- *   ]
- * }
- * `),
+ *     policy: allowBillingLoggingPolicyDocument.apply(allowBillingLoggingPolicyDocument => allowBillingLoggingPolicyDocument.json),
  * });
  * ```
  */

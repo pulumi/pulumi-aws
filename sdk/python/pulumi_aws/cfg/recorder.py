@@ -144,20 +144,15 @@ class Recorder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["config.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
         ```
 
@@ -192,20 +187,15 @@ class Recorder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["config.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
         ```
 

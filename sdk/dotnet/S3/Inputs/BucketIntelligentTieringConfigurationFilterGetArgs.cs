@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketIntelligentTieringConfigurationFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object key name prefix that identifies the subset of objects to which the configuration applies.
+        /// Object key name prefix that identifies the subset of objects to which the configuration applies.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

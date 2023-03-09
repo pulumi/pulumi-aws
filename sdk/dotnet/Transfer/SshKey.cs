@@ -30,21 +30,35 @@ namespace Pulumi.Aws.Transfer
     ///         },
     ///     });
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "transfer.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    /// 	""Version"": ""2012-10-17"",
-    /// 	""Statement"": [
-    /// 		{
-    /// 		""Effect"": ""Allow"",
-    /// 		""Principal"": {
-    /// 			""Service"": ""transfer.amazonaws.com""
-    /// 		},
-    /// 		""Action"": ""sts:AssumeRole""
-    /// 		}
-    /// 	]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleUser = new Aws.Transfer.User("exampleUser", new()
@@ -65,23 +79,30 @@ namespace Pulumi.Aws.Transfer
     ///         Body = "... SSH key ...",
     ///     });
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AllowFullAccesstoS3",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
     ///     {
     ///         Role = exampleRole.Id,
-    ///         Policy = @"{
-    /// 	""Version"": ""2012-10-17"",
-    /// 	""Statement"": [
-    /// 		{
-    /// 			""Sid"": ""AllowFullAccesstoS3"",
-    /// 			""Effect"": ""Allow"",
-    /// 			""Action"": [
-    /// 				""s3:*""
-    /// 			],
-    /// 			""Resource"": ""*""
-    /// 		}
-    /// 	]
-    /// }
-    /// ",
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

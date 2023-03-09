@@ -23,22 +23,35 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "apigateway.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var cloudwatchRole = new Aws.Iam.Role("cloudwatchRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Sid"": """",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""apigateway.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var demo = new Aws.ApiGateway.Account("demo", new()
@@ -46,28 +59,35 @@ namespace Pulumi.Aws.ApiGateway
     ///         CloudwatchRoleArn = cloudwatchRole.Arn,
     ///     });
     /// 
+    ///     var cloudwatchPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogGroup",
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:DescribeLogGroups",
+    ///                     "logs:DescribeLogStreams",
+    ///                     "logs:PutLogEvents",
+    ///                     "logs:GetLogEvents",
+    ///                     "logs:FilterLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatchRolePolicy", new()
     ///     {
     ///         Role = cloudwatchRole.Id,
-    ///         Policy = @"{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {
-    ///             ""Effect"": ""Allow"",
-    ///             ""Action"": [
-    ///                 ""logs:CreateLogGroup"",
-    ///                 ""logs:CreateLogStream"",
-    ///                 ""logs:DescribeLogGroups"",
-    ///                 ""logs:DescribeLogStreams"",
-    ///                 ""logs:PutLogEvents"",
-    ///                 ""logs:GetLogEvents"",
-    ///                 ""logs:FilterLogEvents""
-    ///             ],
-    ///             ""Resource"": ""*""
-    ///         }
-    ///     ]
-    /// }
-    /// ",
+    ///         Policy = data.Aws_iam_policy_document.Json,
     ///     });
     /// 
     /// });

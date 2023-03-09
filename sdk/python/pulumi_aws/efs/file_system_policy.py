@@ -140,33 +140,28 @@ class FileSystemPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fs = aws.efs.FileSystem("fs")
-        policy = aws.efs.FileSystemPolicy("policy",
+        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="ExampleStatement01",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["*"],
+            )],
+            actions=[
+                "elasticfilesystem:ClientMount",
+                "elasticfilesystem:ClientWrite",
+            ],
+            resources=[fs.arn],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="Bool",
+                variable="aws:SecureTransport",
+                values=["true"],
+            )],
+        )])
+        policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
             file_system_id=fs.id,
             bypass_policy_lockout_safety_check=True,
-            policy=fs.arn.apply(lambda arn: f\"\"\"{{
-            "Version": "2012-10-17",
-            "Id": "ExamplePolicy01",
-            "Statement": [
-                {{
-                    "Sid": "ExampleStatement01",
-                    "Effect": "Allow",
-                    "Principal": {{
-                        "AWS": "*"
-                    }},
-                    "Resource": "{arn}",
-                    "Action": [
-                        "elasticfilesystem:ClientMount",
-                        "elasticfilesystem:ClientWrite"
-                    ],
-                    "Condition": {{
-                        "Bool": {{
-                            "aws:SecureTransport": "true"
-                        }}
-                    }}
-                }}
-            ]
-        }}
-        \"\"\"))
+            policy=policy_policy_document.json)
         ```
 
         ## Import
@@ -199,33 +194,28 @@ class FileSystemPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fs = aws.efs.FileSystem("fs")
-        policy = aws.efs.FileSystemPolicy("policy",
+        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="ExampleStatement01",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=["*"],
+            )],
+            actions=[
+                "elasticfilesystem:ClientMount",
+                "elasticfilesystem:ClientWrite",
+            ],
+            resources=[fs.arn],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="Bool",
+                variable="aws:SecureTransport",
+                values=["true"],
+            )],
+        )])
+        policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
             file_system_id=fs.id,
             bypass_policy_lockout_safety_check=True,
-            policy=fs.arn.apply(lambda arn: f\"\"\"{{
-            "Version": "2012-10-17",
-            "Id": "ExamplePolicy01",
-            "Statement": [
-                {{
-                    "Sid": "ExampleStatement01",
-                    "Effect": "Allow",
-                    "Principal": {{
-                        "AWS": "*"
-                    }},
-                    "Resource": "{arn}",
-                    "Action": [
-                        "elasticfilesystem:ClientMount",
-                        "elasticfilesystem:ClientWrite"
-                    ],
-                    "Condition": {{
-                        "Bool": {{
-                            "aws:SecureTransport": "true"
-                        }}
-                    }}
-                }}
-            ]
-        }}
-        \"\"\"))
+            policy=policy_policy_document.json)
         ```
 
         ## Import

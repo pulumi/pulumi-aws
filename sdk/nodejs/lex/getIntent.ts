@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const orderFlowers = aws.lex.getIntent({
  *     name: "OrderFlowers",
- *     version: `$LATEST`,
+ *     version: "$LATEST",
  * });
  * ```
  */
@@ -98,7 +98,7 @@ export interface GetIntentResult {
  *
  * const orderFlowers = aws.lex.getIntent({
  *     name: "OrderFlowers",
- *     version: `$LATEST`,
+ *     version: "$LATEST",
  * });
  * ```
  */

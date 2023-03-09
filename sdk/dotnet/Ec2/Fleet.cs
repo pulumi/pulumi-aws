@@ -23,12 +23,15 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.Fleet("example", new()
     ///     {
-    ///         LaunchTemplateConfig = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
+    ///         LaunchTemplateConfigs = new[]
     ///         {
-    ///             LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///             new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
     ///             {
-    ///                 LaunchTemplateId = aws_launch_template.Example.Id,
-    ///                 Version = aws_launch_template.Example.Latest_version,
+    ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                 {
+    ///                     LaunchTemplateId = aws_launch_template.Example.Id,
+    ///                     Version = aws_launch_template.Example.Latest_version,
+    ///                 },
     ///             },
     ///         },
     ///         TargetCapacitySpecification = new Aws.Ec2.Inputs.FleetTargetCapacitySpecificationArgs
@@ -65,16 +68,40 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Context { get; private set; } = null!;
 
         /// <summary>
-        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Output("excessCapacityTerminationPolicy")]
         public Output<string?> ExcessCapacityTerminationPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+        /// </summary>
+        [Output("fleetInstanceSets")]
+        public Output<ImmutableArray<Outputs.FleetFleetInstanceSet>> FleetInstanceSets { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of the EC2 Fleet.
+        /// </summary>
+        [Output("fleetState")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of units fulfilled by this request compared to the set target capacity.
+        /// </summary>
+        [Output("fulfilledCapacity")]
+        public Output<double> FulfilledCapacity { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+        /// </summary>
+        [Output("fulfilledOnDemandCapacity")]
+        public Output<double> FulfilledOnDemandCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Output("launchTemplateConfig")]
-        public Output<Outputs.FleetLaunchTemplateConfig> LaunchTemplateConfig { get; private set; } = null!;
+        [Output("launchTemplateConfigs")]
+        public Output<ImmutableArray<Outputs.FleetLaunchTemplateConfig>> LaunchTemplateConfigs { get; private set; } = null!;
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.
@@ -83,7 +110,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.FleetOnDemandOptions?> OnDemandOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Output("replaceUnhealthyInstances")]
         public Output<bool?> ReplaceUnhealthyInstances { get; private set; } = null!;
@@ -125,10 +152,22 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> TerminateInstancesWithExpiration { get; private set; } = null!;
 
         /// <summary>
-        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+        /// </summary>
+        [Output("validFrom")]
+        public Output<string?> ValidFrom { get; private set; } = null!;
+
+        /// <summary>
+        /// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+        /// </summary>
+        [Output("validUntil")]
+        public Output<string?> ValidUntil { get; private set; } = null!;
 
 
         /// <summary>
@@ -183,16 +222,52 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Context { get; set; }
 
         /// <summary>
-        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Input("excessCapacityTerminationPolicy")]
         public Input<string>? ExcessCapacityTerminationPolicy { get; set; }
 
+        [Input("fleetInstanceSets")]
+        private InputList<Inputs.FleetFleetInstanceSetArgs>? _fleetInstanceSets;
+
+        /// <summary>
+        /// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+        /// </summary>
+        public InputList<Inputs.FleetFleetInstanceSetArgs> FleetInstanceSets
+        {
+            get => _fleetInstanceSets ?? (_fleetInstanceSets = new InputList<Inputs.FleetFleetInstanceSetArgs>());
+            set => _fleetInstanceSets = value;
+        }
+
+        /// <summary>
+        /// The state of the EC2 Fleet.
+        /// </summary>
+        [Input("fleetState")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// The number of units fulfilled by this request compared to the set target capacity.
+        /// </summary>
+        [Input("fulfilledCapacity")]
+        public Input<double>? FulfilledCapacity { get; set; }
+
+        /// <summary>
+        /// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+        /// </summary>
+        [Input("fulfilledOnDemandCapacity")]
+        public Input<double>? FulfilledOnDemandCapacity { get; set; }
+
+        [Input("launchTemplateConfigs", required: true)]
+        private InputList<Inputs.FleetLaunchTemplateConfigArgs>? _launchTemplateConfigs;
+
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Input("launchTemplateConfig", required: true)]
-        public Input<Inputs.FleetLaunchTemplateConfigArgs> LaunchTemplateConfig { get; set; } = null!;
+        public InputList<Inputs.FleetLaunchTemplateConfigArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.FleetLaunchTemplateConfigArgs>());
+            set => _launchTemplateConfigs = value;
+        }
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.
@@ -201,7 +276,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.FleetOnDemandOptionsArgs>? OnDemandOptions { get; set; }
 
         /// <summary>
-        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Input("replaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
@@ -243,10 +318,22 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
         /// <summary>
-        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+        /// </summary>
+        [Input("validFrom")]
+        public Input<string>? ValidFrom { get; set; }
+
+        /// <summary>
+        /// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+        /// </summary>
+        [Input("validUntil")]
+        public Input<string>? ValidUntil { get; set; }
 
         public FleetArgs()
         {
@@ -269,16 +356,52 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Context { get; set; }
 
         /// <summary>
-        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Input("excessCapacityTerminationPolicy")]
         public Input<string>? ExcessCapacityTerminationPolicy { get; set; }
 
+        [Input("fleetInstanceSets")]
+        private InputList<Inputs.FleetFleetInstanceSetGetArgs>? _fleetInstanceSets;
+
+        /// <summary>
+        /// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+        /// </summary>
+        public InputList<Inputs.FleetFleetInstanceSetGetArgs> FleetInstanceSets
+        {
+            get => _fleetInstanceSets ?? (_fleetInstanceSets = new InputList<Inputs.FleetFleetInstanceSetGetArgs>());
+            set => _fleetInstanceSets = value;
+        }
+
+        /// <summary>
+        /// The state of the EC2 Fleet.
+        /// </summary>
+        [Input("fleetState")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// The number of units fulfilled by this request compared to the set target capacity.
+        /// </summary>
+        [Input("fulfilledCapacity")]
+        public Input<double>? FulfilledCapacity { get; set; }
+
+        /// <summary>
+        /// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+        /// </summary>
+        [Input("fulfilledOnDemandCapacity")]
+        public Input<double>? FulfilledOnDemandCapacity { get; set; }
+
+        [Input("launchTemplateConfigs")]
+        private InputList<Inputs.FleetLaunchTemplateConfigGetArgs>? _launchTemplateConfigs;
+
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Input("launchTemplateConfig")]
-        public Input<Inputs.FleetLaunchTemplateConfigGetArgs>? LaunchTemplateConfig { get; set; }
+        public InputList<Inputs.FleetLaunchTemplateConfigGetArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.FleetLaunchTemplateConfigGetArgs>());
+            set => _launchTemplateConfigs = value;
+        }
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.
@@ -287,7 +410,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.FleetOnDemandOptionsGetArgs>? OnDemandOptions { get; set; }
 
         /// <summary>
-        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Input("replaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
@@ -341,10 +464,22 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
         /// <summary>
-        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+        /// </summary>
+        [Input("validFrom")]
+        public Input<string>? ValidFrom { get; set; }
+
+        /// <summary>
+        /// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+        /// </summary>
+        [Input("validUntil")]
+        public Input<string>? ValidUntil { get; set; }
 
         public FleetState()
         {

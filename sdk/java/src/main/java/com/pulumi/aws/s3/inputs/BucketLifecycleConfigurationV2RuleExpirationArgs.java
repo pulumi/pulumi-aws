@@ -18,14 +18,14 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
     public static final BucketLifecycleConfigurationV2RuleExpirationArgs Empty = new BucketLifecycleConfigurationV2RuleExpirationArgs();
 
     /**
-     * The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Import(name="date")
     private @Nullable Output<String> date;
 
     /**
-     * @return The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<Output<String>> date() {
@@ -33,14 +33,14 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
     }
 
     /**
-     * The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+     * Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
-     * @return The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+     * @return Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -89,7 +89,7 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
         }
 
         /**
-         * @param date The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param date Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
         }
 
         /**
-         * @param date The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param date Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
         }
 
         /**
-         * @param days The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+         * @param days Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
         }
 
         /**
-         * @param days The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+         * @param days Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
     public static final BucketLifecycleConfigurationV2RuleFilterArgs Empty = new BucketLifecycleConfigurationV2RuleFilterArgs();
 
     /**
-     * Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+     * Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
      * 
      */
     @Import(name="and")
     private @Nullable Output<BucketLifecycleConfigurationV2RuleFilterAndArgs> and;
 
     /**
-     * @return Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+     * @return Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
      * 
      */
     public Optional<Output<BucketLifecycleConfigurationV2RuleFilterAndArgs>> and() {
@@ -78,14 +78,14 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
     }
 
     /**
-     * A configuration block for specifying a tag key and value documented below.
+     * Configuration block for specifying a tag key and value. See below.
      * 
      */
     @Import(name="tag")
     private @Nullable Output<BucketLifecycleConfigurationV2RuleFilterTagArgs> tag;
 
     /**
-     * @return A configuration block for specifying a tag key and value documented below.
+     * @return Configuration block for specifying a tag key and value. See below.
      * 
      */
     public Optional<Output<BucketLifecycleConfigurationV2RuleFilterTagArgs>> tag() {
@@ -121,7 +121,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
         }
 
         /**
-         * @param and Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+         * @param and Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
         }
 
         /**
-         * @param and Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+         * @param and Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
         }
 
         /**
-         * @param tag A configuration block for specifying a tag key and value documented below.
+         * @param tag Configuration block for specifying a tag key and value. See below.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
         }
 
         /**
-         * @param tag A configuration block for specifying a tag key and value documented below.
+         * @param tag Configuration block for specifying a tag key and value. See below.
          * 
          * @return builder
          * 

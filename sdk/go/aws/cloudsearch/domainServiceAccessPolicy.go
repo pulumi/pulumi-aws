@@ -22,9 +22,8 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -35,24 +34,41 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("search_only"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "*",
+//								Identifiers: []string{
+//									"*",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"cloudsearch:search",
+//							"cloudsearch:document",
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "IpAddress",
+//								Variable: "aws:SourceIp",
+//								Values: []string{
+//									"192.0.2.0/32",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "exampleDomainServiceAccessPolicy", &cloudsearch.DomainServiceAccessPolicyArgs{
-//				DomainName: exampleDomain.ID(),
-//				AccessPolicy: pulumi.String(fmt.Sprintf(`{
-//	  "Version":"2012-10-17",
-//	  "Statement":[{
-//	    "Sid":"search_only",
-//	    "Effect":"Allow",
-//	    "Principal":"*",
-//	    "Action":[
-//	      "cloudsearch:search",
-//	      "cloudsearch:document"
-//	    ],
-//	    "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
-//	  }]
-//	}
-//
-// `)),
-//
+//				DomainName:   exampleDomain.ID(),
+//				AccessPolicy: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

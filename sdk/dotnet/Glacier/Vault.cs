@@ -25,7 +25,39 @@ namespace Pulumi.Aws.Glacier
     /// {
     ///     var awsSnsTopic = new Aws.Sns.Topic("awsSnsTopic");
     /// 
-    ///     var myArchive = new Aws.Glacier.Vault("myArchive", new()
+    ///     var myArchivePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "add-read-only-perm",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "glacier:InitiateJob",
+    ///                     "glacier:GetJobOutput",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var myArchiveVault = new Aws.Glacier.Vault("myArchiveVault", new()
     ///     {
     ///         Notification = new Aws.Glacier.Inputs.VaultNotificationArgs
     ///         {
@@ -36,22 +68,7 @@ namespace Pulumi.Aws.Glacier
     ///                 "InventoryRetrievalCompleted",
     ///             },
     ///         },
-    ///         AccessPolicy = @"{
-    ///     ""Version"":""2012-10-17"",
-    ///     ""Statement"":[
-    ///        {
-    ///           ""Sid"": ""add-read-only-perm"",
-    ///           ""Principal"": ""*"",
-    ///           ""Effect"": ""Allow"",
-    ///           ""Action"": [
-    ///              ""glacier:InitiateJob"",
-    ///              ""glacier:GetJobOutput""
-    ///           ],
-    ///           ""Resource"": ""arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive""
-    ///        }
-    ///     ]
-    /// }
-    /// ",
+    ///         AccessPolicy = myArchivePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         Tags = 
     ///         {
     ///             { "Test", "MyArchive" },

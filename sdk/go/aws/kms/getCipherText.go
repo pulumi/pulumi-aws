@@ -22,8 +22,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -40,7 +38,7 @@ import (
 //			}
 //			_ = kms.GetCipherTextOutput(ctx, kms.GetCipherTextOutputArgs{
 //				KeyId:     oauthConfig.KeyId,
-//				Plaintext: pulumi.String(fmt.Sprintf("{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n")),
+//				Plaintext: pulumi.String("{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n"),
 //			}, nil)
 //			return nil
 //		})

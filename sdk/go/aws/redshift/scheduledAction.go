@@ -19,8 +19,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -29,48 +27,53 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"scheduler.redshift.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": [
-//	          "scheduler.redshift.amazonaws.com"
-//	        ]
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"redshift:PauseCluster",
+//							"redshift:ResumeCluster",
+//							"redshift:ResizeCluster",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	      {
-//	          "Sid": "VisualEditor0",
-//	          "Effect": "Allow",
-//	          "Action": [
-//	              "redshift:PauseCluster",
-//	              "redshift:ResumeCluster",
-//	              "redshift:ResizeCluster"
-//	          ],
-//	          "Resource": "*"
-//	      }
-//	  ]
-//	}
-//
-// `)),
-//
+//				Policy: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

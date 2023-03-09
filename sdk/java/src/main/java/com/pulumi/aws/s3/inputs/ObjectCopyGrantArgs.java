@@ -32,14 +32,14 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+     * Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+     * @return Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -141,7 +141,7 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param id The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+         * @param id Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param id The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+         * @param id Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
          * 
          * @return builder
          * 

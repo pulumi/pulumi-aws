@@ -38,14 +38,14 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Friendly name of the rule.
+     * Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Friendly name of the rule.
+     * @return Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
      * 
      */
     public Output<String> name() {
@@ -179,7 +179,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Friendly name of the rule.
+         * @param name Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Friendly name of the rule.
+         * @param name Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
          * 
          * @return builder
          * 

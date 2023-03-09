@@ -39,7 +39,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// ### With VPC Attachment
+    /// ### With VPC Attachment (Single Region)
     /// 
     /// The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument of the `aws.networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument.
     /// 
@@ -105,6 +105,121 @@ namespace Pulumi.Aws.NetworkManager
     ///                 Destinations = new[]
     ///                 {
     ///                     exampleVpcAttachment.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", new()
+    ///     {
+    ///         CoreNetworkId = exampleCoreNetwork.Id,
+    ///         PolicyDocument = exampleCoreNetworkPolicyDocument.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With VPC Attachment (Multi-Region)
+    /// 
+    /// The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument of the `aws.networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument. For multi-region in a core network that does not yet have a `LIVE` policy, pass a list of regions to the `aws.networkmanager.CoreNetwork` `base_policy_regions` argument. In the example below, `us-west-2` and `us-east-1` are specified in the base policy.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
+    /// 
+    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("exampleCoreNetwork", new()
+    ///     {
+    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
+    ///         BasePolicyRegions = new[]
+    ///         {
+    ///             "us-west-2",
+    ///             "us-east-1",
+    ///         },
+    ///         CreateBasePolicy = true,
+    ///     });
+    /// 
+    ///     var exampleUsWest2 = new Aws.NetworkManager.VpcAttachment("exampleUsWest2", new()
+    ///     {
+    ///         CoreNetworkId = exampleCoreNetwork.Id,
+    ///         SubnetArns = aws_subnet.Example_us_west_2.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = aws_vpc.Example_us_west_2.Arn,
+    ///     });
+    /// 
+    ///     var exampleUsEast1 = new Aws.NetworkManager.VpcAttachment("exampleUsEast1", new()
+    ///     {
+    ///         CoreNetworkId = exampleCoreNetwork.Id,
+    ///         SubnetArns = aws_subnet.Example_us_east_1.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = aws_vpc.Example_us_east_1.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "alternate",
+    ///     });
+    /// 
+    ///     var exampleCoreNetworkPolicyDocument = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
+    ///     {
+    ///         CoreNetworkConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
+    ///             {
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "65022-65534",
+    ///                 },
+    ///                 EdgeLocations = new[]
+    ///                 {
+    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
+    ///                     {
+    ///                         Location = "us-west-2",
+    ///                     },
+    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
+    ///                     {
+    ///                         Location = "us-east-1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Segments = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment",
+    ///             },
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "segment2",
+    ///             },
+    ///         },
+    ///         SegmentActions = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
+    ///             {
+    ///                 Action = "create-route",
+    ///                 Segment = "segment",
+    ///                 DestinationCidrBlocks = new[]
+    ///                 {
+    ///                     "10.0.0.0/16",
+    ///                 },
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     exampleUsWest2.Id,
+    ///                 },
+    ///             },
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
+    ///             {
+    ///                 Action = "create-route",
+    ///                 Segment = "segment",
+    ///                 DestinationCidrBlocks = new[]
+    ///                 {
+    ///                     "10.1.0.0/16",
+    ///                 },
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     exampleUsEast1.Id,
     ///                 },
     ///             },
     ///         },

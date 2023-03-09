@@ -144,6 +144,8 @@ from .vpc_ipam_pool import *
 from .vpc_ipam_pool_cidr import *
 from .vpc_ipam_pool_cidr_allocation import *
 from .vpc_ipam_preview_next_cidr import *
+from .vpc_ipam_resource_discovery import *
+from .vpc_ipam_resource_discovery_association import *
 from .vpc_ipam_scope import *
 from .vpc_ipv4_cidr_block_association import *
 from .vpc_ipv6_cidr_block_association import *

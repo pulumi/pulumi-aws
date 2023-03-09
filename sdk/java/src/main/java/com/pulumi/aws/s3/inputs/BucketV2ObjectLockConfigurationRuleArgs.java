@@ -15,14 +15,14 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
     public static final BucketV2ObjectLockConfigurationRuleArgs Empty = new BucketV2ObjectLockConfigurationRuleArgs();
 
     /**
-     * The default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * Default retention period that you want to apply to new objects placed in this bucket (documented below).
      * 
      */
     @Import(name="defaultRetentions", required=true)
     private Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions;
 
     /**
-     * @return The default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * @return Default retention period that you want to apply to new objects placed in this bucket (documented below).
      * 
      */
     public Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions() {
@@ -54,7 +54,7 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetentions The default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetentions The default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetentions The default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
          * 
          * @return builder
          * 

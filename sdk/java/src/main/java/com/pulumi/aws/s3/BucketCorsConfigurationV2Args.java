@@ -18,14 +18,14 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
     public static final BucketCorsConfigurationV2Args Empty = new BucketCorsConfigurationV2Args();
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
@@ -33,14 +33,14 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
     }
 
     /**
-     * Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
      * 
      */
     @Import(name="corsRules", required=true)
     private Output<List<BucketCorsConfigurationV2CorsRuleArgs>> corsRules;
 
     /**
-     * @return Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+     * @return Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
      * 
      */
     public Output<List<BucketCorsConfigurationV2CorsRuleArgs>> corsRules() {
@@ -48,14 +48,14 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
     }
 
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -89,7 +89,7 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
         }
 
         /**
-         * @param corsRules Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+         * @param corsRules Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
         }
 
         /**
-         * @param corsRules Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+         * @param corsRules Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
         }
 
         /**
-         * @param corsRules Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+         * @param corsRules Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Re
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 

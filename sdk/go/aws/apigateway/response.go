@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -38,7 +36,7 @@ import (
 //				StatusCode:   pulumi.String("401"),
 //				ResponseType: pulumi.String("UNAUTHORIZED"),
 //				ResponseTemplates: pulumi.StringMap{
-//					"application/json": pulumi.String(fmt.Sprintf("{\"message\":$context.error.messageString}")),
+//					"application/json": pulumi.String("{\"message\":$context.error.messageString}"),
 //				},
 //				ResponseParameters: pulumi.StringMap{
 //					"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
