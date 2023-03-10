@@ -8,6 +8,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,13 +23,13 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
      * 
      */
     @Import(name="clientAlias")
-    private @Nullable Output<ServiceServiceConnectConfigurationServiceClientAliasArgs> clientAlias;
+    private @Nullable Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAlias;
 
     /**
      * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
-    public Optional<Output<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAlias() {
+    public Optional<Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>>> clientAlias() {
         return Optional.ofNullable(this.clientAlias);
     }
 
@@ -110,7 +111,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
          * @return builder
          * 
          */
-        public Builder clientAlias(@Nullable Output<ServiceServiceConnectConfigurationServiceClientAliasArgs> clientAlias) {
+        public Builder clientAlias(@Nullable Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAlias) {
             $.clientAlias = clientAlias;
             return this;
         }
@@ -121,8 +122,18 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
          * @return builder
          * 
          */
-        public Builder clientAlias(ServiceServiceConnectConfigurationServiceClientAliasArgs clientAlias) {
+        public Builder clientAlias(List<ServiceServiceConnectConfigurationServiceClientAliasArgs> clientAlias) {
             return clientAlias(Output.of(clientAlias));
+        }
+
+        /**
+         * @param clientAlias The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientAlias(ServiceServiceConnectConfigurationServiceClientAliasArgs... clientAlias) {
+            return clientAlias(List.of(clientAlias));
         }
 
         /**

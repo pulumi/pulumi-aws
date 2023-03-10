@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.Fleet("example", {
- *     launchTemplateConfigs: [{
+ *     launchTemplateConfig: {
  *         launchTemplateSpecification: {
  *             launchTemplateId: aws_launch_template.example.id,
  *             version: aws_launch_template.example.latest_version,
  *         },
- *     }],
+ *     },
  *     targetCapacitySpecification: {
  *         defaultTargetCapacityType: "spot",
  *         totalTargetCapacity: 5,
@@ -97,7 +97,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.FleetLaunchTemplateConfig[]>;
+    public readonly launchTemplateConfig!: pulumi.Output<outputs.ec2.FleetLaunchTemplateConfig>;
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
@@ -163,7 +163,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["fleetState"] = state ? state.fleetState : undefined;
             resourceInputs["fulfilledCapacity"] = state ? state.fulfilledCapacity : undefined;
             resourceInputs["fulfilledOnDemandCapacity"] = state ? state.fulfilledOnDemandCapacity : undefined;
-            resourceInputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
+            resourceInputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
             resourceInputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
             resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
             resourceInputs["spotOptions"] = state ? state.spotOptions : undefined;
@@ -177,8 +177,8 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["validUntil"] = state ? state.validUntil : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            if ((!args || args.launchTemplateConfigs === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'launchTemplateConfigs'");
+            if ((!args || args.launchTemplateConfig === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'launchTemplateConfig'");
             }
             if ((!args || args.targetCapacitySpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
@@ -189,7 +189,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["fleetState"] = args ? args.fleetState : undefined;
             resourceInputs["fulfilledCapacity"] = args ? args.fulfilledCapacity : undefined;
             resourceInputs["fulfilledOnDemandCapacity"] = args ? args.fulfilledOnDemandCapacity : undefined;
-            resourceInputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
+            resourceInputs["launchTemplateConfig"] = args ? args.launchTemplateConfig : undefined;
             resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
             resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
@@ -243,7 +243,7 @@ export interface FleetState {
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.FleetLaunchTemplateConfig>[]>;
+    launchTemplateConfig?: pulumi.Input<inputs.ec2.FleetLaunchTemplateConfig>;
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
@@ -321,7 +321,7 @@ export interface FleetArgs {
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    launchTemplateConfigs: pulumi.Input<pulumi.Input<inputs.ec2.FleetLaunchTemplateConfig>[]>;
+    launchTemplateConfig: pulumi.Input<inputs.ec2.FleetLaunchTemplateConfig>;
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */

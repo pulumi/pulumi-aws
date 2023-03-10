@@ -133,15 +133,15 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    @Import(name="launchTemplateConfigs")
-    private @Nullable Output<List<FleetLaunchTemplateConfigArgs>> launchTemplateConfigs;
+    @Import(name="launchTemplateConfig")
+    private @Nullable Output<FleetLaunchTemplateConfigArgs> launchTemplateConfig;
 
     /**
      * @return Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    public Optional<Output<List<FleetLaunchTemplateConfigArgs>>> launchTemplateConfigs() {
-        return Optional.ofNullable(this.launchTemplateConfigs);
+    public Optional<Output<FleetLaunchTemplateConfigArgs>> launchTemplateConfig() {
+        return Optional.ofNullable(this.launchTemplateConfig);
     }
 
     /**
@@ -319,7 +319,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         this.fleetState = $.fleetState;
         this.fulfilledCapacity = $.fulfilledCapacity;
         this.fulfilledOnDemandCapacity = $.fulfilledOnDemandCapacity;
-        this.launchTemplateConfigs = $.launchTemplateConfigs;
+        this.launchTemplateConfig = $.launchTemplateConfig;
         this.onDemandOptions = $.onDemandOptions;
         this.replaceUnhealthyInstances = $.replaceUnhealthyInstances;
         this.spotOptions = $.spotOptions;
@@ -509,34 +509,24 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplateConfigs Nested argument containing EC2 Launch Template configurations. Defined below.
+         * @param launchTemplateConfig Nested argument containing EC2 Launch Template configurations. Defined below.
          * 
          * @return builder
          * 
          */
-        public Builder launchTemplateConfigs(@Nullable Output<List<FleetLaunchTemplateConfigArgs>> launchTemplateConfigs) {
-            $.launchTemplateConfigs = launchTemplateConfigs;
+        public Builder launchTemplateConfig(@Nullable Output<FleetLaunchTemplateConfigArgs> launchTemplateConfig) {
+            $.launchTemplateConfig = launchTemplateConfig;
             return this;
         }
 
         /**
-         * @param launchTemplateConfigs Nested argument containing EC2 Launch Template configurations. Defined below.
+         * @param launchTemplateConfig Nested argument containing EC2 Launch Template configurations. Defined below.
          * 
          * @return builder
          * 
          */
-        public Builder launchTemplateConfigs(List<FleetLaunchTemplateConfigArgs> launchTemplateConfigs) {
-            return launchTemplateConfigs(Output.of(launchTemplateConfigs));
-        }
-
-        /**
-         * @param launchTemplateConfigs Nested argument containing EC2 Launch Template configurations. Defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder launchTemplateConfigs(FleetLaunchTemplateConfigArgs... launchTemplateConfigs) {
-            return launchTemplateConfigs(List.of(launchTemplateConfigs));
+        public Builder launchTemplateConfig(FleetLaunchTemplateConfigArgs launchTemplateConfig) {
+            return launchTemplateConfig(Output.of(launchTemplateConfig));
         }
 
         /**

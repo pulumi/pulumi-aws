@@ -1557,6 +1557,9 @@ func Provider() tfbridge.ProviderInfo {
 					"fleet_state": {
 						CSharpName: "State",
 					},
+					"launch_template_config": {
+						MaxItemsOne: tfbridge.True(),
+					},
 				},
 			},
 			"aws_route_table_association": {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
@@ -1764,6 +1767,21 @@ func Provider() tfbridge.ProviderInfo {
 						// force this to project as an array (and assign a plural name).
 						Name:        "loadBalancers",
 						MaxItemsOne: boolRef(false),
+					},
+					"service_connect_configuration": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"service": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"client_alias": {
+												MaxItemsOne: tfbridge.False(),
+											},
+										},
+									},
+								},
+							},
+						},
 					},
 				},
 			},
