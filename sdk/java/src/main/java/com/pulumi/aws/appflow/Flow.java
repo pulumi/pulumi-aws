@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * Provides an AppFlow flow resource.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -31,6 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
@@ -63,30 +66,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleSourceBucketV2 = new BucketV2(&#34;exampleSourceBucketV2&#34;);
  * 
+ *         final var exampleSourcePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;AllowAppFlowSourceActions&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;appflow.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;s3:ListBucket&#34;,
+ *                     &#34;s3:GetObject&#34;)
+ *                 .resources(                
+ *                     &#34;arn:aws:s3:::example_source&#34;,
+ *                     &#34;arn:aws:s3:::example_source/*&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleSourceBucketPolicy = new BucketPolicy(&#34;exampleSourceBucketPolicy&#34;, BucketPolicyArgs.builder()        
  *             .bucket(exampleSourceBucketV2.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Sid&#34;: &#34;AllowAppFlowSourceActions&#34;,
- *             &#34;Principal&#34;: {
- *                 &#34;Service&#34;: &#34;appflow.amazonaws.com&#34;
- *             },
- *             &#34;Action&#34;: [
- *                 &#34;s3:ListBucket&#34;,
- *                 &#34;s3:GetObject&#34;
- *             ],
- *             &#34;Resource&#34;: [
- *                 &#34;arn:aws:s3:::example_source&#34;,
- *                 &#34;arn:aws:s3:::example_source/*&#34;
- *             ]
- *         }
- *     ],
- * 	&#34;Version&#34;: &#34;2012-10-17&#34;
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(exampleSourcePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
@@ -97,35 +96,25 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDestinationBucketV2 = new BucketV2(&#34;exampleDestinationBucketV2&#34;);
  * 
- *         var exampleDestinationBucketPolicy = new BucketPolicy(&#34;exampleDestinationBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(exampleDestinationBucketV2.id())
- *             .policy(&#34;&#34;&#34;
- * 
- * {
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Sid&#34;: &#34;AllowAppFlowDestinationActions&#34;,
- *             &#34;Principal&#34;: {
- *                 &#34;Service&#34;: &#34;appflow.amazonaws.com&#34;
- *             },
- *             &#34;Action&#34;: [
+ *         final var exampleDestinationPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .sid(&#34;AllowAppFlowDestinationActions&#34;)
+ *             .effect(&#34;Allow&#34;)
+ *             .principals(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .actions(            
  *                 &#34;s3:PutObject&#34;,
  *                 &#34;s3:AbortMultipartUpload&#34;,
  *                 &#34;s3:ListMultipartUploadParts&#34;,
  *                 &#34;s3:ListBucketMultipartUploads&#34;,
  *                 &#34;s3:GetBucketAcl&#34;,
- *                 &#34;s3:PutObjectAcl&#34;
- *             ],
- *             &#34;Resource&#34;: [
+ *                 &#34;s3:PutObjectAcl&#34;)
+ *             .resources(            
  *                 &#34;arn:aws:s3:::example_destination&#34;,
- *                 &#34;arn:aws:s3:::example_destination/*&#34;
- *             ]
- *         }
- *     ],
- * 	&#34;Version&#34;: &#34;2012-10-17&#34;
- * }
- *             &#34;&#34;&#34;)
+ *                 &#34;arn:aws:s3:::example_destination/*&#34;)
+ *             .build());
+ * 
+ *         var exampleDestinationBucketPolicy = new BucketPolicy(&#34;exampleDestinationBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *             .bucket(exampleDestinationBucketV2.id())
+ *             .policy(exampleDestinationPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleFlow = new Flow(&#34;exampleFlow&#34;, FlowArgs.builder()        

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketAclV2AccessControlPolicyGrantArgs>? _grants;
 
         /// <summary>
-        /// Set of `grant` configuration blocks documented below.
+        /// Set of `grant` configuration blocks. See below.
         /// </summary>
         public InputList<Inputs.BucketAclV2AccessControlPolicyGrantArgs> Grants
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Configuration block of the bucket owner's display name and ID documented below.
+        /// Configuration block of the bucket owner's display name and ID. See below.
         /// </summary>
         [Input("owner", required: true)]
         public Input<Inputs.BucketAclV2AccessControlPolicyOwnerArgs> Owner { get; set; } = null!;

@@ -23,34 +23,55 @@ namespace Pulumi.Aws.Efs
     /// {
     ///     var fs = new Aws.Efs.FileSystem("fs");
     /// 
-    ///     var policy = new Aws.Efs.FileSystemPolicy("policy", new()
+    ///     var policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "ExampleStatement01",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "elasticfilesystem:ClientMount",
+    ///                     "elasticfilesystem:ClientWrite",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     fs.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "Bool",
+    ///                         Variable = "aws:SecureTransport",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "true",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var policyFileSystemPolicy = new Aws.Efs.FileSystemPolicy("policyFileSystemPolicy", new()
     ///     {
     ///         FileSystemId = fs.Id,
     ///         BypassPolicyLockoutSafetyCheck = true,
-    ///         Policy = fs.Arn.Apply(arn =&gt; @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Id"": ""ExamplePolicy01"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Sid"": ""ExampleStatement01"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {{
-    ///                 ""AWS"": ""*""
-    ///             }},
-    ///             ""Resource"": ""{arn}"",
-    ///             ""Action"": [
-    ///                 ""elasticfilesystem:ClientMount"",
-    ///                 ""elasticfilesystem:ClientWrite""
-    ///             ],
-    ///             ""Condition"": {{
-    ///                 ""Bool"": {{
-    ///                     ""aws:SecureTransport"": ""true""
-    ///                 }}
-    ///             }}
-    ///         }}
-    ///     ]
-    /// }}
-    /// "),
+    ///         Policy = policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

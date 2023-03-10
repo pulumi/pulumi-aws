@@ -22,9 +22,8 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -35,37 +34,44 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecr.NewRepositoryPolicy(ctx, "foopolicy", &ecr.RepositoryPolicyArgs{
+//			foopolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("new policy"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "*",
+//								Identifiers: []string{
+//									"*",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"ecr:GetDownloadUrlForLayer",
+//							"ecr:BatchGetImage",
+//							"ecr:BatchCheckLayerAvailability",
+//							"ecr:PutImage",
+//							"ecr:InitiateLayerUpload",
+//							"ecr:UploadLayerPart",
+//							"ecr:CompleteLayerUpload",
+//							"ecr:DescribeRepositories",
+//							"ecr:GetRepositoryPolicy",
+//							"ecr:ListImages",
+//							"ecr:DeleteRepository",
+//							"ecr:BatchDeleteImage",
+//							"ecr:SetRepositoryPolicy",
+//							"ecr:DeleteRepositoryPolicy",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecr.NewRepositoryPolicy(ctx, "foopolicyRepositoryPolicy", &ecr.RepositoryPolicyArgs{
 //				Repository: foo.Name,
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	    "Version": "2008-10-17",
-//	    "Statement": [
-//	        {
-//	            "Sid": "new policy",
-//	            "Effect": "Allow",
-//	            "Principal": "*",
-//	            "Action": [
-//	                "ecr:GetDownloadUrlForLayer",
-//	                "ecr:BatchGetImage",
-//	                "ecr:BatchCheckLayerAvailability",
-//	                "ecr:PutImage",
-//	                "ecr:InitiateLayerUpload",
-//	                "ecr:UploadLayerPart",
-//	                "ecr:CompleteLayerUpload",
-//	                "ecr:DescribeRepositories",
-//	                "ecr:GetRepositoryPolicy",
-//	                "ecr:ListImages",
-//	                "ecr:DeleteRepository",
-//	                "ecr:BatchDeleteImage",
-//	                "ecr:SetRepositoryPolicy",
-//	                "ecr:DeleteRepositoryPolicy"
-//	            ]
-//	        }
-//	    ]
-//	}
-//
-// `)),
-//
+//				Policy:     *pulumi.String(foopolicyPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

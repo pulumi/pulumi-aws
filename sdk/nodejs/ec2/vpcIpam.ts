@@ -54,6 +54,8 @@ export class VpcIpam extends pulumi.CustomResource {
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      */
     public readonly cascade!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string>;
     /**
      * A description for the IPAM.
      */
@@ -99,6 +101,8 @@ export class VpcIpam extends pulumi.CustomResource {
             const state = argsOrState as VpcIpamState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["cascade"] = state ? state.cascade : undefined;
+            resourceInputs["defaultResourceDiscoveryAssociationId"] = state ? state.defaultResourceDiscoveryAssociationId : undefined;
+            resourceInputs["defaultResourceDiscoveryId"] = state ? state.defaultResourceDiscoveryId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["operatingRegions"] = state ? state.operatingRegions : undefined;
             resourceInputs["privateDefaultScopeId"] = state ? state.privateDefaultScopeId : undefined;
@@ -116,6 +120,8 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
+            resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;
             resourceInputs["privateDefaultScopeId"] = undefined /*out*/;
             resourceInputs["publicDefaultScopeId"] = undefined /*out*/;
             resourceInputs["scopeCount"] = undefined /*out*/;
@@ -138,6 +144,8 @@ export interface VpcIpamState {
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      */
     cascade?: pulumi.Input<boolean>;
+    defaultResourceDiscoveryAssociationId?: pulumi.Input<string>;
+    defaultResourceDiscoveryId?: pulumi.Input<string>;
     /**
      * A description for the IPAM.
      */

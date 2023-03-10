@@ -458,7 +458,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucket_config = new BucketLifecycleConfigurationV2(&#34;bucket-config&#34;, BucketLifecycleConfigurationV2Args.builder()        
- *             .bucket(bucket.bucket())
+ *             .bucket(bucket.id())
  *             .rules(            
  *                 BucketLifecycleConfigurationV2RuleArgs.builder()
  *                     .id(&#34;log&#34;)
@@ -558,42 +558,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")
 public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     * Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the source S3 bucket you want Amazon S3 to monitor.
+     * @return Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * @return Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * List of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     @Export(name="rules", refs={List.class,BucketLifecycleConfigurationV2Rule.class}, tree="[0,1]")
     private Output<List<BucketLifecycleConfigurationV2Rule>> rules;
 
     /**
-     * @return List of configuration blocks describing the rules managing the replication documented below.
+     * @return List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     public Output<List<BucketLifecycleConfigurationV2Rule>> rules() {

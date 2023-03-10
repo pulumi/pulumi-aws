@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketAclV2AccessControlPolicyGrant {
     /**
-     * @return Configuration block for the person being granted permissions documented below.
+     * @return Configuration block for the person being granted permissions. See below.
      * 
      */
     private @Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee;
@@ -25,7 +25,7 @@ public final class BucketAclV2AccessControlPolicyGrant {
 
     private BucketAclV2AccessControlPolicyGrant() {}
     /**
-     * @return Configuration block for the person being granted permissions documented below.
+     * @return Configuration block for the person being granted permissions. See below.
      * 
      */
     public Optional<BucketAclV2AccessControlPolicyGrantGrantee> grantee() {

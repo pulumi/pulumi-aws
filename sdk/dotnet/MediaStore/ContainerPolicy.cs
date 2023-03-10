@@ -27,30 +27,53 @@ namespace Pulumi.Aws.MediaStore
     /// 
     ///     var exampleContainer = new Aws.MediaStore.Container("exampleContainer");
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "MediaStoreFullAccess",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             $"arn:aws:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "mediastore:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:aws:mediastore:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:container/{exampleContainer.Name}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "Bool",
+    ///                         Variable = "aws:SecureTransport",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "true",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("exampleContainerPolicy", new()
     ///     {
     ///         ContainerName = exampleContainer.Name,
-    ///         Policy = Output.Tuple(currentCallerIdentity, currentRegion, currentCallerIdentity, exampleContainer.Name).Apply(values =&gt;
-    ///         {
-    ///             var currentCallerIdentity = values.Item1;
-    ///             var currentRegion = values.Item2;
-    ///             var currentCallerIdentity1 = values.Item3;
-    ///             var name = values.Item4;
-    ///             return @$"{{
-    /// 	""Version"": ""2012-10-17"",
-    /// 	""Statement"": [{{
-    /// 		""Sid"": ""MediaStoreFullAccess"",
-    /// 		""Action"": [ ""mediastore:*"" ],
-    /// 		""Principal"": {{""AWS"" : ""arn:aws:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""}},
-    /// 		""Effect"": ""Allow"",
-    /// 		""Resource"": ""arn:aws:mediastore:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity1.AccountId}:container/{name}/*"",
-    /// 		""Condition"": {{
-    /// 			""Bool"": {{ ""aws:SecureTransport"": ""true"" }}
-    /// 		}}
-    /// 	}}]
-    /// }}
-    /// ";
-    ///         }),
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

@@ -21,9 +21,8 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glacier"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -35,7 +34,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = glacier.NewVault(ctx, "myArchive", &glacier.VaultArgs{
+//			myArchivePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("add-read-only-perm"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "*",
+//								Identifiers: []string{
+//									"*",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"glacier:InitiateJob",
+//							"glacier:GetJobOutput",
+//						},
+//						Resources: []string{
+//							"arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glacier.NewVault(ctx, "myArchiveVault", &glacier.VaultArgs{
 //				Notification: &glacier.VaultNotificationArgs{
 //					SnsTopic: awsSnsTopic.Arn,
 //					Events: pulumi.StringArray{
@@ -43,24 +68,7 @@ import (
 //						pulumi.String("InventoryRetrievalCompleted"),
 //					},
 //				},
-//				AccessPolicy: pulumi.String(fmt.Sprintf(`{
-//	    "Version":"2012-10-17",
-//	    "Statement":[
-//	       {
-//	          "Sid": "add-read-only-perm",
-//	          "Principal": "*",
-//	          "Effect": "Allow",
-//	          "Action": [
-//	             "glacier:InitiateJob",
-//	             "glacier:GetJobOutput"
-//	          ],
-//	          "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
-//	       }
-//	    ]
-//	}
-//
-// `)),
-//
+//				AccessPolicy: *pulumi.String(myArchivePolicyDocument.Json),
 //				Tags: pulumi.StringMap{
 //					"Test": pulumi.String("MyArchive"),
 //				},

@@ -34,7 +34,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat metricStat;
     /**
-     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
      * 
      */
     private @Nullable Boolean returnData;
@@ -69,7 +69,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         return Optional.ofNullable(this.metricStat);
     }
     /**
-     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
      * 
      */
     public Optional<Boolean> returnData() {

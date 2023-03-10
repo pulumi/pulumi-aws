@@ -33,23 +33,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			streamsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"streams.metrics.cloudwatch.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metricStreamToFirehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "streams.metrics.cloudwatch.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(streamsAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -58,23 +64,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			firehoseAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"firehose.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			firehoseToS3Role, err := iam.NewRole(ctx, "firehoseToS3Role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "firehose.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -105,26 +117,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			metricStreamToFirehosePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("firehose:PutRecord"),
+//							pulumi.String("firehose:PutRecordBatch"),
+//						},
+//						Resources: pulumi.StringArray{
+//							s3Stream.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "metricStreamToFirehoseRolePolicy", &iam.RolePolicyArgs{
 //				Role: metricStreamToFirehoseRole.ID(),
-//				Policy: s3Stream.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Effect": "Allow",
-//	            "Action": [
-//	                "firehose:PutRecord",
-//	                "firehose:PutRecordBatch"
-//	            ],
-//	            "Resource": "%v"
-//	        }
-//	    ]
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: metricStreamToFirehosePolicyDocument.ApplyT(func(metricStreamToFirehosePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &metricStreamToFirehosePolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -136,35 +147,32 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			firehoseToS3PolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:AbortMultipartUpload"),
+//							pulumi.String("s3:GetBucketLocation"),
+//							pulumi.String("s3:GetObject"),
+//							pulumi.String("s3:ListBucket"),
+//							pulumi.String("s3:ListBucketMultipartUploads"),
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							bucket.Arn,
+//							bucket.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "firehoseToS3RolePolicy", &iam.RolePolicyArgs{
 //				Role: firehoseToS3Role.ID(),
-//				Policy: pulumi.All(bucket.Arn, bucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					bucketArn := _args[0].(string)
-//					bucketArn1 := _args[1].(string)
-//					return fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Effect": "Allow",
-//	            "Action": [
-//	                "s3:AbortMultipartUpload",
-//	                "s3:GetBucketLocation",
-//	                "s3:GetObject",
-//	                "s3:ListBucket",
-//	                "s3:ListBucketMultipartUploads",
-//	                "s3:PutObject"
-//	            ],
-//	            "Resource": [
-//	                "%v",
-//	                "%v/*"
-//	            ]
-//	        }
-//	    ]
-//	}
-//
-// `, bucketArn, bucketArn1), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: firehoseToS3PolicyDocument.ApplyT(func(firehoseToS3PolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &firehoseToS3PolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

@@ -14,8 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionTrustedKeyGroup
     {
         /// <summary>
-        /// Whether the distribution is enabled to accept end
-        /// user requests for content.
+        /// Whether the distribution is enabled to accept end user requests for content.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

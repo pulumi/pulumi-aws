@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition {
     /**
-     * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+     * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
     private @Nullable String newerNoncurrentVersions;
     /**
-     * @return The number of days an object is noncurrent before Amazon S3 can perform the associated action.
+     * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
     private @Nullable Integer noncurrentDays;
     /**
-     * @return The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
+     * @return Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
      */
     private String storageClass;
 
     private BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition() {}
     /**
-     * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+     * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
     public Optional<String> newerNoncurrentVersions() {
         return Optional.ofNullable(this.newerNoncurrentVersions);
     }
     /**
-     * @return The number of days an object is noncurrent before Amazon S3 can perform the associated action.
+     * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
     public Optional<Integer> noncurrentDays() {
         return Optional.ofNullable(this.noncurrentDays);
     }
     /**
-     * @return The class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
+     * @return Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
      */
     public String storageClass() {

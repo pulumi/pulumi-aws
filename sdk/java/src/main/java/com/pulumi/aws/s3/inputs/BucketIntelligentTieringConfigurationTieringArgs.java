@@ -30,14 +30,14 @@ public final class BucketIntelligentTieringConfigurationTieringArgs extends com.
     }
 
     /**
-     * The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+     * Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
      * 
      */
     @Import(name="days", required=true)
     private Output<Integer> days;
 
     /**
-     * @return The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+     * @return Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
      * 
      */
     public Output<Integer> days() {
@@ -91,7 +91,7 @@ public final class BucketIntelligentTieringConfigurationTieringArgs extends com.
         }
 
         /**
-         * @param days The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+         * @param days Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class BucketIntelligentTieringConfigurationTieringArgs extends com.
         }
 
         /**
-         * @param days The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+         * @param days Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
          * 
          * @return builder
          * 

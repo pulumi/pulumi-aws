@@ -143,6 +143,386 @@ func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectPeerBgpOptions struct {
+	PeerAsn *int `pulumi:"peerAsn"`
+}
+
+// ConnectPeerBgpOptionsInput is an input type that accepts ConnectPeerBgpOptionsArgs and ConnectPeerBgpOptionsOutput values.
+// You can construct a concrete instance of `ConnectPeerBgpOptionsInput` via:
+//
+//	ConnectPeerBgpOptionsArgs{...}
+type ConnectPeerBgpOptionsInput interface {
+	pulumi.Input
+
+	ToConnectPeerBgpOptionsOutput() ConnectPeerBgpOptionsOutput
+	ToConnectPeerBgpOptionsOutputWithContext(context.Context) ConnectPeerBgpOptionsOutput
+}
+
+type ConnectPeerBgpOptionsArgs struct {
+	PeerAsn pulumi.IntPtrInput `pulumi:"peerAsn"`
+}
+
+func (ConnectPeerBgpOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerBgpOptions)(nil)).Elem()
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsOutput() ConnectPeerBgpOptionsOutput {
+	return i.ToConnectPeerBgpOptionsOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsOutput)
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
+	return i.ToConnectPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsOutput).ToConnectPeerBgpOptionsPtrOutputWithContext(ctx)
+}
+
+// ConnectPeerBgpOptionsPtrInput is an input type that accepts ConnectPeerBgpOptionsArgs, ConnectPeerBgpOptionsPtr and ConnectPeerBgpOptionsPtrOutput values.
+// You can construct a concrete instance of `ConnectPeerBgpOptionsPtrInput` via:
+//
+//	        ConnectPeerBgpOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectPeerBgpOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput
+	ToConnectPeerBgpOptionsPtrOutputWithContext(context.Context) ConnectPeerBgpOptionsPtrOutput
+}
+
+type connectPeerBgpOptionsPtrType ConnectPeerBgpOptionsArgs
+
+func ConnectPeerBgpOptionsPtr(v *ConnectPeerBgpOptionsArgs) ConnectPeerBgpOptionsPtrInput {
+	return (*connectPeerBgpOptionsPtrType)(v)
+}
+
+func (*connectPeerBgpOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectPeerBgpOptions)(nil)).Elem()
+}
+
+func (i *connectPeerBgpOptionsPtrType) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
+	return i.ToConnectPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectPeerBgpOptionsPtrType) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsPtrOutput)
+}
+
+type ConnectPeerBgpOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerBgpOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerBgpOptions)(nil)).Elem()
+}
+
+func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsOutput() ConnectPeerBgpOptionsOutput {
+	return o
+}
+
+func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsOutput {
+	return o
+}
+
+func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
+	return o.ToConnectPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectPeerBgpOptions) *ConnectPeerBgpOptions {
+		return &v
+	}).(ConnectPeerBgpOptionsPtrOutput)
+}
+
+func (o ConnectPeerBgpOptionsOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectPeerBgpOptions) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
+}
+
+type ConnectPeerBgpOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerBgpOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectPeerBgpOptions)(nil)).Elem()
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
+	return o
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
+	return o
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) Elem() ConnectPeerBgpOptionsOutput {
+	return o.ApplyT(func(v *ConnectPeerBgpOptions) ConnectPeerBgpOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectPeerBgpOptions
+		return ret
+	}).(ConnectPeerBgpOptionsOutput)
+}
+
+func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectPeerBgpOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeerAsn
+	}).(pulumi.IntPtrOutput)
+}
+
+type ConnectPeerConfiguration struct {
+	BgpConfigurations []ConnectPeerConfigurationBgpConfiguration `pulumi:"bgpConfigurations"`
+	// A Connect peer core network address.
+	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
+	// The inside IP addresses used for BGP peering.
+	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+	// The Connect peer address.
+	PeerAddress *string `pulumi:"peerAddress"`
+	Protocol    *string `pulumi:"protocol"`
+}
+
+// ConnectPeerConfigurationInput is an input type that accepts ConnectPeerConfigurationArgs and ConnectPeerConfigurationOutput values.
+// You can construct a concrete instance of `ConnectPeerConfigurationInput` via:
+//
+//	ConnectPeerConfigurationArgs{...}
+type ConnectPeerConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectPeerConfigurationOutput() ConnectPeerConfigurationOutput
+	ToConnectPeerConfigurationOutputWithContext(context.Context) ConnectPeerConfigurationOutput
+}
+
+type ConnectPeerConfigurationArgs struct {
+	BgpConfigurations ConnectPeerConfigurationBgpConfigurationArrayInput `pulumi:"bgpConfigurations"`
+	// A Connect peer core network address.
+	CoreNetworkAddress pulumi.StringPtrInput `pulumi:"coreNetworkAddress"`
+	// The inside IP addresses used for BGP peering.
+	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
+	// The Connect peer address.
+	PeerAddress pulumi.StringPtrInput `pulumi:"peerAddress"`
+	Protocol    pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (ConnectPeerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerConfiguration)(nil)).Elem()
+}
+
+func (i ConnectPeerConfigurationArgs) ToConnectPeerConfigurationOutput() ConnectPeerConfigurationOutput {
+	return i.ToConnectPeerConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerConfigurationArgs) ToConnectPeerConfigurationOutputWithContext(ctx context.Context) ConnectPeerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerConfigurationOutput)
+}
+
+// ConnectPeerConfigurationArrayInput is an input type that accepts ConnectPeerConfigurationArray and ConnectPeerConfigurationArrayOutput values.
+// You can construct a concrete instance of `ConnectPeerConfigurationArrayInput` via:
+//
+//	ConnectPeerConfigurationArray{ ConnectPeerConfigurationArgs{...} }
+type ConnectPeerConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToConnectPeerConfigurationArrayOutput() ConnectPeerConfigurationArrayOutput
+	ToConnectPeerConfigurationArrayOutputWithContext(context.Context) ConnectPeerConfigurationArrayOutput
+}
+
+type ConnectPeerConfigurationArray []ConnectPeerConfigurationInput
+
+func (ConnectPeerConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectPeerConfiguration)(nil)).Elem()
+}
+
+func (i ConnectPeerConfigurationArray) ToConnectPeerConfigurationArrayOutput() ConnectPeerConfigurationArrayOutput {
+	return i.ToConnectPeerConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerConfigurationArray) ToConnectPeerConfigurationArrayOutputWithContext(ctx context.Context) ConnectPeerConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerConfigurationArrayOutput)
+}
+
+type ConnectPeerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerConfiguration)(nil)).Elem()
+}
+
+func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutput() ConnectPeerConfigurationOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutputWithContext(ctx context.Context) ConnectPeerConfigurationOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationOutput) BgpConfigurations() ConnectPeerConfigurationBgpConfigurationArrayOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) []ConnectPeerConfigurationBgpConfiguration {
+		return v.BgpConfigurations
+	}).(ConnectPeerConfigurationBgpConfigurationArrayOutput)
+}
+
+// A Connect peer core network address.
+func (o ConnectPeerConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
+}
+
+// The inside IP addresses used for BGP peering.
+func (o ConnectPeerConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// The Connect peer address.
+func (o ConnectPeerConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerConfigurationOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type ConnectPeerConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectPeerConfiguration)(nil)).Elem()
+}
+
+func (o ConnectPeerConfigurationArrayOutput) ToConnectPeerConfigurationArrayOutput() ConnectPeerConfigurationArrayOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationArrayOutput) ToConnectPeerConfigurationArrayOutputWithContext(ctx context.Context) ConnectPeerConfigurationArrayOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationArrayOutput) Index(i pulumi.IntInput) ConnectPeerConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectPeerConfiguration {
+		return vs[0].([]ConnectPeerConfiguration)[vs[1].(int)]
+	}).(ConnectPeerConfigurationOutput)
+}
+
+type ConnectPeerConfigurationBgpConfiguration struct {
+	// A Connect peer core network address.
+	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
+	CoreNetworkAsn     *int    `pulumi:"coreNetworkAsn"`
+	// The Connect peer address.
+	PeerAddress *string `pulumi:"peerAddress"`
+	PeerAsn     *int    `pulumi:"peerAsn"`
+}
+
+// ConnectPeerConfigurationBgpConfigurationInput is an input type that accepts ConnectPeerConfigurationBgpConfigurationArgs and ConnectPeerConfigurationBgpConfigurationOutput values.
+// You can construct a concrete instance of `ConnectPeerConfigurationBgpConfigurationInput` via:
+//
+//	ConnectPeerConfigurationBgpConfigurationArgs{...}
+type ConnectPeerConfigurationBgpConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectPeerConfigurationBgpConfigurationOutput() ConnectPeerConfigurationBgpConfigurationOutput
+	ToConnectPeerConfigurationBgpConfigurationOutputWithContext(context.Context) ConnectPeerConfigurationBgpConfigurationOutput
+}
+
+type ConnectPeerConfigurationBgpConfigurationArgs struct {
+	// A Connect peer core network address.
+	CoreNetworkAddress pulumi.StringPtrInput `pulumi:"coreNetworkAddress"`
+	CoreNetworkAsn     pulumi.IntPtrInput    `pulumi:"coreNetworkAsn"`
+	// The Connect peer address.
+	PeerAddress pulumi.StringPtrInput `pulumi:"peerAddress"`
+	PeerAsn     pulumi.IntPtrInput    `pulumi:"peerAsn"`
+}
+
+func (ConnectPeerConfigurationBgpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerConfigurationBgpConfiguration)(nil)).Elem()
+}
+
+func (i ConnectPeerConfigurationBgpConfigurationArgs) ToConnectPeerConfigurationBgpConfigurationOutput() ConnectPeerConfigurationBgpConfigurationOutput {
+	return i.ToConnectPeerConfigurationBgpConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerConfigurationBgpConfigurationArgs) ToConnectPeerConfigurationBgpConfigurationOutputWithContext(ctx context.Context) ConnectPeerConfigurationBgpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerConfigurationBgpConfigurationOutput)
+}
+
+// ConnectPeerConfigurationBgpConfigurationArrayInput is an input type that accepts ConnectPeerConfigurationBgpConfigurationArray and ConnectPeerConfigurationBgpConfigurationArrayOutput values.
+// You can construct a concrete instance of `ConnectPeerConfigurationBgpConfigurationArrayInput` via:
+//
+//	ConnectPeerConfigurationBgpConfigurationArray{ ConnectPeerConfigurationBgpConfigurationArgs{...} }
+type ConnectPeerConfigurationBgpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToConnectPeerConfigurationBgpConfigurationArrayOutput() ConnectPeerConfigurationBgpConfigurationArrayOutput
+	ToConnectPeerConfigurationBgpConfigurationArrayOutputWithContext(context.Context) ConnectPeerConfigurationBgpConfigurationArrayOutput
+}
+
+type ConnectPeerConfigurationBgpConfigurationArray []ConnectPeerConfigurationBgpConfigurationInput
+
+func (ConnectPeerConfigurationBgpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectPeerConfigurationBgpConfiguration)(nil)).Elem()
+}
+
+func (i ConnectPeerConfigurationBgpConfigurationArray) ToConnectPeerConfigurationBgpConfigurationArrayOutput() ConnectPeerConfigurationBgpConfigurationArrayOutput {
+	return i.ToConnectPeerConfigurationBgpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectPeerConfigurationBgpConfigurationArray) ToConnectPeerConfigurationBgpConfigurationArrayOutputWithContext(ctx context.Context) ConnectPeerConfigurationBgpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerConfigurationBgpConfigurationArrayOutput)
+}
+
+type ConnectPeerConfigurationBgpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerConfigurationBgpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectPeerConfigurationBgpConfiguration)(nil)).Elem()
+}
+
+func (o ConnectPeerConfigurationBgpConfigurationOutput) ToConnectPeerConfigurationBgpConfigurationOutput() ConnectPeerConfigurationBgpConfigurationOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationBgpConfigurationOutput) ToConnectPeerConfigurationBgpConfigurationOutputWithContext(ctx context.Context) ConnectPeerConfigurationBgpConfigurationOutput {
+	return o
+}
+
+// A Connect peer core network address.
+func (o ConnectPeerConfigurationBgpConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerConfigurationBgpConfigurationOutput) CoreNetworkAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *int { return v.CoreNetworkAsn }).(pulumi.IntPtrOutput)
+}
+
+// The Connect peer address.
+func (o ConnectPeerConfigurationBgpConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectPeerConfigurationBgpConfigurationOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
+}
+
+type ConnectPeerConfigurationBgpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectPeerConfigurationBgpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectPeerConfigurationBgpConfiguration)(nil)).Elem()
+}
+
+func (o ConnectPeerConfigurationBgpConfigurationArrayOutput) ToConnectPeerConfigurationBgpConfigurationArrayOutput() ConnectPeerConfigurationBgpConfigurationArrayOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationBgpConfigurationArrayOutput) ToConnectPeerConfigurationBgpConfigurationArrayOutputWithContext(ctx context.Context) ConnectPeerConfigurationBgpConfigurationArrayOutput {
+	return o
+}
+
+func (o ConnectPeerConfigurationBgpConfigurationArrayOutput) Index(i pulumi.IntInput) ConnectPeerConfigurationBgpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectPeerConfigurationBgpConfiguration {
+		return vs[0].([]ConnectPeerConfigurationBgpConfiguration)[vs[1].(int)]
+	}).(ConnectPeerConfigurationBgpConfigurationOutput)
+}
+
 type CoreNetworkEdge struct {
 	// ASN of a core network edge.
 	Asn *int `pulumi:"asn"`
@@ -2527,6 +2907,12 @@ func (o GetSiteLocationArrayOutput) Index(i pulumi.IntInput) GetSiteLocationOutp
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsPtrInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsPtrInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerConfigurationInput)(nil)).Elem(), ConnectPeerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerConfigurationArrayInput)(nil)).Elem(), ConnectPeerConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerConfigurationBgpConfigurationInput)(nil)).Elem(), ConnectPeerConfigurationBgpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerConfigurationBgpConfigurationArrayInput)(nil)).Elem(), ConnectPeerConfigurationBgpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkEdgeInput)(nil)).Elem(), CoreNetworkEdgeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkEdgeArrayInput)(nil)).Elem(), CoreNetworkEdgeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkSegmentInput)(nil)).Elem(), CoreNetworkSegmentArgs{})
@@ -2564,6 +2950,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSiteLocationArrayInput)(nil)).Elem(), GetSiteLocationArray{})
 	pulumi.RegisterOutputType(ConnectAttachmentOptionsOutput{})
 	pulumi.RegisterOutputType(ConnectAttachmentOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectPeerBgpOptionsOutput{})
+	pulumi.RegisterOutputType(ConnectPeerBgpOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectPeerConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectPeerConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ConnectPeerConfigurationBgpConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectPeerConfigurationBgpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(CoreNetworkEdgeOutput{})
 	pulumi.RegisterOutputType(CoreNetworkEdgeArrayOutput{})
 	pulumi.RegisterOutputType(CoreNetworkSegmentOutput{})

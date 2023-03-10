@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.elastictranscoder.Pipeline("bar", {
- *     inputBucket: aws_s3_bucket.input_bucket.bucket,
+ *     inputBucket: aws_s3_bucket.input_bucket.id,
  *     role: aws_iam_role.test_role.arn,
  *     contentConfig: {
- *         bucket: aws_s3_bucket.content_bucket.bucket,
+ *         bucket: aws_s3_bucket.content_bucket.id,
  *         storageClass: "Standard",
  *     },
  *     thumbnailConfig: {
- *         bucket: aws_s3_bucket.thumb_bucket.bucket,
+ *         bucket: aws_s3_bucket.thumb_bucket.id,
  *         storageClass: "Standard",
  *     },
  * });

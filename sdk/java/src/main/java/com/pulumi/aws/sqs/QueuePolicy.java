@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sqs.QueuePolicy;
  * import com.pulumi.aws.sqs.QueuePolicyArgs;
  * import java.util.List;
@@ -42,28 +44,27 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var queue = new Queue(&#34;queue&#34;);
  * 
- *         var test = new QueuePolicy(&#34;test&#34;, QueuePolicyArgs.builder()        
+ *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;First&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(&#34;sqs:SendMessage&#34;)
+ *                 .resources(queue.arn())
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;ArnEquals&#34;)
+ *                     .variable(&#34;aws:SourceArn&#34;)
+ *                     .values(aws_sns_topic.example().arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var testQueuePolicy = new QueuePolicy(&#34;testQueuePolicy&#34;, QueuePolicyArgs.builder()        
  *             .queueUrl(queue.id())
- *             .policy(queue.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Id&#34;: &#34;sqspolicy&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;First&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: &#34;*&#34;,
- *       &#34;Action&#34;: &#34;sqs:SendMessage&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;Condition&#34;: {
- *         &#34;ArnEquals&#34;: {
- *           &#34;aws:SourceArn&#34;: &#34;%s&#34;
- *         }
- *       }
- *     }
- *   ]
- * }
- * &#34;, arn,aws_sns_topic.example().arn())))
+ *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

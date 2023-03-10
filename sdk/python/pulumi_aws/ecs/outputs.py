@@ -948,20 +948,20 @@ class ServiceServiceConnectConfiguration(dict):
                  enabled: bool,
                  log_configuration: Optional['outputs.ServiceServiceConnectConfigurationLogConfiguration'] = None,
                  namespace: Optional[str] = None,
-                 service: Optional['outputs.ServiceServiceConnectConfigurationService'] = None):
+                 services: Optional[Sequence['outputs.ServiceServiceConnectConfigurationService']] = None):
         """
         :param bool enabled: Specifies whether to use Service Connect with this service.
         :param 'ServiceServiceConnectConfigurationLogConfigurationArgs' log_configuration: The log configuration for the container. See below.
         :param str namespace: The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
-        :param 'ServiceServiceConnectConfigurationServiceArgs' service: The list of Service Connect service objects. See below.
+        :param Sequence['ServiceServiceConnectConfigurationServiceArgs'] services: The list of Service Connect service objects. See below.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
-        if service is not None:
-            pulumi.set(__self__, "service", service)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
 
     @property
     @pulumi.getter
@@ -989,11 +989,11 @@ class ServiceServiceConnectConfiguration(dict):
 
     @property
     @pulumi.getter
-    def service(self) -> Optional['outputs.ServiceServiceConnectConfigurationService']:
+    def services(self) -> Optional[Sequence['outputs.ServiceServiceConnectConfigurationService']]:
         """
         The list of Service Connect service objects. See below.
         """
-        return pulumi.get(self, "service")
+        return pulumi.get(self, "services")
 
 
 @pulumi.output_type
@@ -1018,7 +1018,7 @@ class ServiceServiceConnectConfigurationLogConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 log_driver: Optional[str] = None,
+                 log_driver: str,
                  options: Optional[Mapping[str, str]] = None,
                  secret_options: Optional[Sequence['outputs.ServiceServiceConnectConfigurationLogConfigurationSecretOption']] = None):
         """
@@ -1026,8 +1026,7 @@ class ServiceServiceConnectConfigurationLogConfiguration(dict):
         :param Mapping[str, str] options: The configuration options to send to the log driver.
         :param Sequence['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs'] secret_options: The secrets to pass to the log configuration. See below.
         """
-        if log_driver is not None:
-            pulumi.set(__self__, "log_driver", log_driver)
+        pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
             pulumi.set(__self__, "options", options)
         if secret_options is not None:
@@ -1035,7 +1034,7 @@ class ServiceServiceConnectConfigurationLogConfiguration(dict):
 
     @property
     @pulumi.getter(name="logDriver")
-    def log_driver(self) -> Optional[str]:
+    def log_driver(self) -> str:
         """
         The log driver to use for the container.
         """
@@ -1109,10 +1108,10 @@ class ServiceServiceConnectConfigurationService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientAliases":
-            suggest = "client_aliases"
-        elif key == "portName":
+        if key == "portName":
             suggest = "port_name"
+        elif key == "clientAlias":
+            suggest = "client_alias"
         elif key == "discoveryName":
             suggest = "discovery_name"
         elif key == "ingressPortOverride":
@@ -1130,30 +1129,23 @@ class ServiceServiceConnectConfigurationService(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_aliases: Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias'],
                  port_name: str,
+                 client_alias: Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']] = None,
                  discovery_name: Optional[str] = None,
                  ingress_port_override: Optional[int] = None):
         """
-        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasArgs'] client_aliases: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         :param str port_name: The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasArgs'] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         :param str discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param int ingress_port_override: The port number for the Service Connect proxy to listen on.
         """
-        pulumi.set(__self__, "client_aliases", client_aliases)
         pulumi.set(__self__, "port_name", port_name)
+        if client_alias is not None:
+            pulumi.set(__self__, "client_alias", client_alias)
         if discovery_name is not None:
             pulumi.set(__self__, "discovery_name", discovery_name)
         if ingress_port_override is not None:
             pulumi.set(__self__, "ingress_port_override", ingress_port_override)
-
-    @property
-    @pulumi.getter(name="clientAliases")
-    def client_aliases(self) -> Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']:
-        """
-        The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-        """
-        return pulumi.get(self, "client_aliases")
 
     @property
     @pulumi.getter(name="portName")
@@ -1162,6 +1154,14 @@ class ServiceServiceConnectConfigurationService(dict):
         The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
         """
         return pulumi.get(self, "port_name")
+
+    @property
+    @pulumi.getter(name="clientAlias")
+    def client_alias(self) -> Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']]:
+        """
+        The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        """
+        return pulumi.get(self, "client_alias")
 
     @property
     @pulumi.getter(name="discoveryName")

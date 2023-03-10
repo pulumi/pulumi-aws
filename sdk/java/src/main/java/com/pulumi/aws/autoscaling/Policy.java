@@ -73,6 +73,82 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Create target tarcking scaling policy using metric math
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.autoscaling.Policy;
+ * import com.pulumi.aws.autoscaling.PolicyArgs;
+ * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
+ * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+ *             .autoscalingGroupName(&#34;my-test-asg&#34;)
+ *             .policyType(&#34;TargetTrackingScaling&#34;)
+ *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
+ *                 .customizedMetricSpecification(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs.builder()
+ *                     .metrics(                    
+ *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
+ *                             .id(&#34;m1&#34;)
+ *                             .label(&#34;Get the queue size (the number of messages waiting to be processed)&#34;)
+ *                             .metricStat(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
+ *                                 .metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
+ *                                     .dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
+ *                                         .name(&#34;QueueName&#34;)
+ *                                         .value(&#34;my-queue&#34;)
+ *                                         .build())
+ *                                     .metricName(&#34;ApproximateNumberOfMessagesVisible&#34;)
+ *                                     .namespace(&#34;AWS/SQS&#34;)
+ *                                     .build())
+ *                                 .stat(&#34;Sum&#34;)
+ *                                 .build())
+ *                             .returnData(false)
+ *                             .build(),
+ *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
+ *                             .id(&#34;m2&#34;)
+ *                             .label(&#34;Get the group size (the number of InService instances)&#34;)
+ *                             .metricStat(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
+ *                                 .metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
+ *                                     .dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
+ *                                         .name(&#34;AutoScalingGroupName&#34;)
+ *                                         .value(&#34;my-asg&#34;)
+ *                                         .build())
+ *                                     .metricName(&#34;GroupInServiceInstances&#34;)
+ *                                     .namespace(&#34;AWS/AutoScaling&#34;)
+ *                                     .build())
+ *                                 .stat(&#34;Average&#34;)
+ *                                 .build())
+ *                             .returnData(false)
+ *                             .build(),
+ *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
+ *                             .expression(&#34;m1 / m2&#34;)
+ *                             .id(&#34;e1&#34;)
+ *                             .label(&#34;Calculate the backlog per instance&#34;)
+ *                             .returnData(true)
+ *                             .build())
+ *                     .build())
+ *                 .targetValue(100)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Create predictive scaling policy using customized metrics
  * ```java
  * package generated_program;

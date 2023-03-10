@@ -2039,7 +2039,7 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
         :param 'FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param str compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs' data_format_conversion_configuration: Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
-        :param 'FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs' dynamic_partitioning_configuration: The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+        :param 'FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs' dynamic_partitioning_configuration: The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
         :param str error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         :param str kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
                be used.
@@ -2136,7 +2136,7 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
     @pulumi.getter(name="dynamicPartitioningConfiguration")
     def dynamic_partitioning_configuration(self) -> Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration']:
         """
-        The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+        The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
         """
         return pulumi.get(self, "dynamic_partitioning_configuration")
 
@@ -2949,7 +2949,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurat
                  enabled: Optional[bool] = None,
                  retry_duration: Optional[int] = None):
         """
-        :param bool enabled: Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+        :param bool enabled: Enables or disables dynamic partitioning. Defaults to `false`.
         :param int retry_duration: Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
         """
         if enabled is not None:
@@ -2961,7 +2961,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurat
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+        Enables or disables dynamic partitioning. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 

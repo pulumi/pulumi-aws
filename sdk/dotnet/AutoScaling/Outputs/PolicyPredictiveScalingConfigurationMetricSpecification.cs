@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Target value for the metric.
         /// </summary>
-        public readonly int TargetValue;
+        public readonly double TargetValue;
 
         [OutputConstructor]
         private PolicyPredictiveScalingConfigurationMetricSpecification(
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification? predefinedScalingMetricSpecification,
 
-            int targetValue)
+            double targetValue)
         {
             CustomizedCapacityMetricSpecification = customizedCapacityMetricSpecification;
             CustomizedLoadMetricSpecification = customizedLoadMetricSpecification;

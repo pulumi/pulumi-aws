@@ -17,14 +17,14 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
     public static final BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs Empty = new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs();
 
     /**
-     * The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+     * Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
     @Import(name="newerNoncurrentVersions")
     private @Nullable Output<String> newerNoncurrentVersions;
 
     /**
-     * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+     * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
     public Optional<Output<String>> newerNoncurrentVersions() {
@@ -32,14 +32,14 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
     }
 
     /**
-     * The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+     * Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
      * 
      */
     @Import(name="noncurrentDays")
     private @Nullable Output<Integer> noncurrentDays;
 
     /**
-     * @return The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+     * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
      * 
      */
     public Optional<Output<Integer>> noncurrentDays() {
@@ -72,7 +72,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
         }
 
         /**
-         * @param newerNoncurrentVersions The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+         * @param newerNoncurrentVersions Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
         }
 
         /**
-         * @param newerNoncurrentVersions The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+         * @param newerNoncurrentVersions Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
         }
 
         /**
-         * @param noncurrentDays The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+         * @param noncurrentDays Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
         }
 
         /**
-         * @param noncurrentDays The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+         * @param noncurrentDays Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
          * 
          * @return builder
          * 

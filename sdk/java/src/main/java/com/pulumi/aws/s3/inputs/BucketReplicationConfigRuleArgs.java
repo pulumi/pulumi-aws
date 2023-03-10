@@ -37,14 +37,14 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the destination for the rule documented below.
+     * Specifies the destination for the rule. See below.
      * 
      */
     @Import(name="destination", required=true)
     private Output<BucketReplicationConfigRuleDestinationArgs> destination;
 
     /**
-     * @return Specifies the destination for the rule documented below.
+     * @return Specifies the destination for the rule. See below.
      * 
      */
     public Output<BucketReplicationConfigRuleDestinationArgs> destination() {
@@ -52,14 +52,14 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * Replicate existing objects in the source bucket according to the rule configurations documented below.
+     * Replicate existing objects in the source bucket according to the rule configurations. See below.
      * 
      */
     @Import(name="existingObjectReplication")
     private @Nullable Output<BucketReplicationConfigRuleExistingObjectReplicationArgs> existingObjectReplication;
 
     /**
-     * @return Replicate existing objects in the source bucket according to the rule configurations documented below.
+     * @return Replicate existing objects in the source bucket according to the rule configurations. See below.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleExistingObjectReplicationArgs>> existingObjectReplication() {
@@ -67,14 +67,14 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+     * Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketReplicationConfigRuleFilterArgs> filter;
 
     /**
-     * @return Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+     * @return Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleFilterArgs>> filter() {
@@ -120,14 +120,14 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -135,14 +135,14 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies special object selection criteria documented below.
+     * Specifies special object selection criteria. See below.
      * 
      */
     @Import(name="sourceSelectionCriteria")
     private @Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaArgs> sourceSelectionCriteria;
 
     /**
-     * @return Specifies special object selection criteria documented below.
+     * @return Specifies special object selection criteria. See below.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleSourceSelectionCriteriaArgs>> sourceSelectionCriteria() {
@@ -150,14 +150,14 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+     * Status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+     * @return Status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
      * 
      */
     public Output<String> status() {
@@ -218,7 +218,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param destination Specifies the destination for the rule documented below.
+         * @param destination Specifies the destination for the rule. See below.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param destination Specifies the destination for the rule documented below.
+         * @param destination Specifies the destination for the rule. See below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param existingObjectReplication Replicate existing objects in the source bucket according to the rule configurations documented below.
+         * @param existingObjectReplication Replicate existing objects in the source bucket according to the rule configurations. See below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param existingObjectReplication Replicate existing objects in the source bucket according to the rule configurations documented below.
+         * @param existingObjectReplication Replicate existing objects in the source bucket according to the rule configurations. See below.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param filter Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+         * @param filter Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param filter Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+         * @param filter Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param priority The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * @param priority Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param priority The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * @param priority Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceSelectionCriteria Specifies special object selection criteria documented below.
+         * @param sourceSelectionCriteria Specifies special object selection criteria. See below.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceSelectionCriteria Specifies special object selection criteria documented below.
+         * @param sourceSelectionCriteria Specifies special object selection criteria. See below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param status The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+         * @param status Status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param status The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+         * @param status Status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
          * 
          * @return builder
          * 

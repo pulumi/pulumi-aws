@@ -22,7 +22,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, encryption_configurations=None, id=None, image_scanning_configurations=None, image_tag_mutability=None, name=None, registry_id=None, repository_url=None, tags=None):
+    def __init__(__self__, arn=None, encryption_configurations=None, id=None, image_scanning_configurations=None, image_tag_mutability=None, most_recent_image_tags=None, name=None, registry_id=None, repository_url=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetRepositoryResult:
         if image_tag_mutability and not isinstance(image_tag_mutability, str):
             raise TypeError("Expected argument 'image_tag_mutability' to be a str")
         pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
+        if most_recent_image_tags and not isinstance(most_recent_image_tags, list):
+            raise TypeError("Expected argument 'most_recent_image_tags' to be a list")
+        pulumi.set(__self__, "most_recent_image_tags", most_recent_image_tags)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -92,6 +95,14 @@ class GetRepositoryResult:
         return pulumi.get(self, "image_tag_mutability")
 
     @property
+    @pulumi.getter(name="mostRecentImageTags")
+    def most_recent_image_tags(self) -> Sequence[str]:
+        """
+        List of image tags associated with the most recently pushed image in the repository.
+        """
+        return pulumi.get(self, "most_recent_image_tags")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -129,6 +140,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             id=self.id,
             image_scanning_configurations=self.image_scanning_configurations,
             image_tag_mutability=self.image_tag_mutability,
+            most_recent_image_tags=self.most_recent_image_tags,
             name=self.name,
             registry_id=self.registry_id,
             repository_url=self.repository_url,
@@ -169,6 +181,7 @@ def get_repository(name: Optional[str] = None,
         id=__ret__.id,
         image_scanning_configurations=__ret__.image_scanning_configurations,
         image_tag_mutability=__ret__.image_tag_mutability,
+        most_recent_image_tags=__ret__.most_recent_image_tags,
         name=__ret__.name,
         registry_id=__ret__.registry_id,
         repository_url=__ret__.repository_url,

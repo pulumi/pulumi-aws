@@ -666,70 +666,8 @@ public final class RedshiftFunctions {
      * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
-     * 
-     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
-     *             .forceDestroy(true)
-     *             .build());
-     * 
-     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
-     * 	&#34;Statement&#34;: [
-     * 		{
-     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
-     *         },
-     *         {
-     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
-     *         }
-     * 	]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount() {
@@ -739,70 +677,8 @@ public final class RedshiftFunctions {
      * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
-     * 
-     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
-     *             .forceDestroy(true)
-     *             .build());
-     * 
-     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
-     * 	&#34;Statement&#34;: [
-     * 		{
-     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
-     *         },
-     *         {
-     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
-     *         }
-     * 	]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
@@ -812,70 +688,8 @@ public final class RedshiftFunctions {
      * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
-     * 
-     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
-     *             .forceDestroy(true)
-     *             .build());
-     * 
-     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
-     * 	&#34;Statement&#34;: [
-     * 		{
-     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
-     *         },
-     *         {
-     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
-     *         }
-     * 	]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
@@ -885,70 +699,8 @@ public final class RedshiftFunctions {
      * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
-     * 
-     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
-     *             .forceDestroy(true)
-     *             .build());
-     * 
-     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
-     * 	&#34;Statement&#34;: [
-     * 		{
-     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
-     *         },
-     *         {
-     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
-     *         }
-     * 	]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
@@ -958,70 +710,8 @@ public final class RedshiftFunctions {
      * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
-     * 
-     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
-     *             .forceDestroy(true)
-     *             .build());
-     * 
-     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
-     * 	&#34;Statement&#34;: [
-     * 		{
-     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
-     *         },
-     *         {
-     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
-     *         }
-     * 	]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
@@ -1031,70 +721,8 @@ public final class RedshiftFunctions {
      * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
-     * 
-     *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
-     *             .forceDestroy(true)
-     *             .build());
-     * 
-     *         var allowAuditLogging = new BucketPolicy(&#34;allowAuditLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(bucket.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     * 	&#34;Version&#34;: &#34;2008-10-17&#34;,
-     * 	&#34;Statement&#34;: [
-     * 		{
-     *             &#34;Sid&#34;: &#34;Put bucket policy needed for audit logging&#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket/*&#34;
-     *         },
-     *         {
-     *             &#34;Sid&#34;: &#34;Get bucket policy needed for audit logging &#34;,
-     *             &#34;Effect&#34;: &#34;Allow&#34;,
-     *             &#34;Principal&#34;: {
-     * 		        &#34;AWS&#34;: &#34;%s&#34;
-     *             },
-     *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
-     *             &#34;Resource&#34;: &#34;arn:aws:s3:::tf-redshift-logging-test-bucket&#34;
-     *         }
-     * 	]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
+     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {

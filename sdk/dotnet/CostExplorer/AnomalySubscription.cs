@@ -48,6 +48,49 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
+    /// ### Threshold Expression
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.CostExplorer.AnomalySubscription("test", new()
+    ///     {
+    ///         Frequency = "DAILY",
+    ///         MonitorArnLists = new[]
+    ///         {
+    ///             aws_ce_anomaly_monitor.Test.Arn,
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
+    ///             {
+    ///                 Type = "EMAIL",
+    ///                 Address = "abc@example.com",
+    ///             },
+    ///         },
+    ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
+    ///         {
+    ///             Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs
+    ///             {
+    ///                 Key = "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "100.0",
+    ///                 },
+    ///                 MatchOptions = new[]
+    ///                 {
+    ///                     "GREATER_THAN_OR_EQUAL",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### SNS Example
     /// 
     /// ```csharp

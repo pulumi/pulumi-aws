@@ -21,8 +21,7 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -34,25 +33,34 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("EnableAnotherAWSAccountToReadTheSecret"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: []string{
+//									"arn:aws:iam::123456789012:root",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"secretsmanager:GetSecretValue",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
 //				SecretArn: exampleSecret.Arn,
-//				Policy: pulumi.String(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//		{
-//		  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
-//		  "Effect": "Allow",
-//		  "Principal": {
-//			"AWS": "arn:aws:iam::123456789012:root"
-//		  },
-//		  "Action": "secretsmanager:GetSecretValue",
-//		  "Resource": "*"
-//		}
-//	  ]
-//	}
-//
-// `)),
-//
+//				Policy:    *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

@@ -21,42 +21,63 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cloudfront.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""cloudfront.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "kinesis:DescribeStreamSummary",
+    ///                     "kinesis:DescribeStream",
+    ///                     "kinesis:PutRecord",
+    ///                     "kinesis:PutRecords",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     aws_kinesis_stream.Example.Arn,
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
     ///     {
     ///         Role = exampleRole.Id,
-    ///         Policy = @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///         ""Effect"": ""Allow"",
-    ///         ""Action"": [
-    ///           ""kinesis:DescribeStreamSummary"",
-    ///           ""kinesis:DescribeStream"",
-    ///           ""kinesis:PutRecord"",
-    ///           ""kinesis:PutRecords""
-    ///         ],
-    ///         ""Resource"": ""{aws_kinesis_stream.Example.Arn}""
-    ///     }}
-    ///   ]
-    /// }}
-    /// ",
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleRealtimeLogConfig = new Aws.CloudFront.RealtimeLogConfig("exampleRealtimeLogConfig", new()

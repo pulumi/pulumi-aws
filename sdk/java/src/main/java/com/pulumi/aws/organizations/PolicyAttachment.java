@@ -10,7 +10,9 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -132,6 +134,20 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> policyId() {
         return this.policyId;
+    }
+    /**
+     * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     * 
+     */
+    @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipDestroy;
+
+    /**
+     * @return If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     * 
+     */
+    public Output<Optional<Boolean>> skipDestroy() {
+        return Codegen.optional(this.skipDestroy);
     }
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.

@@ -32,14 +32,14 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs exte
     }
 
     /**
-     * The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+     * Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
      * 
      */
     @Import(name="outputSchemaVersion")
     private @Nullable Output<String> outputSchemaVersion;
 
     /**
-     * @return The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+     * @return Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
      * 
      */
     public Optional<Output<String>> outputSchemaVersion() {
@@ -93,7 +93,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs exte
         }
 
         /**
-         * @param outputSchemaVersion The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+         * @param outputSchemaVersion Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs exte
         }
 
         /**
-         * @param outputSchemaVersion The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+         * @param outputSchemaVersion Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
          * 
          * @return builder
          * 

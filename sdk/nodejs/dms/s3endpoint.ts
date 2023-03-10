@@ -214,6 +214,10 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly datePartitionTimezone!: pulumi.Output<string | undefined>;
     /**
+     * Undocumented argument for use as directed by AWS Support.
+     */
+    public readonly detachTargetOnLobLookupFailureParquet!: pulumi.Output<boolean | undefined>;
+    /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */
     public readonly dictPageSizeLimit!: pulumi.Output<number | undefined>;
@@ -365,6 +369,7 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["datePartitionEnabled"] = state ? state.datePartitionEnabled : undefined;
             resourceInputs["datePartitionSequence"] = state ? state.datePartitionSequence : undefined;
             resourceInputs["datePartitionTimezone"] = state ? state.datePartitionTimezone : undefined;
+            resourceInputs["detachTargetOnLobLookupFailureParquet"] = state ? state.detachTargetOnLobLookupFailureParquet : undefined;
             resourceInputs["dictPageSizeLimit"] = state ? state.dictPageSizeLimit : undefined;
             resourceInputs["enableStatistics"] = state ? state.enableStatistics : undefined;
             resourceInputs["encodingType"] = state ? state.encodingType : undefined;
@@ -430,6 +435,7 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["datePartitionEnabled"] = args ? args.datePartitionEnabled : undefined;
             resourceInputs["datePartitionSequence"] = args ? args.datePartitionSequence : undefined;
             resourceInputs["datePartitionTimezone"] = args ? args.datePartitionTimezone : undefined;
+            resourceInputs["detachTargetOnLobLookupFailureParquet"] = args ? args.detachTargetOnLobLookupFailureParquet : undefined;
             resourceInputs["dictPageSizeLimit"] = args ? args.dictPageSizeLimit : undefined;
             resourceInputs["enableStatistics"] = args ? args.enableStatistics : undefined;
             resourceInputs["encodingType"] = args ? args.encodingType : undefined;
@@ -557,6 +563,10 @@ export interface S3EndpointState {
      * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
      */
     datePartitionTimezone?: pulumi.Input<string>;
+    /**
+     * Undocumented argument for use as directed by AWS Support.
+     */
+    detachTargetOnLobLookupFailureParquet?: pulumi.Input<boolean>;
     /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */
@@ -767,6 +777,10 @@ export interface S3EndpointArgs {
      * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
      */
     datePartitionTimezone?: pulumi.Input<string>;
+    /**
+     * Undocumented argument for use as directed by AWS Support.
+     */
+    detachTargetOnLobLookupFailureParquet?: pulumi.Input<boolean>;
     /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      */

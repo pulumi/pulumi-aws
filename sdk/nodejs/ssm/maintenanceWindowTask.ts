@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     }],
  *     taskInvocationParameters: {
  *         automationParameters: {
- *             documentVersion: `$LATEST`,
+ *             documentVersion: "$LATEST",
  *             parameters: [{
  *                 name: "InstanceId",
  *                 values: [aws_instance.example.id],
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *     }],
  *     taskInvocationParameters: {
  *         runCommandParameters: {
- *             outputS3Bucket: aws_s3_bucket.example.bucket,
+ *             outputS3Bucket: aws_s3_bucket.example.id,
  *             outputS3KeyPrefix: "output",
  *             serviceRoleArn: aws_iam_role.example.arn,
  *             timeoutSeconds: 600,

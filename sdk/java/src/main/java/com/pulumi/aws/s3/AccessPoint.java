@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
  * ```
  * 
- *  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.,
+ *  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
@@ -136,63 +136,63 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * The alias of the S3 Access Point.
+     * Alias of the S3 Access Point.
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
-     * @return The alias of the S3 Access Point.
+     * @return Alias of the S3 Access Point.
      * 
      */
     public Output<String> alias() {
         return this.alias;
     }
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Point.
+     * ARN of the S3 Access Point.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Access Point.
+     * @return ARN of the S3 Access Point.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+     * @return Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The AWS account ID associated with the S3 bucket associated with this access point.
+     * AWS account ID associated with the S3 bucket associated with this access point.
      * 
      */
     @Export(name="bucketAccountId", refs={String.class}, tree="[0]")
     private Output<String> bucketAccountId;
 
     /**
-     * @return The AWS account ID associated with the S3 bucket associated with this access point.
+     * @return AWS account ID associated with the S3 bucket associated with this access point.
      * 
      */
     public Output<String> bucketAccountId() {
         return this.bucketAccountId;
     }
     /**
-     * The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+     * DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
      */
@@ -200,7 +200,7 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
     private Output<String> domainName;
 
     /**
-     * @return The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+     * @return DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
      */
@@ -208,14 +208,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * The VPC endpoints for the S3 Access Point.
+     * VPC endpoints for the S3 Access Point.
      * 
      */
     @Export(name="endpoints", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> endpoints;
 
     /**
-     * @return The VPC endpoints for the S3 Access Point.
+     * @return VPC endpoints for the S3 Access Point.
      * 
      */
     public Output<Map<String,String>> endpoints() {

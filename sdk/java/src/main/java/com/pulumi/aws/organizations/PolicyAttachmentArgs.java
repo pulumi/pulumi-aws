@@ -5,8 +5,11 @@ package com.pulumi.aws.organizations;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,6 +32,21 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
+    /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      * 
      */
@@ -47,6 +65,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
 
     private PolicyAttachmentArgs(PolicyAttachmentArgs $) {
         this.policyId = $.policyId;
+        this.skipDestroy = $.skipDestroy;
         this.targetId = $.targetId;
     }
 
@@ -87,6 +106,27 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
+        }
+
+        /**
+         * @param skipDestroy If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

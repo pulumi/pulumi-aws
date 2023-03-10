@@ -14,6 +14,7 @@ __all__ = [
     'AccessPosixProfileArgs',
     'ServerEndpointDetailsArgs',
     'ServerWorkflowDetailsArgs',
+    'ServerWorkflowDetailsOnPartialUploadArgs',
     'ServerWorkflowDetailsOnUploadArgs',
     'UserHomeDirectoryMappingArgs',
     'UserPosixProfileArgs',
@@ -217,12 +218,28 @@ class ServerEndpointDetailsArgs:
 @pulumi.input_type
 class ServerWorkflowDetailsArgs:
     def __init__(__self__, *,
+                 on_partial_upload: Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']] = None,
                  on_upload: Optional[pulumi.Input['ServerWorkflowDetailsOnUploadArgs']] = None):
         """
+        :param pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs'] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
         :param pulumi.Input['ServerWorkflowDetailsOnUploadArgs'] on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
         """
+        if on_partial_upload is not None:
+            pulumi.set(__self__, "on_partial_upload", on_partial_upload)
         if on_upload is not None:
             pulumi.set(__self__, "on_upload", on_upload)
+
+    @property
+    @pulumi.getter(name="onPartialUpload")
+    def on_partial_upload(self) -> Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']]:
+        """
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+        """
+        return pulumi.get(self, "on_partial_upload")
+
+    @on_partial_upload.setter
+    def on_partial_upload(self, value: Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']]):
+        pulumi.set(self, "on_partial_upload", value)
 
     @property
     @pulumi.getter(name="onUpload")
@@ -235,6 +252,43 @@ class ServerWorkflowDetailsArgs:
     @on_upload.setter
     def on_upload(self, value: Optional[pulumi.Input['ServerWorkflowDetailsOnUploadArgs']]):
         pulumi.set(self, "on_upload", value)
+
+
+@pulumi.input_type
+class ServerWorkflowDetailsOnPartialUploadArgs:
+    def __init__(__self__, *,
+                 execution_role: pulumi.Input[str],
+                 workflow_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] execution_role: Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+        :param pulumi.Input[str] workflow_id: A unique identifier for the workflow.
+        """
+        pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "workflow_id", workflow_id)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> pulumi.Input[str]:
+        """
+        Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="workflowId")
+    def workflow_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the workflow.
+        """
+        return pulumi.get(self, "workflow_id")
+
+    @workflow_id.setter
+    def workflow_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workflow_id", value)
 
 
 @pulumi.input_type

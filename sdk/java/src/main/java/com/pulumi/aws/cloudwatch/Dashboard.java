@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.Dashboard;
  * import com.pulumi.aws.cloudwatch.DashboardArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -39,45 +40,41 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new Dashboard(&#34;main&#34;, DashboardArgs.builder()        
- *             .dashboardBody(&#34;&#34;&#34;
- * {
- *   &#34;widgets&#34;: [
- *     {
- *       &#34;type&#34;: &#34;metric&#34;,
- *       &#34;x&#34;: 0,
- *       &#34;y&#34;: 0,
- *       &#34;width&#34;: 12,
- *       &#34;height&#34;: 6,
- *       &#34;properties&#34;: {
- *         &#34;metrics&#34;: [
- *           [
- *             &#34;AWS/EC2&#34;,
- *             &#34;CPUUtilization&#34;,
- *             &#34;InstanceId&#34;,
- *             &#34;i-012345&#34;
- *           ]
- *         ],
- *         &#34;period&#34;: 300,
- *         &#34;stat&#34;: &#34;Average&#34;,
- *         &#34;region&#34;: &#34;us-east-1&#34;,
- *         &#34;title&#34;: &#34;EC2 Instance CPU&#34;
- *       }
- *     },
- *     {
- *       &#34;type&#34;: &#34;text&#34;,
- *       &#34;x&#34;: 0,
- *       &#34;y&#34;: 7,
- *       &#34;width&#34;: 3,
- *       &#34;height&#34;: 3,
- *       &#34;properties&#34;: {
- *         &#34;markdown&#34;: &#34;Hello world&#34;
- *       }
- *     }
- *   ]
- * }
- * 
- *             &#34;&#34;&#34;)
  *             .dashboardName(&#34;my-dashboard&#34;)
+ *             .dashboardBody(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;widgets&#34;, jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;metric&#34;),
+ *                             jsonProperty(&#34;x&#34;, 0),
+ *                             jsonProperty(&#34;y&#34;, 0),
+ *                             jsonProperty(&#34;width&#34;, 12),
+ *                             jsonProperty(&#34;height&#34;, 6),
+ *                             jsonProperty(&#34;properties&#34;, jsonObject(
+ *                                 jsonProperty(&#34;metrics&#34;, jsonArray(jsonArray(
+ *                                     &#34;AWS/EC2&#34;, 
+ *                                     &#34;CPUUtilization&#34;, 
+ *                                     &#34;InstanceId&#34;, 
+ *                                     &#34;i-012345&#34;
+ *                                 ))),
+ *                                 jsonProperty(&#34;period&#34;, 300),
+ *                                 jsonProperty(&#34;stat&#34;, &#34;Average&#34;),
+ *                                 jsonProperty(&#34;region&#34;, &#34;us-east-1&#34;),
+ *                                 jsonProperty(&#34;title&#34;, &#34;EC2 Instance CPU&#34;)
+ *                             ))
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;text&#34;),
+ *                             jsonProperty(&#34;x&#34;, 0),
+ *                             jsonProperty(&#34;y&#34;, 7),
+ *                             jsonProperty(&#34;width&#34;, 3),
+ *                             jsonProperty(&#34;height&#34;, 3),
+ *                             jsonProperty(&#34;properties&#34;, jsonObject(
+ *                                 jsonProperty(&#34;markdown&#34;, &#34;Hello world&#34;)
+ *                             ))
+ *                         )
+ *                     ))
+ *                 )))
  *             .build());
  * 
  *     }

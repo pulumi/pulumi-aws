@@ -17,14 +17,14 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
     public static final InventoryDestinationBucketArgs Empty = new InventoryDestinationBucketArgs();
 
     /**
-     * The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+     * ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+     * @return ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -32,14 +32,14 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Amazon S3 bucket ARN of the destination.
+     * Amazon S3 bucket ARN of the destination.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The Amazon S3 bucket ARN of the destination.
+     * @return Amazon S3 bucket ARN of the destination.
      * 
      */
     public Output<String> bucketArn() {
@@ -77,14 +77,14 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The prefix that is prepended to all inventory results.
+     * Prefix that is prepended to all inventory results.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The prefix that is prepended to all inventory results.
+     * @return Prefix that is prepended to all inventory results.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -120,7 +120,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param accountId The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+         * @param accountId ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param accountId The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+         * @param accountId ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param bucketArn The Amazon S3 bucket ARN of the destination.
+         * @param bucketArn Amazon S3 bucket ARN of the destination.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param bucketArn The Amazon S3 bucket ARN of the destination.
+         * @param bucketArn Amazon S3 bucket ARN of the destination.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param prefix The prefix that is prepended to all inventory results.
+         * @param prefix Prefix that is prepended to all inventory results.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param prefix The prefix that is prepended to all inventory results.
+         * @param prefix Prefix that is prepended to all inventory results.
          * 
          * @return builder
          * 

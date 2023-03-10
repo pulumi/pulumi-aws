@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketV2.bucket())
+ *             .bucket(exampleBucketV2.id())
  *             .key(&#34;example-flink-application&#34;)
  *             .source(new FileAsset(&#34;flink-app.jar&#34;))
  *             .build());
@@ -298,7 +298,7 @@ import javax.annotation.Nullable;
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketV2.bucket())
+ *             .bucket(exampleBucketV2.id())
  *             .key(&#34;example-flink-application&#34;)
  *             .source(new FileAsset(&#34;flink-app.jar&#34;))
  *             .build());

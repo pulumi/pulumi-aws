@@ -111,7 +111,7 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly runtimeVersion!: pulumi.Output<string>;
     /**
-     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
      */
     public readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
@@ -296,7 +296,7 @@ export interface CanaryState {
      */
     runtimeVersion?: pulumi.Input<string>;
     /**
-     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
      */
     s3Bucket?: pulumi.Input<string>;
     /**
@@ -390,7 +390,7 @@ export interface CanaryArgs {
      */
     runtimeVersion: pulumi.Input<string>;
     /**
-     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zipFile`.**
+     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zipFile`.**
      */
     s3Bucket?: pulumi.Input<string>;
     /**

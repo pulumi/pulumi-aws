@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleDatabase = new aws.athena.Database("exampleDatabase", {
  *     name: "database_name",
- *     bucket: exampleBucketV2.bucket,
+ *     bucket: exampleBucketV2.id,
  * });
  * ```
  *
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  *  = "database_name"
  *
- *  bucket = aws_s3_bucket.example.bucket
+ *  bucket = aws_s3_bucket.example.id
  *
  * # There is no API for reading bucket
  *

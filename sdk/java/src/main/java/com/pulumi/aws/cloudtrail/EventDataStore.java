@@ -156,6 +156,20 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+     * 
+     */
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyId;
+
+    /**
+     * @return Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+     * 
+     */
+    public Output<Optional<String>> kmsKeyId() {
+        return Codegen.optional(this.kmsKeyId);
+    }
+    /**
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      * 
      */

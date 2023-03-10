@@ -309,8 +309,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -319,37 +317,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
-//	  {
-//	    "cpu": 10,
-//	    "command": ["sleep", "10"],
-//	    "entryPoint": ["/"],
-//	    "environment": [
-//	      {"name": "VARNAME", "value": "VARVAL"}
-//	    ],
-//	    "essential": true,
-//	    "image": "jenkins",
-//	    "memory": 128,
-//	    "name": "jenkins",
-//	    "portMappings": [
-//	      {
-//	        "containerPort": 80,
-//	        "hostPort": 8080
-//	      }
-//	    ],
-//	        "resourceRequirements":[
-//	            {
-//	                "type":"InferenceAccelerator",
-//	                "value":"device_1"
-//	            }
-//	        ]
-//	  }
-//
-// ]
-//
-// `)),
-//
-//				Family: pulumi.String("test"),
+//				ContainerDefinitions: pulumi.String("[\n  {\n    \"cpu\": 10,\n    \"command\": [\"sleep\", \"10\"],\n    \"entryPoint\": [\"/\"],\n    \"environment\": [\n      {\"name\": \"VARNAME\", \"value\": \"VARVAL\"}\n    ],\n    \"essential\": true,\n    \"image\": \"jenkins\",\n    \"memory\": 128,\n    \"name\": \"jenkins\",\n    \"portMappings\": [\n      {\n        \"containerPort\": 80,\n        \"hostPort\": 8080\n      }\n    ],\n        \"resourceRequirements\":[\n            {\n                \"type\":\"InferenceAccelerator\",\n                \"value\":\"device_1\"\n            }\n        ]\n  }\n]\n\n"),
+//				Family:               pulumi.String("test"),
 //				InferenceAccelerators: ecs.TaskDefinitionInferenceAcceleratorArray{
 //					&ecs.TaskDefinitionInferenceAcceleratorArgs{
 //						DeviceName: pulumi.String("device_1"),
@@ -372,8 +341,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -382,23 +349,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
-//	  {
-//	    "name": "iis",
-//	    "image": "mcr.microsoft.com/windows/servercore/iis",
-//	    "cpu": 1024,
-//	    "memory": 2048,
-//	    "essential": true
-//	  }
-//
-// ]
-//
-// `)),
-//
-//				Cpu:         pulumi.String("1024"),
-//				Family:      pulumi.String("test"),
-//				Memory:      pulumi.String("2048"),
-//				NetworkMode: pulumi.String("awsvpc"),
+//				ContainerDefinitions: pulumi.String("[\n  {\n    \"name\": \"iis\",\n    \"image\": \"mcr.microsoft.com/windows/servercore/iis\",\n    \"cpu\": 1024,\n    \"memory\": 2048,\n    \"essential\": true\n  }\n]\n\n"),
+//				Cpu:                  pulumi.String("1024"),
+//				Family:               pulumi.String("test"),
+//				Memory:               pulumi.String("2048"),
+//				NetworkMode:          pulumi.String("awsvpc"),
 //				RequiresCompatibilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
 //				},

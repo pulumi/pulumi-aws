@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.aws.route53.enums.RecordType;
 import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+import com.pulumi.aws.route53.inputs.RecordCidrRoutingPolicyArgs;
 import com.pulumi.aws.route53.inputs.RecordFailoverRoutingPolicyArgs;
 import com.pulumi.aws.route53.inputs.RecordGeolocationRoutingPolicyArgs;
 import com.pulumi.aws.route53.inputs.RecordLatencyRoutingPolicyArgs;
@@ -55,6 +56,21 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> allowOverwrite() {
         return Optional.ofNullable(this.allowOverwrite);
+    }
+
+    /**
+     * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    @Import(name="cidrRoutingPolicy")
+    private @Nullable Output<RecordCidrRoutingPolicyArgs> cidrRoutingPolicy;
+
+    /**
+     * @return A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    public Optional<Output<RecordCidrRoutingPolicyArgs>> cidrRoutingPolicy() {
+        return Optional.ofNullable(this.cidrRoutingPolicy);
     }
 
     /**
@@ -163,14 +179,14 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     @Import(name="setIdentifier")
     private @Nullable Output<String> setIdentifier;
 
     /**
-     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     public Optional<Output<String>> setIdentifier() {
@@ -242,6 +258,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
     private RecordArgs(RecordArgs $) {
         this.aliases = $.aliases;
         this.allowOverwrite = $.allowOverwrite;
+        this.cidrRoutingPolicy = $.cidrRoutingPolicy;
         this.failoverRoutingPolicies = $.failoverRoutingPolicies;
         this.geolocationRoutingPolicies = $.geolocationRoutingPolicies;
         this.healthCheckId = $.healthCheckId;
@@ -327,6 +344,27 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allowOverwrite(Boolean allowOverwrite) {
             return allowOverwrite(Output.of(allowOverwrite));
+        }
+
+        /**
+         * @param cidrRoutingPolicy A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrRoutingPolicy(@Nullable Output<RecordCidrRoutingPolicyArgs> cidrRoutingPolicy) {
+            $.cidrRoutingPolicy = cidrRoutingPolicy;
+            return this;
+        }
+
+        /**
+         * @param cidrRoutingPolicy A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrRoutingPolicy(RecordCidrRoutingPolicyArgs cidrRoutingPolicy) {
+            return cidrRoutingPolicy(Output.of(cidrRoutingPolicy));
         }
 
         /**
@@ -517,7 +555,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param setIdentifier Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+         * @param setIdentifier Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
          * 
          * @return builder
          * 
@@ -528,7 +566,7 @@ public final class RecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param setIdentifier Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+         * @param setIdentifier Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
          * 
          * @return builder
          * 

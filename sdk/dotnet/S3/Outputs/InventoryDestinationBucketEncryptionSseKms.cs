@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class InventoryDestinationBucketEncryptionSseKms
     {
         /// <summary>
-        /// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+        /// ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
         /// </summary>
         public readonly string KeyId;
 

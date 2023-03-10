@@ -23,22 +23,35 @@ namespace Pulumi.Aws.Pinpoint
     /// {
     ///     var app = new Aws.Pinpoint.App("app");
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "pinpoint.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""pinpoint.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var email = new Aws.Pinpoint.EmailChannel("email", new()
@@ -53,23 +66,30 @@ namespace Pulumi.Aws.Pinpoint
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     var rolePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "mobileanalytics:PutEvents",
+    ///                     "mobileanalytics:PutItems",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var rolePolicyRolePolicy = new Aws.Iam.RolePolicy("rolePolicyRolePolicy", new()
     ///     {
     ///         Role = role.Id,
-    ///         Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": {
-    ///     ""Action"": [
-    ///       ""mobileanalytics:PutEvents"",
-    ///       ""mobileanalytics:PutItems""
-    ///     ],
-    ///     ""Effect"": ""Allow"",
-    ///     ""Resource"": [
-    ///       ""*""
-    ///     ]
-    ///   }
-    /// }
-    /// ",
+    ///         Policy = rolePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

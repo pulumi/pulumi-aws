@@ -16,14 +16,14 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
     public static final BucketV2ReplicationConfigurationArgs Empty = new BucketV2ReplicationConfigurationArgs();
 
     /**
-     * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
     @Import(name="role", required=true)
     private Output<String> role;
 
     /**
-     * @return The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     * @return ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
     public Output<String> role() {
@@ -71,7 +71,7 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param role The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+         * @param role ARN of the IAM role for Amazon S3 to assume when replicating the objects.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param role The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+         * @param role ARN of the IAM role for Amazon S3 to assume when replicating the objects.
          * 
          * @return builder
          * 

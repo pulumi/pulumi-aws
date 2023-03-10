@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new Pipeline(&#34;bar&#34;, PipelineArgs.builder()        
- *             .inputBucket(aws_s3_bucket.input_bucket().bucket())
+ *             .inputBucket(aws_s3_bucket.input_bucket().id())
  *             .role(aws_iam_role.test_role().arn())
  *             .contentConfig(PipelineContentConfigArgs.builder()
- *                 .bucket(aws_s3_bucket.content_bucket().bucket())
+ *                 .bucket(aws_s3_bucket.content_bucket().id())
  *                 .storageClass(&#34;Standard&#34;)
  *                 .build())
  *             .thumbnailConfig(PipelineThumbnailConfigArgs.builder()
- *                 .bucket(aws_s3_bucket.thumb_bucket().bucket())
+ *                 .bucket(aws_s3_bucket.thumb_bucket().id())
  *                 .storageClass(&#34;Standard&#34;)
  *                 .build())
  *             .build());

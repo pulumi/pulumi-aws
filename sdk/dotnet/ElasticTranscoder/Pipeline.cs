@@ -23,16 +23,16 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// {
     ///     var bar = new Aws.ElasticTranscoder.Pipeline("bar", new()
     ///     {
-    ///         InputBucket = aws_s3_bucket.Input_bucket.Bucket,
+    ///         InputBucket = aws_s3_bucket.Input_bucket.Id,
     ///         Role = aws_iam_role.Test_role.Arn,
     ///         ContentConfig = new Aws.ElasticTranscoder.Inputs.PipelineContentConfigArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Content_bucket.Bucket,
+    ///             Bucket = aws_s3_bucket.Content_bucket.Id,
     ///             StorageClass = "Standard",
     ///         },
     ///         ThumbnailConfig = new Aws.ElasticTranscoder.Inputs.PipelineThumbnailConfigArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Thumb_bucket.Bucket,
+    ///             Bucket = aws_s3_bucket.Thumb_bucket.Id,
     ///             StorageClass = "Standard",
     ///         },
     ///     });

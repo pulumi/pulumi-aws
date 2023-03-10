@@ -794,7 +794,7 @@ class LoadBalancer(pulumi.CustomResource):
             subnets=[subnet["id"] for subnet in aws_subnet["public"]],
             enable_deletion_protection=True,
             access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=aws_s3_bucket["lb_logs"]["bucket"],
+                bucket=aws_s3_bucket["lb_logs"]["id"],
                 prefix="test-lb",
                 enabled=True,
             ),
@@ -915,7 +915,7 @@ class LoadBalancer(pulumi.CustomResource):
             subnets=[subnet["id"] for subnet in aws_subnet["public"]],
             enable_deletion_protection=True,
             access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=aws_s3_bucket["lb_logs"]["bucket"],
+                bucket=aws_s3_bucket["lb_logs"]["id"],
                 prefix="test-lb",
                 enabled=True,
             ),

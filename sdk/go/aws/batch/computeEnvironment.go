@@ -27,8 +27,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
@@ -38,22 +36,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ec2AssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"ec2.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			ecsInstanceRoleRole, err := iam.NewRole(ctx, "ecsInstanceRoleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//		{
-//		    "Action": "sts:AssumeRole",
-//		    "Effect": "Allow",
-//		    "Principal": {
-//		        "Service": "ec2.amazonaws.com"
-//		    }
-//		}
-//	    ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(ec2AssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -71,22 +76,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			batchAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"batch.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			awsBatchServiceRoleRole, err := iam.NewRole(ctx, "awsBatchServiceRoleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//		{
-//		    "Action": "sts:AssumeRole",
-//		    "Effect": "Allow",
-//		    "Principal": {
-//			"Service": "batch.amazonaws.com"
-//		    }
-//		}
-//	    ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(batchAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -206,7 +218,7 @@ import (
 //
 // ```
 //
-//	[1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+//	[1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 

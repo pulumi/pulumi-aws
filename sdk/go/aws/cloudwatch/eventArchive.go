@@ -51,7 +51,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -64,11 +64,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"source": []string{
+//					"company.team.order",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
 //				Description:    pulumi.String("Archived events from order service"),
 //				EventSourceArn: orderEventBus.Arn,
 //				RetentionDays:  pulumi.Int(7),
-//				EventPattern:   pulumi.String(fmt.Sprintf("{\n  \"source\": [\"company.team.order\"]\n}\n")),
+//				EventPattern:   pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

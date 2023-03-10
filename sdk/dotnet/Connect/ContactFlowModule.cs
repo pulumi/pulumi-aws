@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -31,55 +32,75 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.ContactFlowModule("example", new()
     ///     {
-    ///         Content = @"    {
-    /// 		""Version"": ""2019-10-30"",
-    /// 		""StartAction"": ""12345678-1234-1234-1234-123456789012"",
-    /// 		""Actions"": [
-    /// 			{
-    /// 				""Identifier"": ""12345678-1234-1234-1234-123456789012"",
-    /// 				""Parameters"": {
-    /// 					""Text"": ""Hello contact flow module""
-    /// 				},
-    /// 				""Transitions"": {
-    /// 					""NextAction"": ""abcdef-abcd-abcd-abcd-abcdefghijkl"",
-    /// 					""Errors"": [],
-    /// 					""Conditions"": []
-    /// 				},
-    /// 				""Type"": ""MessageParticipant""
-    /// 			},
-    /// 			{
-    /// 				""Identifier"": ""abcdef-abcd-abcd-abcd-abcdefghijkl"",
-    /// 				""Type"": ""DisconnectParticipant"",
-    /// 				""Parameters"": {},
-    /// 				""Transitions"": {}
-    /// 			}
-    /// 		],
-    /// 		""Settings"": {
-    /// 			""InputParameters"": [],
-    /// 			""OutputParameters"": [],
-    /// 			""Transitions"": [
-    /// 				{
-    /// 					""DisplayName"": ""Success"",
-    /// 					""ReferenceName"": ""Success"",
-    /// 					""Description"": """"
-    /// 				},
-    /// 				{
-    /// 					""DisplayName"": ""Error"",
-    /// 					""ReferenceName"": ""Error"",
-    /// 					""Description"": """"
-    /// 				}
-    /// 			]
-    /// 		}
-    /// 	}
-    ///     
-    /// ",
-    ///         Description = "Example Contact Flow Module Description",
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Description = "Example Contact Flow Module Description",
+    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2019-10-30",
+    ///             ["StartAction"] = "12345678-1234-1234-1234-123456789012",
+    ///             ["Actions"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Identifier"] = "12345678-1234-1234-1234-123456789012",
+    ///                     ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Text"] = "Hello contact flow module",
+    ///                     },
+    ///                     ["Transitions"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["NextAction"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
+    ///                         ["Errors"] = new[]
+    ///                         {
+    ///                         },
+    ///                         ["Conditions"] = new[]
+    ///                         {
+    ///                         },
+    ///                     },
+    ///                     ["Type"] = "MessageParticipant",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Identifier"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
+    ///                     ["Type"] = "DisconnectParticipant",
+    ///                     ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                     },
+    ///                     ["Transitions"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ["Settings"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["InputParameters"] = new[]
+    ///                 {
+    ///                 },
+    ///                 ["OutputParameters"] = new[]
+    ///                 {
+    ///                 },
+    ///                 ["Transitions"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["DisplayName"] = "Success",
+    ///                         ["ReferenceName"] = "Success",
+    ///                         ["Description"] = "",
+    ///                     },
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["DisplayName"] = "Error",
+    ///                         ["ReferenceName"] = "Error",
+    ///                         ["Description"] = "",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
     ///         Tags = 
     ///         {
+    ///             { "Name", "Example Contact Flow Module" },
     ///             { "Application", "Example" },
     ///             { "Method", "Create" },
-    ///             { "Name", "Example Contact Flow Module" },
     ///         },
     ///     });
     /// 

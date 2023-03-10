@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.costexplorer.AnomalyMonitor;
  * import com.pulumi.aws.costexplorer.AnomalyMonitorArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,24 +75,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AnomalyMonitor(&#34;test&#34;, AnomalyMonitorArgs.builder()        
- *             .monitorSpecification(&#34;&#34;&#34;
- * {
- * 	&#34;And&#34;: null,
- * 	&#34;CostCategories&#34;: null,
- * 	&#34;Dimensions&#34;: null,
- * 	&#34;Not&#34;: null,
- * 	&#34;Or&#34;: null,
- * 	&#34;Tags&#34;: {
- * 		&#34;Key&#34;: &#34;CostCenter&#34;,
- * 		&#34;MatchOptions&#34;: null,
- * 		&#34;Values&#34;: [
- * 			&#34;10000&#34;
- * 		]
- * 	}
- * }
- * 
- *             &#34;&#34;&#34;)
  *             .monitorType(&#34;CUSTOM&#34;)
+ *             .monitorSpecification(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;And&#34;, null),
+ *                     jsonProperty(&#34;CostCategories&#34;, null),
+ *                     jsonProperty(&#34;Dimensions&#34;, null),
+ *                     jsonProperty(&#34;Not&#34;, null),
+ *                     jsonProperty(&#34;Or&#34;, null),
+ *                     jsonProperty(&#34;Tags&#34;, jsonObject(
+ *                         jsonProperty(&#34;Key&#34;, &#34;CostCenter&#34;),
+ *                         jsonProperty(&#34;MatchOptions&#34;, null),
+ *                         jsonProperty(&#34;Values&#34;, jsonArray(&#34;10000&#34;))
+ *                     ))
+ *                 )))
  *             .build());
  * 
  *     }

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketRequestPaymentConfigurationV2("example", new()
     ///     {
-    ///         Bucket = aws_s3_bucket.Example.Bucket,
+    ///         Bucket = aws_s3_bucket.Example.Id,
     ///         Payer = "Requester",
     ///     });
     /// 
@@ -50,13 +50,13 @@ namespace Pulumi.Aws.S3
     public partial class BucketRequestPaymentConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
@@ -114,13 +114,13 @@ namespace Pulumi.Aws.S3
     public sealed class BucketRequestPaymentConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
@@ -140,13 +140,13 @@ namespace Pulumi.Aws.S3
     public sealed class BucketRequestPaymentConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }

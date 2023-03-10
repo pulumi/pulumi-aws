@@ -15,14 +15,14 @@ public final class DistributionOriginGroupFailoverCriteriaArgs extends com.pulum
     public static final DistributionOriginGroupFailoverCriteriaArgs Empty = new DistributionOriginGroupFailoverCriteriaArgs();
 
     /**
-     * A list of HTTP status codes for the origin group
+     * List of HTTP status codes for the origin group.
      * 
      */
     @Import(name="statusCodes", required=true)
     private Output<List<Integer>> statusCodes;
 
     /**
-     * @return A list of HTTP status codes for the origin group
+     * @return List of HTTP status codes for the origin group.
      * 
      */
     public Output<List<Integer>> statusCodes() {
@@ -54,7 +54,7 @@ public final class DistributionOriginGroupFailoverCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param statusCodes A list of HTTP status codes for the origin group
+         * @param statusCodes List of HTTP status codes for the origin group.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DistributionOriginGroupFailoverCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param statusCodes A list of HTTP status codes for the origin group
+         * @param statusCodes List of HTTP status codes for the origin group.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class DistributionOriginGroupFailoverCriteriaArgs extends com.pulum
         }
 
         /**
-         * @param statusCodes A list of HTTP status codes for the origin group
+         * @param statusCodes List of HTTP status codes for the origin group.
          * 
          * @return builder
          * 

@@ -17,27 +17,26 @@ import {PolicyDocument} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const queue = new aws.sqs.Queue("queue", {});
- * const test = new aws.sqs.QueuePolicy("test", {
+ * const testPolicyDocument = queue.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         sid: "First",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["sqs:SendMessage"],
+ *         resources: [arn],
+ *         conditions: [{
+ *             test: "ArnEquals",
+ *             variable: "aws:SourceArn",
+ *             values: [aws_sns_topic.example.arn],
+ *         }],
+ *     }],
+ * }));
+ * const testQueuePolicy = new aws.sqs.QueuePolicy("testQueuePolicy", {
  *     queueUrl: queue.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Id": "sqspolicy",
- *   "Statement": [
- *     {
- *       "Sid": "First",
- *       "Effect": "Allow",
- *       "Principal": "*",
- *       "Action": "sqs:SendMessage",
- *       "Resource": "${queue.arn}",
- *       "Condition": {
- *         "ArnEquals": {
- *           "aws:SourceArn": "${aws_sns_topic.example.arn}"
- *         }
- *       }
- *     }
- *   ]
- * }
- * `,
+ *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
  * });
  * ```
  *

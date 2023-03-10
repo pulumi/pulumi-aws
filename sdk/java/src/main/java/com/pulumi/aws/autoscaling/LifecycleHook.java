@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import com.pulumi.aws.autoscaling.LifecycleHook;
  * import com.pulumi.aws.autoscaling.LifecycleHookArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,11 +72,10 @@ import javax.annotation.Nullable;
  *             .defaultResult(&#34;CONTINUE&#34;)
  *             .heartbeatTimeout(2000)
  *             .lifecycleTransition(&#34;autoscaling:EC2_INSTANCE_LAUNCHING&#34;)
- *             .notificationMetadata(&#34;&#34;&#34;
- * {
- *   &#34;foo&#34;: &#34;bar&#34;
- * }
- *             &#34;&#34;&#34;)
+ *             .notificationMetadata(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;foo&#34;, &#34;bar&#34;)
+ *                 )))
  *             .notificationTargetArn(&#34;arn:aws:sqs:us-east-1:444455556666:queue1*&#34;)
  *             .roleArn(&#34;arn:aws:iam::123456789012:role/S3Access&#34;)
  *             .build());

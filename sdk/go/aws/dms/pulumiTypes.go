@@ -1656,7 +1656,7 @@ type EndpointS3Settings struct {
 	BucketFolder *string `pulumi:"bucketFolder"`
 	// Custom S3 Bucket name for intermediate storage.
 	BucketName *string `pulumi:"bucketName"`
-	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects *string `pulumi:"cannedAclForObjects"`
 	// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
 	CdcInsertsAndUpdates *bool `pulumi:"cdcInsertsAndUpdates"`
@@ -1724,9 +1724,7 @@ type EndpointS3Settings struct {
 	TimestampColumnName *string `pulumi:"timestampColumnName"`
 	// Whether to use `csvNoSupValue` for columns not included in the supplemental log.
 	UseCsvNoSupValue *bool `pulumi:"useCsvNoSupValue"`
-	// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-	// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-	// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+	// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
 	UseTaskStartTimeForFullLoadTimestamp *bool `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
 }
 
@@ -1748,7 +1746,7 @@ type EndpointS3SettingsArgs struct {
 	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
 	// Custom S3 Bucket name for intermediate storage.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects pulumi.StringPtrInput `pulumi:"cannedAclForObjects"`
 	// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
 	CdcInsertsAndUpdates pulumi.BoolPtrInput `pulumi:"cdcInsertsAndUpdates"`
@@ -1816,9 +1814,7 @@ type EndpointS3SettingsArgs struct {
 	TimestampColumnName pulumi.StringPtrInput `pulumi:"timestampColumnName"`
 	// Whether to use `csvNoSupValue` for columns not included in the supplemental log.
 	UseCsvNoSupValue pulumi.BoolPtrInput `pulumi:"useCsvNoSupValue"`
-	// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-	// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-	// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+	// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
 	UseTaskStartTimeForFullLoadTimestamp pulumi.BoolPtrInput `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
 }
 
@@ -1914,7 +1910,7 @@ func (o EndpointS3SettingsOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 func (o EndpointS3SettingsOutput) CannedAclForObjects() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CannedAclForObjects }).(pulumi.StringPtrOutput)
 }
@@ -2084,9 +2080,7 @@ func (o EndpointS3SettingsOutput) UseCsvNoSupValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.UseCsvNoSupValue }).(pulumi.BoolPtrOutput)
 }
 
-// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
 func (o EndpointS3SettingsOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.UseTaskStartTimeForFullLoadTimestamp }).(pulumi.BoolPtrOutput)
 }
@@ -2145,7 +2139,7 @@ func (o EndpointS3SettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 func (o EndpointS3SettingsPtrOutput) CannedAclForObjects() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -2485,9 +2479,7 @@ func (o EndpointS3SettingsPtrOutput) UseCsvNoSupValue() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-// For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-// When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+// When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
 func (o EndpointS3SettingsPtrOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *bool {
 		if v == nil {

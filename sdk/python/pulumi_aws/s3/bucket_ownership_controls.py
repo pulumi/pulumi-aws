@@ -20,7 +20,7 @@ class BucketOwnershipControlsArgs:
                  rule: pulumi.Input['BucketOwnershipControlsRuleArgs']):
         """
         The set of arguments for constructing a BucketOwnershipControls resource.
-        :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
+        :param pulumi.Input[str] bucket: Name of the bucket that you want to associate this access point with.
         :param pulumi.Input['BucketOwnershipControlsRuleArgs'] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -30,7 +30,7 @@ class BucketOwnershipControlsArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket that you want to associate this access point with.
+        Name of the bucket that you want to associate this access point with.
         """
         return pulumi.get(self, "bucket")
 
@@ -58,7 +58,7 @@ class _BucketOwnershipControlsState:
                  rule: Optional[pulumi.Input['BucketOwnershipControlsRuleArgs']] = None):
         """
         Input properties used for looking up and filtering BucketOwnershipControls resources.
-        :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
+        :param pulumi.Input[str] bucket: Name of the bucket that you want to associate this access point with.
         :param pulumi.Input['BucketOwnershipControlsRuleArgs'] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
         """
         if bucket is not None:
@@ -70,7 +70,7 @@ class _BucketOwnershipControlsState:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket that you want to associate this access point with.
+        Name of the bucket that you want to associate this access point with.
         """
         return pulumi.get(self, "bucket")
 
@@ -126,7 +126,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
+        :param pulumi.Input[str] bucket: Name of the bucket that you want to associate this access point with.
         :param pulumi.Input[pulumi.InputType['BucketOwnershipControlsRuleArgs']] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
         """
         ...
@@ -211,7 +211,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
+        :param pulumi.Input[str] bucket: Name of the bucket that you want to associate this access point with.
         :param pulumi.Input[pulumi.InputType['BucketOwnershipControlsRuleArgs']] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -226,7 +226,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket that you want to associate this access point with.
+        Name of the bucket that you want to associate this access point with.
         """
         return pulumi.get(self, "bucket")
 

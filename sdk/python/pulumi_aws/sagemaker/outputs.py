@@ -5245,10 +5245,10 @@ class UserProfileUserSettingsJupyterServerAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultResourceSpec":
-            suggest = "default_resource_spec"
-        elif key == "codeRepositories":
+        if key == "codeRepositories":
             suggest = "code_repositories"
+        elif key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
 
@@ -5264,27 +5264,20 @@ class UserProfileUserSettingsJupyterServerAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 default_resource_spec: 'outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec',
                  code_repositories: Optional[Sequence['outputs.UserProfileUserSettingsJupyterServerAppSettingsCodeRepository']] = None,
+                 default_resource_spec: Optional['outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param 'UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param 'UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
-
-    @property
-    @pulumi.getter(name="defaultResourceSpec")
-    def default_resource_spec(self) -> 'outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec':
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        """
-        return pulumi.get(self, "default_resource_spec")
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -5293,6 +5286,14 @@ class UserProfileUserSettingsJupyterServerAppSettings(dict):
         A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         """
         return pulumi.get(self, "code_repositories")
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec']:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
 
     @property
     @pulumi.getter(name="lifecycleConfigArns")
@@ -5421,10 +5422,10 @@ class UserProfileUserSettingsKernelGatewayAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultResourceSpec":
-            suggest = "default_resource_spec"
-        elif key == "customImages":
+        if key == "customImages":
             suggest = "custom_images"
+        elif key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
 
@@ -5440,27 +5441,20 @@ class UserProfileUserSettingsKernelGatewayAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 default_resource_spec: 'outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec',
                  custom_images: Optional[Sequence['outputs.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage']] = None,
+                 default_resource_spec: Optional['outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param 'UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param 'UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
-
-    @property
-    @pulumi.getter(name="defaultResourceSpec")
-    def default_resource_spec(self) -> 'outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec':
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        """
-        return pulumi.get(self, "default_resource_spec")
 
     @property
     @pulumi.getter(name="customImages")
@@ -5469,6 +5463,14 @@ class UserProfileUserSettingsKernelGatewayAppSettings(dict):
         A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
         """
         return pulumi.get(self, "custom_images")
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec']:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
 
     @property
     @pulumi.getter(name="lifecycleConfigArns")

@@ -15,38 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": [
- *           "scheduler.redshift.amazonaws.com"
- *         ]
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *       {
- *           "Sid": "VisualEditor0",
- *           "Effect": "Allow",
- *           "Action": [
- *               "redshift:PauseCluster",
- *               "redshift:ResumeCluster",
- *               "redshift:ResizeCluster"
- *           ],
- *           "Resource": "*"
- *       }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["scheduler.redshift.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "redshift:PauseCluster",
+ *             "redshift:ResumeCluster",
+ *             "redshift:ResizeCluster",
+ *         ],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
  * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
  *     policyArn: examplePolicy.arn,
  *     role: exampleRole.name,

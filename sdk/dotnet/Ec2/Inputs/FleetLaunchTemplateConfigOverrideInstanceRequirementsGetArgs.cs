@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        /// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
         /// </summary>
         [Input("acceleratorCount")]
         public Input<Inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountGetArgs>? AcceleratorCount { get; set; }
@@ -52,12 +52,24 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _acceleratorTypes;
 
         /// <summary>
-        /// List of accelerator types. Default is any accelerator type.
+        /// The accelerator types that must be on the instance type. Default is any accelerator type.
         /// </summary>
         public InputList<string> AcceleratorTypes
         {
             get => _acceleratorTypes ?? (_acceleratorTypes = new InputList<string>());
             set => _acceleratorTypes = value;
+        }
+
+        [Input("allowedInstanceTypes")]
+        private InputList<string>? _allowedInstanceTypes;
+
+        /// <summary>
+        /// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+        /// </summary>
+        public InputList<string> AllowedInstanceTypes
+        {
+            get => _allowedInstanceTypes ?? (_allowedInstanceTypes = new InputList<string>());
+            set => _allowedInstanceTypes = value;
         }
 
         /// <summary>
@@ -73,7 +85,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<Inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsGetArgs>? BaselineEbsBandwidthMbps { get; set; }
 
         /// <summary>
-        /// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        /// Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         /// </summary>
         [Input("burstablePerformance")]
         public Input<string>? BurstablePerformance { get; set; }
@@ -82,7 +94,8 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _cpuManufacturers;
 
         /// <summary>
-        /// List of CPU manufacturer names. Default is any manufacturer.
+        /// The CPU manufacturers to include. Default is any manufacturer.
+        /// &gt; **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         /// </summary>
         public InputList<string> CpuManufacturers
         {
@@ -94,7 +107,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _excludedInstanceTypes;
 
         /// <summary>
-        /// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        /// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         /// </summary>
         public InputList<string> ExcludedInstanceTypes
         {
@@ -106,7 +119,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _instanceGenerations;
 
         /// <summary>
-        /// List of instance generation names. Default is any generation.
+        /// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         /// </summary>
         public InputList<string> InstanceGenerations
         {
@@ -124,7 +137,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _localStorageTypes;
 
         /// <summary>
-        /// List of local storage type names. Default any storage type.
+        /// List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
         /// </summary>
         public InputList<string> LocalStorageTypes
         {
@@ -139,10 +152,16 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<Inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuGetArgs>? MemoryGibPerVcpu { get; set; }
 
         /// <summary>
-        /// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        /// The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
         /// </summary>
         [Input("memoryMib", required: true)]
         public Input<Inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibGetArgs> MemoryMib { get; set; } = null!;
+
+        /// <summary>
+        /// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+        /// </summary>
+        [Input("networkBandwidthGbps")]
+        public Input<Inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsGetArgs>? NetworkBandwidthGbps { get; set; }
 
         /// <summary>
         /// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.

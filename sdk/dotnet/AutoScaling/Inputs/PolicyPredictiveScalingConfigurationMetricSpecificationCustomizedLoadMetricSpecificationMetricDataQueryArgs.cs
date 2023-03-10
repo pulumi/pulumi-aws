@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs>? MetricStat { get; set; }
 
         /// <summary>
-        /// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+        /// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         /// </summary>
         [Input("returnData")]
         public Input<bool>? ReturnData { get; set; }

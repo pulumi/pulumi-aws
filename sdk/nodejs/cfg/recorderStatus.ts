@@ -20,43 +20,35 @@ import * as utilities from "../utilities";
  * const fooRecorderStatus = new aws.cfg.RecorderStatus("fooRecorderStatus", {isEnabled: true}, {
  *     dependsOn: [fooDeliveryChannel],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["config.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rolePolicyAttachment", {
  *     role: role.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
  * });
  * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
+ * const policyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["s3:*"],
+ *         resources: [
+ *             bucketV2.arn,
+ *             pulumi.interpolate`${bucketV2.arn}/*`,
+ *         ],
+ *     }],
+ * });
  * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
  *     role: role.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${bucketV2.arn}",
- *         "${bucketV2.arn}/*"
- *       ]
- *     }
- *   ]
- * }
- * `,
+ *     policy: policyDocument.apply(policyDocument => policyDocument.json),
  * });
  * ```
  *

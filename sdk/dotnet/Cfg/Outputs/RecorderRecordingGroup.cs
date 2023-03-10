@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Cfg.Outputs
         /// </summary>
         public readonly bool? AllSupported;
         /// <summary>
-        /// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        /// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         /// </summary>
         public readonly bool? IncludeGlobalResourceTypes;
         /// <summary>

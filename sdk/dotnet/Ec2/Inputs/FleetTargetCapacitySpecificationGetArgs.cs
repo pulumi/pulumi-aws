@@ -31,7 +31,8 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? SpotTargetCapacity { get; set; }
 
         /// <summary>
-        /// The unit for the target capacity. This can only be done with `instance_requirements` defined
+        /// The unit for the target capacity.
+        /// If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
         /// </summary>
         [Input("targetCapacityUnitType")]
         public Input<string>? TargetCapacityUnitType { get; set; }

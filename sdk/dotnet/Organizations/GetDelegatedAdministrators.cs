@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Organizations
     public static class GetDelegatedAdministrators
     {
         /// <summary>
-        /// Get a list the AWS accounts that are designated as delegated administrators in this organization
+        /// Get a list of AWS accounts that are designated as delegated administrators in this organization
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Organizations
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedAdministratorsResult>("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args ?? new GetDelegatedAdministratorsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a list the AWS accounts that are designated as delegated administrators in this organization
+        /// Get a list of AWS accounts that are designated as delegated administrators in this organization
         /// 
         /// {{% examples %}}
         /// ## Example Usage

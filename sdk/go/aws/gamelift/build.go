@@ -30,7 +30,7 @@ import (
 //			_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
 //				OperatingSystem: pulumi.String("WINDOWS_2012"),
 //				StorageLocation: &gamelift.BuildStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Test.Bucket),
+//					Bucket:  pulumi.Any(aws_s3_bucket.Test.Id),
 //					Key:     pulumi.Any(aws_s3_object.Test.Key),
 //					RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
 //				},

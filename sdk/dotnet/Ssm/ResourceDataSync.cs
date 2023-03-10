@@ -23,38 +23,77 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2");
     /// 
+    ///     var hogePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "SSMBucketPermissionsCheck",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "ssm.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:GetBucketAcl",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:s3:::tf-test-bucket-1234",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "SSMBucketDelivery",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "ssm.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:PutObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:s3:::tf-test-bucket-1234/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "s3:x-amz-acl",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "bucket-owner-full-control",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var hogeBucketPolicy = new Aws.S3.BucketPolicy("hogeBucketPolicy", new()
     ///     {
-    ///         Bucket = hogeBucketV2.Bucket,
-    ///         Policy = @"{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {
-    ///             ""Sid"": ""SSMBucketPermissionsCheck"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {
-    ///                 ""Service"": ""ssm.amazonaws.com""
-    ///             },
-    ///             ""Action"": ""s3:GetBucketAcl"",
-    ///             ""Resource"": ""arn:aws:s3:::tf-test-bucket-1234""
-    ///         },
-    ///         {
-    ///             ""Sid"": "" SSMBucketDelivery"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": {
-    ///                 ""Service"": ""ssm.amazonaws.com""
-    ///             },
-    ///             ""Action"": ""s3:PutObject"",
-    ///             ""Resource"": [""arn:aws:s3:::tf-test-bucket-1234/*""],
-    ///             ""Condition"": {
-    ///                 ""StringEquals"": {
-    ///                     ""s3:x-amz-acl"": ""bucket-owner-full-control""
-    ///                 }
-    ///             }
-    ///         }
-    ///     ]
-    /// }
-    /// ",
+    ///         Bucket = hogeBucketV2.Id,
+    ///         Policy = hogePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var foo = new Aws.Ssm.ResourceDataSync("foo", new()

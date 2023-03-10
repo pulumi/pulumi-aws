@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetDelegationSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Hosted Zone id of the desired delegation set.
+        /// Delegation set ID.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetDelegationSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Hosted Zone id of the desired delegation set.
+        /// Delegation set ID.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

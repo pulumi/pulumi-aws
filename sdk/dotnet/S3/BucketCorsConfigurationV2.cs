@@ -86,19 +86,19 @@ namespace Pulumi.Aws.S3
     public partial class BucketCorsConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+        /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         /// </summary>
         [Output("corsRules")]
         public Output<ImmutableArray<Outputs.BucketCorsConfigurationV2CorsRule>> CorsRules { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketCorsConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketCorsConfigurationV2CorsRuleArgs>? _corsRules;
 
         /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+        /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         /// </summary>
         public InputList<Inputs.BucketCorsConfigurationV2CorsRuleArgs> CorsRules
         {
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketCorsConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketCorsConfigurationV2CorsRuleGetArgs>? _corsRules;
 
         /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+        /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         /// </summary>
         public InputList<Inputs.BucketCorsConfigurationV2CorsRuleGetArgs> CorsRules
         {
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }

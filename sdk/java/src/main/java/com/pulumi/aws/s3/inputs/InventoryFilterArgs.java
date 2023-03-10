@@ -16,14 +16,14 @@ public final class InventoryFilterArgs extends com.pulumi.resources.ResourceArgs
     public static final InventoryFilterArgs Empty = new InventoryFilterArgs();
 
     /**
-     * The prefix that an object must have to be included in the inventory results.
+     * Prefix that an object must have to be included in the inventory results.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The prefix that an object must have to be included in the inventory results.
+     * @return Prefix that an object must have to be included in the inventory results.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -55,7 +55,7 @@ public final class InventoryFilterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param prefix The prefix that an object must have to be included in the inventory results.
+         * @param prefix Prefix that an object must have to be included in the inventory results.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class InventoryFilterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param prefix The prefix that an object must have to be included in the inventory results.
+         * @param prefix Prefix that an object must have to be included in the inventory results.
          * 
          * @return builder
          * 

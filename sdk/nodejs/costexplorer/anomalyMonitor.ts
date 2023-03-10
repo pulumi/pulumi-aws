@@ -28,23 +28,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.costexplorer.AnomalyMonitor("test", {
- *     monitorSpecification: `{
- * 	"And": null,
- * 	"CostCategories": null,
- * 	"Dimensions": null,
- * 	"Not": null,
- * 	"Or": null,
- * 	"Tags": {
- * 		"Key": "CostCenter",
- * 		"MatchOptions": null,
- * 		"Values": [
- * 			"10000"
- * 		]
- * 	}
- * }
- *
- * `,
  *     monitorType: "CUSTOM",
+ *     monitorSpecification: JSON.stringify({
+ *         And: undefined,
+ *         CostCategories: undefined,
+ *         Dimensions: undefined,
+ *         Not: undefined,
+ *         Or: undefined,
+ *         Tags: {
+ *             Key: "CostCenter",
+ *             MatchOptions: undefined,
+ *             Values: ["10000"],
+ *         },
+ *     }),
  * });
  * ```
  *

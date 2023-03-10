@@ -15,41 +15,35 @@ import * as utilities from "../utilities";
  *
  * const app = new aws.pinpoint.App("app", {});
  * const testStream = new aws.kinesis.Stream("testStream", {shardCount: 1});
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "pinpoint.us-east-1.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["pinpoint.us-east-1.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const stream = new aws.pinpoint.EventStream("stream", {
  *     applicationId: app.applicationId,
  *     destinationStreamArn: testStream.arn,
  *     roleArn: testRole.arn,
  * });
- * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
+ * const testRolePolicyPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "kinesis:PutRecords",
+ *             "kinesis:DescribeStream",
+ *         ],
+ *         resources: ["arn:aws:kinesis:us-east-1:*:*&#47;*"],
+ *     }],
+ * });
+ * const testRolePolicyRolePolicy = new aws.iam.RolePolicy("testRolePolicyRolePolicy", {
  *     role: testRole.id,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": {
- *     "Action": [
- *       "kinesis:PutRecords",
- *       "kinesis:DescribeStream"
- *     ],
- *     "Effect": "Allow",
- *     "Resource": [
- *       "arn:aws:kinesis:us-east-1:*:*&#47;*"
- *     ]
- *   }
- * }
- * `,
+ *     policy: testRolePolicyPolicyDocument.then(testRolePolicyPolicyDocument => testRolePolicyPolicyDocument.json),
  * });
  * ```
  *

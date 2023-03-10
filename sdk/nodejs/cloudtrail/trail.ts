@@ -31,37 +31,38 @@ import * as utilities from "../utilities";
  *     s3KeyPrefix: "prefix",
  *     includeGlobalServiceEvents: false,
  * });
- * const fooBucketPolicy = new aws.s3.BucketPolicy("fooBucketPolicy", {
- *     bucket: fooBucketV2.id,
- *     policy: pulumi.all([fooBucketV2.arn, fooBucketV2.arn, current]).apply(([fooBucketV2Arn, fooBucketV2Arn1, current]) => `{
- *     "Version": "2012-10-17",
- *     "Statement": [
+ * const fooPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [
  *         {
- *             "Sid": "AWSCloudTrailAclCheck",
- *             "Effect": "Allow",
- *             "Principal": {
- *               "Service": "cloudtrail.amazonaws.com"
- *             },
- *             "Action": "s3:GetBucketAcl",
- *             "Resource": "${fooBucketV2Arn}"
+ *             sid: "AWSCloudTrailAclCheck",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["cloudtrail.amazonaws.com"],
+ *             }],
+ *             actions: ["s3:GetBucketAcl"],
+ *             resources: [fooBucketV2.arn],
  *         },
  *         {
- *             "Sid": "AWSCloudTrailWrite",
- *             "Effect": "Allow",
- *             "Principal": {
- *               "Service": "cloudtrail.amazonaws.com"
- *             },
- *             "Action": "s3:PutObject",
- *             "Resource": "${fooBucketV2Arn1}/prefix/AWSLogs/${current.accountId}/*",
- *             "Condition": {
- *                 "StringEquals": {
- *                     "s3:x-amz-acl": "bucket-owner-full-control"
- *                 }
- *             }
- *         }
- *     ]
- * }
- * `),
+ *             sid: "AWSCloudTrailWrite",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["cloudtrail.amazonaws.com"],
+ *             }],
+ *             actions: ["s3:PutObject"],
+ *             resources: [pulumi.all([fooBucketV2.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "s3:x-amz-acl",
+ *                 values: ["bucket-owner-full-control"],
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const fooBucketPolicy = new aws.s3.BucketPolicy("fooBucketPolicy", {
+ *     bucket: fooBucketV2.id,
+ *     policy: fooPolicyDocument.apply(fooPolicyDocument => fooPolicyDocument.json),
  * });
  * ```
  * ### Data Event Logging

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class InventoryDestinationBucket
     {
         /// <summary>
-        /// The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+        /// ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
-        /// The Amazon S3 bucket ARN of the destination.
+        /// Amazon S3 bucket ARN of the destination.
         /// </summary>
         public readonly string BucketArn;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string Format;
         /// <summary>
-        /// The prefix that is prepended to all inventory results.
+        /// Prefix that is prepended to all inventory results.
         /// </summary>
         public readonly string? Prefix;
 

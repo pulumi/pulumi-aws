@@ -65,7 +65,7 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
- *     alarmDescription: `Request error rate has exceeded 10%`,
+ *     alarmDescription: "Request error rate has exceeded 10%",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
  *     insufficientDataActions: [],

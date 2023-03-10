@@ -3962,6 +3962,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcIpamResourceDiscovery",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery": "VpcIpamResourceDiscovery"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcIpamResourceDiscoveryAssociation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation": "VpcIpamResourceDiscoveryAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcIpamScope",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -6274,6 +6290,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/bucketResourceAccess",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/bucketResourceAccess:BucketResourceAccess": "BucketResourceAccess"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/certificate",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6870,6 +6894,14 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/connectAttachment:ConnectAttachment": "ConnectAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/connectPeer",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/connectPeer:ConnectPeer": "ConnectPeer"
   }
  },
  {

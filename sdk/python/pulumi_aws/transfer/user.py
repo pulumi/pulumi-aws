@@ -364,57 +364,6 @@ class User(pulumi.CustomResource):
         """
         Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo_server = aws.transfer.Server("fooServer",
-            identity_provider_type="SERVICE_MANAGED",
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-            })
-        foo_role = aws.iam.Role("fooRole", assume_role_policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        \"\"\")
-        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
-            role=foo_role.id,
-            policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        			"Sid": "AllowFullAccesstoS3",
-        			"Effect": "Allow",
-        			"Action": [
-        				"s3:*"
-        			],
-        			"Resource": "*"
-        		}
-        	]
-        }
-        \"\"\")
-        foo_user = aws.transfer.User("fooUser",
-            server_id=foo_server.id,
-            user_name="tftestuser",
-            role=foo_role.arn,
-            home_directory_type="LOGICAL",
-            home_directory_mappings=[aws.transfer.UserHomeDirectoryMappingArgs(
-                entry="/test.pdf",
-                target="/bucket3/test-path/tftestuser.pdf",
-            )])
-        ```
-
         ## Import
 
         Transfer Users can be imported using the `server_id` and `user_name` separated by `/`.
@@ -443,57 +392,6 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo_server = aws.transfer.Server("fooServer",
-            identity_provider_type="SERVICE_MANAGED",
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-            })
-        foo_role = aws.iam.Role("fooRole", assume_role_policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        \"\"\")
-        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
-            role=foo_role.id,
-            policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        			"Sid": "AllowFullAccesstoS3",
-        			"Effect": "Allow",
-        			"Action": [
-        				"s3:*"
-        			],
-        			"Resource": "*"
-        		}
-        	]
-        }
-        \"\"\")
-        foo_user = aws.transfer.User("fooUser",
-            server_id=foo_server.id,
-            user_name="tftestuser",
-            role=foo_role.arn,
-            home_directory_type="LOGICAL",
-            home_directory_mappings=[aws.transfer.UserHomeDirectoryMappingArgs(
-                entry="/test.pdf",
-                target="/bucket3/test-path/tftestuser.pdf",
-            )])
-        ```
 
         ## Import
 

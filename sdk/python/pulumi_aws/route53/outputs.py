@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'RecordAlias',
+    'RecordCidrRoutingPolicy',
     'RecordFailoverRoutingPolicy',
     'RecordGeolocationRoutingPolicy',
     'RecordLatencyRoutingPolicy',
@@ -89,6 +90,54 @@ class RecordAlias(dict):
         Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         """
         return pulumi.get(self, "zone_id")
+
+
+@pulumi.output_type
+class RecordCidrRoutingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionId":
+            suggest = "collection_id"
+        elif key == "locationName":
+            suggest = "location_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordCidrRoutingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordCidrRoutingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordCidrRoutingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_id: str,
+                 location_name: str):
+        """
+        :param str collection_id: The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+        :param str location_name: The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        """
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> str:
+        """
+        The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+        """
+        return pulumi.get(self, "collection_id")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> str:
+        """
+        The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        """
+        return pulumi.get(self, "location_name")
 
 
 @pulumi.output_type

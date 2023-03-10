@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketIntelligentTieringConfigurationFilter {
     /**
-     * @return An object key name prefix that identifies the subset of objects to which the configuration applies.
+     * @return Object key name prefix that identifies the subset of objects to which the configuration applies.
      * 
      */
     private @Nullable String prefix;
@@ -25,7 +25,7 @@ public final class BucketIntelligentTieringConfigurationFilter {
 
     private BucketIntelligentTieringConfigurationFilter() {}
     /**
-     * @return An object key name prefix that identifies the subset of objects to which the configuration applies.
+     * @return Object key name prefix that identifies the subset of objects to which the configuration applies.
      * 
      */
     public Optional<String> prefix() {

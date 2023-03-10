@@ -6,33 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.Domain("example", {engineVersion: "OpenSearch_1.1"});
- * const main = new aws.opensearch.DomainPolicy("main", {
- *     domainName: example.domainName,
- *     accessPolicies: pulumi.interpolate`{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Action": "es:*",
- *             "Principal": "*",
- *             "Effect": "Allow",
- *             "Condition": {
- *                 "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
- *             },
- *             "Resource": "${example.arn}/*"
- *         }
- *     ]
- * }
- * `,
- * });
- * ```
  */
 export class DomainPolicy extends pulumi.CustomResource {
     /**

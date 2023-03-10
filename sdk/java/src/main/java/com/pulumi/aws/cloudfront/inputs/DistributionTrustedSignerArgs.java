@@ -18,16 +18,14 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
     public static final DistributionTrustedSignerArgs Empty = new DistributionTrustedSignerArgs();
 
     /**
-     * Whether the distribution is enabled to accept end
-     * user requests for content.
+     * Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the distribution is enabled to accept end
-     * user requests for content.
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -75,8 +73,7 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Whether the distribution is enabled to accept end
-         * user requests for content.
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -87,8 +84,7 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Whether the distribution is enabled to accept end
-         * user requests for content.
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 

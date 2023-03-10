@@ -17567,8 +17567,8 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Object
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoData struct {
-	// Object specified in the flow destination.
-	Object string `pulumi:"object"`
+	// Object path specified in the SAPOData flow destination.
+	ObjectPath string `pulumi:"objectPath"`
 }
 
 // FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs and FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput values.
@@ -17583,8 +17583,8 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs struct {
-	// Object specified in the flow destination.
-	Object pulumi.StringInput `pulumi:"object"`
+	// Object path specified in the SAPOData flow destination.
+	ObjectPath pulumi.StringInput `pulumi:"objectPath"`
 }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs) ElementType() reflect.Type {
@@ -17664,9 +17664,9 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ToFlowSourc
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput)
 }
 
-// Object specified in the flow destination.
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) Object() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoData) string { return v.Object }).(pulumi.StringOutput)
+// Object path specified in the SAPOData flow destination.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ObjectPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoData) string { return v.ObjectPath }).(pulumi.StringOutput)
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput struct{ *pulumi.OutputState }
@@ -17693,13 +17693,13 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) Elem() F
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput)
 }
 
-// Object specified in the flow destination.
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) Object() pulumi.StringPtrOutput {
+// Object path specified in the SAPOData flow destination.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) ObjectPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoData) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Object
+		return &v.ObjectPath
 	}).(pulumi.StringPtrOutput)
 }
 

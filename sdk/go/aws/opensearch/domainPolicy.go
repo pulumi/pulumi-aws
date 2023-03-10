@@ -12,59 +12,6 @@ import (
 )
 
 // Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				EngineVersion: pulumi.String("OpenSearch_1.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewDomainPolicy(ctx, "main", &opensearch.DomainPolicyArgs{
-//				DomainName: example.DomainName,
-//				AccessPolicies: example.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Action": "es:*",
-//	            "Principal": "*",
-//	            "Effect": "Allow",
-//	            "Condition": {
-//	                "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
-//	            },
-//	            "Resource": "%v/*"
-//	        }
-//	    ]
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DomainPolicy struct {
 	pulumi.CustomResourceState
 

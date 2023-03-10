@@ -32,7 +32,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAccelerateConfigurationV2(ctx, "example", &s3.BucketAccelerateConfigurationV2Args{
-//				Bucket: mybucket.Bucket,
+//				Bucket: mybucket.ID(),
 //				Status: pulumi.String("Enabled"),
 //			})
 //			if err != nil {
@@ -64,11 +64,11 @@ import (
 type BucketAccelerateConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -107,20 +107,20 @@ func GetBucketAccelerateConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketAccelerateConfigurationV2 resources.
 type bucketAccelerateConfigurationV2State struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status *string `pulumi:"status"`
 }
 
 type BucketAccelerateConfigurationV2State struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status pulumi.StringPtrInput
 }
 
@@ -129,21 +129,21 @@ func (BucketAccelerateConfigurationV2State) ElementType() reflect.Type {
 }
 
 type bucketAccelerateConfigurationV2Args struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a BucketAccelerateConfigurationV2 resource.
 type BucketAccelerateConfigurationV2Args struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+	// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 	Status pulumi.StringInput
 }
 
@@ -234,17 +234,17 @@ func (o BucketAccelerateConfigurationV2Output) ToBucketAccelerateConfigurationV2
 	return o
 }
 
-// The name of the bucket.
+// Name of the bucket.
 func (o BucketAccelerateConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner.
+// Account ID of the expected bucket owner.
 func (o BucketAccelerateConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 func (o BucketAccelerateConfigurationV2Output) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

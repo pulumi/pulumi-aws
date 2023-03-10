@@ -103,7 +103,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
     ///     {
-    ///         Bucket = exampleBucketVersioningV2.Bucket,
+    ///         Bucket = exampleBucketVersioningV2.Id,
     ///         Key = "droeloe",
     ///         Source = new FileAsset("example.txt"),
     ///     });
@@ -129,25 +129,25 @@ namespace Pulumi.Aws.S3
     public partial class BucketVersioningV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the S3 bucket.
+        /// Name of the S3 bucket.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         /// </summary>
         [Output("mfa")]
         public Output<string?> Mfa { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the versioning parameters detailed below.
+        /// Configuration block for the versioning parameters. See below.
         /// </summary>
         [Output("versioningConfiguration")]
         public Output<Outputs.BucketVersioningV2VersioningConfiguration> VersioningConfiguration { get; private set; } = null!;
@@ -199,25 +199,25 @@ namespace Pulumi.Aws.S3
     public sealed class BucketVersioningV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the S3 bucket.
+        /// Name of the S3 bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         /// </summary>
         [Input("mfa")]
         public Input<string>? Mfa { get; set; }
 
         /// <summary>
-        /// Configuration block for the versioning parameters detailed below.
+        /// Configuration block for the versioning parameters. See below.
         /// </summary>
         [Input("versioningConfiguration", required: true)]
         public Input<Inputs.BucketVersioningV2VersioningConfigurationArgs> VersioningConfiguration { get; set; } = null!;
@@ -231,25 +231,25 @@ namespace Pulumi.Aws.S3
     public sealed class BucketVersioningV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the S3 bucket.
+        /// Name of the S3 bucket.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         /// </summary>
         [Input("mfa")]
         public Input<string>? Mfa { get; set; }
 
         /// <summary>
-        /// Configuration block for the versioning parameters detailed below.
+        /// Configuration block for the versioning parameters. See below.
         /// </summary>
         [Input("versioningConfiguration")]
         public Input<Inputs.BucketVersioningV2VersioningConfigurationGetArgs>? VersioningConfiguration { get; set; }

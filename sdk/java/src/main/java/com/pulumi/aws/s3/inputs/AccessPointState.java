@@ -35,14 +35,14 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The alias of the S3 Access Point.
+     * Alias of the S3 Access Point.
      * 
      */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
     /**
-     * @return The alias of the S3 Access Point.
+     * @return Alias of the S3 Access Point.
      * 
      */
     public Optional<Output<String>> alias() {
@@ -50,14 +50,14 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Point.
+     * ARN of the S3 Access Point.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Access Point.
+     * @return ARN of the S3 Access Point.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -65,14 +65,14 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+     * @return Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -80,14 +80,14 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS account ID associated with the S3 bucket associated with this access point.
+     * AWS account ID associated with the S3 bucket associated with this access point.
      * 
      */
     @Import(name="bucketAccountId")
     private @Nullable Output<String> bucketAccountId;
 
     /**
-     * @return The AWS account ID associated with the S3 bucket associated with this access point.
+     * @return AWS account ID associated with the S3 bucket associated with this access point.
      * 
      */
     public Optional<Output<String>> bucketAccountId() {
@@ -95,7 +95,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+     * DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
      */
@@ -103,7 +103,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+     * @return DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
      */
@@ -112,14 +112,14 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The VPC endpoints for the S3 Access Point.
+     * VPC endpoints for the S3 Access Point.
      * 
      */
     @Import(name="endpoints")
     private @Nullable Output<Map<String,String>> endpoints;
 
     /**
-     * @return The VPC endpoints for the S3 Access Point.
+     * @return VPC endpoints for the S3 Access Point.
      * 
      */
     public Optional<Output<Map<String,String>>> endpoints() {
@@ -274,7 +274,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias The alias of the S3 Access Point.
+         * @param alias Alias of the S3 Access Point.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias The alias of the S3 Access Point.
+         * @param alias Alias of the S3 Access Point.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the S3 Access Point.
+         * @param arn ARN of the S3 Access Point.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the S3 Access Point.
+         * @param arn ARN of the S3 Access Point.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+         * @param bucket Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+         * @param bucket Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketAccountId The AWS account ID associated with the S3 bucket associated with this access point.
+         * @param bucketAccountId AWS account ID associated with the S3 bucket associated with this access point.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketAccountId The AWS account ID associated with the S3 bucket associated with this access point.
+         * @param bucketAccountId AWS account ID associated with the S3 bucket associated with this access point.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+         * @param domainName DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
          * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
          * 
          * @return builder
@@ -370,7 +370,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+         * @param domainName DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
          * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
          * 
          * @return builder
@@ -381,7 +381,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoints The VPC endpoints for the S3 Access Point.
+         * @param endpoints VPC endpoints for the S3 Access Point.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoints The VPC endpoints for the S3 Access Point.
+         * @param endpoints VPC endpoints for the S3 Access Point.
          * 
          * @return builder
          * 

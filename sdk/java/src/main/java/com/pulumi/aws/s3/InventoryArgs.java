@@ -21,14 +21,14 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
     public static final InventoryArgs Empty = new InventoryArgs();
 
     /**
-     * The name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the source bucket that inventory lists the objects for.
+     * @return Name of the source bucket that inventory lists the objects for.
      * 
      */
     public Output<String> bucket() {
@@ -172,7 +172,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket The name of the source bucket that inventory lists the objects for.
+         * @param bucket Name of the source bucket that inventory lists the objects for.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket The name of the source bucket that inventory lists the objects for.
+         * @param bucket Name of the source bucket that inventory lists the objects for.
          * 
          * @return builder
          * 

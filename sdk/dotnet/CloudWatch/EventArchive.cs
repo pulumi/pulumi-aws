@@ -36,6 +36,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -48,10 +49,13 @@ namespace Pulumi.Aws.CloudWatch
     ///         Description = "Archived events from order service",
     ///         EventSourceArn = orderEventBus.Arn,
     ///         RetentionDays = 7,
-    ///         EventPattern = @"{
-    ///   ""source"": [""company.team.order""]
-    /// }
-    /// ",
+    ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["source"] = new[]
+    ///             {
+    ///                 "company.team.order",
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });

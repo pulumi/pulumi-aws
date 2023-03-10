@@ -14124,7 +14124,7 @@ type UserProfileUserSettingsJupyterServerAppSettings struct {
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories []UserProfileUserSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
@@ -14144,7 +14144,7 @@ type UserProfileUserSettingsJupyterServerAppSettingsArgs struct {
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
@@ -14234,10 +14234,10 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) CodeRepositories(
 }
 
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
-	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
+	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -14285,7 +14285,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourc
 		if v == nil {
 			return nil
 		}
-		return &v.DefaultResourceSpec
+		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
@@ -14602,7 +14602,7 @@ type UserProfileUserSettingsKernelGatewayAppSettings struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 	CustomImages []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
@@ -14622,7 +14622,7 @@ type UserProfileUserSettingsKernelGatewayAppSettingsArgs struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 	CustomImages UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-	DefaultResourceSpec UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+	DefaultResourceSpec UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
@@ -14712,10 +14712,10 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) CustomImages() Us
 }
 
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
-	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
+	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -14763,7 +14763,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourc
 		if v == nil {
 			return nil
 		}
-		return &v.DefaultResourceSpec
+		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 

@@ -75,9 +75,25 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly context!: pulumi.Output<string | undefined>;
     /**
-     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      */
     public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+     */
+    public readonly fleetInstanceSets!: pulumi.Output<outputs.ec2.FleetFleetInstanceSet[]>;
+    /**
+     * The state of the EC2 Fleet.
+     */
+    public readonly fleetState!: pulumi.Output<string>;
+    /**
+     * The number of units fulfilled by this request compared to the set target capacity.
+     */
+    public readonly fulfilledCapacity!: pulumi.Output<number>;
+    /**
+     * The number of units fulfilled by this request compared to the set target On-Demand capacity.
+     */
+    public readonly fulfilledOnDemandCapacity!: pulumi.Output<number>;
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
@@ -87,7 +103,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly onDemandOptions!: pulumi.Output<outputs.ec2.FleetOnDemandOptions | undefined>;
     /**
-     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
     /**
@@ -115,9 +131,17 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
     /**
-     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+     */
+    public readonly validFrom!: pulumi.Output<string | undefined>;
+    /**
+     * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     */
+    public readonly validUntil!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -135,6 +159,10 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["context"] = state ? state.context : undefined;
             resourceInputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["fleetInstanceSets"] = state ? state.fleetInstanceSets : undefined;
+            resourceInputs["fleetState"] = state ? state.fleetState : undefined;
+            resourceInputs["fulfilledCapacity"] = state ? state.fulfilledCapacity : undefined;
+            resourceInputs["fulfilledOnDemandCapacity"] = state ? state.fulfilledOnDemandCapacity : undefined;
             resourceInputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
             resourceInputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
             resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
@@ -145,6 +173,8 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["terminateInstances"] = state ? state.terminateInstances : undefined;
             resourceInputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["validFrom"] = state ? state.validFrom : undefined;
+            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
             if ((!args || args.launchTemplateConfig === undefined) && !opts.urn) {
@@ -155,6 +185,10 @@ export class Fleet extends pulumi.CustomResource {
             }
             resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["fleetInstanceSets"] = args ? args.fleetInstanceSets : undefined;
+            resourceInputs["fleetState"] = args ? args.fleetState : undefined;
+            resourceInputs["fulfilledCapacity"] = args ? args.fulfilledCapacity : undefined;
+            resourceInputs["fulfilledOnDemandCapacity"] = args ? args.fulfilledOnDemandCapacity : undefined;
             resourceInputs["launchTemplateConfig"] = args ? args.launchTemplateConfig : undefined;
             resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
             resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
@@ -164,6 +198,8 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["terminateInstances"] = args ? args.terminateInstances : undefined;
             resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validFrom"] = args ? args.validFrom : undefined;
+            resourceInputs["validUntil"] = args ? args.validUntil : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -185,9 +221,25 @@ export interface FleetState {
      */
     context?: pulumi.Input<string>;
     /**
-     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      */
     excessCapacityTerminationPolicy?: pulumi.Input<string>;
+    /**
+     * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+     */
+    fleetInstanceSets?: pulumi.Input<pulumi.Input<inputs.ec2.FleetFleetInstanceSet>[]>;
+    /**
+     * The state of the EC2 Fleet.
+     */
+    fleetState?: pulumi.Input<string>;
+    /**
+     * The number of units fulfilled by this request compared to the set target capacity.
+     */
+    fulfilledCapacity?: pulumi.Input<number>;
+    /**
+     * The number of units fulfilled by this request compared to the set target On-Demand capacity.
+     */
+    fulfilledOnDemandCapacity?: pulumi.Input<number>;
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
@@ -197,7 +249,7 @@ export interface FleetState {
      */
     onDemandOptions?: pulumi.Input<inputs.ec2.FleetOnDemandOptions>;
     /**
-     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
     /**
@@ -225,9 +277,17 @@ export interface FleetState {
      */
     terminateInstancesWithExpiration?: pulumi.Input<boolean>;
     /**
-     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+     */
+    validFrom?: pulumi.Input<string>;
+    /**
+     * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     */
+    validUntil?: pulumi.Input<string>;
 }
 
 /**
@@ -239,9 +299,25 @@ export interface FleetArgs {
      */
     context?: pulumi.Input<string>;
     /**
-     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      */
     excessCapacityTerminationPolicy?: pulumi.Input<string>;
+    /**
+     * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+     */
+    fleetInstanceSets?: pulumi.Input<pulumi.Input<inputs.ec2.FleetFleetInstanceSet>[]>;
+    /**
+     * The state of the EC2 Fleet.
+     */
+    fleetState?: pulumi.Input<string>;
+    /**
+     * The number of units fulfilled by this request compared to the set target capacity.
+     */
+    fulfilledCapacity?: pulumi.Input<number>;
+    /**
+     * The number of units fulfilled by this request compared to the set target On-Demand capacity.
+     */
+    fulfilledOnDemandCapacity?: pulumi.Input<number>;
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
@@ -251,7 +327,7 @@ export interface FleetArgs {
      */
     onDemandOptions?: pulumi.Input<inputs.ec2.FleetOnDemandOptions>;
     /**
-     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
     /**
@@ -275,7 +351,15 @@ export interface FleetArgs {
      */
     terminateInstancesWithExpiration?: pulumi.Input<boolean>;
     /**
-     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+     */
+    validFrom?: pulumi.Input<string>;
+    /**
+     * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     */
+    validUntil?: pulumi.Input<string>;
 }

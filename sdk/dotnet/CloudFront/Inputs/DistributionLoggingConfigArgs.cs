@@ -13,22 +13,19 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionLoggingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon S3 bucket to store the access logs in, for
-        /// example, `myawslogbucket.s3.amazonaws.com`.
+        /// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether you want CloudFront to
-        /// include cookies in access logs (default: `false`).
+        /// Whether to include cookies in access logs (default: `false`).
         /// </summary>
         [Input("includeCookies")]
         public Input<bool>? IncludeCookies { get; set; }
 
         /// <summary>
-        /// An optional string that you want CloudFront to prefix
-        /// to the access log filenames for this distribution, for example, `myprefix/`.
+        /// Prefix to the access log filenames for this distribution, for example, `myprefix/`.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

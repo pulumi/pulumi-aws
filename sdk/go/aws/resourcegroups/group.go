@@ -19,8 +19,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroups"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,20 +28,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String(fmt.Sprintf(`{
-//	  "ResourceTypeFilters": [
-//	    "AWS::EC2::Instance"
-//	  ],
-//	  "TagFilters": [
-//	    {
-//	      "Key": "Stage",
-//	      "Values": ["Test"]
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//					Query: pulumi.String("{\n  \"ResourceTypeFilters\": [\n    \"AWS::EC2::Instance\"\n  ],\n  \"TagFilters\": [\n    {\n      \"Key\": \"Stage\",\n      \"Values\": [\"Test\"]\n    }\n  ]\n}\n\n"),
 //				},
 //			})
 //			if err != nil {

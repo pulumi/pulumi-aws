@@ -49,7 +49,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration dataFormatConversionConfiguration;
     /**
-     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
      * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration dynamicPartitioningConfiguration;
@@ -135,7 +135,7 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
         return Optional.ofNullable(this.dataFormatConversionConfiguration);
     }
     /**
-     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration> dynamicPartitioningConfiguration() {

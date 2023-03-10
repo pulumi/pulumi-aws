@@ -16,17 +16,21 @@ class ListenerPolicyArgs:
     def __init__(__self__, *,
                  load_balancer_name: pulumi.Input[str],
                  load_balancer_port: pulumi.Input[int],
-                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ListenerPolicy resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "load_balancer_port", load_balancer_port)
         if policy_names is not None:
             pulumi.set(__self__, "policy_names", policy_names)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -64,18 +68,32 @@ class ListenerPolicyArgs:
     def policy_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "policy_names", value)
 
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger an update.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
 
 @pulumi.input_type
 class _ListenerPolicyState:
     def __init__(__self__, *,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_port: Optional[pulumi.Input[int]] = None,
-                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ListenerPolicy resources.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         if load_balancer_name is not None:
             pulumi.set(__self__, "load_balancer_name", load_balancer_name)
@@ -83,6 +101,8 @@ class _ListenerPolicyState:
             pulumi.set(__self__, "load_balancer_port", load_balancer_port)
         if policy_names is not None:
             pulumi.set(__self__, "policy_names", policy_names)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -120,6 +140,18 @@ class _ListenerPolicyState:
     def policy_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "policy_names", value)
 
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger an update.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "triggers", value)
+
 
 class ListenerPolicy(pulumi.CustomResource):
     @overload
@@ -129,6 +161,7 @@ class ListenerPolicy(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_port: Optional[pulumi.Input[int]] = None,
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Attaches a load balancer policy to an ELB Listener.
@@ -212,6 +245,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         ...
     @overload
@@ -314,6 +348,7 @@ class ListenerPolicy(pulumi.CustomResource):
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_port: Optional[pulumi.Input[int]] = None,
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -330,6 +365,7 @@ class ListenerPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'load_balancer_port'")
             __props__.__dict__["load_balancer_port"] = load_balancer_port
             __props__.__dict__["policy_names"] = policy_names
+            __props__.__dict__["triggers"] = triggers
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/listenerPolicy:ListenerPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ListenerPolicy, __self__).__init__(
@@ -344,7 +380,8 @@ class ListenerPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             load_balancer_name: Optional[pulumi.Input[str]] = None,
             load_balancer_port: Optional[pulumi.Input[int]] = None,
-            policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ListenerPolicy':
+            policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ListenerPolicy':
         """
         Get an existing ListenerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -355,6 +392,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -363,6 +401,7 @@ class ListenerPolicy(pulumi.CustomResource):
         __props__.__dict__["load_balancer_name"] = load_balancer_name
         __props__.__dict__["load_balancer_port"] = load_balancer_port
         __props__.__dict__["policy_names"] = policy_names
+        __props__.__dict__["triggers"] = triggers
         return ListenerPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -388,4 +427,12 @@ class ListenerPolicy(pulumi.CustomResource):
         List of Policy Names to apply to the backend server.
         """
         return pulumi.get(self, "policy_names")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of arbitrary keys and values that, when changed, will trigger an update.
+        """
+        return pulumi.get(self, "triggers")
 

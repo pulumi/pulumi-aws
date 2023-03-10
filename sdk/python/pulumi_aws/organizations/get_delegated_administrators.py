@@ -69,7 +69,7 @@ class AwaitableGetDelegatedAdministratorsResult(GetDelegatedAdministratorsResult
 def get_delegated_administrators(service_principal: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedAdministratorsResult:
     """
-    Get a list the AWS accounts that are designated as delegated administrators in this organization
+    Get a list of AWS accounts that are designated as delegated administrators in this organization
 
     ## Example Usage
 
@@ -98,7 +98,7 @@ def get_delegated_administrators(service_principal: Optional[str] = None,
 def get_delegated_administrators_output(service_principal: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedAdministratorsResult]:
     """
-    Get a list the AWS accounts that are designated as delegated administrators in this organization
+    Get a list of AWS accounts that are designated as delegated administrators in this organization
 
     ## Example Usage
 

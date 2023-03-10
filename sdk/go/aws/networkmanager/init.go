@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AttachmentAccepter{}
 	case "aws:networkmanager/connectAttachment:ConnectAttachment":
 		r = &ConnectAttachment{}
+	case "aws:networkmanager/connectPeer:ConnectPeer":
+		r = &ConnectPeer{}
 	case "aws:networkmanager/connection:Connection":
 		r = &Connection{}
 	case "aws:networkmanager/coreNetwork:CoreNetwork":
@@ -76,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkmanager/connectAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkmanager/connectPeer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

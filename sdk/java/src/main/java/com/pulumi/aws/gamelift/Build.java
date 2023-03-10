@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *         var test = new Build(&#34;test&#34;, BuildArgs.builder()        
  *             .operatingSystem(&#34;WINDOWS_2012&#34;)
  *             .storageLocation(BuildStorageLocationArgs.builder()
- *                 .bucket(aws_s3_bucket.test().bucket())
+ *                 .bucket(aws_s3_bucket.test().id())
  *                 .key(aws_s3_object.test().key())
  *                 .roleArn(aws_iam_role.test().arn())
  *                 .build())

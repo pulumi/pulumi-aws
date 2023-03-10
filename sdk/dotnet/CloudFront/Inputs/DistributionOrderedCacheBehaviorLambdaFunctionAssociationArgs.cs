@@ -13,9 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The specific event to trigger this function.
-        /// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-        /// `origin-response`
+        /// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
         /// </summary>
         [Input("eventType", required: true)]
         public Input<string> EventType { get; set; } = null!;

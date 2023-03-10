@@ -203,6 +203,12 @@ namespace Pulumi.Aws.Route53
         public Output<bool> AllowOverwrite { get; private set; } = null!;
 
         /// <summary>
+        /// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+        /// </summary>
+        [Output("cidrRoutingPolicy")]
+        public Output<Outputs.RecordCidrRoutingPolicy?> CidrRoutingPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         /// </summary>
         [Output("failoverRoutingPolicies")]
@@ -251,7 +257,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         /// </summary>
         [Output("setIdentifier")]
         public Output<string?> SetIdentifier { get; private set; } = null!;
@@ -345,6 +351,12 @@ namespace Pulumi.Aws.Route53
         [Input("allowOverwrite")]
         public Input<bool>? AllowOverwrite { get; set; }
 
+        /// <summary>
+        /// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+        /// </summary>
+        [Input("cidrRoutingPolicy")]
+        public Input<Inputs.RecordCidrRoutingPolicyArgs>? CidrRoutingPolicy { get; set; }
+
         [Input("failoverRoutingPolicies")]
         private InputList<Inputs.RecordFailoverRoutingPolicyArgs>? _failoverRoutingPolicies;
 
@@ -412,7 +424,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
@@ -473,6 +485,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("allowOverwrite")]
         public Input<bool>? AllowOverwrite { get; set; }
+
+        /// <summary>
+        /// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+        /// </summary>
+        [Input("cidrRoutingPolicy")]
+        public Input<Inputs.RecordCidrRoutingPolicyGetArgs>? CidrRoutingPolicy { get; set; }
 
         [Input("failoverRoutingPolicies")]
         private InputList<Inputs.RecordFailoverRoutingPolicyGetArgs>? _failoverRoutingPolicies;
@@ -547,7 +565,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }

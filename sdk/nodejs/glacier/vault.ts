@@ -19,7 +19,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const awsSnsTopic = new aws.sns.Topic("awsSnsTopic", {});
- * const myArchive = new aws.glacier.Vault("myArchive", {
+ * const myArchivePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "add-read-only-perm",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: [
+ *             "glacier:InitiateJob",
+ *             "glacier:GetJobOutput",
+ *         ],
+ *         resources: ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
+ *     }],
+ * });
+ * const myArchiveVault = new aws.glacier.Vault("myArchiveVault", {
  *     notification: {
  *         snsTopic: awsSnsTopic.arn,
  *         events: [
@@ -27,22 +42,7 @@ import * as utilities from "../utilities";
  *             "InventoryRetrievalCompleted",
  *         ],
  *     },
- *     accessPolicy: `{
- *     "Version":"2012-10-17",
- *     "Statement":[
- *        {
- *           "Sid": "add-read-only-perm",
- *           "Principal": "*",
- *           "Effect": "Allow",
- *           "Action": [
- *              "glacier:InitiateJob",
- *              "glacier:GetJobOutput"
- *           ],
- *           "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
- *        }
- *     ]
- * }
- * `,
+ *     accessPolicy: myArchivePolicyDocument.then(myArchivePolicyDocument => myArchivePolicyDocument.json),
  *     tags: {
  *         Test: "MyArchive",
  *     },

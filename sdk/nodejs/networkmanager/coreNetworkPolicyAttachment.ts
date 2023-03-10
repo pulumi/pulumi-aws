@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     policyDocument: data.aws_networkmanager_core_network_policy_document.example.json,
  * });
  * ```
- * ### With VPC Attachment
+ * ### With VPC Attachment (Single Region)
  *
  * The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `createBasePolicy` argument of the `aws.networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `createBasePolicy` argument.
  *
@@ -58,6 +58,75 @@ import * as utilities from "../utilities";
  *         destinationCidrBlocks: ["0.0.0.0/0"],
  *         destinations: [exampleVpcAttachment.id],
  *     }],
+ * });
+ * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", {
+ *     coreNetworkId: exampleCoreNetwork.id,
+ *     policyDocument: exampleCoreNetworkPolicyDocument.apply(exampleCoreNetworkPolicyDocument => exampleCoreNetworkPolicyDocument.json),
+ * });
+ * ```
+ * ### With VPC Attachment (Multi-Region)
+ *
+ * The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `createBasePolicy` argument of the `aws.networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `createBasePolicy` argument. For multi-region in a core network that does not yet have a `LIVE` policy, pass a list of regions to the `aws.networkmanager.CoreNetwork` `basePolicyRegions` argument. In the example below, `us-west-2` and `us-east-1` are specified in the base policy.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
+ * const exampleCoreNetwork = new aws.networkmanager.CoreNetwork("exampleCoreNetwork", {
+ *     globalNetworkId: exampleGlobalNetwork.id,
+ *     basePolicyRegions: [
+ *         "us-west-2",
+ *         "us-east-1",
+ *     ],
+ *     createBasePolicy: true,
+ * });
+ * const exampleUsWest2 = new aws.networkmanager.VpcAttachment("exampleUsWest2", {
+ *     coreNetworkId: exampleCoreNetwork.id,
+ *     subnetArns: aws_subnet.example_us_west_2.map(__item => __item.arn),
+ *     vpcArn: aws_vpc.example_us_west_2.arn,
+ * });
+ * const exampleUsEast1 = new aws.networkmanager.VpcAttachment("exampleUsEast1", {
+ *     coreNetworkId: exampleCoreNetwork.id,
+ *     subnetArns: aws_subnet.example_us_east_1.map(__item => __item.arn),
+ *     vpcArn: aws_vpc.example_us_east_1.arn,
+ * }, {
+ *     provider: "alternate",
+ * });
+ * const exampleCoreNetworkPolicyDocument = aws.networkmanager.getCoreNetworkPolicyDocumentOutput({
+ *     coreNetworkConfigurations: [{
+ *         asnRanges: ["65022-65534"],
+ *         edgeLocations: [
+ *             {
+ *                 location: "us-west-2",
+ *             },
+ *             {
+ *                 location: "us-east-1",
+ *             },
+ *         ],
+ *     }],
+ *     segments: [
+ *         {
+ *             name: "segment",
+ *         },
+ *         {
+ *             name: "segment2",
+ *         },
+ *     ],
+ *     segmentActions: [
+ *         {
+ *             action: "create-route",
+ *             segment: "segment",
+ *             destinationCidrBlocks: ["10.0.0.0/16"],
+ *             destinations: [exampleUsWest2.id],
+ *         },
+ *         {
+ *             action: "create-route",
+ *             segment: "segment",
+ *             destinationCidrBlocks: ["10.1.0.0/16"],
+ *             destinations: [exampleUsEast1.id],
+ *         },
+ *     ],
  * });
  * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", {
  *     coreNetworkId: exampleCoreNetwork.id,

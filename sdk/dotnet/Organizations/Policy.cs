@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Organizations
     /// <summary>
     /// Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.Policy("example", new()
-    ///     {
-    ///         Content = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": {
-    ///     ""Effect"": ""Allow"",
-    ///     ""Action"": ""*"",
-    ///     ""Resource"": ""*""
-    ///   }
-    /// }
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// `aws_organizations_policy` can be imported by using the policy ID, e.g.,
@@ -72,6 +46,12 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -155,6 +135,12 @@ namespace Pulumi.Aws.Organizations
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -204,6 +190,12 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// If set to `true`, destroy will **not** delete the policy and instead just remove the resource from state. This can be useful in situations where the policies (and the associated attachment) must be preserved to meet the AWS minimum requirement of 1 attached policy.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

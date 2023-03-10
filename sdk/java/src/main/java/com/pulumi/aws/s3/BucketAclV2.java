@@ -144,56 +144,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketAclV2:BucketAclV2")
 public class BucketAclV2 extends com.pulumi.resources.CustomResource {
     /**
-     * A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * Configuration block that sets the ACL permissions for an object per grantee. See below.
      * 
      */
     @Export(name="accessControlPolicy", refs={BucketAclV2AccessControlPolicy.class}, tree="[0]")
     private Output<BucketAclV2AccessControlPolicy> accessControlPolicy;
 
     /**
-     * @return A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * @return Configuration block that sets the ACL permissions for an object per grantee. See below.
      * 
      */
     public Output<BucketAclV2AccessControlPolicy> accessControlPolicy() {
         return this.accessControlPolicy;
     }
     /**
-     * The canned ACL to apply to the bucket.
+     * Canned ACL to apply to the bucket.
      * 
      */
     @Export(name="acl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acl;
 
     /**
-     * @return The canned ACL to apply to the bucket.
+     * @return Canned ACL to apply to the bucket.
      * 
      */
     public Output<Optional<String>> acl() {
         return Codegen.optional(this.acl);
     }
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {

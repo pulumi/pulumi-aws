@@ -22,14 +22,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     public static final DistributionOriginArgs Empty = new DistributionOriginArgs();
 
     /**
-     * The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+     * Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
      * 
      */
     @Import(name="connectionAttempts")
     private @Nullable Output<Integer> connectionAttempts;
 
     /**
-     * @return The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+     * @return Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
      * 
      */
     public Optional<Output<Integer>> connectionAttempts() {
@@ -37,14 +37,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+     * Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
      * 
      */
     @Import(name="connectionTimeout")
     private @Nullable Output<Integer> connectionTimeout;
 
     /**
-     * @return The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+     * @return Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
      * 
      */
     public Optional<Output<Integer>> connectionTimeout() {
@@ -52,18 +52,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more sub-resources with `name` and
-     * `value` parameters that specify header data that will be sent to the origin
-     * (multiples allowed).
+     * One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
      * 
      */
     @Import(name="customHeaders")
     private @Nullable Output<List<DistributionOriginCustomHeaderArgs>> customHeaders;
 
     /**
-     * @return One or more sub-resources with `name` and
-     * `value` parameters that specify header data that will be sent to the origin
-     * (multiples allowed).
+     * @return One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
      * 
      */
     public Optional<Output<List<DistributionOriginCustomHeaderArgs>>> customHeaders() {
@@ -71,18 +67,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The CloudFront custom
-     * origin configuration information. If an S3
-     * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+     * The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
      * 
      */
     @Import(name="customOriginConfig")
     private @Nullable Output<DistributionOriginCustomOriginConfigArgs> customOriginConfig;
 
     /**
-     * @return The CloudFront custom
-     * origin configuration information. If an S3
-     * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+     * @return The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
      * 
      */
     public Optional<Output<DistributionOriginCustomOriginConfigArgs>> customOriginConfig() {
@@ -90,16 +82,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The DNS domain name of either the S3 bucket, or
-     * web site of your custom origin.
+     * DNS domain name of either the S3 bucket, or web site of your custom origin.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The DNS domain name of either the S3 bucket, or
-     * web site of your custom origin.
+     * @return DNS domain name of either the S3 bucket, or web site of your custom origin.
      * 
      */
     public Output<String> domainName() {
@@ -107,14 +97,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The unique identifier of a CloudFront origin access control for this origin.
+     * Unique identifier of a [CloudFront origin access control][8] for this origin.
      * 
      */
     @Import(name="originAccessControlId")
     private @Nullable Output<String> originAccessControlId;
 
     /**
-     * @return The unique identifier of a CloudFront origin access control for this origin.
+     * @return Unique identifier of a [CloudFront origin access control][8] for this origin.
      * 
      */
     public Optional<Output<String>> originAccessControlId() {
@@ -122,14 +112,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A unique identifier for the origin.
+     * Unique identifier for the origin.
      * 
      */
     @Import(name="originId", required=true)
     private Output<String> originId;
 
     /**
-     * @return A unique identifier for the origin.
+     * @return Unique identifier for the origin.
      * 
      */
     public Output<String> originId() {
@@ -137,18 +127,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * An optional element that causes CloudFront to
-     * request your content from a directory in your Amazon S3 bucket or your
-     * custom origin.
+     * Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
      * 
      */
     @Import(name="originPath")
     private @Nullable Output<String> originPath;
 
     /**
-     * @return An optional element that causes CloudFront to
-     * request your content from a directory in your Amazon S3 bucket or your
-     * custom origin.
+     * @return Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
      * 
      */
     public Optional<Output<String>> originPath() {
@@ -156,16 +142,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The CloudFront Origin Shield
-     * configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+     * The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
      * 
      */
     @Import(name="originShield")
     private @Nullable Output<DistributionOriginOriginShieldArgs> originShield;
 
     /**
-     * @return The CloudFront Origin Shield
-     * configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+     * @return The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
      * 
      */
     public Optional<Output<DistributionOriginOriginShieldArgs>> originShield() {
@@ -173,18 +157,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The CloudFront S3 origin
-     * configuration information. If a custom origin is required, use
-     * `custom_origin_config` instead.
+     * The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
     @Import(name="s3OriginConfig")
     private @Nullable Output<DistributionOriginS3OriginConfigArgs> s3OriginConfig;
 
     /**
-     * @return The CloudFront S3 origin
-     * configuration information. If a custom origin is required, use
-     * `custom_origin_config` instead.
+     * @return The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
     public Optional<Output<DistributionOriginS3OriginConfigArgs>> s3OriginConfig() {
@@ -225,7 +205,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionAttempts The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+         * @param connectionAttempts Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
          * 
          * @return builder
          * 
@@ -236,7 +216,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionAttempts The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+         * @param connectionAttempts Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
          * 
          * @return builder
          * 
@@ -246,7 +226,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionTimeout The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+         * @param connectionTimeout Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
          * 
          * @return builder
          * 
@@ -257,7 +237,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionTimeout The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+         * @param connectionTimeout Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
          * 
          * @return builder
          * 
@@ -267,9 +247,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customHeaders One or more sub-resources with `name` and
-         * `value` parameters that specify header data that will be sent to the origin
-         * (multiples allowed).
+         * @param customHeaders One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
          * 
          * @return builder
          * 
@@ -280,9 +258,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customHeaders One or more sub-resources with `name` and
-         * `value` parameters that specify header data that will be sent to the origin
-         * (multiples allowed).
+         * @param customHeaders One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
          * 
          * @return builder
          * 
@@ -292,9 +268,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customHeaders One or more sub-resources with `name` and
-         * `value` parameters that specify header data that will be sent to the origin
-         * (multiples allowed).
+         * @param customHeaders One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
          * 
          * @return builder
          * 
@@ -304,9 +278,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customOriginConfig The CloudFront custom
-         * origin configuration information. If an S3
-         * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+         * @param customOriginConfig The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
          * 
          * @return builder
          * 
@@ -317,9 +289,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customOriginConfig The CloudFront custom
-         * origin configuration information. If an S3
-         * origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+         * @param customOriginConfig The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
          * 
          * @return builder
          * 
@@ -329,8 +299,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainName The DNS domain name of either the S3 bucket, or
-         * web site of your custom origin.
+         * @param domainName DNS domain name of either the S3 bucket, or web site of your custom origin.
          * 
          * @return builder
          * 
@@ -341,8 +310,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainName The DNS domain name of either the S3 bucket, or
-         * web site of your custom origin.
+         * @param domainName DNS domain name of either the S3 bucket, or web site of your custom origin.
          * 
          * @return builder
          * 
@@ -352,7 +320,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originAccessControlId The unique identifier of a CloudFront origin access control for this origin.
+         * @param originAccessControlId Unique identifier of a [CloudFront origin access control][8] for this origin.
          * 
          * @return builder
          * 
@@ -363,7 +331,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originAccessControlId The unique identifier of a CloudFront origin access control for this origin.
+         * @param originAccessControlId Unique identifier of a [CloudFront origin access control][8] for this origin.
          * 
          * @return builder
          * 
@@ -373,7 +341,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originId A unique identifier for the origin.
+         * @param originId Unique identifier for the origin.
          * 
          * @return builder
          * 
@@ -384,7 +352,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originId A unique identifier for the origin.
+         * @param originId Unique identifier for the origin.
          * 
          * @return builder
          * 
@@ -394,9 +362,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originPath An optional element that causes CloudFront to
-         * request your content from a directory in your Amazon S3 bucket or your
-         * custom origin.
+         * @param originPath Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
          * 
          * @return builder
          * 
@@ -407,9 +373,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originPath An optional element that causes CloudFront to
-         * request your content from a directory in your Amazon S3 bucket or your
-         * custom origin.
+         * @param originPath Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
          * 
          * @return builder
          * 
@@ -419,8 +383,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originShield The CloudFront Origin Shield
-         * configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+         * @param originShield The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
          * 
          * @return builder
          * 
@@ -431,8 +394,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originShield The CloudFront Origin Shield
-         * configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+         * @param originShield The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
          * 
          * @return builder
          * 
@@ -442,9 +404,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param s3OriginConfig The CloudFront S3 origin
-         * configuration information. If a custom origin is required, use
-         * `custom_origin_config` instead.
+         * @param s3OriginConfig The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
          * 
          * @return builder
          * 
@@ -455,9 +415,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param s3OriginConfig The CloudFront S3 origin
-         * configuration information. If a custom origin is required, use
-         * `custom_origin_config` instead.
+         * @param s3OriginConfig The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
          * 
          * @return builder
          * 

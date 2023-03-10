@@ -31,12 +31,12 @@ public final class GetCostCategoryRuleRule {
      */
     private List<GetCostCategoryRuleRuleDimension> dimensions;
     /**
-     * @return Return results that match both `Dimension` object.
+     * @return Return results that do not match the `Dimension` object.
      * 
      */
     private List<GetCostCategoryRuleRuleNot> nots;
     /**
-     * @return Return results that match both `Dimension` object.
+     * @return Return results that match either `Dimension` object.
      * 
      */
     private List<GetCostCategoryRuleRuleOr> ors;
@@ -69,14 +69,14 @@ public final class GetCostCategoryRuleRule {
         return this.dimensions;
     }
     /**
-     * @return Return results that match both `Dimension` object.
+     * @return Return results that do not match the `Dimension` object.
      * 
      */
     public List<GetCostCategoryRuleRuleNot> nots() {
         return this.nots;
     }
     /**
-     * @return Return results that match both `Dimension` object.
+     * @return Return results that match either `Dimension` object.
      * 
      */
     public List<GetCostCategoryRuleRuleOr> ors() {

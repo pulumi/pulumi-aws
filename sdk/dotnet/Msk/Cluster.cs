@@ -75,22 +75,35 @@ namespace Pulumi.Aws.Msk
     ///         Acl = "private",
     ///     });
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "firehose.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    /// ""Version"": ""2012-10-17"",
-    /// ""Statement"": [
-    ///   {
-    ///     ""Action"": ""sts:AssumeRole"",
-    ///     ""Principal"": {
-    ///       ""Service"": ""firehose.amazonaws.com""
-    ///     },
-    ///     ""Effect"": ""Allow"",
-    ///     ""Sid"": """"
-    ///   }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()

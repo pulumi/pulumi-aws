@@ -533,34 +533,24 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.BucketV2("bucket")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "firehose.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        lambda_iam = aws.iam.Role("lambdaIam", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=firehose_assume_role.json)
+        lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        lambda_iam = aws.iam.Role("lambdaIam", assume_role_policy=lambda_assume_role.json)
         lambda_processor = aws.lambda_.Function("lambdaProcessor",
             code=pulumi.FileArchive("lambda.zip"),
             role=lambda_iam.arn,
@@ -598,9 +588,12 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=aws_iam_role["firehose_role"]["arn"],
                 bucket_arn=aws_s3_bucket["bucket"]["arn"],
+                buffer_size=64,
+                dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
+                    enabled=True,
+                ),
                 prefix="data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
                 error_output_prefix="errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                buffer_size=64,
                 processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
                     enabled=True,
                     processors=[
@@ -641,20 +634,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "firehose.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="s3",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
@@ -758,24 +746,18 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     aws_subnet["second"]["id"],
                 ],
             ))
-        firehose_elasticsearch = aws.iam.RolePolicy("firehose-elasticsearch",
-            role=aws_iam_role["firehose"]["id"],
-            policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "es:*"
-              ],
-              "Resource": [
-                "{test_cluster_arn}",
-                "{test_cluster_arn1}/*"
-              ]
-                }},
-                {{
-                  "Effect": "Allow",
-                  "Action": [
+        firehose_elasticsearch_policy_document = aws.iam.get_policy_document_output(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["es:*"],
+                resources=[
+                    test_cluster.arn,
+                    test_cluster.arn.apply(lambda arn: f"{arn}/*"),
+                ],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=[
                     "ec2:DescribeVpcs",
                     "ec2:DescribeVpcAttribute",
                     "ec2:DescribeSubnets",
@@ -783,15 +765,14 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     "ec2:DescribeNetworkInterfaces",
                     "ec2:CreateNetworkInterface",
                     "ec2:CreateNetworkInterfacePermission",
-                    "ec2:DeleteNetworkInterface"
-                  ],
-                  "Resource": [
-                    "*"
-                  ]
-                }}
-          ]
-        }}
-        \"\"\"))
+                    "ec2:DeleteNetworkInterface",
+                ],
+                resources=["*"],
+            ),
+        ])
+        firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearchRolePolicy",
+            role=aws_iam_role["firehose"]["id"],
+            policy=firehose_elasticsearch_policy_document.json)
         test = aws.kinesis.FirehoseDeliveryStream("test",
             destination="elasticsearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
@@ -812,7 +793,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     role_arn=aws_iam_role["firehose"]["arn"],
                 ),
             ),
-            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch]))
+            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
         ### Splunk Destination
 
@@ -925,34 +906,24 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.BucketV2("bucket")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "firehose.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        lambda_iam = aws.iam.Role("lambdaIam", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=firehose_assume_role.json)
+        lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        lambda_iam = aws.iam.Role("lambdaIam", assume_role_policy=lambda_assume_role.json)
         lambda_processor = aws.lambda_.Function("lambdaProcessor",
             code=pulumi.FileArchive("lambda.zip"),
             role=lambda_iam.arn,
@@ -990,9 +961,12 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
                 role_arn=aws_iam_role["firehose_role"]["arn"],
                 bucket_arn=aws_s3_bucket["bucket"]["arn"],
+                buffer_size=64,
+                dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
+                    enabled=True,
+                ),
                 prefix="data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
                 error_output_prefix="errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                buffer_size=64,
                 processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
                     enabled=True,
                     processors=[
@@ -1033,20 +1007,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "firehose.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="s3",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
@@ -1150,24 +1119,18 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     aws_subnet["second"]["id"],
                 ],
             ))
-        firehose_elasticsearch = aws.iam.RolePolicy("firehose-elasticsearch",
-            role=aws_iam_role["firehose"]["id"],
-            policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "es:*"
-              ],
-              "Resource": [
-                "{test_cluster_arn}",
-                "{test_cluster_arn1}/*"
-              ]
-                }},
-                {{
-                  "Effect": "Allow",
-                  "Action": [
+        firehose_elasticsearch_policy_document = aws.iam.get_policy_document_output(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["es:*"],
+                resources=[
+                    test_cluster.arn,
+                    test_cluster.arn.apply(lambda arn: f"{arn}/*"),
+                ],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=[
                     "ec2:DescribeVpcs",
                     "ec2:DescribeVpcAttribute",
                     "ec2:DescribeSubnets",
@@ -1175,15 +1138,14 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     "ec2:DescribeNetworkInterfaces",
                     "ec2:CreateNetworkInterface",
                     "ec2:CreateNetworkInterfacePermission",
-                    "ec2:DeleteNetworkInterface"
-                  ],
-                  "Resource": [
-                    "*"
-                  ]
-                }}
-          ]
-        }}
-        \"\"\"))
+                    "ec2:DeleteNetworkInterface",
+                ],
+                resources=["*"],
+            ),
+        ])
+        firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearchRolePolicy",
+            role=aws_iam_role["firehose"]["id"],
+            policy=firehose_elasticsearch_policy_document.json)
         test = aws.kinesis.FirehoseDeliveryStream("test",
             destination="elasticsearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
@@ -1204,7 +1166,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     role_arn=aws_iam_role["firehose"]["arn"],
                 ),
             ),
-            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch]))
+            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
         ### Splunk Destination
 

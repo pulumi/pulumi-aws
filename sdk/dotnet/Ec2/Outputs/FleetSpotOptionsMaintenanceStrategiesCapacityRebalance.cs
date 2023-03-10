@@ -17,11 +17,16 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
         /// </summary>
         public readonly string? ReplacementStrategy;
+        public readonly int? TerminationDelay;
 
         [OutputConstructor]
-        private FleetSpotOptionsMaintenanceStrategiesCapacityRebalance(string? replacementStrategy)
+        private FleetSpotOptionsMaintenanceStrategiesCapacityRebalance(
+            string? replacementStrategy,
+
+            int? terminationDelay)
         {
             ReplacementStrategy = replacementStrategy;
+            TerminationDelay = terminationDelay;
         }
     }
 }

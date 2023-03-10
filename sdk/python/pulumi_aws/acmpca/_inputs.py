@@ -329,39 +329,28 @@ class CertificateAuthorityRevocationConfigurationArgs:
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     def __init__(__self__, *,
-                 expiration_in_days: pulumi.Input[int],
                  custom_cname: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 expiration_in_days: Optional[pulumi.Input[int]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_object_acl: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
         :param pulumi.Input[str] custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
         :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
-        :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
+        :param pulumi.Input[int] expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
+        :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
         :param pulumi.Input[str] s3_object_acl: Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
         """
-        pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if expiration_in_days is not None:
+            pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_object_acl is not None:
             pulumi.set(__self__, "s3_object_acl", s3_object_acl)
-
-    @property
-    @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> pulumi.Input[int]:
-        """
-        Number of days until a certificate expires. Must be between 1 and 5000.
-        """
-        return pulumi.get(self, "expiration_in_days")
-
-    @expiration_in_days.setter
-    def expiration_in_days(self, value: pulumi.Input[int]):
-        pulumi.set(self, "expiration_in_days", value)
 
     @property
     @pulumi.getter(name="customCname")
@@ -388,10 +377,22 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="expirationInDays")
+    def expiration_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of days until a certificate expires. Must be between 1 and 5000.
+        """
+        return pulumi.get(self, "expiration_in_days")
+
+    @expiration_in_days.setter
+    def expiration_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expiration_in_days", value)
+
+    @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
+        Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
         """
         return pulumi.get(self, "s3_bucket_name")
 

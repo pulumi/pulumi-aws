@@ -17,6 +17,7 @@ import javax.annotation.Nullable;
  * Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -25,6 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.opensearch.DomainPolicy;
  * import com.pulumi.aws.opensearch.DomainPolicyArgs;
  * import java.util.List;
@@ -44,24 +47,17 @@ import javax.annotation.Nullable;
  *             .engineVersion(&#34;OpenSearch_1.1&#34;)
  *             .build());
  * 
- *         var main = new DomainPolicy(&#34;main&#34;, DomainPolicyArgs.builder()        
+ *         final var mainPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .effect(&#34;Allow&#34;)
+ *             .principals(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .actions(&#34;es:*&#34;)
+ *             .resources(example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *             .condition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *         var mainDomainPolicy = new DomainPolicy(&#34;mainDomainPolicy&#34;, DomainPolicyArgs.builder()        
  *             .domainName(example.domainName())
- *             .accessPolicies(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Action&#34;: &#34;es:*&#34;,
- *             &#34;Principal&#34;: &#34;*&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Condition&#34;: {
- *                 &#34;IpAddress&#34;: {&#34;aws:SourceIp&#34;: &#34;127.0.0.1/32&#34;}
- *             },
- *             &#34;Resource&#34;: &#34;%s/*&#34;
- *         }
- *     ]
- * }
- * &#34;, arn)))
+ *             .accessPolicies(mainPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(mainPolicyDocument -&gt; mainPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

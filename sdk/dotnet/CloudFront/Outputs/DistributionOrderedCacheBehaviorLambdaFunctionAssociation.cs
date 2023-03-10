@@ -14,9 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionOrderedCacheBehaviorLambdaFunctionAssociation
     {
         /// <summary>
-        /// The specific event to trigger this function.
-        /// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-        /// `origin-response`
+        /// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
         /// </summary>
         public readonly string EventType;
         /// <summary>

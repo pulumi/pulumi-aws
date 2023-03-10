@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketReplicationConfigRuleFilterAnd {
     /**
-     * @return An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+     * @return Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
      */
     private @Nullable String prefix;
     /**
-     * @return A map of tags (key and value pairs) that identifies a subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
+     * @return Map of tags (key and value pairs) that identifies a subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
      * 
      */
     private @Nullable Map<String,String> tags;
 
     private BucketReplicationConfigRuleFilterAnd() {}
     /**
-     * @return An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+     * @return Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
      */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return A map of tags (key and value pairs) that identifies a subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
+     * @return Map of tags (key and value pairs) that identifies a subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
      * 
      */
     public Map<String,String> tags() {

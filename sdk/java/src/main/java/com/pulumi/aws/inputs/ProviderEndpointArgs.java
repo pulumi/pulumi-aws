@@ -449,6 +449,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.cloudwatchlogs);
     }
 
+    @Import(name="cloudwatchobservabilityaccessmanager")
+    private @Nullable Output<String> cloudwatchobservabilityaccessmanager;
+
+    public Optional<Output<String>> cloudwatchobservabilityaccessmanager() {
+        return Optional.ofNullable(this.cloudwatchobservabilityaccessmanager);
+    }
+
     @Import(name="cloudwatchrum")
     private @Nullable Output<String> cloudwatchrum;
 
@@ -1821,6 +1828,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.nimblestudio);
     }
 
+    @Import(name="oam")
+    private @Nullable Output<String> oam;
+
+    public Optional<Output<String>> oam() {
+        return Optional.ofNullable(this.oam);
+    }
+
     @Import(name="opensearch")
     private @Nullable Output<String> opensearch;
 
@@ -2705,6 +2719,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.cloudwatchevidently = $.cloudwatchevidently;
         this.cloudwatchlog = $.cloudwatchlog;
         this.cloudwatchlogs = $.cloudwatchlogs;
+        this.cloudwatchobservabilityaccessmanager = $.cloudwatchobservabilityaccessmanager;
         this.cloudwatchrum = $.cloudwatchrum;
         this.codeartifact = $.codeartifact;
         this.codebuild = $.codebuild;
@@ -2901,6 +2916,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.networkmanager = $.networkmanager;
         this.nimble = $.nimble;
         this.nimblestudio = $.nimblestudio;
+        this.oam = $.oam;
         this.opensearch = $.opensearch;
         this.opensearchserverless = $.opensearchserverless;
         this.opensearchservice = $.opensearchservice;
@@ -3594,6 +3610,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder cloudwatchlogs(String cloudwatchlogs) {
             return cloudwatchlogs(Output.of(cloudwatchlogs));
+        }
+
+        public Builder cloudwatchobservabilityaccessmanager(@Nullable Output<String> cloudwatchobservabilityaccessmanager) {
+            $.cloudwatchobservabilityaccessmanager = cloudwatchobservabilityaccessmanager;
+            return this;
+        }
+
+        public Builder cloudwatchobservabilityaccessmanager(String cloudwatchobservabilityaccessmanager) {
+            return cloudwatchobservabilityaccessmanager(Output.of(cloudwatchobservabilityaccessmanager));
         }
 
         public Builder cloudwatchrum(@Nullable Output<String> cloudwatchrum) {
@@ -5358,6 +5383,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder nimblestudio(String nimblestudio) {
             return nimblestudio(Output.of(nimblestudio));
+        }
+
+        public Builder oam(@Nullable Output<String> oam) {
+            $.oam = oam;
+            return this;
+        }
+
+        public Builder oam(String oam) {
+            return oam(Output.of(oam));
         }
 
         public Builder opensearch(@Nullable Output<String> opensearch) {

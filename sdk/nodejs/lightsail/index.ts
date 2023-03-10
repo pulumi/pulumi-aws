@@ -15,6 +15,11 @@ export type BucketAccessKey = import("./bucketAccessKey").BucketAccessKey;
 export const BucketAccessKey: typeof import("./bucketAccessKey").BucketAccessKey = null as any;
 utilities.lazyLoad(exports, ["BucketAccessKey"], () => require("./bucketAccessKey"));
 
+export { BucketResourceAccessArgs, BucketResourceAccessState } from "./bucketResourceAccess";
+export type BucketResourceAccess = import("./bucketResourceAccess").BucketResourceAccess;
+export const BucketResourceAccess: typeof import("./bucketResourceAccess").BucketResourceAccess = null as any;
+utilities.lazyLoad(exports, ["BucketResourceAccess"], () => require("./bucketResourceAccess"));
+
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
@@ -119,6 +124,8 @@ const _module = {
                 return new Bucket(name, <any>undefined, { urn })
             case "aws:lightsail/bucketAccessKey:BucketAccessKey":
                 return new BucketAccessKey(name, <any>undefined, { urn })
+            case "aws:lightsail/bucketResourceAccess:BucketResourceAccess":
+                return new BucketResourceAccess(name, <any>undefined, { urn })
             case "aws:lightsail/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "aws:lightsail/containerService:ContainerService":
@@ -164,6 +171,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "lightsail/bucket", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/bucketAccessKey", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/bucketResourceAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerService", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerServiceDeploymentVersion", _module)

@@ -35,7 +35,7 @@ export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.Invok
  */
 export interface GetDelegationSetArgs {
     /**
-     * Hosted Zone id of the desired delegation set.
+     * Delegation set ID.
      */
     id: string;
 }
@@ -76,7 +76,7 @@ export function getDelegationSetOutput(args: GetDelegationSetOutputArgs, opts?: 
  */
 export interface GetDelegationSetOutputArgs {
     /**
-     * Hosted Zone id of the desired delegation set.
+     * Delegation set ID.
      */
     id: pulumi.Input<string>;
 }

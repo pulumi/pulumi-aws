@@ -33,7 +33,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
-//				Bucket: example.Bucket,
+//				Bucket: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -62,7 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
-//				Bucket: example.Bucket,
+//				Bucket: example.ID(),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{
@@ -92,7 +92,7 @@ import (
 type BucketMetric struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket to put metric configuration.
+	// Name of the bucket to put metric configuration.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter BucketMetricFilterPtrOutput `pulumi:"filter"`
@@ -132,7 +132,7 @@ func GetBucketMetric(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketMetric resources.
 type bucketMetricState struct {
-	// The name of the bucket to put metric configuration.
+	// Name of the bucket to put metric configuration.
 	Bucket *string `pulumi:"bucket"`
 	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter *BucketMetricFilter `pulumi:"filter"`
@@ -141,7 +141,7 @@ type bucketMetricState struct {
 }
 
 type BucketMetricState struct {
-	// The name of the bucket to put metric configuration.
+	// Name of the bucket to put metric configuration.
 	Bucket pulumi.StringPtrInput
 	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter BucketMetricFilterPtrInput
@@ -154,7 +154,7 @@ func (BucketMetricState) ElementType() reflect.Type {
 }
 
 type bucketMetricArgs struct {
-	// The name of the bucket to put metric configuration.
+	// Name of the bucket to put metric configuration.
 	Bucket string `pulumi:"bucket"`
 	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter *BucketMetricFilter `pulumi:"filter"`
@@ -164,7 +164,7 @@ type bucketMetricArgs struct {
 
 // The set of arguments for constructing a BucketMetric resource.
 type BucketMetricArgs struct {
-	// The name of the bucket to put metric configuration.
+	// Name of the bucket to put metric configuration.
 	Bucket pulumi.StringInput
 	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 	Filter BucketMetricFilterPtrInput
@@ -259,7 +259,7 @@ func (o BucketMetricOutput) ToBucketMetricOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The name of the bucket to put metric configuration.
+// Name of the bucket to put metric configuration.
 func (o BucketMetricOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetric) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

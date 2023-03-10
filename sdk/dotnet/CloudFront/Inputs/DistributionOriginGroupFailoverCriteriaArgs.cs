@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         private InputList<int>? _statusCodes;
 
         /// <summary>
-        /// A list of HTTP status codes for the origin group
+        /// List of HTTP status codes for the origin group.
         /// </summary>
         public InputList<int> StatusCodes
         {

@@ -20,15 +20,19 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Name of the metric.
         /// </summary>
-        public readonly string MetricName;
+        public readonly string? MetricName;
+        /// <summary>
+        /// Metrics to include, as a metric data query.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> Metrics;
         /// <summary>
         /// Namespace of the metric.
         /// </summary>
-        public readonly string Namespace;
+        public readonly string? Namespace;
         /// <summary>
         /// Statistic of the metric.
         /// </summary>
-        public readonly string Statistic;
+        public readonly string? Statistic;
         /// <summary>
         /// Unit of the metric.
         /// </summary>
@@ -38,16 +42,19 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         private PolicyTargetTrackingConfigurationCustomizedMetricSpecification(
             ImmutableArray<Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions,
 
-            string metricName,
+            string? metricName,
 
-            string @namespace,
+            ImmutableArray<Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics,
 
-            string statistic,
+            string? @namespace,
+
+            string? statistic,
 
             string? unit)
         {
             MetricDimensions = metricDimensions;
             MetricName = metricName;
+            Metrics = metrics;
             Namespace = @namespace;
             Statistic = statistic;
             Unit = unit;

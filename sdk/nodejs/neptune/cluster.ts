@@ -163,6 +163,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly neptuneClusterParameterGroupName!: pulumi.Output<string | undefined>;
     /**
+     * The name of the DB parameter group to apply to all instances of the DB cluster.
+     */
+    public readonly neptuneInstanceParameterGroupName!: pulumi.Output<string | undefined>;
+    /**
      * A Neptune subnet group to associate with this Neptune instance.
      */
     public readonly neptuneSubnetGroupName!: pulumi.Output<string>;
@@ -250,6 +254,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["neptuneClusterParameterGroupName"] = state ? state.neptuneClusterParameterGroupName : undefined;
+            resourceInputs["neptuneInstanceParameterGroupName"] = state ? state.neptuneInstanceParameterGroupName : undefined;
             resourceInputs["neptuneSubnetGroupName"] = state ? state.neptuneSubnetGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
@@ -282,6 +287,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["neptuneClusterParameterGroupName"] = args ? args.neptuneClusterParameterGroupName : undefined;
+            resourceInputs["neptuneInstanceParameterGroupName"] = args ? args.neptuneInstanceParameterGroupName : undefined;
             resourceInputs["neptuneSubnetGroupName"] = args ? args.neptuneSubnetGroupName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
@@ -398,6 +404,10 @@ export interface ClusterState {
      * A cluster parameter group to associate with the cluster.
      */
     neptuneClusterParameterGroupName?: pulumi.Input<string>;
+    /**
+     * The name of the DB parameter group to apply to all instances of the DB cluster.
+     */
+    neptuneInstanceParameterGroupName?: pulumi.Input<string>;
     /**
      * A Neptune subnet group to associate with this Neptune instance.
      */
@@ -524,6 +534,10 @@ export interface ClusterArgs {
      * A cluster parameter group to associate with the cluster.
      */
     neptuneClusterParameterGroupName?: pulumi.Input<string>;
+    /**
+     * The name of the DB parameter group to apply to all instances of the DB cluster.
+     */
+    neptuneInstanceParameterGroupName?: pulumi.Input<string>;
     /**
      * A Neptune subnet group to associate with this Neptune instance.
      */

@@ -25,9 +25,9 @@ class AccessPointArgs:
                  vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
-        :param pulumi.Input[str] bucket: Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+        :param pulumi.Input[str] bucket: Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         :param pulumi.Input[str] account_id: AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[str] bucket_account_id: The AWS account ID associated with the S3 bucket associated with this access point.
+        :param pulumi.Input[str] bucket_account_id: AWS account ID associated with the S3 bucket associated with this access point.
         :param pulumi.Input[str] name: Name you want to assign to this access point.
         :param pulumi.Input[str] policy: Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
@@ -51,7 +51,7 @@ class AccessPointArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+        Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         """
         return pulumi.get(self, "bucket")
 
@@ -75,7 +75,7 @@ class AccessPointArgs:
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS account ID associated with the S3 bucket associated with this access point.
+        AWS account ID associated with the S3 bucket associated with this access point.
         """
         return pulumi.get(self, "bucket_account_id")
 
@@ -151,13 +151,13 @@ class _AccessPointState:
         """
         Input properties used for looking up and filtering AccessPoint resources.
         :param pulumi.Input[str] account_id: AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[str] alias: The alias of the S3 Access Point.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the S3 Access Point.
-        :param pulumi.Input[str] bucket: Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
-        :param pulumi.Input[str] bucket_account_id: The AWS account ID associated with the S3 bucket associated with this access point.
-        :param pulumi.Input[str] domain_name: The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+        :param pulumi.Input[str] alias: Alias of the S3 Access Point.
+        :param pulumi.Input[str] arn: ARN of the S3 Access Point.
+        :param pulumi.Input[str] bucket: Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+        :param pulumi.Input[str] bucket_account_id: AWS account ID associated with the S3 bucket associated with this access point.
+        :param pulumi.Input[str] domain_name: DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
                Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] endpoints: The VPC endpoints for the S3 Access Point.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] endpoints: VPC endpoints for the S3 Access Point.
         :param pulumi.Input[bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[str] name: Name you want to assign to this access point.
         :param pulumi.Input[str] network_origin: Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
@@ -208,7 +208,7 @@ class _AccessPointState:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The alias of the S3 Access Point.
+        Alias of the S3 Access Point.
         """
         return pulumi.get(self, "alias")
 
@@ -220,7 +220,7 @@ class _AccessPointState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the S3 Access Point.
+        ARN of the S3 Access Point.
         """
         return pulumi.get(self, "arn")
 
@@ -232,7 +232,7 @@ class _AccessPointState:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+        Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         """
         return pulumi.get(self, "bucket")
 
@@ -244,7 +244,7 @@ class _AccessPointState:
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS account ID associated with the S3 bucket associated with this access point.
+        AWS account ID associated with the S3 bucket associated with this access point.
         """
         return pulumi.get(self, "bucket_account_id")
 
@@ -256,7 +256,7 @@ class _AccessPointState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+        DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
         Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
         """
         return pulumi.get(self, "domain_name")
@@ -269,7 +269,7 @@ class _AccessPointState:
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The VPC endpoints for the S3 Access Point.
+        VPC endpoints for the S3 Access Point.
         """
         return pulumi.get(self, "endpoints")
 
@@ -403,7 +403,7 @@ class AccessPoint(pulumi.CustomResource):
          $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
         ```
 
-         For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.,
+         For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
 
         ```sh
          $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
@@ -412,8 +412,8 @@ class AccessPoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[str] bucket: Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
-        :param pulumi.Input[str] bucket_account_id: The AWS account ID associated with the S3 bucket associated with this access point.
+        :param pulumi.Input[str] bucket: Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+        :param pulumi.Input[str] bucket_account_id: AWS account ID associated with the S3 bucket associated with this access point.
         :param pulumi.Input[str] name: Name you want to assign to this access point.
         :param pulumi.Input[str] policy: Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']] public_access_block_configuration: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
@@ -465,7 +465,7 @@ class AccessPoint(pulumi.CustomResource):
          $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
         ```
 
-         For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.,
+         For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
 
         ```sh
          $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
@@ -548,13 +548,13 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[str] alias: The alias of the S3 Access Point.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the S3 Access Point.
-        :param pulumi.Input[str] bucket: Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
-        :param pulumi.Input[str] bucket_account_id: The AWS account ID associated with the S3 bucket associated with this access point.
-        :param pulumi.Input[str] domain_name: The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+        :param pulumi.Input[str] alias: Alias of the S3 Access Point.
+        :param pulumi.Input[str] arn: ARN of the S3 Access Point.
+        :param pulumi.Input[str] bucket: Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+        :param pulumi.Input[str] bucket_account_id: AWS account ID associated with the S3 bucket associated with this access point.
+        :param pulumi.Input[str] domain_name: DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
                Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] endpoints: The VPC endpoints for the S3 Access Point.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] endpoints: VPC endpoints for the S3 Access Point.
         :param pulumi.Input[bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[str] name: Name you want to assign to this access point.
         :param pulumi.Input[str] network_origin: Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
@@ -593,7 +593,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
         """
-        The alias of the S3 Access Point.
+        Alias of the S3 Access Point.
         """
         return pulumi.get(self, "alias")
 
@@ -601,7 +601,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of the S3 Access Point.
+        ARN of the S3 Access Point.
         """
         return pulumi.get(self, "arn")
 
@@ -609,7 +609,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+        Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         """
         return pulumi.get(self, "bucket")
 
@@ -617,7 +617,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> pulumi.Output[str]:
         """
-        The AWS account ID associated with the S3 bucket associated with this access point.
+        AWS account ID associated with the S3 bucket associated with this access point.
         """
         return pulumi.get(self, "bucket_account_id")
 
@@ -625,7 +625,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+        DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
         Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
         """
         return pulumi.get(self, "domain_name")
@@ -634,7 +634,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        The VPC endpoints for the S3 Access Point.
+        VPC endpoints for the S3 Access Point.
         """
         return pulumi.get(self, "endpoints")
 

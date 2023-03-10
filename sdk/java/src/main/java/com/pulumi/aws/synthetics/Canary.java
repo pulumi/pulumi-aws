@@ -232,14 +232,14 @@ public class Canary extends com.pulumi.resources.CustomResource {
         return this.runtimeVersion;
     }
     /**
-     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
      * 
      */
     @Export(name="s3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Bucket;
 
     /**
-     * @return Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+     * @return Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
      * 
      */
     public Output<Optional<String>> s3Bucket() {

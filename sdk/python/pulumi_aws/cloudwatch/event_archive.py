@@ -231,6 +231,7 @@ class EventArchive(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
@@ -238,10 +239,9 @@ class EventArchive(pulumi.CustomResource):
             description="Archived events from order service",
             event_source_arn=order_event_bus.arn,
             retention_days=7,
-            event_pattern=\"\"\"{
-          "source": ["company.team.order"]
-        }
-        \"\"\")
+            event_pattern=json.dumps({
+                "source": ["company.team.order"],
+            }))
         ```
 
         ## Import
@@ -284,6 +284,7 @@ class EventArchive(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
@@ -291,10 +292,9 @@ class EventArchive(pulumi.CustomResource):
             description="Archived events from order service",
             event_source_arn=order_event_bus.arn,
             retention_days=7,
-            event_pattern=\"\"\"{
-          "source": ["company.team.order"]
-        }
-        \"\"\")
+            event_pattern=json.dumps({
+                "source": ["company.team.order"],
+            }))
         ```
 
         ## Import

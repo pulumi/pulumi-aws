@@ -243,6 +243,12 @@ namespace Pulumi.Aws.Sns
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+        /// </summary>
+        [Output("signatureVersion")]
+        public Output<int> SignatureVersion { get; private set; } = null!;
+
+        /// <summary>
         /// IAM role for failure feedback
         /// </summary>
         [Output("sqsFailureFeedbackRoleArn")]
@@ -271,6 +277,12 @@ namespace Pulumi.Aws.Sns
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+        /// </summary>
+        [Output("tracingConfig")]
+        public Output<string> TracingConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -439,6 +451,12 @@ namespace Pulumi.Aws.Sns
         public Input<string>? Policy { get; set; }
 
         /// <summary>
+        /// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+        /// </summary>
+        [Input("signatureVersion")]
+        public Input<int>? SignatureVersion { get; set; }
+
+        /// <summary>
         /// IAM role for failure feedback
         /// </summary>
         [Input("sqsFailureFeedbackRoleArn")]
@@ -467,6 +485,12 @@ namespace Pulumi.Aws.Sns
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+        /// </summary>
+        [Input("tracingConfig")]
+        public Input<string>? TracingConfig { get; set; }
 
         public TopicArgs()
         {
@@ -609,6 +633,12 @@ namespace Pulumi.Aws.Sns
         public Input<string>? Policy { get; set; }
 
         /// <summary>
+        /// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+        /// </summary>
+        [Input("signatureVersion")]
+        public Input<int>? SignatureVersion { get; set; }
+
+        /// <summary>
         /// IAM role for failure feedback
         /// </summary>
         [Input("sqsFailureFeedbackRoleArn")]
@@ -649,6 +679,12 @@ namespace Pulumi.Aws.Sns
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+        /// </summary>
+        [Input("tracingConfig")]
+        public Input<string>? TracingConfig { get; set; }
 
         public TopicState()
         {

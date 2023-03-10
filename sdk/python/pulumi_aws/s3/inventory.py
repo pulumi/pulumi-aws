@@ -26,7 +26,7 @@ class InventoryArgs:
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Inventory resource.
-        :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[str] bucket: Name of the source bucket that inventory lists the objects for.
         :param pulumi.Input['InventoryDestinationArgs'] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input['InventoryScheduleArgs'] schedule: Specifies the schedule for generating inventory results (documented below).
@@ -52,7 +52,7 @@ class InventoryArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the source bucket that inventory lists the objects for.
+        Name of the source bucket that inventory lists the objects for.
         """
         return pulumi.get(self, "bucket")
 
@@ -158,7 +158,7 @@ class _InventoryState:
                  schedule: Optional[pulumi.Input['InventoryScheduleArgs']] = None):
         """
         Input properties used for looking up and filtering Inventory resources.
-        :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[str] bucket: Name of the source bucket that inventory lists the objects for.
         :param pulumi.Input['InventoryDestinationArgs'] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input['InventoryFilterArgs'] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
@@ -188,7 +188,7 @@ class _InventoryState:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the source bucket that inventory lists the objects for.
+        Name of the source bucket that inventory lists the objects for.
         """
         return pulumi.get(self, "bucket")
 
@@ -356,7 +356,7 @@ class Inventory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[str] bucket: Name of the source bucket that inventory lists the objects for.
         :param pulumi.Input[pulumi.InputType['InventoryDestinationArgs']] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input[pulumi.InputType['InventoryFilterArgs']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
@@ -503,7 +503,7 @@ class Inventory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[str] bucket: Name of the source bucket that inventory lists the objects for.
         :param pulumi.Input[pulumi.InputType['InventoryDestinationArgs']] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input[pulumi.InputType['InventoryFilterArgs']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
@@ -530,7 +530,7 @@ class Inventory(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the source bucket that inventory lists the objects for.
+        Name of the source bucket that inventory lists the objects for.
         """
         return pulumi.get(self, "bucket")
 

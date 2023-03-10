@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InventoryDestinationBucket {
     /**
-     * @return The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+     * @return ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
      * 
      */
     private @Nullable String accountId;
     /**
-     * @return The Amazon S3 bucket ARN of the destination.
+     * @return Amazon S3 bucket ARN of the destination.
      * 
      */
     private String bucketArn;
@@ -33,21 +33,21 @@ public final class InventoryDestinationBucket {
      */
     private String format;
     /**
-     * @return The prefix that is prepended to all inventory results.
+     * @return Prefix that is prepended to all inventory results.
      * 
      */
     private @Nullable String prefix;
 
     private InventoryDestinationBucket() {}
     /**
-     * @return The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+     * @return ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
      * 
      */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
     /**
-     * @return The Amazon S3 bucket ARN of the destination.
+     * @return Amazon S3 bucket ARN of the destination.
      * 
      */
     public String bucketArn() {
@@ -68,7 +68,7 @@ public final class InventoryDestinationBucket {
         return this.format;
     }
     /**
-     * @return The prefix that is prepended to all inventory results.
+     * @return Prefix that is prepended to all inventory results.
      * 
      */
     public Optional<String> prefix() {

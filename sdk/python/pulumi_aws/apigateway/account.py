@@ -95,42 +95,32 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "apigateway.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["apigateway.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=assume_role.json)
         demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
+        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams",
+                "logs:PutLogEvents",
+                "logs:GetLogEvents",
+                "logs:FilterLogEvents",
+            ],
+            resources=["*"],
+        )])
         cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
             role=cloudwatch_role.id,
-            policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "logs:CreateLogGroup",
-                        "logs:CreateLogStream",
-                        "logs:DescribeLogGroups",
-                        "logs:DescribeLogStreams",
-                        "logs:PutLogEvents",
-                        "logs:GetLogEvents",
-                        "logs:FilterLogEvents"
-                    ],
-                    "Resource": "*"
-                }
-            ]
-        }
-        \"\"\")
+            policy=data["aws_iam_policy_document"]["json"])
         ```
 
         ## Import
@@ -162,42 +152,32 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "apigateway.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["apigateway.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=assume_role.json)
         demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
+        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams",
+                "logs:PutLogEvents",
+                "logs:GetLogEvents",
+                "logs:FilterLogEvents",
+            ],
+            resources=["*"],
+        )])
         cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
             role=cloudwatch_role.id,
-            policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "logs:CreateLogGroup",
-                        "logs:CreateLogStream",
-                        "logs:DescribeLogGroups",
-                        "logs:DescribeLogStreams",
-                        "logs:PutLogEvents",
-                        "logs:GetLogEvents",
-                        "logs:FilterLogEvents"
-                    ],
-                    "Resource": "*"
-                }
-            ]
-        }
-        \"\"\")
+            policy=data["aws_iam_policy_document"]["json"])
         ```
 
         ## Import

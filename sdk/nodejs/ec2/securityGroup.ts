@@ -10,12 +10,10 @@ import * as utilities from "../utilities";
 /**
  * Provides a security group resource.
  *
- * > **NOTE on Security Groups and Security Group Rules:** This provider currently
- * provides both a standalone Security Group Rule resource (a single `ingress` or
- * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
- * defined in-line. At this time you cannot use a Security Group with in-line rules
- * in conjunction with any Security Group Rule resources. Doing so will cause
- * a conflict of rule settings and will overwrite rules.
+ * > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or
+ * `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID.
+ * The `awsVpcSecurityGroupEgressRule` and `awsVpcSecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules.
+ * You should not use the `awsVpcSecurityGroupEgressRule` and `awsVpcSecurityGroupIngressRule` resources in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
  *
  * > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
  *

@@ -303,15 +303,15 @@ class Activation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"  {
-            "Version": "2012-10-17",
-            "Statement": {
-              "Effect": "Allow",
-              "Principal": {"Service": "ssm.amazonaws.com"},
-              "Action": "sts:AssumeRole"
-            }
-          }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ssm.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
         test_attach = aws.iam.RolePolicyAttachment("testAttach",
             role=test_role.name,
             policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
@@ -354,15 +354,15 @@ class Activation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"  {
-            "Version": "2012-10-17",
-            "Statement": {
-              "Effect": "Allow",
-              "Principal": {"Service": "ssm.amazonaws.com"},
-              "Action": "sts:AssumeRole"
-            }
-          }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ssm.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
         test_attach = aws.iam.RolePolicyAttachment("testAttach",
             role=test_role.name,
             policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")

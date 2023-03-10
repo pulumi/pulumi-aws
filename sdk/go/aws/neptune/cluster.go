@@ -111,6 +111,8 @@ type Cluster struct {
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// A cluster parameter group to associate with the cluster.
 	NeptuneClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneClusterParameterGroupName"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	NeptuneInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneInstanceParameterGroupName"`
 	// A Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName pulumi.StringOutput `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the Neptune accepts connections. Default is `8182`.
@@ -212,6 +214,8 @@ type clusterState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// A cluster parameter group to associate with the cluster.
 	NeptuneClusterParameterGroupName *string `pulumi:"neptuneClusterParameterGroupName"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	NeptuneInstanceParameterGroupName *string `pulumi:"neptuneInstanceParameterGroupName"`
 	// A Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the Neptune accepts connections. Default is `8182`.
@@ -285,6 +289,8 @@ type ClusterState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// A cluster parameter group to associate with the cluster.
 	NeptuneClusterParameterGroupName pulumi.StringPtrInput
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	NeptuneInstanceParameterGroupName pulumi.StringPtrInput
 	// A Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName pulumi.StringPtrInput
 	// The port on which the Neptune accepts connections. Default is `8182`.
@@ -352,6 +358,8 @@ type clusterArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// A cluster parameter group to associate with the cluster.
 	NeptuneClusterParameterGroupName *string `pulumi:"neptuneClusterParameterGroupName"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	NeptuneInstanceParameterGroupName *string `pulumi:"neptuneInstanceParameterGroupName"`
 	// A Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the Neptune accepts connections. Default is `8182`.
@@ -412,6 +420,8 @@ type ClusterArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// A cluster parameter group to associate with the cluster.
 	NeptuneClusterParameterGroupName pulumi.StringPtrInput
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	NeptuneInstanceParameterGroupName pulumi.StringPtrInput
 	// A Neptune subnet group to associate with this Neptune instance.
 	NeptuneSubnetGroupName pulumi.StringPtrInput
 	// The port on which the Neptune accepts connections. Default is `8182`.
@@ -631,6 +641,11 @@ func (o ClusterOutput) KmsKeyArn() pulumi.StringOutput {
 // A cluster parameter group to associate with the cluster.
 func (o ClusterOutput) NeptuneClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NeptuneClusterParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the DB parameter group to apply to all instances of the DB cluster.
+func (o ClusterOutput) NeptuneInstanceParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NeptuneInstanceParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A Neptune subnet group to associate with this Neptune instance.

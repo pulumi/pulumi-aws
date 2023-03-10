@@ -52,8 +52,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -66,7 +64,7 @@ import (
 //				AuthorizerType: pulumi.String("REQUEST"),
 //				AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
 //				IdentitySources: pulumi.StringArray{
-//					pulumi.String(fmt.Sprintf("$request.header.Authorization")),
+//					pulumi.String("$request.header.Authorization"),
 //				},
 //				AuthorizerPayloadFormatVersion: pulumi.String("2.0"),
 //			})

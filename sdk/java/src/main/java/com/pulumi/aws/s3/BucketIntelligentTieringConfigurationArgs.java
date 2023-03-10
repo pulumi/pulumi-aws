@@ -19,14 +19,14 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
     public static final BucketIntelligentTieringConfigurationArgs Empty = new BucketIntelligentTieringConfigurationArgs();
 
     /**
-     * The name of the bucket this intelligent tiering configuration is associated with.
+     * Name of the bucket this intelligent tiering configuration is associated with.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket this intelligent tiering configuration is associated with.
+     * @return Name of the bucket this intelligent tiering configuration is associated with.
      * 
      */
     public Output<String> bucket() {
@@ -34,14 +34,14 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * A bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
+     * Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketIntelligentTieringConfigurationFilterArgs> filter;
 
     /**
-     * @return A bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
+     * @return Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
      * 
      */
     public Optional<Output<BucketIntelligentTieringConfigurationFilterArgs>> filter() {
@@ -49,14 +49,14 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+     * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+     * @return Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      * 
      */
     @Import(name="tierings", required=true)
     private Output<List<BucketIntelligentTieringConfigurationTieringArgs>> tierings;
 
     /**
-     * @return The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+     * @return S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      * 
      */
     public Output<List<BucketIntelligentTieringConfigurationTieringArgs>> tierings() {
@@ -122,7 +122,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param bucket The name of the bucket this intelligent tiering configuration is associated with.
+         * @param bucket Name of the bucket this intelligent tiering configuration is associated with.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param bucket The name of the bucket this intelligent tiering configuration is associated with.
+         * @param bucket Name of the bucket this intelligent tiering configuration is associated with.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param filter A bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
+         * @param filter Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param filter A bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
+         * @param filter Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param name The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+         * @param name Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param name The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+         * @param name Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param tierings The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+         * @param tierings S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param tierings The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+         * @param tierings S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param tierings The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+         * @param tierings S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
          * 
          * @return builder
          * 

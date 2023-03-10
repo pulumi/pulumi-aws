@@ -22,6 +22,8 @@ __all__ = [
     'GetOrganizationNonMasterAccountResult',
     'GetOrganizationRootResult',
     'GetOrganizationRootPolicyTypeResult',
+    'GetOrganizationalUnitChildAccountsAccountResult',
+    'GetOrganizationalUnitDescendantAccountsAccountResult',
     'GetOrganizationalUnitsChildrenResult',
 ]
 
@@ -635,6 +637,130 @@ class GetOrganizationRootPolicyTypeResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetOrganizationalUnitChildAccountsAccountResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 email: str,
+                 id: str,
+                 name: str,
+                 status: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the account.
+        :param str email: The email address associated with the AWS account.
+        :param str id: Parent identifier of the organizational units.
+        :param str name: The friendly name of the account.
+        :param str status: The status of the account in the organization.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the account.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email address associated with the AWS account.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Parent identifier of the organizational units.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The friendly name of the account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the account in the organization.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 email: str,
+                 id: str,
+                 name: str,
+                 status: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the account.
+        :param str email: The email address associated with the AWS account.
+        :param str id: Parent identifier of the organizational units.
+        :param str name: The friendly name of the account.
+        :param str status: The status of the account in the organization.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the account.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email address associated with the AWS account.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Parent identifier of the organizational units.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The friendly name of the account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the account in the organization.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

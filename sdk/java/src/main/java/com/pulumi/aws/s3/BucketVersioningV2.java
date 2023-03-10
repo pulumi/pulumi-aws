@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketVersioningV2.bucket())
+ *             .bucket(exampleBucketVersioningV2.id())
  *             .key(&#34;droeloe&#34;)
  *             .source(new FileAsset(&#34;example.txt&#34;))
  *             .build());
@@ -181,56 +181,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketVersioningV2:BucketVersioningV2")
 public class BucketVersioningV2 extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the S3 bucket.
+     * Name of the S3 bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the S3 bucket.
+     * @return Name of the S3 bucket.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+     * Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
      * 
      */
     @Export(name="mfa", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfa;
 
     /**
-     * @return The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+     * @return Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
      * 
      */
     public Output<Optional<String>> mfa() {
         return Codegen.optional(this.mfa);
     }
     /**
-     * Configuration block for the versioning parameters detailed below.
+     * Configuration block for the versioning parameters. See below.
      * 
      */
     @Export(name="versioningConfiguration", refs={BucketVersioningV2VersioningConfiguration.class}, tree="[0]")
     private Output<BucketVersioningV2VersioningConfiguration> versioningConfiguration;
 
     /**
-     * @return Configuration block for the versioning parameters detailed below.
+     * @return Configuration block for the versioning parameters. See below.
      * 
      */
     public Output<BucketVersioningV2VersioningConfiguration> versioningConfiguration() {

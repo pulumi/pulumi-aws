@@ -220,20 +220,15 @@ class ConfigurationAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        organization_role = aws.iam.Role("organizationRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["config.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        organization_role = aws.iam.Role("organizationRole", assume_role_policy=assume_role.json)
         organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment",
             role=organization_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
@@ -286,20 +281,15 @@ class ConfigurationAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        organization_role = aws.iam.Role("organizationRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["config.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        organization_role = aws.iam.Role("organizationRole", assume_role_policy=assume_role.json)
         organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment",
             role=organization_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")

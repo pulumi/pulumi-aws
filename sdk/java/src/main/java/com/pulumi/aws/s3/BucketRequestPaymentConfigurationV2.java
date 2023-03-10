@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketRequestPaymentConfigurationV2(&#34;example&#34;, BucketRequestPaymentConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.example().bucket())
+ *             .bucket(aws_s3_bucket.example().id())
  *             .payer(&#34;Requester&#34;)
  *             .build());
  * 
@@ -68,28 +68,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")
 public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {

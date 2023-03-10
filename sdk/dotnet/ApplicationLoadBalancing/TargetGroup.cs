@@ -159,7 +159,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<string> LoadBalancingAlgorithmType { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the target group. If omitted, this provider will assign a random, unique name.
+        /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
-        /// Name of the target group. If omitted, this provider will assign a random, unique name.
+        /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
-        /// Name of the target group. If omitted, this provider will assign a random, unique name.
+        /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -83,6 +83,10 @@ export class PolicyAttachment extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<string>;
     /**
+     * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     */
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
     public readonly targetId!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyAttachmentState | undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as PolicyAttachmentArgs | undefined;
@@ -111,6 +116,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetId'");
             }
             resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -127,6 +133,10 @@ export interface PolicyAttachmentState {
      */
     policyId?: pulumi.Input<string>;
     /**
+     * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
+    /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
     targetId?: pulumi.Input<string>;
@@ -140,6 +150,10 @@ export interface PolicyAttachmentArgs {
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
     policyId: pulumi.Input<string>;
+    /**
+     * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */

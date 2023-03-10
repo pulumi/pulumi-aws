@@ -68,8 +68,8 @@ import * as utilities from "../utilities";
  * `,
  *     cachingConfig: {
  *         cachingKeys: [
- *             `$context.identity.sub`,
- *             `$context.arguments.id`,
+ *             "$context.identity.sub",
+ *             "$context.arguments.id",
  *         ],
  *         ttl: 60,
  *     },
@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *     apiId: testGraphQLApi.id,
  *     field: "pipelineTest",
  *     requestTemplate: "{}",
- *     responseTemplate: `$util.toJson($ctx.result)`,
+ *     responseTemplate: "$util.toJson($ctx.result)",
  *     kind: "PIPELINE",
  *     pipelineConfig: {
  *         functions: [

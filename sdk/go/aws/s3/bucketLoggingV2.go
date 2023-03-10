@@ -87,15 +87,15 @@ import (
 type BucketLoggingV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// The name of the bucket where you want Amazon S3 to store server access logs.
+	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringOutput `pulumi:"targetBucket"`
-	// Set of configuration blocks with information for granting permissions documented below.
+	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayOutput `pulumi:"targetGrants"`
-	// A prefix for all log object keys.
+	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringOutput `pulumi:"targetPrefix"`
 }
 
@@ -137,28 +137,28 @@ func GetBucketLoggingV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketLoggingV2 resources.
 type bucketLoggingV2State struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The name of the bucket where you want Amazon S3 to store server access logs.
+	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket *string `pulumi:"targetBucket"`
-	// Set of configuration blocks with information for granting permissions documented below.
+	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants []BucketLoggingV2TargetGrant `pulumi:"targetGrants"`
-	// A prefix for all log object keys.
+	// Prefix for all log object keys.
 	TargetPrefix *string `pulumi:"targetPrefix"`
 }
 
 type BucketLoggingV2State struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The name of the bucket where you want Amazon S3 to store server access logs.
+	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringPtrInput
-	// Set of configuration blocks with information for granting permissions documented below.
+	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayInput
-	// A prefix for all log object keys.
+	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringPtrInput
 }
 
@@ -167,29 +167,29 @@ func (BucketLoggingV2State) ElementType() reflect.Type {
 }
 
 type bucketLoggingV2Args struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The name of the bucket where you want Amazon S3 to store server access logs.
+	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket string `pulumi:"targetBucket"`
-	// Set of configuration blocks with information for granting permissions documented below.
+	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants []BucketLoggingV2TargetGrant `pulumi:"targetGrants"`
-	// A prefix for all log object keys.
+	// Prefix for all log object keys.
 	TargetPrefix string `pulumi:"targetPrefix"`
 }
 
 // The set of arguments for constructing a BucketLoggingV2 resource.
 type BucketLoggingV2Args struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The name of the bucket where you want Amazon S3 to store server access logs.
+	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringInput
-	// Set of configuration blocks with information for granting permissions documented below.
+	// Set of configuration blocks with information for granting permissions. See below.
 	TargetGrants BucketLoggingV2TargetGrantArrayInput
-	// A prefix for all log object keys.
+	// Prefix for all log object keys.
 	TargetPrefix pulumi.StringInput
 }
 
@@ -280,27 +280,27 @@ func (o BucketLoggingV2Output) ToBucketLoggingV2OutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the bucket.
+// Name of the bucket.
 func (o BucketLoggingV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner.
+// Account ID of the expected bucket owner.
 func (o BucketLoggingV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The name of the bucket where you want Amazon S3 to store server access logs.
+// Name of the bucket where you want Amazon S3 to store server access logs.
 func (o BucketLoggingV2Output) TargetBucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringOutput { return v.TargetBucket }).(pulumi.StringOutput)
 }
 
-// Set of configuration blocks with information for granting permissions documented below.
+// Set of configuration blocks with information for granting permissions. See below.
 func (o BucketLoggingV2Output) TargetGrants() BucketLoggingV2TargetGrantArrayOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) BucketLoggingV2TargetGrantArrayOutput { return v.TargetGrants }).(BucketLoggingV2TargetGrantArrayOutput)
 }
 
-// A prefix for all log object keys.
+// Prefix for all log object keys.
 func (o BucketLoggingV2Output) TargetPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringOutput { return v.TargetPrefix }).(pulumi.StringOutput)
 }

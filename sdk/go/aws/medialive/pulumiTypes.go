@@ -4649,13 +4649,13 @@ func (o ChannelEncoderSettingsOutputGroupArrayOutput) Index(i pulumi.IntInput) C
 type ChannelEncoderSettingsOutputGroupOutputType struct {
 	// The names of the audio descriptions used as audio sources for the output.
 	AudioDescriptionNames []string `pulumi:"audioDescriptionNames"`
-	// The names of the caption descriptions used as audio sources for the output.
+	// The names of the caption descriptions used as caption sources for the output.
 	CaptionDescriptionNames []string `pulumi:"captionDescriptionNames"`
 	// The name used to identify an output.
 	OutputName *string `pulumi:"outputName"`
 	// Settings for output. See Output Settings for more details.
 	OutputSettings ChannelEncoderSettingsOutputGroupOutputOutputSettings `pulumi:"outputSettings"`
-	// The name of the video description used as audio sources for the output.
+	// The name of the video description used as video source for the output.
 	VideoDescriptionName *string `pulumi:"videoDescriptionName"`
 }
 
@@ -4673,13 +4673,13 @@ type ChannelEncoderSettingsOutputGroupOutputTypeInput interface {
 type ChannelEncoderSettingsOutputGroupOutputTypeArgs struct {
 	// The names of the audio descriptions used as audio sources for the output.
 	AudioDescriptionNames pulumi.StringArrayInput `pulumi:"audioDescriptionNames"`
-	// The names of the caption descriptions used as audio sources for the output.
+	// The names of the caption descriptions used as caption sources for the output.
 	CaptionDescriptionNames pulumi.StringArrayInput `pulumi:"captionDescriptionNames"`
 	// The name used to identify an output.
 	OutputName pulumi.StringPtrInput `pulumi:"outputName"`
 	// Settings for output. See Output Settings for more details.
 	OutputSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsInput `pulumi:"outputSettings"`
-	// The name of the video description used as audio sources for the output.
+	// The name of the video description used as video source for the output.
 	VideoDescriptionName pulumi.StringPtrInput `pulumi:"videoDescriptionName"`
 }
 
@@ -4739,7 +4739,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputTypeOutput) AudioDescriptionNames
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputType) []string { return v.AudioDescriptionNames }).(pulumi.StringArrayOutput)
 }
 
-// The names of the caption descriptions used as audio sources for the output.
+// The names of the caption descriptions used as caption sources for the output.
 func (o ChannelEncoderSettingsOutputGroupOutputTypeOutput) CaptionDescriptionNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputType) []string { return v.CaptionDescriptionNames }).(pulumi.StringArrayOutput)
 }
@@ -4756,7 +4756,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputTypeOutput) OutputSettings() Chan
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsOutput)
 }
 
-// The name of the video description used as audio sources for the output.
+// The name of the video description used as video source for the output.
 func (o ChannelEncoderSettingsOutputGroupOutputTypeOutput) VideoDescriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputType) *string { return v.VideoDescriptionName }).(pulumi.StringPtrOutput)
 }
@@ -16536,7 +16536,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDe
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings struct {
 	// The height of the FEC protection matrix.
 	ColumnDepth *int `pulumi:"columnDepth"`
-	// Enables column oly or column and row based FEC.
+	// Enables column only or column and row based FEC.
 	IncludeFec *string `pulumi:"includeFec"`
 	// The width of the FEC protection matrix.
 	RowLength *int `pulumi:"rowLength"`
@@ -16556,7 +16556,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOu
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs struct {
 	// The height of the FEC protection matrix.
 	ColumnDepth pulumi.IntPtrInput `pulumi:"columnDepth"`
-	// Enables column oly or column and row based FEC.
+	// Enables column only or column and row based FEC.
 	IncludeFec pulumi.StringPtrInput `pulumi:"includeFec"`
 	// The width of the FEC protection matrix.
 	RowLength pulumi.IntPtrInput `pulumi:"rowLength"`
@@ -16646,7 +16646,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enables column oly or column and row based FEC.
+// Enables column only or column and row based FEC.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsOutput) IncludeFec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings) *string {
 		return v.IncludeFec
@@ -16694,7 +16694,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enables column oly or column and row based FEC.
+// Enables column only or column and row based FEC.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsPtrOutput) IncludeFec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings) *string {
 		if v == nil {

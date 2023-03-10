@@ -28,21 +28,35 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var ec2AssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "ec2.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var ecsInstanceRoleRole = new Aws.Iam.Role("ecsInstanceRoleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    /// 	{
-    /// 	    ""Action"": ""sts:AssumeRole"",
-    /// 	    ""Effect"": ""Allow"",
-    /// 	    ""Principal"": {
-    /// 	        ""Service"": ""ec2.amazonaws.com""
-    /// 	    }
-    /// 	}
-    ///     ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = ec2AssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", new()
@@ -56,21 +70,35 @@ namespace Pulumi.Aws.Batch
     ///         Role = ecsInstanceRoleRole.Name,
     ///     });
     /// 
+    ///     var batchAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "batch.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var awsBatchServiceRoleRole = new Aws.Iam.Role("awsBatchServiceRoleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    /// 	{
-    /// 	    ""Action"": ""sts:AssumeRole"",
-    /// 	    ""Effect"": ""Allow"",
-    /// 	    ""Principal"": {
-    /// 		""Service"": ""batch.amazonaws.com""
-    /// 	    }
-    /// 	}
-    ///     ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = batchAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", new()
@@ -187,7 +215,7 @@ namespace Pulumi.Aws.Batch
     ///  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
     /// ```
     /// 
-    ///  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+    ///  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
     /// </summary>
     [AwsResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]
     public partial class ComputeEnvironment : global::Pulumi.CustomResource

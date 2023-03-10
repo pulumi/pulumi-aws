@@ -189,37 +189,28 @@ class RealtimeLogConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "cloudfront.amazonaws.com"
-              },
-              "Effect": "Allow"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["cloudfront.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "kinesis:DescribeStreamSummary",
+                "kinesis:DescribeStream",
+                "kinesis:PutRecord",
+                "kinesis:PutRecords",
+            ],
+            resources=[aws_kinesis_stream["example"]["arn"]],
+        )])
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
-            policy=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-                "Effect": "Allow",
-                "Action": [
-                  "kinesis:DescribeStreamSummary",
-                  "kinesis:DescribeStream",
-                  "kinesis:PutRecord",
-                  "kinesis:PutRecords"
-                ],
-                "Resource": "{aws_kinesis_stream["example"]["arn"]}"
-            }}
-          ]
-        }}
-        \"\"\")
+            policy=example_policy_document.json)
         example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig",
             sampling_rate=75,
             fields=[
@@ -266,37 +257,28 @@ class RealtimeLogConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "cloudfront.amazonaws.com"
-              },
-              "Effect": "Allow"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["cloudfront.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "kinesis:DescribeStreamSummary",
+                "kinesis:DescribeStream",
+                "kinesis:PutRecord",
+                "kinesis:PutRecords",
+            ],
+            resources=[aws_kinesis_stream["example"]["arn"]],
+        )])
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
-            policy=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-                "Effect": "Allow",
-                "Action": [
-                  "kinesis:DescribeStreamSummary",
-                  "kinesis:DescribeStream",
-                  "kinesis:PutRecord",
-                  "kinesis:PutRecords"
-                ],
-                "Resource": "{aws_kinesis_stream["example"]["arn"]}"
-            }}
-          ]
-        }}
-        \"\"\")
+            policy=example_policy_document.json)
         example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig",
             sampling_rate=75,
             fields=[

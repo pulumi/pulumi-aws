@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .attachment_accepter import *
 from .connect_attachment import *
+from .connect_peer import *
 from .connection import *
 from .core_network import *
 from .core_network_policy_attachment import *

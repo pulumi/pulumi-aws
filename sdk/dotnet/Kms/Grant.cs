@@ -12,60 +12,6 @@ namespace Pulumi.Aws.Kms
     /// <summary>
     /// Provides a resource-based access control mechanism for a KMS customer master key.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var key = new Aws.Kms.Key("key");
-    /// 
-    ///     var role = new Aws.Iam.Role("role", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""lambda.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var grant = new Aws.Kms.Grant("grant", new()
-    ///     {
-    ///         KeyId = key.KeyId,
-    ///         GranteePrincipal = role.Arn,
-    ///         Operations = new[]
-    ///         {
-    ///             "Encrypt",
-    ///             "Decrypt",
-    ///             "GenerateDataKey",
-    ///         },
-    ///         Constraints = new[]
-    ///         {
-    ///             new Aws.Kms.Inputs.GrantConstraintArgs
-    ///             {
-    ///                 EncryptionContextEquals = 
-    ///                 {
-    ///                     { "Department", "Finance" },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// KMS Grants can be imported using the Key ID and Grant ID separated by a colon (`:`), e.g.,

@@ -22,8 +22,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -34,7 +32,7 @@ import (
 //			_, err := apigatewayv2.NewRouteResponse(ctx, "example", &apigatewayv2.RouteResponseArgs{
 //				ApiId:            pulumi.Any(aws_apigatewayv2_api.Example.Id),
 //				RouteId:          pulumi.Any(aws_apigatewayv2_route.Example.Id),
-//				RouteResponseKey: pulumi.String(fmt.Sprintf("$default")),
+//				RouteResponseKey: pulumi.String("$default"),
 //			})
 //			if err != nil {
 //				return err

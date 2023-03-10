@@ -18,7 +18,7 @@ public final class BucketLoggingV2TargetGrantGrantee {
      */
     private @Nullable String emailAddress;
     /**
-     * @return The canonical user ID of the grantee.
+     * @return Canonical user ID of the grantee.
      * 
      */
     private @Nullable String id;
@@ -45,7 +45,7 @@ public final class BucketLoggingV2TargetGrantGrantee {
         return Optional.ofNullable(this.emailAddress);
     }
     /**
-     * @return The canonical user ID of the grantee.
+     * @return Canonical user ID of the grantee.
      * 
      */
     public Optional<String> id() {

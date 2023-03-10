@@ -143,14 +143,14 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the target group. If omitted, this provider will assign a random, unique name.
+     * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the target group. If omitted, this provider will assign a random, unique name.
+     * @return Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
     public Optional<Output<String>> name() {
@@ -566,7 +566,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the target group. If omitted, this provider will assign a random, unique name.
+         * @param name Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the target group. If omitted, this provider will assign a random, unique name.
+         * @param name Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
          * 
          * @return builder
          * 

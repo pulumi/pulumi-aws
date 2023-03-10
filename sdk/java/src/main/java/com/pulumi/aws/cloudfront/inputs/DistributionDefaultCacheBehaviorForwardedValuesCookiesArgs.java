@@ -17,20 +17,14 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs ex
     public static final DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs Empty = new DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs();
 
     /**
-     * Whether you want CloudFront to forward
-     * cookies to the origin that is associated with this cache behavior. You can
-     * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
-     * subsequent `whitelisted_names`
+     * Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
      * 
      */
     @Import(name="forward", required=true)
     private Output<String> forward;
 
     /**
-     * @return Whether you want CloudFront to forward
-     * cookies to the origin that is associated with this cache behavior. You can
-     * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
-     * subsequent `whitelisted_names`
+     * @return Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
      * 
      */
     public Output<String> forward() {
@@ -38,18 +32,14 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs ex
     }
 
     /**
-     * If you have specified `whitelist` to
-     * `forward`, the whitelisted cookies that you want CloudFront to forward to
-     * your origin.
+     * If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
      * 
      */
     @Import(name="whitelistedNames")
     private @Nullable Output<List<String>> whitelistedNames;
 
     /**
-     * @return If you have specified `whitelist` to
-     * `forward`, the whitelisted cookies that you want CloudFront to forward to
-     * your origin.
+     * @return If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
      * 
      */
     public Optional<Output<List<String>>> whitelistedNames() {
@@ -82,10 +72,7 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs ex
         }
 
         /**
-         * @param forward Whether you want CloudFront to forward
-         * cookies to the origin that is associated with this cache behavior. You can
-         * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
-         * subsequent `whitelisted_names`
+         * @param forward Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
          * 
          * @return builder
          * 
@@ -96,10 +83,7 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs ex
         }
 
         /**
-         * @param forward Whether you want CloudFront to forward
-         * cookies to the origin that is associated with this cache behavior. You can
-         * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
-         * subsequent `whitelisted_names`
+         * @param forward Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
          * 
          * @return builder
          * 
@@ -109,9 +93,7 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs ex
         }
 
         /**
-         * @param whitelistedNames If you have specified `whitelist` to
-         * `forward`, the whitelisted cookies that you want CloudFront to forward to
-         * your origin.
+         * @param whitelistedNames If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
          * 
          * @return builder
          * 
@@ -122,9 +104,7 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs ex
         }
 
         /**
-         * @param whitelistedNames If you have specified `whitelist` to
-         * `forward`, the whitelisted cookies that you want CloudFront to forward to
-         * your origin.
+         * @param whitelistedNames If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
          * 
          * @return builder
          * 
@@ -134,9 +114,7 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs ex
         }
 
         /**
-         * @param whitelistedNames If you have specified `whitelist` to
-         * `forward`, the whitelisted cookies that you want CloudFront to forward to
-         * your origin.
+         * @param whitelistedNames If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
          * 
          * @return builder
          * 

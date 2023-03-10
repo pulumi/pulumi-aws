@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketAclV2AccessControlPolicyGrantGranteeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display name of the owner.
+        /// Display name of the owner.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? EmailAddress { get; set; }
 
         /// <summary>
-        /// The canonical user ID of the grantee.
+        /// Canonical user ID of the grantee.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

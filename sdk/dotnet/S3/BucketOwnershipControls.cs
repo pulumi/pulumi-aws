@@ -47,7 +47,7 @@ namespace Pulumi.Aws.S3
     public partial class BucketOwnershipControls : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
+        /// Name of the bucket that you want to associate this access point with.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketOwnershipControlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
+        /// Name of the bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketOwnershipControlsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
+        /// Name of the bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

@@ -91,11 +91,11 @@ import (
 type BucketCorsConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules BucketCorsConfigurationV2CorsRuleArrayOutput `pulumi:"corsRules"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 }
 
@@ -134,20 +134,20 @@ func GetBucketCorsConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketCorsConfigurationV2 resources.
 type bucketCorsConfigurationV2State struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
-	// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules []BucketCorsConfigurationV2CorsRule `pulumi:"corsRules"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 }
 
 type BucketCorsConfigurationV2State struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
-	// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules BucketCorsConfigurationV2CorsRuleArrayInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
 }
 
@@ -156,21 +156,21 @@ func (BucketCorsConfigurationV2State) ElementType() reflect.Type {
 }
 
 type bucketCorsConfigurationV2Args struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`
-	// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules []BucketCorsConfigurationV2CorsRule `pulumi:"corsRules"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 }
 
 // The set of arguments for constructing a BucketCorsConfigurationV2 resource.
 type BucketCorsConfigurationV2Args struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringInput
-	// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules BucketCorsConfigurationV2CorsRuleArrayInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
 }
 
@@ -261,17 +261,17 @@ func (o BucketCorsConfigurationV2Output) ToBucketCorsConfigurationV2OutputWithCo
 	return o
 }
 
-// The name of the bucket.
+// Name of the bucket.
 func (o BucketCorsConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketCorsConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 func (o BucketCorsConfigurationV2Output) CorsRules() BucketCorsConfigurationV2CorsRuleArrayOutput {
 	return o.ApplyT(func(v *BucketCorsConfigurationV2) BucketCorsConfigurationV2CorsRuleArrayOutput { return v.CorsRules }).(BucketCorsConfigurationV2CorsRuleArrayOutput)
 }
 
-// The account ID of the expected bucket owner.
+// Account ID of the expected bucket owner.
 func (o BucketCorsConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketCorsConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

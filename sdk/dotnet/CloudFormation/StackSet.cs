@@ -20,6 +20,7 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -63,27 +64,40 @@ namespace Pulumi.Aws.CloudFormation
     ///         {
     ///             { "VPCCidr", "10.0.0.0/16" },
     ///         },
-    ///         TemplateBody = @"{
-    ///   ""Parameters"" : {
-    ///     ""VPCCidr"" : {
-    ///       ""Type"" : ""String"",
-    ///       ""Default"" : ""10.0.0.0/16"",
-    ///       ""Description"" : ""Enter the CIDR block for the VPC. Default is 10.0.0.0/16.""
-    ///     }
-    ///   },
-    ///   ""Resources"" : {
-    ///     ""myVpc"": {
-    ///       ""Type"" : ""AWS::EC2::VPC"",
-    ///       ""Properties"" : {
-    ///         ""CidrBlock"" : { ""Ref"" : ""VPCCidr"" },
-    ///         ""Tags"" : [
-    ///           {""Key"": ""Name"", ""Value"": ""Primary_CF_VPC""}
-    ///         ]
-    ///       }
-    ///     }
-    ///   }
-    /// }
-    /// ",
+    ///         TemplateBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["VPCCidr"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Type"] = "String",
+    ///                     ["Default"] = "10.0.0.0/16",
+    ///                     ["Description"] = "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+    ///                 },
+    ///             },
+    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["myVpc"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Type"] = "AWS::EC2::VPC",
+    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["CidrBlock"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Ref"] = "VPCCidr",
+    ///                         },
+    ///                         ["Tags"] = new[]
+    ///                         {
+    ///                             new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["Key"] = "Name",
+    ///                                 ["Value"] = "Primary_CF_VPC",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     ///     var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()

@@ -90,70 +90,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketLoggingV2:BucketLoggingV2")
 public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
+     * Name of the bucket where you want Amazon S3 to store server access logs.
      * 
      */
     @Export(name="targetBucket", refs={String.class}, tree="[0]")
     private Output<String> targetBucket;
 
     /**
-     * @return The name of the bucket where you want Amazon S3 to store server access logs.
+     * @return Name of the bucket where you want Amazon S3 to store server access logs.
      * 
      */
     public Output<String> targetBucket() {
         return this.targetBucket;
     }
     /**
-     * Set of configuration blocks with information for granting permissions documented below.
+     * Set of configuration blocks with information for granting permissions. See below.
      * 
      */
     @Export(name="targetGrants", refs={List.class,BucketLoggingV2TargetGrant.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BucketLoggingV2TargetGrant>> targetGrants;
 
     /**
-     * @return Set of configuration blocks with information for granting permissions documented below.
+     * @return Set of configuration blocks with information for granting permissions. See below.
      * 
      */
     public Output<Optional<List<BucketLoggingV2TargetGrant>>> targetGrants() {
         return Codegen.optional(this.targetGrants);
     }
     /**
-     * A prefix for all log object keys.
+     * Prefix for all log object keys.
      * 
      */
     @Export(name="targetPrefix", refs={String.class}, tree="[0]")
     private Output<String> targetPrefix;
 
     /**
-     * @return A prefix for all log object keys.
+     * @return Prefix for all log object keys.
      * 
      */
     public Output<String> targetPrefix() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketIntelligentTieringConfigurationFilter
     {
         /// <summary>
-        /// An object key name prefix that identifies the subset of objects to which the configuration applies.
+        /// Object key name prefix that identifies the subset of objects to which the configuration applies.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>

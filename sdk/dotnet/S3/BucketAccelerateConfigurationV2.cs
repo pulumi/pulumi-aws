@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example = new Aws.S3.BucketAccelerateConfigurationV2("example", new()
     ///     {
-    ///         Bucket = mybucket.Bucket,
+    ///         Bucket = mybucket.Id,
     ///         Status = "Enabled",
     ///     });
     /// 
@@ -50,19 +50,19 @@ namespace Pulumi.Aws.S3
     public partial class BucketAccelerateConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+        /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -114,19 +114,19 @@ namespace Pulumi.Aws.S3
     public sealed class BucketAccelerateConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+        /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -140,19 +140,19 @@ namespace Pulumi.Aws.S3
     public sealed class BucketAccelerateConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+        /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

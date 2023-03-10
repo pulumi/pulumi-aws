@@ -276,6 +276,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the DB parameter group to apply to all instances of the DB cluster.
+     * 
+     */
+    @Import(name="neptuneInstanceParameterGroupName")
+    private @Nullable Output<String> neptuneInstanceParameterGroupName;
+
+    /**
+     * @return The name of the DB parameter group to apply to all instances of the DB cluster.
+     * 
+     */
+    public Optional<Output<String>> neptuneInstanceParameterGroupName() {
+        return Optional.ofNullable(this.neptuneInstanceParameterGroupName);
+    }
+
+    /**
      * A Neptune subnet group to associate with this Neptune instance.
      * 
      */
@@ -460,6 +475,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.iamRoles = $.iamRoles;
         this.kmsKeyArn = $.kmsKeyArn;
         this.neptuneClusterParameterGroupName = $.neptuneClusterParameterGroupName;
+        this.neptuneInstanceParameterGroupName = $.neptuneInstanceParameterGroupName;
         this.neptuneSubnetGroupName = $.neptuneSubnetGroupName;
         this.port = $.port;
         this.preferredBackupWindow = $.preferredBackupWindow;
@@ -876,6 +892,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder neptuneClusterParameterGroupName(String neptuneClusterParameterGroupName) {
             return neptuneClusterParameterGroupName(Output.of(neptuneClusterParameterGroupName));
+        }
+
+        /**
+         * @param neptuneInstanceParameterGroupName The name of the DB parameter group to apply to all instances of the DB cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder neptuneInstanceParameterGroupName(@Nullable Output<String> neptuneInstanceParameterGroupName) {
+            $.neptuneInstanceParameterGroupName = neptuneInstanceParameterGroupName;
+            return this;
+        }
+
+        /**
+         * @param neptuneInstanceParameterGroupName The name of the DB parameter group to apply to all instances of the DB cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder neptuneInstanceParameterGroupName(String neptuneInstanceParameterGroupName) {
+            return neptuneInstanceParameterGroupName(Output.of(neptuneInstanceParameterGroupName));
         }
 
         /**

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *         var mybucket = new BucketV2(&#34;mybucket&#34;);
  * 
  *         var example = new BucketAccelerateConfigurationV2(&#34;example&#34;, BucketAccelerateConfigurationV2Args.builder()        
- *             .bucket(mybucket.bucket())
+ *             .bucket(mybucket.id())
  *             .status(&#34;Enabled&#34;)
  *             .build());
  * 
@@ -69,42 +69,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")
 public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * @return Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      * 
      */
     public Output<String> status() {

@@ -22,8 +22,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -33,14 +31,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleApi, err := apigatewayv2.NewApi(ctx, "exampleApi", &apigatewayv2.ApiArgs{
 //				ProtocolType:             pulumi.String("WEBSOCKET"),
-//				RouteSelectionExpression: pulumi.String(fmt.Sprintf("$request.body.action")),
+//				RouteSelectionExpression: pulumi.String("$request.body.action"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigatewayv2.NewRoute(ctx, "exampleRoute", &apigatewayv2.RouteArgs{
 //				ApiId:    exampleApi.ID(),
-//				RouteKey: pulumi.String(fmt.Sprintf("$default")),
+//				RouteKey: pulumi.String("$default"),
 //			})
 //			if err != nil {
 //				return err

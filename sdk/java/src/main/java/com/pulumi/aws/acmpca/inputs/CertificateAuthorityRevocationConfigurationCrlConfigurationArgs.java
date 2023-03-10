@@ -51,26 +51,26 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
      * Number of days until a certificate expires. Must be between 1 and 5000.
      * 
      */
-    @Import(name="expirationInDays", required=true)
-    private Output<Integer> expirationInDays;
+    @Import(name="expirationInDays")
+    private @Nullable Output<Integer> expirationInDays;
 
     /**
      * @return Number of days until a certificate expires. Must be between 1 and 5000.
      * 
      */
-    public Output<Integer> expirationInDays() {
-        return this.expirationInDays;
+    public Optional<Output<Integer>> expirationInDays() {
+        return Optional.ofNullable(this.expirationInDays);
     }
 
     /**
-     * Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
+     * Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
      * 
      */
     @Import(name="s3BucketName")
     private @Nullable Output<String> s3BucketName;
 
     /**
-     * @return Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
+     * @return Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> s3BucketName() {
@@ -168,7 +168,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
          * @return builder
          * 
          */
-        public Builder expirationInDays(Output<Integer> expirationInDays) {
+        public Builder expirationInDays(@Nullable Output<Integer> expirationInDays) {
             $.expirationInDays = expirationInDays;
             return this;
         }
@@ -184,7 +184,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
         }
 
         /**
-         * @param s3BucketName Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
+         * @param s3BucketName Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
         }
 
         /**
-         * @param s3BucketName Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
+         * @param s3BucketName Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -226,7 +226,6 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
         }
 
         public CertificateAuthorityRevocationConfigurationCrlConfigurationArgs build() {
-            $.expirationInDays = Objects.requireNonNull($.expirationInDays, "expected parameter 'expirationInDays' to be non-null");
             return $;
         }
     }

@@ -13,15 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `  {
- *     "Version": "2012-10-17",
- *     "Statement": {
- *       "Effect": "Allow",
- *       "Principal": {"Service": "ssm.amazonaws.com"},
- *       "Action": "sts:AssumeRole"
- *     }
- *   }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["ssm.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
  *     role: testRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",

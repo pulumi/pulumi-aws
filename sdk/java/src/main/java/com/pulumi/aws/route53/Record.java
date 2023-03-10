@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.route53.RecordArgs;
 import com.pulumi.aws.route53.inputs.RecordState;
 import com.pulumi.aws.route53.outputs.RecordAlias;
+import com.pulumi.aws.route53.outputs.RecordCidrRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordFailoverRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordGeolocationRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordLatencyRoutingPolicy;
@@ -259,6 +260,20 @@ public class Record extends com.pulumi.resources.CustomResource {
         return this.allowOverwrite;
     }
     /**
+     * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    @Export(name="cidrRoutingPolicy", refs={RecordCidrRoutingPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ RecordCidrRoutingPolicy> cidrRoutingPolicy;
+
+    /**
+     * @return A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    public Output<Optional<RecordCidrRoutingPolicy>> cidrRoutingPolicy() {
+        return Codegen.optional(this.cidrRoutingPolicy);
+    }
+    /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      * 
      */
@@ -371,14 +386,14 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.records);
     }
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     @Export(name="setIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> setIdentifier;
 
     /**
-     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
+     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     public Output<Optional<String>> setIdentifier() {

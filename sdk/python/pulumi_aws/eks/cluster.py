@@ -538,34 +538,6 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("endpoint", example.endpoint)
         pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
         ```
-        ### Example IAM Role for EKS Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "eks.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
-        example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-            role=example.name)
-        # Optionally, enable Security Groups for Pods
-        # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-        example__amazon_eksvpc_resource_controller = aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-            role=example.name)
-        ```
         ### Enabling Control Plane Logging
 
         [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `cloudwatch.LogGroup` resource can be used.
@@ -662,34 +634,6 @@ class Cluster(pulumi.CustomResource):
                 ]))
         pulumi.export("endpoint", example.endpoint)
         pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
-        ```
-        ### Example IAM Role for EKS Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "eks.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
-        example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-            role=example.name)
-        # Optionally, enable Security Groups for Pods
-        # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-        example__amazon_eksvpc_resource_controller = aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-            role=example.name)
         ```
         ### Enabling Control Plane Logging
 

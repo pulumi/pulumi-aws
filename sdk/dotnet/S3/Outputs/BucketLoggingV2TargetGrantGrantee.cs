@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? EmailAddress;
         /// <summary>
-        /// The canonical user ID of the grantee.
+        /// Canonical user ID of the grantee.
         /// </summary>
         public readonly string? Id;
         /// <summary>

@@ -1386,6 +1386,272 @@ func (o GetOrganizationRootPolicyTypeArrayOutput) Index(i pulumi.IntInput) GetOr
 	}).(GetOrganizationRootPolicyTypeOutput)
 }
 
+type GetOrganizationalUnitChildAccountsAccount struct {
+	// The Amazon Resource Name (ARN) of the account.
+	Arn string `pulumi:"arn"`
+	// The email address associated with the AWS account.
+	Email string `pulumi:"email"`
+	// Parent identifier of the organizational units.
+	Id string `pulumi:"id"`
+	// The friendly name of the account.
+	Name string `pulumi:"name"`
+	// The status of the account in the organization.
+	Status string `pulumi:"status"`
+}
+
+// GetOrganizationalUnitChildAccountsAccountInput is an input type that accepts GetOrganizationalUnitChildAccountsAccountArgs and GetOrganizationalUnitChildAccountsAccountOutput values.
+// You can construct a concrete instance of `GetOrganizationalUnitChildAccountsAccountInput` via:
+//
+//	GetOrganizationalUnitChildAccountsAccountArgs{...}
+type GetOrganizationalUnitChildAccountsAccountInput interface {
+	pulumi.Input
+
+	ToGetOrganizationalUnitChildAccountsAccountOutput() GetOrganizationalUnitChildAccountsAccountOutput
+	ToGetOrganizationalUnitChildAccountsAccountOutputWithContext(context.Context) GetOrganizationalUnitChildAccountsAccountOutput
+}
+
+type GetOrganizationalUnitChildAccountsAccountArgs struct {
+	// The Amazon Resource Name (ARN) of the account.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The email address associated with the AWS account.
+	Email pulumi.StringInput `pulumi:"email"`
+	// Parent identifier of the organizational units.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The friendly name of the account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the account in the organization.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetOrganizationalUnitChildAccountsAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationalUnitChildAccountsAccount)(nil)).Elem()
+}
+
+func (i GetOrganizationalUnitChildAccountsAccountArgs) ToGetOrganizationalUnitChildAccountsAccountOutput() GetOrganizationalUnitChildAccountsAccountOutput {
+	return i.ToGetOrganizationalUnitChildAccountsAccountOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationalUnitChildAccountsAccountArgs) ToGetOrganizationalUnitChildAccountsAccountOutputWithContext(ctx context.Context) GetOrganizationalUnitChildAccountsAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitChildAccountsAccountOutput)
+}
+
+// GetOrganizationalUnitChildAccountsAccountArrayInput is an input type that accepts GetOrganizationalUnitChildAccountsAccountArray and GetOrganizationalUnitChildAccountsAccountArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationalUnitChildAccountsAccountArrayInput` via:
+//
+//	GetOrganizationalUnitChildAccountsAccountArray{ GetOrganizationalUnitChildAccountsAccountArgs{...} }
+type GetOrganizationalUnitChildAccountsAccountArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationalUnitChildAccountsAccountArrayOutput() GetOrganizationalUnitChildAccountsAccountArrayOutput
+	ToGetOrganizationalUnitChildAccountsAccountArrayOutputWithContext(context.Context) GetOrganizationalUnitChildAccountsAccountArrayOutput
+}
+
+type GetOrganizationalUnitChildAccountsAccountArray []GetOrganizationalUnitChildAccountsAccountInput
+
+func (GetOrganizationalUnitChildAccountsAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationalUnitChildAccountsAccount)(nil)).Elem()
+}
+
+func (i GetOrganizationalUnitChildAccountsAccountArray) ToGetOrganizationalUnitChildAccountsAccountArrayOutput() GetOrganizationalUnitChildAccountsAccountArrayOutput {
+	return i.ToGetOrganizationalUnitChildAccountsAccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationalUnitChildAccountsAccountArray) ToGetOrganizationalUnitChildAccountsAccountArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitChildAccountsAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitChildAccountsAccountArrayOutput)
+}
+
+type GetOrganizationalUnitChildAccountsAccountOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationalUnitChildAccountsAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationalUnitChildAccountsAccount)(nil)).Elem()
+}
+
+func (o GetOrganizationalUnitChildAccountsAccountOutput) ToGetOrganizationalUnitChildAccountsAccountOutput() GetOrganizationalUnitChildAccountsAccountOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitChildAccountsAccountOutput) ToGetOrganizationalUnitChildAccountsAccountOutputWithContext(ctx context.Context) GetOrganizationalUnitChildAccountsAccountOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the account.
+func (o GetOrganizationalUnitChildAccountsAccountOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The email address associated with the AWS account.
+func (o GetOrganizationalUnitChildAccountsAccountOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// Parent identifier of the organizational units.
+func (o GetOrganizationalUnitChildAccountsAccountOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The friendly name of the account.
+func (o GetOrganizationalUnitChildAccountsAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the account in the organization.
+func (o GetOrganizationalUnitChildAccountsAccountOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetOrganizationalUnitChildAccountsAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationalUnitChildAccountsAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationalUnitChildAccountsAccount)(nil)).Elem()
+}
+
+func (o GetOrganizationalUnitChildAccountsAccountArrayOutput) ToGetOrganizationalUnitChildAccountsAccountArrayOutput() GetOrganizationalUnitChildAccountsAccountArrayOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitChildAccountsAccountArrayOutput) ToGetOrganizationalUnitChildAccountsAccountArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitChildAccountsAccountArrayOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitChildAccountsAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizationalUnitChildAccountsAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationalUnitChildAccountsAccount {
+		return vs[0].([]GetOrganizationalUnitChildAccountsAccount)[vs[1].(int)]
+	}).(GetOrganizationalUnitChildAccountsAccountOutput)
+}
+
+type GetOrganizationalUnitDescendantAccountsAccount struct {
+	// The Amazon Resource Name (ARN) of the account.
+	Arn string `pulumi:"arn"`
+	// The email address associated with the AWS account.
+	Email string `pulumi:"email"`
+	// Parent identifier of the organizational units.
+	Id string `pulumi:"id"`
+	// The friendly name of the account.
+	Name string `pulumi:"name"`
+	// The status of the account in the organization.
+	Status string `pulumi:"status"`
+}
+
+// GetOrganizationalUnitDescendantAccountsAccountInput is an input type that accepts GetOrganizationalUnitDescendantAccountsAccountArgs and GetOrganizationalUnitDescendantAccountsAccountOutput values.
+// You can construct a concrete instance of `GetOrganizationalUnitDescendantAccountsAccountInput` via:
+//
+//	GetOrganizationalUnitDescendantAccountsAccountArgs{...}
+type GetOrganizationalUnitDescendantAccountsAccountInput interface {
+	pulumi.Input
+
+	ToGetOrganizationalUnitDescendantAccountsAccountOutput() GetOrganizationalUnitDescendantAccountsAccountOutput
+	ToGetOrganizationalUnitDescendantAccountsAccountOutputWithContext(context.Context) GetOrganizationalUnitDescendantAccountsAccountOutput
+}
+
+type GetOrganizationalUnitDescendantAccountsAccountArgs struct {
+	// The Amazon Resource Name (ARN) of the account.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The email address associated with the AWS account.
+	Email pulumi.StringInput `pulumi:"email"`
+	// Parent identifier of the organizational units.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The friendly name of the account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the account in the organization.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetOrganizationalUnitDescendantAccountsAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationalUnitDescendantAccountsAccount)(nil)).Elem()
+}
+
+func (i GetOrganizationalUnitDescendantAccountsAccountArgs) ToGetOrganizationalUnitDescendantAccountsAccountOutput() GetOrganizationalUnitDescendantAccountsAccountOutput {
+	return i.ToGetOrganizationalUnitDescendantAccountsAccountOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationalUnitDescendantAccountsAccountArgs) ToGetOrganizationalUnitDescendantAccountsAccountOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantAccountsAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitDescendantAccountsAccountOutput)
+}
+
+// GetOrganizationalUnitDescendantAccountsAccountArrayInput is an input type that accepts GetOrganizationalUnitDescendantAccountsAccountArray and GetOrganizationalUnitDescendantAccountsAccountArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationalUnitDescendantAccountsAccountArrayInput` via:
+//
+//	GetOrganizationalUnitDescendantAccountsAccountArray{ GetOrganizationalUnitDescendantAccountsAccountArgs{...} }
+type GetOrganizationalUnitDescendantAccountsAccountArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationalUnitDescendantAccountsAccountArrayOutput() GetOrganizationalUnitDescendantAccountsAccountArrayOutput
+	ToGetOrganizationalUnitDescendantAccountsAccountArrayOutputWithContext(context.Context) GetOrganizationalUnitDescendantAccountsAccountArrayOutput
+}
+
+type GetOrganizationalUnitDescendantAccountsAccountArray []GetOrganizationalUnitDescendantAccountsAccountInput
+
+func (GetOrganizationalUnitDescendantAccountsAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationalUnitDescendantAccountsAccount)(nil)).Elem()
+}
+
+func (i GetOrganizationalUnitDescendantAccountsAccountArray) ToGetOrganizationalUnitDescendantAccountsAccountArrayOutput() GetOrganizationalUnitDescendantAccountsAccountArrayOutput {
+	return i.ToGetOrganizationalUnitDescendantAccountsAccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationalUnitDescendantAccountsAccountArray) ToGetOrganizationalUnitDescendantAccountsAccountArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantAccountsAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitDescendantAccountsAccountArrayOutput)
+}
+
+type GetOrganizationalUnitDescendantAccountsAccountOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationalUnitDescendantAccountsAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationalUnitDescendantAccountsAccount)(nil)).Elem()
+}
+
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) ToGetOrganizationalUnitDescendantAccountsAccountOutput() GetOrganizationalUnitDescendantAccountsAccountOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) ToGetOrganizationalUnitDescendantAccountsAccountOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantAccountsAccountOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the account.
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The email address associated with the AWS account.
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// Parent identifier of the organizational units.
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The friendly name of the account.
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the account in the organization.
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetOrganizationalUnitDescendantAccountsAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationalUnitDescendantAccountsAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationalUnitDescendantAccountsAccount)(nil)).Elem()
+}
+
+func (o GetOrganizationalUnitDescendantAccountsAccountArrayOutput) ToGetOrganizationalUnitDescendantAccountsAccountArrayOutput() GetOrganizationalUnitDescendantAccountsAccountArrayOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitDescendantAccountsAccountArrayOutput) ToGetOrganizationalUnitDescendantAccountsAccountArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantAccountsAccountArrayOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitDescendantAccountsAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizationalUnitDescendantAccountsAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationalUnitDescendantAccountsAccount {
+		return vs[0].([]GetOrganizationalUnitDescendantAccountsAccount)[vs[1].(int)]
+	}).(GetOrganizationalUnitDescendantAccountsAccountOutput)
+}
+
 type GetOrganizationalUnitsChildren struct {
 	// ARN of the organizational unit
 	Arn string `pulumi:"arn"`
@@ -1524,6 +1790,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRootArrayInput)(nil)).Elem(), GetOrganizationRootArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRootPolicyTypeInput)(nil)).Elem(), GetOrganizationRootPolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationRootPolicyTypeArrayInput)(nil)).Elem(), GetOrganizationRootPolicyTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitChildAccountsAccountInput)(nil)).Elem(), GetOrganizationalUnitChildAccountsAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitChildAccountsAccountArrayInput)(nil)).Elem(), GetOrganizationalUnitChildAccountsAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitDescendantAccountsAccountInput)(nil)).Elem(), GetOrganizationalUnitDescendantAccountsAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitDescendantAccountsAccountArrayInput)(nil)).Elem(), GetOrganizationalUnitDescendantAccountsAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitsChildrenInput)(nil)).Elem(), GetOrganizationalUnitsChildrenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitsChildrenArrayInput)(nil)).Elem(), GetOrganizationalUnitsChildrenArray{})
 	pulumi.RegisterOutputType(OrganizationAccountOutput{})
@@ -1548,6 +1818,10 @@ func init() {
 	pulumi.RegisterOutputType(GetOrganizationRootArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationRootPolicyTypeOutput{})
 	pulumi.RegisterOutputType(GetOrganizationRootPolicyTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationalUnitChildAccountsAccountOutput{})
+	pulumi.RegisterOutputType(GetOrganizationalUnitChildAccountsAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationalUnitDescendantAccountsAccountOutput{})
+	pulumi.RegisterOutputType(GetOrganizationalUnitDescendantAccountsAccountArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationalUnitsChildrenOutput{})
 	pulumi.RegisterOutputType(GetOrganizationalUnitsChildrenArrayOutput{})
 }

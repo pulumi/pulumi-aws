@@ -73,6 +73,7 @@ import (
 //	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
@@ -94,24 +95,41 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				AccessPolicies: pulumi.String(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "es:*",
-//	      "Principal": "*",
-//	      "Effect": "Allow",
-//	      "Resource": "arn:aws:es:%v:%v:domain/%v/*",
-//	      "Condition": {
-//	        "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `, currentRegion.Name, currentCallerIdentity.AccountId, domain)),
-//
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "*",
+//								Identifiers: []string{
+//									"*",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"es:*",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", currentRegion.Name, currentCallerIdentity.AccountId, domain),
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "IpAddress",
+//								Variable: "aws:SourceIp",
+//								Values: []string{
+//									"66.193.100.22/32",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
+//				AccessPolicies: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -128,9 +146,8 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -142,28 +159,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"es.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"logs:PutLogEvents",
+//							"logs:PutLogEventsBatch",
+//							"logs:CreateLogStream",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyName: pulumi.String("example"),
-//				PolicyDocument: pulumi.String(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Service": "es.amazonaws.com"
-//	      },
-//	      "Action": [
-//	        "logs:PutLogEvents",
-//	        "logs:PutLogEventsBatch",
-//	        "logs:CreateLogStream"
-//	      ],
-//	      "Resource": "arn:aws:logs:*"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				PolicyName:     pulumi.String("example"),
+//				PolicyDocument: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

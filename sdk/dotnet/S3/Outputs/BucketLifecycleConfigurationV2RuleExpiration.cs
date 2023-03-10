@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLifecycleConfigurationV2RuleExpiration
     {
         /// <summary>
-        /// The date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string? Date;
         /// <summary>
-        /// The lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+        /// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         /// </summary>
         public readonly int? Days;
         /// <summary>

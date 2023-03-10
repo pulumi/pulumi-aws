@@ -140,40 +140,30 @@ class EventStream(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "pinpoint.us-east-1.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["pinpoint.us-east-1.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
         stream = aws.pinpoint.EventStream("stream",
             application_id=app.application_id,
             destination_stream_arn=test_stream.arn,
             role_arn=test_role.arn)
-        test_role_policy = aws.iam.RolePolicy("testRolePolicy",
-            role=test_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": {
-            "Action": [
-              "kinesis:PutRecords",
-              "kinesis:DescribeStream"
+        test_role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "kinesis:PutRecords",
+                "kinesis:DescribeStream",
             ],
-            "Effect": "Allow",
-            "Resource": [
-              "arn:aws:kinesis:us-east-1:*:*/*"
-            ]
-          }
-        }
-        \"\"\")
+            resources=["arn:aws:kinesis:us-east-1:*:*/*"],
+        )])
+        test_role_policy_role_policy = aws.iam.RolePolicy("testRolePolicyRolePolicy",
+            role=test_role.id,
+            policy=test_role_policy_policy_document.json)
         ```
 
         ## Import
@@ -207,40 +197,30 @@ class EventStream(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "pinpoint.us-east-1.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["pinpoint.us-east-1.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
         stream = aws.pinpoint.EventStream("stream",
             application_id=app.application_id,
             destination_stream_arn=test_stream.arn,
             role_arn=test_role.arn)
-        test_role_policy = aws.iam.RolePolicy("testRolePolicy",
-            role=test_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": {
-            "Action": [
-              "kinesis:PutRecords",
-              "kinesis:DescribeStream"
+        test_role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "kinesis:PutRecords",
+                "kinesis:DescribeStream",
             ],
-            "Effect": "Allow",
-            "Resource": [
-              "arn:aws:kinesis:us-east-1:*:*/*"
-            ]
-          }
-        }
-        \"\"\")
+            resources=["arn:aws:kinesis:us-east-1:*:*/*"],
+        )])
+        test_role_policy_role_policy = aws.iam.RolePolicy("testRolePolicyRolePolicy",
+            role=test_role.id,
+            policy=test_role_policy_policy_document.json)
         ```
 
         ## Import

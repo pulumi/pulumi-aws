@@ -36,6 +36,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -43,23 +44,24 @@ namespace Pulumi.Aws.CostExplorer
     /// {
     ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
     ///     {
-    ///         MonitorSpecification = @"{
-    /// 	""And"": null,
-    /// 	""CostCategories"": null,
-    /// 	""Dimensions"": null,
-    /// 	""Not"": null,
-    /// 	""Or"": null,
-    /// 	""Tags"": {
-    /// 		""Key"": ""CostCenter"",
-    /// 		""MatchOptions"": null,
-    /// 		""Values"": [
-    /// 			""10000""
-    /// 		]
-    /// 	}
-    /// }
-    /// 
-    /// ",
     ///         MonitorType = "CUSTOM",
+    ///         MonitorSpecification = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["And"] = null,
+    ///             ["CostCategories"] = null,
+    ///             ["Dimensions"] = null,
+    ///             ["Not"] = null,
+    ///             ["Or"] = null,
+    ///             ["Tags"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Key"] = "CostCenter",
+    ///                 ["MatchOptions"] = null,
+    ///                 ["Values"] = new[]
+    ///                 {
+    ///                     "10000",
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });

@@ -51,6 +51,86 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// ### Create target tarcking scaling policy using metric math
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AutoScaling.Policy("example", new()
+    ///     {
+    ///         AutoscalingGroupName = "my-test-asg",
+    ///         PolicyType = "TargetTrackingScaling",
+    ///         TargetTrackingConfiguration = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationArgs
+    ///         {
+    ///             CustomizedMetricSpecification = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs
+    ///             {
+    ///                 Metrics = new[]
+    ///                 {
+    ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
+    ///                     {
+    ///                         Id = "m1",
+    ///                         Label = "Get the queue size (the number of messages waiting to be processed)",
+    ///                         MetricStat = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs
+    ///                         {
+    ///                             Metric = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs
+    ///                             {
+    ///                                 Dimensions = new[]
+    ///                                 {
+    ///                                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
+    ///                                     {
+    ///                                         Name = "QueueName",
+    ///                                         Value = "my-queue",
+    ///                                     },
+    ///                                 },
+    ///                                 MetricName = "ApproximateNumberOfMessagesVisible",
+    ///                                 Namespace = "AWS/SQS",
+    ///                             },
+    ///                             Stat = "Sum",
+    ///                         },
+    ///                         ReturnData = false,
+    ///                     },
+    ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
+    ///                     {
+    ///                         Id = "m2",
+    ///                         Label = "Get the group size (the number of InService instances)",
+    ///                         MetricStat = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs
+    ///                         {
+    ///                             Metric = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs
+    ///                             {
+    ///                                 Dimensions = new[]
+    ///                                 {
+    ///                                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
+    ///                                     {
+    ///                                         Name = "AutoScalingGroupName",
+    ///                                         Value = "my-asg",
+    ///                                     },
+    ///                                 },
+    ///                                 MetricName = "GroupInServiceInstances",
+    ///                                 Namespace = "AWS/AutoScaling",
+    ///                             },
+    ///                             Stat = "Average",
+    ///                         },
+    ///                         ReturnData = false,
+    ///                     },
+    ///                     new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
+    ///                     {
+    ///                         Expression = "m1 / m2",
+    ///                         Id = "e1",
+    ///                         Label = "Calculate the backlog per instance",
+    ///                         ReturnData = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TargetValue = 100,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Create predictive scaling policy using customized metrics
     /// 
     /// ```csharp

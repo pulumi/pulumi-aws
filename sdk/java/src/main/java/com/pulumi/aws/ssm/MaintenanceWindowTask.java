@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
  *                 .runCommandParameters(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.builder()
- *                     .outputS3Bucket(aws_s3_bucket.example().bucket())
+ *                     .outputS3Bucket(aws_s3_bucket.example().id())
  *                     .outputS3KeyPrefix(&#34;output&#34;)
  *                     .serviceRoleArn(aws_iam_role.example().arn())
  *                     .timeoutSeconds(600)

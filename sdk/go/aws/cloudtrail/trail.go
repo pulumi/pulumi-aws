@@ -58,43 +58,62 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			fooPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("AWSCloudTrailAclCheck"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("cloudtrail.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetBucketAcl"),
+//						},
+//						Resources: pulumi.StringArray{
+//							fooBucketV2.Arn,
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("AWSCloudTrailWrite"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("cloudtrail.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							fooBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, current.AccountId), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("s3:x-amz-acl"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("bucket-owner-full-control"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "fooBucketPolicy", &s3.BucketPolicyArgs{
 //				Bucket: fooBucketV2.ID(),
-//				Policy: pulumi.All(fooBucketV2.Arn, fooBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					fooBucketV2Arn := _args[0].(string)
-//					fooBucketV2Arn1 := _args[1].(string)
-//					return fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Sid": "AWSCloudTrailAclCheck",
-//	            "Effect": "Allow",
-//	            "Principal": {
-//	              "Service": "cloudtrail.amazonaws.com"
-//	            },
-//	            "Action": "s3:GetBucketAcl",
-//	            "Resource": "%v"
-//	        },
-//	        {
-//	            "Sid": "AWSCloudTrailWrite",
-//	            "Effect": "Allow",
-//	            "Principal": {
-//	              "Service": "cloudtrail.amazonaws.com"
-//	            },
-//	            "Action": "s3:PutObject",
-//	            "Resource": "%v/prefix/AWSLogs/%v/*",
-//	            "Condition": {
-//	                "StringEquals": {
-//	                    "s3:x-amz-acl": "bucket-owner-full-control"
-//	                }
-//	            }
-//	        }
-//	    ]
-//	}
-//
-// `, fooBucketV2Arn, fooBucketV2Arn1, current.AccountId), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: fooPolicyDocument.ApplyT(func(fooPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &fooPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

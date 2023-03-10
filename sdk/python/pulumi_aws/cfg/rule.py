@@ -327,40 +327,29 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["config.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
         rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
             owner="AWS",
             source_identifier="S3_BUCKET_VERSIONING_ENABLED",
         ),
         opts=pulumi.ResourceOptions(depends_on=[foo]))
+        policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["config:Put*"],
+            resources=["*"],
+        )])
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-          	{
-          		"Action": "config:Put*",
-          		"Effect": "Allow",
-          		"Resource": "*"
-
-          	}
-          ]
-        }
-        \"\"\")
+            policy=policy_document.json)
         ```
         ### Custom Rules
 
@@ -454,40 +443,29 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["config.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
         rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
             owner="AWS",
             source_identifier="S3_BUCKET_VERSIONING_ENABLED",
         ),
         opts=pulumi.ResourceOptions(depends_on=[foo]))
+        policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["config:Put*"],
+            resources=["*"],
+        )])
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-          	{
-          		"Action": "config:Put*",
-          		"Effect": "Allow",
-          		"Resource": "*"
-
-          	}
-          ]
-        }
-        \"\"\")
+            policy=policy_document.json)
         ```
         ### Custom Rules
 

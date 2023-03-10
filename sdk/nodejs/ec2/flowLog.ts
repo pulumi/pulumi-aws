@@ -19,107 +19,39 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "vpc-flow-logs.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["vpc-flow-logs.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
  *     iamRoleArn: exampleRole.arn,
  *     logDestination: exampleLogGroup.arn,
  *     trafficType: "ALL",
  *     vpcId: aws_vpc.example.id,
  * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
- *     role: exampleRole.id,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "logs:CreateLogGroup",
- *         "logs:CreateLogStream",
- *         "logs:PutLogEvents",
- *         "logs:DescribeLogGroups",
- *         "logs:DescribeLogStreams"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- * ### Amazon Kinesis Data Firehose logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: ` {
- *    "Version":"2012-10-17",
- *    "Statement": [
- *      {
- *        "Action":"sts:AssumeRole",
- *        "Principal":{
- *          "Service":"firehose.amazonaws.com"
- *        },
- *        "Effect":"Allow",
- *        "Sid":""
- *      }
- *    ]
- *  }
- * `});
- * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
- *     destination: "extended_s3",
- *     extendedS3Configuration: {
- *         roleArn: exampleRole.arn,
- *         bucketArn: exampleBucketV2.arn,
- *     },
- *     tags: {
- *         LogDeliveryEnabled: "true",
- *     },
- * });
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
- *     logDestination: exampleFirehoseDeliveryStream.arn,
- *     logDestinationType: "kinesis-data-firehose",
- *     trafficType: "ALL",
- *     vpcId: aws_vpc.example.id,
- * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "logs:CreateLogGroup",
+ *             "logs:CreateLogStream",
+ *             "logs:PutLogEvents",
+ *             "logs:DescribeLogGroups",
+ *             "logs:DescribeLogStreams",
+ *         ],
+ *         resources: ["*"],
+ *     }],
  * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
  *     role: exampleRole.id,
- *     policy: ` {
- *    "Version":"2012-10-17",
- *    "Statement":[
- *      {
- *        "Action": [
- *          "logs:CreateLogDelivery",
- *          "logs:DeleteLogDelivery",
- *          "logs:ListLogDeliveries",
- *          "logs:GetLogDelivery",
- *          "firehose:TagDeliveryStream"
- *        ],
- *        "Effect":"Allow",
- *        "Resource":"*"
- *      }
- *    ]
- *  }
- * `,
+ *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  * ### S3 Logging
@@ -229,7 +161,7 @@ export class FlowLog extends pulumi.CustomResource {
      * The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+     * minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
     public readonly maxAggregationInterval!: pulumi.Output<number | undefined>;
     /**
@@ -356,7 +288,7 @@ export interface FlowLogState {
      * The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+     * minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
     maxAggregationInterval?: pulumi.Input<number>;
     /**
@@ -427,7 +359,7 @@ export interface FlowLogArgs {
      * The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+     * minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
     maxAggregationInterval?: pulumi.Input<number>;
     /**

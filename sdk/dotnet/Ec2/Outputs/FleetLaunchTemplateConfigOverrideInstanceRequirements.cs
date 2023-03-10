@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirements
     {
         /// <summary>
-        /// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        /// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
         /// </summary>
         public readonly Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount? AcceleratorCount;
         /// <summary>
@@ -30,9 +30,13 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib? AcceleratorTotalMemoryMib;
         /// <summary>
-        /// List of accelerator types. Default is any accelerator type.
+        /// The accelerator types that must be on the instance type. Default is any accelerator type.
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorTypes;
+        /// <summary>
+        /// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedInstanceTypes;
         /// <summary>
         /// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         /// </summary>
@@ -42,19 +46,20 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps? BaselineEbsBandwidthMbps;
         /// <summary>
-        /// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        /// Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         /// </summary>
         public readonly string? BurstablePerformance;
         /// <summary>
-        /// List of CPU manufacturer names. Default is any manufacturer.
+        /// The CPU manufacturers to include. Default is any manufacturer.
+        /// &gt; **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         /// </summary>
         public readonly ImmutableArray<string> CpuManufacturers;
         /// <summary>
-        /// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        /// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedInstanceTypes;
         /// <summary>
-        /// List of instance generation names. Default is any generation.
+        /// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         /// </summary>
         public readonly ImmutableArray<string> InstanceGenerations;
         /// <summary>
@@ -62,7 +67,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? LocalStorage;
         /// <summary>
-        /// List of local storage type names. Default any storage type.
+        /// List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
         /// </summary>
         public readonly ImmutableArray<string> LocalStorageTypes;
         /// <summary>
@@ -70,9 +75,13 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu? MemoryGibPerVcpu;
         /// <summary>
-        /// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        /// The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
         /// </summary>
         public readonly Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib MemoryMib;
+        /// <summary>
+        /// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+        /// </summary>
+        public readonly Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps? NetworkBandwidthGbps;
         /// <summary>
         /// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         /// </summary>
@@ -110,6 +119,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> acceleratorTypes,
 
+            ImmutableArray<string> allowedInstanceTypes,
+
             string? bareMetal,
 
             Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps? baselineEbsBandwidthMbps,
@@ -130,6 +141,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib,
 
+            Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps? networkBandwidthGbps,
+
             Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount? networkInterfaceCount,
 
             int? onDemandMaxPricePercentageOverLowestPrice,
@@ -147,6 +160,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             AcceleratorNames = acceleratorNames;
             AcceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
             AcceleratorTypes = acceleratorTypes;
+            AllowedInstanceTypes = allowedInstanceTypes;
             BareMetal = bareMetal;
             BaselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             BurstablePerformance = burstablePerformance;
@@ -157,6 +171,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             LocalStorageTypes = localStorageTypes;
             MemoryGibPerVcpu = memoryGibPerVcpu;
             MemoryMib = memoryMib;
+            NetworkBandwidthGbps = networkBandwidthGbps;
             NetworkInterfaceCount = networkInterfaceCount;
             OnDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             RequireHibernateSupport = requireHibernateSupport;

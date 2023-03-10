@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination Destination;
         /// <summary>
-        /// The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+        /// Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
         /// </summary>
         public readonly string? OutputSchemaVersion;
 

@@ -38,22 +38,41 @@ namespace Pulumi.Aws.CodeArtifact
     ///         Domain = exampleDomain.DomainName,
     ///     });
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "codeartifact:CreateRepository",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleDomain.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", new()
     ///     {
     ///         Repository = exampleRepository.RepositoryName,
     ///         Domain = exampleDomain.DomainName,
-    ///         PolicyDocument = exampleDomain.Arn.Apply(arn =&gt; @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Action"": ""codeartifact:CreateRepository"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": ""*"",
-    ///             ""Resource"": ""{arn}""
-    ///         }}
-    ///     ]
-    /// }}
-    /// "),
+    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

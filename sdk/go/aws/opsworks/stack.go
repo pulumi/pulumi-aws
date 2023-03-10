@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -36,7 +34,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("foobar-stack"),
 //				},
-//				CustomJson: pulumi.String(fmt.Sprintf("{\n \"foobar\": {\n    \"version\": \"1.0.0\"\n  }\n}\n")),
+//				CustomJson: pulumi.String("{\n \"foobar\": {\n    \"version\": \"1.0.0\"\n  }\n}\n"),
 //			})
 //			if err != nil {
 //				return err

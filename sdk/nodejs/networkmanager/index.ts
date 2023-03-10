@@ -15,6 +15,11 @@ export type ConnectAttachment = import("./connectAttachment").ConnectAttachment;
 export const ConnectAttachment: typeof import("./connectAttachment").ConnectAttachment = null as any;
 utilities.lazyLoad(exports, ["ConnectAttachment"], () => require("./connectAttachment"));
 
+export { ConnectPeerArgs, ConnectPeerState } from "./connectPeer";
+export type ConnectPeer = import("./connectPeer").ConnectPeer;
+export const ConnectPeer: typeof import("./connectPeer").ConnectPeer = null as any;
+utilities.lazyLoad(exports, ["ConnectPeer"], () => require("./connectPeer"));
+
 export { ConnectionArgs, ConnectionState } from "./connection";
 export type Connection = import("./connection").Connection;
 export const Connection: typeof import("./connection").Connection = null as any;
@@ -154,6 +159,8 @@ const _module = {
                 return new AttachmentAccepter(name, <any>undefined, { urn })
             case "aws:networkmanager/connectAttachment:ConnectAttachment":
                 return new ConnectAttachment(name, <any>undefined, { urn })
+            case "aws:networkmanager/connectPeer:ConnectPeer":
+                return new ConnectPeer(name, <any>undefined, { urn })
             case "aws:networkmanager/connection:Connection":
                 return new Connection(name, <any>undefined, { urn })
             case "aws:networkmanager/coreNetwork:CoreNetwork":
@@ -191,6 +198,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "networkmanager/attachmentAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connectAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/connectPeer", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/coreNetwork", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/coreNetworkPolicyAttachment", _module)

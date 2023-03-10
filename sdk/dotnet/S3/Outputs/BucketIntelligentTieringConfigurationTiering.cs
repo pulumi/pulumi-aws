@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string AccessTier;
         /// <summary>
-        /// The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+        /// Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
         /// </summary>
         public readonly int Days;
 

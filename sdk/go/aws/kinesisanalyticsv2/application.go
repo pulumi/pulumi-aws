@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.Bucket,
+//				Bucket: exampleBucketV2.ID(),
 //				Key:    pulumi.String("example-flink-application"),
 //				Source: pulumi.NewFileAsset("flink-app.jar"),
 //			})
@@ -248,7 +248,7 @@ import (
 //				return err
 //			}
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.Bucket,
+//				Bucket: exampleBucketV2.ID(),
 //				Key:    pulumi.String("example-flink-application"),
 //				Source: pulumi.NewFileAsset("flink-app.jar"),
 //			})

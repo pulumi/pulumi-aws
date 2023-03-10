@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// <summary>
         /// The list of Service Connect service objects. See below.
         /// </summary>
-        public readonly Outputs.ServiceServiceConnectConfigurationService? Service;
+        public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationService> Services;
 
         [OutputConstructor]
         private ServiceServiceConnectConfiguration(
@@ -38,12 +38,12 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string? @namespace,
 
-            Outputs.ServiceServiceConnectConfigurationService? service)
+            ImmutableArray<Outputs.ServiceServiceConnectConfigurationService> services)
         {
             Enabled = enabled;
             LogConfiguration = logConfiguration;
             Namespace = @namespace;
-            Service = service;
+            Services = services;
         }
     }
 }

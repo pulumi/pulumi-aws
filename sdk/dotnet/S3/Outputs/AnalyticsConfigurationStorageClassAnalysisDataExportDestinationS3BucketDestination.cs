@@ -14,15 +14,15 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination
     {
         /// <summary>
-        /// The account ID that owns the destination bucket.
+        /// Account ID that owns the destination bucket.
         /// </summary>
         public readonly string? BucketAccountId;
         /// <summary>
-        /// The ARN of the destination bucket.
+        /// ARN of the destination bucket.
         /// </summary>
         public readonly string BucketArn;
         /// <summary>
-        /// The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+        /// Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
         /// </summary>
         public readonly string? Format;
         /// <summary>

@@ -43,6 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.cloudtrail.Trail;
  * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import java.util.List;
@@ -70,42 +72,38 @@ import javax.annotation.Nullable;
  *             .includeGlobalServiceEvents(false)
  *             .build());
  * 
+ *         final var fooPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid(&#34;AWSCloudTrailAclCheck&#34;)
+ *                     .effect(&#34;Allow&#34;)
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type(&#34;Service&#34;)
+ *                         .identifiers(&#34;cloudtrail.amazonaws.com&#34;)
+ *                         .build())
+ *                     .actions(&#34;s3:GetBucketAcl&#34;)
+ *                     .resources(fooBucketV2.arn())
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .sid(&#34;AWSCloudTrailWrite&#34;)
+ *                     .effect(&#34;Allow&#34;)
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type(&#34;Service&#34;)
+ *                         .identifiers(&#34;cloudtrail.amazonaws.com&#34;)
+ *                         .build())
+ *                     .actions(&#34;s3:PutObject&#34;)
+ *                     .resources(fooBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/prefix/AWSLogs/%s/*&#34;, arn,current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test(&#34;StringEquals&#34;)
+ *                         .variable(&#34;s3:x-amz-acl&#34;)
+ *                         .values(&#34;bucket-owner-full-control&#34;)
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
  *         var fooBucketPolicy = new BucketPolicy(&#34;fooBucketPolicy&#34;, BucketPolicyArgs.builder()        
  *             .bucket(fooBucketV2.id())
- *             .policy(Output.tuple(fooBucketV2.arn(), fooBucketV2.arn()).applyValue(values -&gt; {
- *                 var fooBucketV2Arn = values.t1;
- *                 var fooBucketV2Arn1 = values.t2;
- *                 return &#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Sid&#34;: &#34;AWSCloudTrailAclCheck&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: {
- *               &#34;Service&#34;: &#34;cloudtrail.amazonaws.com&#34;
- *             },
- *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
- *             &#34;Resource&#34;: &#34;%s&#34;
- *         },
- *         {
- *             &#34;Sid&#34;: &#34;AWSCloudTrailWrite&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: {
- *               &#34;Service&#34;: &#34;cloudtrail.amazonaws.com&#34;
- *             },
- *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
- *             &#34;Resource&#34;: &#34;%s/prefix/AWSLogs/%s/*&#34;,
- *             &#34;Condition&#34;: {
- *                 &#34;StringEquals&#34;: {
- *                     &#34;s3:x-amz-acl&#34;: &#34;bucket-owner-full-control&#34;
- *                 }
- *             }
- *         }
- *     ]
- * }
- * &#34;, fooBucketV2Arn,fooBucketV2Arn1,current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
- *             }))
+ *             .policy(fooPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(fooPolicyDocument -&gt; fooPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

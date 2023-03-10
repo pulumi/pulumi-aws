@@ -13,9 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
     /**
-     * @return The specific event to trigger this function.
-     * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-     * `origin-response`
+     * @return Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
      * 
      */
     private String eventType;
@@ -32,9 +30,7 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
 
     private DistributionOrderedCacheBehaviorLambdaFunctionAssociation() {}
     /**
-     * @return The specific event to trigger this function.
-     * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-     * `origin-response`
+     * @return Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
      * 
      */
     public String eventType() {

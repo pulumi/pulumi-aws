@@ -39,7 +39,7 @@ public final class BucketCorsConfigurationV2CorsRule {
      */
     private @Nullable String id;
     /**
-     * @return The time in seconds that your browser is to cache the preflight response for the specified resource.
+     * @return Time in seconds that your browser is to cache the preflight response for the specified resource.
      * 
      */
     private @Nullable Integer maxAgeSeconds;
@@ -81,7 +81,7 @@ public final class BucketCorsConfigurationV2CorsRule {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The time in seconds that your browser is to cache the preflight response for the specified resource.
+     * @return Time in seconds that your browser is to cache the preflight response for the specified resource.
      * 
      */
     public Optional<Integer> maxAgeSeconds() {

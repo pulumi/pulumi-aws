@@ -2515,7 +2515,7 @@ type ServiceServiceConnectConfiguration struct {
 	// The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
 	Namespace *string `pulumi:"namespace"`
 	// The list of Service Connect service objects. See below.
-	Service *ServiceServiceConnectConfigurationService `pulumi:"service"`
+	Services []ServiceServiceConnectConfigurationService `pulumi:"services"`
 }
 
 // ServiceServiceConnectConfigurationInput is an input type that accepts ServiceServiceConnectConfigurationArgs and ServiceServiceConnectConfigurationOutput values.
@@ -2537,7 +2537,7 @@ type ServiceServiceConnectConfigurationArgs struct {
 	// The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// The list of Service Connect service objects. See below.
-	Service ServiceServiceConnectConfigurationServicePtrInput `pulumi:"service"`
+	Services ServiceServiceConnectConfigurationServiceArrayInput `pulumi:"services"`
 }
 
 func (ServiceServiceConnectConfigurationArgs) ElementType() reflect.Type {
@@ -2635,10 +2635,10 @@ func (o ServiceServiceConnectConfigurationOutput) Namespace() pulumi.StringPtrOu
 }
 
 // The list of Service Connect service objects. See below.
-func (o ServiceServiceConnectConfigurationOutput) Service() ServiceServiceConnectConfigurationServicePtrOutput {
-	return o.ApplyT(func(v ServiceServiceConnectConfiguration) *ServiceServiceConnectConfigurationService {
-		return v.Service
-	}).(ServiceServiceConnectConfigurationServicePtrOutput)
+func (o ServiceServiceConnectConfigurationOutput) Services() ServiceServiceConnectConfigurationServiceArrayOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfiguration) []ServiceServiceConnectConfigurationService {
+		return v.Services
+	}).(ServiceServiceConnectConfigurationServiceArrayOutput)
 }
 
 type ServiceServiceConnectConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2696,18 +2696,18 @@ func (o ServiceServiceConnectConfigurationPtrOutput) Namespace() pulumi.StringPt
 }
 
 // The list of Service Connect service objects. See below.
-func (o ServiceServiceConnectConfigurationPtrOutput) Service() ServiceServiceConnectConfigurationServicePtrOutput {
-	return o.ApplyT(func(v *ServiceServiceConnectConfiguration) *ServiceServiceConnectConfigurationService {
+func (o ServiceServiceConnectConfigurationPtrOutput) Services() ServiceServiceConnectConfigurationServiceArrayOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfiguration) []ServiceServiceConnectConfigurationService {
 		if v == nil {
 			return nil
 		}
-		return v.Service
-	}).(ServiceServiceConnectConfigurationServicePtrOutput)
+		return v.Services
+	}).(ServiceServiceConnectConfigurationServiceArrayOutput)
 }
 
 type ServiceServiceConnectConfigurationLogConfiguration struct {
 	// The log driver to use for the container.
-	LogDriver *string `pulumi:"logDriver"`
+	LogDriver string `pulumi:"logDriver"`
 	// The configuration options to send to the log driver.
 	Options map[string]string `pulumi:"options"`
 	// The secrets to pass to the log configuration. See below.
@@ -2727,7 +2727,7 @@ type ServiceServiceConnectConfigurationLogConfigurationInput interface {
 
 type ServiceServiceConnectConfigurationLogConfigurationArgs struct {
 	// The log driver to use for the container.
-	LogDriver pulumi.StringPtrInput `pulumi:"logDriver"`
+	LogDriver pulumi.StringInput `pulumi:"logDriver"`
 	// The configuration options to send to the log driver.
 	Options pulumi.StringMapInput `pulumi:"options"`
 	// The secrets to pass to the log configuration. See below.
@@ -2812,8 +2812,8 @@ func (o ServiceServiceConnectConfigurationLogConfigurationOutput) ToServiceServi
 }
 
 // The log driver to use for the container.
-func (o ServiceServiceConnectConfigurationLogConfigurationOutput) LogDriver() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceServiceConnectConfigurationLogConfiguration) *string { return v.LogDriver }).(pulumi.StringPtrOutput)
+func (o ServiceServiceConnectConfigurationLogConfigurationOutput) LogDriver() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationLogConfiguration) string { return v.LogDriver }).(pulumi.StringOutput)
 }
 
 // The configuration options to send to the log driver.
@@ -2858,7 +2858,7 @@ func (o ServiceServiceConnectConfigurationLogConfigurationPtrOutput) LogDriver()
 		if v == nil {
 			return nil
 		}
-		return v.LogDriver
+		return &v.LogDriver
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2990,7 +2990,7 @@ func (o ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayOutpu
 
 type ServiceServiceConnectConfigurationService struct {
 	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-	ClientAliases []ServiceServiceConnectConfigurationServiceClientAlias `pulumi:"clientAliases"`
+	ClientAlias []ServiceServiceConnectConfigurationServiceClientAlias `pulumi:"clientAlias"`
 	// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName *string `pulumi:"discoveryName"`
 	// The port number for the Service Connect proxy to listen on.
@@ -3012,7 +3012,7 @@ type ServiceServiceConnectConfigurationServiceInput interface {
 
 type ServiceServiceConnectConfigurationServiceArgs struct {
 	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-	ClientAliases ServiceServiceConnectConfigurationServiceClientAliasArrayInput `pulumi:"clientAliases"`
+	ClientAlias ServiceServiceConnectConfigurationServiceClientAliasArrayInput `pulumi:"clientAlias"`
 	// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName pulumi.StringPtrInput `pulumi:"discoveryName"`
 	// The port number for the Service Connect proxy to listen on.
@@ -3033,45 +3033,29 @@ func (i ServiceServiceConnectConfigurationServiceArgs) ToServiceServiceConnectCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceOutput)
 }
 
-func (i ServiceServiceConnectConfigurationServiceArgs) ToServiceServiceConnectConfigurationServicePtrOutput() ServiceServiceConnectConfigurationServicePtrOutput {
-	return i.ToServiceServiceConnectConfigurationServicePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceServiceConnectConfigurationServiceArgs) ToServiceServiceConnectConfigurationServicePtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceOutput).ToServiceServiceConnectConfigurationServicePtrOutputWithContext(ctx)
-}
-
-// ServiceServiceConnectConfigurationServicePtrInput is an input type that accepts ServiceServiceConnectConfigurationServiceArgs, ServiceServiceConnectConfigurationServicePtr and ServiceServiceConnectConfigurationServicePtrOutput values.
-// You can construct a concrete instance of `ServiceServiceConnectConfigurationServicePtrInput` via:
+// ServiceServiceConnectConfigurationServiceArrayInput is an input type that accepts ServiceServiceConnectConfigurationServiceArray and ServiceServiceConnectConfigurationServiceArrayOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationServiceArrayInput` via:
 //
-//	        ServiceServiceConnectConfigurationServiceArgs{...}
-//
-//	or:
-//
-//	        nil
-type ServiceServiceConnectConfigurationServicePtrInput interface {
+//	ServiceServiceConnectConfigurationServiceArray{ ServiceServiceConnectConfigurationServiceArgs{...} }
+type ServiceServiceConnectConfigurationServiceArrayInput interface {
 	pulumi.Input
 
-	ToServiceServiceConnectConfigurationServicePtrOutput() ServiceServiceConnectConfigurationServicePtrOutput
-	ToServiceServiceConnectConfigurationServicePtrOutputWithContext(context.Context) ServiceServiceConnectConfigurationServicePtrOutput
+	ToServiceServiceConnectConfigurationServiceArrayOutput() ServiceServiceConnectConfigurationServiceArrayOutput
+	ToServiceServiceConnectConfigurationServiceArrayOutputWithContext(context.Context) ServiceServiceConnectConfigurationServiceArrayOutput
 }
 
-type serviceServiceConnectConfigurationServicePtrType ServiceServiceConnectConfigurationServiceArgs
+type ServiceServiceConnectConfigurationServiceArray []ServiceServiceConnectConfigurationServiceInput
 
-func ServiceServiceConnectConfigurationServicePtr(v *ServiceServiceConnectConfigurationServiceArgs) ServiceServiceConnectConfigurationServicePtrInput {
-	return (*serviceServiceConnectConfigurationServicePtrType)(v)
+func (ServiceServiceConnectConfigurationServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceServiceConnectConfigurationService)(nil)).Elem()
 }
 
-func (*serviceServiceConnectConfigurationServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceServiceConnectConfigurationService)(nil)).Elem()
+func (i ServiceServiceConnectConfigurationServiceArray) ToServiceServiceConnectConfigurationServiceArrayOutput() ServiceServiceConnectConfigurationServiceArrayOutput {
+	return i.ToServiceServiceConnectConfigurationServiceArrayOutputWithContext(context.Background())
 }
 
-func (i *serviceServiceConnectConfigurationServicePtrType) ToServiceServiceConnectConfigurationServicePtrOutput() ServiceServiceConnectConfigurationServicePtrOutput {
-	return i.ToServiceServiceConnectConfigurationServicePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceServiceConnectConfigurationServicePtrType) ToServiceServiceConnectConfigurationServicePtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServicePtrOutput)
+func (i ServiceServiceConnectConfigurationServiceArray) ToServiceServiceConnectConfigurationServiceArrayOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationServiceArrayOutput)
 }
 
 type ServiceServiceConnectConfigurationServiceOutput struct{ *pulumi.OutputState }
@@ -3088,20 +3072,10 @@ func (o ServiceServiceConnectConfigurationServiceOutput) ToServiceServiceConnect
 	return o
 }
 
-func (o ServiceServiceConnectConfigurationServiceOutput) ToServiceServiceConnectConfigurationServicePtrOutput() ServiceServiceConnectConfigurationServicePtrOutput {
-	return o.ToServiceServiceConnectConfigurationServicePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceServiceConnectConfigurationServiceOutput) ToServiceServiceConnectConfigurationServicePtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceServiceConnectConfigurationService) *ServiceServiceConnectConfigurationService {
-		return &v
-	}).(ServiceServiceConnectConfigurationServicePtrOutput)
-}
-
 // The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-func (o ServiceServiceConnectConfigurationServiceOutput) ClientAliases() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
+func (o ServiceServiceConnectConfigurationServiceOutput) ClientAlias() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) []ServiceServiceConnectConfigurationServiceClientAlias {
-		return v.ClientAliases
+		return v.ClientAlias
 	}).(ServiceServiceConnectConfigurationServiceClientAliasArrayOutput)
 }
 
@@ -3120,68 +3094,24 @@ func (o ServiceServiceConnectConfigurationServiceOutput) PortName() pulumi.Strin
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) string { return v.PortName }).(pulumi.StringOutput)
 }
 
-type ServiceServiceConnectConfigurationServicePtrOutput struct{ *pulumi.OutputState }
+type ServiceServiceConnectConfigurationServiceArrayOutput struct{ *pulumi.OutputState }
 
-func (ServiceServiceConnectConfigurationServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceServiceConnectConfigurationService)(nil)).Elem()
+func (ServiceServiceConnectConfigurationServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceServiceConnectConfigurationService)(nil)).Elem()
 }
 
-func (o ServiceServiceConnectConfigurationServicePtrOutput) ToServiceServiceConnectConfigurationServicePtrOutput() ServiceServiceConnectConfigurationServicePtrOutput {
+func (o ServiceServiceConnectConfigurationServiceArrayOutput) ToServiceServiceConnectConfigurationServiceArrayOutput() ServiceServiceConnectConfigurationServiceArrayOutput {
 	return o
 }
 
-func (o ServiceServiceConnectConfigurationServicePtrOutput) ToServiceServiceConnectConfigurationServicePtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServicePtrOutput {
+func (o ServiceServiceConnectConfigurationServiceArrayOutput) ToServiceServiceConnectConfigurationServiceArrayOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationServiceArrayOutput {
 	return o
 }
 
-func (o ServiceServiceConnectConfigurationServicePtrOutput) Elem() ServiceServiceConnectConfigurationServiceOutput {
-	return o.ApplyT(func(v *ServiceServiceConnectConfigurationService) ServiceServiceConnectConfigurationService {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceServiceConnectConfigurationService
-		return ret
+func (o ServiceServiceConnectConfigurationServiceArrayOutput) Index(i pulumi.IntInput) ServiceServiceConnectConfigurationServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceServiceConnectConfigurationService {
+		return vs[0].([]ServiceServiceConnectConfigurationService)[vs[1].(int)]
 	}).(ServiceServiceConnectConfigurationServiceOutput)
-}
-
-// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-func (o ServiceServiceConnectConfigurationServicePtrOutput) ClientAliases() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
-	return o.ApplyT(func(v *ServiceServiceConnectConfigurationService) []ServiceServiceConnectConfigurationServiceClientAlias {
-		if v == nil {
-			return nil
-		}
-		return v.ClientAliases
-	}).(ServiceServiceConnectConfigurationServiceClientAliasArrayOutput)
-}
-
-// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-func (o ServiceServiceConnectConfigurationServicePtrOutput) DiscoveryName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceServiceConnectConfigurationService) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiscoveryName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The port number for the Service Connect proxy to listen on.
-func (o ServiceServiceConnectConfigurationServicePtrOutput) IngressPortOverride() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceServiceConnectConfigurationService) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IngressPortOverride
-	}).(pulumi.IntPtrOutput)
-}
-
-// The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-func (o ServiceServiceConnectConfigurationServicePtrOutput) PortName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceServiceConnectConfigurationService) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PortName
-	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceServiceConnectConfigurationServiceClientAlias struct {
@@ -6227,7 +6157,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationLogConfigurationSecretOptionInput)(nil)).Elem(), ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayInput)(nil)).Elem(), ServiceServiceConnectConfigurationLogConfigurationSecretOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServicePtrInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceArrayInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceClientAliasArrayInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceClientAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceRegistriesInput)(nil)).Elem(), ServiceServiceRegistriesArgs{})
@@ -6309,7 +6239,7 @@ func init() {
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationLogConfigurationSecretOptionOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceOutput{})
-	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServicePtrOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceArrayOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceClientAliasArrayOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistriesOutput{})

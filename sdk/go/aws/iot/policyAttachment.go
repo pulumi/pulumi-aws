@@ -20,9 +20,9 @@ import (
 //
 // import (
 //
-//	"fmt"
 //	"os"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -38,22 +38,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pubsub, err := iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
-//				Policy: pulumi.String(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "iot:*"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": "*"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//			pubsubPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"iot:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			pubsubPolicy, err := iot.NewPolicy(ctx, "pubsubPolicy", &iot.PolicyArgs{
+//				Policy: *pulumi.String(pubsubPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -66,7 +68,7 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewPolicyAttachment(ctx, "att", &iot.PolicyAttachmentArgs{
-//				Policy: pubsub.Name,
+//				Policy: pubsubPolicy.Name,
 //				Target: cert.Arn,
 //			})
 //			if err != nil {

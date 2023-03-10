@@ -17,18 +17,14 @@ public final class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs
     public static final DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs Empty = new DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs();
 
     /**
-     * The specific event to trigger this function.
-     * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-     * `origin-response`
+     * Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
      * 
      */
     @Import(name="eventType", required=true)
     private Output<String> eventType;
 
     /**
-     * @return The specific event to trigger this function.
-     * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-     * `origin-response`
+     * @return Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
      * 
      */
     public Output<String> eventType() {
@@ -92,9 +88,7 @@ public final class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs
         }
 
         /**
-         * @param eventType The specific event to trigger this function.
-         * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-         * `origin-response`
+         * @param eventType Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
          * 
          * @return builder
          * 
@@ -105,9 +99,7 @@ public final class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs
         }
 
         /**
-         * @param eventType The specific event to trigger this function.
-         * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
-         * `origin-response`
+         * @param eventType Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
          * 
          * @return builder
          * 

@@ -14,33 +14,34 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const mainUserPool = new aws.cognito.UserPool("mainUserPool", {});
- * const groupRole = new aws.iam.Role("groupRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Federated": "cognito-identity.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRoleWithWebIdentity",
- *       "Condition": {
- *         "StringEquals": {
- *           "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
- *         },
- *         "ForAnyValue:StringLike": {
- *           "cognito-identity.amazonaws.com:amr": "authenticated"
- *         }
- *       }
- *     }
- *   ]
- * }
- * `});
+ * const groupRolePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Federated",
+ *             identifiers: ["cognito-identity.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRoleWithWebIdentity"],
+ *         conditions: [
+ *             {
+ *                 test: "StringEquals",
+ *                 variable: "cognito-identity.amazonaws.com:aud",
+ *                 values: ["us-east-1:12345678-dead-beef-cafe-123456790ab"],
+ *             },
+ *             {
+ *                 test: "ForAnyValue:StringLike",
+ *                 variable: "cognito-identity.amazonaws.com:amr",
+ *                 values: ["authenticated"],
+ *             },
+ *         ],
+ *     }],
+ * });
+ * const groupRoleRole = new aws.iam.Role("groupRoleRole", {assumeRolePolicy: groupRolePolicyDocument.then(groupRolePolicyDocument => groupRolePolicyDocument.json)});
  * const mainUserGroup = new aws.cognito.UserGroup("mainUserGroup", {
  *     userPoolId: mainUserPool.id,
  *     description: "Managed by Pulumi",
  *     precedence: 42,
- *     roleArn: groupRole.arn,
+ *     roleArn: groupRoleRole.arn,
  * });
  * ```
  *

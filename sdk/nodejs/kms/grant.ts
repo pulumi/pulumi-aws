@@ -10,43 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource-based access control mechanism for a KMS customer master key.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const key = new aws.kms.Key("key", {});
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const grant = new aws.kms.Grant("grant", {
- *     keyId: key.keyId,
- *     granteePrincipal: role.arn,
- *     operations: [
- *         "Encrypt",
- *         "Decrypt",
- *         "GenerateDataKey",
- *     ],
- *     constraints: [{
- *         encryptionContextEquals: {
- *             Department: "Finance",
- *         },
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * KMS Grants can be imported using the Key ID and Grant ID separated by a colon (`:`), e.g.,

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionTrustedKeyGroupItem
     {
         /// <summary>
-        /// The ID of the key group that contains the public keys
+        /// ID of the key group that contains the public keys.
         /// </summary>
         public readonly string? KeyGroupId;
         /// <summary>

@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const exampleApi = new aws.apigatewayv2.Api("exampleApi", {
  *     protocolType: "WEBSOCKET",
- *     routeSelectionExpression: `$request.body.action`,
+ *     routeSelectionExpression: "$request.body.action",
  * });
  * const exampleRoute = new aws.apigatewayv2.Route("exampleRoute", {
  *     apiId: exampleApi.id,
- *     routeKey: `$default`,
+ *     routeKey: "$default",
  * });
  * ```
  * ### HTTP Proxy Integration

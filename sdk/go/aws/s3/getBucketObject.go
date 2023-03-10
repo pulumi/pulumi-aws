@@ -84,7 +84,7 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				S3Bucket:        *pulumi.String(lambda.Bucket),
+//				S3Bucket:        *pulumi.String(lambda.Id),
 //				S3Key:           *pulumi.String(lambda.Key),
 //				S3ObjectVersion: *pulumi.String(lambda.VersionId),
 //				Role:            pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),

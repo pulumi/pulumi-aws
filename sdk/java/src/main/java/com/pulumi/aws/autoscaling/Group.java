@@ -38,6 +38,78 @@ import javax.annotation.Nullable;
  * to ignore changes to the `load_balancers` and `target_group_arns` arguments.
  * 
  * ## Example Usage
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.PlacementGroup;
+ * import com.pulumi.aws.ec2.PlacementGroupArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new PlacementGroup(&#34;test&#34;, PlacementGroupArgs.builder()        
+ *             .strategy(&#34;cluster&#34;)
+ *             .build());
+ * 
+ *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
+ *             .maxSize(5)
+ *             .minSize(2)
+ *             .healthCheckGracePeriod(300)
+ *             .healthCheckType(&#34;ELB&#34;)
+ *             .desiredCapacity(4)
+ *             .forceDelete(true)
+ *             .placementGroup(test.id())
+ *             .launchConfiguration(aws_launch_configuration.foobar().name())
+ *             .vpcZoneIdentifiers(            
+ *                 aws_subnet.example1().id(),
+ *                 aws_subnet.example2().id())
+ *             .initialLifecycleHooks(GroupInitialLifecycleHookArgs.builder()
+ *                 .name(&#34;foobar&#34;)
+ *                 .defaultResult(&#34;CONTINUE&#34;)
+ *                 .heartbeatTimeout(2000)
+ *                 .lifecycleTransition(&#34;autoscaling:EC2_INSTANCE_LAUNCHING&#34;)
+ *                 .notificationMetadata(serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty(&#34;foo&#34;, &#34;bar&#34;)
+ *                     )))
+ *                 .notificationTargetArn(&#34;arn:aws:sqs:us-east-1:444455556666:queue1*&#34;)
+ *                 .roleArn(&#34;arn:aws:iam::123456789012:role/S3Access&#34;)
+ *                 .build())
+ *             .tags(            
+ *                 GroupTagArgs.builder()
+ *                     .key(&#34;foo&#34;)
+ *                     .value(&#34;bar&#34;)
+ *                     .propagateAtLaunch(true)
+ *                     .build(),
+ *                 GroupTagArgs.builder()
+ *                     .key(&#34;lorem&#34;)
+ *                     .value(&#34;ipsum&#34;)
+ *                     .propagateAtLaunch(false)
+ *                     .build())
+ *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### With Latest Version Of Launch Template
  * ```java
  * package generated_program;

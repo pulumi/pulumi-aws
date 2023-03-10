@@ -19,7 +19,7 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
      */
     private @Nullable List<String> audioDescriptionNames;
     /**
-     * @return The names of the caption descriptions used as audio sources for the output.
+     * @return The names of the caption descriptions used as caption sources for the output.
      * 
      */
     private @Nullable List<String> captionDescriptionNames;
@@ -34,7 +34,7 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
      */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettings outputSettings;
     /**
-     * @return The name of the video description used as audio sources for the output.
+     * @return The name of the video description used as video source for the output.
      * 
      */
     private @Nullable String videoDescriptionName;
@@ -48,7 +48,7 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
         return this.audioDescriptionNames == null ? List.of() : this.audioDescriptionNames;
     }
     /**
-     * @return The names of the caption descriptions used as audio sources for the output.
+     * @return The names of the caption descriptions used as caption sources for the output.
      * 
      */
     public List<String> captionDescriptionNames() {
@@ -69,7 +69,7 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
         return this.outputSettings;
     }
     /**
-     * @return The name of the video description used as audio sources for the output.
+     * @return The name of the video description used as video source for the output.
      * 
      */
     public Optional<String> videoDescriptionName() {

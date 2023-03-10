@@ -853,6 +853,8 @@ class ProxyAuth(dict):
         suggest = None
         if key == "authScheme":
             suggest = "auth_scheme"
+        elif key == "clientPasswordAuthType":
+            suggest = "client_password_auth_type"
         elif key == "iamAuth":
             suggest = "iam_auth"
         elif key == "secretArn":
@@ -871,12 +873,14 @@ class ProxyAuth(dict):
 
     def __init__(__self__, *,
                  auth_scheme: Optional[str] = None,
+                 client_password_auth_type: Optional[str] = None,
                  description: Optional[str] = None,
                  iam_auth: Optional[str] = None,
                  secret_arn: Optional[str] = None,
                  username: Optional[str] = None):
         """
         :param str auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+        :param str client_password_auth_type: The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
         :param str iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
@@ -884,6 +888,8 @@ class ProxyAuth(dict):
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
+        if client_password_auth_type is not None:
+            pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if iam_auth is not None:
@@ -900,6 +906,14 @@ class ProxyAuth(dict):
         The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
         """
         return pulumi.get(self, "auth_scheme")
+
+    @property
+    @pulumi.getter(name="clientPasswordAuthType")
+    def client_password_auth_type(self) -> Optional[str]:
+        """
+        The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        """
+        return pulumi.get(self, "client_password_auth_type")
 
     @property
     @pulumi.getter

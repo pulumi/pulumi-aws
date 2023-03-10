@@ -36,7 +36,7 @@ import {ARN} from "..";
  *     },
  *     schema: {
  *         recordColumns: [{
- *             mapping: `$.test`,
+ *             mapping: "$.test",
  *             name: "test",
  *             sqlType: "VARCHAR(8)",
  *         }],

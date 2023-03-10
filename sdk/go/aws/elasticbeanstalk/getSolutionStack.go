@@ -19,8 +19,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,7 +28,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticbeanstalk.GetSolutionStack(ctx, &elasticbeanstalk.GetSolutionStackArgs{
 //				MostRecent: pulumi.BoolRef(true),
-//				NameRegex:  fmt.Sprintf("^64bit Amazon Linux (.*) Multi-container Docker (.*)$"),
+//				NameRegex:  "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
 //			}, nil)
 //			if err != nil {
 //				return err

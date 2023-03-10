@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Email;
         /// <summary>
-        /// The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+        /// Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
         /// </summary>
         public readonly string? Id;
         /// <summary>

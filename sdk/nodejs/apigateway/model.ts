@@ -20,10 +20,9 @@ import {RestApi} from "./index";
  *     restApi: myDemoAPI.id,
  *     description: "a JSON schema",
  *     contentType: "application/json",
- *     schema: `{
- *   "type": "object"
- * }
- * `,
+ *     schema: JSON.stringify({
+ *         type: "object",
+ *     }),
  * });
  * ```
  *

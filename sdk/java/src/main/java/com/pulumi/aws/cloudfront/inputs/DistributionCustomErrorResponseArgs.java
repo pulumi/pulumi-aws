@@ -17,18 +17,14 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
     public static final DistributionCustomErrorResponseArgs Empty = new DistributionCustomErrorResponseArgs();
 
     /**
-     * The minimum amount of time you want
-     * HTTP error codes to stay in CloudFront caches before CloudFront queries your
-     * origin to see whether the object has been updated.
+     * Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
      * 
      */
     @Import(name="errorCachingMinTtl")
     private @Nullable Output<Integer> errorCachingMinTtl;
 
     /**
-     * @return The minimum amount of time you want
-     * HTTP error codes to stay in CloudFront caches before CloudFront queries your
-     * origin to see whether the object has been updated.
+     * @return Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
      * 
      */
     public Optional<Output<Integer>> errorCachingMinTtl() {
@@ -36,16 +32,14 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
     }
 
     /**
-     * The 4xx or 5xx HTTP status code that you want to
-     * customize.
+     * 4xx or 5xx HTTP status code that you want to customize.
      * 
      */
     @Import(name="errorCode", required=true)
     private Output<Integer> errorCode;
 
     /**
-     * @return The 4xx or 5xx HTTP status code that you want to
-     * customize.
+     * @return 4xx or 5xx HTTP status code that you want to customize.
      * 
      */
     public Output<Integer> errorCode() {
@@ -53,16 +47,14 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
     }
 
     /**
-     * The HTTP status code that you want CloudFront
-     * to return with the custom error page to the viewer.
+     * HTTP status code that you want CloudFront to return with the custom error page to the viewer.
      * 
      */
     @Import(name="responseCode")
     private @Nullable Output<Integer> responseCode;
 
     /**
-     * @return The HTTP status code that you want CloudFront
-     * to return with the custom error page to the viewer.
+     * @return HTTP status code that you want CloudFront to return with the custom error page to the viewer.
      * 
      */
     public Optional<Output<Integer>> responseCode() {
@@ -70,16 +62,14 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
     }
 
     /**
-     * The path of the custom error page (for
-     * example, `/custom_404.html`).
+     * Path of the custom error page (for example, `/custom_404.html`).
      * 
      */
     @Import(name="responsePagePath")
     private @Nullable Output<String> responsePagePath;
 
     /**
-     * @return The path of the custom error page (for
-     * example, `/custom_404.html`).
+     * @return Path of the custom error page (for example, `/custom_404.html`).
      * 
      */
     public Optional<Output<String>> responsePagePath() {
@@ -114,9 +104,7 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param errorCachingMinTtl The minimum amount of time you want
-         * HTTP error codes to stay in CloudFront caches before CloudFront queries your
-         * origin to see whether the object has been updated.
+         * @param errorCachingMinTtl Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
          * 
          * @return builder
          * 
@@ -127,9 +115,7 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param errorCachingMinTtl The minimum amount of time you want
-         * HTTP error codes to stay in CloudFront caches before CloudFront queries your
-         * origin to see whether the object has been updated.
+         * @param errorCachingMinTtl Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
          * 
          * @return builder
          * 
@@ -139,8 +125,7 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param errorCode The 4xx or 5xx HTTP status code that you want to
-         * customize.
+         * @param errorCode 4xx or 5xx HTTP status code that you want to customize.
          * 
          * @return builder
          * 
@@ -151,8 +136,7 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param errorCode The 4xx or 5xx HTTP status code that you want to
-         * customize.
+         * @param errorCode 4xx or 5xx HTTP status code that you want to customize.
          * 
          * @return builder
          * 
@@ -162,8 +146,7 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param responseCode The HTTP status code that you want CloudFront
-         * to return with the custom error page to the viewer.
+         * @param responseCode HTTP status code that you want CloudFront to return with the custom error page to the viewer.
          * 
          * @return builder
          * 
@@ -174,8 +157,7 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param responseCode The HTTP status code that you want CloudFront
-         * to return with the custom error page to the viewer.
+         * @param responseCode HTTP status code that you want CloudFront to return with the custom error page to the viewer.
          * 
          * @return builder
          * 
@@ -185,8 +167,7 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param responsePagePath The path of the custom error page (for
-         * example, `/custom_404.html`).
+         * @param responsePagePath Path of the custom error page (for example, `/custom_404.html`).
          * 
          * @return builder
          * 
@@ -197,8 +178,7 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param responsePagePath The path of the custom error page (for
-         * example, `/custom_404.html`).
+         * @param responsePagePath Path of the custom error page (for example, `/custom_404.html`).
          * 
          * @return builder
          * 

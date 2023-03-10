@@ -15,14 +15,14 @@ public final class BucketLoggingV2TargetGrantArgs extends com.pulumi.resources.R
     public static final BucketLoggingV2TargetGrantArgs Empty = new BucketLoggingV2TargetGrantArgs();
 
     /**
-     * A configuration block for the person being granted permissions documented below.
+     * Configuration block for the person being granted permissions. See below.
      * 
      */
     @Import(name="grantee", required=true)
     private Output<BucketLoggingV2TargetGrantGranteeArgs> grantee;
 
     /**
-     * @return A configuration block for the person being granted permissions documented below.
+     * @return Configuration block for the person being granted permissions. See below.
      * 
      */
     public Output<BucketLoggingV2TargetGrantGranteeArgs> grantee() {
@@ -70,7 +70,7 @@ public final class BucketLoggingV2TargetGrantArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param grantee A configuration block for the person being granted permissions documented below.
+         * @param grantee Configuration block for the person being granted permissions. See below.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class BucketLoggingV2TargetGrantArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param grantee A configuration block for the person being granted permissions documented below.
+         * @param grantee Configuration block for the person being granted permissions. See below.
          * 
          * @return builder
          * 

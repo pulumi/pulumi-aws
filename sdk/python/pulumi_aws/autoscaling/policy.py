@@ -520,6 +520,61 @@ class Policy(pulumi.CustomResource):
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
+        ### Create target tarcking scaling policy using metric math
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            policy_type="TargetTrackingScaling",
+            target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+                customized_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs(
+                    metrics=[
+                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
+                            id="m1",
+                            label="Get the queue size (the number of messages waiting to be processed)",
+                            metric_stat=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
+                                metric=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                                    dimensions=[aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        name="QueueName",
+                                        value="my-queue",
+                                    )],
+                                    metric_name="ApproximateNumberOfMessagesVisible",
+                                    namespace="AWS/SQS",
+                                ),
+                                stat="Sum",
+                            ),
+                            return_data=False,
+                        ),
+                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
+                            id="m2",
+                            label="Get the group size (the number of InService instances)",
+                            metric_stat=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
+                                metric=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                                    dimensions=[aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        name="AutoScalingGroupName",
+                                        value="my-asg",
+                                    )],
+                                    metric_name="GroupInServiceInstances",
+                                    namespace="AWS/AutoScaling",
+                                ),
+                                stat="Average",
+                            ),
+                            return_data=False,
+                        ),
+                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
+                            expression="m1 / m2",
+                            id="e1",
+                            label="Calculate the backlog per instance",
+                            return_data=True,
+                        ),
+                    ],
+                ),
+                target_value=100,
+            ))
+        ```
         ### Create predictive scaling policy using customized metrics
 
         ```python
@@ -662,6 +717,61 @@ class Policy(pulumi.CustomResource):
             adjustment_type="ChangeInCapacity",
             cooldown=300,
             autoscaling_group_name=bar.name)
+        ```
+        ### Create target tarcking scaling policy using metric math
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.autoscaling.Policy("example",
+            autoscaling_group_name="my-test-asg",
+            policy_type="TargetTrackingScaling",
+            target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
+                customized_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs(
+                    metrics=[
+                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
+                            id="m1",
+                            label="Get the queue size (the number of messages waiting to be processed)",
+                            metric_stat=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
+                                metric=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                                    dimensions=[aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        name="QueueName",
+                                        value="my-queue",
+                                    )],
+                                    metric_name="ApproximateNumberOfMessagesVisible",
+                                    namespace="AWS/SQS",
+                                ),
+                                stat="Sum",
+                            ),
+                            return_data=False,
+                        ),
+                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
+                            id="m2",
+                            label="Get the group size (the number of InService instances)",
+                            metric_stat=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
+                                metric=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                                    dimensions=[aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        name="AutoScalingGroupName",
+                                        value="my-asg",
+                                    )],
+                                    metric_name="GroupInServiceInstances",
+                                    namespace="AWS/AutoScaling",
+                                ),
+                                stat="Average",
+                            ),
+                            return_data=False,
+                        ),
+                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
+                            expression="m1 / m2",
+                            id="e1",
+                            label="Calculate the backlog per instance",
+                            return_data=True,
+                        ),
+                    ],
+                ),
+                target_value=100,
+            ))
         ```
         ### Create predictive scaling policy using customized metrics
 

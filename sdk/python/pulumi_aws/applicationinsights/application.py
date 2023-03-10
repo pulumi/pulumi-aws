@@ -335,23 +335,17 @@ class Application(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         example_group = aws.resourcegroups.Group("exampleGroup", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-            query=\"\"\"	{
-        		"ResourceTypeFilters": [
-        		  "AWS::EC2::Instance"
-        		],
-        		"TagFilters": [
-        		  {
-        			"Key": "Stage",
-        			"Values": [
-        			  "Test"
-        			]
-        		  }
-        		]
-        	  }
-        \"\"\",
+            query=json.dumps({
+                "ResourceTypeFilters": ["AWS::EC2::Instance"],
+                "TagFilters": [{
+                    "Key": "Stage",
+                    "Values": ["Test"],
+                }],
+            }),
         ))
         example_application = aws.applicationinsights.Application("exampleApplication", resource_group_name=example_group.name)
         ```
@@ -388,23 +382,17 @@ class Application(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         example_group = aws.resourcegroups.Group("exampleGroup", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-            query=\"\"\"	{
-        		"ResourceTypeFilters": [
-        		  "AWS::EC2::Instance"
-        		],
-        		"TagFilters": [
-        		  {
-        			"Key": "Stage",
-        			"Values": [
-        			  "Test"
-        			]
-        		  }
-        		]
-        	  }
-        \"\"\",
+            query=json.dumps({
+                "ResourceTypeFilters": ["AWS::EC2::Instance"],
+                "TagFilters": [{
+                    "Key": "Stage",
+                    "Values": ["Test"],
+                }],
+            }),
         ))
         example_application = aws.applicationinsights.Application("exampleApplication", resource_group_name=example_group.name)
         ```

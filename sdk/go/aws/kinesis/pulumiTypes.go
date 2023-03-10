@@ -5380,7 +5380,7 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
 	DataFormatConversionConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration `pulumi:"dataFormatConversionConfiguration"`
-	// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+	// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
 	DynamicPartitioningConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration `pulumi:"dynamicPartitioningConfiguration"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
@@ -5424,7 +5424,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
 	DataFormatConversionConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput `pulumi:"dataFormatConversionConfiguration"`
-	// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+	// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
 	DynamicPartitioningConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput `pulumi:"dynamicPartitioningConfiguration"`
 	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
@@ -5555,7 +5555,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) DataFormatConversio
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
 }
 
-// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) DynamicPartitioningConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
 		return v.DynamicPartitioningConfiguration
@@ -5687,7 +5687,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) DataFormatConver
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
 }
 
-// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+// The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) DynamicPartitioningConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
 		if v == nil {
@@ -7884,7 +7884,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration struct {
-	// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+	// Enables or disables dynamic partitioning. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
 	RetryDuration *int `pulumi:"retryDuration"`
@@ -7902,7 +7902,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurati
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs struct {
-	// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+	// Enables or disables dynamic partitioning. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
@@ -7985,7 +7985,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigur
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
 }
 
-// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+// Enables or disables dynamic partitioning. Defaults to `false`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *bool {
 		return v.Enabled
@@ -8023,7 +8023,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigur
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput)
 }
 
-// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+// Enables or disables dynamic partitioning. Defaults to `false`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *bool {
 		if v == nil {

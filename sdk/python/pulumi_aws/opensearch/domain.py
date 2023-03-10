@@ -697,21 +697,21 @@ class Domain(pulumi.CustomResource):
             domain = "tf-test"
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example = aws.opensearch.Domain("example", access_policies=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": "es:*",
-              "Principal": "*",
-              "Effect": "Allow",
-              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
-              "Condition": {{
-                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
-              }}
-            }}
-          ]
-        }}
-        \"\"\")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["es:*"],
+            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="IpAddress",
+                variable="aws:SourceIp",
+                values=["66.193.100.22/32"],
+            )],
+        )])
+        example_domain = aws.opensearch.Domain("exampleDomain", access_policies=example_policy_document.json)
         ```
         ### Log publishing to CloudWatch Logs
 
@@ -720,26 +720,22 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
-            policy_name="example",
-            policy_document=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "es.amazonaws.com"
-              },
-              "Action": [
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["es.amazonaws.com"],
+            )],
+            actions=[
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
-                "logs:CreateLogStream"
-              ],
-              "Resource": "arn:aws:logs:*"
-            }
-          ]
-        }
-        \"\"\")
+                "logs:CreateLogStream",
+            ],
+            resources=["arn:aws:logs:*"],
+        )])
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_name="example",
+            policy_document=example_policy_document.json)
         # .. other configuration ...
         example_domain = aws.opensearch.Domain("exampleDomain", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
             cloudwatch_log_group_arn=example_log_group.arn,
@@ -776,6 +772,15 @@ class Domain(pulumi.CustomResource):
                 cidr_blocks=[example_vpc.cidr_block],
             )])
         example_service_linked_role = aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["es:*"],
+            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+        )])
         example_domain = aws.opensearch.Domain("exampleDomain",
             engine_version="OpenSearch_1.0",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
@@ -792,18 +797,7 @@ class Domain(pulumi.CustomResource):
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
-            access_policies=f\"\"\"{{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{{
-        			"Action": "es:*",
-        			"Principal": "*",
-        			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
-        		}}
-        	]
-        }}
-        \"\"\",
+            access_policies=example_policy_document.json,
             tags={
                 "Domain": "TestDomain",
             },
@@ -968,21 +962,21 @@ class Domain(pulumi.CustomResource):
             domain = "tf-test"
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example = aws.opensearch.Domain("example", access_policies=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": "es:*",
-              "Principal": "*",
-              "Effect": "Allow",
-              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
-              "Condition": {{
-                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
-              }}
-            }}
-          ]
-        }}
-        \"\"\")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["es:*"],
+            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="IpAddress",
+                variable="aws:SourceIp",
+                values=["66.193.100.22/32"],
+            )],
+        )])
+        example_domain = aws.opensearch.Domain("exampleDomain", access_policies=example_policy_document.json)
         ```
         ### Log publishing to CloudWatch Logs
 
@@ -991,26 +985,22 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
-            policy_name="example",
-            policy_document=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "es.amazonaws.com"
-              },
-              "Action": [
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["es.amazonaws.com"],
+            )],
+            actions=[
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
-                "logs:CreateLogStream"
-              ],
-              "Resource": "arn:aws:logs:*"
-            }
-          ]
-        }
-        \"\"\")
+                "logs:CreateLogStream",
+            ],
+            resources=["arn:aws:logs:*"],
+        )])
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_name="example",
+            policy_document=example_policy_document.json)
         # .. other configuration ...
         example_domain = aws.opensearch.Domain("exampleDomain", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
             cloudwatch_log_group_arn=example_log_group.arn,
@@ -1047,6 +1037,15 @@ class Domain(pulumi.CustomResource):
                 cidr_blocks=[example_vpc.cidr_block],
             )])
         example_service_linked_role = aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["es:*"],
+            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+        )])
         example_domain = aws.opensearch.Domain("exampleDomain",
             engine_version="OpenSearch_1.0",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
@@ -1063,18 +1062,7 @@ class Domain(pulumi.CustomResource):
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
-            access_policies=f\"\"\"{{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{{
-        			"Action": "es:*",
-        			"Principal": "*",
-        			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
-        		}}
-        	]
-        }}
-        \"\"\",
+            access_policies=example_policy_document.json,
             tags={
                 "Domain": "TestDomain",
             },

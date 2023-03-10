@@ -309,7 +309,7 @@ class RecorderRecordingGroup(dict):
                  resource_types: Optional[Sequence[str]] = None):
         """
         :param bool all_supported: Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
-        :param bool include_global_resource_types: Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        :param bool include_global_resource_types: Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         :param Sequence[str] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
         if all_supported is not None:
@@ -331,7 +331,7 @@ class RecorderRecordingGroup(dict):
     @pulumi.getter(name="includeGlobalResourceTypes")
     def include_global_resource_types(self) -> Optional[bool]:
         """
-        Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         """
         return pulumi.get(self, "include_global_resource_types")
 

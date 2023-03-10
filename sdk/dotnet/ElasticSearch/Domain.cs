@@ -91,27 +91,42 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "es.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:PutLogEvents",
+    ///                     "logs:PutLogEventsBatch",
+    ///                     "logs:CreateLogStream",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:logs:*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("exampleLogResourcePolicy", new()
     ///     {
     ///         PolicyName = "example",
-    ///         PolicyDocument = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""es.amazonaws.com""
-    ///       },
-    ///       ""Action"": [
-    ///         ""logs:PutLogEvents"",
-    ///         ""logs:PutLogEventsBatch"",
-    ///         ""logs:CreateLogStream""
-    ///       ],
-    ///       ""Resource"": ""arn:aws:logs:*""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     // .. other configuration ...

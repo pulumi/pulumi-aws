@@ -8,6 +8,10 @@ import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedServicesPlainArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsPlainArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
@@ -15,6 +19,8 @@ import com.pulumi.aws.organizations.inputs.GetResourceTagsPlainArgs;
 import com.pulumi.aws.organizations.outputs.GetDelegatedAdministratorsResult;
 import com.pulumi.aws.organizations.outputs.GetDelegatedServicesResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationResult;
+import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitChildAccountsResult;
+import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitDescendantAccountsResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitsResult;
 import com.pulumi.aws.organizations.outputs.GetResourceTagsResult;
 import com.pulumi.core.Output;
@@ -26,7 +32,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class OrganizationsFunctions {
     /**
-     * Get a list the AWS accounts that are designated as delegated administrators in this organization
+     * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
      * ```java
@@ -63,7 +69,7 @@ public final class OrganizationsFunctions {
         return getDelegatedAdministrators(GetDelegatedAdministratorsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a list the AWS accounts that are designated as delegated administrators in this organization
+     * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
      * ```java
@@ -100,7 +106,7 @@ public final class OrganizationsFunctions {
         return getDelegatedAdministratorsPlain(GetDelegatedAdministratorsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get a list the AWS accounts that are designated as delegated administrators in this organization
+     * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
      * ```java
@@ -137,7 +143,7 @@ public final class OrganizationsFunctions {
         return getDelegatedAdministrators(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list the AWS accounts that are designated as delegated administrators in this organization
+     * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
      * ```java
@@ -174,7 +180,7 @@ public final class OrganizationsFunctions {
         return getDelegatedAdministratorsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get a list the AWS accounts that are designated as delegated administrators in this organization
+     * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
      * ```java
@@ -211,7 +217,7 @@ public final class OrganizationsFunctions {
         return Deployment.getInstance().invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", TypeShape.of(GetDelegatedAdministratorsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get a list the AWS accounts that are designated as delegated administrators in this organization
+     * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
      * ```java
@@ -952,6 +958,318 @@ public final class OrganizationsFunctions {
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs args) {
+        return getOrganizationalUnitChildAccounts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccountsPlain(GetOrganizationalUnitChildAccountsPlainArgs args) {
+        return getOrganizationalUnitChildAccountsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", TypeShape.of(GetOrganizationalUnitChildAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccountsPlain(GetOrganizationalUnitChildAccountsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", TypeShape.of(GetOrganizationalUnitChildAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs args) {
+        return getOrganizationalUnitDescendantAccounts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccountsPlain(GetOrganizationalUnitDescendantAccountsPlainArgs args) {
+        return getOrganizationalUnitDescendantAccountsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", TypeShape.of(GetOrganizationalUnitDescendantAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccountsPlain(GetOrganizationalUnitDescendantAccountsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", TypeShape.of(GetOrganizationalUnitDescendantAccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.

@@ -80,23 +80,23 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
+     * Name of the bucket where you want Amazon S3 to store server access logs.
      */
     public readonly targetBucket!: pulumi.Output<string>;
     /**
-     * Set of configuration blocks with information for granting permissions documented below.
+     * Set of configuration blocks with information for granting permissions. See below.
      */
     public readonly targetGrants!: pulumi.Output<outputs.s3.BucketLoggingV2TargetGrant[] | undefined>;
     /**
-     * A prefix for all log object keys.
+     * Prefix for all log object keys.
      */
     public readonly targetPrefix!: pulumi.Output<string>;
 
@@ -145,23 +145,23 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
  */
 export interface BucketLoggingV2State {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
+     * Name of the bucket where you want Amazon S3 to store server access logs.
      */
     targetBucket?: pulumi.Input<string>;
     /**
-     * Set of configuration blocks with information for granting permissions documented below.
+     * Set of configuration blocks with information for granting permissions. See below.
      */
     targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
     /**
-     * A prefix for all log object keys.
+     * Prefix for all log object keys.
      */
     targetPrefix?: pulumi.Input<string>;
 }
@@ -171,23 +171,23 @@ export interface BucketLoggingV2State {
  */
 export interface BucketLoggingV2Args {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
+     * Name of the bucket where you want Amazon S3 to store server access logs.
      */
     targetBucket: pulumi.Input<string>;
     /**
-     * Set of configuration blocks with information for granting permissions documented below.
+     * Set of configuration blocks with information for granting permissions. See below.
      */
     targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
     /**
-     * A prefix for all log object keys.
+     * Prefix for all log object keys.
      */
     targetPrefix: pulumi.Input<string>;
 }

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.GameLift
     ///         OperatingSystem = "WINDOWS_2012",
     ///         StorageLocation = new Aws.GameLift.Inputs.BuildStorageLocationArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Test.Bucket,
+    ///             Bucket = aws_s3_bucket.Test.Id,
     ///             Key = aws_s3_object.Test.Key,
     ///             RoleArn = aws_iam_role.Test.Arn,
     ///         },

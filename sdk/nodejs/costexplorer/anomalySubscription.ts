@@ -31,6 +31,28 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Threshold Expression
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.costexplorer.AnomalySubscription("test", {
+ *     frequency: "DAILY",
+ *     monitorArnLists: [aws_ce_anomaly_monitor.test.arn],
+ *     subscribers: [{
+ *         type: "EMAIL",
+ *         address: "abc@example.com",
+ *     }],
+ *     thresholdExpression: {
+ *         dimension: {
+ *             key: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+ *             values: ["100.0"],
+ *             matchOptions: ["GREATER_THAN_OR_EQUAL"],
+ *         },
+ *     },
+ * });
+ * ```
  * ### SNS Example
  *
  * ```typescript

@@ -42,7 +42,7 @@ class FlowLogArgs:
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -173,7 +173,7 @@ class FlowLogArgs:
         The maximum interval of time
         during which a flow of packets is captured and aggregated into a flow
         log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
@@ -286,7 +286,7 @@ class _FlowLogState:
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -434,7 +434,7 @@ class _FlowLogState:
         The maximum interval of time
         during which a flow of packets is captured and aggregated into a flow
         log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
@@ -559,102 +559,34 @@ class FlowLog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "vpc-flow-logs.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["vpc-flow-logs.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
             iam_role_arn=example_role.arn,
             log_destination=example_log_group.arn,
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
                 "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
-        ```
-        ### Amazon Kinesis Data Firehose logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\" {
-           "Version":"2012-10-17",
-           "Statement": [
-             {
-               "Action":"sts:AssumeRole",
-               "Principal":{
-                 "Service":"firehose.amazonaws.com"
-               },
-               "Effect":"Allow",
-               "Sid":""
-             }
-           ]
-         }
-        \"\"\")
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=example_role.arn,
-                bucket_arn=example_bucket_v2.arn,
-            ),
-            tags={
-                "LogDeliveryEnabled": "true",
-            })
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
-            log_destination=example_firehose_delivery_stream.arn,
-            log_destination_type="kinesis-data-firehose",
-            traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
+                "logs:DescribeLogStreams",
+            ],
+            resources=["*"],
+        )])
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
-            policy=\"\"\" {
-           "Version":"2012-10-17",
-           "Statement":[
-             {
-               "Action": [
-                 "logs:CreateLogDelivery",
-                 "logs:DeleteLogDelivery",
-                 "logs:ListLogDeliveries",
-                 "logs:GetLogDelivery",
-                 "firehose:TagDeliveryStream"
-               ],
-               "Effect":"Allow",
-               "Resource":"*"
-             }
-           ]
-         }
-        \"\"\")
+            policy=example_policy_document.json)
         ```
         ### S3 Logging
 
@@ -707,7 +639,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -733,102 +665,34 @@ class FlowLog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "vpc-flow-logs.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["vpc-flow-logs.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
             iam_role_arn=example_role.arn,
             log_destination=example_log_group.arn,
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
                 "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
-        ```
-        ### Amazon Kinesis Data Firehose logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\" {
-           "Version":"2012-10-17",
-           "Statement": [
-             {
-               "Action":"sts:AssumeRole",
-               "Principal":{
-                 "Service":"firehose.amazonaws.com"
-               },
-               "Effect":"Allow",
-               "Sid":""
-             }
-           ]
-         }
-        \"\"\")
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=example_role.arn,
-                bucket_arn=example_bucket_v2.arn,
-            ),
-            tags={
-                "LogDeliveryEnabled": "true",
-            })
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
-            log_destination=example_firehose_delivery_stream.arn,
-            log_destination_type="kinesis-data-firehose",
-            traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
+                "logs:DescribeLogStreams",
+            ],
+            resources=["*"],
+        )])
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
-            policy=\"\"\" {
-           "Version":"2012-10-17",
-           "Statement":[
-             {
-               "Action": [
-                 "logs:CreateLogDelivery",
-                 "logs:DeleteLogDelivery",
-                 "logs:ListLogDeliveries",
-                 "logs:GetLogDelivery",
-                 "firehose:TagDeliveryStream"
-               ],
-               "Effect":"Allow",
-               "Resource":"*"
-             }
-           ]
-         }
-        \"\"\")
+            policy=example_policy_document.json)
         ```
         ### S3 Logging
 
@@ -970,7 +834,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+               minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1072,7 +936,7 @@ class FlowLog(pulumi.CustomResource):
         The maximum interval of time
         during which a flow of packets is captured and aggregated into a flow
         log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+        minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 

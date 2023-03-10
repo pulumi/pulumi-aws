@@ -20,68 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource-based access control mechanism for a KMS customer master key.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.kms.Grant;
- * import com.pulumi.aws.kms.GrantArgs;
- * import com.pulumi.aws.kms.inputs.GrantConstraintArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var key = new Key(&#34;key&#34;);
- * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;lambda.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var grant = new Grant(&#34;grant&#34;, GrantArgs.builder()        
- *             .keyId(key.keyId())
- *             .granteePrincipal(role.arn())
- *             .operations(            
- *                 &#34;Encrypt&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;GenerateDataKey&#34;)
- *             .constraints(GrantConstraintArgs.builder()
- *                 .encryptionContextEquals(Map.of(&#34;Department&#34;, &#34;Finance&#34;))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * KMS Grants can be imported using the Key ID and Grant ID separated by a colon (`:`), e.g.,

@@ -349,6 +349,21 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Undocumented argument for use as directed by AWS Support.
+     * 
+     */
+    @Import(name="detachTargetOnLobLookupFailureParquet")
+    private @Nullable Output<Boolean> detachTargetOnLobLookupFailureParquet;
+
+    /**
+     * @return Undocumented argument for use as directed by AWS Support.
+     * 
+     */
+    public Optional<Output<Boolean>> detachTargetOnLobLookupFailureParquet() {
+        return Optional.ofNullable(this.detachTargetOnLobLookupFailureParquet);
+    }
+
+    /**
      * Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
      * 
      */
@@ -808,6 +823,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         this.datePartitionEnabled = $.datePartitionEnabled;
         this.datePartitionSequence = $.datePartitionSequence;
         this.datePartitionTimezone = $.datePartitionTimezone;
+        this.detachTargetOnLobLookupFailureParquet = $.detachTargetOnLobLookupFailureParquet;
         this.dictPageSizeLimit = $.dictPageSizeLimit;
         this.enableStatistics = $.enableStatistics;
         this.encodingType = $.encodingType;
@@ -1317,6 +1333,27 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder datePartitionTimezone(String datePartitionTimezone) {
             return datePartitionTimezone(Output.of(datePartitionTimezone));
+        }
+
+        /**
+         * @param detachTargetOnLobLookupFailureParquet Undocumented argument for use as directed by AWS Support.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder detachTargetOnLobLookupFailureParquet(@Nullable Output<Boolean> detachTargetOnLobLookupFailureParquet) {
+            $.detachTargetOnLobLookupFailureParquet = detachTargetOnLobLookupFailureParquet;
+            return this;
+        }
+
+        /**
+         * @param detachTargetOnLobLookupFailureParquet Undocumented argument for use as directed by AWS Support.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder detachTargetOnLobLookupFailureParquet(Boolean detachTargetOnLobLookupFailureParquet) {
+            return detachTargetOnLobLookupFailureParquet(Output.of(detachTargetOnLobLookupFailureParquet));
         }
 
         /**

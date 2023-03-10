@@ -18,14 +18,18 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     public static final LaunchTemplateNetworkInterfaceArgs Empty = new LaunchTemplateNetworkInterfaceArgs();
 
     /**
-     * Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+     * Associate a Carrier IP address with `eth0` for a new network interface.
+     * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+     * Boolean value, can be left unset.
      * 
      */
     @Import(name="associateCarrierIpAddress")
     private @Nullable Output<String> associateCarrierIpAddress;
 
     /**
-     * @return Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+     * @return Associate a Carrier IP address with `eth0` for a new network interface.
+     * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+     * Boolean value, can be left unset.
      * 
      */
     public Optional<Output<String>> associateCarrierIpAddress() {
@@ -33,14 +37,16 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * Associate a public ip address with the network interface.  Boolean value.
+     * Associate a public ip address with the network interface.
+     * Boolean value, can be left unset.
      * 
      */
     @Import(name="associatePublicIpAddress")
     private @Nullable Output<String> associatePublicIpAddress;
 
     /**
-     * @return Associate a public ip address with the network interface.  Boolean value.
+     * @return Associate a public ip address with the network interface.
+     * Boolean value, can be left unset.
      * 
      */
     public Optional<Output<String>> associatePublicIpAddress() {
@@ -48,14 +54,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+     * Whether the network interface should be destroyed on instance termination.
      * 
      */
     @Import(name="deleteOnTermination")
     private @Nullable Output<String> deleteOnTermination;
 
     /**
-     * @return Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+     * @return Whether the network interface should be destroyed on instance termination.
      * 
      */
     public Optional<Output<String>> deleteOnTermination() {
@@ -345,7 +351,9 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associateCarrierIpAddress Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+         * @param associateCarrierIpAddress Associate a Carrier IP address with `eth0` for a new network interface.
+         * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+         * Boolean value, can be left unset.
          * 
          * @return builder
          * 
@@ -356,7 +364,9 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associateCarrierIpAddress Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+         * @param associateCarrierIpAddress Associate a Carrier IP address with `eth0` for a new network interface.
+         * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+         * Boolean value, can be left unset.
          * 
          * @return builder
          * 
@@ -366,7 +376,8 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associatePublicIpAddress Associate a public ip address with the network interface.  Boolean value.
+         * @param associatePublicIpAddress Associate a public ip address with the network interface.
+         * Boolean value, can be left unset.
          * 
          * @return builder
          * 
@@ -377,7 +388,8 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associatePublicIpAddress Associate a public ip address with the network interface.  Boolean value.
+         * @param associatePublicIpAddress Associate a public ip address with the network interface.
+         * Boolean value, can be left unset.
          * 
          * @return builder
          * 
@@ -387,7 +399,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param deleteOnTermination Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+         * @param deleteOnTermination Whether the network interface should be destroyed on instance termination.
          * 
          * @return builder
          * 
@@ -398,7 +410,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param deleteOnTermination Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+         * @param deleteOnTermination Whether the network interface should be destroyed on instance termination.
          * 
          * @return builder
          * 

@@ -18,20 +18,20 @@ import * as utilities from "../utilities";
  *     domain: "example",
  *     encryptionKey: exampleKey.arn,
  * });
- * const test = new aws.codeartifact.DomainPermissions("test", {
+ * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["codeartifact:CreateRepository"],
+ *         resources: [exampleDomain.arn],
+ *     }],
+ * });
+ * const testDomainPermissions = new aws.codeartifact.DomainPermissions("testDomainPermissions", {
  *     domain: exampleDomain.domain,
- *     policyDocument: pulumi.interpolate`{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Action": "codeartifact:CreateRepository",
- *             "Effect": "Allow",
- *             "Principal": "*",
- *             "Resource": "${exampleDomain.arn}"
- *         }
- *     ]
- * }
- * `,
+ *     policyDocument: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
  * });
  * ```
  *

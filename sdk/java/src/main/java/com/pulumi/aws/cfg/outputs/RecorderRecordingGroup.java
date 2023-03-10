@@ -19,7 +19,7 @@ public final class RecorderRecordingGroup {
      */
     private @Nullable Boolean allSupported;
     /**
-     * @return Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+     * @return Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
      * 
      */
     private @Nullable Boolean includeGlobalResourceTypes;
@@ -38,7 +38,7 @@ public final class RecorderRecordingGroup {
         return Optional.ofNullable(this.allSupported);
     }
     /**
-     * @return Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+     * @return Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
      * 
      */
     public Optional<Boolean> includeGlobalResourceTypes() {

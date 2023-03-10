@@ -19,9 +19,9 @@ class BucketRequestPaymentConfigurationV2Args:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketRequestPaymentConfigurationV2 resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
+        :param pulumi.Input[str] bucket: Name of the bucket.
         :param pulumi.Input[str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "payer", payer)
@@ -32,7 +32,7 @@ class BucketRequestPaymentConfigurationV2Args:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -56,7 +56,7 @@ class BucketRequestPaymentConfigurationV2Args:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -73,8 +73,8 @@ class _BucketRequestPaymentConfigurationV2State:
                  payer: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketRequestPaymentConfigurationV2 resources.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         """
         if bucket is not None:
@@ -88,7 +88,7 @@ class _BucketRequestPaymentConfigurationV2State:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -100,7 +100,7 @@ class _BucketRequestPaymentConfigurationV2State:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -142,7 +142,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketRequestPaymentConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["bucket"],
+            bucket=aws_s3_bucket["example"]["id"],
             payer="Requester")
         ```
 
@@ -162,8 +162,8 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         """
         ...
@@ -184,7 +184,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketRequestPaymentConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["bucket"],
+            bucket=aws_s3_bucket["example"]["id"],
             payer="Requester")
         ```
 
@@ -256,8 +256,8 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -273,7 +273,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -281,7 +281,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 

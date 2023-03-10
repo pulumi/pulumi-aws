@@ -39,44 +39,56 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			firehoseAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"firehose.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "firehose.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			lambdaAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"lambda.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			lambdaIam, err := iam.NewRole(ctx, "lambdaIam", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "lambda.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -146,11 +158,14 @@ import (
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extendedS3Stream", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//					RoleArn:    pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//					BucketArn:  pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//					BufferSize: pulumi.Int(64),
+//					DynamicPartitioningConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{
+//						Enabled: pulumi.Bool(true),
+//					},
 //					Prefix:            pulumi.String("data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/"),
 //					ErrorOutputPrefix: pulumi.String("errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/"),
-//					BufferSize:        pulumi.Int(64),
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray{
@@ -198,8 +213,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
@@ -220,23 +233,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"firehose.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "firehose.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -423,46 +442,43 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "firehose-elasticsearch", &iam.RolePolicyArgs{
+//			firehose_elasticsearchPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("es:*"),
+//						},
+//						Resources: pulumi.StringArray{
+//							testCluster.Arn,
+//							testCluster.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("ec2:DescribeVpcs"),
+//							pulumi.String("ec2:DescribeVpcAttribute"),
+//							pulumi.String("ec2:DescribeSubnets"),
+//							pulumi.String("ec2:DescribeSecurityGroups"),
+//							pulumi.String("ec2:DescribeNetworkInterfaces"),
+//							pulumi.String("ec2:CreateNetworkInterface"),
+//							pulumi.String("ec2:CreateNetworkInterfacePermission"),
+//							pulumi.String("ec2:DeleteNetworkInterface"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRolePolicy(ctx, "firehose-elasticsearchRolePolicy", &iam.RolePolicyArgs{
 //				Role: pulumi.Any(aws_iam_role.Firehose.Id),
-//				Policy: pulumi.All(testCluster.Arn, testCluster.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					testClusterArn := _args[0].(string)
-//					testClusterArn1 := _args[1].(string)
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Effect": "Allow",
-//	      "Action": [
-//	        "es:*"
-//	      ],
-//	      "Resource": [
-//	        "%v",
-//	        "%v/*"
-//	      ]
-//	        },
-//	        {
-//	          "Effect": "Allow",
-//	          "Action": [
-//	            "ec2:DescribeVpcs",
-//	            "ec2:DescribeVpcAttribute",
-//	            "ec2:DescribeSubnets",
-//	            "ec2:DescribeSecurityGroups",
-//	            "ec2:DescribeNetworkInterfaces",
-//	            "ec2:CreateNetworkInterface",
-//	            "ec2:CreateNetworkInterfacePermission",
-//	            "ec2:DeleteNetworkInterface"
-//	          ],
-//	          "Resource": [
-//	            "*"
-//	          ]
-//	        }
-//	  ]
-//	}
-//
-// `, testClusterArn, testClusterArn1), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: firehose_elasticsearchPolicyDocument.ApplyT(func(firehose_elasticsearchPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &firehose_elasticsearchPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -490,7 +506,7 @@ import (
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				firehose_elasticsearch,
+//				firehose_elasticsearchRolePolicy,
 //			}))
 //			if err != nil {
 //				return err

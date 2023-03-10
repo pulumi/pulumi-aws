@@ -143,19 +143,15 @@ class SshKey(pulumi.CustomResource):
             tags={
                 "NAME": "tf-acc-test-transfer-server",
             })
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["transfer.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_user = aws.transfer.User("exampleUser",
             server_id=example_server.id,
             user_name="tftestuser",
@@ -167,22 +163,15 @@ class SshKey(pulumi.CustomResource):
             server_id=example_server.id,
             user_name=example_user.user_name,
             body="... SSH key ...")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="AllowFullAccesstoS3",
+            effect="Allow",
+            actions=["s3:*"],
+            resources=["*"],
+        )])
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
-            policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        			"Sid": "AllowFullAccesstoS3",
-        			"Effect": "Allow",
-        			"Action": [
-        				"s3:*"
-        			],
-        			"Resource": "*"
-        		}
-        	]
-        }
-        \"\"\")
+            policy=example_policy_document.json)
         ```
 
         ## Import
@@ -219,19 +208,15 @@ class SshKey(pulumi.CustomResource):
             tags={
                 "NAME": "tf-acc-test-transfer-server",
             })
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["transfer.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_user = aws.transfer.User("exampleUser",
             server_id=example_server.id,
             user_name="tftestuser",
@@ -243,22 +228,15 @@ class SshKey(pulumi.CustomResource):
             server_id=example_server.id,
             user_name=example_user.user_name,
             body="... SSH key ...")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="AllowFullAccesstoS3",
+            effect="Allow",
+            actions=["s3:*"],
+            resources=["*"],
+        )])
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.id,
-            policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        			"Sid": "AllowFullAccesstoS3",
-        			"Effect": "Allow",
-        			"Action": [
-        				"s3:*"
-        			],
-        			"Resource": "*"
-        		}
-        	]
-        }
-        \"\"\")
+            policy=example_policy_document.json)
         ```
 
         ## Import

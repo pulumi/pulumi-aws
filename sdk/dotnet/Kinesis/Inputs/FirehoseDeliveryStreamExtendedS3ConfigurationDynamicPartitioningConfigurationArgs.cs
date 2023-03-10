@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+        /// Enables or disables dynamic partitioning. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

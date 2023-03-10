@@ -28,7 +28,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -37,42 +37,44 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewContactFlow(ctx, "test", &connect.ContactFlowArgs{
-//				Content: pulumi.String(fmt.Sprintf(`	{
-//			"Version": "2019-10-30",
-//			"StartAction": "12345678-1234-1234-1234-123456789012",
-//			"Actions": [
-//				{
-//					"Identifier": "12345678-1234-1234-1234-123456789012",
-//					"Type": "MessageParticipant",
-//					"Transitions": {
-//						"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//						"Errors": [],
-//						"Conditions": []
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version":     "2019-10-30",
+//				"StartAction": "12345678-1234-1234-1234-123456789012",
+//				"Actions": []interface{}{
+//					map[string]interface{}{
+//						"Identifier": "12345678-1234-1234-1234-123456789012",
+//						"Type":       "MessageParticipant",
+//						"Transitions": map[string]interface{}{
+//							"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//							"Errors":     []interface{}{},
+//							"Conditions": []interface{}{},
+//						},
+//						"Parameters": map[string]interface{}{
+//							"Text": "Thanks for calling the sample flow!",
+//						},
 //					},
-//					"Parameters": {
-//						"Text": "Thanks for calling the sample flow!"
-//					}
+//					map[string]interface{}{
+//						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//						"Type":        "DisconnectParticipant",
+//						"Transitions": nil,
+//						"Parameters":  nil,
+//					},
 //				},
-//				{
-//					"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//					"Type": "DisconnectParticipant",
-//					"Transitions": {},
-//					"Parameters": {}
-//				}
-//			]
-//		}
-//
-// `)),
-//
-//				Description: pulumi.String("Test Contact Flow Description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = connect.NewContactFlow(ctx, "test", &connect.ContactFlowArgs{
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Description: pulumi.String("Test Contact Flow Description"),
+//				Type:        pulumi.String("CONTACT_FLOW"),
+//				Content:     pulumi.String(json0),
 //				Tags: pulumi.StringMap{
+//					"Name":        pulumi.String("Test Contact Flow"),
 //					"Application": pulumi.String("Example"),
 //					"Method":      pulumi.String("Create"),
-//					"Name":        pulumi.String("Test Contact Flow"),
 //				},
-//				Type: pulumi.String("CONTACT_FLOW"),
 //			})
 //			if err != nil {
 //				return err

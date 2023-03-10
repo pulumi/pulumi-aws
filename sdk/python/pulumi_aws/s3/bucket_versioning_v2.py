@@ -22,10 +22,10 @@ class BucketVersioningV2Args:
                  mfa: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketVersioningV2 resource.
-        :param pulumi.Input[str] bucket: The name of the S3 bucket.
-        :param pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters detailed below.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] mfa: The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        :param pulumi.Input[str] bucket: Name of the S3 bucket.
+        :param pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters. See below.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "versioning_configuration", versioning_configuration)
@@ -38,7 +38,7 @@ class BucketVersioningV2Args:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the S3 bucket.
+        Name of the S3 bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -50,7 +50,7 @@ class BucketVersioningV2Args:
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']:
         """
-        Configuration block for the versioning parameters detailed below.
+        Configuration block for the versioning parameters. See below.
         """
         return pulumi.get(self, "versioning_configuration")
 
@@ -62,7 +62,7 @@ class BucketVersioningV2Args:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -74,7 +74,7 @@ class BucketVersioningV2Args:
     @pulumi.getter
     def mfa(self) -> Optional[pulumi.Input[str]]:
         """
-        The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         """
         return pulumi.get(self, "mfa")
 
@@ -92,10 +92,10 @@ class _BucketVersioningV2State:
                  versioning_configuration: Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering BucketVersioningV2 resources.
-        :param pulumi.Input[str] bucket: The name of the S3 bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] mfa: The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters detailed below.
+        :param pulumi.Input[str] bucket: Name of the S3 bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        :param pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -110,7 +110,7 @@ class _BucketVersioningV2State:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the S3 bucket.
+        Name of the S3 bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -122,7 +122,7 @@ class _BucketVersioningV2State:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -134,7 +134,7 @@ class _BucketVersioningV2State:
     @pulumi.getter
     def mfa(self) -> Optional[pulumi.Input[str]]:
         """
-        The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         """
         return pulumi.get(self, "mfa")
 
@@ -146,7 +146,7 @@ class _BucketVersioningV2State:
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']]:
         """
-        Configuration block for the versioning parameters detailed below.
+        Configuration block for the versioning parameters. See below.
         """
         return pulumi.get(self, "versioning_configuration")
 
@@ -226,7 +226,7 @@ class BucketVersioningV2(pulumi.CustomResource):
                 status="Enabled",
             ))
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_versioning_v2.bucket,
+            bucket=example_bucket_versioning_v2.id,
             key="droeloe",
             source=pulumi.FileAsset("example.txt"))
         ```
@@ -247,10 +247,10 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the S3 bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] mfa: The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']] versioning_configuration: Configuration block for the versioning parameters detailed below.
+        :param pulumi.Input[str] bucket: Name of the S3 bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        :param pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         ...
     @overload
@@ -319,7 +319,7 @@ class BucketVersioningV2(pulumi.CustomResource):
                 status="Enabled",
             ))
         example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_versioning_v2.bucket,
+            bucket=example_bucket_versioning_v2.id,
             key="droeloe",
             source=pulumi.FileAsset("example.txt"))
         ```
@@ -395,10 +395,10 @@ class BucketVersioningV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the S3 bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] mfa: The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']] versioning_configuration: Configuration block for the versioning parameters detailed below.
+        :param pulumi.Input[str] bucket: Name of the S3 bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        :param pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -414,7 +414,7 @@ class BucketVersioningV2(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the S3 bucket.
+        Name of the S3 bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -422,7 +422,7 @@ class BucketVersioningV2(pulumi.CustomResource):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -430,7 +430,7 @@ class BucketVersioningV2(pulumi.CustomResource):
     @pulumi.getter
     def mfa(self) -> pulumi.Output[Optional[str]]:
         """
-        The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         """
         return pulumi.get(self, "mfa")
 
@@ -438,7 +438,7 @@ class BucketVersioningV2(pulumi.CustomResource):
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> pulumi.Output['outputs.BucketVersioningV2VersioningConfiguration']:
         """
-        Configuration block for the versioning parameters detailed below.
+        Configuration block for the versioning parameters. See below.
         """
         return pulumi.get(self, "versioning_configuration")
 

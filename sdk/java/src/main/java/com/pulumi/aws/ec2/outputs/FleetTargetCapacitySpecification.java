@@ -28,7 +28,8 @@ public final class FleetTargetCapacitySpecification {
      */
     private @Nullable Integer spotTargetCapacity;
     /**
-     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * @return The unit for the target capacity.
+     * If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
      * 
      */
     private @Nullable String targetCapacityUnitType;
@@ -61,7 +62,8 @@ public final class FleetTargetCapacitySpecification {
         return Optional.ofNullable(this.spotTargetCapacity);
     }
     /**
-     * @return The unit for the target capacity. This can only be done with `instance_requirements` defined
+     * @return The unit for the target capacity.
+     * If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
      * 
      */
     public Optional<String> targetCapacityUnitType() {

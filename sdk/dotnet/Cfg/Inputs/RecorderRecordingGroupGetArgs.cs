@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         public Input<bool>? AllSupported { get; set; }
 
         /// <summary>
-        /// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+        /// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         /// </summary>
         [Input("includeGlobalResourceTypes")]
         public Input<bool>? IncludeGlobalResourceTypes { get; set; }

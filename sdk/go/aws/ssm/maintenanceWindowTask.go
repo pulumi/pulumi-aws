@@ -21,8 +21,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -47,7 +45,7 @@ import (
 //				},
 //				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 //					AutomationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs{
-//						DocumentVersion: pulumi.String(fmt.Sprintf("$LATEST")),
+//						DocumentVersion: pulumi.String("$LATEST"),
 //						Parameters: ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArray{
 //							&ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{
 //								Name: pulumi.String("InstanceId"),
@@ -98,7 +96,7 @@ import (
 //				},
 //				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 //					RunCommandParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs{
-//						OutputS3Bucket:    pulumi.Any(aws_s3_bucket.Example.Bucket),
+//						OutputS3Bucket:    pulumi.Any(aws_s3_bucket.Example.Id),
 //						OutputS3KeyPrefix: pulumi.String("output"),
 //						ServiceRoleArn:    pulumi.Any(aws_iam_role.Example.Arn),
 //						TimeoutSeconds:    pulumi.Int(600),

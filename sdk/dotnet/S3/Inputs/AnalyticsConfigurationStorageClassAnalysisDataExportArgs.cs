@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
-        /// The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+        /// Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
         /// </summary>
         [Input("outputSchemaVersion")]
         public Input<string>? OutputSchemaVersion { get; set; }

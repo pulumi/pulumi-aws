@@ -190,14 +190,14 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+     * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
      * 
      */
     @Import(name="s3Bucket")
     private @Nullable Output<String> s3Bucket;
 
     /**
-     * @return Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+     * @return Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
      * 
      */
     public Optional<Output<String>> s3Bucket() {
@@ -663,7 +663,7 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Bucket Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+         * @param s3Bucket Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Bucket Full bucket name which is used if your canary script is located in S3. The bucket must already exist. Specify the full bucket name including s3:// as the start of the bucket name. **Conflicts with `zip_file`.**
+         * @param s3Bucket Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
          * 
          * @return builder
          * 

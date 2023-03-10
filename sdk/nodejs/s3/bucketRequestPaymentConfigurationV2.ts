@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketRequestPaymentConfigurationV2("example", {
- *     bucket: aws_s3_bucket.example.bucket,
+ *     bucket: aws_s3_bucket.example.id,
  *     payer: "Requester",
  * });
  * ```
@@ -64,11 +64,11 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
@@ -114,11 +114,11 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
  */
 export interface BucketRequestPaymentConfigurationV2State {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
@@ -132,11 +132,11 @@ export interface BucketRequestPaymentConfigurationV2State {
  */
 export interface BucketRequestPaymentConfigurationV2Args {
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**

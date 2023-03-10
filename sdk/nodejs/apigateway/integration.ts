@@ -71,21 +71,17 @@ import {RestApi} from "./index";
  *     httpMethod: "GET",
  *     authorization: "NONE",
  * });
- * // IAM
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["lambda.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const lambda = new aws.lambda.Function("lambda", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
  *     role: role.arn,

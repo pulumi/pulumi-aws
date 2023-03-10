@@ -70,7 +70,7 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
         ///     {
-        ///         S3Bucket = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Bucket),
+        ///         S3Bucket = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Id),
         ///         S3Key = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Key),
         ///         S3ObjectVersion = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.VersionId),
         ///         Role = aws_iam_role.Iam_for_lambda.Arn,
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
         ///     {
-        ///         S3Bucket = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Bucket),
+        ///         S3Bucket = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Id),
         ///         S3Key = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Key),
         ///         S3ObjectVersion = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.VersionId),
         ///         Role = aws_iam_role.Iam_for_lambda.Arn,
