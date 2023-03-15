@@ -1,0 +1,27 @@
+From 98ce67731c50ea2531dfc289a15a0fed32ac658c Mon Sep 17 00:00:00 2001
+From: Kyle Pitzen <kpitzen@pulumi.com>
+Date: Wed, 1 Feb 2023 09:14:09 -0600
+Subject: [PATCH 21/23] Fixes broken error return in CodeBuild Project Delete
+
+---
+ internal/service/codebuild/project.go | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/internal/service/codebuild/project.go b/internal/service/codebuild/project.go
+index 21fe94180c..b1938b4f02 100644
+--- a/internal/service/codebuild/project.go
++++ b/internal/service/codebuild/project.go
+@@ -1608,7 +1608,12 @@ func resourceProjectDelete(ctx context.Context, d *schema.ResourceData, meta int
+ 	_, err := conn.DeleteProjectWithContext(ctx, &codebuild.DeleteProjectInput{
+ 		Name: aws.String(d.Id()),
+ 	})
+-	return sdkdiag.AppendErrorf(diags, "deleting CodeBuild project (%s): %s", d.Id(), err)
++	// TODO: Upstream code here always returns an error - remove this when upstream is resolved
++	//       PR is [here](https://github.com/hashicorp/terraform-provider-aws/pull/29042)
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "deleting CodeBuild project (%s): %s", d.Id(), err)
++	}
++	return diags
+ }
+ 
+ func flattenProjectFileSystemLocations(apiObjects []*codebuild.ProjectFileSystemLocation) []interface{} {

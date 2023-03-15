@@ -132,6 +132,10 @@ patch_upstream: init_upstream
 	cd upstream-tools && yarn --silent run apply
 	@# Check for any pending replacements
 	cd upstream-tools && yarn --silent run check
+	rm upstream-patches/*
+	cd upstream && \
+		LAST_TAG=$$(git describe --abbrev=0 --tags) && \
+		git format-patch  -o ../upstream-patches --minimal --no-signature HEAD...$${LAST_TAG}
 
 update_upstream: init_upstream
 	@echo "\033[1;33mupdate_upstream is still under construction and will likely fail.\033[0m"

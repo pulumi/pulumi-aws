@@ -1,0 +1,25 @@
+From 1507dd8a9d51f6c5ce4fe3952eaaf2d9ca8995d7 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Fri, 4 Nov 2022 17:21:30 +0000
+Subject: [PATCH 06/23] Check for changes in ACM certificate private_key
+
+---
+ internal/service/acm/certificate.go | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/internal/service/acm/certificate.go b/internal/service/acm/certificate.go
+index ed11904099..621d4c7385 100644
+--- a/internal/service/acm/certificate.go
++++ b/internal/service/acm/certificate.go
+@@ -151,7 +151,10 @@ func ResourceCertificate() *schema.Resource {
+ 					},
+ 				},
+ 				DiffSuppressFunc: func(k, old, new string, d *schema.ResourceData) bool {
+-					if _, ok := d.GetOk("private_key"); ok {
++					// getOk is not sufficient alone if the private key has changed - we need to check
++					// whether there is a change in addition, else we do not suppress the diff for imported
++					// certificates.
++					if _, ok := d.GetOk("private_key"); ok || d.HasChange("private_key") {
+ 						// ignore diffs for imported certs; they have a different logging preference
+ 						// default to requested certs which can't be changed by the ImportCertificate API
+ 						return true

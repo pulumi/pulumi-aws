@@ -1,0 +1,26 @@
+From 9b250f61796c7e0b12a66b050ba3940af38452b2 Mon Sep 17 00:00:00 2001
+From: Thomas Kappler <tkappler@pulumi.com>
+Date: Fri, 3 Feb 2023 17:31:18 -0800
+Subject: [PATCH 22/23] Revert "Update endpointHashIPAddress"
+
+This reverts commit 2197a6c2c7a0ff306cec3432acb9f5680866f034.
+
+This commit causes never-converging diffs due to incorrect use of
+a computed property in hashing.
+---
+ internal/service/route53resolver/endpoint.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/internal/service/route53resolver/endpoint.go b/internal/service/route53resolver/endpoint.go
+index c644ec3eab..ce5a82d35b 100644
+--- a/internal/service/route53resolver/endpoint.go
++++ b/internal/service/route53resolver/endpoint.go
+@@ -411,7 +411,7 @@ func waitEndpointDeleted(ctx context.Context, conn *route53resolver.Route53Resol
+ func endpointHashIPAddress(v interface{}) int {
+ 	var buf bytes.Buffer
+ 	m := v.(map[string]interface{})
+-	buf.WriteString(fmt.Sprintf("%s-%s-", m["subnet_id"].(string), m["ip"].(string)))
++	buf.WriteString(fmt.Sprintf("%s-", m["subnet_id"].(string)))
+ 	return create.StringHashcode(buf.String())
+ }
+ 

@@ -1,0 +1,404 @@
+From 2c72699be55f592ca8f5fa708b3d5173241319d7 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Tue, 28 Feb 2023 15:19:24 +0000
+Subject: [PATCH 23/23] Change default descriptions to "Managed by Pulumi"
+
+---
+ internal/service/apigateway/api_key.go               | 2 +-
+ internal/service/appsync/api_key.go                  | 2 +-
+ internal/service/cloudfront/origin_access_control.go | 2 +-
+ internal/service/docdb/cluster_parameter_group.go    | 2 +-
+ internal/service/docdb/subnet_group.go               | 2 +-
+ internal/service/ec2/vpc_security_group.go           | 2 +-
+ internal/service/elasticache/parameter_group.go      | 2 +-
+ internal/service/elasticache/security_group.go       | 2 +-
+ internal/service/elasticache/subnet_group.go         | 2 +-
+ internal/service/mediapackage/channel.go             | 2 +-
+ internal/service/memorydb/cluster.go                 | 2 +-
+ internal/service/memorydb/parameter_group.go         | 2 +-
+ internal/service/memorydb/subnet_group.go            | 2 +-
+ internal/service/neptune/cluster_parameter_group.go  | 2 +-
+ internal/service/neptune/parameter_group.go          | 2 +-
+ internal/service/neptune/subnet_group.go             | 2 +-
+ internal/service/rds/cluster_parameter_group.go      | 2 +-
+ internal/service/rds/option_group.go                 | 2 +-
+ internal/service/rds/parameter_group.go              | 2 +-
+ internal/service/rds/security_group.go               | 2 +-
+ internal/service/rds/subnet_group.go                 | 2 +-
+ internal/service/redshift/parameter_group.go         | 2 +-
+ internal/service/redshift/security_group.go          | 2 +-
+ internal/service/redshift/subnet_group.go            | 2 +-
+ internal/service/route53/record.go                   | 4 ++--
+ internal/service/route53/zone.go                     | 2 +-
+ internal/service/route53/zone_association.go         | 4 ++--
+ 27 files changed, 29 insertions(+), 29 deletions(-)
+
+diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
+index 3431b89b5d..c77c98953a 100644
+--- a/internal/service/apigateway/api_key.go
++++ b/internal/service/apigateway/api_key.go
+@@ -41,7 +41,7 @@ func ResourceAPIKey() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 
+ 			"enabled": {
+diff --git a/internal/service/appsync/api_key.go b/internal/service/appsync/api_key.go
+index dd7d0415fc..6030bf0618 100644
+--- a/internal/service/appsync/api_key.go
++++ b/internal/service/appsync/api_key.go
+@@ -31,7 +31,7 @@ func ResourceAPIKey() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"api_id": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/cloudfront/origin_access_control.go b/internal/service/cloudfront/origin_access_control.go
+index d960b0733e..7db0f18fb5 100644
+--- a/internal/service/cloudfront/origin_access_control.go
++++ b/internal/service/cloudfront/origin_access_control.go
+@@ -33,7 +33,7 @@ func ResourceOriginAccessControl() *schema.Resource {
+ 			"description": {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+-				Default:      "Managed by Terraform",
++				Default:      "Managed by Pulumi",
+ 				ValidateFunc: validation.StringLenBetween(0, 256),
+ 			},
+ 			"etag": {
+diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
+index 12edbbcffa..6f9eb2c94e 100644
+--- a/internal/service/docdb/cluster_parameter_group.go
++++ b/internal/service/docdb/cluster_parameter_group.go
+@@ -62,7 +62,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"parameter": {
+ 				Type:     schema.TypeSet,
+diff --git a/internal/service/docdb/subnet_group.go b/internal/service/docdb/subnet_group.go
+index b84494bb53..db3c74d45e 100644
+--- a/internal/service/docdb/subnet_group.go
++++ b/internal/service/docdb/subnet_group.go
+@@ -56,7 +56,7 @@ func ResourceSubnetGroup() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 
+ 			"subnet_ids": {
+diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
+index 1b52d8b9e8..d446a66048 100644
+--- a/internal/service/ec2/vpc_security_group.go
++++ b/internal/service/ec2/vpc_security_group.go
+@@ -57,7 +57,7 @@ func ResourceSecurityGroup() *schema.Resource {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+ 				ForceNew:     true,
+-				Default:      "Managed by Terraform",
++				Default:      "Managed by Pulumi",
+ 				ValidateFunc: validation.StringLenBetween(0, 255),
+ 			},
+ 			"egress":  securityGroupRuleSetNestedBlock,
+diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
+index 91f24fd3fa..1e88b27014 100644
+--- a/internal/service/elasticache/parameter_group.go
++++ b/internal/service/elasticache/parameter_group.go
+@@ -49,7 +49,7 @@ func ResourceParameterGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"arn": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/elasticache/security_group.go b/internal/service/elasticache/security_group.go
+index 117dd69b89..9f42bf7ed9 100644
+--- a/internal/service/elasticache/security_group.go
++++ b/internal/service/elasticache/security_group.go
+@@ -30,7 +30,7 @@ func ResourceSecurityGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"name": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
+index c04626d8dc..bdfa49fee5 100644
+--- a/internal/service/elasticache/subnet_group.go
++++ b/internal/service/elasticache/subnet_group.go
+@@ -38,7 +38,7 @@ func ResourceSubnetGroup() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"name": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
+index 7004d8efdd..d58f44aebf 100644
+--- a/internal/service/mediapackage/channel.go
++++ b/internal/service/mediapackage/channel.go
+@@ -43,7 +43,7 @@ func ResourceChannel() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"hls_ingest": {
+ 				Type:     schema.TypeList,
+diff --git a/internal/service/memorydb/cluster.go b/internal/service/memorydb/cluster.go
+index db470bbd12..f2ba4dbc85 100644
+--- a/internal/service/memorydb/cluster.go
++++ b/internal/service/memorydb/cluster.go
+@@ -66,7 +66,7 @@ func ResourceCluster() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"engine_patch_version": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/memorydb/parameter_group.go b/internal/service/memorydb/parameter_group.go
+index 2fde8c21c8..6a1f9d0909 100644
+--- a/internal/service/memorydb/parameter_group.go
++++ b/internal/service/memorydb/parameter_group.go
+@@ -43,7 +43,7 @@ func ResourceParameterGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"family": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/memorydb/subnet_group.go b/internal/service/memorydb/subnet_group.go
+index 55963268d0..c1eab32afc 100644
+--- a/internal/service/memorydb/subnet_group.go
++++ b/internal/service/memorydb/subnet_group.go
+@@ -39,7 +39,7 @@ func ResourceSubnetGroup() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"name": {
+ 				Type:          schema.TypeString,
+diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
+index 98dd1fb1c1..7a29311cde 100644
+--- a/internal/service/neptune/cluster_parameter_group.go
++++ b/internal/service/neptune/cluster_parameter_group.go
+@@ -59,7 +59,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"parameter": {
+ 				Type:     schema.TypeSet,
+diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
+index 48411a7acd..2a9dc94afe 100644
+--- a/internal/service/neptune/parameter_group.go
++++ b/internal/service/neptune/parameter_group.go
+@@ -55,7 +55,7 @@ func ResourceParameterGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"parameter": {
+ 				Type:     schema.TypeSet,
+diff --git a/internal/service/neptune/subnet_group.go b/internal/service/neptune/subnet_group.go
+index ee1e1b39ff..4d55d5ab70 100644
+--- a/internal/service/neptune/subnet_group.go
++++ b/internal/service/neptune/subnet_group.go
+@@ -38,7 +38,7 @@ func ResourceSubnetGroup() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"name": {
+ 				Type:          schema.TypeString,
+diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
+index 0b8826353f..8828f38d20 100644
+--- a/internal/service/rds/cluster_parameter_group.go
++++ b/internal/service/rds/cluster_parameter_group.go
+@@ -44,7 +44,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"family": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
+index 0049b188fa..f73c974b06 100644
+--- a/internal/service/rds/option_group.go
++++ b/internal/service/rds/option_group.go
+@@ -71,7 +71,7 @@ func ResourceOptionGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 
+ 			"option": {
+diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
+index a4073d92b6..09d9dd8903 100644
+--- a/internal/service/rds/parameter_group.go
++++ b/internal/service/rds/parameter_group.go
+@@ -45,7 +45,7 @@ func ResourceParameterGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"family": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/rds/security_group.go b/internal/service/rds/security_group.go
+index ab363679e8..8c3dc5b4db 100644
+--- a/internal/service/rds/security_group.go
++++ b/internal/service/rds/security_group.go
+@@ -44,7 +44,7 @@ func ResourceSecurityGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 
+ 			"ingress": {
+diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
+index 3e1e47e94a..dabf42a4e9 100644
+--- a/internal/service/rds/subnet_group.go
++++ b/internal/service/rds/subnet_group.go
+@@ -37,7 +37,7 @@ func ResourceSubnetGroup() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"name": {
+ 				Type:          schema.TypeString,
+diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
+index 1f815b1dab..2cfbebc581 100644
+--- a/internal/service/redshift/parameter_group.go
++++ b/internal/service/redshift/parameter_group.go
+@@ -44,7 +44,7 @@ func ResourceParameterGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"family": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/redshift/security_group.go b/internal/service/redshift/security_group.go
+index b6d7b2d864..292244241f 100644
+--- a/internal/service/redshift/security_group.go
++++ b/internal/service/redshift/security_group.go
+@@ -46,7 +46,7 @@ func ResourceSecurityGroup() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+ 				ForceNew: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 
+ 			"ingress": {
+diff --git a/internal/service/redshift/subnet_group.go b/internal/service/redshift/subnet_group.go
+index 86a5dbc42b..f0ec638fd9 100644
+--- a/internal/service/redshift/subnet_group.go
++++ b/internal/service/redshift/subnet_group.go
+@@ -39,7 +39,7 @@ func ResourceSubnetGroup() *schema.Resource {
+ 			"description": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,
+-				Default:  "Managed by Terraform",
++				Default:  "Managed by Pulumi",
+ 			},
+ 			"name": {
+ 				Type:     schema.TypeString,
+diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
+index 15e106c45e..9884fb01b0 100644
+--- a/internal/service/route53/record.go
++++ b/internal/service/route53/record.go
+@@ -385,7 +385,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
+ 	// StateChangeConf for this to retry for us since Route53 sometimes returns
+ 	// errors about another operation happening at the same time.
+ 	changeBatch := &route53.ChangeBatch{
+-		Comment: aws.String("Managed by Terraform"),
++		Comment: aws.String("Managed by Pulumi"),
+ 		Changes: []*route53.Change{
+ 			{
+ 				Action:            aws.String(route53.ChangeActionDelete),
+@@ -461,7 +461,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
+ 	// retry for us since Route53 sometimes returns errors about another
+ 	// operation happening at the same time.
+ 	changeBatch := &route53.ChangeBatch{
+-		Comment: aws.String("Managed by Terraform"),
++		Comment: aws.String("Managed by Pulumi"),
+ 		Changes: []*route53.Change{
+ 			{
+ 				Action:            aws.String(action),
+diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
+index 13d35dd366..33632a50e3 100644
+--- a/internal/service/route53/zone.go
++++ b/internal/service/route53/zone.go
+@@ -51,7 +51,7 @@ func ResourceZone() *schema.Resource {
+ 			"comment": {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+-				Default:      "Managed by Terraform",
++				Default:      "Managed by Pulumi",
+ 				ValidateFunc: validation.StringLenBetween(0, 256),
+ 			},
+ 			"delegation_set_id": {
+diff --git a/internal/service/route53/zone_association.go b/internal/service/route53/zone_association.go
+index 03c32f8bba..5156a18ffe 100644
+--- a/internal/service/route53/zone_association.go
++++ b/internal/service/route53/zone_association.go
+@@ -72,7 +72,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
+ 			VPCId:     aws.String(vpcID),
+ 			VPCRegion: aws.String(vpcRegion),
+ 		},
+-		Comment: aws.String("Managed by Terraform"),
++		Comment: aws.String("Managed by Pulumi"),
+ 	}
+ 
+ 	output, err := conn.AssociateVPCWithHostedZoneWithContext(ctx, input)
+@@ -175,7 +175,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
+ 			VPCId:     aws.String(vpcID),
+ 			VPCRegion: aws.String(vpcRegion),
+ 		},
+-		Comment: aws.String("Managed by Terraform"),
++		Comment: aws.String("Managed by Pulumi"),
+ 	}
+ 
+ 	_, err = conn.DisassociateVPCFromHostedZoneWithContext(ctx, input)

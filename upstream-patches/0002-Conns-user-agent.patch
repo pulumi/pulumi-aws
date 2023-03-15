@@ -1,0 +1,35 @@
+From c56556c68b5ad1c575317b83fddf444b262b87d5 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Fri, 4 Nov 2022 17:03:31 +0000
+Subject: [PATCH 02/23] Conns user agent
+
+---
+ internal/conns/conns.go | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/internal/conns/conns.go b/internal/conns/conns.go
+index 2dcb3fca3a..335919a1fc 100644
+--- a/internal/conns/conns.go
++++ b/internal/conns/conns.go
+@@ -7,7 +7,6 @@ import (
+ 	"github.com/aws/aws-sdk-go/aws/session"
+ 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
+ 	awsbasev1 "github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2"
+-	"github.com/hashicorp/terraform-provider-aws/version"
+ )
+ 
+ func NewSessionForRegion(cfg *aws.Config, region, terraformVersion string) (*session.Session, error) {
+@@ -26,10 +25,10 @@ func NewSessionForRegion(cfg *aws.Config, region, terraformVersion string) (*ses
+ 
+ func StdUserAgentProducts(terraformVersion string) *awsbase.APNInfo {
+ 	return &awsbase.APNInfo{
+-		PartnerName: "HashiCorp",
++		PartnerName: "Pulumi",
+ 		Products: []awsbase.UserAgentProduct{
+-			{Name: "Terraform", Version: terraformVersion, Comment: "+https://www.terraform.io"},
+-			{Name: "terraform-provider-aws", Version: version.ProviderVersion, Comment: "+https://registry.terraform.io/providers/hashicorp/aws"},
++			{Name: "Pulumi", Version: "1.0"},
++			{Name: "Pulumi-Aws", Version: terraformVersion, Comment: "+https://www.pulumi.com"},
+ 		},
+ 	}
+ }
