@@ -13,7 +13,7 @@ require (
 	github.com/ProtonMail/go-crypto v0.0.0-20230201104953-d1d05f4e2bfb // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.44.212 // indirect
+	github.com/aws/aws-sdk-go v1.44.216 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.17.5 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.18.12 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.13.12 // indirect
@@ -26,7 +26,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs v1.20.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/comprehend v1.22.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/computeoptimizer v1.21.3 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.87.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.88.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/fis v1.14.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/healthlake v1.15.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iam v1.19.4 // indirect
@@ -37,23 +37,24 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ivschat v1.3.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/kendra v1.38.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/lambda v1.30.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/medialive v1.29.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/medialive v1.30.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/oam v1.1.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.1.5 // indirect
-	github.com/aws/aws-sdk-go-v2/service/pipes v1.1.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/pipes v1.2.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rds v1.40.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/resourceexplorer2 v1.2.5 // indirect
-	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.1.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.1.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53domains v1.14.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3control v1.29.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/scheduler v1.1.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sesv2 v1.16.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.35.5 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ssmcontacts v1.14.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssmincidents v1.20.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.12.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.14.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.18.5 // indirect
-	github.com/aws/aws-sdk-go-v2/service/transcribe v1.25.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/transcribe v1.26.0 // indirect
 	github.com/aws/smithy-go v1.13.5 // indirect
 	github.com/beevik/etree v1.1.0 // indirect
 	github.com/cloudflare/circl v1.3.2 // indirect
@@ -109,12 +110,12 @@ require (
 	github.com/zclconf/go-cty v1.12.1 // indirect
 	go.opentelemetry.io/otel v1.13.0 // indirect
 	go.opentelemetry.io/otel/trace v1.13.0 // indirect
-	golang.org/x/crypto v0.6.0 // indirect
+	golang.org/x/crypto v0.7.0 // indirect
 	golang.org/x/exp v0.0.0-20230206171751-46f607a40771 // indirect
 	golang.org/x/mod v0.8.0 // indirect
-	golang.org/x/net v0.7.0 // indirect
-	golang.org/x/sys v0.5.0 // indirect
-	golang.org/x/text v0.7.0 // indirect
+	golang.org/x/net v0.8.0 // indirect
+	golang.org/x/sys v0.6.0 // indirect
+	golang.org/x/text v0.8.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230202175211-008b39050e57 // indirect
 	google.golang.org/grpc v1.53.0 // indirect
