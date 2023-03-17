@@ -158,7 +158,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly hashKey!: pulumi.Output<string>;
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     /**
@@ -214,7 +214,9 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly streamViewType!: pulumi.Output<string>;
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      */
     public readonly tableClass!: pulumi.Output<string | undefined>;
     /**
@@ -328,7 +330,7 @@ export interface TableState {
      */
     hashKey?: pulumi.Input<string>;
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
@@ -384,7 +386,9 @@ export interface TableState {
      */
     streamViewType?: pulumi.Input<string>;
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      */
     tableClass?: pulumi.Input<string>;
     /**
@@ -426,7 +430,7 @@ export interface TableArgs {
      */
     hashKey?: pulumi.Input<string>;
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
@@ -474,7 +478,9 @@ export interface TableArgs {
      */
     streamViewType?: pulumi.Input<string>;
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      */
     tableClass?: pulumi.Input<string>;
     /**

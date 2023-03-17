@@ -177,7 +177,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> HashKey { get; private set; } = null!;
 
         /// <summary>
-        /// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+        /// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         /// </summary>
         [Output("localSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.TableLocalSecondaryIndex>> LocalSecondaryIndexes { get; private set; } = null!;
@@ -261,7 +261,9 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> StreamViewType { get; private set; } = null!;
 
         /// <summary>
-        /// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// Storage class of the table.
+        /// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// Default value is `STANDARD`.
         /// </summary>
         [Output("tableClass")]
         public Output<string?> TableClass { get; private set; } = null!;
@@ -376,7 +378,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputList<Inputs.TableLocalSecondaryIndexArgs>? _localSecondaryIndexes;
 
         /// <summary>
-        /// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+        /// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         /// </summary>
         public InputList<Inputs.TableLocalSecondaryIndexArgs> LocalSecondaryIndexes
         {
@@ -457,7 +459,9 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? StreamViewType { get; set; }
 
         /// <summary>
-        /// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// Storage class of the table.
+        /// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// Default value is `STANDARD`.
         /// </summary>
         [Input("tableClass")]
         public Input<string>? TableClass { get; set; }
@@ -552,7 +556,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputList<Inputs.TableLocalSecondaryIndexGetArgs>? _localSecondaryIndexes;
 
         /// <summary>
-        /// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+        /// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         /// </summary>
         public InputList<Inputs.TableLocalSecondaryIndexGetArgs> LocalSecondaryIndexes
         {
@@ -645,7 +649,9 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? StreamViewType { get; set; }
 
         /// <summary>
-        /// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// Storage class of the table.
+        /// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// Default value is `STANDARD`.
         /// </summary>
         [Input("tableClass")]
         public Input<string>? TableClass { get; set; }

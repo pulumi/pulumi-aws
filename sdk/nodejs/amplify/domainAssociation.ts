@@ -94,6 +94,10 @@ export class DomainAssociation extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * Enables the automated creation of subdomains for branches.
+     */
+    public readonly enableAutoSubDomain!: pulumi.Output<boolean | undefined>;
+    /**
      * Setting for the subdomain. Documented below.
      */
     public readonly subDomains!: pulumi.Output<outputs.amplify.DomainAssociationSubDomain[]>;
@@ -119,6 +123,7 @@ export class DomainAssociation extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["certificateVerificationDnsRecord"] = state ? state.certificateVerificationDnsRecord : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["enableAutoSubDomain"] = state ? state.enableAutoSubDomain : undefined;
             resourceInputs["subDomains"] = state ? state.subDomains : undefined;
             resourceInputs["waitForVerification"] = state ? state.waitForVerification : undefined;
         } else {
@@ -134,6 +139,7 @@ export class DomainAssociation extends pulumi.CustomResource {
             }
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
             resourceInputs["subDomains"] = args ? args.subDomains : undefined;
             resourceInputs["waitForVerification"] = args ? args.waitForVerification : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -165,6 +171,10 @@ export interface DomainAssociationState {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * Enables the automated creation of subdomains for branches.
+     */
+    enableAutoSubDomain?: pulumi.Input<boolean>;
+    /**
      * Setting for the subdomain. Documented below.
      */
     subDomains?: pulumi.Input<pulumi.Input<inputs.amplify.DomainAssociationSubDomain>[]>;
@@ -186,6 +196,10 @@ export interface DomainAssociationArgs {
      * Domain name for the domain association.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Enables the automated creation of subdomains for branches.
+     */
+    enableAutoSubDomain?: pulumi.Input<boolean>;
     /**
      * Setting for the subdomain. Documented below.
      */

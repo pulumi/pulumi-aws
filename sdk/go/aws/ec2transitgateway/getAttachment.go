@@ -33,8 +33,12 @@ type GetAttachmentArgs struct {
 // A collection of values returned by getAttachment.
 type GetAttachmentResult struct {
 	// ARN of the attachment.
-	Arn     string                `pulumi:"arn"`
-	Filters []GetAttachmentFilter `pulumi:"filters"`
+	Arn string `pulumi:"arn"`
+	// The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
+	AssociationState string `pulumi:"associationState"`
+	// The ID of the route table for the transit gateway.
+	AssociationTransitGatewayRouteTableId string                `pulumi:"associationTransitGatewayRouteTableId"`
+	Filters                               []GetAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// ID of the resource.
@@ -99,6 +103,16 @@ func (o GetAttachmentResultOutput) ToGetAttachmentResultOutputWithContext(ctx co
 // ARN of the attachment.
 func (o GetAttachmentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
+func (o GetAttachmentResultOutput) AssociationState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAttachmentResult) string { return v.AssociationState }).(pulumi.StringOutput)
+}
+
+// The ID of the route table for the transit gateway.
+func (o GetAttachmentResultOutput) AssociationTransitGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAttachmentResult) string { return v.AssociationTransitGatewayRouteTableId }).(pulumi.StringOutput)
 }
 
 func (o GetAttachmentResultOutput) Filters() GetAttachmentFilterArrayOutput {

@@ -79,6 +79,21 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Enables the automated creation of subdomains for branches.
+     * 
+     */
+    @Import(name="enableAutoSubDomain")
+    private @Nullable Output<Boolean> enableAutoSubDomain;
+
+    /**
+     * @return Enables the automated creation of subdomains for branches.
+     * 
+     */
+    public Optional<Output<Boolean>> enableAutoSubDomain() {
+        return Optional.ofNullable(this.enableAutoSubDomain);
+    }
+
+    /**
      * Setting for the subdomain. Documented below.
      * 
      */
@@ -115,6 +130,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         this.arn = $.arn;
         this.certificateVerificationDnsRecord = $.certificateVerificationDnsRecord;
         this.domainName = $.domainName;
+        this.enableAutoSubDomain = $.enableAutoSubDomain;
         this.subDomains = $.subDomains;
         this.waitForVerification = $.waitForVerification;
     }
@@ -219,6 +235,27 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
+        }
+
+        /**
+         * @param enableAutoSubDomain Enables the automated creation of subdomains for branches.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableAutoSubDomain(@Nullable Output<Boolean> enableAutoSubDomain) {
+            $.enableAutoSubDomain = enableAutoSubDomain;
+            return this;
+        }
+
+        /**
+         * @param enableAutoSubDomain Enables the automated creation of subdomains for branches.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableAutoSubDomain(Boolean enableAutoSubDomain) {
+            return enableAutoSubDomain(Output.of(enableAutoSubDomain));
         }
 
         /**

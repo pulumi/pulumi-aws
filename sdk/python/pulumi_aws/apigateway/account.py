@@ -120,7 +120,7 @@ class Account(pulumi.CustomResource):
         )])
         cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
             role=cloudwatch_role.id,
-            policy=data["aws_iam_policy_document"]["json"])
+            policy=cloudwatch_policy_document.json)
         ```
 
         ## Import
@@ -177,7 +177,7 @@ class Account(pulumi.CustomResource):
         )])
         cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
             role=cloudwatch_role.id,
-            policy=data["aws_iam_policy_document"]["json"])
+            policy=cloudwatch_policy_document.json)
         ```
 
         ## Import

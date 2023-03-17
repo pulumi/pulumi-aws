@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.aws.transfer.outputs.WorkflowOnExceptionStepCopyStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowOnExceptionStepCustomStepDetails;
+import com.pulumi.aws.transfer.outputs.WorkflowOnExceptionStepDecryptStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowOnExceptionStepDeleteStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowOnExceptionStepTagStepDetails;
 import com.pulumi.core.annotations.CustomType;
@@ -26,6 +27,11 @@ public final class WorkflowOnExceptionStep {
      */
     private @Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails;
     /**
+     * @return Details for a step that decrypts the file.
+     * 
+     */
+    private @Nullable WorkflowOnExceptionStepDecryptStepDetails decryptStepDetails;
+    /**
      * @return Details for a step that deletes the file.
      * 
      */
@@ -36,7 +42,7 @@ public final class WorkflowOnExceptionStep {
      */
     private @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails;
     /**
-     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
      * 
      */
     private String type;
@@ -57,6 +63,13 @@ public final class WorkflowOnExceptionStep {
         return Optional.ofNullable(this.customStepDetails);
     }
     /**
+     * @return Details for a step that decrypts the file.
+     * 
+     */
+    public Optional<WorkflowOnExceptionStepDecryptStepDetails> decryptStepDetails() {
+        return Optional.ofNullable(this.decryptStepDetails);
+    }
+    /**
      * @return Details for a step that deletes the file.
      * 
      */
@@ -71,7 +84,7 @@ public final class WorkflowOnExceptionStep {
         return Optional.ofNullable(this.tagStepDetails);
     }
     /**
-     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
      * 
      */
     public String type() {
@@ -89,6 +102,7 @@ public final class WorkflowOnExceptionStep {
     public static final class Builder {
         private @Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails;
         private @Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails;
+        private @Nullable WorkflowOnExceptionStepDecryptStepDetails decryptStepDetails;
         private @Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails;
         private @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails;
         private String type;
@@ -97,6 +111,7 @@ public final class WorkflowOnExceptionStep {
     	      Objects.requireNonNull(defaults);
     	      this.copyStepDetails = defaults.copyStepDetails;
     	      this.customStepDetails = defaults.customStepDetails;
+    	      this.decryptStepDetails = defaults.decryptStepDetails;
     	      this.deleteStepDetails = defaults.deleteStepDetails;
     	      this.tagStepDetails = defaults.tagStepDetails;
     	      this.type = defaults.type;
@@ -110,6 +125,11 @@ public final class WorkflowOnExceptionStep {
         @CustomType.Setter
         public Builder customStepDetails(@Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails) {
             this.customStepDetails = customStepDetails;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder decryptStepDetails(@Nullable WorkflowOnExceptionStepDecryptStepDetails decryptStepDetails) {
+            this.decryptStepDetails = decryptStepDetails;
             return this;
         }
         @CustomType.Setter
@@ -131,6 +151,7 @@ public final class WorkflowOnExceptionStep {
             final var o = new WorkflowOnExceptionStep();
             o.copyStepDetails = copyStepDetails;
             o.customStepDetails = customStepDetails;
+            o.decryptStepDetails = decryptStepDetails;
             o.deleteStepDetails = deleteStepDetails;
             o.tagStepDetails = tagStepDetails;
             o.type = type;

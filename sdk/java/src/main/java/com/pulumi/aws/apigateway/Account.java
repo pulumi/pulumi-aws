@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  *         var cloudwatchRolePolicy = new RolePolicy(&#34;cloudwatchRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(cloudwatchRole.id())
- *             .policy(data.aws_iam_policy_document().json())
+ *             .policy(cloudwatchPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

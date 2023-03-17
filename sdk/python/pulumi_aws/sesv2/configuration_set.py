@@ -22,7 +22,8 @@ class ConfigurationSetArgs:
                  sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
                  suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
+                 tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
+                 vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
@@ -32,6 +33,7 @@ class ConfigurationSetArgs:
         :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param pulumi.Input['ConfigurationSetVdmOptionsArgs'] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         if delivery_options is not None:
@@ -46,6 +48,8 @@ class ConfigurationSetArgs:
             pulumi.set(__self__, "tags", tags)
         if tracking_options is not None:
             pulumi.set(__self__, "tracking_options", tracking_options)
+        if vdm_options is not None:
+            pulumi.set(__self__, "vdm_options", vdm_options)
 
     @property
     @pulumi.getter(name="configurationSetName")
@@ -131,6 +135,18 @@ class ConfigurationSetArgs:
     def tracking_options(self, value: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]):
         pulumi.set(self, "tracking_options", value)
 
+    @property
+    @pulumi.getter(name="vdmOptions")
+    def vdm_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]:
+        """
+        An object that defines the VDM settings that apply to emails that you send using the configuration set.
+        """
+        return pulumi.get(self, "vdm_options")
+
+    @vdm_options.setter
+    def vdm_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]):
+        pulumi.set(self, "vdm_options", value)
+
 
 @pulumi.input_type
 class _ConfigurationSetState:
@@ -143,7 +159,8 @@ class _ConfigurationSetState:
                  suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
+                 tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
+                 vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering ConfigurationSet resources.
         :param pulumi.Input[str] arn: ARN of the Configuration Set.
@@ -154,6 +171,7 @@ class _ConfigurationSetState:
         :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param pulumi.Input['ConfigurationSetVdmOptionsArgs'] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -173,6 +191,8 @@ class _ConfigurationSetState:
             pulumi.set(__self__, "tags_all", tags_all)
         if tracking_options is not None:
             pulumi.set(__self__, "tracking_options", tracking_options)
+        if vdm_options is not None:
+            pulumi.set(__self__, "vdm_options", vdm_options)
 
     @property
     @pulumi.getter
@@ -279,6 +299,18 @@ class _ConfigurationSetState:
     def tracking_options(self, value: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]):
         pulumi.set(self, "tracking_options", value)
 
+    @property
+    @pulumi.getter(name="vdmOptions")
+    def vdm_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]:
+        """
+        An object that defines the VDM settings that apply to emails that you send using the configuration set.
+        """
+        return pulumi.get(self, "vdm_options")
+
+    @vdm_options.setter
+    def vdm_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]):
+        pulumi.set(self, "vdm_options", value)
+
 
 class ConfigurationSet(pulumi.CustomResource):
     @overload
@@ -292,6 +324,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
+                 vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
@@ -342,6 +375,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
         """
         ...
     @overload
@@ -411,6 +445,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
+                 vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,6 +464,7 @@ class ConfigurationSet(pulumi.CustomResource):
             __props__.__dict__["suppression_options"] = suppression_options
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tracking_options"] = tracking_options
+            __props__.__dict__["vdm_options"] = vdm_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(ConfigurationSet, __self__).__init__(
@@ -449,7 +485,8 @@ class ConfigurationSet(pulumi.CustomResource):
             suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None) -> 'ConfigurationSet':
+            tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
+            vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None) -> 'ConfigurationSet':
         """
         Get an existing ConfigurationSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -465,6 +502,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -479,6 +517,7 @@ class ConfigurationSet(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["tracking_options"] = tracking_options
+        __props__.__dict__["vdm_options"] = vdm_options
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -549,4 +588,12 @@ class ConfigurationSet(pulumi.CustomResource):
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         return pulumi.get(self, "tracking_options")
+
+    @property
+    @pulumi.getter(name="vdmOptions")
+    def vdm_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetVdmOptions']]:
+        """
+        An object that defines the VDM settings that apply to emails that you send using the configuration set.
+        """
+        return pulumi.get(self, "vdm_options")
 

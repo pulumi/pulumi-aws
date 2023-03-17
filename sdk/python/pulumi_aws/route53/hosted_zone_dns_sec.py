@@ -122,35 +122,14 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                             "kms:DescribeKey",
                             "kms:GetPublicKey",
                             "kms:Sign",
+                            "kms:Verify",
                         ],
                         "Effect": "Allow",
                         "Principal": {
                             "Service": "dnssec-route53.amazonaws.com",
                         },
+                        "Resource": "*",
                         "Sid": "Allow Route 53 DNSSEC Service",
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "aws:SourceAccount": current.account_id,
-                            },
-                            "ArnLike": {
-                                "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:CreateGrant",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
-                        "Resource": "*",
-                        "Condition": {
-                            "Bool": {
-                                "kms:GrantIsForAWSResource": "true",
-                            },
-                        },
                     },
                     {
                         "Action": "kms:*",
@@ -215,35 +194,14 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                             "kms:DescribeKey",
                             "kms:GetPublicKey",
                             "kms:Sign",
+                            "kms:Verify",
                         ],
                         "Effect": "Allow",
                         "Principal": {
                             "Service": "dnssec-route53.amazonaws.com",
                         },
+                        "Resource": "*",
                         "Sid": "Allow Route 53 DNSSEC Service",
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "aws:SourceAccount": current.account_id,
-                            },
-                            "ArnLike": {
-                                "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:CreateGrant",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
-                        "Resource": "*",
-                        "Condition": {
-                            "Bool": {
-                                "kms:GrantIsForAWSResource": "true",
-                            },
-                        },
                     },
                     {
                         "Action": "kms:*",

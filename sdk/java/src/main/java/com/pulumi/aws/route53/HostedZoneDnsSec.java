@@ -62,36 +62,15 @@ import javax.annotation.Nullable;
  *                             jsonProperty(&#34;Action&#34;, jsonArray(
  *                                 &#34;kms:DescribeKey&#34;, 
  *                                 &#34;kms:GetPublicKey&#34;, 
- *                                 &#34;kms:Sign&#34;
+ *                                 &#34;kms:Sign&#34;, 
+ *                                 &#34;kms:Verify&#34;
  *                             )),
  *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
  *                             jsonProperty(&#34;Principal&#34;, jsonObject(
  *                                 jsonProperty(&#34;Service&#34;, &#34;dnssec-route53.amazonaws.com&#34;)
  *                             )),
- *                             jsonProperty(&#34;Sid&#34;, &#34;Allow Route 53 DNSSEC Service&#34;),
  *                             jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                             jsonProperty(&#34;Condition&#34;, jsonObject(
- *                                 jsonProperty(&#34;StringEquals&#34;, jsonObject(
- *                                     jsonProperty(&#34;aws:SourceAccount&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                                 )),
- *                                 jsonProperty(&#34;ArnLike&#34;, jsonObject(
- *                                     jsonProperty(&#34;aws:SourceArn&#34;, &#34;arn:aws:route53:::hostedzone/*&#34;)
- *                                 ))
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty(&#34;Action&#34;, &#34;kms:CreateGrant&#34;),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
- *                                 jsonProperty(&#34;Service&#34;, &#34;dnssec-route53.amazonaws.com&#34;)
- *                             )),
- *                             jsonProperty(&#34;Sid&#34;, &#34;Allow Route 53 DNSSEC Service to CreateGrant&#34;),
- *                             jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                             jsonProperty(&#34;Condition&#34;, jsonObject(
- *                                 jsonProperty(&#34;Bool&#34;, jsonObject(
- *                                     jsonProperty(&#34;kms:GrantIsForAWSResource&#34;, &#34;true&#34;)
- *                                 ))
- *                             ))
+ *                             jsonProperty(&#34;Sid&#34;, &#34;Allow Route 53 DNSSEC Service&#34;)
  *                         ), 
  *                         jsonObject(
  *                             jsonProperty(&#34;Action&#34;, &#34;kms:*&#34;),

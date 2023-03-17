@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.grafana.inputs;
 
+import com.pulumi.aws.grafana.inputs.WorkspaceNetworkAccessControlArgs;
 import com.pulumi.aws.grafana.inputs.WorkspaceVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -151,6 +152,21 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Configuration for network access to your workspace.See Network Access Control below.
+     * 
+     */
+    @Import(name="networkAccessControl")
+    private @Nullable Output<WorkspaceNetworkAccessControlArgs> networkAccessControl;
+
+    /**
+     * @return Configuration for network access to your workspace.See Network Access Control below.
+     * 
+     */
+    public Optional<Output<WorkspaceNetworkAccessControlArgs>> networkAccessControl() {
+        return Optional.ofNullable(this.networkAccessControl);
     }
 
     /**
@@ -307,6 +323,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         this.endpoint = $.endpoint;
         this.grafanaVersion = $.grafanaVersion;
         this.name = $.name;
+        this.networkAccessControl = $.networkAccessControl;
         this.notificationDestinations = $.notificationDestinations;
         this.organizationRoleName = $.organizationRoleName;
         this.organizationalUnits = $.organizationalUnits;
@@ -544,6 +561,27 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkAccessControl Configuration for network access to your workspace.See Network Access Control below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkAccessControl(@Nullable Output<WorkspaceNetworkAccessControlArgs> networkAccessControl) {
+            $.networkAccessControl = networkAccessControl;
+            return this;
+        }
+
+        /**
+         * @param networkAccessControl Configuration for network access to your workspace.See Network Access Control below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkAccessControl(WorkspaceNetworkAccessControlArgs networkAccessControl) {
+            return networkAccessControl(Output.of(networkAccessControl));
         }
 
         /**

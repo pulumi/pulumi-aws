@@ -52,6 +52,15 @@ __all__ = [
     'TaskSetServiceRegistries',
     'GetClusterServiceConnectDefaultResult',
     'GetClusterSettingResult',
+    'GetTaskExecutionCapacityProviderStrategyResult',
+    'GetTaskExecutionNetworkConfigurationResult',
+    'GetTaskExecutionOverridesResult',
+    'GetTaskExecutionOverridesContainerOverrideResult',
+    'GetTaskExecutionOverridesContainerOverrideEnvironmentResult',
+    'GetTaskExecutionOverridesContainerOverrideResourceRequirementResult',
+    'GetTaskExecutionOverridesInferenceAcceleratorOverrideResult',
+    'GetTaskExecutionPlacementConstraintResult',
+    'GetTaskExecutionPlacementStrategyResult',
 ]
 
 @pulumi.output_type
@@ -2276,5 +2285,407 @@ class GetClusterSettingResult(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTaskExecutionCapacityProviderStrategyResult(dict):
+    def __init__(__self__, *,
+                 capacity_provider: str,
+                 base: Optional[int] = None,
+                 weight: Optional[int] = None):
+        """
+        :param str capacity_provider: Name of the capacity provider.
+        :param int base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+        :param int weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+        """
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> str:
+        """
+        Name of the capacity provider.
+        """
+        return pulumi.get(self, "capacity_provider")
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[int]:
+        """
+        The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+        """
+        return pulumi.get(self, "base")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetTaskExecutionNetworkConfigurationResult(dict):
+    def __init__(__self__, *,
+                 subnets: Sequence[str],
+                 assign_public_ip: Optional[bool] = None,
+                 security_groups: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] subnets: Subnets associated with the task or service.
+        :param bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+        :param Sequence[str] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+        """
+        pulumi.set(__self__, "subnets", subnets)
+        if assign_public_ip is not None:
+            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
+        """
+        Subnets associated with the task or service.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter(name="assignPublicIp")
+    def assign_public_ip(self) -> Optional[bool]:
+        """
+        Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+        """
+        return pulumi.get(self, "assign_public_ip")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+        """
+        return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
+class GetTaskExecutionOverridesResult(dict):
+    def __init__(__self__, *,
+                 container_overrides: Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideResult']] = None,
+                 cpu: Optional[str] = None,
+                 execution_role_arn: Optional[str] = None,
+                 inference_accelerator_overrides: Optional[Sequence['outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult']] = None,
+                 memory: Optional[str] = None,
+                 task_role_arn: Optional[str] = None):
+        """
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. See below.
+        :param str cpu: The CPU override for the task.
+        :param str execution_role_arn: Amazon Resource Name (ARN) of the task execution role override for the task.
+        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: Elastic Inference accelerator override for the task. See below.
+        :param str memory: The memory override for the task.
+        :param str task_role_arn: Amazon Resource Name (ARN) of the role that containers in this task can assume.
+        """
+        if container_overrides is not None:
+            pulumi.set(__self__, "container_overrides", container_overrides)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if inference_accelerator_overrides is not None:
+            pulumi.set(__self__, "inference_accelerator_overrides", inference_accelerator_overrides)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if task_role_arn is not None:
+            pulumi.set(__self__, "task_role_arn", task_role_arn)
+
+    @property
+    @pulumi.getter(name="containerOverrides")
+    def container_overrides(self) -> Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideResult']]:
+        """
+        One or more container overrides that are sent to a task. See below.
+        """
+        return pulumi.get(self, "container_overrides")
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[str]:
+        """
+        The CPU override for the task.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the task execution role override for the task.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @property
+    @pulumi.getter(name="inferenceAcceleratorOverrides")
+    def inference_accelerator_overrides(self) -> Optional[Sequence['outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult']]:
+        """
+        Elastic Inference accelerator override for the task. See below.
+        """
+        return pulumi.get(self, "inference_accelerator_overrides")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        The memory override for the task.
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter(name="taskRoleArn")
+    def task_role_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the role that containers in this task can assume.
+        """
+        return pulumi.get(self, "task_role_arn")
+
+
+@pulumi.output_type
+class GetTaskExecutionOverridesContainerOverrideResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 commands: Optional[Sequence[str]] = None,
+                 cpu: Optional[int] = None,
+                 environments: Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideEnvironmentResult']] = None,
+                 memory: Optional[int] = None,
+                 memory_reservation: Optional[int] = None,
+                 resource_requirements: Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementResult']] = None):
+        """
+        :param str name: The name of the container that receives the override. This parameter is required if any override is specified.
+        :param Sequence[str] commands: The command to send to the container that overrides the default command from the Docker image or the task definition.
+        :param int cpu: The number of cpu units reserved for the container, instead of the default value from the task definition.
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+        :param int memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+        :param int memory_reservation: The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+        """
+        pulumi.set(__self__, "name", name)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if environments is not None:
+            pulumi.set(__self__, "environments", environments)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if memory_reservation is not None:
+            pulumi.set(__self__, "memory_reservation", memory_reservation)
+        if resource_requirements is not None:
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the container that receives the override. This parameter is required if any override is specified.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[str]]:
+        """
+        The command to send to the container that overrides the default command from the Docker image or the task definition.
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[int]:
+        """
+        The number of cpu units reserved for the container, instead of the default value from the task definition.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def environments(self) -> Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideEnvironmentResult']]:
+        """
+        The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+        """
+        return pulumi.get(self, "environments")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[int]:
+        """
+        The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter(name="memoryReservation")
+    def memory_reservation(self) -> Optional[int]:
+        """
+        The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+        """
+        return pulumi.get(self, "memory_reservation")
+
+    @property
+    @pulumi.getter(name="resourceRequirements")
+    def resource_requirements(self) -> Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementResult']]:
+        """
+        The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+        """
+        return pulumi.get(self, "resource_requirements")
+
+
+@pulumi.output_type
+class GetTaskExecutionOverridesContainerOverrideEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        :param str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTaskExecutionOverridesContainerOverrideResourceRequirementResult(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        :param str type: The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+        :param str value: The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTaskExecutionOverridesInferenceAcceleratorOverrideResult(dict):
+    def __init__(__self__, *,
+                 device_name: Optional[str] = None,
+                 device_type: Optional[str] = None):
+        """
+        :param str device_name: The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+        :param str device_type: The Elastic Inference accelerator type to use.
+        """
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if device_type is not None:
+            pulumi.set(__self__, "device_type", device_type)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[str]:
+        """
+        The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+        """
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> Optional[str]:
+        """
+        The Elastic Inference accelerator type to use.
+        """
+        return pulumi.get(self, "device_type")
+
+
+@pulumi.output_type
+class GetTaskExecutionPlacementConstraintResult(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 expression: Optional[str] = None):
+        """
+        :param str type: The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+        :param str expression: A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+        """
+        pulumi.set(__self__, "type", type)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class GetTaskExecutionPlacementStrategyResult(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 field: Optional[str] = None):
+        """
+        :param str type: The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+        :param str field: The field to apply the placement strategy against.
+        """
+        pulumi.set(__self__, "type", type)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        The field to apply the placement strategy against.
+        """
+        return pulumi.get(self, "field")
 
 

@@ -116,6 +116,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly optionGroupName!: pulumi.Output<string>;
     public /*out*/ readonly port!: pulumi.Output<number>;
+    /**
+     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly snapshotType!: pulumi.Output<string>;
     /**
      * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
@@ -172,6 +176,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
             resourceInputs["optionGroupName"] = state ? state.optionGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
             resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
             resourceInputs["sourceDbSnapshotIdentifier"] = state ? state.sourceDbSnapshotIdentifier : undefined;
             resourceInputs["sourceRegion"] = state ? state.sourceRegion : undefined;
@@ -190,6 +195,7 @@ export class Snapshot extends pulumi.CustomResource {
             }
             resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
             resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
+            resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
@@ -268,6 +274,10 @@ export interface SnapshotState {
      */
     optionGroupName?: pulumi.Input<string>;
     port?: pulumi.Input<number>;
+    /**
+     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     snapshotType?: pulumi.Input<string>;
     /**
      * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
@@ -311,6 +321,10 @@ export interface SnapshotArgs {
      * The Identifier for the snapshot.
      */
     dbSnapshotIdentifier: pulumi.Input<string>;
+    /**
+     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     */
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

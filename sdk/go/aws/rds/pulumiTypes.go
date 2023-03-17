@@ -1158,6 +1158,121 @@ func (o InstanceBlueGreenUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type InstanceListenerEndpoint struct {
+	// Specifies the DNS address of the DB instance.
+	Address *string `pulumi:"address"`
+	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+	HostedZoneId *string `pulumi:"hostedZoneId"`
+	// The port on which the DB accepts connections.
+	Port *int `pulumi:"port"`
+}
+
+// InstanceListenerEndpointInput is an input type that accepts InstanceListenerEndpointArgs and InstanceListenerEndpointOutput values.
+// You can construct a concrete instance of `InstanceListenerEndpointInput` via:
+//
+//	InstanceListenerEndpointArgs{...}
+type InstanceListenerEndpointInput interface {
+	pulumi.Input
+
+	ToInstanceListenerEndpointOutput() InstanceListenerEndpointOutput
+	ToInstanceListenerEndpointOutputWithContext(context.Context) InstanceListenerEndpointOutput
+}
+
+type InstanceListenerEndpointArgs struct {
+	// Specifies the DNS address of the DB instance.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+	// The port on which the DB accepts connections.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (InstanceListenerEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceListenerEndpoint)(nil)).Elem()
+}
+
+func (i InstanceListenerEndpointArgs) ToInstanceListenerEndpointOutput() InstanceListenerEndpointOutput {
+	return i.ToInstanceListenerEndpointOutputWithContext(context.Background())
+}
+
+func (i InstanceListenerEndpointArgs) ToInstanceListenerEndpointOutputWithContext(ctx context.Context) InstanceListenerEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceListenerEndpointOutput)
+}
+
+// InstanceListenerEndpointArrayInput is an input type that accepts InstanceListenerEndpointArray and InstanceListenerEndpointArrayOutput values.
+// You can construct a concrete instance of `InstanceListenerEndpointArrayInput` via:
+//
+//	InstanceListenerEndpointArray{ InstanceListenerEndpointArgs{...} }
+type InstanceListenerEndpointArrayInput interface {
+	pulumi.Input
+
+	ToInstanceListenerEndpointArrayOutput() InstanceListenerEndpointArrayOutput
+	ToInstanceListenerEndpointArrayOutputWithContext(context.Context) InstanceListenerEndpointArrayOutput
+}
+
+type InstanceListenerEndpointArray []InstanceListenerEndpointInput
+
+func (InstanceListenerEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceListenerEndpoint)(nil)).Elem()
+}
+
+func (i InstanceListenerEndpointArray) ToInstanceListenerEndpointArrayOutput() InstanceListenerEndpointArrayOutput {
+	return i.ToInstanceListenerEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceListenerEndpointArray) ToInstanceListenerEndpointArrayOutputWithContext(ctx context.Context) InstanceListenerEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceListenerEndpointArrayOutput)
+}
+
+type InstanceListenerEndpointOutput struct{ *pulumi.OutputState }
+
+func (InstanceListenerEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceListenerEndpoint)(nil)).Elem()
+}
+
+func (o InstanceListenerEndpointOutput) ToInstanceListenerEndpointOutput() InstanceListenerEndpointOutput {
+	return o
+}
+
+func (o InstanceListenerEndpointOutput) ToInstanceListenerEndpointOutputWithContext(ctx context.Context) InstanceListenerEndpointOutput {
+	return o
+}
+
+// Specifies the DNS address of the DB instance.
+func (o InstanceListenerEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceListenerEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+func (o InstanceListenerEndpointOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceListenerEndpoint) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The port on which the DB accepts connections.
+func (o InstanceListenerEndpointOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceListenerEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type InstanceListenerEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceListenerEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceListenerEndpoint)(nil)).Elem()
+}
+
+func (o InstanceListenerEndpointArrayOutput) ToInstanceListenerEndpointArrayOutput() InstanceListenerEndpointArrayOutput {
+	return o
+}
+
+func (o InstanceListenerEndpointArrayOutput) ToInstanceListenerEndpointArrayOutputWithContext(ctx context.Context) InstanceListenerEndpointArrayOutput {
+	return o
+}
+
+func (o InstanceListenerEndpointArrayOutput) Index(i pulumi.IntInput) InstanceListenerEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceListenerEndpoint {
+		return vs[0].([]InstanceListenerEndpoint)[vs[1].(int)]
+	}).(InstanceListenerEndpointOutput)
+}
+
 type InstanceRestoreToPointInTime struct {
 	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 	RestoreTime *string `pulumi:"restoreTime"`
@@ -2980,6 +3095,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdateInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdatePtrInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceListenerEndpointInput)(nil)).Elem(), InstanceListenerEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceListenerEndpointArrayInput)(nil)).Elem(), InstanceListenerEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimeInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimePtrInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceS3ImportInput)(nil)).Elem(), InstanceS3ImportArgs{})
@@ -3020,6 +3137,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlueGreenUpdateOutput{})
 	pulumi.RegisterOutputType(InstanceBlueGreenUpdatePtrOutput{})
+	pulumi.RegisterOutputType(InstanceListenerEndpointOutput{})
+	pulumi.RegisterOutputType(InstanceListenerEndpointArrayOutput{})
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimeOutput{})
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportOutput{})

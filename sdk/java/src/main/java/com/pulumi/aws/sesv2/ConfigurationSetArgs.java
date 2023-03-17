@@ -8,6 +8,7 @@ import com.pulumi.aws.sesv2.inputs.ConfigurationSetReputationOptionsArgs;
 import com.pulumi.aws.sesv2.inputs.ConfigurationSetSendingOptionsArgs;
 import com.pulumi.aws.sesv2.inputs.ConfigurationSetSuppressionOptionsArgs;
 import com.pulumi.aws.sesv2.inputs.ConfigurationSetTrackingOptionsArgs;
+import com.pulumi.aws.sesv2.inputs.ConfigurationSetVdmOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -126,6 +127,21 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.trackingOptions);
     }
 
+    /**
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * 
+     */
+    @Import(name="vdmOptions")
+    private @Nullable Output<ConfigurationSetVdmOptionsArgs> vdmOptions;
+
+    /**
+     * @return An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * 
+     */
+    public Optional<Output<ConfigurationSetVdmOptionsArgs>> vdmOptions() {
+        return Optional.ofNullable(this.vdmOptions);
+    }
+
     private ConfigurationSetArgs() {}
 
     private ConfigurationSetArgs(ConfigurationSetArgs $) {
@@ -136,6 +152,7 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
         this.suppressionOptions = $.suppressionOptions;
         this.tags = $.tags;
         this.trackingOptions = $.trackingOptions;
+        this.vdmOptions = $.vdmOptions;
     }
 
     public static Builder builder() {
@@ -301,6 +318,27 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder trackingOptions(ConfigurationSetTrackingOptionsArgs trackingOptions) {
             return trackingOptions(Output.of(trackingOptions));
+        }
+
+        /**
+         * @param vdmOptions An object that defines the VDM settings that apply to emails that you send using the configuration set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vdmOptions(@Nullable Output<ConfigurationSetVdmOptionsArgs> vdmOptions) {
+            $.vdmOptions = vdmOptions;
+            return this;
+        }
+
+        /**
+         * @param vdmOptions An object that defines the VDM settings that apply to emails that you send using the configuration set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vdmOptions(ConfigurationSetVdmOptionsArgs vdmOptions) {
+            return vdmOptions(Output.of(vdmOptions));
         }
 
         public ConfigurationSetArgs build() {

@@ -62,7 +62,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			cloudwatchPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -86,7 +86,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "cloudwatchRolePolicy", &iam.RolePolicyArgs{
 //				Role:   cloudwatchRole.ID(),
-//				Policy: pulumi.Any(data.Aws_iam_policy_document.Json),
+//				Policy: *pulumi.String(cloudwatchPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

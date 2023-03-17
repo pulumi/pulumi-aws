@@ -46,6 +46,11 @@ export const getTaskDefinition: typeof import("./getTaskDefinition").getTaskDefi
 export const getTaskDefinitionOutput: typeof import("./getTaskDefinition").getTaskDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getTaskDefinition","getTaskDefinitionOutput"], () => require("./getTaskDefinition"));
 
+export { GetTaskExecutionArgs, GetTaskExecutionResult, GetTaskExecutionOutputArgs } from "./getTaskExecution";
+export const getTaskExecution: typeof import("./getTaskExecution").getTaskExecution = null as any;
+export const getTaskExecutionOutput: typeof import("./getTaskExecution").getTaskExecutionOutput = null as any;
+utilities.lazyLoad(exports, ["getTaskExecution","getTaskExecutionOutput"], () => require("./getTaskExecution"));
+
 export { ServiceArgs, ServiceState } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;

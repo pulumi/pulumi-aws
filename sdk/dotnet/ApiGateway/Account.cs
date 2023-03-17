@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ApiGateway
     ///     var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatchRolePolicy", new()
     ///     {
     ///         Role = cloudwatchRole.Id,
-    ///         Policy = data.Aws_iam_policy_document.Json,
+    ///         Policy = cloudwatchPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

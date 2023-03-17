@@ -2045,23 +2045,23 @@ func (o ProjectLogsConfigS3LogsPtrOutput) Status() pulumi.StringPtrOutput {
 type ProjectSecondaryArtifact struct {
 	// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
 	ArtifactIdentifier string `pulumi:"artifactIdentifier"`
-	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
 	BucketOwnerAccess *string `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
-	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
+	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
 	Location *string `pulumi:"location"`
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output artifact object.
 	Name *string `pulumi:"name"`
-	// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+	// Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
 	NamespaceType *string `pulumi:"namespaceType"`
 	// Whether a name specified in the build specification overrides the artifact name.
 	OverrideArtifactName *bool `pulumi:"overrideArtifactName"`
-	// Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+	// Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
 	Packaging *string `pulumi:"packaging"`
-	// If `type` is set to `S3`, this is the path to the output artifact.
+	// Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the path to the output artifact.
 	Path *string `pulumi:"path"`
-	// Build output artifact's type. The only valid value is `S3`.
+	// Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
 	Type string `pulumi:"type"`
 }
 
@@ -2079,23 +2079,23 @@ type ProjectSecondaryArtifactInput interface {
 type ProjectSecondaryArtifactArgs struct {
 	// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
 	ArtifactIdentifier pulumi.StringInput `pulumi:"artifactIdentifier"`
-	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
 	BucketOwnerAccess pulumi.StringPtrInput `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
-	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
+	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output artifact object.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+	// Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
 	NamespaceType pulumi.StringPtrInput `pulumi:"namespaceType"`
 	// Whether a name specified in the build specification overrides the artifact name.
 	OverrideArtifactName pulumi.BoolPtrInput `pulumi:"overrideArtifactName"`
-	// Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+	// Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
 	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
-	// If `type` is set to `S3`, this is the path to the output artifact.
+	// Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the path to the output artifact.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Build output artifact's type. The only valid value is `S3`.
+	// Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2155,7 +2155,7 @@ func (o ProjectSecondaryArtifactOutput) ArtifactIdentifier() pulumi.StringOutput
 	return o.ApplyT(func(v ProjectSecondaryArtifact) string { return v.ArtifactIdentifier }).(pulumi.StringOutput)
 }
 
-// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
 func (o ProjectSecondaryArtifactOutput) BucketOwnerAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.BucketOwnerAccess }).(pulumi.StringPtrOutput)
 }
@@ -2165,17 +2165,17 @@ func (o ProjectSecondaryArtifactOutput) EncryptionDisabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
 }
 
-// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
+// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
 func (o ProjectSecondaryArtifactOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+// Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output artifact object.
 func (o ProjectSecondaryArtifactOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+// Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
 func (o ProjectSecondaryArtifactOutput) NamespaceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.NamespaceType }).(pulumi.StringPtrOutput)
 }
@@ -2185,17 +2185,17 @@ func (o ProjectSecondaryArtifactOutput) OverrideArtifactName() pulumi.BoolPtrOut
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *bool { return v.OverrideArtifactName }).(pulumi.BoolPtrOutput)
 }
 
-// Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+// Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
 func (o ProjectSecondaryArtifactOutput) Packaging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Packaging }).(pulumi.StringPtrOutput)
 }
 
-// If `type` is set to `S3`, this is the path to the output artifact.
+// Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the path to the output artifact.
 func (o ProjectSecondaryArtifactOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Build output artifact's type. The only valid value is `S3`.
+// Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
 func (o ProjectSecondaryArtifactOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) string { return v.Type }).(pulumi.StringOutput)
 }

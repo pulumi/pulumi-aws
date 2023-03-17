@@ -18,6 +18,16 @@ public final class GetAttachmentResult {
      * 
      */
     private String arn;
+    /**
+     * @return The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
+     * 
+     */
+    private String associationState;
+    /**
+     * @return The ID of the route table for the transit gateway.
+     * 
+     */
+    private String associationTransitGatewayRouteTableId;
     private @Nullable List<GetAttachmentFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -68,6 +78,20 @@ public final class GetAttachmentResult {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
+     * 
+     */
+    public String associationState() {
+        return this.associationState;
+    }
+    /**
+     * @return The ID of the route table for the transit gateway.
+     * 
+     */
+    public String associationTransitGatewayRouteTableId() {
+        return this.associationTransitGatewayRouteTableId;
     }
     public List<GetAttachmentFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -142,6 +166,8 @@ public final class GetAttachmentResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private String associationState;
+        private String associationTransitGatewayRouteTableId;
         private @Nullable List<GetAttachmentFilter> filters;
         private String id;
         private String resourceId;
@@ -156,6 +182,8 @@ public final class GetAttachmentResult {
         public Builder(GetAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.associationState = defaults.associationState;
+    	      this.associationTransitGatewayRouteTableId = defaults.associationTransitGatewayRouteTableId;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.resourceId = defaults.resourceId;
@@ -171,6 +199,16 @@ public final class GetAttachmentResult {
         @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder associationState(String associationState) {
+            this.associationState = Objects.requireNonNull(associationState);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder associationTransitGatewayRouteTableId(String associationTransitGatewayRouteTableId) {
+            this.associationTransitGatewayRouteTableId = Objects.requireNonNull(associationTransitGatewayRouteTableId);
             return this;
         }
         @CustomType.Setter
@@ -229,6 +267,8 @@ public final class GetAttachmentResult {
         public GetAttachmentResult build() {
             final var o = new GetAttachmentResult();
             o.arn = arn;
+            o.associationState = associationState;
+            o.associationTransitGatewayRouteTableId = associationTransitGatewayRouteTableId;
             o.filters = filters;
             o.id = id;
             o.resourceId = resourceId;

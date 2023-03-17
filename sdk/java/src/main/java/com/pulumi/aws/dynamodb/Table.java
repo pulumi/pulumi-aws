@@ -242,14 +242,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.hashKey;
     }
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      * 
      */
     @Export(name="localSecondaryIndexes", refs={List.class,TableLocalSecondaryIndex.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TableLocalSecondaryIndex>> localSecondaryIndexes;
 
     /**
-     * @return Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * @return Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      * 
      */
     public Output<Optional<List<TableLocalSecondaryIndex>>> localSecondaryIndexes() {
@@ -438,14 +438,18 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.streamViewType;
     }
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      * 
      */
     @Export(name="tableClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableClass;
 
     /**
-     * @return Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * @return Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      * 
      */
     public Output<Optional<String>> tableClass() {

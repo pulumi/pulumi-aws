@@ -6,6 +6,7 @@ package com.pulumi.aws.grafana;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.grafana.WorkspaceArgs;
 import com.pulumi.aws.grafana.inputs.WorkspaceState;
+import com.pulumi.aws.grafana.outputs.WorkspaceNetworkAccessControl;
 import com.pulumi.aws.grafana.outputs.WorkspaceVpcConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -208,6 +209,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Configuration for network access to your workspace.See Network Access Control below.
+     * 
+     */
+    @Export(name="networkAccessControl", refs={WorkspaceNetworkAccessControl.class}, tree="[0]")
+    private Output</* @Nullable */ WorkspaceNetworkAccessControl> networkAccessControl;
+
+    /**
+     * @return Configuration for network access to your workspace.See Network Access Control below.
+     * 
+     */
+    public Output<Optional<WorkspaceNetworkAccessControl>> networkAccessControl() {
+        return Codegen.optional(this.networkAccessControl);
     }
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.

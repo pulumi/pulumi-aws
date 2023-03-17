@@ -29,7 +29,7 @@ class NamespaceArgs:
         :param pulumi.Input[str] admin_user_password: The password of the administrator for the first database created in the namespace.
         :param pulumi.Input[str] admin_username: The username of the administrator for the first database created in the namespace.
         :param pulumi.Input[str] db_name: The name of the first database created in the namespace.
-        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM roles to associate with the namespace.
         :param pulumi.Input[str] kms_key_id: The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
@@ -105,7 +105,7 @@ class NamespaceArgs:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -183,7 +183,7 @@ class _NamespaceState:
         :param pulumi.Input[str] admin_username: The username of the administrator for the first database created in the namespace.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         :param pulumi.Input[str] db_name: The name of the first database created in the namespace.
-        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM roles to associate with the namespace.
         :param pulumi.Input[str] kms_key_id: The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
@@ -269,7 +269,7 @@ class _NamespaceState:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -402,7 +402,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] admin_user_password: The password of the administrator for the first database created in the namespace.
         :param pulumi.Input[str] admin_username: The username of the administrator for the first database created in the namespace.
         :param pulumi.Input[str] db_name: The name of the first database created in the namespace.
-        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM roles to associate with the namespace.
         :param pulumi.Input[str] kms_key_id: The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
@@ -517,7 +517,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] admin_username: The username of the administrator for the first database created in the namespace.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         :param pulumi.Input[str] db_name: The name of the first database created in the namespace.
-        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM roles to associate with the namespace.
         :param pulumi.Input[str] kms_key_id: The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
@@ -580,7 +580,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         """
         return pulumi.get(self, "default_iam_role_arn")
 

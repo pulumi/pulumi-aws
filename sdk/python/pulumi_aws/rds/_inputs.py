@@ -18,6 +18,7 @@ __all__ = [
     'ClusterServerlessv2ScalingConfigurationArgs',
     'GlobalClusterGlobalClusterMemberArgs',
     'InstanceBlueGreenUpdateArgs',
+    'InstanceListenerEndpointArgs',
     'InstanceRestoreToPointInTimeArgs',
     'InstanceS3ImportArgs',
     'OptionGroupOptionArgs',
@@ -430,6 +431,61 @@ class InstanceBlueGreenUpdateArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class InstanceListenerEndpointArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 hosted_zone_id: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] address: Specifies the DNS address of the DB instance.
+        :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        :param pulumi.Input[int] port: The port on which the DB accepts connections.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the DNS address of the DB instance.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the DB accepts connections.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type

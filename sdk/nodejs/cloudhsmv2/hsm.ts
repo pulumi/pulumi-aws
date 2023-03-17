@@ -61,7 +61,7 @@ export class Hsm extends pulumi.CustomResource {
     }
 
     /**
-     * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
@@ -85,7 +85,7 @@ export class Hsm extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
-     * The ID of subnet in which HSM module will be located.
+     * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */
     public readonly subnetId!: pulumi.Output<string>;
 
@@ -132,7 +132,7 @@ export class Hsm extends pulumi.CustomResource {
  */
 export interface HsmState {
     /**
-     * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
@@ -156,7 +156,7 @@ export interface HsmState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * The ID of subnet in which HSM module will be located.
+     * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */
     subnetId?: pulumi.Input<string>;
 }
@@ -166,7 +166,7 @@ export interface HsmState {
  */
 export interface HsmArgs {
     /**
-     * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
@@ -178,7 +178,7 @@ export interface HsmArgs {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * The ID of subnet in which HSM module will be located.
+     * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */
     subnetId?: pulumi.Input<string>;
 }

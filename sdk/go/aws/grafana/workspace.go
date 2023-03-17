@@ -101,6 +101,8 @@ type Workspace struct {
 	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Configuration for network access to your workspace.See Network Access Control below.
+	NetworkAccessControl WorkspaceNetworkAccessControlPtrOutput `pulumi:"networkAccessControl"`
 	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations pulumi.StringArrayOutput `pulumi:"notificationDestinations"`
 	// The role name that the workspace uses to access resources through Amazon Organizations.
@@ -178,6 +180,8 @@ type workspaceState struct {
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name *string `pulumi:"name"`
+	// Configuration for network access to your workspace.See Network Access Control below.
+	NetworkAccessControl *WorkspaceNetworkAccessControl `pulumi:"networkAccessControl"`
 	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations []string `pulumi:"notificationDestinations"`
 	// The role name that the workspace uses to access resources through Amazon Organizations.
@@ -218,6 +222,8 @@ type WorkspaceState struct {
 	GrafanaVersion pulumi.StringPtrInput
 	// The Grafana workspace name.
 	Name pulumi.StringPtrInput
+	// Configuration for network access to your workspace.See Network Access Control below.
+	NetworkAccessControl WorkspaceNetworkAccessControlPtrInput
 	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations pulumi.StringArrayInput
 	// The role name that the workspace uses to access resources through Amazon Organizations.
@@ -256,6 +262,8 @@ type workspaceArgs struct {
 	Description *string `pulumi:"description"`
 	// The Grafana workspace name.
 	Name *string `pulumi:"name"`
+	// Configuration for network access to your workspace.See Network Access Control below.
+	NetworkAccessControl *WorkspaceNetworkAccessControl `pulumi:"networkAccessControl"`
 	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations []string `pulumi:"notificationDestinations"`
 	// The role name that the workspace uses to access resources through Amazon Organizations.
@@ -288,6 +296,8 @@ type WorkspaceArgs struct {
 	Description pulumi.StringPtrInput
 	// The Grafana workspace name.
 	Name pulumi.StringPtrInput
+	// Configuration for network access to your workspace.See Network Access Control below.
+	NetworkAccessControl WorkspaceNetworkAccessControlPtrInput
 	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations pulumi.StringArrayInput
 	// The role name that the workspace uses to access resources through Amazon Organizations.
@@ -436,6 +446,11 @@ func (o WorkspaceOutput) GrafanaVersion() pulumi.StringOutput {
 // The Grafana workspace name.
 func (o WorkspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration for network access to your workspace.See Network Access Control below.
+func (o WorkspaceOutput) NetworkAccessControl() WorkspaceNetworkAccessControlPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceNetworkAccessControlPtrOutput { return v.NetworkAccessControl }).(WorkspaceNetworkAccessControlPtrOutput)
 }
 
 // The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.

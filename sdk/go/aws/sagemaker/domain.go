@@ -156,7 +156,7 @@ type Domain struct {
 
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrOutput `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 	AppSecurityGroupManagement pulumi.StringPtrOutput `pulumi:"appSecurityGroupManagement"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -237,7 +237,7 @@ func GetDomain(ctx *pulumi.Context,
 type domainState struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn *string `pulumi:"arn"`
@@ -275,7 +275,7 @@ type domainState struct {
 type DomainState struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrInput
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 	AppSecurityGroupManagement pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
 	Arn pulumi.StringPtrInput
@@ -317,7 +317,7 @@ func (DomainState) ElementType() reflect.Type {
 type domainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode string `pulumi:"authMode"`
@@ -344,7 +344,7 @@ type domainArgs struct {
 type DomainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
 	AppNetworkAccessType pulumi.StringPtrInput
-	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 	AppSecurityGroupManagement pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringInput
@@ -459,7 +459,7 @@ func (o DomainOutput) AppNetworkAccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppNetworkAccessType }).(pulumi.StringPtrOutput)
 }
 
-// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 func (o DomainOutput) AppSecurityGroupManagement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppSecurityGroupManagement }).(pulumi.StringPtrOutput)
 }

@@ -34,6 +34,21 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * 
+     */
+    @Import(name="deliverCrossAccountRole")
+    private @Nullable Output<String> deliverCrossAccountRole;
+
+    /**
+     * @return ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * 
+     */
+    public Optional<Output<String>> deliverCrossAccountRole() {
+        return Optional.ofNullable(this.deliverCrossAccountRole);
+    }
+
+    /**
      * Describes the destination options for a flow log. More details below.
      * 
      */
@@ -276,6 +291,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
 
     private FlowLogState(FlowLogState $) {
         this.arn = $.arn;
+        this.deliverCrossAccountRole = $.deliverCrossAccountRole;
         this.destinationOptions = $.destinationOptions;
         this.eniId = $.eniId;
         this.iamRoleArn = $.iamRoleArn;
@@ -330,6 +346,27 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param deliverCrossAccountRole ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deliverCrossAccountRole(@Nullable Output<String> deliverCrossAccountRole) {
+            $.deliverCrossAccountRole = deliverCrossAccountRole;
+            return this;
+        }
+
+        /**
+         * @param deliverCrossAccountRole ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deliverCrossAccountRole(String deliverCrossAccountRole) {
+            return deliverCrossAccountRole(Output.of(deliverCrossAccountRole));
         }
 
         /**

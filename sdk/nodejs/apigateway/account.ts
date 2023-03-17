@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * });
  * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatchRolePolicy", {
  *     role: cloudwatchRole.id,
- *     policy: data.aws_iam_policy_document.json,
+ *     policy: cloudwatchPolicyDocument.then(cloudwatchPolicyDocument => cloudwatchPolicyDocument.json),
  * });
  * ```
  *

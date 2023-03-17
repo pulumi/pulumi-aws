@@ -124,6 +124,12 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for network access to your workspace.See Network Access Control below.
+        /// </summary>
+        [Output("networkAccessControl")]
+        public Output<Outputs.WorkspaceNetworkAccessControl?> NetworkAccessControl { get; private set; } = null!;
+
+        /// <summary>
         /// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         /// </summary>
         [Output("notificationDestinations")]
@@ -274,6 +280,12 @@ namespace Pulumi.Aws.Grafana
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration for network access to your workspace.See Network Access Control below.
+        /// </summary>
+        [Input("networkAccessControl")]
+        public Input<Inputs.WorkspaceNetworkAccessControlArgs>? NetworkAccessControl { get; set; }
+
         [Input("notificationDestinations")]
         private InputList<string>? _notificationDestinations;
 
@@ -413,6 +425,12 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configuration for network access to your workspace.See Network Access Control below.
+        /// </summary>
+        [Input("networkAccessControl")]
+        public Input<Inputs.WorkspaceNetworkAccessControlGetArgs>? NetworkAccessControl { get; set; }
 
         [Input("notificationDestinations")]
         private InputList<string>? _notificationDestinations;

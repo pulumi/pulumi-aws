@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Transfer.Inputs
         public Input<Inputs.WorkflowStepCustomStepDetailsArgs>? CustomStepDetails { get; set; }
 
         /// <summary>
+        /// Details for a step that decrypts the file.
+        /// </summary>
+        [Input("decryptStepDetails")]
+        public Input<Inputs.WorkflowStepDecryptStepDetailsArgs>? DecryptStepDetails { get; set; }
+
+        /// <summary>
         /// Details for a step that deletes the file.
         /// </summary>
         [Input("deleteStepDetails")]
@@ -37,7 +43,7 @@ namespace Pulumi.Aws.Transfer.Inputs
         public Input<Inputs.WorkflowStepTagStepDetailsArgs>? TagStepDetails { get; set; }
 
         /// <summary>
-        /// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+        /// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

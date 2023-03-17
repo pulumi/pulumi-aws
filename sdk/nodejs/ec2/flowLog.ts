@@ -128,6 +128,10 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     */
+    public readonly deliverCrossAccountRole!: pulumi.Output<string | undefined>;
+    /**
      * Describes the destination options for a flow log. More details below.
      */
     public readonly destinationOptions!: pulumi.Output<outputs.ec2.FlowLogDestinationOptions | undefined>;
@@ -207,6 +211,7 @@ export class FlowLog extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FlowLogState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deliverCrossAccountRole"] = state ? state.deliverCrossAccountRole : undefined;
             resourceInputs["destinationOptions"] = state ? state.destinationOptions : undefined;
             resourceInputs["eniId"] = state ? state.eniId : undefined;
             resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
@@ -224,6 +229,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FlowLogArgs | undefined;
+            resourceInputs["deliverCrossAccountRole"] = args ? args.deliverCrossAccountRole : undefined;
             resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
             resourceInputs["eniId"] = args ? args.eniId : undefined;
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
@@ -254,6 +260,10 @@ export interface FlowLogState {
      * The ARN of the Flow Log.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     */
+    deliverCrossAccountRole?: pulumi.Input<string>;
     /**
      * Describes the destination options for a flow log. More details below.
      */
@@ -325,6 +335,10 @@ export interface FlowLogState {
  * The set of arguments for constructing a FlowLog resource.
  */
 export interface FlowLogArgs {
+    /**
+     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     */
+    deliverCrossAccountRole?: pulumi.Input<string>;
     /**
      * Describes the destination options for a flow log. More details below.
      */

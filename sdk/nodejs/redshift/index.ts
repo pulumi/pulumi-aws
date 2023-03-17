@@ -20,6 +20,11 @@ export type ClusterIamRoles = import("./clusterIamRoles").ClusterIamRoles;
 export const ClusterIamRoles: typeof import("./clusterIamRoles").ClusterIamRoles = null as any;
 utilities.lazyLoad(exports, ["ClusterIamRoles"], () => require("./clusterIamRoles"));
 
+export { ClusterSnapshotArgs, ClusterSnapshotState } from "./clusterSnapshot";
+export type ClusterSnapshot = import("./clusterSnapshot").ClusterSnapshot;
+export const ClusterSnapshot: typeof import("./clusterSnapshot").ClusterSnapshot = null as any;
+utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
+
 export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
 export type EndpointAccess = import("./endpointAccess").EndpointAccess;
 export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
@@ -126,6 +131,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:redshift/clusterIamRoles:ClusterIamRoles":
                 return new ClusterIamRoles(name, <any>undefined, { urn })
+            case "aws:redshift/clusterSnapshot:ClusterSnapshot":
+                return new ClusterSnapshot(name, <any>undefined, { urn })
             case "aws:redshift/endpointAccess:EndpointAccess":
                 return new EndpointAccess(name, <any>undefined, { urn })
             case "aws:redshift/endpointAuthorization:EndpointAuthorization":
@@ -162,6 +169,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "redshift/authenticationProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/clusterIamRoles", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/clusterSnapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/endpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/endpointAuthorization", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)

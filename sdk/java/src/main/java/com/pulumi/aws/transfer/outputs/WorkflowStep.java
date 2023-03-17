@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.aws.transfer.outputs.WorkflowStepCopyStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowStepCustomStepDetails;
+import com.pulumi.aws.transfer.outputs.WorkflowStepDecryptStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowStepDeleteStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowStepTagStepDetails;
 import com.pulumi.core.annotations.CustomType;
@@ -26,6 +27,11 @@ public final class WorkflowStep {
      */
     private @Nullable WorkflowStepCustomStepDetails customStepDetails;
     /**
+     * @return Details for a step that decrypts the file.
+     * 
+     */
+    private @Nullable WorkflowStepDecryptStepDetails decryptStepDetails;
+    /**
      * @return Details for a step that deletes the file.
      * 
      */
@@ -36,7 +42,7 @@ public final class WorkflowStep {
      */
     private @Nullable WorkflowStepTagStepDetails tagStepDetails;
     /**
-     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
      * 
      */
     private String type;
@@ -57,6 +63,13 @@ public final class WorkflowStep {
         return Optional.ofNullable(this.customStepDetails);
     }
     /**
+     * @return Details for a step that decrypts the file.
+     * 
+     */
+    public Optional<WorkflowStepDecryptStepDetails> decryptStepDetails() {
+        return Optional.ofNullable(this.decryptStepDetails);
+    }
+    /**
      * @return Details for a step that deletes the file.
      * 
      */
@@ -71,7 +84,7 @@ public final class WorkflowStep {
         return Optional.ofNullable(this.tagStepDetails);
     }
     /**
-     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
      * 
      */
     public String type() {
@@ -89,6 +102,7 @@ public final class WorkflowStep {
     public static final class Builder {
         private @Nullable WorkflowStepCopyStepDetails copyStepDetails;
         private @Nullable WorkflowStepCustomStepDetails customStepDetails;
+        private @Nullable WorkflowStepDecryptStepDetails decryptStepDetails;
         private @Nullable WorkflowStepDeleteStepDetails deleteStepDetails;
         private @Nullable WorkflowStepTagStepDetails tagStepDetails;
         private String type;
@@ -97,6 +111,7 @@ public final class WorkflowStep {
     	      Objects.requireNonNull(defaults);
     	      this.copyStepDetails = defaults.copyStepDetails;
     	      this.customStepDetails = defaults.customStepDetails;
+    	      this.decryptStepDetails = defaults.decryptStepDetails;
     	      this.deleteStepDetails = defaults.deleteStepDetails;
     	      this.tagStepDetails = defaults.tagStepDetails;
     	      this.type = defaults.type;
@@ -110,6 +125,11 @@ public final class WorkflowStep {
         @CustomType.Setter
         public Builder customStepDetails(@Nullable WorkflowStepCustomStepDetails customStepDetails) {
             this.customStepDetails = customStepDetails;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder decryptStepDetails(@Nullable WorkflowStepDecryptStepDetails decryptStepDetails) {
+            this.decryptStepDetails = decryptStepDetails;
             return this;
         }
         @CustomType.Setter
@@ -131,6 +151,7 @@ public final class WorkflowStep {
             final var o = new WorkflowStep();
             o.copyStepDetails = copyStepDetails;
             o.customStepDetails = customStepDetails;
+            o.decryptStepDetails = decryptStepDetails;
             o.deleteStepDetails = deleteStepDetails;
             o.tagStepDetails = tagStepDetails;
             o.type = type;

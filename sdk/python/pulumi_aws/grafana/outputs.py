@@ -10,8 +10,57 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'WorkspaceNetworkAccessControl',
     'WorkspaceVpcConfiguration',
 ]
+
+@pulumi.output_type
+class WorkspaceNetworkAccessControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prefixListIds":
+            suggest = "prefix_list_ids"
+        elif key == "vpceIds":
+            suggest = "vpce_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceNetworkAccessControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceNetworkAccessControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceNetworkAccessControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix_list_ids: Sequence[str],
+                 vpce_ids: Sequence[str]):
+        """
+        :param Sequence[str] prefix_list_ids: An array of prefix list IDs.
+        :param Sequence[str] vpce_ids: An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+        """
+        pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
+        pulumi.set(__self__, "vpce_ids", vpce_ids)
+
+    @property
+    @pulumi.getter(name="prefixListIds")
+    def prefix_list_ids(self) -> Sequence[str]:
+        """
+        An array of prefix list IDs.
+        """
+        return pulumi.get(self, "prefix_list_ids")
+
+    @property
+    @pulumi.getter(name="vpceIds")
+    def vpce_ids(self) -> Sequence[str]:
+        """
+        An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+        """
+        return pulumi.get(self, "vpce_ids")
+
 
 @pulumi.output_type
 class WorkspaceVpcConfiguration(dict):

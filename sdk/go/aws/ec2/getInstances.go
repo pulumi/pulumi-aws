@@ -48,6 +48,8 @@ type GetInstancesResult struct {
 	Ids                []string          `pulumi:"ids"`
 	InstanceStateNames []string          `pulumi:"instanceStateNames"`
 	InstanceTags       map[string]string `pulumi:"instanceTags"`
+	// IPv6 addresses of instances found through the filter
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Private IP addresses of instances found through the filter
 	PrivateIps []string `pulumi:"privateIps"`
 	// Public IP addresses of instances found through the filter
@@ -119,6 +121,11 @@ func (o GetInstancesResultOutput) InstanceStateNames() pulumi.StringArrayOutput 
 
 func (o GetInstancesResultOutput) InstanceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetInstancesResult) map[string]string { return v.InstanceTags }).(pulumi.StringMapOutput)
+}
+
+// IPv6 addresses of instances found through the filter
+func (o GetInstancesResultOutput) Ipv6Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstancesResult) []string { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
 }
 
 // Private IP addresses of instances found through the filter

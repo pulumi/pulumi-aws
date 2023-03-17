@@ -19,6 +19,7 @@ __all__ = [
     'ClusterServerlessv2ScalingConfiguration',
     'GlobalClusterGlobalClusterMember',
     'InstanceBlueGreenUpdate',
+    'InstanceListenerEndpoint',
     'InstanceRestoreToPointInTime',
     'InstanceS3Import',
     'OptionGroupOption',
@@ -472,6 +473,66 @@ class InstanceBlueGreenUpdate(dict):
         Default is `false`.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class InstanceListenerEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceListenerEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceListenerEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceListenerEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 hosted_zone_id: Optional[str] = None,
+                 port: Optional[int] = None):
+        """
+        :param str address: Specifies the DNS address of the DB instance.
+        :param str hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        :param int port: The port on which the DB accepts connections.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Specifies the DNS address of the DB instance.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[str]:
+        """
+        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port on which the DB accepts connections.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type

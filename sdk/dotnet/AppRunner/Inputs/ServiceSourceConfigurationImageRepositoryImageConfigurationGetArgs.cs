@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
         private InputMap<string>? _runtimeEnvironmentSecrets;
 
         /// <summary>
-        /// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+        /// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
         /// </summary>
         public InputMap<string> RuntimeEnvironmentSecrets
         {
