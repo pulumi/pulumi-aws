@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> AppNetworkAccessType { get; private set; } = null!;
 
         /// <summary>
-        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         /// </summary>
         [Output("appSecurityGroupManagement")]
         public Output<string?> AppSecurityGroupManagement { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppNetworkAccessType { get; set; }
 
         /// <summary>
-        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         /// </summary>
         [Input("appSecurityGroupManagement")]
         public Input<string>? AppSecurityGroupManagement { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppNetworkAccessType { get; set; }
 
         /// <summary>
-        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         /// </summary>
         [Input("appSecurityGroupManagement")]
         public Input<string>? AppSecurityGroupManagement { get; set; }

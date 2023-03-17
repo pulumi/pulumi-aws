@@ -67,14 +67,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudhsmv2/hsm:Hsm")
 public class Hsm extends com.pulumi.resources.CustomResource {
     /**
-     * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * @return The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
      * 
      */
     public Output<String> availabilityZone() {
@@ -151,14 +151,14 @@ public class Hsm extends com.pulumi.resources.CustomResource {
         return this.ipAddress;
     }
     /**
-     * The ID of subnet in which HSM module will be located.
+     * The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The ID of subnet in which HSM module will be located.
+     * @return The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
     public Output<String> subnetId() {

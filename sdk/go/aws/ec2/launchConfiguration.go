@@ -13,6 +13,8 @@ import (
 
 // Provides a resource to create a new launch configuration, used for autoscaling groups.
 //
+// !> **WARNING:** The use of launch configurations is discouraged in favour of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
+//
 // > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute.
 //
 // ## Example Usage

@@ -290,6 +290,20 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * 
+     */
+    @Export(name="deliverCrossAccountRole", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> deliverCrossAccountRole;
+
+    /**
+     * @return ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * 
+     */
+    public Output<Optional<String>> deliverCrossAccountRole() {
+        return Codegen.optional(this.deliverCrossAccountRole);
+    }
+    /**
      * Describes the destination options for a flow log. More details below.
      * 
      */

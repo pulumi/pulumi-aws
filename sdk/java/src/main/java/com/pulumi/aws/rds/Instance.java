@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.rds.InstanceArgs;
 import com.pulumi.aws.rds.inputs.InstanceState;
 import com.pulumi.aws.rds.outputs.InstanceBlueGreenUpdate;
+import com.pulumi.aws.rds.outputs.InstanceListenerEndpoint;
 import com.pulumi.aws.rds.outputs.InstanceRestoreToPointInTime;
 import com.pulumi.aws.rds.outputs.InstanceS3Import;
 import com.pulumi.core.Output;
@@ -141,14 +142,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
     /**
-     * The hostname of the RDS instance. See also `endpoint` and `port`.
+     * Specifies the DNS address of the DB instance.
      * 
      */
     @Export(name="address", refs={String.class}, tree="[0]")
     private Output<String> address;
 
     /**
-     * @return The hostname of the RDS instance. See also `endpoint` and `port`.
+     * @return Specifies the DNS address of the DB instance.
      * 
      */
     public Output<String> address() {
@@ -587,16 +588,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.finalSnapshotIdentifier);
     }
     /**
-     * The canonical hosted zone ID of the DB instance (to be used
-     * in a Route 53 Alias record).
+     * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
-     * @return The canonical hosted zone ID of the DB instance (to be used
-     * in a Route 53 Alias record).
+     * @return Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
     public Output<String> hostedZoneId() {
@@ -729,6 +728,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> licenseModel() {
         return this.licenseModel;
+    }
+    /**
+     * Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+     * 
+     */
+    @Export(name="listenerEndpoints", refs={List.class,InstanceListenerEndpoint.class}, tree="[0,1]")
+    private Output<List<InstanceListenerEndpoint>> listenerEndpoints;
+
+    /**
+     * @return Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+     * 
+     */
+    public Output<List<InstanceListenerEndpoint>> listenerEndpoints() {
+        return this.listenerEndpoints;
     }
     /**
      * The window to perform maintenance in.

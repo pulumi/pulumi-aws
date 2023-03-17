@@ -109,6 +109,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Configuration for network access to your workspace.See Network Access Control below.
+     */
+    public readonly networkAccessControl!: pulumi.Output<outputs.grafana.WorkspaceNetworkAccessControl | undefined>;
+    /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */
     public readonly notificationDestinations!: pulumi.Output<string[] | undefined>;
@@ -168,6 +172,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["grafanaVersion"] = state ? state.grafanaVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkAccessControl"] = state ? state.networkAccessControl : undefined;
             resourceInputs["notificationDestinations"] = state ? state.notificationDestinations : undefined;
             resourceInputs["organizationRoleName"] = state ? state.organizationRoleName : undefined;
             resourceInputs["organizationalUnits"] = state ? state.organizationalUnits : undefined;
@@ -195,6 +200,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAccessControl"] = args ? args.networkAccessControl : undefined;
             resourceInputs["notificationDestinations"] = args ? args.notificationDestinations : undefined;
             resourceInputs["organizationRoleName"] = args ? args.organizationRoleName : undefined;
             resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
@@ -254,6 +260,10 @@ export interface WorkspaceState {
      * The Grafana workspace name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration for network access to your workspace.See Network Access Control below.
+     */
+    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControl>;
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */
@@ -321,6 +331,10 @@ export interface WorkspaceArgs {
      * The Grafana workspace name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration for network access to your workspace.See Network Access Control below.
+     */
+    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControl>;
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */

@@ -10,8 +10,46 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'WorkspaceNetworkAccessControlArgs',
     'WorkspaceVpcConfigurationArgs',
 ]
+
+@pulumi.input_type
+class WorkspaceNetworkAccessControlArgs:
+    def __init__(__self__, *,
+                 prefix_list_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vpce_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: An array of prefix list IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpce_ids: An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+        """
+        pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
+        pulumi.set(__self__, "vpce_ids", vpce_ids)
+
+    @property
+    @pulumi.getter(name="prefixListIds")
+    def prefix_list_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        An array of prefix list IDs.
+        """
+        return pulumi.get(self, "prefix_list_ids")
+
+    @prefix_list_ids.setter
+    def prefix_list_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "prefix_list_ids", value)
+
+    @property
+    @pulumi.getter(name="vpceIds")
+    def vpce_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+        """
+        return pulumi.get(self, "vpce_ids")
+
+    @vpce_ids.setter
+    def vpce_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "vpce_ids", value)
+
 
 @pulumi.input_type
 class WorkspaceVpcConfigurationArgs:

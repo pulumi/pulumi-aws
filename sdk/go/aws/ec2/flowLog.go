@@ -187,6 +187,8 @@ type FlowLog struct {
 
 	// The ARN of the Flow Log.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole pulumi.StringPtrOutput `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrOutput `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
@@ -255,6 +257,8 @@ func GetFlowLog(ctx *pulumi.Context,
 type flowLogState struct {
 	// The ARN of the Flow Log.
 	Arn *string `pulumi:"arn"`
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
@@ -295,6 +299,8 @@ type flowLogState struct {
 type FlowLogState struct {
 	// The ARN of the Flow Log.
 	Arn pulumi.StringPtrInput
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole pulumi.StringPtrInput
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrInput
 	// Elastic Network Interface ID to attach to
@@ -337,6 +343,8 @@ func (FlowLogState) ElementType() reflect.Type {
 }
 
 type flowLogArgs struct {
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
@@ -374,6 +382,8 @@ type flowLogArgs struct {
 
 // The set of arguments for constructing a FlowLog resource.
 type FlowLogArgs struct {
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole pulumi.StringPtrInput
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrInput
 	// Elastic Network Interface ID to attach to
@@ -499,6 +509,11 @@ func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOu
 // The ARN of the Flow Log.
 func (o FlowLogOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+func (o FlowLogOutput) DeliverCrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.DeliverCrossAccountRole }).(pulumi.StringPtrOutput)
 }
 
 // Describes the destination options for a flow log. More details below.

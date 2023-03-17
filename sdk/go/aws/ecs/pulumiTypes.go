@@ -6115,6 +6115,1217 @@ func (o GetClusterSettingArrayOutput) Index(i pulumi.IntInput) GetClusterSetting
 	}).(GetClusterSettingOutput)
 }
 
+type GetTaskExecutionCapacityProviderStrategy struct {
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	Base *int `pulumi:"base"`
+	// Name of the capacity provider.
+	CapacityProvider string `pulumi:"capacityProvider"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+	Weight *int `pulumi:"weight"`
+}
+
+// GetTaskExecutionCapacityProviderStrategyInput is an input type that accepts GetTaskExecutionCapacityProviderStrategyArgs and GetTaskExecutionCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `GetTaskExecutionCapacityProviderStrategyInput` via:
+//
+//	GetTaskExecutionCapacityProviderStrategyArgs{...}
+type GetTaskExecutionCapacityProviderStrategyInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionCapacityProviderStrategyOutput() GetTaskExecutionCapacityProviderStrategyOutput
+	ToGetTaskExecutionCapacityProviderStrategyOutputWithContext(context.Context) GetTaskExecutionCapacityProviderStrategyOutput
+}
+
+type GetTaskExecutionCapacityProviderStrategyArgs struct {
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// Name of the capacity provider.
+	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (GetTaskExecutionCapacityProviderStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i GetTaskExecutionCapacityProviderStrategyArgs) ToGetTaskExecutionCapacityProviderStrategyOutput() GetTaskExecutionCapacityProviderStrategyOutput {
+	return i.ToGetTaskExecutionCapacityProviderStrategyOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionCapacityProviderStrategyArgs) ToGetTaskExecutionCapacityProviderStrategyOutputWithContext(ctx context.Context) GetTaskExecutionCapacityProviderStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionCapacityProviderStrategyOutput)
+}
+
+// GetTaskExecutionCapacityProviderStrategyArrayInput is an input type that accepts GetTaskExecutionCapacityProviderStrategyArray and GetTaskExecutionCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `GetTaskExecutionCapacityProviderStrategyArrayInput` via:
+//
+//	GetTaskExecutionCapacityProviderStrategyArray{ GetTaskExecutionCapacityProviderStrategyArgs{...} }
+type GetTaskExecutionCapacityProviderStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionCapacityProviderStrategyArrayOutput() GetTaskExecutionCapacityProviderStrategyArrayOutput
+	ToGetTaskExecutionCapacityProviderStrategyArrayOutputWithContext(context.Context) GetTaskExecutionCapacityProviderStrategyArrayOutput
+}
+
+type GetTaskExecutionCapacityProviderStrategyArray []GetTaskExecutionCapacityProviderStrategyInput
+
+func (GetTaskExecutionCapacityProviderStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i GetTaskExecutionCapacityProviderStrategyArray) ToGetTaskExecutionCapacityProviderStrategyArrayOutput() GetTaskExecutionCapacityProviderStrategyArrayOutput {
+	return i.ToGetTaskExecutionCapacityProviderStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionCapacityProviderStrategyArray) ToGetTaskExecutionCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) GetTaskExecutionCapacityProviderStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionCapacityProviderStrategyArrayOutput)
+}
+
+type GetTaskExecutionCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionCapacityProviderStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o GetTaskExecutionCapacityProviderStrategyOutput) ToGetTaskExecutionCapacityProviderStrategyOutput() GetTaskExecutionCapacityProviderStrategyOutput {
+	return o
+}
+
+func (o GetTaskExecutionCapacityProviderStrategyOutput) ToGetTaskExecutionCapacityProviderStrategyOutputWithContext(ctx context.Context) GetTaskExecutionCapacityProviderStrategyOutput {
+	return o
+}
+
+// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+func (o GetTaskExecutionCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
+}
+
+// Name of the capacity provider.
+func (o GetTaskExecutionCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
+}
+
+// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+func (o GetTaskExecutionCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type GetTaskExecutionCapacityProviderStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionCapacityProviderStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o GetTaskExecutionCapacityProviderStrategyArrayOutput) ToGetTaskExecutionCapacityProviderStrategyArrayOutput() GetTaskExecutionCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionCapacityProviderStrategyArrayOutput) ToGetTaskExecutionCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) GetTaskExecutionCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) GetTaskExecutionCapacityProviderStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionCapacityProviderStrategy {
+		return vs[0].([]GetTaskExecutionCapacityProviderStrategy)[vs[1].(int)]
+	}).(GetTaskExecutionCapacityProviderStrategyOutput)
+}
+
+type GetTaskExecutionNetworkConfiguration struct {
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	AssignPublicIp *bool `pulumi:"assignPublicIp"`
+	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Subnets associated with the task or service.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// GetTaskExecutionNetworkConfigurationInput is an input type that accepts GetTaskExecutionNetworkConfigurationArgs and GetTaskExecutionNetworkConfigurationOutput values.
+// You can construct a concrete instance of `GetTaskExecutionNetworkConfigurationInput` via:
+//
+//	GetTaskExecutionNetworkConfigurationArgs{...}
+type GetTaskExecutionNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionNetworkConfigurationOutput() GetTaskExecutionNetworkConfigurationOutput
+	ToGetTaskExecutionNetworkConfigurationOutputWithContext(context.Context) GetTaskExecutionNetworkConfigurationOutput
+}
+
+type GetTaskExecutionNetworkConfigurationArgs struct {
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
+	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// Subnets associated with the task or service.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (GetTaskExecutionNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskExecutionNetworkConfigurationArgs) ToGetTaskExecutionNetworkConfigurationOutput() GetTaskExecutionNetworkConfigurationOutput {
+	return i.ToGetTaskExecutionNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionNetworkConfigurationArgs) ToGetTaskExecutionNetworkConfigurationOutputWithContext(ctx context.Context) GetTaskExecutionNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionNetworkConfigurationOutput)
+}
+
+func (i GetTaskExecutionNetworkConfigurationArgs) ToGetTaskExecutionNetworkConfigurationPtrOutput() GetTaskExecutionNetworkConfigurationPtrOutput {
+	return i.ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionNetworkConfigurationArgs) ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(ctx context.Context) GetTaskExecutionNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionNetworkConfigurationOutput).ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// GetTaskExecutionNetworkConfigurationPtrInput is an input type that accepts GetTaskExecutionNetworkConfigurationArgs, GetTaskExecutionNetworkConfigurationPtr and GetTaskExecutionNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `GetTaskExecutionNetworkConfigurationPtrInput` via:
+//
+//	        GetTaskExecutionNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTaskExecutionNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionNetworkConfigurationPtrOutput() GetTaskExecutionNetworkConfigurationPtrOutput
+	ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(context.Context) GetTaskExecutionNetworkConfigurationPtrOutput
+}
+
+type getTaskExecutionNetworkConfigurationPtrType GetTaskExecutionNetworkConfigurationArgs
+
+func GetTaskExecutionNetworkConfigurationPtr(v *GetTaskExecutionNetworkConfigurationArgs) GetTaskExecutionNetworkConfigurationPtrInput {
+	return (*getTaskExecutionNetworkConfigurationPtrType)(v)
+}
+
+func (*getTaskExecutionNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTaskExecutionNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *getTaskExecutionNetworkConfigurationPtrType) ToGetTaskExecutionNetworkConfigurationPtrOutput() GetTaskExecutionNetworkConfigurationPtrOutput {
+	return i.ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *getTaskExecutionNetworkConfigurationPtrType) ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(ctx context.Context) GetTaskExecutionNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionNetworkConfigurationPtrOutput)
+}
+
+type GetTaskExecutionNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskExecutionNetworkConfigurationOutput) ToGetTaskExecutionNetworkConfigurationOutput() GetTaskExecutionNetworkConfigurationOutput {
+	return o
+}
+
+func (o GetTaskExecutionNetworkConfigurationOutput) ToGetTaskExecutionNetworkConfigurationOutputWithContext(ctx context.Context) GetTaskExecutionNetworkConfigurationOutput {
+	return o
+}
+
+func (o GetTaskExecutionNetworkConfigurationOutput) ToGetTaskExecutionNetworkConfigurationPtrOutput() GetTaskExecutionNetworkConfigurationPtrOutput {
+	return o.ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GetTaskExecutionNetworkConfigurationOutput) ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(ctx context.Context) GetTaskExecutionNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTaskExecutionNetworkConfiguration) *GetTaskExecutionNetworkConfiguration {
+		return &v
+	}).(GetTaskExecutionNetworkConfigurationPtrOutput)
+}
+
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+func (o GetTaskExecutionNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
+}
+
+// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+func (o GetTaskExecutionNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTaskExecutionNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// Subnets associated with the task or service.
+func (o GetTaskExecutionNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTaskExecutionNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type GetTaskExecutionNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTaskExecutionNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskExecutionNetworkConfigurationPtrOutput) ToGetTaskExecutionNetworkConfigurationPtrOutput() GetTaskExecutionNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o GetTaskExecutionNetworkConfigurationPtrOutput) ToGetTaskExecutionNetworkConfigurationPtrOutputWithContext(ctx context.Context) GetTaskExecutionNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o GetTaskExecutionNetworkConfigurationPtrOutput) Elem() GetTaskExecutionNetworkConfigurationOutput {
+	return o.ApplyT(func(v *GetTaskExecutionNetworkConfiguration) GetTaskExecutionNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GetTaskExecutionNetworkConfiguration
+		return ret
+	}).(GetTaskExecutionNetworkConfigurationOutput)
+}
+
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+func (o GetTaskExecutionNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetTaskExecutionNetworkConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPublicIp
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+func (o GetTaskExecutionNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetTaskExecutionNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Subnets associated with the task or service.
+func (o GetTaskExecutionNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetTaskExecutionNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetTaskExecutionOverrides struct {
+	// One or more container overrides that are sent to a task. See below.
+	ContainerOverrides []GetTaskExecutionOverridesContainerOverride `pulumi:"containerOverrides"`
+	// The CPU override for the task.
+	Cpu *string `pulumi:"cpu"`
+	// Amazon Resource Name (ARN) of the task execution role override for the task.
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
+	// Elastic Inference accelerator override for the task. See below.
+	InferenceAcceleratorOverrides []GetTaskExecutionOverridesInferenceAcceleratorOverride `pulumi:"inferenceAcceleratorOverrides"`
+	// The memory override for the task.
+	Memory *string `pulumi:"memory"`
+	// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+	TaskRoleArn *string `pulumi:"taskRoleArn"`
+}
+
+// GetTaskExecutionOverridesInput is an input type that accepts GetTaskExecutionOverridesArgs and GetTaskExecutionOverridesOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesInput` via:
+//
+//	GetTaskExecutionOverridesArgs{...}
+type GetTaskExecutionOverridesInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesOutput() GetTaskExecutionOverridesOutput
+	ToGetTaskExecutionOverridesOutputWithContext(context.Context) GetTaskExecutionOverridesOutput
+}
+
+type GetTaskExecutionOverridesArgs struct {
+	// One or more container overrides that are sent to a task. See below.
+	ContainerOverrides GetTaskExecutionOverridesContainerOverrideArrayInput `pulumi:"containerOverrides"`
+	// The CPU override for the task.
+	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
+	// Amazon Resource Name (ARN) of the task execution role override for the task.
+	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
+	// Elastic Inference accelerator override for the task. See below.
+	InferenceAcceleratorOverrides GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput `pulumi:"inferenceAcceleratorOverrides"`
+	// The memory override for the task.
+	Memory pulumi.StringPtrInput `pulumi:"memory"`
+	// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+	TaskRoleArn pulumi.StringPtrInput `pulumi:"taskRoleArn"`
+}
+
+func (GetTaskExecutionOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverrides)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesArgs) ToGetTaskExecutionOverridesOutput() GetTaskExecutionOverridesOutput {
+	return i.ToGetTaskExecutionOverridesOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesArgs) ToGetTaskExecutionOverridesOutputWithContext(ctx context.Context) GetTaskExecutionOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesOutput)
+}
+
+func (i GetTaskExecutionOverridesArgs) ToGetTaskExecutionOverridesPtrOutput() GetTaskExecutionOverridesPtrOutput {
+	return i.ToGetTaskExecutionOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesArgs) ToGetTaskExecutionOverridesPtrOutputWithContext(ctx context.Context) GetTaskExecutionOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesOutput).ToGetTaskExecutionOverridesPtrOutputWithContext(ctx)
+}
+
+// GetTaskExecutionOverridesPtrInput is an input type that accepts GetTaskExecutionOverridesArgs, GetTaskExecutionOverridesPtr and GetTaskExecutionOverridesPtrOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesPtrInput` via:
+//
+//	        GetTaskExecutionOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTaskExecutionOverridesPtrInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesPtrOutput() GetTaskExecutionOverridesPtrOutput
+	ToGetTaskExecutionOverridesPtrOutputWithContext(context.Context) GetTaskExecutionOverridesPtrOutput
+}
+
+type getTaskExecutionOverridesPtrType GetTaskExecutionOverridesArgs
+
+func GetTaskExecutionOverridesPtr(v *GetTaskExecutionOverridesArgs) GetTaskExecutionOverridesPtrInput {
+	return (*getTaskExecutionOverridesPtrType)(v)
+}
+
+func (*getTaskExecutionOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTaskExecutionOverrides)(nil)).Elem()
+}
+
+func (i *getTaskExecutionOverridesPtrType) ToGetTaskExecutionOverridesPtrOutput() GetTaskExecutionOverridesPtrOutput {
+	return i.ToGetTaskExecutionOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *getTaskExecutionOverridesPtrType) ToGetTaskExecutionOverridesPtrOutputWithContext(ctx context.Context) GetTaskExecutionOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesPtrOutput)
+}
+
+type GetTaskExecutionOverridesOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverrides)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesOutput) ToGetTaskExecutionOverridesOutput() GetTaskExecutionOverridesOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesOutput) ToGetTaskExecutionOverridesOutputWithContext(ctx context.Context) GetTaskExecutionOverridesOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesOutput) ToGetTaskExecutionOverridesPtrOutput() GetTaskExecutionOverridesPtrOutput {
+	return o.ToGetTaskExecutionOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o GetTaskExecutionOverridesOutput) ToGetTaskExecutionOverridesPtrOutputWithContext(ctx context.Context) GetTaskExecutionOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTaskExecutionOverrides) *GetTaskExecutionOverrides {
+		return &v
+	}).(GetTaskExecutionOverridesPtrOutput)
+}
+
+// One or more container overrides that are sent to a task. See below.
+func (o GetTaskExecutionOverridesOutput) ContainerOverrides() GetTaskExecutionOverridesContainerOverrideArrayOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverrides) []GetTaskExecutionOverridesContainerOverride {
+		return v.ContainerOverrides
+	}).(GetTaskExecutionOverridesContainerOverrideArrayOutput)
+}
+
+// The CPU override for the task.
+func (o GetTaskExecutionOverridesOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.Cpu }).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the task execution role override for the task.
+func (o GetTaskExecutionOverridesOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Elastic Inference accelerator override for the task. See below.
+func (o GetTaskExecutionOverridesOutput) InferenceAcceleratorOverrides() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverrides) []GetTaskExecutionOverridesInferenceAcceleratorOverride {
+		return v.InferenceAcceleratorOverrides
+	}).(GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput)
+}
+
+// The memory override for the task.
+func (o GetTaskExecutionOverridesOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+func (o GetTaskExecutionOverridesOutput) TaskRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type GetTaskExecutionOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTaskExecutionOverrides)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesPtrOutput) ToGetTaskExecutionOverridesPtrOutput() GetTaskExecutionOverridesPtrOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesPtrOutput) ToGetTaskExecutionOverridesPtrOutputWithContext(ctx context.Context) GetTaskExecutionOverridesPtrOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesPtrOutput) Elem() GetTaskExecutionOverridesOutput {
+	return o.ApplyT(func(v *GetTaskExecutionOverrides) GetTaskExecutionOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret GetTaskExecutionOverrides
+		return ret
+	}).(GetTaskExecutionOverridesOutput)
+}
+
+// One or more container overrides that are sent to a task. See below.
+func (o GetTaskExecutionOverridesPtrOutput) ContainerOverrides() GetTaskExecutionOverridesContainerOverrideArrayOutput {
+	return o.ApplyT(func(v *GetTaskExecutionOverrides) []GetTaskExecutionOverridesContainerOverride {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerOverrides
+	}).(GetTaskExecutionOverridesContainerOverrideArrayOutput)
+}
+
+// The CPU override for the task.
+func (o GetTaskExecutionOverridesPtrOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTaskExecutionOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the task execution role override for the task.
+func (o GetTaskExecutionOverridesPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTaskExecutionOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Elastic Inference accelerator override for the task. See below.
+func (o GetTaskExecutionOverridesPtrOutput) InferenceAcceleratorOverrides() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
+	return o.ApplyT(func(v *GetTaskExecutionOverrides) []GetTaskExecutionOverridesInferenceAcceleratorOverride {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAcceleratorOverrides
+	}).(GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput)
+}
+
+// The memory override for the task.
+func (o GetTaskExecutionOverridesPtrOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTaskExecutionOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+func (o GetTaskExecutionOverridesPtrOutput) TaskRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTaskExecutionOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TaskRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverride struct {
+	// The command to send to the container that overrides the default command from the Docker image or the task definition.
+	Commands []string `pulumi:"commands"`
+	// The number of cpu units reserved for the container, instead of the default value from the task definition.
+	Cpu *int `pulumi:"cpu"`
+	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+	Environments []GetTaskExecutionOverridesContainerOverrideEnvironment `pulumi:"environments"`
+	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+	Memory *int `pulumi:"memory"`
+	// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+	MemoryReservation *int `pulumi:"memoryReservation"`
+	// The name of the container that receives the override. This parameter is required if any override is specified.
+	Name string `pulumi:"name"`
+	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+	ResourceRequirements []GetTaskExecutionOverridesContainerOverrideResourceRequirement `pulumi:"resourceRequirements"`
+}
+
+// GetTaskExecutionOverridesContainerOverrideInput is an input type that accepts GetTaskExecutionOverridesContainerOverrideArgs and GetTaskExecutionOverridesContainerOverrideOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesContainerOverrideInput` via:
+//
+//	GetTaskExecutionOverridesContainerOverrideArgs{...}
+type GetTaskExecutionOverridesContainerOverrideInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesContainerOverrideOutput() GetTaskExecutionOverridesContainerOverrideOutput
+	ToGetTaskExecutionOverridesContainerOverrideOutputWithContext(context.Context) GetTaskExecutionOverridesContainerOverrideOutput
+}
+
+type GetTaskExecutionOverridesContainerOverrideArgs struct {
+	// The command to send to the container that overrides the default command from the Docker image or the task definition.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The number of cpu units reserved for the container, instead of the default value from the task definition.
+	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
+	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+	Environments GetTaskExecutionOverridesContainerOverrideEnvironmentArrayInput `pulumi:"environments"`
+	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+	Memory pulumi.IntPtrInput `pulumi:"memory"`
+	// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+	MemoryReservation pulumi.IntPtrInput `pulumi:"memoryReservation"`
+	// The name of the container that receives the override. This parameter is required if any override is specified.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+	ResourceRequirements GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayInput `pulumi:"resourceRequirements"`
+}
+
+func (GetTaskExecutionOverridesContainerOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverridesContainerOverride)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideArgs) ToGetTaskExecutionOverridesContainerOverrideOutput() GetTaskExecutionOverridesContainerOverrideOutput {
+	return i.ToGetTaskExecutionOverridesContainerOverrideOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideArgs) ToGetTaskExecutionOverridesContainerOverrideOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesContainerOverrideOutput)
+}
+
+// GetTaskExecutionOverridesContainerOverrideArrayInput is an input type that accepts GetTaskExecutionOverridesContainerOverrideArray and GetTaskExecutionOverridesContainerOverrideArrayOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesContainerOverrideArrayInput` via:
+//
+//	GetTaskExecutionOverridesContainerOverrideArray{ GetTaskExecutionOverridesContainerOverrideArgs{...} }
+type GetTaskExecutionOverridesContainerOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesContainerOverrideArrayOutput() GetTaskExecutionOverridesContainerOverrideArrayOutput
+	ToGetTaskExecutionOverridesContainerOverrideArrayOutputWithContext(context.Context) GetTaskExecutionOverridesContainerOverrideArrayOutput
+}
+
+type GetTaskExecutionOverridesContainerOverrideArray []GetTaskExecutionOverridesContainerOverrideInput
+
+func (GetTaskExecutionOverridesContainerOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionOverridesContainerOverride)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideArray) ToGetTaskExecutionOverridesContainerOverrideArrayOutput() GetTaskExecutionOverridesContainerOverrideArrayOutput {
+	return i.ToGetTaskExecutionOverridesContainerOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideArray) ToGetTaskExecutionOverridesContainerOverrideArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesContainerOverrideArrayOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesContainerOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverridesContainerOverride)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideOutput) ToGetTaskExecutionOverridesContainerOverrideOutput() GetTaskExecutionOverridesContainerOverrideOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideOutput) ToGetTaskExecutionOverridesContainerOverrideOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideOutput {
+	return o
+}
+
+// The command to send to the container that overrides the default command from the Docker image or the task definition.
+func (o GetTaskExecutionOverridesContainerOverrideOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The number of cpu units reserved for the container, instead of the default value from the task definition.
+func (o GetTaskExecutionOverridesContainerOverrideOutput) Cpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) *int { return v.Cpu }).(pulumi.IntPtrOutput)
+}
+
+// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+func (o GetTaskExecutionOverridesContainerOverrideOutput) Environments() GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) []GetTaskExecutionOverridesContainerOverrideEnvironment {
+		return v.Environments
+	}).(GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput)
+}
+
+// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+func (o GetTaskExecutionOverridesContainerOverrideOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) *int { return v.Memory }).(pulumi.IntPtrOutput)
+}
+
+// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+func (o GetTaskExecutionOverridesContainerOverrideOutput) MemoryReservation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) *int { return v.MemoryReservation }).(pulumi.IntPtrOutput)
+}
+
+// The name of the container that receives the override. This parameter is required if any override is specified.
+func (o GetTaskExecutionOverridesContainerOverrideOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+func (o GetTaskExecutionOverridesContainerOverrideOutput) ResourceRequirements() GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) []GetTaskExecutionOverridesContainerOverrideResourceRequirement {
+		return v.ResourceRequirements
+	}).(GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesContainerOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionOverridesContainerOverride)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideArrayOutput) ToGetTaskExecutionOverridesContainerOverrideArrayOutput() GetTaskExecutionOverridesContainerOverrideArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideArrayOutput) ToGetTaskExecutionOverridesContainerOverrideArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideArrayOutput) Index(i pulumi.IntInput) GetTaskExecutionOverridesContainerOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionOverridesContainerOverride {
+		return vs[0].([]GetTaskExecutionOverridesContainerOverride)[vs[1].(int)]
+	}).(GetTaskExecutionOverridesContainerOverrideOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverrideEnvironment struct {
+	// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+	Key string `pulumi:"key"`
+	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	Value string `pulumi:"value"`
+}
+
+// GetTaskExecutionOverridesContainerOverrideEnvironmentInput is an input type that accepts GetTaskExecutionOverridesContainerOverrideEnvironmentArgs and GetTaskExecutionOverridesContainerOverrideEnvironmentOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesContainerOverrideEnvironmentInput` via:
+//
+//	GetTaskExecutionOverridesContainerOverrideEnvironmentArgs{...}
+type GetTaskExecutionOverridesContainerOverrideEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesContainerOverrideEnvironmentOutput() GetTaskExecutionOverridesContainerOverrideEnvironmentOutput
+	ToGetTaskExecutionOverridesContainerOverrideEnvironmentOutputWithContext(context.Context) GetTaskExecutionOverridesContainerOverrideEnvironmentOutput
+}
+
+type GetTaskExecutionOverridesContainerOverrideEnvironmentArgs struct {
+	// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetTaskExecutionOverridesContainerOverrideEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideEnvironment)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideEnvironmentArgs) ToGetTaskExecutionOverridesContainerOverrideEnvironmentOutput() GetTaskExecutionOverridesContainerOverrideEnvironmentOutput {
+	return i.ToGetTaskExecutionOverridesContainerOverrideEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideEnvironmentArgs) ToGetTaskExecutionOverridesContainerOverrideEnvironmentOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesContainerOverrideEnvironmentOutput)
+}
+
+// GetTaskExecutionOverridesContainerOverrideEnvironmentArrayInput is an input type that accepts GetTaskExecutionOverridesContainerOverrideEnvironmentArray and GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesContainerOverrideEnvironmentArrayInput` via:
+//
+//	GetTaskExecutionOverridesContainerOverrideEnvironmentArray{ GetTaskExecutionOverridesContainerOverrideEnvironmentArgs{...} }
+type GetTaskExecutionOverridesContainerOverrideEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput() GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput
+	ToGetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutputWithContext(context.Context) GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput
+}
+
+type GetTaskExecutionOverridesContainerOverrideEnvironmentArray []GetTaskExecutionOverridesContainerOverrideEnvironmentInput
+
+func (GetTaskExecutionOverridesContainerOverrideEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionOverridesContainerOverrideEnvironment)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideEnvironmentArray) ToGetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput() GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput {
+	return i.ToGetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideEnvironmentArray) ToGetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverrideEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesContainerOverrideEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideEnvironment)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideEnvironmentOutput) ToGetTaskExecutionOverridesContainerOverrideEnvironmentOutput() GetTaskExecutionOverridesContainerOverrideEnvironmentOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideEnvironmentOutput) ToGetTaskExecutionOverridesContainerOverrideEnvironmentOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideEnvironmentOutput {
+	return o
+}
+
+// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+func (o GetTaskExecutionOverridesContainerOverrideEnvironmentOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideEnvironment) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+func (o GetTaskExecutionOverridesContainerOverrideEnvironmentOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideEnvironment) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionOverridesContainerOverrideEnvironment)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput) ToGetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput() GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput) ToGetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput) Index(i pulumi.IntInput) GetTaskExecutionOverridesContainerOverrideEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionOverridesContainerOverrideEnvironment {
+		return vs[0].([]GetTaskExecutionOverridesContainerOverrideEnvironment)[vs[1].(int)]
+	}).(GetTaskExecutionOverridesContainerOverrideEnvironmentOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverrideResourceRequirement struct {
+	// The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+	Type string `pulumi:"type"`
+	// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+	Value string `pulumi:"value"`
+}
+
+// GetTaskExecutionOverridesContainerOverrideResourceRequirementInput is an input type that accepts GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs and GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesContainerOverrideResourceRequirementInput` via:
+//
+//	GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs{...}
+type GetTaskExecutionOverridesContainerOverrideResourceRequirementInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesContainerOverrideResourceRequirementOutput() GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput
+	ToGetTaskExecutionOverridesContainerOverrideResourceRequirementOutputWithContext(context.Context) GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput
+}
+
+type GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs struct {
+	// The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideResourceRequirement)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs) ToGetTaskExecutionOverridesContainerOverrideResourceRequirementOutput() GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput {
+	return i.ToGetTaskExecutionOverridesContainerOverrideResourceRequirementOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs) ToGetTaskExecutionOverridesContainerOverrideResourceRequirementOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput)
+}
+
+// GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayInput is an input type that accepts GetTaskExecutionOverridesContainerOverrideResourceRequirementArray and GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayInput` via:
+//
+//	GetTaskExecutionOverridesContainerOverrideResourceRequirementArray{ GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs{...} }
+type GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput() GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput
+	ToGetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutputWithContext(context.Context) GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput
+}
+
+type GetTaskExecutionOverridesContainerOverrideResourceRequirementArray []GetTaskExecutionOverridesContainerOverrideResourceRequirementInput
+
+func (GetTaskExecutionOverridesContainerOverrideResourceRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionOverridesContainerOverrideResourceRequirement)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideResourceRequirementArray) ToGetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput() GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput {
+	return i.ToGetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesContainerOverrideResourceRequirementArray) ToGetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideResourceRequirement)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) ToGetTaskExecutionOverridesContainerOverrideResourceRequirementOutput() GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) ToGetTaskExecutionOverridesContainerOverrideResourceRequirementOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput {
+	return o
+}
+
+// The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideResourceRequirement) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideResourceRequirement) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionOverridesContainerOverrideResourceRequirement)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput) ToGetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput() GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput) ToGetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput) Index(i pulumi.IntInput) GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionOverridesContainerOverrideResourceRequirement {
+		return vs[0].([]GetTaskExecutionOverridesContainerOverrideResourceRequirement)[vs[1].(int)]
+	}).(GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput)
+}
+
+type GetTaskExecutionOverridesInferenceAcceleratorOverride struct {
+	// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+	DeviceName *string `pulumi:"deviceName"`
+	// The Elastic Inference accelerator type to use.
+	DeviceType *string `pulumi:"deviceType"`
+}
+
+// GetTaskExecutionOverridesInferenceAcceleratorOverrideInput is an input type that accepts GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs and GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesInferenceAcceleratorOverrideInput` via:
+//
+//	GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs{...}
+type GetTaskExecutionOverridesInferenceAcceleratorOverrideInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput
+	ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutputWithContext(context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput
+}
+
+type GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs struct {
+	// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// The Elastic Inference accelerator type to use.
+	DeviceType pulumi.StringPtrInput `pulumi:"deviceType"`
+}
+
+func (GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverridesInferenceAcceleratorOverride)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
+	return i.ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutputWithContext(ctx context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput)
+}
+
+// GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput is an input type that accepts GetTaskExecutionOverridesInferenceAcceleratorOverrideArray and GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput values.
+// You can construct a concrete instance of `GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput` via:
+//
+//	GetTaskExecutionOverridesInferenceAcceleratorOverrideArray{ GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs{...} }
+type GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput
+	ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutputWithContext(context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput
+}
+
+type GetTaskExecutionOverridesInferenceAcceleratorOverrideArray []GetTaskExecutionOverridesInferenceAcceleratorOverrideInput
+
+func (GetTaskExecutionOverridesInferenceAcceleratorOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionOverridesInferenceAcceleratorOverride)(nil)).Elem()
+}
+
+func (i GetTaskExecutionOverridesInferenceAcceleratorOverrideArray) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
+	return i.ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionOverridesInferenceAcceleratorOverrideArray) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput)
+}
+
+type GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionOverridesInferenceAcceleratorOverride)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutputWithContext(ctx context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
+	return o
+}
+
+// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesInferenceAcceleratorOverride) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+// The Elastic Inference accelerator type to use.
+func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) DeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionOverridesInferenceAcceleratorOverride) *string { return v.DeviceType }).(pulumi.StringPtrOutput)
+}
+
+type GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionOverridesInferenceAcceleratorOverride)(nil)).Elem()
+}
+
+func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput) Index(i pulumi.IntInput) GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionOverridesInferenceAcceleratorOverride {
+		return vs[0].([]GetTaskExecutionOverridesInferenceAcceleratorOverride)[vs[1].(int)]
+	}).(GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput)
+}
+
+type GetTaskExecutionPlacementConstraint struct {
+	// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+	Expression *string `pulumi:"expression"`
+	// The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+	Type string `pulumi:"type"`
+}
+
+// GetTaskExecutionPlacementConstraintInput is an input type that accepts GetTaskExecutionPlacementConstraintArgs and GetTaskExecutionPlacementConstraintOutput values.
+// You can construct a concrete instance of `GetTaskExecutionPlacementConstraintInput` via:
+//
+//	GetTaskExecutionPlacementConstraintArgs{...}
+type GetTaskExecutionPlacementConstraintInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionPlacementConstraintOutput() GetTaskExecutionPlacementConstraintOutput
+	ToGetTaskExecutionPlacementConstraintOutputWithContext(context.Context) GetTaskExecutionPlacementConstraintOutput
+}
+
+type GetTaskExecutionPlacementConstraintArgs struct {
+	// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTaskExecutionPlacementConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionPlacementConstraint)(nil)).Elem()
+}
+
+func (i GetTaskExecutionPlacementConstraintArgs) ToGetTaskExecutionPlacementConstraintOutput() GetTaskExecutionPlacementConstraintOutput {
+	return i.ToGetTaskExecutionPlacementConstraintOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionPlacementConstraintArgs) ToGetTaskExecutionPlacementConstraintOutputWithContext(ctx context.Context) GetTaskExecutionPlacementConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionPlacementConstraintOutput)
+}
+
+// GetTaskExecutionPlacementConstraintArrayInput is an input type that accepts GetTaskExecutionPlacementConstraintArray and GetTaskExecutionPlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `GetTaskExecutionPlacementConstraintArrayInput` via:
+//
+//	GetTaskExecutionPlacementConstraintArray{ GetTaskExecutionPlacementConstraintArgs{...} }
+type GetTaskExecutionPlacementConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionPlacementConstraintArrayOutput() GetTaskExecutionPlacementConstraintArrayOutput
+	ToGetTaskExecutionPlacementConstraintArrayOutputWithContext(context.Context) GetTaskExecutionPlacementConstraintArrayOutput
+}
+
+type GetTaskExecutionPlacementConstraintArray []GetTaskExecutionPlacementConstraintInput
+
+func (GetTaskExecutionPlacementConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionPlacementConstraint)(nil)).Elem()
+}
+
+func (i GetTaskExecutionPlacementConstraintArray) ToGetTaskExecutionPlacementConstraintArrayOutput() GetTaskExecutionPlacementConstraintArrayOutput {
+	return i.ToGetTaskExecutionPlacementConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionPlacementConstraintArray) ToGetTaskExecutionPlacementConstraintArrayOutputWithContext(ctx context.Context) GetTaskExecutionPlacementConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionPlacementConstraintArrayOutput)
+}
+
+type GetTaskExecutionPlacementConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionPlacementConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionPlacementConstraint)(nil)).Elem()
+}
+
+func (o GetTaskExecutionPlacementConstraintOutput) ToGetTaskExecutionPlacementConstraintOutput() GetTaskExecutionPlacementConstraintOutput {
+	return o
+}
+
+func (o GetTaskExecutionPlacementConstraintOutput) ToGetTaskExecutionPlacementConstraintOutputWithContext(ctx context.Context) GetTaskExecutionPlacementConstraintOutput {
+	return o
+}
+
+// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+func (o GetTaskExecutionPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+func (o GetTaskExecutionPlacementConstraintOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTaskExecutionPlacementConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionPlacementConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionPlacementConstraint)(nil)).Elem()
+}
+
+func (o GetTaskExecutionPlacementConstraintArrayOutput) ToGetTaskExecutionPlacementConstraintArrayOutput() GetTaskExecutionPlacementConstraintArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionPlacementConstraintArrayOutput) ToGetTaskExecutionPlacementConstraintArrayOutputWithContext(ctx context.Context) GetTaskExecutionPlacementConstraintArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionPlacementConstraintArrayOutput) Index(i pulumi.IntInput) GetTaskExecutionPlacementConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionPlacementConstraint {
+		return vs[0].([]GetTaskExecutionPlacementConstraint)[vs[1].(int)]
+	}).(GetTaskExecutionPlacementConstraintOutput)
+}
+
+type GetTaskExecutionPlacementStrategy struct {
+	// The field to apply the placement strategy against.
+	Field *string `pulumi:"field"`
+	// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+	Type string `pulumi:"type"`
+}
+
+// GetTaskExecutionPlacementStrategyInput is an input type that accepts GetTaskExecutionPlacementStrategyArgs and GetTaskExecutionPlacementStrategyOutput values.
+// You can construct a concrete instance of `GetTaskExecutionPlacementStrategyInput` via:
+//
+//	GetTaskExecutionPlacementStrategyArgs{...}
+type GetTaskExecutionPlacementStrategyInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionPlacementStrategyOutput() GetTaskExecutionPlacementStrategyOutput
+	ToGetTaskExecutionPlacementStrategyOutputWithContext(context.Context) GetTaskExecutionPlacementStrategyOutput
+}
+
+type GetTaskExecutionPlacementStrategyArgs struct {
+	// The field to apply the placement strategy against.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTaskExecutionPlacementStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionPlacementStrategy)(nil)).Elem()
+}
+
+func (i GetTaskExecutionPlacementStrategyArgs) ToGetTaskExecutionPlacementStrategyOutput() GetTaskExecutionPlacementStrategyOutput {
+	return i.ToGetTaskExecutionPlacementStrategyOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionPlacementStrategyArgs) ToGetTaskExecutionPlacementStrategyOutputWithContext(ctx context.Context) GetTaskExecutionPlacementStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionPlacementStrategyOutput)
+}
+
+// GetTaskExecutionPlacementStrategyArrayInput is an input type that accepts GetTaskExecutionPlacementStrategyArray and GetTaskExecutionPlacementStrategyArrayOutput values.
+// You can construct a concrete instance of `GetTaskExecutionPlacementStrategyArrayInput` via:
+//
+//	GetTaskExecutionPlacementStrategyArray{ GetTaskExecutionPlacementStrategyArgs{...} }
+type GetTaskExecutionPlacementStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskExecutionPlacementStrategyArrayOutput() GetTaskExecutionPlacementStrategyArrayOutput
+	ToGetTaskExecutionPlacementStrategyArrayOutputWithContext(context.Context) GetTaskExecutionPlacementStrategyArrayOutput
+}
+
+type GetTaskExecutionPlacementStrategyArray []GetTaskExecutionPlacementStrategyInput
+
+func (GetTaskExecutionPlacementStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionPlacementStrategy)(nil)).Elem()
+}
+
+func (i GetTaskExecutionPlacementStrategyArray) ToGetTaskExecutionPlacementStrategyArrayOutput() GetTaskExecutionPlacementStrategyArrayOutput {
+	return i.ToGetTaskExecutionPlacementStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskExecutionPlacementStrategyArray) ToGetTaskExecutionPlacementStrategyArrayOutputWithContext(ctx context.Context) GetTaskExecutionPlacementStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionPlacementStrategyArrayOutput)
+}
+
+type GetTaskExecutionPlacementStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionPlacementStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskExecutionPlacementStrategy)(nil)).Elem()
+}
+
+func (o GetTaskExecutionPlacementStrategyOutput) ToGetTaskExecutionPlacementStrategyOutput() GetTaskExecutionPlacementStrategyOutput {
+	return o
+}
+
+func (o GetTaskExecutionPlacementStrategyOutput) ToGetTaskExecutionPlacementStrategyOutputWithContext(ctx context.Context) GetTaskExecutionPlacementStrategyOutput {
+	return o
+}
+
+// The field to apply the placement strategy against.
+func (o GetTaskExecutionPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+func (o GetTaskExecutionPlacementStrategyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTaskExecutionPlacementStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskExecutionPlacementStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskExecutionPlacementStrategy)(nil)).Elem()
+}
+
+func (o GetTaskExecutionPlacementStrategyArrayOutput) ToGetTaskExecutionPlacementStrategyArrayOutput() GetTaskExecutionPlacementStrategyArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionPlacementStrategyArrayOutput) ToGetTaskExecutionPlacementStrategyArrayOutputWithContext(ctx context.Context) GetTaskExecutionPlacementStrategyArrayOutput {
+	return o
+}
+
+func (o GetTaskExecutionPlacementStrategyArrayOutput) Index(i pulumi.IntInput) GetTaskExecutionPlacementStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionPlacementStrategy {
+		return vs[0].([]GetTaskExecutionPlacementStrategy)[vs[1].(int)]
+	}).(GetTaskExecutionPlacementStrategyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
@@ -6198,6 +7409,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterServiceConnectDefaultArrayInput)(nil)).Elem(), GetClusterServiceConnectDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingInput)(nil)).Elem(), GetClusterSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingArrayInput)(nil)).Elem(), GetClusterSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionCapacityProviderStrategyInput)(nil)).Elem(), GetTaskExecutionCapacityProviderStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionCapacityProviderStrategyArrayInput)(nil)).Elem(), GetTaskExecutionCapacityProviderStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionNetworkConfigurationInput)(nil)).Elem(), GetTaskExecutionNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionNetworkConfigurationPtrInput)(nil)).Elem(), GetTaskExecutionNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesInput)(nil)).Elem(), GetTaskExecutionOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesPtrInput)(nil)).Elem(), GetTaskExecutionOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideArrayInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideEnvironmentInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideEnvironmentArrayInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideResourceRequirementInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideResourceRequirementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesInferenceAcceleratorOverrideInput)(nil)).Elem(), GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput)(nil)).Elem(), GetTaskExecutionOverridesInferenceAcceleratorOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionPlacementConstraintInput)(nil)).Elem(), GetTaskExecutionPlacementConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionPlacementConstraintArrayInput)(nil)).Elem(), GetTaskExecutionPlacementConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionPlacementStrategyInput)(nil)).Elem(), GetTaskExecutionPlacementStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionPlacementStrategyArrayInput)(nil)).Elem(), GetTaskExecutionPlacementStrategyArray{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingOutput{})
@@ -6280,4 +7509,22 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterServiceConnectDefaultArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionCapacityProviderStrategyOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionCapacityProviderStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesPtrOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionPlacementConstraintOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionPlacementConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionPlacementStrategyOutput{})
+	pulumi.RegisterOutputType(GetTaskExecutionPlacementStrategyArrayOutput{})
 }

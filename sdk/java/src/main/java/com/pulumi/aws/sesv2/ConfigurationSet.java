@@ -11,6 +11,7 @@ import com.pulumi.aws.sesv2.outputs.ConfigurationSetReputationOptions;
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetSendingOptions;
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetSuppressionOptions;
 import com.pulumi.aws.sesv2.outputs.ConfigurationSetTrackingOptions;
+import com.pulumi.aws.sesv2.outputs.ConfigurationSetVdmOptions;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -204,6 +205,20 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ConfigurationSetTrackingOptions>> trackingOptions() {
         return Codegen.optional(this.trackingOptions);
+    }
+    /**
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * 
+     */
+    @Export(name="vdmOptions", refs={ConfigurationSetVdmOptions.class}, tree="[0]")
+    private Output</* @Nullable */ ConfigurationSetVdmOptions> vdmOptions;
+
+    /**
+     * @return An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * 
+     */
+    public Output<Optional<ConfigurationSetVdmOptions>> vdmOptions() {
+        return Codegen.optional(this.vdmOptions);
     }
 
     /**

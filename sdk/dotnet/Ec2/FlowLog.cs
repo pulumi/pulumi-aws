@@ -161,6 +161,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Output("deliverCrossAccountRole")]
+        public Output<string?> DeliverCrossAccountRole { get; private set; } = null!;
+
+        /// <summary>
         /// Describes the destination options for a flow log. More details below.
         /// </summary>
         [Output("destinationOptions")]
@@ -300,6 +306,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class FlowLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Input("deliverCrossAccountRole")]
+        public Input<string>? DeliverCrossAccountRole { get; set; }
+
+        /// <summary>
         /// Describes the destination options for a flow log. More details below.
         /// </summary>
         [Input("destinationOptions")]
@@ -405,6 +417,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Input("deliverCrossAccountRole")]
+        public Input<string>? DeliverCrossAccountRole { get; set; }
 
         /// <summary>
         /// Describes the destination options for a flow log. More details below.

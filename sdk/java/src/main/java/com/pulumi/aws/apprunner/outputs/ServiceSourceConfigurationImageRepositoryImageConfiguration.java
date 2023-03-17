@@ -18,7 +18,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
      */
     private @Nullable String port;
     /**
-     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
      * 
      */
     private @Nullable Map<String,String> runtimeEnvironmentSecrets;
@@ -42,7 +42,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
      * 
      */
     public Map<String,String> runtimeEnvironmentSecrets() {

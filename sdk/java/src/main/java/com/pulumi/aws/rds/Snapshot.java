@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -250,6 +251,20 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
 
     public Output<Integer> port() {
         return this.port;
+    }
+    /**
+     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * 
+     */
+    @Export(name="sharedAccounts", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> sharedAccounts;
+
+    /**
+     * @return List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * 
+     */
+    public Output<Optional<List<String>>> sharedAccounts() {
+        return Codegen.optional(this.sharedAccounts);
     }
     @Export(name="snapshotType", refs={String.class}, tree="[0]")
     private Output<String> snapshotType;

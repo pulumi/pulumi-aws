@@ -504,6 +504,200 @@ func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerProtocolDetails struct {
+	// Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+	As2Transports []string `pulumi:"as2Transports"`
+	// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+	PassiveIp *string `pulumi:"passiveIp"`
+	// Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
+	SetStatOption *string `pulumi:"setStatOption"`
+	// A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+	TlsSessionResumptionMode *string `pulumi:"tlsSessionResumptionMode"`
+}
+
+// ServerProtocolDetailsInput is an input type that accepts ServerProtocolDetailsArgs and ServerProtocolDetailsOutput values.
+// You can construct a concrete instance of `ServerProtocolDetailsInput` via:
+//
+//	ServerProtocolDetailsArgs{...}
+type ServerProtocolDetailsInput interface {
+	pulumi.Input
+
+	ToServerProtocolDetailsOutput() ServerProtocolDetailsOutput
+	ToServerProtocolDetailsOutputWithContext(context.Context) ServerProtocolDetailsOutput
+}
+
+type ServerProtocolDetailsArgs struct {
+	// Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+	As2Transports pulumi.StringArrayInput `pulumi:"as2Transports"`
+	// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+	PassiveIp pulumi.StringPtrInput `pulumi:"passiveIp"`
+	// Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
+	SetStatOption pulumi.StringPtrInput `pulumi:"setStatOption"`
+	// A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+	TlsSessionResumptionMode pulumi.StringPtrInput `pulumi:"tlsSessionResumptionMode"`
+}
+
+func (ServerProtocolDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProtocolDetails)(nil)).Elem()
+}
+
+func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsOutput() ServerProtocolDetailsOutput {
+	return i.ToServerProtocolDetailsOutputWithContext(context.Background())
+}
+
+func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsOutputWithContext(ctx context.Context) ServerProtocolDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsOutput)
+}
+
+func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
+	return i.ToServerProtocolDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsOutput).ToServerProtocolDetailsPtrOutputWithContext(ctx)
+}
+
+// ServerProtocolDetailsPtrInput is an input type that accepts ServerProtocolDetailsArgs, ServerProtocolDetailsPtr and ServerProtocolDetailsPtrOutput values.
+// You can construct a concrete instance of `ServerProtocolDetailsPtrInput` via:
+//
+//	        ServerProtocolDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerProtocolDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput
+	ToServerProtocolDetailsPtrOutputWithContext(context.Context) ServerProtocolDetailsPtrOutput
+}
+
+type serverProtocolDetailsPtrType ServerProtocolDetailsArgs
+
+func ServerProtocolDetailsPtr(v *ServerProtocolDetailsArgs) ServerProtocolDetailsPtrInput {
+	return (*serverProtocolDetailsPtrType)(v)
+}
+
+func (*serverProtocolDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerProtocolDetails)(nil)).Elem()
+}
+
+func (i *serverProtocolDetailsPtrType) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
+	return i.ToServerProtocolDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverProtocolDetailsPtrType) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsPtrOutput)
+}
+
+type ServerProtocolDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServerProtocolDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProtocolDetails)(nil)).Elem()
+}
+
+func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsOutput() ServerProtocolDetailsOutput {
+	return o
+}
+
+func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsOutputWithContext(ctx context.Context) ServerProtocolDetailsOutput {
+	return o
+}
+
+func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
+	return o.ToServerProtocolDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerProtocolDetails) *ServerProtocolDetails {
+		return &v
+	}).(ServerProtocolDetailsPtrOutput)
+}
+
+// Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+func (o ServerProtocolDetailsOutput) As2Transports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) []string { return v.As2Transports }).(pulumi.StringArrayOutput)
+}
+
+// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+func (o ServerProtocolDetailsOutput) PassiveIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.PassiveIp }).(pulumi.StringPtrOutput)
+}
+
+// Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
+func (o ServerProtocolDetailsOutput) SetStatOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.SetStatOption }).(pulumi.StringPtrOutput)
+}
+
+// A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+func (o ServerProtocolDetailsOutput) TlsSessionResumptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.TlsSessionResumptionMode }).(pulumi.StringPtrOutput)
+}
+
+type ServerProtocolDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerProtocolDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerProtocolDetails)(nil)).Elem()
+}
+
+func (o ServerProtocolDetailsPtrOutput) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
+	return o
+}
+
+func (o ServerProtocolDetailsPtrOutput) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
+	return o
+}
+
+func (o ServerProtocolDetailsPtrOutput) Elem() ServerProtocolDetailsOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) ServerProtocolDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServerProtocolDetails
+		return ret
+	}).(ServerProtocolDetailsOutput)
+}
+
+// Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+func (o ServerProtocolDetailsPtrOutput) As2Transports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.As2Transports
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+func (o ServerProtocolDetailsPtrOutput) PassiveIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PassiveIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
+func (o ServerProtocolDetailsPtrOutput) SetStatOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SetStatOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+func (o ServerProtocolDetailsPtrOutput) TlsSessionResumptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsSessionResumptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerWorkflowDetails struct {
 	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
 	OnPartialUpload *ServerWorkflowDetailsOnPartialUpload `pulumi:"onPartialUpload"`
@@ -1258,11 +1452,13 @@ type WorkflowOnExceptionStep struct {
 	CopyStepDetails *WorkflowOnExceptionStepCopyStepDetails `pulumi:"copyStepDetails"`
 	// Details for a step that invokes a lambda function.
 	CustomStepDetails *WorkflowOnExceptionStepCustomStepDetails `pulumi:"customStepDetails"`
+	// Details for a step that decrypts the file.
+	DecryptStepDetails *WorkflowOnExceptionStepDecryptStepDetails `pulumi:"decryptStepDetails"`
 	// Details for a step that deletes the file.
 	DeleteStepDetails *WorkflowOnExceptionStepDeleteStepDetails `pulumi:"deleteStepDetails"`
 	// Details for a step that creates one or more tags.
 	TagStepDetails *WorkflowOnExceptionStepTagStepDetails `pulumi:"tagStepDetails"`
-	// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+	// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
 	Type string `pulumi:"type"`
 }
 
@@ -1282,11 +1478,13 @@ type WorkflowOnExceptionStepArgs struct {
 	CopyStepDetails WorkflowOnExceptionStepCopyStepDetailsPtrInput `pulumi:"copyStepDetails"`
 	// Details for a step that invokes a lambda function.
 	CustomStepDetails WorkflowOnExceptionStepCustomStepDetailsPtrInput `pulumi:"customStepDetails"`
+	// Details for a step that decrypts the file.
+	DecryptStepDetails WorkflowOnExceptionStepDecryptStepDetailsPtrInput `pulumi:"decryptStepDetails"`
 	// Details for a step that deletes the file.
 	DeleteStepDetails WorkflowOnExceptionStepDeleteStepDetailsPtrInput `pulumi:"deleteStepDetails"`
 	// Details for a step that creates one or more tags.
 	TagStepDetails WorkflowOnExceptionStepTagStepDetailsPtrInput `pulumi:"tagStepDetails"`
-	// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+	// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1351,6 +1549,13 @@ func (o WorkflowOnExceptionStepOutput) CustomStepDetails() WorkflowOnExceptionSt
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepCustomStepDetails { return v.CustomStepDetails }).(WorkflowOnExceptionStepCustomStepDetailsPtrOutput)
 }
 
+// Details for a step that decrypts the file.
+func (o WorkflowOnExceptionStepOutput) DecryptStepDetails() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepDecryptStepDetails {
+		return v.DecryptStepDetails
+	}).(WorkflowOnExceptionStepDecryptStepDetailsPtrOutput)
+}
+
 // Details for a step that deletes the file.
 func (o WorkflowOnExceptionStepOutput) DeleteStepDetails() WorkflowOnExceptionStepDeleteStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepDeleteStepDetails { return v.DeleteStepDetails }).(WorkflowOnExceptionStepDeleteStepDetailsPtrOutput)
@@ -1361,7 +1566,7 @@ func (o WorkflowOnExceptionStepOutput) TagStepDetails() WorkflowOnExceptionStepT
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepTagStepDetails { return v.TagStepDetails }).(WorkflowOnExceptionStepTagStepDetailsPtrOutput)
 }
 
-// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
 func (o WorkflowOnExceptionStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2256,6 +2461,701 @@ func (o WorkflowOnExceptionStepCustomStepDetailsPtrOutput) TimeoutSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+type WorkflowOnExceptionStepDecryptStepDetails struct {
+	// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+	DestinationFileLocation *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation `pulumi:"destinationFileLocation"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+	OverwriteExisting *string `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
+	// The type of encryption used. Currently, this value must be `"PGP"`.
+	Type string `pulumi:"type"`
+}
+
+// WorkflowOnExceptionStepDecryptStepDetailsInput is an input type that accepts WorkflowOnExceptionStepDecryptStepDetailsArgs and WorkflowOnExceptionStepDecryptStepDetailsOutput values.
+// You can construct a concrete instance of `WorkflowOnExceptionStepDecryptStepDetailsInput` via:
+//
+//	WorkflowOnExceptionStepDecryptStepDetailsArgs{...}
+type WorkflowOnExceptionStepDecryptStepDetailsInput interface {
+	pulumi.Input
+
+	ToWorkflowOnExceptionStepDecryptStepDetailsOutput() WorkflowOnExceptionStepDecryptStepDetailsOutput
+	ToWorkflowOnExceptionStepDecryptStepDetailsOutputWithContext(context.Context) WorkflowOnExceptionStepDecryptStepDetailsOutput
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsArgs struct {
+	// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+	DestinationFileLocation WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrInput `pulumi:"destinationFileLocation"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+	OverwriteExisting pulumi.StringPtrInput `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
+	// The type of encryption used. Currently, this value must be `"PGP"`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkflowOnExceptionStepDecryptStepDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetails)(nil)).Elem()
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsArgs) ToWorkflowOnExceptionStepDecryptStepDetailsOutput() WorkflowOnExceptionStepDecryptStepDetailsOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsOutputWithContext(context.Background())
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsArgs) ToWorkflowOnExceptionStepDecryptStepDetailsOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsOutput)
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsArgs) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsArgs) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsOutput).ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(ctx)
+}
+
+// WorkflowOnExceptionStepDecryptStepDetailsPtrInput is an input type that accepts WorkflowOnExceptionStepDecryptStepDetailsArgs, WorkflowOnExceptionStepDecryptStepDetailsPtr and WorkflowOnExceptionStepDecryptStepDetailsPtrOutput values.
+// You can construct a concrete instance of `WorkflowOnExceptionStepDecryptStepDetailsPtrInput` via:
+//
+//	        WorkflowOnExceptionStepDecryptStepDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowOnExceptionStepDecryptStepDetailsPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput
+	ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(context.Context) WorkflowOnExceptionStepDecryptStepDetailsPtrOutput
+}
+
+type workflowOnExceptionStepDecryptStepDetailsPtrType WorkflowOnExceptionStepDecryptStepDetailsArgs
+
+func WorkflowOnExceptionStepDecryptStepDetailsPtr(v *WorkflowOnExceptionStepDecryptStepDetailsArgs) WorkflowOnExceptionStepDecryptStepDetailsPtrInput {
+	return (*workflowOnExceptionStepDecryptStepDetailsPtrType)(v)
+}
+
+func (*workflowOnExceptionStepDecryptStepDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowOnExceptionStepDecryptStepDetails)(nil)).Elem()
+}
+
+func (i *workflowOnExceptionStepDecryptStepDetailsPtrType) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowOnExceptionStepDecryptStepDetailsPtrType) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsOutput struct{ *pulumi.OutputState }
+
+func (WorkflowOnExceptionStepDecryptStepDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetails)(nil)).Elem()
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) ToWorkflowOnExceptionStepDecryptStepDetailsOutput() WorkflowOnExceptionStepDecryptStepDetailsOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) ToWorkflowOnExceptionStepDecryptStepDetailsOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return o.ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepDecryptStepDetails) *WorkflowOnExceptionStepDecryptStepDetails {
+		return &v
+	}).(WorkflowOnExceptionStepDecryptStepDetailsPtrOutput)
+}
+
+// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) DestinationFileLocation() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetails) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation {
+		return v.DestinationFileLocation
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) OverwriteExisting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetails) *string { return v.OverwriteExisting }).(pulumi.StringPtrOutput)
+}
+
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption used. Currently, this value must be `"PGP"`.
+func (o WorkflowOnExceptionStepDecryptStepDetailsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetails) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowOnExceptionStepDecryptStepDetails)(nil)).Elem()
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) Elem() WorkflowOnExceptionStepDecryptStepDetailsOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetails) WorkflowOnExceptionStepDecryptStepDetails {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowOnExceptionStepDecryptStepDetails
+		return ret
+	}).(WorkflowOnExceptionStepDecryptStepDetailsOutput)
+}
+
+// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) DestinationFileLocation() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetails) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationFileLocation
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) OverwriteExisting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OverwriteExisting
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceFileLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption used. Currently, this value must be `"PGP"`.
+func (o WorkflowOnExceptionStepDecryptStepDetailsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation struct {
+	// Specifies the details for the EFS file being copied.
+	EfsFileLocation *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation `pulumi:"efsFileLocation"`
+	// Specifies the details for the S3 file being copied.
+	S3FileLocation *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation `pulumi:"s3FileLocation"`
+}
+
+// WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationInput is an input type that accepts WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs and WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput values.
+// You can construct a concrete instance of `WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationInput` via:
+//
+//	WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs{...}
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationInput interface {
+	pulumi.Input
+
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutputWithContext(context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs struct {
+	// Specifies the details for the EFS file being copied.
+	EfsFileLocation WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput `pulumi:"efsFileLocation"`
+	// Specifies the details for the S3 file being copied.
+	S3FileLocation WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput `pulumi:"s3FileLocation"`
+}
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation)(nil)).Elem()
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput)
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput).ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrInput is an input type that accepts WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs, WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtr and WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrInput` via:
+//
+//	        WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput
+}
+
+type workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrType WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs
+
+func WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtr(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrInput {
+	return (*workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrType)(v)
+}
+
+func (*workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation)(nil)).Elem()
+}
+
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrType) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrType) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation {
+		return &v
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+// Specifies the details for the EFS file being copied.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) EfsFileLocation() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
+		return v.EfsFileLocation
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+// Specifies the details for the S3 file being copied.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput) S3FileLocation() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
+		return v.S3FileLocation
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) Elem() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation
+		return ret
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput)
+}
+
+// Specifies the details for the EFS file being copied.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) EfsFileLocation() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
+		if v == nil {
+			return nil
+		}
+		return v.EfsFileLocation
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+// Specifies the details for the S3 file being copied.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput) S3FileLocation() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
+		if v == nil {
+			return nil
+		}
+		return v.S3FileLocation
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation struct {
+	// The ID of the file system, assigned by Amazon EFS.
+	FileSystemId *string `pulumi:"fileSystemId"`
+	// The pathname for the folder being used by a workflow.
+	Path *string `pulumi:"path"`
+}
+
+// WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationInput is an input type that accepts WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs and WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput values.
+// You can construct a concrete instance of `WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationInput` via:
+//
+//	WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationInput interface {
+	pulumi.Input
+
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs struct {
+	// The ID of the file system, assigned by Amazon EFS.
+	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	// The pathname for the folder being used by a workflow.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation)(nil)).Elem()
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput)
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput).ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput is an input type that accepts WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs, WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtr and WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput` via:
+//
+//	        WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput
+}
+
+type workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs
+
+func WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtr(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput {
+	return (*workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType)(v)
+}
+
+func (*workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation)(nil)).Elem()
+}
+
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
+		return &v
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+// The ID of the file system, assigned by Amazon EFS.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *string {
+		return v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pathname for the folder being used by a workflow.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *string {
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Elem() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation
+		return ret
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput)
+}
+
+// The ID of the file system, assigned by Amazon EFS.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pathname for the folder being used by a workflow.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation struct {
+	// Specifies the S3 bucket for the customer input file.
+	Bucket *string `pulumi:"bucket"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key *string `pulumi:"key"`
+}
+
+// WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput is an input type that accepts WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs and WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput values.
+// You can construct a concrete instance of `WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput` via:
+//
+//	WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs{...}
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput interface {
+	pulumi.Input
+
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs struct {
+	// Specifies the S3 bucket for the customer input file.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation)(nil)).Elem()
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput)
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput).ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput is an input type that accepts WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs, WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtr and WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput` via:
+//
+//	        WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput
+	ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput
+}
+
+type workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs
+
+func WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtr(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput {
+	return (*workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType)(v)
+}
+
+func (*workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation)(nil)).Elem()
+}
+
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return i.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation)(nil)).Elem()
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o.ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
+		return &v
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+// Specifies the S3 bucket for the customer input file.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation)(nil)).Elem()
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToWorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Elem() WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation
+		return ret
+	}).(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput)
+}
+
+// Specifies the S3 bucket for the customer input file.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkflowOnExceptionStepDeleteStepDetails struct {
 	// The name of the step, used as an identifier.
 	Name *string `pulumi:"name"`
@@ -2700,11 +3600,13 @@ type WorkflowStep struct {
 	CopyStepDetails *WorkflowStepCopyStepDetails `pulumi:"copyStepDetails"`
 	// Details for a step that invokes a lambda function.
 	CustomStepDetails *WorkflowStepCustomStepDetails `pulumi:"customStepDetails"`
+	// Details for a step that decrypts the file.
+	DecryptStepDetails *WorkflowStepDecryptStepDetails `pulumi:"decryptStepDetails"`
 	// Details for a step that deletes the file.
 	DeleteStepDetails *WorkflowStepDeleteStepDetails `pulumi:"deleteStepDetails"`
 	// Details for a step that creates one or more tags.
 	TagStepDetails *WorkflowStepTagStepDetails `pulumi:"tagStepDetails"`
-	// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+	// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
 	Type string `pulumi:"type"`
 }
 
@@ -2724,11 +3626,13 @@ type WorkflowStepArgs struct {
 	CopyStepDetails WorkflowStepCopyStepDetailsPtrInput `pulumi:"copyStepDetails"`
 	// Details for a step that invokes a lambda function.
 	CustomStepDetails WorkflowStepCustomStepDetailsPtrInput `pulumi:"customStepDetails"`
+	// Details for a step that decrypts the file.
+	DecryptStepDetails WorkflowStepDecryptStepDetailsPtrInput `pulumi:"decryptStepDetails"`
 	// Details for a step that deletes the file.
 	DeleteStepDetails WorkflowStepDeleteStepDetailsPtrInput `pulumi:"deleteStepDetails"`
 	// Details for a step that creates one or more tags.
 	TagStepDetails WorkflowStepTagStepDetailsPtrInput `pulumi:"tagStepDetails"`
-	// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+	// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2793,6 +3697,11 @@ func (o WorkflowStepOutput) CustomStepDetails() WorkflowStepCustomStepDetailsPtr
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCustomStepDetails { return v.CustomStepDetails }).(WorkflowStepCustomStepDetailsPtrOutput)
 }
 
+// Details for a step that decrypts the file.
+func (o WorkflowStepOutput) DecryptStepDetails() WorkflowStepDecryptStepDetailsPtrOutput {
+	return o.ApplyT(func(v WorkflowStep) *WorkflowStepDecryptStepDetails { return v.DecryptStepDetails }).(WorkflowStepDecryptStepDetailsPtrOutput)
+}
+
 // Details for a step that deletes the file.
 func (o WorkflowStepOutput) DeleteStepDetails() WorkflowStepDeleteStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepDeleteStepDetails { return v.DeleteStepDetails }).(WorkflowStepDeleteStepDetailsPtrOutput)
@@ -2803,7 +3712,7 @@ func (o WorkflowStepOutput) TagStepDetails() WorkflowStepTagStepDetailsPtrOutput
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepTagStepDetails { return v.TagStepDetails }).(WorkflowStepTagStepDetailsPtrOutput)
 }
 
-// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
 func (o WorkflowStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3692,6 +4601,695 @@ func (o WorkflowStepCustomStepDetailsPtrOutput) TimeoutSeconds() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type WorkflowStepDecryptStepDetails struct {
+	// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+	DestinationFileLocation *WorkflowStepDecryptStepDetailsDestinationFileLocation `pulumi:"destinationFileLocation"`
+	// The name of the step, used as an identifier.
+	Name *string `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+	OverwriteExisting *string `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation *string `pulumi:"sourceFileLocation"`
+	// The type of encryption used. Currently, this value must be `"PGP"`.
+	Type string `pulumi:"type"`
+}
+
+// WorkflowStepDecryptStepDetailsInput is an input type that accepts WorkflowStepDecryptStepDetailsArgs and WorkflowStepDecryptStepDetailsOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsInput` via:
+//
+//	WorkflowStepDecryptStepDetailsArgs{...}
+type WorkflowStepDecryptStepDetailsInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsOutput() WorkflowStepDecryptStepDetailsOutput
+	ToWorkflowStepDecryptStepDetailsOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsOutput
+}
+
+type WorkflowStepDecryptStepDetailsArgs struct {
+	// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+	DestinationFileLocation WorkflowStepDecryptStepDetailsDestinationFileLocationPtrInput `pulumi:"destinationFileLocation"`
+	// The name of the step, used as an identifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+	OverwriteExisting pulumi.StringPtrInput `pulumi:"overwriteExisting"`
+	// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
+	// The type of encryption used. Currently, this value must be `"PGP"`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkflowStepDecryptStepDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetails)(nil)).Elem()
+}
+
+func (i WorkflowStepDecryptStepDetailsArgs) ToWorkflowStepDecryptStepDetailsOutput() WorkflowStepDecryptStepDetailsOutput {
+	return i.ToWorkflowStepDecryptStepDetailsOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDecryptStepDetailsArgs) ToWorkflowStepDecryptStepDetailsOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsOutput)
+}
+
+func (i WorkflowStepDecryptStepDetailsArgs) ToWorkflowStepDecryptStepDetailsPtrOutput() WorkflowStepDecryptStepDetailsPtrOutput {
+	return i.ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDecryptStepDetailsArgs) ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsOutput).ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(ctx)
+}
+
+// WorkflowStepDecryptStepDetailsPtrInput is an input type that accepts WorkflowStepDecryptStepDetailsArgs, WorkflowStepDecryptStepDetailsPtr and WorkflowStepDecryptStepDetailsPtrOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsPtrInput` via:
+//
+//	        WorkflowStepDecryptStepDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowStepDecryptStepDetailsPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsPtrOutput() WorkflowStepDecryptStepDetailsPtrOutput
+	ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsPtrOutput
+}
+
+type workflowStepDecryptStepDetailsPtrType WorkflowStepDecryptStepDetailsArgs
+
+func WorkflowStepDecryptStepDetailsPtr(v *WorkflowStepDecryptStepDetailsArgs) WorkflowStepDecryptStepDetailsPtrInput {
+	return (*workflowStepDecryptStepDetailsPtrType)(v)
+}
+
+func (*workflowStepDecryptStepDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetails)(nil)).Elem()
+}
+
+func (i *workflowStepDecryptStepDetailsPtrType) ToWorkflowStepDecryptStepDetailsPtrOutput() WorkflowStepDecryptStepDetailsPtrOutput {
+	return i.ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepDecryptStepDetailsPtrType) ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetails)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsOutput) ToWorkflowStepDecryptStepDetailsOutput() WorkflowStepDecryptStepDetailsOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsOutput) ToWorkflowStepDecryptStepDetailsOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsOutput) ToWorkflowStepDecryptStepDetailsPtrOutput() WorkflowStepDecryptStepDetailsPtrOutput {
+	return o.ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsOutput) ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetails) *WorkflowStepDecryptStepDetails {
+		return &v
+	}).(WorkflowStepDecryptStepDetailsPtrOutput)
+}
+
+// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+func (o WorkflowStepDecryptStepDetailsOutput) DestinationFileLocation() WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetails) *WorkflowStepDecryptStepDetailsDestinationFileLocation {
+		return v.DestinationFileLocation
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepDecryptStepDetailsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+func (o WorkflowStepDecryptStepDetailsOutput) OverwriteExisting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetails) *string { return v.OverwriteExisting }).(pulumi.StringPtrOutput)
+}
+
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+func (o WorkflowStepDecryptStepDetailsOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetails) *string { return v.SourceFileLocation }).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption used. Currently, this value must be `"PGP"`.
+func (o WorkflowStepDecryptStepDetailsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetails) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkflowStepDecryptStepDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetails)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsPtrOutput) ToWorkflowStepDecryptStepDetailsPtrOutput() WorkflowStepDecryptStepDetailsPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPtrOutput) ToWorkflowStepDecryptStepDetailsPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPtrOutput) Elem() WorkflowStepDecryptStepDetailsOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetails) WorkflowStepDecryptStepDetails {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepDecryptStepDetails
+		return ret
+	}).(WorkflowStepDecryptStepDetailsOutput)
+}
+
+// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+func (o WorkflowStepDecryptStepDetailsPtrOutput) DestinationFileLocation() WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetails) *WorkflowStepDecryptStepDetailsDestinationFileLocation {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationFileLocation
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+// The name of the step, used as an identifier.
+func (o WorkflowStepDecryptStepDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+func (o WorkflowStepDecryptStepDetailsPtrOutput) OverwriteExisting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OverwriteExisting
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+func (o WorkflowStepDecryptStepDetailsPtrOutput) SourceFileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceFileLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption used. Currently, this value must be `"PGP"`.
+func (o WorkflowStepDecryptStepDetailsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocation struct {
+	// Specifies the details for the EFS file being copied.
+	EfsFileLocation *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation `pulumi:"efsFileLocation"`
+	// Specifies the details for the S3 file being copied.
+	S3FileLocation *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation `pulumi:"s3FileLocation"`
+}
+
+// WorkflowStepDecryptStepDetailsDestinationFileLocationInput is an input type that accepts WorkflowStepDecryptStepDetailsDestinationFileLocationArgs and WorkflowStepDecryptStepDetailsDestinationFileLocationOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsDestinationFileLocationInput` via:
+//
+//	WorkflowStepDecryptStepDetailsDestinationFileLocationArgs{...}
+type WorkflowStepDecryptStepDetailsDestinationFileLocationInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationOutput
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationOutput
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationArgs struct {
+	// Specifies the details for the EFS file being copied.
+	EfsFileLocation WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput `pulumi:"efsFileLocation"`
+	// Specifies the details for the S3 file being copied.
+	S3FileLocation WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput `pulumi:"s3FileLocation"`
+}
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocation)(nil)).Elem()
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationOutput)
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationOutput).ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowStepDecryptStepDetailsDestinationFileLocationPtrInput is an input type that accepts WorkflowStepDecryptStepDetailsDestinationFileLocationArgs, WorkflowStepDecryptStepDetailsDestinationFileLocationPtr and WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsDestinationFileLocationPtrInput` via:
+//
+//	        WorkflowStepDecryptStepDetailsDestinationFileLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowStepDecryptStepDetailsDestinationFileLocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput
+}
+
+type workflowStepDecryptStepDetailsDestinationFileLocationPtrType WorkflowStepDecryptStepDetailsDestinationFileLocationArgs
+
+func WorkflowStepDecryptStepDetailsDestinationFileLocationPtr(v *WorkflowStepDecryptStepDetailsDestinationFileLocationArgs) WorkflowStepDecryptStepDetailsDestinationFileLocationPtrInput {
+	return (*workflowStepDecryptStepDetailsDestinationFileLocationPtrType)(v)
+}
+
+func (*workflowStepDecryptStepDetailsDestinationFileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetailsDestinationFileLocation)(nil)).Elem()
+}
+
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationPtrType) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationPtrType) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o.ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetailsDestinationFileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocation {
+		return &v
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput)
+}
+
+// Specifies the details for the EFS file being copied.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) EfsFileLocation() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
+		return v.EfsFileLocation
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+// Specifies the details for the S3 file being copied.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationOutput) S3FileLocation() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
+		return v.S3FileLocation
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetailsDestinationFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) Elem() WorkflowStepDecryptStepDetailsDestinationFileLocationOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocation) WorkflowStepDecryptStepDetailsDestinationFileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepDecryptStepDetailsDestinationFileLocation
+		return ret
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationOutput)
+}
+
+// Specifies the details for the EFS file being copied.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) EfsFileLocation() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
+		if v == nil {
+			return nil
+		}
+		return v.EfsFileLocation
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+// Specifies the details for the S3 file being copied.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput) S3FileLocation() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
+		if v == nil {
+			return nil
+		}
+		return v.S3FileLocation
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation struct {
+	// The ID of the file system, assigned by Amazon EFS.
+	FileSystemId *string `pulumi:"fileSystemId"`
+	// The pathname for the folder being used by a workflow.
+	Path *string `pulumi:"path"`
+}
+
+// WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationInput is an input type that accepts WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs and WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationInput` via:
+//
+//	WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
+type WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs struct {
+	// The ID of the file system, assigned by Amazon EFS.
+	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	// The pathname for the folder being used by a workflow.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation)(nil)).Elem()
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput)
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput).ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput is an input type that accepts WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs, WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtr and WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput` via:
+//
+//	        WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput
+}
+
+type workflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs
+
+func WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtr(v *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput {
+	return (*workflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType)(v)
+}
+
+func (*workflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation)(nil)).Elem()
+}
+
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrType) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o.ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
+		return &v
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput)
+}
+
+// The ID of the file system, assigned by Amazon EFS.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *string {
+		return v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pathname for the folder being used by a workflow.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Elem() WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation
+		return ret
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput)
+}
+
+// The ID of the file system, assigned by Amazon EFS.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pathname for the folder being used by a workflow.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation struct {
+	// Specifies the S3 bucket for the customer input file.
+	Bucket *string `pulumi:"bucket"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key *string `pulumi:"key"`
+}
+
+// WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput is an input type that accepts WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs and WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput` via:
+//
+//	WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs{...}
+type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs struct {
+	// Specifies the S3 bucket for the customer input file.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation)(nil)).Elem()
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput)
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput).ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput is an input type that accepts WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs, WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtr and WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput` via:
+//
+//	        WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput
+	ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput
+}
+
+type workflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs
+
+func WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtr(v *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput {
+	return (*workflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType)(v)
+}
+
+func (*workflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation)(nil)).Elem()
+}
+
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return i.ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrType) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o.ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
+		return &v
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput)
+}
+
+// Specifies the S3 bucket for the customer input file.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) ToWorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Elem() WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation
+		return ret
+	}).(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput)
+}
+
+// Specifies the S3 bucket for the customer input file.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkflowStepDeleteStepDetails struct {
 	// The name of the step, used as an identifier.
 	Name *string `pulumi:"name"`
@@ -4136,6 +5734,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfilePtrInput)(nil)).Elem(), AccessPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsPtrInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsPtrInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsOnPartialUploadInput)(nil)).Elem(), ServerWorkflowDetailsOnPartialUploadArgs{})
@@ -4158,6 +5758,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput)(nil)).Elem(), WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepCustomStepDetailsInput)(nil)).Elem(), WorkflowOnExceptionStepCustomStepDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepCustomStepDetailsPtrInput)(nil)).Elem(), WorkflowOnExceptionStepCustomStepDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsInput)(nil)).Elem(), WorkflowOnExceptionStepDecryptStepDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsPtrInput)(nil)).Elem(), WorkflowOnExceptionStepDecryptStepDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationInput)(nil)).Elem(), WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrInput)(nil)).Elem(), WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationInput)(nil)).Elem(), WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput)(nil)).Elem(), WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput)(nil)).Elem(), WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput)(nil)).Elem(), WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDeleteStepDetailsInput)(nil)).Elem(), WorkflowOnExceptionStepDeleteStepDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepDeleteStepDetailsPtrInput)(nil)).Elem(), WorkflowOnExceptionStepDeleteStepDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepTagStepDetailsInput)(nil)).Elem(), WorkflowOnExceptionStepTagStepDetailsArgs{})
@@ -4176,6 +5784,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput)(nil)).Elem(), WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCustomStepDetailsInput)(nil)).Elem(), WorkflowStepCustomStepDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCustomStepDetailsPtrInput)(nil)).Elem(), WorkflowStepCustomStepDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPtrInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsDestinationFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationPtrInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsDestinationFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDeleteStepDetailsInput)(nil)).Elem(), WorkflowStepDeleteStepDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDeleteStepDetailsPtrInput)(nil)).Elem(), WorkflowStepDeleteStepDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsInput)(nil)).Elem(), WorkflowStepTagStepDetailsArgs{})
@@ -4188,6 +5804,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPosixProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})
+	pulumi.RegisterOutputType(ServerProtocolDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOnPartialUploadOutput{})
@@ -4210,6 +5828,14 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepCustomStepDetailsOutput{})
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepCustomStepDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowOnExceptionStepDecryptStepDetailsOutput{})
+	pulumi.RegisterOutputType(WorkflowOnExceptionStepDecryptStepDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationOutput{})
+	pulumi.RegisterOutputType(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput{})
+	pulumi.RegisterOutputType(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput{})
+	pulumi.RegisterOutputType(WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepDeleteStepDetailsOutput{})
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepDeleteStepDetailsPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepTagStepDetailsOutput{})
@@ -4228,6 +5854,14 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCustomStepDetailsOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCustomStepDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsDestinationFileLocationOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsDestinationFileLocationPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepDeleteStepDetailsOutput{})
 	pulumi.RegisterOutputType(WorkflowStepDeleteStepDetailsPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsOutput{})

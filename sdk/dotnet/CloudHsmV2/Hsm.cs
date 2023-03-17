@@ -49,7 +49,7 @@ namespace Pulumi.Aws.CloudHsmV2
     public partial class Hsm : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of subnet in which HSM module will be located.
+        /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.CloudHsmV2
     public sealed class HsmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The ID of subnet in which HSM module will be located.
+        /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.CloudHsmV2
     public sealed class HsmState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+        /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The ID of subnet in which HSM module will be located.
+        /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepCustomStepDetails? CustomStepDetails;
         /// <summary>
+        /// Details for a step that decrypts the file.
+        /// </summary>
+        public readonly Outputs.WorkflowOnExceptionStepDecryptStepDetails? DecryptStepDetails;
+        /// <summary>
         /// Details for a step that deletes the file.
         /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepDeleteStepDetails? DeleteStepDetails;
@@ -30,7 +34,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepTagStepDetails? TagStepDetails;
         /// <summary>
-        /// One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+        /// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
         /// </summary>
         public readonly string Type;
 
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.Transfer.Outputs
 
             Outputs.WorkflowOnExceptionStepCustomStepDetails? customStepDetails,
 
+            Outputs.WorkflowOnExceptionStepDecryptStepDetails? decryptStepDetails,
+
             Outputs.WorkflowOnExceptionStepDeleteStepDetails? deleteStepDetails,
 
             Outputs.WorkflowOnExceptionStepTagStepDetails? tagStepDetails,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         {
             CopyStepDetails = copyStepDetails;
             CustomStepDetails = customStepDetails;
+            DecryptStepDetails = decryptStepDetails;
             DeleteStepDetails = deleteStepDetails;
             TagStepDetails = tagStepDetails;
             Type = type;

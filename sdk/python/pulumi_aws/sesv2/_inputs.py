@@ -21,6 +21,9 @@ __all__ = [
     'ConfigurationSetSendingOptionsArgs',
     'ConfigurationSetSuppressionOptionsArgs',
     'ConfigurationSetTrackingOptionsArgs',
+    'ConfigurationSetVdmOptionsArgs',
+    'ConfigurationSetVdmOptionsDashboardOptionsArgs',
+    'ConfigurationSetVdmOptionsGuardianOptionsArgs',
     'EmailIdentityDkimSigningAttributesArgs',
 ]
 
@@ -417,6 +420,91 @@ class ConfigurationSetTrackingOptionsArgs:
     @custom_redirect_domain.setter
     def custom_redirect_domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "custom_redirect_domain", value)
+
+
+@pulumi.input_type
+class ConfigurationSetVdmOptionsArgs:
+    def __init__(__self__, *,
+                 dashboard_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']] = None,
+                 guardian_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']] = None):
+        """
+        :param pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        """
+        if dashboard_options is not None:
+            pulumi.set(__self__, "dashboard_options", dashboard_options)
+        if guardian_options is not None:
+            pulumi.set(__self__, "guardian_options", guardian_options)
+
+    @property
+    @pulumi.getter(name="dashboardOptions")
+    def dashboard_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']]:
+        """
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        """
+        return pulumi.get(self, "dashboard_options")
+
+    @dashboard_options.setter
+    def dashboard_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']]):
+        pulumi.set(self, "dashboard_options", value)
+
+    @property
+    @pulumi.getter(name="guardianOptions")
+    def guardian_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']]:
+        """
+        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        """
+        return pulumi.get(self, "guardian_options")
+
+    @guardian_options.setter
+    def guardian_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']]):
+        pulumi.set(self, "guardian_options", value)
+
+
+@pulumi.input_type
+class ConfigurationSetVdmOptionsDashboardOptionsArgs:
+    def __init__(__self__, *,
+                 engagement_metrics: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] engagement_metrics: Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        if engagement_metrics is not None:
+            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+    @engagement_metrics.setter
+    def engagement_metrics(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engagement_metrics", value)
+
+
+@pulumi.input_type
+class ConfigurationSetVdmOptionsGuardianOptionsArgs:
+    def __init__(__self__, *,
+                 optimized_shared_delivery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        if optimized_shared_delivery is not None:
+            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
+
+    @optimized_shared_delivery.setter
+    def optimized_shared_delivery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optimized_shared_delivery", value)
 
 
 @pulumi.input_type

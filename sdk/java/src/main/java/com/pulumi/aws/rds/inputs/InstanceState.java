@@ -6,6 +6,7 @@ package com.pulumi.aws.rds.inputs;
 import com.pulumi.aws.rds.enums.InstanceType;
 import com.pulumi.aws.rds.enums.StorageType;
 import com.pulumi.aws.rds.inputs.InstanceBlueGreenUpdateArgs;
+import com.pulumi.aws.rds.inputs.InstanceListenerEndpointArgs;
 import com.pulumi.aws.rds.inputs.InstanceRestoreToPointInTimeArgs;
 import com.pulumi.aws.rds.inputs.InstanceS3ImportArgs;
 import com.pulumi.core.Either;
@@ -26,14 +27,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     public static final InstanceState Empty = new InstanceState();
 
     /**
-     * The hostname of the RDS instance. See also `endpoint` and `port`.
+     * Specifies the DNS address of the DB instance.
      * 
      */
     @Import(name="address")
     private @Nullable Output<String> address;
 
     /**
-     * @return The hostname of the RDS instance. See also `endpoint` and `port`.
+     * @return Specifies the DNS address of the DB instance.
      * 
      */
     public Optional<Output<String>> address() {
@@ -499,16 +500,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The canonical hosted zone ID of the DB instance (to be used
-     * in a Route 53 Alias record).
+     * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
     /**
-     * @return The canonical hosted zone ID of the DB instance (to be used
-     * in a Route 53 Alias record).
+     * @return Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
     public Optional<Output<String>> hostedZoneId() {
@@ -649,6 +648,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> licenseModel() {
         return Optional.ofNullable(this.licenseModel);
+    }
+
+    /**
+     * Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+     * 
+     */
+    @Import(name="listenerEndpoints")
+    private @Nullable Output<List<InstanceListenerEndpointArgs>> listenerEndpoints;
+
+    /**
+     * @return Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+     * 
+     */
+    public Optional<Output<List<InstanceListenerEndpointArgs>>> listenerEndpoints() {
+        return Optional.ofNullable(this.listenerEndpoints);
     }
 
     /**
@@ -1290,6 +1304,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.latestRestorableTime = $.latestRestorableTime;
         this.licenseModel = $.licenseModel;
+        this.listenerEndpoints = $.listenerEndpoints;
         this.maintenanceWindow = $.maintenanceWindow;
         this.maxAllocatedStorage = $.maxAllocatedStorage;
         this.monitoringInterval = $.monitoringInterval;
@@ -1345,7 +1360,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param address The hostname of the RDS instance. See also `endpoint` and `port`.
+         * @param address Specifies the DNS address of the DB instance.
          * 
          * @return builder
          * 
@@ -1356,7 +1371,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param address The hostname of the RDS instance. See also `endpoint` and `port`.
+         * @param address Specifies the DNS address of the DB instance.
          * 
          * @return builder
          * 
@@ -1990,8 +2005,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostedZoneId The canonical hosted zone ID of the DB instance (to be used
-         * in a Route 53 Alias record).
+         * @param hostedZoneId Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
          * 
          * @return builder
          * 
@@ -2002,8 +2016,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostedZoneId The canonical hosted zone ID of the DB instance (to be used
-         * in a Route 53 Alias record).
+         * @param hostedZoneId Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
          * 
          * @return builder
          * 
@@ -2214,6 +2227,37 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder licenseModel(String licenseModel) {
             return licenseModel(Output.of(licenseModel));
+        }
+
+        /**
+         * @param listenerEndpoints Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listenerEndpoints(@Nullable Output<List<InstanceListenerEndpointArgs>> listenerEndpoints) {
+            $.listenerEndpoints = listenerEndpoints;
+            return this;
+        }
+
+        /**
+         * @param listenerEndpoints Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listenerEndpoints(List<InstanceListenerEndpointArgs> listenerEndpoints) {
+            return listenerEndpoints(Output.of(listenerEndpoints));
+        }
+
+        /**
+         * @param listenerEndpoints Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listenerEndpoints(InstanceListenerEndpointArgs... listenerEndpoints) {
+            return listenerEndpoints(List.of(listenerEndpoints));
         }
 
         /**

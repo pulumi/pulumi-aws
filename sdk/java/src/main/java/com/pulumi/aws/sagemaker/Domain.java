@@ -176,14 +176,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appNetworkAccessType);
     }
     /**
-     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      * 
      */
     @Export(name="appSecurityGroupManagement", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appSecurityGroupManagement;
 
     /**
-     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
+     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      * 
      */
     public Output<Optional<String>> appSecurityGroupManagement() {

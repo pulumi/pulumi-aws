@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.inputs;
 
 import com.pulumi.aws.transfer.inputs.WorkflowStepCopyStepDetailsArgs;
 import com.pulumi.aws.transfer.inputs.WorkflowStepCustomStepDetailsArgs;
+import com.pulumi.aws.transfer.inputs.WorkflowStepDecryptStepDetailsArgs;
 import com.pulumi.aws.transfer.inputs.WorkflowStepDeleteStepDetailsArgs;
 import com.pulumi.aws.transfer.inputs.WorkflowStepTagStepDetailsArgs;
 import com.pulumi.core.Output;
@@ -50,6 +51,21 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Details for a step that decrypts the file.
+     * 
+     */
+    @Import(name="decryptStepDetails")
+    private @Nullable Output<WorkflowStepDecryptStepDetailsArgs> decryptStepDetails;
+
+    /**
+     * @return Details for a step that decrypts the file.
+     * 
+     */
+    public Optional<Output<WorkflowStepDecryptStepDetailsArgs>> decryptStepDetails() {
+        return Optional.ofNullable(this.decryptStepDetails);
+    }
+
+    /**
      * Details for a step that deletes the file.
      * 
      */
@@ -80,14 +96,14 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+     * One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
      * 
      */
     public Output<String> type() {
@@ -99,6 +115,7 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
     private WorkflowStepArgs(WorkflowStepArgs $) {
         this.copyStepDetails = $.copyStepDetails;
         this.customStepDetails = $.customStepDetails;
+        this.decryptStepDetails = $.decryptStepDetails;
         this.deleteStepDetails = $.deleteStepDetails;
         this.tagStepDetails = $.tagStepDetails;
         this.type = $.type;
@@ -165,6 +182,27 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param decryptStepDetails Details for a step that decrypts the file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder decryptStepDetails(@Nullable Output<WorkflowStepDecryptStepDetailsArgs> decryptStepDetails) {
+            $.decryptStepDetails = decryptStepDetails;
+            return this;
+        }
+
+        /**
+         * @param decryptStepDetails Details for a step that decrypts the file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder decryptStepDetails(WorkflowStepDecryptStepDetailsArgs decryptStepDetails) {
+            return decryptStepDetails(Output.of(decryptStepDetails));
+        }
+
+        /**
          * @param deleteStepDetails Details for a step that deletes the file.
          * 
          * @return builder
@@ -207,7 +245,7 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+         * @param type One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
          * 
          * @return builder
          * 
@@ -218,7 +256,7 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+         * @param type One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
          * 
          * @return builder
          * 

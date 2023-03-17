@@ -65,7 +65,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> DbName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         /// </summary>
         [Output("defaultIamRoleArn")]
         public Output<string?> DefaultIamRoleArn { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? DbName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? DbName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }

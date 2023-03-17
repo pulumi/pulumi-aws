@@ -102,14 +102,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      * 
      */
     @Import(name="localSecondaryIndexes")
     private @Nullable Output<List<TableLocalSecondaryIndexArgs>> localSecondaryIndexes;
 
     /**
-     * @return Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * @return Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      * 
      */
     public Optional<Output<List<TableLocalSecondaryIndexArgs>>> localSecondaryIndexes() {
@@ -312,14 +312,18 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      * 
      */
     @Import(name="tableClass")
     private @Nullable Output<String> tableClass;
 
     /**
-     * @return Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * @return Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      * 
      */
     public Optional<Output<String>> tableClass() {
@@ -559,7 +563,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -570,7 +574,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -580,7 +584,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -873,7 +877,9 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableClass Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * @param tableClass Storage class of the table.
+         * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * Default value is `STANDARD`.
          * 
          * @return builder
          * 
@@ -884,7 +890,9 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableClass Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * @param tableClass Storage class of the table.
+         * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * Default value is `STANDARD`.
          * 
          * @return builder
          * 

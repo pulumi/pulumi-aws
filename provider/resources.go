@@ -2404,6 +2404,8 @@ func Provider() tfbridge.ProviderInfo {
 			// License Manager
 			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
+			"aws_licensemanager_grant":                 {Tok: awsResource(licensemanagerMod, "LicenseGrant")},
+			"aws_licensemanager_grant_accepter":        {Tok: awsResource(licensemanagerMod, "LicenseGrantAccepter")},
 
 			// LightSail
 			"aws_lightsail_certificate":                          {Tok: awsResource(lightsailMod, "Certificate")},
@@ -2710,6 +2712,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_proxy_endpoint":                         {Tok: awsResource(rdsMod, "ProxyEndpoint")},
 			"aws_db_instance_automated_backups_replication": {Tok: awsResource(rdsMod, "InstanceAutomatedBackupsReplication")},
 			"aws_db_snapshot_copy":                          {Tok: awsResource(rdsMod, "SnapshotCopy")},
+
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_scheduled_action":   {Tok: awsResource(redshiftMod, "ScheduledAction")},
@@ -2749,8 +2752,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_cluster_iam_roles":             {Tok: awsResource(redshiftMod, "ClusterIamRoles")},
 			"aws_redshift_hsm_configuration":             {Tok: awsResource(redshiftMod, "HsmConfiguration")},
 			"aws_redshift_partner":                       {Tok: awsResource(redshiftMod, "Partner")},
+			"aws_redshift_cluster_snapshot":              {Tok: awsResource(redshiftMod, "ClusterSnapshot")},
+
 			// RedshiftData
 			"aws_redshiftdata_statement": {Tok: awsResource(redshiftDataMod, "Statement")},
+
 			// Redshift serverless
 			"aws_redshiftserverless_endpoint_access": {Tok: awsResource(redshiftServerlessMod, "EndpointAccess")},
 			"aws_redshiftserverless_namespace":       {Tok: awsResource(redshiftServerlessMod, "Namespace")},
@@ -5906,6 +5912,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecs_container_definition": {Tok: awsDataSource(ecsMod, "getContainerDefinition")},
 			"aws_ecs_service":              {Tok: awsDataSource(ecsMod, "getService")},
 			"aws_ecs_task_definition":      {Tok: awsDataSource(ecsMod, "getTaskDefinition")},
+			"aws_ecs_task_execution":       {Tok: awsDataSource(ecsMod, "getTaskExecution")},
+
 			// Elastic Filesystem
 			"aws_efs_file_system": {
 				Tok: awsDataSource(efsMod, "getFileSystem"),
@@ -6058,6 +6066,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_secret":           {Tok: awsDataSource(kmsMod, "getSecret")},
 			"aws_kms_secrets":          {Tok: awsDataSource(kmsMod, "getSecrets")},
 			"aws_kms_public_key":       {Tok: awsDataSource(kmsMod, "getPublicKey")},
+
+			// LicenseManager NB slightly inconsistent translation of the names, to be close to the
+			// resource names, but avoid repeating 'license'.
+			"aws_licensemanager_grants":            {Tok: awsDataSource(licensemanagerMod, "getLicenseGrants")},
+			"aws_licensemanager_received_license":  {Tok: awsDataSource(licensemanagerMod, "getReceivedLicense")},
+			"aws_licensemanager_received_licenses": {Tok: awsDataSource(licensemanagerMod, "getReceivedLicenses")},
 
 			// Location
 			"aws_location_map":                  {Tok: awsDataSource(locationMod, "getMap")},

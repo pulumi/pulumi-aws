@@ -6274,6 +6274,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "licensemanager/licenseGrant",
+  "fqn": "pulumi_aws.licensemanager",
+  "classes": {
+   "aws:licensemanager/licenseGrant:LicenseGrant": "LicenseGrant"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "licensemanager/licenseGrantAccepter",
+  "fqn": "pulumi_aws.licensemanager",
+  "classes": {
+   "aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter": "LicenseGrantAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/bucket",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -7622,6 +7638,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/clusterIamRoles:ClusterIamRoles": "ClusterIamRoles"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/clusterSnapshot",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/clusterSnapshot:ClusterSnapshot": "ClusterSnapshot"
   }
  },
  {

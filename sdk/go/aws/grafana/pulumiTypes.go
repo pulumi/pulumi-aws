@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type WorkspaceNetworkAccessControl struct {
+	// An array of prefix list IDs.
+	PrefixListIds []string `pulumi:"prefixListIds"`
+	// An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+	VpceIds []string `pulumi:"vpceIds"`
+}
+
+// WorkspaceNetworkAccessControlInput is an input type that accepts WorkspaceNetworkAccessControlArgs and WorkspaceNetworkAccessControlOutput values.
+// You can construct a concrete instance of `WorkspaceNetworkAccessControlInput` via:
+//
+//	WorkspaceNetworkAccessControlArgs{...}
+type WorkspaceNetworkAccessControlInput interface {
+	pulumi.Input
+
+	ToWorkspaceNetworkAccessControlOutput() WorkspaceNetworkAccessControlOutput
+	ToWorkspaceNetworkAccessControlOutputWithContext(context.Context) WorkspaceNetworkAccessControlOutput
+}
+
+type WorkspaceNetworkAccessControlArgs struct {
+	// An array of prefix list IDs.
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	// An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+	VpceIds pulumi.StringArrayInput `pulumi:"vpceIds"`
+}
+
+func (WorkspaceNetworkAccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceNetworkAccessControl)(nil)).Elem()
+}
+
+func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlOutput() WorkspaceNetworkAccessControlOutput {
+	return i.ToWorkspaceNetworkAccessControlOutputWithContext(context.Background())
+}
+
+func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlOutput)
+}
+
+func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
+	return i.ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlOutput).ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx)
+}
+
+// WorkspaceNetworkAccessControlPtrInput is an input type that accepts WorkspaceNetworkAccessControlArgs, WorkspaceNetworkAccessControlPtr and WorkspaceNetworkAccessControlPtrOutput values.
+// You can construct a concrete instance of `WorkspaceNetworkAccessControlPtrInput` via:
+//
+//	        WorkspaceNetworkAccessControlArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceNetworkAccessControlPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput
+	ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Context) WorkspaceNetworkAccessControlPtrOutput
+}
+
+type workspaceNetworkAccessControlPtrType WorkspaceNetworkAccessControlArgs
+
+func WorkspaceNetworkAccessControlPtr(v *WorkspaceNetworkAccessControlArgs) WorkspaceNetworkAccessControlPtrInput {
+	return (*workspaceNetworkAccessControlPtrType)(v)
+}
+
+func (*workspaceNetworkAccessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceNetworkAccessControl)(nil)).Elem()
+}
+
+func (i *workspaceNetworkAccessControlPtrType) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
+	return i.ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceNetworkAccessControlPtrType) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlPtrOutput)
+}
+
+type WorkspaceNetworkAccessControlOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceNetworkAccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceNetworkAccessControl)(nil)).Elem()
+}
+
+func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlOutput() WorkspaceNetworkAccessControlOutput {
+	return o
+}
+
+func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlOutput {
+	return o
+}
+
+func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
+	return o.ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceNetworkAccessControl) *WorkspaceNetworkAccessControl {
+		return &v
+	}).(WorkspaceNetworkAccessControlPtrOutput)
+}
+
+// An array of prefix list IDs.
+func (o WorkspaceNetworkAccessControlOutput) PrefixListIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkspaceNetworkAccessControl) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
+}
+
+// An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+func (o WorkspaceNetworkAccessControlOutput) VpceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkspaceNetworkAccessControl) []string { return v.VpceIds }).(pulumi.StringArrayOutput)
+}
+
+type WorkspaceNetworkAccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceNetworkAccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceNetworkAccessControl)(nil)).Elem()
+}
+
+func (o WorkspaceNetworkAccessControlPtrOutput) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
+	return o
+}
+
+func (o WorkspaceNetworkAccessControlPtrOutput) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
+	return o
+}
+
+func (o WorkspaceNetworkAccessControlPtrOutput) Elem() WorkspaceNetworkAccessControlOutput {
+	return o.ApplyT(func(v *WorkspaceNetworkAccessControl) WorkspaceNetworkAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceNetworkAccessControl
+		return ret
+	}).(WorkspaceNetworkAccessControlOutput)
+}
+
+// An array of prefix list IDs.
+func (o WorkspaceNetworkAccessControlPtrOutput) PrefixListIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkspaceNetworkAccessControl) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixListIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+func (o WorkspaceNetworkAccessControlPtrOutput) VpceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkspaceNetworkAccessControl) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpceIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type WorkspaceVpcConfiguration struct {
 	// The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -167,8 +323,12 @@ func (o WorkspaceVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceNetworkAccessControlInput)(nil)).Elem(), WorkspaceNetworkAccessControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceNetworkAccessControlPtrInput)(nil)).Elem(), WorkspaceNetworkAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceVpcConfigurationInput)(nil)).Elem(), WorkspaceVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceVpcConfigurationPtrInput)(nil)).Elem(), WorkspaceVpcConfigurationArgs{})
+	pulumi.RegisterOutputType(WorkspaceNetworkAccessControlOutput{})
+	pulumi.RegisterOutputType(WorkspaceNetworkAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkspaceVpcConfigurationPtrOutput{})
 }

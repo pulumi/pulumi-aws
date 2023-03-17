@@ -18,7 +18,7 @@ public final class ProjectSecondaryArtifact {
      */
     private String artifactIdentifier;
     /**
-     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
      * 
      */
     private @Nullable String bucketOwnerAccess;
@@ -28,17 +28,17 @@ public final class ProjectSecondaryArtifact {
      */
     private @Nullable Boolean encryptionDisabled;
     /**
-     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
      * 
      */
     private @Nullable String location;
     /**
-     * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * @return Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output artifact object.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+     * @return Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
      * 
      */
     private @Nullable String namespaceType;
@@ -48,17 +48,17 @@ public final class ProjectSecondaryArtifact {
      */
     private @Nullable Boolean overrideArtifactName;
     /**
-     * @return Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+     * @return Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
      * 
      */
     private @Nullable String packaging;
     /**
-     * @return If `type` is set to `S3`, this is the path to the output artifact.
+     * @return Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the path to the output artifact.
      * 
      */
     private @Nullable String path;
     /**
-     * @return Build output artifact&#39;s type. The only valid value is `S3`.
+     * @return Build output artifact&#39;s type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
      * 
      */
     private String type;
@@ -72,7 +72,7 @@ public final class ProjectSecondaryArtifact {
         return this.artifactIdentifier;
     }
     /**
-     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
      * 
      */
     public Optional<String> bucketOwnerAccess() {
@@ -86,21 +86,21 @@ public final class ProjectSecondaryArtifact {
         return Optional.ofNullable(this.encryptionDisabled);
     }
     /**
-     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
      * 
      */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * @return Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output artifact object.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+     * @return Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
      * 
      */
     public Optional<String> namespaceType() {
@@ -114,21 +114,21 @@ public final class ProjectSecondaryArtifact {
         return Optional.ofNullable(this.overrideArtifactName);
     }
     /**
-     * @return Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+     * @return Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
      * 
      */
     public Optional<String> packaging() {
         return Optional.ofNullable(this.packaging);
     }
     /**
-     * @return If `type` is set to `S3`, this is the path to the output artifact.
+     * @return Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the path to the output artifact.
      * 
      */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Build output artifact&#39;s type. The only valid value is `S3`.
+     * @return Build output artifact&#39;s type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
      * 
      */
     public String type() {

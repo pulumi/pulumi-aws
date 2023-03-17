@@ -120,7 +120,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly appNetworkAccessType!: pulumi.Output<string | undefined>;
     /**
-     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      */
     public readonly appSecurityGroupManagement!: pulumi.Output<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface DomainState {
      */
     appNetworkAccessType?: pulumi.Input<string>;
     /**
-     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      */
     appSecurityGroupManagement?: pulumi.Input<string>;
     /**
@@ -341,7 +341,7 @@ export interface DomainArgs {
      */
     appNetworkAccessType?: pulumi.Input<string>;
     /**
-     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domainSettings` - (Optional) The domain settings. See Domain Settings below.
+     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      */
     appSecurityGroupManagement?: pulumi.Input<string>;
     /**

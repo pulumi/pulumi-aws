@@ -45,35 +45,14 @@ import (
 //							"kms:DescribeKey",
 //							"kms:GetPublicKey",
 //							"kms:Sign",
+//							"kms:Verify",
 //						},
 //						"Effect": "Allow",
 //						"Principal": map[string]interface{}{
 //							"Service": "dnssec-route53.amazonaws.com",
 //						},
+//						"Resource": "*",
 //						"Sid":      "Allow Route 53 DNSSEC Service",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"StringEquals": map[string]interface{}{
-//								"aws:SourceAccount": current.AccountId,
-//							},
-//							"ArnLike": map[string]interface{}{
-//								"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-//							},
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": "kms:CreateGrant",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
-//						},
-//						"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"Bool": map[string]interface{}{
-//								"kms:GrantIsForAWSResource": "true",
-//							},
-//						},
 //					},
 //					map[string]interface{}{
 //						"Action": "kms:*",

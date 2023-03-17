@@ -122,7 +122,7 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// The hostname of the RDS instance. See also `endpoint` and `port`.
+	// Specifies the DNS address of the DB instance.
 	Address pulumi.StringOutput `pulumi:"address"`
 	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
 	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
@@ -210,8 +210,7 @@ type Instance struct {
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
-	// The canonical hosted zone ID of the DB instance (to be used
-	// in a Route 53 Alias record).
+	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
@@ -237,6 +236,8 @@ type Instance struct {
 	// (Optional, but required for some DB engines, i.e., Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
+	// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+	ListenerEndpoints InstanceListenerEndpointArrayOutput `pulumi:"listenerEndpoints"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
 	// Maintenance Window
@@ -392,7 +393,7 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// The hostname of the RDS instance. See also `endpoint` and `port`.
+	// Specifies the DNS address of the DB instance.
 	Address *string `pulumi:"address"`
 	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
@@ -480,8 +481,7 @@ type instanceState struct {
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// The canonical hosted zone ID of the DB instance (to be used
-	// in a Route 53 Alias record).
+	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
@@ -507,6 +507,8 @@ type instanceState struct {
 	// (Optional, but required for some DB engines, i.e., Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel *string `pulumi:"licenseModel"`
+	// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+	ListenerEndpoints []InstanceListenerEndpoint `pulumi:"listenerEndpoints"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
 	// Maintenance Window
@@ -624,7 +626,7 @@ type instanceState struct {
 }
 
 type InstanceState struct {
-	// The hostname of the RDS instance. See also `endpoint` and `port`.
+	// Specifies the DNS address of the DB instance.
 	Address pulumi.StringPtrInput
 	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
 	AllocatedStorage pulumi.IntPtrInput
@@ -712,8 +714,7 @@ type InstanceState struct {
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// The canonical hosted zone ID of the DB instance (to be used
-	// in a Route 53 Alias record).
+	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 	HostedZoneId pulumi.StringPtrInput
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
@@ -739,6 +740,8 @@ type InstanceState struct {
 	// (Optional, but required for some DB engines, i.e., Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel pulumi.StringPtrInput
+	// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+	ListenerEndpoints InstanceListenerEndpointArrayInput
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
 	// Maintenance Window
@@ -1371,7 +1374,7 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
-// The hostname of the RDS instance. See also `endpoint` and `port`.
+// Specifies the DNS address of the DB instance.
 func (o InstanceOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
 }
@@ -1540,8 +1543,7 @@ func (o InstanceOutput) FinalSnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.FinalSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The canonical hosted zone ID of the DB instance (to be used
-// in a Route 53 Alias record).
+// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 func (o InstanceOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
@@ -1592,6 +1594,11 @@ func (o InstanceOutput) LatestRestorableTime() pulumi.StringOutput {
 // SE1) License model information for this DB instance.
 func (o InstanceOutput) LicenseModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.LicenseModel }).(pulumi.StringOutput)
+}
+
+// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+func (o InstanceOutput) ListenerEndpoints() InstanceListenerEndpointArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceListenerEndpointArrayOutput { return v.ListenerEndpoints }).(InstanceListenerEndpointArrayOutput)
 }
 
 // The window to perform maintenance in.

@@ -6,6 +6,7 @@ package com.pulumi.aws.rds;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,6 +48,21 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * 
+     */
+    @Import(name="sharedAccounts")
+    private @Nullable Output<List<String>> sharedAccounts;
+
+    /**
+     * @return List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * 
+     */
+    public Optional<Output<List<String>>> sharedAccounts() {
+        return Optional.ofNullable(this.sharedAccounts);
+    }
+
+    /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -66,6 +82,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     private SnapshotArgs(SnapshotArgs $) {
         this.dbInstanceIdentifier = $.dbInstanceIdentifier;
         this.dbSnapshotIdentifier = $.dbSnapshotIdentifier;
+        this.sharedAccounts = $.sharedAccounts;
         this.tags = $.tags;
     }
 
@@ -127,6 +144,37 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dbSnapshotIdentifier(String dbSnapshotIdentifier) {
             return dbSnapshotIdentifier(Output.of(dbSnapshotIdentifier));
+        }
+
+        /**
+         * @param sharedAccounts List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedAccounts(@Nullable Output<List<String>> sharedAccounts) {
+            $.sharedAccounts = sharedAccounts;
+            return this;
+        }
+
+        /**
+         * @param sharedAccounts List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedAccounts(List<String> sharedAccounts) {
+            return sharedAccounts(Output.of(sharedAccounts));
+        }
+
+        /**
+         * @param sharedAccounts List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedAccounts(String... sharedAccounts) {
+            return sharedAccounts(List.of(sharedAccounts));
         }
 
         /**

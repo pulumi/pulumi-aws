@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
  * 
  * ```sh
- *  $ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
+ *  $ pulumi import aws:cognito/resourceServer:ResourceServer example &#34;us-west-2_abc123|https://example.com&#34;
  * ```
  * 
  */

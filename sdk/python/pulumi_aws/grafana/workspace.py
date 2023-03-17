@@ -23,6 +23,7 @@ class WorkspaceArgs:
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -39,6 +40,7 @@ class WorkspaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] name: The Grafana workspace name.
+        :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -58,6 +60,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_access_control is not None:
+            pulumi.set(__self__, "network_access_control", network_access_control)
         if notification_destinations is not None:
             pulumi.set(__self__, "notification_destinations", notification_destinations)
         if organization_role_name is not None:
@@ -158,6 +162,18 @@ class WorkspaceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkAccessControl")
+    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
+        """
+        Configuration for network access to your workspace.See Network Access Control below.
+        """
+        return pulumi.get(self, "network_access_control")
+
+    @network_access_control.setter
+    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]):
+        pulumi.set(self, "network_access_control", value)
+
+    @property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -254,6 +270,7 @@ class _WorkspaceState:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -275,6 +292,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana workspace.
         :param pulumi.Input[str] grafana_version: The version of Grafana running on the workspace.
         :param pulumi.Input[str] name: The Grafana workspace name.
+        :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -303,6 +321,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "grafana_version", grafana_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_access_control is not None:
+            pulumi.set(__self__, "network_access_control", network_access_control)
         if notification_destinations is not None:
             pulumi.set(__self__, "notification_destinations", notification_destinations)
         if organization_role_name is not None:
@@ -433,6 +453,18 @@ class _WorkspaceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkAccessControl")
+    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
+        """
+        Configuration for network access to your workspace.See Network Access Control below.
+        """
+        return pulumi.get(self, "network_access_control")
+
+    @network_access_control.setter
+    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]):
+        pulumi.set(self, "network_access_control", value)
+
+    @property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -561,6 +593,7 @@ class Workspace(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -615,6 +648,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] name: The Grafana workspace name.
+        :param pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -688,6 +722,7 @@ class Workspace(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -715,6 +750,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_access_control"] = network_access_control
             __props__.__dict__["notification_destinations"] = notification_destinations
             __props__.__dict__["organization_role_name"] = organization_role_name
             __props__.__dict__["organizational_units"] = organizational_units
@@ -749,6 +785,7 @@ class Workspace(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[str]] = None,
             grafana_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
             notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             organization_role_name: Optional[pulumi.Input[str]] = None,
             organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -775,6 +812,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana workspace.
         :param pulumi.Input[str] grafana_version: The version of Grafana running on the workspace.
         :param pulumi.Input[str] name: The Grafana workspace name.
+        :param pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -798,6 +836,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["grafana_version"] = grafana_version
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_access_control"] = network_access_control
         __props__.__dict__["notification_destinations"] = notification_destinations
         __props__.__dict__["organization_role_name"] = organization_role_name
         __props__.__dict__["organizational_units"] = organizational_units
@@ -881,6 +920,14 @@ class Workspace(pulumi.CustomResource):
         The Grafana workspace name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAccessControl")
+    def network_access_control(self) -> pulumi.Output[Optional['outputs.WorkspaceNetworkAccessControl']]:
+        """
+        Configuration for network access to your workspace.See Network Access Control below.
+        """
+        return pulumi.get(self, "network_access_control")
 
     @property
     @pulumi.getter(name="notificationDestinations")
