@@ -52,10 +52,38 @@ export interface SNSMessageAttribute {
 export type TopicEventHandler = lambda.EventHandler<TopicEvent, void>;
 
 /**
- * Arguments to control the topic subscription.  Currently empty, but still defined in case of
- * future need.
+ * Arguments to control the topic subscription.
  */
-export type TopicEventSubscriptionArgs = { };
+export type TopicEventSubscriptionArgs = {
+    /**
+     * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+     */
+    confirmationTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+    * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+    */
+    deliveryPolicy?: pulumi.Input<string>;
+    /**
+     * Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+     */
+    endpointAutoConfirms?: pulumi.Input<boolean>;
+    /**
+     * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+     */
+    filterPolicy?: pulumi.Input<string>;
+    /**
+     * Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
+     */
+    filterPolicyScope?: pulumi.Input<string>;
+    /**
+     * Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+     */
+    rawMessageDelivery?: pulumi.Input<boolean>;
+     /**
+     * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+     */
+     redrivePolicy?: pulumi.Input<string>;
+};
 
 export class TopicEventSubscription extends lambda.EventSubscription {
     public readonly topic: topic.Topic;
@@ -92,6 +120,13 @@ export class TopicEventSubscription extends lambda.EventSubscription {
             topic: topic,
             protocol: "lambda",
             endpoint: this.func.arn,
+            confirmationTimeoutInMinutes: args.confirmationTimeoutInMinutes,
+            deliveryPolicy: args.deliveryPolicy,
+            endpointAutoConfirms: args.endpointAutoConfirms,
+            filterPolicy: args.filterPolicy,
+            filterPolicyScope: args.filterPolicyScope,
+            rawMessageDelivery: args.rawMessageDelivery,
+            redrivePolicy: args.redrivePolicy,
         }, parentOpts);
 
         this.registerOutputs();
@@ -110,6 +145,6 @@ declare module "./topic" {
     }
 }
 
-topic.Topic.prototype.onEvent = function(this: topic.Topic, name, handler, args, opts) {
+topic.Topic.prototype.onEvent = function (this: topic.Topic, name, handler, args, opts) {
     return new TopicEventSubscription(name, this, handler, args, opts);
 }
