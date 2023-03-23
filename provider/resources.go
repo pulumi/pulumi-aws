@@ -62,6 +62,7 @@ const (
 	appautoscalingMod           = "AppAutoScaling"           // Application Auto Scaling
 	appRunnerMod                = "AppRunner"                // AppRunner
 	athenaMod                   = "Athena"                   // Athena
+	auditmanagerMod             = "Auditmanager"             // Audit Manager
 	autoscalingMod              = "AutoScaling"              // Auto Scaling
 	autoscalingPlansMod         = "AutoScalingPlans"         // Auto Scaling Plans
 	backupMod                   = "Backup"                   // Backup
@@ -6719,7 +6720,74 @@ func Provider() *tfbridge.ProviderInfo {
 }
 
 func PFProvider() *pfbridge.ProviderInfo {
-	info := tfbridge.ProviderInfo{}
+	info := tfbridge.ProviderInfo{
+		Name:    "aws",
+		Version: version.Version,
+		Resources: map[string]*tfbridge.ResourceInfo{
+			"aws_auditmanager_account_registration": {
+				Tok: awsResource(auditmanagerMod, "AccountRegistration"),
+			},
+			"aws_auditmanager_assessment": {
+				Tok: awsResource(auditmanagerMod, "Assessment"),
+			},
+			"aws_auditmanager_assessment_delegation": {
+				Tok: awsResource(auditmanagerMod, "AssessmentDelegation"),
+			},
+			"aws_auditmanager_assessment_report": {
+				Tok: awsResource(auditmanagerMod, "AssessmentReport"),
+			},
+			"aws_auditmanager_control": {
+				Tok: awsResource(auditmanagerMod, "Control"),
+			},
+			"aws_auditmanager_framework": {
+				Tok: awsResource(auditmanagerMod, "Framework"),
+			},
+			"aws_auditmanager_framework_share": {
+				Tok: awsResource(auditmanagerMod, "FrameworkShare"),
+			},
+			"aws_auditmanager_organization_admin_account_registration": {
+				Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
+			},
+			"aws_medialive_multiplex_program": {
+				Tok: awsResource(medialiveMod, "MultiplexProgram"),
+			},
+			"aws_rds_export_task": {
+				Tok: awsResource(rdsMod, "ExportTask"),
+			},
+			"aws_resourceexplorer2_index": {
+				Tok: awsResource("ResourceExplorer", "Index"),
+			},
+			"aws_resourceexplorer2_view": {
+				Tok: awsResource("ResourceExplorer", "View"),
+			},
+			"aws_route53_cidr_collection": {
+				Tok: awsResource(route53Mod, "CidrCollection"),
+			},
+			"aws_route53_cidr_location": {
+				Tok: awsResource(route53Mod, "CidrLocation"),
+			},
+			"aws_vpc_security_group_egress_rule": {
+				Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
+			},
+			"aws_vpc_security_group_ingress_rule": {
+				Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+			},
+		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"aws_auditmanager_control": {
+				Tok: awsDataSource(auditmanagerMod, "getControl"),
+			},
+			"aws_auditmanager_framework": {
+				Tok: awsDataSource(auditmanagerMod, "getFramework"),
+			},
+			"aws_vpc_security_group_rule": {
+				Tok: awsDataSource("Vpc", "getSecurityGroupRule"),
+			},
+			"aws_vpc_security_group_rules": {
+				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
+			},
+		},
+	}
 
 	return &pfbridge.ProviderInfo{
 		ProviderInfo: info,
