@@ -17,10 +17,11 @@
 package main
 
 import (
+	"context"
 	_ "embed"
 
 	aws "github.com/pulumi/pulumi-aws/provider/v5"
-	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	pf "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 
@@ -28,5 +29,10 @@ import (
 var pulumiSchema []byte
 
 func main() {
-	tfbridge.Main("aws", version.Version, aws.Provider(), pulumiSchema)
+	pf.MainWithMuxer(context.Background(), "aws", pf.ProviderMetadata{
+		PackageSchema: pulumiSchema,
+	},
+		pf.Muxed{SDK: aws.Provider()},
+		pf.Muxed{PF: aws.PFProvider()},
+	)
 }
