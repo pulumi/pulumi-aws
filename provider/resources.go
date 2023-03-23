@@ -16,6 +16,7 @@ package provider
 
 import (
 	"context"
+	_ "embed"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -28,6 +29,7 @@ import (
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -423,20 +425,24 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
+//go:embed cmd/pulumi-resource-aws/bridge-metadata.json
+var metadata []byte
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
-func Provider() tfbridge.ProviderInfo {
+func Provider() *tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(awsShim.NewProvider())
 
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "aws",
-		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
-		Keywords:    []string{"pulumi", "aws"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-aws",
-		Version:     version.Version,
-		GitHubOrg:   "hashicorp",
+		P:            p,
+		Name:         "aws",
+		Description:  "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
+		Keywords:     []string{"pulumi", "aws"},
+		License:      "Apache-2.0",
+		Homepage:     "https://pulumi.io",
+		Repository:   "https://github.com/pulumi/pulumi-aws",
+		Version:      version.Version,
+		GitHubOrg:    "hashicorp",
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsTypeDefaultFile(awsMod, "Region"),
@@ -6727,5 +6733,14 @@ func Provider() tfbridge.ProviderInfo {
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
 
-	return prov
+	return &prov
+}
+
+func PFProvider() *pfbridge.ProviderInfo {
+	info := tfbridge.ProviderInfo{}
+
+	return &pfbridge.ProviderInfo{
+		ProviderInfo: info,
+		NewProvider:  awsShim.NewPFProvider,
+	}
 }
