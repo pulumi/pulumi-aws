@@ -475,6 +475,9 @@ class Key(pulumi.CustomResource):
         """
         Manages a single-Region or multi-Region primary KMS key.
 
+        > **NOTE on KMS Key Policy:** KMS Key Policy can be configured in either the standalone resource `kms.KeyPolicy`
+        or with the parameter `policy` in this resource.
+        Configuring with both will cause inconsistencies and may overwrite configuration.
         ## Example Usage
 
         ```python
@@ -524,6 +527,9 @@ class Key(pulumi.CustomResource):
         """
         Manages a single-Region or multi-Region primary KMS key.
 
+        > **NOTE on KMS Key Policy:** KMS Key Policy can be configured in either the standalone resource `kms.KeyPolicy`
+        or with the parameter `policy` in this resource.
+        Configuring with both will cause inconsistencies and may overwrite configuration.
         ## Example Usage
 
         ```python

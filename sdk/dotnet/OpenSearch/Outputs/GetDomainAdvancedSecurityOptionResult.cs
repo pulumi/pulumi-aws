@@ -13,6 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainAdvancedSecurityOptionResult
     {
+        public readonly bool AnonymousAuthEnabled;
         /// <summary>
         /// Whether node to node encryption is enabled.
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
         [OutputConstructor]
         private GetDomainAdvancedSecurityOptionResult(
+            bool anonymousAuthEnabled,
+
             bool enabled,
 
             bool internalUserDatabaseEnabled)
         {
+            AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;
         }

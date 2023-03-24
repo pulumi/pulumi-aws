@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.elasticache.outputs;
 
+import com.pulumi.aws.elasticache.outputs.GetUserAuthenticationMode;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,6 +19,7 @@ public final class GetUserResult {
      * 
      */
     private @Nullable String accessString;
+    private @Nullable List<GetUserAuthenticationMode> authenticationModes;
     private @Nullable String engine;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -44,6 +46,9 @@ public final class GetUserResult {
      */
     public Optional<String> accessString() {
         return Optional.ofNullable(this.accessString);
+    }
+    public List<GetUserAuthenticationMode> authenticationModes() {
+        return this.authenticationModes == null ? List.of() : this.authenticationModes;
     }
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
@@ -86,6 +91,7 @@ public final class GetUserResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessString;
+        private @Nullable List<GetUserAuthenticationMode> authenticationModes;
         private @Nullable String engine;
         private String id;
         private @Nullable Boolean noPasswordRequired;
@@ -96,6 +102,7 @@ public final class GetUserResult {
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessString = defaults.accessString;
+    	      this.authenticationModes = defaults.authenticationModes;
     	      this.engine = defaults.engine;
     	      this.id = defaults.id;
     	      this.noPasswordRequired = defaults.noPasswordRequired;
@@ -108,6 +115,14 @@ public final class GetUserResult {
         public Builder accessString(@Nullable String accessString) {
             this.accessString = accessString;
             return this;
+        }
+        @CustomType.Setter
+        public Builder authenticationModes(@Nullable List<GetUserAuthenticationMode> authenticationModes) {
+            this.authenticationModes = authenticationModes;
+            return this;
+        }
+        public Builder authenticationModes(GetUserAuthenticationMode... authenticationModes) {
+            return authenticationModes(List.of(authenticationModes));
         }
         @CustomType.Setter
         public Builder engine(@Nullable String engine) {
@@ -145,6 +160,7 @@ public final class GetUserResult {
         public GetUserResult build() {
             final var o = new GetUserResult();
             o.accessString = accessString;
+            o.authenticationModes = authenticationModes;
             o.engine = engine;
             o.id = id;
             o.noPasswordRequired = noPasswordRequired;

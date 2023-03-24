@@ -54,7 +54,7 @@ import (
 //			}
 //			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
 //				AvailabilityZone: *pulumi.String(available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux"),
+//				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //			})
 //			if err != nil {

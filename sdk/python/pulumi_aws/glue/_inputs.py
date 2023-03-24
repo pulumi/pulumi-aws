@@ -1256,16 +1256,20 @@ class CrawlerDeltaTargetArgs:
     def __init__(__self__, *,
                  delta_tables: pulumi.Input[Sequence[pulumi.Input[str]]],
                  write_manifest: pulumi.Input[bool],
-                 connection_name: Optional[pulumi.Input[str]] = None):
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 create_native_delta_table: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] delta_tables: A list of the Amazon S3 paths to the Delta tables.
         :param pulumi.Input[bool] write_manifest: Specifies whether to write the manifest files to the Delta table path.
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
+        :param pulumi.Input[bool] create_native_delta_table: Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
         """
         pulumi.set(__self__, "delta_tables", delta_tables)
         pulumi.set(__self__, "write_manifest", write_manifest)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
+        if create_native_delta_table is not None:
+            pulumi.set(__self__, "create_native_delta_table", create_native_delta_table)
 
     @property
     @pulumi.getter(name="deltaTables")
@@ -1302,6 +1306,18 @@ class CrawlerDeltaTargetArgs:
     @connection_name.setter
     def connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="createNativeDeltaTable")
+    def create_native_delta_table(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+        """
+        return pulumi.get(self, "create_native_delta_table")
+
+    @create_native_delta_table.setter
+    def create_native_delta_table(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_native_delta_table", value)
 
 
 @pulumi.input_type

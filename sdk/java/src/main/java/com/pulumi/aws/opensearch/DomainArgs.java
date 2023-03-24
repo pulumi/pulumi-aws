@@ -104,14 +104,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
     @Import(name="cognitoOptions")
     private @Nullable Output<DomainCognitoOptionsArgs> cognitoOptions;
 
     /**
-     * @return Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * @return Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
     public Optional<Output<DomainCognitoOptionsArgs>> cognitoOptions() {
@@ -413,7 +413,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cognitoOptions Configuration block for authenticating Kibana with Cognito. Detailed below.
+         * @param cognitoOptions Configuration block for authenticating dashboard with Cognito. Detailed below.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cognitoOptions Configuration block for authenticating Kibana with Cognito. Detailed below.
+         * @param cognitoOptions Configuration block for authenticating dashboard with Cognito. Detailed below.
          * 
          * @return builder
          * 

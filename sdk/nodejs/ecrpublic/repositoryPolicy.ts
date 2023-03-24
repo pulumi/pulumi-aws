@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * Note that currently only one policy may be applied to a repository.
  *
- * > **NOTE:** This resource can only be used with `us-east-1` region.
+ * > **NOTE:** This resource can only be used in the `us-east-1` region.
  *
  * ## Example Usage
  *

@@ -41,6 +41,21 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+     * 
+     */
+    @Import(name="arnWithoutRevision")
+    private @Nullable Output<String> arnWithoutRevision;
+
+    /**
+     * @return ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+     * 
+     */
+    public Optional<Output<String>> arnWithoutRevision() {
+        return Optional.ofNullable(this.arnWithoutRevision);
+    }
+
+    /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
@@ -344,6 +359,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
 
     private TaskDefinitionState(TaskDefinitionState $) {
         this.arn = $.arn;
+        this.arnWithoutRevision = $.arnWithoutRevision;
         this.containerDefinitions = $.containerDefinitions;
         this.cpu = $.cpu;
         this.ephemeralStorage = $.ephemeralStorage;
@@ -403,6 +419,27 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param arnWithoutRevision ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arnWithoutRevision(@Nullable Output<String> arnWithoutRevision) {
+            $.arnWithoutRevision = arnWithoutRevision;
+            return this;
+        }
+
+        /**
+         * @param arnWithoutRevision ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arnWithoutRevision(String arnWithoutRevision) {
+            return arnWithoutRevision(Output.of(arnWithoutRevision));
         }
 
         /**

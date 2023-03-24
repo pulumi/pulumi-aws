@@ -70,6 +70,11 @@ export type Key = import("./key").Key;
 export const Key: typeof import("./key").Key = null as any;
 utilities.lazyLoad(exports, ["Key"], () => require("./key"));
 
+export { KeyPolicyArgs, KeyPolicyState } from "./keyPolicy";
+export type KeyPolicy = import("./keyPolicy").KeyPolicy;
+export const KeyPolicy: typeof import("./keyPolicy").KeyPolicy = null as any;
+utilities.lazyLoad(exports, ["KeyPolicy"], () => require("./keyPolicy"));
+
 export { ReplicaExternalKeyArgs, ReplicaExternalKeyState } from "./replicaExternalKey";
 export type ReplicaExternalKey = import("./replicaExternalKey").ReplicaExternalKey;
 export const ReplicaExternalKey: typeof import("./replicaExternalKey").ReplicaExternalKey = null as any;
@@ -97,6 +102,8 @@ const _module = {
                 return new Grant(name, <any>undefined, { urn })
             case "aws:kms/key:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "aws:kms/keyPolicy:KeyPolicy":
+                return new KeyPolicy(name, <any>undefined, { urn })
             case "aws:kms/replicaExternalKey:ReplicaExternalKey":
                 return new ReplicaExternalKey(name, <any>undefined, { urn })
             case "aws:kms/replicaKey:ReplicaKey":
@@ -112,5 +119,6 @@ pulumi.runtime.registerResourceModule("aws", "kms/customKeyStore", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/externalKey", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/grant", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/key", _module)
+pulumi.runtime.registerResourceModule("aws", "kms/keyPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/replicaExternalKey", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/replicaKey", _module)

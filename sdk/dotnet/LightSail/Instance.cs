@@ -30,7 +30,7 @@ namespace Pulumi.Aws.LightSail
     ///     var gitlabTest = new Aws.LightSail.Instance("gitlabTest", new()
     ///     {
     ///         AvailabilityZone = "us-east-1b",
-    ///         BlueprintId = "amazon_linux",
+    ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///         KeyPairName = "some_key_name",
     ///         Tags = 
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.LightSail
     ///             Type = "AutoSnapshot",
     ///         },
     ///         AvailabilityZone = "us-east-1b",
-    ///         BlueprintId = "amazon_linux",
+    ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///         Tags = 
     ///         {

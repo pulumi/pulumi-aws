@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Scheduler.Inputs
     public sealed class ScheduleTargetEcsParametersNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launch_type` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+        /// Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
         /// </summary>
         [Input("assignPublicIp")]
         public Input<bool>? AssignPublicIp { get; set; }

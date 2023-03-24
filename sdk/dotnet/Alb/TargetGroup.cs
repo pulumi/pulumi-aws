@@ -158,6 +158,12 @@ namespace Pulumi.Aws.Alb
         public Output<string> LoadBalancingAlgorithmType { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
+        /// </summary>
+        [Output("loadBalancingCrossZoneEnabled")]
+        public Output<string> LoadBalancingCrossZoneEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
         [Output("name")]
@@ -328,6 +334,12 @@ namespace Pulumi.Aws.Alb
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
+        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
+        /// </summary>
+        [Input("loadBalancingCrossZoneEnabled")]
+        public Input<string>? LoadBalancingCrossZoneEnabled { get; set; }
+
+        /// <summary>
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
         [Input("name")]
@@ -472,6 +484,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("loadBalancingAlgorithmType")]
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
+
+        /// <summary>
+        /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
+        /// </summary>
+        [Input("loadBalancingCrossZoneEnabled")]
+        public Input<string>? LoadBalancingCrossZoneEnabled { get; set; }
 
         /// <summary>
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.

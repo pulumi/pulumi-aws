@@ -25,7 +25,7 @@ public final class DataSourceConfigurationS3Configuration {
      */
     private String bucketName;
     /**
-     * @return A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+     * @return A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
      * 
      */
     private @Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration documentsMetadataConfiguration;
@@ -61,7 +61,7 @@ public final class DataSourceConfigurationS3Configuration {
         return this.bucketName;
     }
     /**
-     * @return A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+     * @return A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
      * 
      */
     public Optional<DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration> documentsMetadataConfiguration() {

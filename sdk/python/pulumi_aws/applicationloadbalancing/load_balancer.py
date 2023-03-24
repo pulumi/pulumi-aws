@@ -23,7 +23,9 @@ class LoadBalancerArgs:
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
                  enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
+                 enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -34,7 +36,8 @@ class LoadBalancerArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 xff_header_processing_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input['LoadBalancerAccessLogsArgs'] access_logs: An Access Logs block. Access Logs documented below.
@@ -44,7 +47,9 @@ class LoadBalancerArgs:
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[bool] enable_tls_version_and_cipher_suite_headers: Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
@@ -60,6 +65,7 @@ class LoadBalancerArgs:
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] xff_header_processing_mode: Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         """
         if access_logs is not None:
             pulumi.set(__self__, "access_logs", access_logs)
@@ -75,8 +81,12 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
         if enable_http2 is not None:
             pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_tls_version_and_cipher_suite_headers is not None:
+            pulumi.set(__self__, "enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
         if enable_waf_fail_open is not None:
             pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
+        if enable_xff_client_port is not None:
+            pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if internal is not None:
@@ -99,6 +109,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if xff_header_processing_mode is not None:
+            pulumi.set(__self__, "xff_header_processing_mode", xff_header_processing_mode)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -185,6 +197,18 @@ class LoadBalancerArgs:
         pulumi.set(self, "enable_http2", value)
 
     @property
+    @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
+    def enable_tls_version_and_cipher_suite_headers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        """
+        return pulumi.get(self, "enable_tls_version_and_cipher_suite_headers")
+
+    @enable_tls_version_and_cipher_suite_headers.setter
+    def enable_tls_version_and_cipher_suite_headers(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_tls_version_and_cipher_suite_headers", value)
+
+    @property
     @pulumi.getter(name="enableWafFailOpen")
     def enable_waf_fail_open(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -195,6 +219,18 @@ class LoadBalancerArgs:
     @enable_waf_fail_open.setter
     def enable_waf_fail_open(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_waf_fail_open", value)
+
+    @property
+    @pulumi.getter(name="enableXffClientPort")
+    def enable_xff_client_port(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        """
+        return pulumi.get(self, "enable_xff_client_port")
+
+    @enable_xff_client_port.setter
+    def enable_xff_client_port(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_xff_client_port", value)
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -332,6 +368,18 @@ class LoadBalancerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="xffHeaderProcessingMode")
+    def xff_header_processing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        """
+        return pulumi.get(self, "xff_header_processing_mode")
+
+    @xff_header_processing_mode.setter
+    def xff_header_processing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "xff_header_processing_mode", value)
+
 
 @pulumi.input_type
 class _LoadBalancerState:
@@ -346,7 +394,9 @@ class _LoadBalancerState:
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
                  enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
+                 enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -360,6 +410,7 @@ class _LoadBalancerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
+                 xff_header_processing_mode: Optional[pulumi.Input[str]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
@@ -373,7 +424,9 @@ class _LoadBalancerState:
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[bool] enable_tls_version_and_cipher_suite_headers: Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
@@ -390,6 +443,7 @@ class _LoadBalancerState:
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] xff_header_processing_mode: Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         """
         if access_logs is not None:
@@ -412,8 +466,12 @@ class _LoadBalancerState:
             pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
         if enable_http2 is not None:
             pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_tls_version_and_cipher_suite_headers is not None:
+            pulumi.set(__self__, "enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
         if enable_waf_fail_open is not None:
             pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
+        if enable_xff_client_port is not None:
+            pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if internal is not None:
@@ -440,6 +498,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
+        if xff_header_processing_mode is not None:
+            pulumi.set(__self__, "xff_header_processing_mode", xff_header_processing_mode)
         if zone_id is not None:
             pulumi.set(__self__, "zone_id", zone_id)
 
@@ -564,6 +624,18 @@ class _LoadBalancerState:
         pulumi.set(self, "enable_http2", value)
 
     @property
+    @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
+    def enable_tls_version_and_cipher_suite_headers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        """
+        return pulumi.get(self, "enable_tls_version_and_cipher_suite_headers")
+
+    @enable_tls_version_and_cipher_suite_headers.setter
+    def enable_tls_version_and_cipher_suite_headers(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_tls_version_and_cipher_suite_headers", value)
+
+    @property
     @pulumi.getter(name="enableWafFailOpen")
     def enable_waf_fail_open(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -574,6 +646,18 @@ class _LoadBalancerState:
     @enable_waf_fail_open.setter
     def enable_waf_fail_open(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_waf_fail_open", value)
+
+    @property
+    @pulumi.getter(name="enableXffClientPort")
+    def enable_xff_client_port(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        """
+        return pulumi.get(self, "enable_xff_client_port")
+
+    @enable_xff_client_port.setter
+    def enable_xff_client_port(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_xff_client_port", value)
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -733,6 +817,18 @@ class _LoadBalancerState:
         pulumi.set(self, "vpc_id", value)
 
     @property
+    @pulumi.getter(name="xffHeaderProcessingMode")
+    def xff_header_processing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        """
+        return pulumi.get(self, "xff_header_processing_mode")
+
+    @xff_header_processing_mode.setter
+    def xff_header_processing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "xff_header_processing_mode", value)
+
+    @property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -762,7 +858,9 @@ class LoadBalancer(pulumi.CustomResource):
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
                  enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
+                 enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -774,6 +872,7 @@ class LoadBalancer(pulumi.CustomResource):
                  subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerSubnetMappingArgs']]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 xff_header_processing_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides a Load Balancer resource.
@@ -873,7 +972,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[bool] enable_tls_version_and_cipher_suite_headers: Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
@@ -889,6 +990,7 @@ class LoadBalancer(pulumi.CustomResource):
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] xff_header_processing_mode: Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         """
         ...
     @overload
@@ -1007,7 +1109,9 @@ class LoadBalancer(pulumi.CustomResource):
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
                  enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
+                 enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -1019,6 +1123,7 @@ class LoadBalancer(pulumi.CustomResource):
                  subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerSubnetMappingArgs']]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 xff_header_processing_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""LoadBalancer is deprecated: aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1036,7 +1141,9 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
             __props__.__dict__["enable_deletion_protection"] = enable_deletion_protection
             __props__.__dict__["enable_http2"] = enable_http2
+            __props__.__dict__["enable_tls_version_and_cipher_suite_headers"] = enable_tls_version_and_cipher_suite_headers
             __props__.__dict__["enable_waf_fail_open"] = enable_waf_fail_open
+            __props__.__dict__["enable_xff_client_port"] = enable_xff_client_port
             __props__.__dict__["idle_timeout"] = idle_timeout
             __props__.__dict__["internal"] = internal
             __props__.__dict__["ip_address_type"] = ip_address_type
@@ -1048,6 +1155,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["subnet_mappings"] = subnet_mappings
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["xff_header_processing_mode"] = xff_header_processing_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["arn_suffix"] = None
             __props__.__dict__["dns_name"] = None
@@ -1074,7 +1182,9 @@ class LoadBalancer(pulumi.CustomResource):
             enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
             enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
             enable_http2: Optional[pulumi.Input[bool]] = None,
+            enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
             enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
+            enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
             idle_timeout: Optional[pulumi.Input[int]] = None,
             internal: Optional[pulumi.Input[bool]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -1088,6 +1198,7 @@ class LoadBalancer(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None,
+            xff_header_processing_mode: Optional[pulumi.Input[str]] = None,
             zone_id: Optional[pulumi.Input[str]] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
@@ -1106,7 +1217,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[bool] enable_tls_version_and_cipher_suite_headers: Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
@@ -1123,6 +1236,7 @@ class LoadBalancer(pulumi.CustomResource):
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] xff_header_processing_mode: Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1139,7 +1253,9 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
         __props__.__dict__["enable_deletion_protection"] = enable_deletion_protection
         __props__.__dict__["enable_http2"] = enable_http2
+        __props__.__dict__["enable_tls_version_and_cipher_suite_headers"] = enable_tls_version_and_cipher_suite_headers
         __props__.__dict__["enable_waf_fail_open"] = enable_waf_fail_open
+        __props__.__dict__["enable_xff_client_port"] = enable_xff_client_port
         __props__.__dict__["idle_timeout"] = idle_timeout
         __props__.__dict__["internal"] = internal
         __props__.__dict__["ip_address_type"] = ip_address_type
@@ -1153,6 +1269,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc_id"] = vpc_id
+        __props__.__dict__["xff_header_processing_mode"] = xff_header_processing_mode
         __props__.__dict__["zone_id"] = zone_id
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
@@ -1237,12 +1354,28 @@ class LoadBalancer(pulumi.CustomResource):
         return pulumi.get(self, "enable_http2")
 
     @property
+    @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
+    def enable_tls_version_and_cipher_suite_headers(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        """
+        return pulumi.get(self, "enable_tls_version_and_cipher_suite_headers")
+
+    @property
     @pulumi.getter(name="enableWafFailOpen")
     def enable_waf_fail_open(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         """
         return pulumi.get(self, "enable_waf_fail_open")
+
+    @property
+    @pulumi.getter(name="enableXffClientPort")
+    def enable_xff_client_port(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        """
+        return pulumi.get(self, "enable_xff_client_port")
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -1348,6 +1481,14 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "vpc_id")
+
+    @property
+    @pulumi.getter(name="xffHeaderProcessingMode")
+    def xff_header_processing_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        """
+        return pulumi.get(self, "xff_header_processing_mode")
 
     @property
     @pulumi.getter(name="zoneId")

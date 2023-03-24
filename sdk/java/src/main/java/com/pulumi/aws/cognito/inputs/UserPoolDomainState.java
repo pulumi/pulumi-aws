@@ -46,6 +46,21 @@ public final class UserPoolDomainState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+     * 
+     */
+    @Import(name="cloudfrontDistribution")
+    private @Nullable Output<String> cloudfrontDistribution;
+
+    /**
+     * @return The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+     * 
+     */
+    public Optional<Output<String>> cloudfrontDistribution() {
+        return Optional.ofNullable(this.cloudfrontDistribution);
+    }
+
+    /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      * 
      */
@@ -58,6 +73,21 @@ public final class UserPoolDomainState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> cloudfrontDistributionArn() {
         return Optional.ofNullable(this.cloudfrontDistributionArn);
+    }
+
+    /**
+     * The Route 53 hosted zone ID of the CloudFront distribution.
+     * 
+     */
+    @Import(name="cloudfrontDistributionZoneId")
+    private @Nullable Output<String> cloudfrontDistributionZoneId;
+
+    /**
+     * @return The Route 53 hosted zone ID of the CloudFront distribution.
+     * 
+     */
+    public Optional<Output<String>> cloudfrontDistributionZoneId() {
+        return Optional.ofNullable(this.cloudfrontDistributionZoneId);
     }
 
     /**
@@ -125,7 +155,9 @@ public final class UserPoolDomainState extends com.pulumi.resources.ResourceArgs
     private UserPoolDomainState(UserPoolDomainState $) {
         this.awsAccountId = $.awsAccountId;
         this.certificateArn = $.certificateArn;
+        this.cloudfrontDistribution = $.cloudfrontDistribution;
         this.cloudfrontDistributionArn = $.cloudfrontDistributionArn;
+        this.cloudfrontDistributionZoneId = $.cloudfrontDistributionZoneId;
         this.domain = $.domain;
         this.s3Bucket = $.s3Bucket;
         this.userPoolId = $.userPoolId;
@@ -193,6 +225,27 @@ public final class UserPoolDomainState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param cloudfrontDistribution The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudfrontDistribution(@Nullable Output<String> cloudfrontDistribution) {
+            $.cloudfrontDistribution = cloudfrontDistribution;
+            return this;
+        }
+
+        /**
+         * @param cloudfrontDistribution The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudfrontDistribution(String cloudfrontDistribution) {
+            return cloudfrontDistribution(Output.of(cloudfrontDistribution));
+        }
+
+        /**
          * @param cloudfrontDistributionArn The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
          * 
          * @return builder
@@ -211,6 +264,27 @@ public final class UserPoolDomainState extends com.pulumi.resources.ResourceArgs
          */
         public Builder cloudfrontDistributionArn(String cloudfrontDistributionArn) {
             return cloudfrontDistributionArn(Output.of(cloudfrontDistributionArn));
+        }
+
+        /**
+         * @param cloudfrontDistributionZoneId The Route 53 hosted zone ID of the CloudFront distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudfrontDistributionZoneId(@Nullable Output<String> cloudfrontDistributionZoneId) {
+            $.cloudfrontDistributionZoneId = cloudfrontDistributionZoneId;
+            return this;
+        }
+
+        /**
+         * @param cloudfrontDistributionZoneId The Route 53 hosted zone ID of the CloudFront distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudfrontDistributionZoneId(String cloudfrontDistributionZoneId) {
+            return cloudfrontDistributionZoneId(Output.of(cloudfrontDistributionZoneId));
         }
 
         /**

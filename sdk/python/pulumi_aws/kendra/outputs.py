@@ -163,7 +163,7 @@ class DataSourceConfigurationS3Configuration(dict):
         """
         :param str bucket_name: The name of the bucket that contains the documents.
         :param 'DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs' access_control_list_configuration: A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
-        :param 'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs' documents_metadata_configuration: A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+        :param 'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs' documents_metadata_configuration: A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
         :param Sequence[str] exclusion_patterns: A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
         :param Sequence[str] inclusion_patterns: A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
         :param Sequence[str] inclusion_prefixes: A list of S3 prefixes for the documents that should be included in the index.
@@ -200,7 +200,7 @@ class DataSourceConfigurationS3Configuration(dict):
     @pulumi.getter(name="documentsMetadataConfiguration")
     def documents_metadata_configuration(self) -> Optional['outputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration']:
         """
-        A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+        A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
         """
         return pulumi.get(self, "documents_metadata_configuration")
 

@@ -68,10 +68,12 @@ type LookupDomainResult struct {
 	AutoTuneOptions []GetDomainAutoTuneOption `pulumi:"autoTuneOptions"`
 	// Cluster configuration of the domain.
 	ClusterConfigs []GetDomainClusterConfig `pulumi:"clusterConfigs"`
-	// Domain Amazon Cognito Authentication options for Kibana.
+	// Domain Amazon Cognito Authentication options for Dashboard.
 	CognitoOptions []GetDomainCognitoOption `pulumi:"cognitoOptions"`
 	// Status of the creation of the domain.
 	Created bool `pulumi:"created"`
+	// Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
+	DashboardEndpoint string `pulumi:"dashboardEndpoint"`
 	// Status of the deletion of the domain.
 	Deleted bool `pulumi:"deleted"`
 	// Unique identifier for the domain.
@@ -87,7 +89,7 @@ type LookupDomainResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Domain-specific endpoint used to access the Kibana application.
+	// Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
 	KibanaEndpoint string `pulumi:"kibanaEndpoint"`
 	// Domain log publishing related options.
 	LogPublishingOptions []GetDomainLogPublishingOption `pulumi:"logPublishingOptions"`
@@ -173,7 +175,7 @@ func (o LookupDomainResultOutput) ClusterConfigs() GetDomainClusterConfigArrayOu
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainClusterConfig { return v.ClusterConfigs }).(GetDomainClusterConfigArrayOutput)
 }
 
-// Domain Amazon Cognito Authentication options for Kibana.
+// Domain Amazon Cognito Authentication options for Dashboard.
 func (o LookupDomainResultOutput) CognitoOptions() GetDomainCognitoOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainCognitoOption { return v.CognitoOptions }).(GetDomainCognitoOptionArrayOutput)
 }
@@ -181,6 +183,11 @@ func (o LookupDomainResultOutput) CognitoOptions() GetDomainCognitoOptionArrayOu
 // Status of the creation of the domain.
 func (o LookupDomainResultOutput) Created() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Created }).(pulumi.BoolOutput)
+}
+
+// Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
+func (o LookupDomainResultOutput) DashboardEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }
 
 // Status of the deletion of the domain.
@@ -222,7 +229,7 @@ func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Domain-specific endpoint used to access the Kibana application.
+// Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
 func (o LookupDomainResultOutput) KibanaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.KibanaEndpoint }).(pulumi.StringOutput)
 }

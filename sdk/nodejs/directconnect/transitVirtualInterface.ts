@@ -110,6 +110,9 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
      * The name for the virtual interface.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Indicates whether to enable or disable SiteLink.
+     */
     public readonly sitelinkEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -248,6 +251,9 @@ export interface TransitVirtualInterfaceState {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates whether to enable or disable SiteLink.
+     */
     sitelinkEnabled?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -304,6 +310,9 @@ export interface TransitVirtualInterfaceArgs {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates whether to enable or disable SiteLink.
+     */
     sitelinkEnabled?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -8253,7 +8253,7 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	// Cannot be used with `snapshotId`.
 	Encrypted *string `pulumi:"encrypted"`
 	// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1/io2"`.
+	// This must be set with a `volumeType` of `"io1/io2/gp3"`.
 	Iops *int `pulumi:"iops"`
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
 	// `encrypted` must be set to `true` when this is set.
@@ -8288,7 +8288,7 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	// Cannot be used with `snapshotId`.
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1/io2"`.
+	// This must be set with a `volumeType` of `"io1/io2/gp3"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
 	// `encrypted` must be set to `true` when this is set.
@@ -8394,7 +8394,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrO
 }
 
 // The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1/io2"`.
+// This must be set with a `volumeType` of `"io1/io2/gp3"`.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -8473,7 +8473,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringP
 }
 
 // The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1/io2"`.
+// This must be set with a `volumeType` of `"io1/io2/gp3"`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -51988,6 +51988,236 @@ func (o GetPrefixListFilterArrayOutput) Index(i pulumi.IntInput) GetPrefixListFi
 	}).(GetPrefixListFilterOutput)
 }
 
+type GetPublicIpv4PoolPoolAddressRange struct {
+	// Number of addresses in the range.
+	AddressCount int `pulumi:"addressCount"`
+	// Number of available addresses in the range.
+	AvailableAddressCount int `pulumi:"availableAddressCount"`
+	// First address in the range.
+	FirstAddress string `pulumi:"firstAddress"`
+	// Last address in the range.
+	LastAddress string `pulumi:"lastAddress"`
+}
+
+// GetPublicIpv4PoolPoolAddressRangeInput is an input type that accepts GetPublicIpv4PoolPoolAddressRangeArgs and GetPublicIpv4PoolPoolAddressRangeOutput values.
+// You can construct a concrete instance of `GetPublicIpv4PoolPoolAddressRangeInput` via:
+//
+//	GetPublicIpv4PoolPoolAddressRangeArgs{...}
+type GetPublicIpv4PoolPoolAddressRangeInput interface {
+	pulumi.Input
+
+	ToGetPublicIpv4PoolPoolAddressRangeOutput() GetPublicIpv4PoolPoolAddressRangeOutput
+	ToGetPublicIpv4PoolPoolAddressRangeOutputWithContext(context.Context) GetPublicIpv4PoolPoolAddressRangeOutput
+}
+
+type GetPublicIpv4PoolPoolAddressRangeArgs struct {
+	// Number of addresses in the range.
+	AddressCount pulumi.IntInput `pulumi:"addressCount"`
+	// Number of available addresses in the range.
+	AvailableAddressCount pulumi.IntInput `pulumi:"availableAddressCount"`
+	// First address in the range.
+	FirstAddress pulumi.StringInput `pulumi:"firstAddress"`
+	// Last address in the range.
+	LastAddress pulumi.StringInput `pulumi:"lastAddress"`
+}
+
+func (GetPublicIpv4PoolPoolAddressRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicIpv4PoolPoolAddressRange)(nil)).Elem()
+}
+
+func (i GetPublicIpv4PoolPoolAddressRangeArgs) ToGetPublicIpv4PoolPoolAddressRangeOutput() GetPublicIpv4PoolPoolAddressRangeOutput {
+	return i.ToGetPublicIpv4PoolPoolAddressRangeOutputWithContext(context.Background())
+}
+
+func (i GetPublicIpv4PoolPoolAddressRangeArgs) ToGetPublicIpv4PoolPoolAddressRangeOutputWithContext(ctx context.Context) GetPublicIpv4PoolPoolAddressRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicIpv4PoolPoolAddressRangeOutput)
+}
+
+// GetPublicIpv4PoolPoolAddressRangeArrayInput is an input type that accepts GetPublicIpv4PoolPoolAddressRangeArray and GetPublicIpv4PoolPoolAddressRangeArrayOutput values.
+// You can construct a concrete instance of `GetPublicIpv4PoolPoolAddressRangeArrayInput` via:
+//
+//	GetPublicIpv4PoolPoolAddressRangeArray{ GetPublicIpv4PoolPoolAddressRangeArgs{...} }
+type GetPublicIpv4PoolPoolAddressRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetPublicIpv4PoolPoolAddressRangeArrayOutput() GetPublicIpv4PoolPoolAddressRangeArrayOutput
+	ToGetPublicIpv4PoolPoolAddressRangeArrayOutputWithContext(context.Context) GetPublicIpv4PoolPoolAddressRangeArrayOutput
+}
+
+type GetPublicIpv4PoolPoolAddressRangeArray []GetPublicIpv4PoolPoolAddressRangeInput
+
+func (GetPublicIpv4PoolPoolAddressRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicIpv4PoolPoolAddressRange)(nil)).Elem()
+}
+
+func (i GetPublicIpv4PoolPoolAddressRangeArray) ToGetPublicIpv4PoolPoolAddressRangeArrayOutput() GetPublicIpv4PoolPoolAddressRangeArrayOutput {
+	return i.ToGetPublicIpv4PoolPoolAddressRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetPublicIpv4PoolPoolAddressRangeArray) ToGetPublicIpv4PoolPoolAddressRangeArrayOutputWithContext(ctx context.Context) GetPublicIpv4PoolPoolAddressRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicIpv4PoolPoolAddressRangeArrayOutput)
+}
+
+type GetPublicIpv4PoolPoolAddressRangeOutput struct{ *pulumi.OutputState }
+
+func (GetPublicIpv4PoolPoolAddressRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicIpv4PoolPoolAddressRange)(nil)).Elem()
+}
+
+func (o GetPublicIpv4PoolPoolAddressRangeOutput) ToGetPublicIpv4PoolPoolAddressRangeOutput() GetPublicIpv4PoolPoolAddressRangeOutput {
+	return o
+}
+
+func (o GetPublicIpv4PoolPoolAddressRangeOutput) ToGetPublicIpv4PoolPoolAddressRangeOutputWithContext(ctx context.Context) GetPublicIpv4PoolPoolAddressRangeOutput {
+	return o
+}
+
+// Number of addresses in the range.
+func (o GetPublicIpv4PoolPoolAddressRangeOutput) AddressCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolPoolAddressRange) int { return v.AddressCount }).(pulumi.IntOutput)
+}
+
+// Number of available addresses in the range.
+func (o GetPublicIpv4PoolPoolAddressRangeOutput) AvailableAddressCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolPoolAddressRange) int { return v.AvailableAddressCount }).(pulumi.IntOutput)
+}
+
+// First address in the range.
+func (o GetPublicIpv4PoolPoolAddressRangeOutput) FirstAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolPoolAddressRange) string { return v.FirstAddress }).(pulumi.StringOutput)
+}
+
+// Last address in the range.
+func (o GetPublicIpv4PoolPoolAddressRangeOutput) LastAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolPoolAddressRange) string { return v.LastAddress }).(pulumi.StringOutput)
+}
+
+type GetPublicIpv4PoolPoolAddressRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPublicIpv4PoolPoolAddressRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicIpv4PoolPoolAddressRange)(nil)).Elem()
+}
+
+func (o GetPublicIpv4PoolPoolAddressRangeArrayOutput) ToGetPublicIpv4PoolPoolAddressRangeArrayOutput() GetPublicIpv4PoolPoolAddressRangeArrayOutput {
+	return o
+}
+
+func (o GetPublicIpv4PoolPoolAddressRangeArrayOutput) ToGetPublicIpv4PoolPoolAddressRangeArrayOutputWithContext(ctx context.Context) GetPublicIpv4PoolPoolAddressRangeArrayOutput {
+	return o
+}
+
+func (o GetPublicIpv4PoolPoolAddressRangeArrayOutput) Index(i pulumi.IntInput) GetPublicIpv4PoolPoolAddressRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPublicIpv4PoolPoolAddressRange {
+		return vs[0].([]GetPublicIpv4PoolPoolAddressRange)[vs[1].(int)]
+	}).(GetPublicIpv4PoolPoolAddressRangeOutput)
+}
+
+type GetPublicIpv4PoolsFilter struct {
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
+	Values []string `pulumi:"values"`
+}
+
+// GetPublicIpv4PoolsFilterInput is an input type that accepts GetPublicIpv4PoolsFilterArgs and GetPublicIpv4PoolsFilterOutput values.
+// You can construct a concrete instance of `GetPublicIpv4PoolsFilterInput` via:
+//
+//	GetPublicIpv4PoolsFilterArgs{...}
+type GetPublicIpv4PoolsFilterInput interface {
+	pulumi.Input
+
+	ToGetPublicIpv4PoolsFilterOutput() GetPublicIpv4PoolsFilterOutput
+	ToGetPublicIpv4PoolsFilterOutputWithContext(context.Context) GetPublicIpv4PoolsFilterOutput
+}
+
+type GetPublicIpv4PoolsFilterArgs struct {
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPublicIpv4PoolsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicIpv4PoolsFilter)(nil)).Elem()
+}
+
+func (i GetPublicIpv4PoolsFilterArgs) ToGetPublicIpv4PoolsFilterOutput() GetPublicIpv4PoolsFilterOutput {
+	return i.ToGetPublicIpv4PoolsFilterOutputWithContext(context.Background())
+}
+
+func (i GetPublicIpv4PoolsFilterArgs) ToGetPublicIpv4PoolsFilterOutputWithContext(ctx context.Context) GetPublicIpv4PoolsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicIpv4PoolsFilterOutput)
+}
+
+// GetPublicIpv4PoolsFilterArrayInput is an input type that accepts GetPublicIpv4PoolsFilterArray and GetPublicIpv4PoolsFilterArrayOutput values.
+// You can construct a concrete instance of `GetPublicIpv4PoolsFilterArrayInput` via:
+//
+//	GetPublicIpv4PoolsFilterArray{ GetPublicIpv4PoolsFilterArgs{...} }
+type GetPublicIpv4PoolsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetPublicIpv4PoolsFilterArrayOutput() GetPublicIpv4PoolsFilterArrayOutput
+	ToGetPublicIpv4PoolsFilterArrayOutputWithContext(context.Context) GetPublicIpv4PoolsFilterArrayOutput
+}
+
+type GetPublicIpv4PoolsFilterArray []GetPublicIpv4PoolsFilterInput
+
+func (GetPublicIpv4PoolsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicIpv4PoolsFilter)(nil)).Elem()
+}
+
+func (i GetPublicIpv4PoolsFilterArray) ToGetPublicIpv4PoolsFilterArrayOutput() GetPublicIpv4PoolsFilterArrayOutput {
+	return i.ToGetPublicIpv4PoolsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPublicIpv4PoolsFilterArray) ToGetPublicIpv4PoolsFilterArrayOutputWithContext(ctx context.Context) GetPublicIpv4PoolsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicIpv4PoolsFilterArrayOutput)
+}
+
+type GetPublicIpv4PoolsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPublicIpv4PoolsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicIpv4PoolsFilter)(nil)).Elem()
+}
+
+func (o GetPublicIpv4PoolsFilterOutput) ToGetPublicIpv4PoolsFilterOutput() GetPublicIpv4PoolsFilterOutput {
+	return o
+}
+
+func (o GetPublicIpv4PoolsFilterOutput) ToGetPublicIpv4PoolsFilterOutputWithContext(ctx context.Context) GetPublicIpv4PoolsFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+func (o GetPublicIpv4PoolsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
+func (o GetPublicIpv4PoolsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPublicIpv4PoolsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPublicIpv4PoolsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicIpv4PoolsFilter)(nil)).Elem()
+}
+
+func (o GetPublicIpv4PoolsFilterArrayOutput) ToGetPublicIpv4PoolsFilterArrayOutput() GetPublicIpv4PoolsFilterArrayOutput {
+	return o
+}
+
+func (o GetPublicIpv4PoolsFilterArrayOutput) ToGetPublicIpv4PoolsFilterArrayOutputWithContext(ctx context.Context) GetPublicIpv4PoolsFilterArrayOutput {
+	return o
+}
+
+func (o GetPublicIpv4PoolsFilterArrayOutput) Index(i pulumi.IntInput) GetPublicIpv4PoolsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPublicIpv4PoolsFilter {
+		return vs[0].([]GetPublicIpv4PoolsFilter)[vs[1].(int)]
+	}).(GetPublicIpv4PoolsFilterOutput)
+}
+
 type GetRouteTableAssociationType struct {
 	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId string `pulumi:"gatewayId"`
@@ -56144,6 +56374,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfacesFilterArrayInput)(nil)).Elem(), GetNetworkInterfacesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListFilterInput)(nil)).Elem(), GetPrefixListFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListFilterArrayInput)(nil)).Elem(), GetPrefixListFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicIpv4PoolPoolAddressRangeInput)(nil)).Elem(), GetPublicIpv4PoolPoolAddressRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicIpv4PoolPoolAddressRangeArrayInput)(nil)).Elem(), GetPublicIpv4PoolPoolAddressRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicIpv4PoolsFilterInput)(nil)).Elem(), GetPublicIpv4PoolsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicIpv4PoolsFilterArrayInput)(nil)).Elem(), GetPublicIpv4PoolsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableAssociationTypeInput)(nil)).Elem(), GetRouteTableAssociationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableAssociationTypeArrayInput)(nil)).Elem(), GetRouteTableAssociationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterInput)(nil)).Elem(), GetRouteTableFilterArgs{})
@@ -56965,6 +57199,10 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkInterfacesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetPrefixListFilterOutput{})
 	pulumi.RegisterOutputType(GetPrefixListFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPublicIpv4PoolPoolAddressRangeOutput{})
+	pulumi.RegisterOutputType(GetPublicIpv4PoolPoolAddressRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetPublicIpv4PoolsFilterOutput{})
+	pulumi.RegisterOutputType(GetPublicIpv4PoolsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableAssociationTypeOutput{})
 	pulumi.RegisterOutputType(GetRouteTableAssociationTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableFilterOutput{})

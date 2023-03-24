@@ -22,7 +22,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, engine_version=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, engine_version=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -47,6 +47,9 @@ class GetDomainResult:
         if created and not isinstance(created, bool):
             raise TypeError("Expected argument 'created' to be a bool")
         pulumi.set(__self__, "created", created)
+        if dashboard_endpoint and not isinstance(dashboard_endpoint, str):
+            raise TypeError("Expected argument 'dashboard_endpoint' to be a str")
+        pulumi.set(__self__, "dashboard_endpoint", dashboard_endpoint)
         if deleted and not isinstance(deleted, bool):
             raise TypeError("Expected argument 'deleted' to be a bool")
         pulumi.set(__self__, "deleted", deleted)
@@ -145,7 +148,7 @@ class GetDomainResult:
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> Sequence['outputs.GetDomainCognitoOptionResult']:
         """
-        Domain Amazon Cognito Authentication options for Kibana.
+        Domain Amazon Cognito Authentication options for Dashboard.
         """
         return pulumi.get(self, "cognito_options")
 
@@ -156,6 +159,14 @@ class GetDomainResult:
         Status of the creation of the domain.
         """
         return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="dashboardEndpoint")
+    def dashboard_endpoint(self) -> str:
+        """
+        Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
+        """
+        return pulumi.get(self, "dashboard_endpoint")
 
     @property
     @pulumi.getter
@@ -222,7 +233,7 @@ class GetDomainResult:
     @pulumi.getter(name="kibanaEndpoint")
     def kibana_endpoint(self) -> str:
         """
-        Domain-specific endpoint used to access the Kibana application.
+        Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         """
         return pulumi.get(self, "kibana_endpoint")
 
@@ -289,6 +300,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             cluster_configs=self.cluster_configs,
             cognito_options=self.cognito_options,
             created=self.created,
+            dashboard_endpoint=self.dashboard_endpoint,
             deleted=self.deleted,
             domain_id=self.domain_id,
             domain_name=self.domain_name,
@@ -340,6 +352,7 @@ def get_domain(domain_name: Optional[str] = None,
         cluster_configs=__ret__.cluster_configs,
         cognito_options=__ret__.cognito_options,
         created=__ret__.created,
+        dashboard_endpoint=__ret__.dashboard_endpoint,
         deleted=__ret__.deleted,
         domain_id=__ret__.domain_id,
         domain_name=__ret__.domain_name,

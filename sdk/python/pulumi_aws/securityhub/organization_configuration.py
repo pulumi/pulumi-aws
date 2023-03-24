@@ -14,12 +14,16 @@ __all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
 @pulumi.input_type
 class OrganizationConfigurationArgs:
     def __init__(__self__, *,
-                 auto_enable: pulumi.Input[bool]):
+                 auto_enable: pulumi.Input[bool],
+                 auto_enable_standards: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
         :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
+        :param pulumi.Input[str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
+        if auto_enable_standards is not None:
+            pulumi.set(__self__, "auto_enable_standards", auto_enable_standards)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -33,17 +37,33 @@ class OrganizationConfigurationArgs:
     def auto_enable(self, value: pulumi.Input[bool]):
         pulumi.set(self, "auto_enable", value)
 
+    @property
+    @pulumi.getter(name="autoEnableStandards")
+    def auto_enable_standards(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+        """
+        return pulumi.get(self, "auto_enable_standards")
+
+    @auto_enable_standards.setter
+    def auto_enable_standards(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_enable_standards", value)
+
 
 @pulumi.input_type
 class _OrganizationConfigurationState:
     def __init__(__self__, *,
-                 auto_enable: Optional[pulumi.Input[bool]] = None):
+                 auto_enable: Optional[pulumi.Input[bool]] = None,
+                 auto_enable_standards: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
         :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
+        :param pulumi.Input[str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         """
         if auto_enable is not None:
             pulumi.set(__self__, "auto_enable", auto_enable)
+        if auto_enable_standards is not None:
+            pulumi.set(__self__, "auto_enable_standards", auto_enable_standards)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -57,6 +77,18 @@ class _OrganizationConfigurationState:
     def auto_enable(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_enable", value)
 
+    @property
+    @pulumi.getter(name="autoEnableStandards")
+    def auto_enable_standards(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+        """
+        return pulumi.get(self, "auto_enable_standards")
+
+    @auto_enable_standards.setter
+    def auto_enable_standards(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_enable_standards", value)
+
 
 class OrganizationConfiguration(pulumi.CustomResource):
     @overload
@@ -64,6 +96,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
+                 auto_enable_standards: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages the Security Hub Organization Configuration.
@@ -97,6 +130,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
+        :param pulumi.Input[str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         """
         ...
     @overload
@@ -149,6 +183,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
+                 auto_enable_standards: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -161,6 +196,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             if auto_enable is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_enable'")
             __props__.__dict__["auto_enable"] = auto_enable
+            __props__.__dict__["auto_enable_standards"] = auto_enable_standards
         super(OrganizationConfiguration, __self__).__init__(
             'aws:securityhub/organizationConfiguration:OrganizationConfiguration',
             resource_name,
@@ -171,7 +207,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_enable: Optional[pulumi.Input[bool]] = None) -> 'OrganizationConfiguration':
+            auto_enable: Optional[pulumi.Input[bool]] = None,
+            auto_enable_standards: Optional[pulumi.Input[str]] = None) -> 'OrganizationConfiguration':
         """
         Get an existing OrganizationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -180,12 +217,14 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
+        :param pulumi.Input[str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _OrganizationConfigurationState.__new__(_OrganizationConfigurationState)
 
         __props__.__dict__["auto_enable"] = auto_enable
+        __props__.__dict__["auto_enable_standards"] = auto_enable_standards
         return OrganizationConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -195,4 +234,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         Whether to automatically enable Security Hub for new accounts in the organization.
         """
         return pulumi.get(self, "auto_enable")
+
+    @property
+    @pulumi.getter(name="autoEnableStandards")
+    def auto_enable_standards(self) -> pulumi.Output[str]:
+        """
+        Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+        """
+        return pulumi.get(self, "auto_enable_standards")
 

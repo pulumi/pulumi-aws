@@ -3744,8 +3744,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
         suggest = None
         if key == "acquisitionPointId":
             suggest = "acquisition_point_id"
-        elif key == "audioOnlyTimecodecControl":
-            suggest = "audio_only_timecodec_control"
+        elif key == "audioOnlyTimecodeControl":
+            suggest = "audio_only_timecode_control"
         elif key == "certificateMode":
             suggest = "certificate_mode"
         elif key == "connectionRetryInterval":
@@ -3793,10 +3793,10 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
     def __init__(__self__, *,
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination',
                  acquisition_point_id: Optional[str] = None,
-                 audio_only_timecodec_control: Optional[str] = None,
+                 audio_only_timecode_control: Optional[str] = None,
                  certificate_mode: Optional[str] = None,
                  connection_retry_interval: Optional[int] = None,
-                 event_id: Optional[int] = None,
+                 event_id: Optional[str] = None,
                  event_id_mode: Optional[str] = None,
                  event_stop_behavior: Optional[str] = None,
                  filecache_duration: Optional[int] = None,
@@ -3821,8 +3821,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
         pulumi.set(__self__, "destination", destination)
         if acquisition_point_id is not None:
             pulumi.set(__self__, "acquisition_point_id", acquisition_point_id)
-        if audio_only_timecodec_control is not None:
-            pulumi.set(__self__, "audio_only_timecodec_control", audio_only_timecodec_control)
+        if audio_only_timecode_control is not None:
+            pulumi.set(__self__, "audio_only_timecode_control", audio_only_timecode_control)
         if certificate_mode is not None:
             pulumi.set(__self__, "certificate_mode", certificate_mode)
         if connection_retry_interval is not None:
@@ -3870,9 +3870,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
         return pulumi.get(self, "acquisition_point_id")
 
     @property
-    @pulumi.getter(name="audioOnlyTimecodecControl")
-    def audio_only_timecodec_control(self) -> Optional[str]:
-        return pulumi.get(self, "audio_only_timecodec_control")
+    @pulumi.getter(name="audioOnlyTimecodeControl")
+    def audio_only_timecode_control(self) -> Optional[str]:
+        return pulumi.get(self, "audio_only_timecode_control")
 
     @property
     @pulumi.getter(name="certificateMode")
@@ -3892,7 +3892,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
 
     @property
     @pulumi.getter(name="eventId")
-    def event_id(self) -> Optional[int]:
+    def event_id(self) -> Optional[str]:
         return pulumi.get(self, "event_id")
 
     @property

@@ -244,14 +244,14 @@ public final class ProductState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+     * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+     * @return Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      * 
      */
     public Optional<Output<String>> type() {
@@ -613,7 +613,7 @@ public final class ProductState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+         * @param type Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
          * 
          * @return builder
          * 
@@ -624,7 +624,7 @@ public final class ProductState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+         * @param type Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
          * 
          * @return builder
          * 

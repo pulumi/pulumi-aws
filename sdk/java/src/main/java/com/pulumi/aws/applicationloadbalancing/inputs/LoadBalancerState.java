@@ -172,6 +172,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * 
+     */
+    @Import(name="enableTlsVersionAndCipherSuiteHeaders")
+    private @Nullable Output<Boolean> enableTlsVersionAndCipherSuiteHeaders;
+
+    /**
+     * @return Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * 
+     */
+    public Optional<Output<Boolean>> enableTlsVersionAndCipherSuiteHeaders() {
+        return Optional.ofNullable(this.enableTlsVersionAndCipherSuiteHeaders);
+    }
+
+    /**
      * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      * 
      */
@@ -184,6 +199,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> enableWafFailOpen() {
         return Optional.ofNullable(this.enableWafFailOpen);
+    }
+
+    /**
+     * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+     * 
+     */
+    @Import(name="enableXffClientPort")
+    private @Nullable Output<Boolean> enableXffClientPort;
+
+    /**
+     * @return Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> enableXffClientPort() {
+        return Optional.ofNullable(this.enableXffClientPort);
     }
 
     /**
@@ -382,6 +412,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+     * 
+     */
+    @Import(name="xffHeaderProcessingMode")
+    private @Nullable Output<String> xffHeaderProcessingMode;
+
+    /**
+     * @return Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+     * 
+     */
+    public Optional<Output<String>> xffHeaderProcessingMode() {
+        return Optional.ofNullable(this.xffHeaderProcessingMode);
+    }
+
+    /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      * 
      */
@@ -409,7 +454,9 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.enableCrossZoneLoadBalancing = $.enableCrossZoneLoadBalancing;
         this.enableDeletionProtection = $.enableDeletionProtection;
         this.enableHttp2 = $.enableHttp2;
+        this.enableTlsVersionAndCipherSuiteHeaders = $.enableTlsVersionAndCipherSuiteHeaders;
         this.enableWafFailOpen = $.enableWafFailOpen;
+        this.enableXffClientPort = $.enableXffClientPort;
         this.idleTimeout = $.idleTimeout;
         this.internal = $.internal;
         this.ipAddressType = $.ipAddressType;
@@ -423,6 +470,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.vpcId = $.vpcId;
+        this.xffHeaderProcessingMode = $.xffHeaderProcessingMode;
         this.zoneId = $.zoneId;
     }
 
@@ -655,6 +703,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param enableTlsVersionAndCipherSuiteHeaders Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableTlsVersionAndCipherSuiteHeaders(@Nullable Output<Boolean> enableTlsVersionAndCipherSuiteHeaders) {
+            $.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
+            return this;
+        }
+
+        /**
+         * @param enableTlsVersionAndCipherSuiteHeaders Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableTlsVersionAndCipherSuiteHeaders(Boolean enableTlsVersionAndCipherSuiteHeaders) {
+            return enableTlsVersionAndCipherSuiteHeaders(Output.of(enableTlsVersionAndCipherSuiteHeaders));
+        }
+
+        /**
          * @param enableWafFailOpen Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
          * 
          * @return builder
@@ -673,6 +742,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableWafFailOpen(Boolean enableWafFailOpen) {
             return enableWafFailOpen(Output.of(enableWafFailOpen));
+        }
+
+        /**
+         * @param enableXffClientPort Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableXffClientPort(@Nullable Output<Boolean> enableXffClientPort) {
+            $.enableXffClientPort = enableXffClientPort;
+            return this;
+        }
+
+        /**
+         * @param enableXffClientPort Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableXffClientPort(Boolean enableXffClientPort) {
+            return enableXffClientPort(Output.of(enableXffClientPort));
         }
 
         /**
@@ -974,6 +1064,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
+        }
+
+        /**
+         * @param xffHeaderProcessingMode Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xffHeaderProcessingMode(@Nullable Output<String> xffHeaderProcessingMode) {
+            $.xffHeaderProcessingMode = xffHeaderProcessingMode;
+            return this;
+        }
+
+        /**
+         * @param xffHeaderProcessingMode Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xffHeaderProcessingMode(String xffHeaderProcessingMode) {
+            return xffHeaderProcessingMode(Output.of(xffHeaderProcessingMode));
         }
 
         /**

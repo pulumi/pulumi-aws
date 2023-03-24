@@ -978,15 +978,16 @@ class UserPoolAccountRecoverySetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 recovery_mechanisms: Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']):
+                 recovery_mechanisms: Optional[Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']] = None):
         """
         :param Sequence['UserPoolAccountRecoverySettingRecoveryMechanismArgs'] recovery_mechanisms: List of Account Recovery Options of the following structure:
         """
-        pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
+        if recovery_mechanisms is not None:
+            pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
 
     @property
     @pulumi.getter(name="recoveryMechanisms")
-    def recovery_mechanisms(self) -> Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']:
+    def recovery_mechanisms(self) -> Optional[Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']]:
         """
         List of Account Recovery Options of the following structure:
         """

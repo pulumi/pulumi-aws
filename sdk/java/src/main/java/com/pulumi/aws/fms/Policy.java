@@ -127,6 +127,20 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deleteUnusedFmManagedResources);
     }
     /**
+     * The description of the AWS Network Firewall firewall policy.
+     * 
+     */
+    @Export(name="description", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> description;
+
+    /**
+     * @return The description of the AWS Network Firewall firewall policy.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
+    }
+    /**
      * A map of lists of accounts and OU&#39;s to exclude from the policy.
      * 
      */

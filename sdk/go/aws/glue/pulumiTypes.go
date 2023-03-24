@@ -3165,6 +3165,8 @@ func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalog
 type CrawlerDeltaTarget struct {
 	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName *string `pulumi:"connectionName"`
+	// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+	CreateNativeDeltaTable *bool `pulumi:"createNativeDeltaTable"`
 	// A list of the Amazon S3 paths to the Delta tables.
 	DeltaTables []string `pulumi:"deltaTables"`
 	// Specifies whether to write the manifest files to the Delta table path.
@@ -3185,6 +3187,8 @@ type CrawlerDeltaTargetInput interface {
 type CrawlerDeltaTargetArgs struct {
 	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+	CreateNativeDeltaTable pulumi.BoolPtrInput `pulumi:"createNativeDeltaTable"`
 	// A list of the Amazon S3 paths to the Delta tables.
 	DeltaTables pulumi.StringArrayInput `pulumi:"deltaTables"`
 	// Specifies whether to write the manifest files to the Delta table path.
@@ -3245,6 +3249,11 @@ func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutputWithContext(ctx cont
 // The name of the connection to use to connect to the Delta table target.
 func (o CrawlerDeltaTargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerDeltaTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+func (o CrawlerDeltaTargetOutput) CreateNativeDeltaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) *bool { return v.CreateNativeDeltaTable }).(pulumi.BoolPtrOutput)
 }
 
 // A list of the Amazon S3 paths to the Delta tables.

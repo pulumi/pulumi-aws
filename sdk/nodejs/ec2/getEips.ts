@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following shows outputing all Elastic IPs with the a specific tag value.
+ * The following shows outputting all Elastic IPs with the a specific tag value.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -75,7 +75,7 @@ export interface GetEipsResult {
  *
  * ## Example Usage
  *
- * The following shows outputing all Elastic IPs with the a specific tag value.
+ * The following shows outputting all Elastic IPs with the a specific tag value.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

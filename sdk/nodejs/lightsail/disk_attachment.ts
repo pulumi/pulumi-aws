@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * const testInstance = new aws.lightsail.Instance("testInstance", {
  *     availabilityZone: available.then(available => available.names?.[0]),
- *     blueprintId: "amazon_linux",
+ *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  * });
  * const testDisk_attachment = new aws.lightsail.Disk_attachment("testDisk_attachment", {

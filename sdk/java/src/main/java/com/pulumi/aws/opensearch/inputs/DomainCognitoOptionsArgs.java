@@ -17,14 +17,14 @@ public final class DomainCognitoOptionsArgs extends com.pulumi.resources.Resourc
     public static final DomainCognitoOptionsArgs Empty = new DomainCognitoOptionsArgs();
 
     /**
-     * Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+     * Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+     * @return Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -104,7 +104,7 @@ public final class DomainCognitoOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabled Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+         * @param enabled Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DomainCognitoOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabled Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+         * @param enabled Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
          * 
          * @return builder
          * 

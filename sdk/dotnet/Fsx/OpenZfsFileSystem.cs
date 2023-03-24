@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         /// </summary>
         [Output("throughputCapacity")]
         public Output<int> ThroughputCapacity { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         /// </summary>
         [Input("deploymentType", required: true)]
         public Input<string> DeploymentType { get; set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         /// </summary>
         [Input("throughputCapacity", required: true)]
         public Input<int> ThroughputCapacity { get; set; } = null!;
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }

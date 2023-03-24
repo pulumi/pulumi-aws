@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following shows outputing all Elastic IPs with the a specific tag value.
+        /// The following shows outputting all Elastic IPs with the a specific tag value.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following shows outputing all Elastic IPs with the a specific tag value.
+        /// The following shows outputting all Elastic IPs with the a specific tag value.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

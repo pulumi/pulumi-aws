@@ -47,11 +47,9 @@ class MetricAlarmArgs:
         :param pulumi.Input[str] alarm_description: The description for the alarm.
         :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms
-               based on percentiles. If you specify `ignore`, the alarm state will not
-               change during periods with too few data points to be statistically significant.
-               If you specify `evaluate` or omit this parameter, the alarm will always be
-               evaluated and possibly change state no matter how many data points are available.
+        :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
+               If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+               If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
         :param pulumi.Input[str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
@@ -63,6 +61,7 @@ class MetricAlarmArgs:
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[int] period: The period in seconds over which the specified `statistic` is applied.
+               Valid values are `10`, `30`, or any multiple of `60`.
         :param pulumi.Input[str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -202,11 +201,9 @@ class MetricAlarmArgs:
     @pulumi.getter(name="evaluateLowSampleCountPercentiles")
     def evaluate_low_sample_count_percentiles(self) -> Optional[pulumi.Input[str]]:
         """
-        Used only for alarms
-        based on percentiles. If you specify `ignore`, the alarm state will not
-        change during periods with too few data points to be statistically significant.
-        If you specify `evaluate` or omit this parameter, the alarm will always be
-        evaluated and possibly change state no matter how many data points are available.
+        Used only for alarms based on percentiles.
+        If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         The following values are supported: `ignore`, and `evaluate`.
         """
         return pulumi.get(self, "evaluate_low_sample_count_percentiles")
@@ -306,6 +303,7 @@ class MetricAlarmArgs:
     def period(self) -> Optional[pulumi.Input[int]]:
         """
         The period in seconds over which the specified `statistic` is applied.
+        Valid values are `10`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 
@@ -423,11 +421,9 @@ class _MetricAlarmState:
         :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms
-               based on percentiles. If you specify `ignore`, the alarm state will not
-               change during periods with too few data points to be statistically significant.
-               If you specify `evaluate` or omit this parameter, the alarm will always be
-               evaluated and possibly change state no matter how many data points are available.
+        :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
+               If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+               If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
         :param pulumi.Input[int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
         :param pulumi.Input[str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -440,6 +436,7 @@ class _MetricAlarmState:
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[int] period: The period in seconds over which the specified `statistic` is applied.
+               Valid values are `10`, `30`, or any multiple of `60`.
         :param pulumi.Input[str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -586,11 +583,9 @@ class _MetricAlarmState:
     @pulumi.getter(name="evaluateLowSampleCountPercentiles")
     def evaluate_low_sample_count_percentiles(self) -> Optional[pulumi.Input[str]]:
         """
-        Used only for alarms
-        based on percentiles. If you specify `ignore`, the alarm state will not
-        change during periods with too few data points to be statistically significant.
-        If you specify `evaluate` or omit this parameter, the alarm will always be
-        evaluated and possibly change state no matter how many data points are available.
+        Used only for alarms based on percentiles.
+        If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         The following values are supported: `ignore`, and `evaluate`.
         """
         return pulumi.get(self, "evaluate_low_sample_count_percentiles")
@@ -702,6 +697,7 @@ class _MetricAlarmState:
     def period(self) -> Optional[pulumi.Input[int]]:
         """
         The period in seconds over which the specified `statistic` is applied.
+        Valid values are `10`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 
@@ -994,11 +990,9 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms
-               based on percentiles. If you specify `ignore`, the alarm state will not
-               change during periods with too few data points to be statistically significant.
-               If you specify `evaluate` or omit this parameter, the alarm will always be
-               evaluated and possibly change state no matter how many data points are available.
+        :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
+               If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+               If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
         :param pulumi.Input[int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
         :param pulumi.Input[str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -1011,6 +1005,7 @@ class MetricAlarm(pulumi.CustomResource):
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[int] period: The period in seconds over which the specified `statistic` is applied.
+               Valid values are `10`, `30`, or any multiple of `60`.
         :param pulumi.Input[str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1310,11 +1305,9 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms
-               based on percentiles. If you specify `ignore`, the alarm state will not
-               change during periods with too few data points to be statistically significant.
-               If you specify `evaluate` or omit this parameter, the alarm will always be
-               evaluated and possibly change state no matter how many data points are available.
+        :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
+               If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+               If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
         :param pulumi.Input[int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
         :param pulumi.Input[str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -1327,6 +1320,7 @@ class MetricAlarm(pulumi.CustomResource):
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[int] period: The period in seconds over which the specified `statistic` is applied.
+               Valid values are `10`, `30`, or any multiple of `60`.
         :param pulumi.Input[str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1426,11 +1420,9 @@ class MetricAlarm(pulumi.CustomResource):
     @pulumi.getter(name="evaluateLowSampleCountPercentiles")
     def evaluate_low_sample_count_percentiles(self) -> pulumi.Output[str]:
         """
-        Used only for alarms
-        based on percentiles. If you specify `ignore`, the alarm state will not
-        change during periods with too few data points to be statistically significant.
-        If you specify `evaluate` or omit this parameter, the alarm will always be
-        evaluated and possibly change state no matter how many data points are available.
+        Used only for alarms based on percentiles.
+        If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         The following values are supported: `ignore`, and `evaluate`.
         """
         return pulumi.get(self, "evaluate_low_sample_count_percentiles")
@@ -1506,6 +1498,7 @@ class MetricAlarm(pulumi.CustomResource):
     def period(self) -> pulumi.Output[Optional[int]]:
         """
         The period in seconds over which the specified `statistic` is applied.
+        Valid values are `10`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 

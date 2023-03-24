@@ -31,14 +31,14 @@ public final class ClusterServerlessV2ScalingConfigurationArgs extends com.pulum
     }
 
     /**
-     * The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+     * The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
      * 
      */
     @Import(name="minCapacity")
     private @Nullable Output<Double> minCapacity;
 
     /**
-     * @return The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+     * @return The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
      * 
      */
     public Optional<Output<Double>> minCapacity() {
@@ -92,7 +92,7 @@ public final class ClusterServerlessV2ScalingConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param minCapacity The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+         * @param minCapacity The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClusterServerlessV2ScalingConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param minCapacity The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+         * @param minCapacity The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
          * 
          * @return builder
          * 

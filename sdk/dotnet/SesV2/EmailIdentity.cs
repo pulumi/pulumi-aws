@@ -69,6 +69,27 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// ### DKIM Signing Attributes (BYODKIM)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
+    ///     {
+    ///         DkimSigningAttributes = new Aws.SesV2.Inputs.EmailIdentityDkimSigningAttributesArgs
+    ///         {
+    ///             DomainSigningPrivateKey = "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
+    ///             DomainSigningSelector = "example",
+    ///         },
+    ///         EmailIdentityDetails = "example.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

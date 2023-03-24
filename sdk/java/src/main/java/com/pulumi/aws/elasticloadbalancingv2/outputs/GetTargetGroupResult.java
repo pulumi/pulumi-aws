@@ -26,6 +26,7 @@ public final class GetTargetGroupResult {
     private String id;
     private Boolean lambdaMultiValueHeadersEnabled;
     private String loadBalancingAlgorithmType;
+    private String loadBalancingCrossZoneEnabled;
     private String name;
     private Integer port;
     private String preserveClientIp;
@@ -66,6 +67,9 @@ public final class GetTargetGroupResult {
     }
     public String loadBalancingAlgorithmType() {
         return this.loadBalancingAlgorithmType;
+    }
+    public String loadBalancingCrossZoneEnabled() {
+        return this.loadBalancingCrossZoneEnabled;
     }
     public String name() {
         return this.name;
@@ -118,6 +122,7 @@ public final class GetTargetGroupResult {
         private String id;
         private Boolean lambdaMultiValueHeadersEnabled;
         private String loadBalancingAlgorithmType;
+        private String loadBalancingCrossZoneEnabled;
         private String name;
         private Integer port;
         private String preserveClientIp;
@@ -140,6 +145,7 @@ public final class GetTargetGroupResult {
     	      this.id = defaults.id;
     	      this.lambdaMultiValueHeadersEnabled = defaults.lambdaMultiValueHeadersEnabled;
     	      this.loadBalancingAlgorithmType = defaults.loadBalancingAlgorithmType;
+    	      this.loadBalancingCrossZoneEnabled = defaults.loadBalancingCrossZoneEnabled;
     	      this.name = defaults.name;
     	      this.port = defaults.port;
     	      this.preserveClientIp = defaults.preserveClientIp;
@@ -191,6 +197,11 @@ public final class GetTargetGroupResult {
         @CustomType.Setter
         public Builder loadBalancingAlgorithmType(String loadBalancingAlgorithmType) {
             this.loadBalancingAlgorithmType = Objects.requireNonNull(loadBalancingAlgorithmType);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder loadBalancingCrossZoneEnabled(String loadBalancingCrossZoneEnabled) {
+            this.loadBalancingCrossZoneEnabled = Objects.requireNonNull(loadBalancingCrossZoneEnabled);
             return this;
         }
         @CustomType.Setter
@@ -258,6 +269,7 @@ public final class GetTargetGroupResult {
             o.id = id;
             o.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             o.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            o.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
             o.name = name;
             o.port = port;
             o.preserveClientIp = preserveClientIp;

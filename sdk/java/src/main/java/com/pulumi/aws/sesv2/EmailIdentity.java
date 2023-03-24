@@ -117,6 +117,40 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### DKIM Signing Attributes (BYODKIM)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sesv2.EmailIdentity;
+ * import com.pulumi.aws.sesv2.EmailIdentityArgs;
+ * import com.pulumi.aws.sesv2.inputs.EmailIdentityDkimSigningAttributesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
+ *             .dkimSigningAttributes(EmailIdentityDkimSigningAttributesArgs.builder()
+ *                 .domainSigningPrivateKey(&#34;MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...&#34;)
+ *                 .domainSigningSelector(&#34;example&#34;)
+ *                 .build())
+ *             .emailIdentity(&#34;example.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

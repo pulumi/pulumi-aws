@@ -3946,11 +3946,13 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
     def __init__(__self__, *,
                  aggregation_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs']] = None,
                  file_type: Optional[pulumi.Input[str]] = None,
-                 prefix_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs']] = None):
+                 prefix_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs']] = None,
+                 preserve_source_data_typing: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs'] aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
         :param pulumi.Input[str] file_type: File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs'] prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+        :param pulumi.Input[bool] preserve_source_data_typing: Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
         """
         if aggregation_config is not None:
             pulumi.set(__self__, "aggregation_config", aggregation_config)
@@ -3958,6 +3960,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
             pulumi.set(__self__, "file_type", file_type)
         if prefix_config is not None:
             pulumi.set(__self__, "prefix_config", prefix_config)
+        if preserve_source_data_typing is not None:
+            pulumi.set(__self__, "preserve_source_data_typing", preserve_source_data_typing)
 
     @property
     @pulumi.getter(name="aggregationConfig")
@@ -3994,6 +3998,18 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
     @prefix_config.setter
     def prefix_config(self, value: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs']]):
         pulumi.set(self, "prefix_config", value)
+
+    @property
+    @pulumi.getter(name="preserveSourceDataTyping")
+    def preserve_source_data_typing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+        """
+        return pulumi.get(self, "preserve_source_data_typing")
+
+    @preserve_source_data_typing.setter
+    def preserve_source_data_typing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_source_data_typing", value)
 
 
 @pulumi.input_type

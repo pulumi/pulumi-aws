@@ -464,6 +464,7 @@ class JobDefinition(pulumi.CustomResource):
                     "test",
                 ],
                 "image": "busybox",
+                "jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
                 "fargatePlatformConfiguration": {
                     "platformVersion": "LATEST",
                 },
@@ -586,6 +587,7 @@ class JobDefinition(pulumi.CustomResource):
                     "test",
                 ],
                 "image": "busybox",
+                "jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
                 "fargatePlatformConfiguration": {
                     "platformVersion": "LATEST",
                 },

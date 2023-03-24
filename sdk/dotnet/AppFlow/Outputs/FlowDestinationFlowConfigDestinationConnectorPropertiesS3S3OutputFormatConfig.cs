@@ -25,6 +25,10 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig? PrefixConfig;
+        /// <summary>
+        /// Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+        /// </summary>
+        public readonly bool? PreserveSourceDataTyping;
 
         [OutputConstructor]
         private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.AppFlow.Outputs
 
             string? fileType,
 
-            Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig? prefixConfig)
+            Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig? prefixConfig,
+
+            bool? preserveSourceDataTyping)
         {
             AggregationConfig = aggregationConfig;
             FileType = fileType;
             PrefixConfig = prefixConfig;
+            PreserveSourceDataTyping = preserveSourceDataTyping;
         }
     }
 }

@@ -143,6 +143,21 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+     * 
+     */
+    @Import(name="loadBalancingCrossZoneEnabled")
+    private @Nullable Output<String> loadBalancingCrossZoneEnabled;
+
+    /**
+     * @return Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+     * 
+     */
+    public Optional<Output<String>> loadBalancingCrossZoneEnabled() {
+        return Optional.ofNullable(this.loadBalancingCrossZoneEnabled);
+    }
+
+    /**
      * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
@@ -363,6 +378,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         this.ipAddressType = $.ipAddressType;
         this.lambdaMultiValueHeadersEnabled = $.lambdaMultiValueHeadersEnabled;
         this.loadBalancingAlgorithmType = $.loadBalancingAlgorithmType;
+        this.loadBalancingCrossZoneEnabled = $.loadBalancingCrossZoneEnabled;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.port = $.port;
@@ -563,6 +579,27 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder loadBalancingAlgorithmType(String loadBalancingAlgorithmType) {
             return loadBalancingAlgorithmType(Output.of(loadBalancingAlgorithmType));
+        }
+
+        /**
+         * @param loadBalancingCrossZoneEnabled Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancingCrossZoneEnabled(@Nullable Output<String> loadBalancingCrossZoneEnabled) {
+            $.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
+            return this;
+        }
+
+        /**
+         * @param loadBalancingCrossZoneEnabled Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancingCrossZoneEnabled(String loadBalancingCrossZoneEnabled) {
+            return loadBalancingCrossZoneEnabled(Output.of(loadBalancingCrossZoneEnabled));
         }
 
         /**

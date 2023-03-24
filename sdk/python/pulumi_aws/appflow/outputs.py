@@ -4283,6 +4283,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
             suggest = "file_type"
         elif key == "prefixConfig":
             suggest = "prefix_config"
+        elif key == "preserveSourceDataTyping":
+            suggest = "preserve_source_data_typing"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig. Access the value via the '{suggest}' property getter instead.")
@@ -4298,11 +4300,13 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
     def __init__(__self__, *,
                  aggregation_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig'] = None,
                  file_type: Optional[str] = None,
-                 prefix_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig'] = None):
+                 prefix_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig'] = None,
+                 preserve_source_data_typing: Optional[bool] = None):
         """
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs' aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
         :param str file_type: File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs' prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+        :param bool preserve_source_data_typing: Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
         """
         if aggregation_config is not None:
             pulumi.set(__self__, "aggregation_config", aggregation_config)
@@ -4310,6 +4314,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
             pulumi.set(__self__, "file_type", file_type)
         if prefix_config is not None:
             pulumi.set(__self__, "prefix_config", prefix_config)
+        if preserve_source_data_typing is not None:
+            pulumi.set(__self__, "preserve_source_data_typing", preserve_source_data_typing)
 
     @property
     @pulumi.getter(name="aggregationConfig")
@@ -4334,6 +4340,14 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
         """
         return pulumi.get(self, "prefix_config")
+
+    @property
+    @pulumi.getter(name="preserveSourceDataTyping")
+    def preserve_source_data_typing(self) -> Optional[bool]:
+        """
+        Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+        """
+        return pulumi.get(self, "preserve_source_data_typing")
 
 
 @pulumi.output_type

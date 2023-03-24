@@ -82,7 +82,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
     /**
-     * The name of the space. At least on of `userProfileName` or `spaceName` required.
+     * The name of the space. At least one of `userProfileName` or `spaceName` required.
      */
     public readonly spaceName!: pulumi.Output<string | undefined>;
     /**
@@ -94,7 +94,7 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The user profile name. At least on of `userProfileName` or `spaceName` required.
+     * The user profile name. At least one of `userProfileName` or `spaceName` required.
      */
     public readonly userProfileName!: pulumi.Output<string | undefined>;
 
@@ -171,7 +171,7 @@ export interface AppState {
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
-     * The name of the space. At least on of `userProfileName` or `spaceName` required.
+     * The name of the space. At least one of `userProfileName` or `spaceName` required.
      */
     spaceName?: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface AppState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The user profile name. At least on of `userProfileName` or `spaceName` required.
+     * The user profile name. At least one of `userProfileName` or `spaceName` required.
      */
     userProfileName?: pulumi.Input<string>;
 }
@@ -209,7 +209,7 @@ export interface AppArgs {
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
-     * The name of the space. At least on of `userProfileName` or `spaceName` required.
+     * The name of the space. At least one of `userProfileName` or `spaceName` required.
      */
     spaceName?: pulumi.Input<string>;
     /**
@@ -217,7 +217,7 @@ export interface AppArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The user profile name. At least on of `userProfileName` or `spaceName` required.
+     * The user profile name. At least one of `userProfileName` or `spaceName` required.
      */
     userProfileName?: pulumi.Input<string>;
 }

@@ -300,6 +300,7 @@ namespace Pulumi.Aws.Connect
 
         [Input("queueConfigsAssociateds")]
         private InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs>? _queueConfigsAssociateds;
+        [Obsolete(@"Use the queue_configs instead")]
         public InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs> QueueConfigsAssociateds
         {
             get => _queueConfigsAssociateds ?? (_queueConfigsAssociateds = new InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs>());

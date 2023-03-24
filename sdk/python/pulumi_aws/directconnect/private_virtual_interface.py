@@ -40,6 +40,7 @@ class PrivateVirtualInterfaceArgs:
         :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
+        :param pulumi.Input[bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
@@ -190,6 +191,9 @@ class PrivateVirtualInterfaceArgs:
     @property
     @pulumi.getter(name="sitelinkEnabled")
     def sitelink_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to enable or disable SiteLink.
+        """
         return pulumi.get(self, "sitelink_enabled")
 
     @sitelink_enabled.setter
@@ -257,6 +261,7 @@ class _PrivateVirtualInterfaceState:
         :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
+        :param pulumi.Input[bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] vlan: The VLAN ID.
@@ -456,6 +461,9 @@ class _PrivateVirtualInterfaceState:
     @property
     @pulumi.getter(name="sitelinkEnabled")
     def sitelink_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to enable or disable SiteLink.
+        """
         return pulumi.get(self, "sitelink_enabled")
 
     @sitelink_enabled.setter
@@ -566,6 +574,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
+        :param pulumi.Input[bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] vlan: The VLAN ID.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
@@ -711,6 +720,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
+        :param pulumi.Input[bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] vlan: The VLAN ID.
@@ -845,6 +855,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sitelinkEnabled")
     def sitelink_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to enable or disable SiteLink.
+        """
         return pulumi.get(self, "sitelink_enabled")
 
     @property

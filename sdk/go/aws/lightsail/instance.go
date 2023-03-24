@@ -34,7 +34,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewInstance(ctx, "gitlabTest", &lightsail.InstanceArgs{
 //				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux"),
+//				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //				KeyPairName:      pulumi.String("some_key_name"),
 //				Tags: pulumi.StringMap{
@@ -70,7 +70,7 @@ import (
 //					Type:         pulumi.String("AutoSnapshot"),
 //				},
 //				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux"),
+//				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),

@@ -138,6 +138,9 @@ export class Queue extends pulumi.CustomResource {
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
     public readonly quickConnectIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * @deprecated Use the quick_connect_ids instead
+     */
     public /*out*/ readonly quickConnectIdsAssociateds!: pulumi.Output<string[]>;
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
@@ -245,6 +248,9 @@ export interface QueueState {
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
     quickConnectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated Use the quick_connect_ids instead
+     */
     quickConnectIdsAssociateds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.

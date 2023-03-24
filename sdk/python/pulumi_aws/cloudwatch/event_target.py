@@ -741,6 +741,38 @@ class EventTarget(pulumi.CustomResource):
                 },
             ))
         ```
+        ### Cross-Account Event Bus target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["events.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=assume_role.json)
+        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["events:PutEvents"],
+            resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
+        )])
+        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
+        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
+            role=event_bus_invoke_remote_event_bus_role.name,
+            policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
+        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+            description="Stop instances nightly",
+            schedule_expression="cron(0 0 * * ? *)")
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+            arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+            rule=stop_instances_event_rule.name,
+            role_arn=event_bus_invoke_remote_event_bus_role.arn)
+        ```
         ### Input Transformer Usage - JSON Object
 
         ```python
@@ -1012,6 +1044,38 @@ class EventTarget(pulumi.CustomResource):
                     "Env": "Test",
                 },
             ))
+        ```
+        ### Cross-Account Event Bus target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["events.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=assume_role.json)
+        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["events:PutEvents"],
+            resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
+        )])
+        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
+        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
+            role=event_bus_invoke_remote_event_bus_role.name,
+            policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
+        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+            description="Stop instances nightly",
+            schedule_expression="cron(0 0 * * ? *)")
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+            arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+            rule=stop_instances_event_rule.name,
+            role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
         ### Input Transformer Usage - JSON Object
 

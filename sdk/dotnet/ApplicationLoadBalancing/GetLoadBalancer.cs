@@ -166,7 +166,9 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public readonly bool EnableCrossZoneLoadBalancing;
         public readonly bool EnableDeletionProtection;
         public readonly bool EnableHttp2;
+        public readonly bool EnableTlsVersionAndCipherSuiteHeaders;
         public readonly bool EnableWafFailOpen;
+        public readonly bool EnableXffClientPort;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -182,6 +184,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public readonly ImmutableArray<string> Subnets;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
+        public readonly string XffHeaderProcessingMode;
         public readonly string ZoneId;
 
         [OutputConstructor]
@@ -206,7 +209,11 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
             bool enableHttp2,
 
+            bool enableTlsVersionAndCipherSuiteHeaders,
+
             bool enableWafFailOpen,
+
+            bool enableXffClientPort,
 
             string id,
 
@@ -232,6 +239,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
             string vpcId,
 
+            string xffHeaderProcessingMode,
+
             string zoneId)
         {
             AccessLogs = accessLogs;
@@ -244,7 +253,9 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             EnableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             EnableDeletionProtection = enableDeletionProtection;
             EnableHttp2 = enableHttp2;
+            EnableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             EnableWafFailOpen = enableWafFailOpen;
+            EnableXffClientPort = enableXffClientPort;
             Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;
@@ -257,6 +268,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             Subnets = subnets;
             Tags = tags;
             VpcId = vpcId;
+            XffHeaderProcessingMode = xffHeaderProcessingMode;
             ZoneId = zoneId;
         }
     }

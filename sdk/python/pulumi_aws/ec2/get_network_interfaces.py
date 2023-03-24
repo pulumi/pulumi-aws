@@ -82,7 +82,7 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     """
     ## Example Usage
 
-    The following shows outputing all network interface ids in a region.
+    The following shows outputting all network interface ids in a region.
 
     ```python
     import pulumi
@@ -143,7 +143,7 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
     """
     ## Example Usage
 
-    The following shows outputing all network interface ids in a region.
+    The following shows outputting all network interface ids in a region.
 
     ```python
     import pulumi

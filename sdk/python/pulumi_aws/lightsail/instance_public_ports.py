@@ -114,7 +114,7 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         test_instance = aws.lightsail.Instance("testInstance",
             availability_zone=data["aws_availability_zones"]["available"]["names"],
-            blueprint_id="amazon_linux",
+            blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
         test_instance_public_ports = aws.lightsail.InstancePublicPorts("testInstancePublicPorts",
             instance_name=test_instance.name,
@@ -151,7 +151,7 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         test_instance = aws.lightsail.Instance("testInstance",
             availability_zone=data["aws_availability_zones"]["available"]["names"],
-            blueprint_id="amazon_linux",
+            blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
         test_instance_public_ports = aws.lightsail.InstancePublicPorts("testInstancePublicPorts",
             instance_name=test_instance.name,

@@ -533,7 +533,7 @@ class Instance(pulumi.CustomResource):
         # Create a new GitLab Lightsail Instance
         gitlab_test = aws.lightsail.Instance("gitlabTest",
             availability_zone="us-east-1b",
-            blueprint_id="amazon_linux",
+            blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
             key_pair_name="some_key_name",
             tags={
@@ -553,7 +553,7 @@ class Instance(pulumi.CustomResource):
                 type="AutoSnapshot",
             ),
             availability_zone="us-east-1b",
-            blueprint_id="amazon_linux",
+            blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
             tags={
                 "foo": "bar",
@@ -656,7 +656,7 @@ class Instance(pulumi.CustomResource):
         # Create a new GitLab Lightsail Instance
         gitlab_test = aws.lightsail.Instance("gitlabTest",
             availability_zone="us-east-1b",
-            blueprint_id="amazon_linux",
+            blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
             key_pair_name="some_key_name",
             tags={
@@ -676,7 +676,7 @@ class Instance(pulumi.CustomResource):
                 type="AutoSnapshot",
             ),
             availability_zone="us-east-1b",
-            blueprint_id="amazon_linux",
+            blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0",
             tags={
                 "foo": "bar",

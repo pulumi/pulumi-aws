@@ -49,14 +49,14 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
     }
 
     /**
-     * A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+     * A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
      * 
      */
     @Import(name="documentsMetadataConfiguration")
     private @Nullable Output<DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs> documentsMetadataConfiguration;
 
     /**
-     * @return A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+     * @return A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
      * 
      */
     public Optional<Output<DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs>> documentsMetadataConfiguration() {
@@ -180,7 +180,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param documentsMetadataConfiguration A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+         * @param documentsMetadataConfiguration A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param documentsMetadataConfiguration A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+         * @param documentsMetadataConfiguration A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
          * 
          * @return builder
          * 

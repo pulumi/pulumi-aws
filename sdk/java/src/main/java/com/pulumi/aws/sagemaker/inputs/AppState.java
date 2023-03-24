@@ -93,14 +93,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the space. At least on of `user_profile_name` or `space_name` required.
+     * The name of the space. At least one of `user_profile_name` or `space_name` required.
      * 
      */
     @Import(name="spaceName")
     private @Nullable Output<String> spaceName;
 
     /**
-     * @return The name of the space. At least on of `user_profile_name` or `space_name` required.
+     * @return The name of the space. At least one of `user_profile_name` or `space_name` required.
      * 
      */
     public Optional<Output<String>> spaceName() {
@@ -138,14 +138,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user profile name. At least on of `user_profile_name` or `space_name` required.
+     * The user profile name. At least one of `user_profile_name` or `space_name` required.
      * 
      */
     @Import(name="userProfileName")
     private @Nullable Output<String> userProfileName;
 
     /**
-     * @return The user profile name. At least on of `user_profile_name` or `space_name` required.
+     * @return The user profile name. At least one of `user_profile_name` or `space_name` required.
      * 
      */
     public Optional<Output<String>> userProfileName() {
@@ -290,7 +290,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceName The name of the space. At least on of `user_profile_name` or `space_name` required.
+         * @param spaceName The name of the space. At least one of `user_profile_name` or `space_name` required.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceName The name of the space. At least on of `user_profile_name` or `space_name` required.
+         * @param spaceName The name of the space. At least one of `user_profile_name` or `space_name` required.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userProfileName The user profile name. At least on of `user_profile_name` or `space_name` required.
+         * @param userProfileName The user profile name. At least one of `user_profile_name` or `space_name` required.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userProfileName The user profile name. At least on of `user_profile_name` or `space_name` required.
+         * @param userProfileName The user profile name. At least one of `user_profile_name` or `space_name` required.
          * 
          * @return builder
          * 

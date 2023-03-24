@@ -540,7 +540,7 @@ class DomainCognitoOptionsArgs:
         :param pulumi.Input[str] identity_pool_id: ID of the Cognito Identity Pool to use.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
         :param pulumi.Input[str] user_pool_id: ID of the Cognito User Pool to use.
-        :param pulumi.Input[bool] enabled: Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+        :param pulumi.Input[bool] enabled: Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -588,7 +588,7 @@ class DomainCognitoOptionsArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+        Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -695,7 +695,7 @@ class DomainEbsOptionsArgs:
         """
         :param pulumi.Input[bool] ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
         :param pulumi.Input[int] iops: Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-        :param pulumi.Input[int] throughput: Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+        :param pulumi.Input[int] throughput: Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
         :param pulumi.Input[int] volume_size: Size of EBS volumes attached to data nodes (in GiB).
         :param pulumi.Input[str] volume_type: Type of EBS volumes attached to data nodes.
         """
@@ -737,7 +737,7 @@ class DomainEbsOptionsArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+        Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
         """
         return pulumi.get(self, "throughput")
 

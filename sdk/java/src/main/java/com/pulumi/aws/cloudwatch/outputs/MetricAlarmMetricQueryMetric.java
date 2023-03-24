@@ -31,7 +31,9 @@ public final class MetricAlarmMetricQueryMetric {
      */
     private @Nullable String namespace;
     /**
-     * @return The period in seconds over which the specified `stat` is applied.
+     * @return Granularity in seconds of returned data points.
+     * For metrics with regular resolution, valid values are any multiple of `60`.
+     * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
      * 
      */
     private Integer period;
@@ -72,7 +74,9 @@ public final class MetricAlarmMetricQueryMetric {
         return Optional.ofNullable(this.namespace);
     }
     /**
-     * @return The period in seconds over which the specified `stat` is applied.
+     * @return Granularity in seconds of returned data points.
+     * For metrics with regular resolution, valid values are any multiple of `60`.
+     * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
      * 
      */
     public Integer period() {

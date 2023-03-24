@@ -13,7 +13,7 @@ import (
 
 // Provides a Public Elastic Container Registry Repository.
 //
-// > **NOTE:** This resource can only be used with `us-east-1` region.
+// > **NOTE:** This resource can only be used in the `us-east-1` region.
 //
 // ## Example Usage
 //

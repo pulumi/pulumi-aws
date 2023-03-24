@@ -96,6 +96,8 @@ type Policy struct {
 	DeleteAllPolicyResources pulumi.BoolPtrOutput `pulumi:"deleteAllPolicyResources"`
 	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
 	DeleteUnusedFmManagedResources pulumi.BoolPtrOutput `pulumi:"deleteUnusedFmManagedResources"`
+	// The description of the AWS Network Firewall firewall policy.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrOutput `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -162,6 +164,8 @@ type policyState struct {
 	DeleteAllPolicyResources *bool `pulumi:"deleteAllPolicyResources"`
 	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
 	DeleteUnusedFmManagedResources *bool `pulumi:"deleteUnusedFmManagedResources"`
+	// The description of the AWS Network Firewall firewall policy.
+	Description *string `pulumi:"description"`
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap *PolicyExcludeMap `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -194,6 +198,8 @@ type PolicyState struct {
 	DeleteAllPolicyResources pulumi.BoolPtrInput
 	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
 	DeleteUnusedFmManagedResources pulumi.BoolPtrInput
+	// The description of the AWS Network Firewall firewall policy.
+	Description pulumi.StringPtrInput
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrInput
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -229,6 +235,8 @@ type policyArgs struct {
 	DeleteAllPolicyResources *bool `pulumi:"deleteAllPolicyResources"`
 	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
 	DeleteUnusedFmManagedResources *bool `pulumi:"deleteUnusedFmManagedResources"`
+	// The description of the AWS Network Firewall firewall policy.
+	Description *string `pulumi:"description"`
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap *PolicyExcludeMap `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -257,6 +265,8 @@ type PolicyArgs struct {
 	DeleteAllPolicyResources pulumi.BoolPtrInput
 	// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
 	DeleteUnusedFmManagedResources pulumi.BoolPtrInput
+	// The description of the AWS Network Firewall firewall policy.
+	Description pulumi.StringPtrInput
 	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrInput
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
@@ -378,6 +388,11 @@ func (o PolicyOutput) DeleteAllPolicyResources() pulumi.BoolPtrOutput {
 // If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
 func (o PolicyOutput) DeleteUnusedFmManagedResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.DeleteUnusedFmManagedResources }).(pulumi.BoolPtrOutput)
+}
+
+// The description of the AWS Network Firewall firewall policy.
+func (o PolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // A map of lists of accounts and OU's to exclude from the policy.

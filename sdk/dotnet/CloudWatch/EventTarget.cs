@@ -306,6 +306,91 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// ### Cross-Account Event Bus target
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "events.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var eventBusInvokeRemoteEventBusRole = new Aws.Iam.Role("eventBusInvokeRemoteEventBusRole", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var eventBusInvokeRemoteEventBusPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "events:PutEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var eventBusInvokeRemoteEventBusPolicy = new Aws.Iam.Policy("eventBusInvokeRemoteEventBusPolicy", new()
+    ///     {
+    ///         PolicyDocument = eventBusInvokeRemoteEventBusPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var eventBusInvokeRemoteEventBusRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", new()
+    ///     {
+    ///         Role = eventBusInvokeRemoteEventBusRole.Name,
+    ///         PolicyArn = eventBusInvokeRemoteEventBusPolicy.Arn,
+    ///     });
+    /// 
+    ///     var stopInstancesEventRule = new Aws.CloudWatch.EventRule("stopInstancesEventRule", new()
+    ///     {
+    ///         Description = "Stop instances nightly",
+    ///         ScheduleExpression = "cron(0 0 * * ? *)",
+    ///     });
+    /// 
+    ///     var stopInstancesEventTarget = new Aws.CloudWatch.EventTarget("stopInstancesEventTarget", new()
+    ///     {
+    ///         Arn = "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+    ///         Rule = stopInstancesEventRule.Name,
+    ///         RoleArn = eventBusInvokeRemoteEventBusRole.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Input Transformer Usage - JSON Object
     /// 
     /// ```csharp

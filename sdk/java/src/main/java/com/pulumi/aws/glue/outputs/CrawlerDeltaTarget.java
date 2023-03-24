@@ -19,6 +19,11 @@ public final class CrawlerDeltaTarget {
      */
     private @Nullable String connectionName;
     /**
+     * @return Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+     * 
+     */
+    private @Nullable Boolean createNativeDeltaTable;
+    /**
      * @return A list of the Amazon S3 paths to the Delta tables.
      * 
      */
@@ -36,6 +41,13 @@ public final class CrawlerDeltaTarget {
      */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
+    }
+    /**
+     * @return Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+     * 
+     */
+    public Optional<Boolean> createNativeDeltaTable() {
+        return Optional.ofNullable(this.createNativeDeltaTable);
     }
     /**
      * @return A list of the Amazon S3 paths to the Delta tables.
@@ -62,12 +74,14 @@ public final class CrawlerDeltaTarget {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String connectionName;
+        private @Nullable Boolean createNativeDeltaTable;
         private List<String> deltaTables;
         private Boolean writeManifest;
         public Builder() {}
         public Builder(CrawlerDeltaTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionName = defaults.connectionName;
+    	      this.createNativeDeltaTable = defaults.createNativeDeltaTable;
     	      this.deltaTables = defaults.deltaTables;
     	      this.writeManifest = defaults.writeManifest;
         }
@@ -75,6 +89,11 @@ public final class CrawlerDeltaTarget {
         @CustomType.Setter
         public Builder connectionName(@Nullable String connectionName) {
             this.connectionName = connectionName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder createNativeDeltaTable(@Nullable Boolean createNativeDeltaTable) {
+            this.createNativeDeltaTable = createNativeDeltaTable;
             return this;
         }
         @CustomType.Setter
@@ -93,6 +112,7 @@ public final class CrawlerDeltaTarget {
         public CrawlerDeltaTarget build() {
             final var o = new CrawlerDeltaTarget();
             o.connectionName = connectionName;
+            o.createNativeDeltaTable = createNativeDeltaTable;
             o.deltaTables = deltaTables;
             o.writeManifest = writeManifest;
             return o;

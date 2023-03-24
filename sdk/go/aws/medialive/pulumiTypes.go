@@ -8862,15 +8862,15 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSet
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings struct {
-	AcquisitionPointId        *string `pulumi:"acquisitionPointId"`
-	AudioOnlyTimecodecControl *string `pulumi:"audioOnlyTimecodecControl"`
+	AcquisitionPointId       *string `pulumi:"acquisitionPointId"`
+	AudioOnlyTimecodeControl *string `pulumi:"audioOnlyTimecodeControl"`
 	// Setting to allow self signed or verified RTMP certificates.
 	CertificateMode *string `pulumi:"certificateMode"`
 	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval *int `pulumi:"connectionRetryInterval"`
 	// A director and base filename where archive files should be written. See Destination for more details.
 	Destination       ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination `pulumi:"destination"`
-	EventId           *int                                                                                 `pulumi:"eventId"`
+	EventId           *string                                                                              `pulumi:"eventId"`
 	EventIdMode       *string                                                                              `pulumi:"eventIdMode"`
 	EventStopBehavior *string                                                                              `pulumi:"eventStopBehavior"`
 	FilecacheDuration *int                                                                                 `pulumi:"filecacheDuration"`
@@ -8901,15 +8901,15 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsIn
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs struct {
-	AcquisitionPointId        pulumi.StringPtrInput `pulumi:"acquisitionPointId"`
-	AudioOnlyTimecodecControl pulumi.StringPtrInput `pulumi:"audioOnlyTimecodecControl"`
+	AcquisitionPointId       pulumi.StringPtrInput `pulumi:"acquisitionPointId"`
+	AudioOnlyTimecodeControl pulumi.StringPtrInput `pulumi:"audioOnlyTimecodeControl"`
 	// Setting to allow self signed or verified RTMP certificates.
 	CertificateMode pulumi.StringPtrInput `pulumi:"certificateMode"`
 	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval pulumi.IntPtrInput `pulumi:"connectionRetryInterval"`
 	// A director and base filename where archive files should be written. See Destination for more details.
 	Destination       ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationInput `pulumi:"destination"`
-	EventId           pulumi.IntPtrInput                                                                        `pulumi:"eventId"`
+	EventId           pulumi.StringPtrInput                                                                     `pulumi:"eventId"`
 	EventIdMode       pulumi.StringPtrInput                                                                     `pulumi:"eventIdMode"`
 	EventStopBehavior pulumi.StringPtrInput                                                                     `pulumi:"eventStopBehavior"`
 	FilecacheDuration pulumi.IntPtrInput                                                                        `pulumi:"filecacheDuration"`
@@ -9011,9 +9011,9 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) AudioOnlyTimecodecControl() pulumi.StringPtrOutput {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) AudioOnlyTimecodeControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
-		return v.AudioOnlyTimecodecControl
+		return v.AudioOnlyTimecodeControl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9038,10 +9038,10 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		return v.EventId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventIdMode() pulumi.StringPtrOutput {
@@ -9158,12 +9158,12 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) AudioOnlyTimecodecControl() pulumi.StringPtrOutput {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) AudioOnlyTimecodeControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AudioOnlyTimecodecControl
+		return v.AudioOnlyTimecodeControl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9197,13 +9197,13 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationPtrOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return v.EventId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventIdMode() pulumi.StringPtrOutput {

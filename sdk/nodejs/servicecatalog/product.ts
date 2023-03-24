@@ -130,7 +130,7 @@ export class Product extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+     * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -261,7 +261,7 @@ export interface ProductState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+     * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      */
     type?: pulumi.Input<string>;
 }
@@ -311,7 +311,7 @@ export interface ProductArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+     * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      */
     type: pulumi.Input<string>;
 }

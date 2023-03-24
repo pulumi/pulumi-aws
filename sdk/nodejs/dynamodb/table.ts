@@ -150,6 +150,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly billingMode!: pulumi.Output<string | undefined>;
     /**
+     * Enables deletion protection for table. Defaults to `false`.
+     */
+    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
@@ -252,6 +256,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["attributes"] = state ? state.attributes : undefined;
             resourceInputs["billingMode"] = state ? state.billingMode : undefined;
+            resourceInputs["deletionProtectionEnabled"] = state ? state.deletionProtectionEnabled : undefined;
             resourceInputs["globalSecondaryIndexes"] = state ? state.globalSecondaryIndexes : undefined;
             resourceInputs["hashKey"] = state ? state.hashKey : undefined;
             resourceInputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
@@ -277,6 +282,7 @@ export class Table extends pulumi.CustomResource {
             const args = argsOrState as TableArgs | undefined;
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
             resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
             resourceInputs["hashKey"] = args ? args.hashKey : undefined;
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
@@ -321,6 +327,10 @@ export interface TableState {
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
     billingMode?: pulumi.Input<string>;
+    /**
+     * Enables deletion protection for table. Defaults to `false`.
+     */
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
@@ -421,6 +431,10 @@ export interface TableArgs {
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
     billingMode?: pulumi.Input<string>;
+    /**
+     * Enables deletion protection for table. Defaults to `false`.
+     */
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */

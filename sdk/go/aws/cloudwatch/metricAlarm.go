@@ -287,11 +287,9 @@ type MetricAlarm struct {
 	DatapointsToAlarm pulumi.IntPtrOutput `pulumi:"datapointsToAlarm"`
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapOutput `pulumi:"dimensions"`
-	// Used only for alarms
-	// based on percentiles. If you specify `ignore`, the alarm state will not
-	// change during periods with too few data points to be statistically significant.
-	// If you specify `evaluate` or omit this parameter, the alarm will always be
-	// evaluated and possibly change state no matter how many data points are available.
+	// Used only for alarms based on percentiles.
+	// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles pulumi.StringOutput `pulumi:"evaluateLowSampleCountPercentiles"`
 	// The number of periods over which data is compared to the specified threshold.
@@ -313,6 +311,7 @@ type MetricAlarm struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
+	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrOutput `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -380,11 +379,9 @@ type metricAlarmState struct {
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions map[string]string `pulumi:"dimensions"`
-	// Used only for alarms
-	// based on percentiles. If you specify `ignore`, the alarm state will not
-	// change during periods with too few data points to be statistically significant.
-	// If you specify `evaluate` or omit this parameter, the alarm will always be
-	// evaluated and possibly change state no matter how many data points are available.
+	// Used only for alarms based on percentiles.
+	// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles *string `pulumi:"evaluateLowSampleCountPercentiles"`
 	// The number of periods over which data is compared to the specified threshold.
@@ -406,6 +403,7 @@ type metricAlarmState struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []interface{} `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
+	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -439,11 +437,9 @@ type MetricAlarmState struct {
 	DatapointsToAlarm pulumi.IntPtrInput
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapInput
-	// Used only for alarms
-	// based on percentiles. If you specify `ignore`, the alarm state will not
-	// change during periods with too few data points to be statistically significant.
-	// If you specify `evaluate` or omit this parameter, the alarm will always be
-	// evaluated and possibly change state no matter how many data points are available.
+	// Used only for alarms based on percentiles.
+	// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles pulumi.StringPtrInput
 	// The number of periods over which data is compared to the specified threshold.
@@ -465,6 +461,7 @@ type MetricAlarmState struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.ArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
+	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -500,11 +497,9 @@ type metricAlarmArgs struct {
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions map[string]string `pulumi:"dimensions"`
-	// Used only for alarms
-	// based on percentiles. If you specify `ignore`, the alarm state will not
-	// change during periods with too few data points to be statistically significant.
-	// If you specify `evaluate` or omit this parameter, the alarm will always be
-	// evaluated and possibly change state no matter how many data points are available.
+	// Used only for alarms based on percentiles.
+	// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles *string `pulumi:"evaluateLowSampleCountPercentiles"`
 	// The number of periods over which data is compared to the specified threshold.
@@ -526,6 +521,7 @@ type metricAlarmArgs struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []interface{} `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
+	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -556,11 +552,9 @@ type MetricAlarmArgs struct {
 	DatapointsToAlarm pulumi.IntPtrInput
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapInput
-	// Used only for alarms
-	// based on percentiles. If you specify `ignore`, the alarm state will not
-	// change during periods with too few data points to be statistically significant.
-	// If you specify `evaluate` or omit this parameter, the alarm will always be
-	// evaluated and possibly change state no matter how many data points are available.
+	// Used only for alarms based on percentiles.
+	// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles pulumi.StringPtrInput
 	// The number of periods over which data is compared to the specified threshold.
@@ -582,6 +576,7 @@ type MetricAlarmArgs struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.ArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
+	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -720,11 +715,9 @@ func (o MetricAlarmOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringMapOutput { return v.Dimensions }).(pulumi.StringMapOutput)
 }
 
-// Used only for alarms
-// based on percentiles. If you specify `ignore`, the alarm state will not
-// change during periods with too few data points to be statistically significant.
-// If you specify `evaluate` or omit this parameter, the alarm will always be
-// evaluated and possibly change state no matter how many data points are available.
+// Used only for alarms based on percentiles.
+// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 // The following values are supported: `ignore`, and `evaluate`.
 func (o MetricAlarmOutput) EvaluateLowSampleCountPercentiles() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.EvaluateLowSampleCountPercentiles }).(pulumi.StringOutput)
@@ -773,6 +766,7 @@ func (o MetricAlarmOutput) OkActions() pulumi.StringArrayOutput {
 }
 
 // The period in seconds over which the specified `statistic` is applied.
+// Valid values are `10`, `30`, or any multiple of `60`.
 func (o MetricAlarmOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
 }

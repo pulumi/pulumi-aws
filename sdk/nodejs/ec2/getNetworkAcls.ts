@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * The following shows outputing all network ACL ids in a vpc.
+ * The following shows outputting all network ACL ids in a vpc.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -102,7 +102,7 @@ export interface GetNetworkAclsResult {
 /**
  * ## Example Usage
  *
- * The following shows outputing all network ACL ids in a vpc.
+ * The following shows outputting all network ACL ids in a vpc.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

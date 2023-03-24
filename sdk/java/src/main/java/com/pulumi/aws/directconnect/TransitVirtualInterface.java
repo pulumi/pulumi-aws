@@ -248,9 +248,17 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Indicates whether to enable or disable SiteLink.
+     * 
+     */
     @Export(name="sitelinkEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sitelinkEnabled;
 
+    /**
+     * @return Indicates whether to enable or disable SiteLink.
+     * 
+     */
     public Output<Optional<Boolean>> sitelinkEnabled() {
         return Codegen.optional(this.sitelinkEnabled);
     }

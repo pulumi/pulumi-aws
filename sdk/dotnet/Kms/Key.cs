@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Kms
     /// <summary>
     /// Manages a single-Region or multi-Region primary KMS key.
     /// 
+    /// &gt; **NOTE on KMS Key Policy:** KMS Key Policy can be configured in either the standalone resource `aws.kms.KeyPolicy`
+    /// or with the parameter `policy` in this resource.
+    /// Configuring with both will cause inconsistencies and may overwrite configuration.
     /// ## Example Usage
     /// 
     /// ```csharp

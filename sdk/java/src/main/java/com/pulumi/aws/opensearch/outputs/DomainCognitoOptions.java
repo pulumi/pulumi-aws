@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainCognitoOptions {
     /**
-     * @return Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+     * @return Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -35,7 +35,7 @@ public final class DomainCognitoOptions {
 
     private DomainCognitoOptions() {}
     /**
-     * @return Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+     * @return Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
      * 
      */
     public Optional<Boolean> enabled() {

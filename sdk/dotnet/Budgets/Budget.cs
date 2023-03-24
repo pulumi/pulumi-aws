@@ -203,6 +203,60 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
+    /// Create a Cost Filter using Resource Tags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     {
+    ///         CostFilters = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             {
+    ///                 Name = "TagKeyValue",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "TagKey$TagValue",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a cost_filter using resource tags, obtaining the tag value from a variable
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     {
+    ///         CostFilters = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             {
+    ///                 Name = "TagKeyValue",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "TagKey${var.TagValue}",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Budgets can be imported using `AccountID:BudgetName`, e.g.,

@@ -33,7 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
 //				AvailabilityZone: pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux"),
+//				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //			})
 //			if err != nil {

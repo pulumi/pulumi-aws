@@ -127,11 +127,9 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used only for alarms
-     * based on percentiles. If you specify `ignore`, the alarm state will not
-     * change during periods with too few data points to be statistically significant.
-     * If you specify `evaluate` or omit this parameter, the alarm will always be
-     * evaluated and possibly change state no matter how many data points are available.
+     * Used only for alarms based on percentiles.
+     * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      * 
      */
@@ -139,11 +137,9 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> evaluateLowSampleCountPercentiles;
 
     /**
-     * @return Used only for alarms
-     * based on percentiles. If you specify `ignore`, the alarm state will not
-     * change during periods with too few data points to be statistically significant.
-     * If you specify `evaluate` or omit this parameter, the alarm will always be
-     * evaluated and possibly change state no matter how many data points are available.
+     * @return Used only for alarms based on percentiles.
+     * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      * 
      */
@@ -277,6 +273,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The period in seconds over which the specified `statistic` is applied.
+     * Valid values are `10`, `30`, or any multiple of `60`.
      * 
      */
     @Import(name="period")
@@ -284,6 +281,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The period in seconds over which the specified `statistic` is applied.
+     * Valid values are `10`, `30`, or any multiple of `60`.
      * 
      */
     public Optional<Output<Integer>> period() {
@@ -602,11 +600,9 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param evaluateLowSampleCountPercentiles Used only for alarms
-         * based on percentiles. If you specify `ignore`, the alarm state will not
-         * change during periods with too few data points to be statistically significant.
-         * If you specify `evaluate` or omit this parameter, the alarm will always be
-         * evaluated and possibly change state no matter how many data points are available.
+         * @param evaluateLowSampleCountPercentiles Used only for alarms based on percentiles.
+         * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+         * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
          * The following values are supported: `ignore`, and `evaluate`.
          * 
          * @return builder
@@ -618,11 +614,9 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param evaluateLowSampleCountPercentiles Used only for alarms
-         * based on percentiles. If you specify `ignore`, the alarm state will not
-         * change during periods with too few data points to be statistically significant.
-         * If you specify `evaluate` or omit this parameter, the alarm will always be
-         * evaluated and possibly change state no matter how many data points are available.
+         * @param evaluateLowSampleCountPercentiles Used only for alarms based on percentiles.
+         * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+         * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
          * The following values are supported: `ignore`, and `evaluate`.
          * 
          * @return builder
@@ -836,6 +830,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param period The period in seconds over which the specified `statistic` is applied.
+         * Valid values are `10`, `30`, or any multiple of `60`.
          * 
          * @return builder
          * 
@@ -847,6 +842,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param period The period in seconds over which the specified `statistic` is applied.
+         * Valid values are `10`, `30`, or any multiple of `60`.
          * 
          * @return builder
          * 

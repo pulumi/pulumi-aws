@@ -125,9 +125,21 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.queueConfigs);
     }
 
+    /**
+     * @deprecated
+     * Use the queue_configs instead
+     * 
+     */
+    @Deprecated /* Use the queue_configs instead */
     @Import(name="queueConfigsAssociateds")
     private @Nullable Output<List<RoutingProfileQueueConfigsAssociatedArgs>> queueConfigsAssociateds;
 
+    /**
+     * @deprecated
+     * Use the queue_configs instead
+     * 
+     */
+    @Deprecated /* Use the queue_configs instead */
     public Optional<Output<List<RoutingProfileQueueConfigsAssociatedArgs>>> queueConfigsAssociateds() {
         return Optional.ofNullable(this.queueConfigsAssociateds);
     }
@@ -380,15 +392,39 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
             return queueConfigs(List.of(queueConfigs));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use the queue_configs instead
+         * 
+         */
+        @Deprecated /* Use the queue_configs instead */
         public Builder queueConfigsAssociateds(@Nullable Output<List<RoutingProfileQueueConfigsAssociatedArgs>> queueConfigsAssociateds) {
             $.queueConfigsAssociateds = queueConfigsAssociateds;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use the queue_configs instead
+         * 
+         */
+        @Deprecated /* Use the queue_configs instead */
         public Builder queueConfigsAssociateds(List<RoutingProfileQueueConfigsAssociatedArgs> queueConfigsAssociateds) {
             return queueConfigsAssociateds(Output.of(queueConfigsAssociateds));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use the queue_configs instead
+         * 
+         */
+        @Deprecated /* Use the queue_configs instead */
         public Builder queueConfigsAssociateds(RoutingProfileQueueConfigsAssociatedArgs... queueConfigsAssociateds) {
             return queueConfigsAssociateds(List.of(queueConfigsAssociateds));
         }

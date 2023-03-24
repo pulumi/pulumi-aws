@@ -166,6 +166,45 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Cross-Account Event Bus target
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["events.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const eventBusInvokeRemoteEventBusRole = new aws.iam.Role("eventBusInvokeRemoteEventBusRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const eventBusInvokeRemoteEventBusPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["events:PutEvents"],
+ *         resources: ["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
+ *     }],
+ * });
+ * const eventBusInvokeRemoteEventBusPolicy = new aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", {policy: eventBusInvokeRemoteEventBusPolicyDocument.then(eventBusInvokeRemoteEventBusPolicyDocument => eventBusInvokeRemoteEventBusPolicyDocument.json)});
+ * const eventBusInvokeRemoteEventBusRolePolicyAttachment = new aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", {
+ *     role: eventBusInvokeRemoteEventBusRole.name,
+ *     policyArn: eventBusInvokeRemoteEventBusPolicy.arn,
+ * });
+ * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstancesEventRule", {
+ *     description: "Stop instances nightly",
+ *     scheduleExpression: "cron(0 0 * * ? *)",
+ * });
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stopInstancesEventTarget", {
+ *     arn: "arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+ *     rule: stopInstancesEventRule.name,
+ *     roleArn: eventBusInvokeRemoteEventBusRole.arn,
+ * });
+ * ```
  * ### Input Transformer Usage - JSON Object
  *
  * ```typescript

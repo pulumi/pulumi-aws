@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.inputs;
 
 import com.pulumi.aws.appsync.inputs.DataSourceDynamodbConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceElasticsearchConfigArgs;
+import com.pulumi.aws.appsync.inputs.DataSourceEventBridgeConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceHttpConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceLambdaConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceRelationalDatabaseConfigArgs;
@@ -96,6 +97,21 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * AWS EventBridge settings. See below
+     * 
+     */
+    @Import(name="eventBridgeConfig")
+    private @Nullable Output<DataSourceEventBridgeConfigArgs> eventBridgeConfig;
+
+    /**
+     * @return AWS EventBridge settings. See below
+     * 
+     */
+    public Optional<Output<DataSourceEventBridgeConfigArgs>> eventBridgeConfig() {
+        return Optional.ofNullable(this.eventBridgeConfig);
+    }
+
+    /**
      * HTTP settings. See below
      * 
      */
@@ -171,14 +187,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -193,6 +209,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.dynamodbConfig = $.dynamodbConfig;
         this.elasticsearchConfig = $.elasticsearchConfig;
+        this.eventBridgeConfig = $.eventBridgeConfig;
         this.httpConfig = $.httpConfig;
         this.lambdaConfig = $.lambdaConfig;
         this.name = $.name;
@@ -325,6 +342,27 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param eventBridgeConfig AWS EventBridge settings. See below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventBridgeConfig(@Nullable Output<DataSourceEventBridgeConfigArgs> eventBridgeConfig) {
+            $.eventBridgeConfig = eventBridgeConfig;
+            return this;
+        }
+
+        /**
+         * @param eventBridgeConfig AWS EventBridge settings. See below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventBridgeConfig(DataSourceEventBridgeConfigArgs eventBridgeConfig) {
+            return eventBridgeConfig(Output.of(eventBridgeConfig));
+        }
+
+        /**
          * @param httpConfig HTTP settings. See below
          * 
          * @return builder
@@ -430,7 +468,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+         * @param type Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
          * 
          * @return builder
          * 
@@ -441,7 +479,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+         * @param type Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
          * 
          * @return builder
          * 

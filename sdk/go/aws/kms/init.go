@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Grant{}
 	case "aws:kms/key:Key":
 		r = &Key{}
+	case "aws:kms/keyPolicy:KeyPolicy":
+		r = &KeyPolicy{}
 	case "aws:kms/replicaExternalKey:ReplicaExternalKey":
 		r = &ReplicaExternalKey{}
 	case "aws:kms/replicaKey:ReplicaKey":
@@ -78,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"kms/key",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kms/keyPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

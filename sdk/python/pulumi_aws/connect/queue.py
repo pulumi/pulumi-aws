@@ -213,6 +213,9 @@ class _QueueState:
         if quick_connect_ids is not None:
             pulumi.set(__self__, "quick_connect_ids", quick_connect_ids)
         if quick_connect_ids_associateds is not None:
+            warnings.warn("""Use the quick_connect_ids instead""", DeprecationWarning)
+            pulumi.log.warn("""quick_connect_ids_associateds is deprecated: Use the quick_connect_ids instead""")
+        if quick_connect_ids_associateds is not None:
             pulumi.set(__self__, "quick_connect_ids_associateds", quick_connect_ids_associateds)
         if status is not None:
             pulumi.set(__self__, "status", status)

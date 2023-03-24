@@ -677,7 +677,7 @@ class DomainEbsOptionsArgs:
         """
         :param pulumi.Input[bool] ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
         :param pulumi.Input[int] iops: Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
-        :param pulumi.Input[int] throughput: Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+        :param pulumi.Input[int] throughput: Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
         :param pulumi.Input[int] volume_size: Size of EBS volumes attached to data nodes (in GiB).
         :param pulumi.Input[str] volume_type: Type of EBS volumes attached to data nodes.
         """
@@ -719,7 +719,7 @@ class DomainEbsOptionsArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+        Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
         """
         return pulumi.get(self, "throughput")
 

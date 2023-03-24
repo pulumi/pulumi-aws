@@ -75,6 +75,8 @@ type OrganizationConfiguration struct {
 
 	// Whether to automatically enable Security Hub for new accounts in the organization.
 	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
+	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+	AutoEnableStandards pulumi.StringOutput `pulumi:"autoEnableStandards"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -111,11 +113,15 @@ func GetOrganizationConfiguration(ctx *pulumi.Context,
 type organizationConfigurationState struct {
 	// Whether to automatically enable Security Hub for new accounts in the organization.
 	AutoEnable *bool `pulumi:"autoEnable"`
+	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
 }
 
 type OrganizationConfigurationState struct {
 	// Whether to automatically enable Security Hub for new accounts in the organization.
 	AutoEnable pulumi.BoolPtrInput
+	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+	AutoEnableStandards pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationState) ElementType() reflect.Type {
@@ -125,12 +131,16 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 type organizationConfigurationArgs struct {
 	// Whether to automatically enable Security Hub for new accounts in the organization.
 	AutoEnable bool `pulumi:"autoEnable"`
+	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
 }
 
 // The set of arguments for constructing a OrganizationConfiguration resource.
 type OrganizationConfigurationArgs struct {
 	// Whether to automatically enable Security Hub for new accounts in the organization.
 	AutoEnable pulumi.BoolInput
+	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+	AutoEnableStandards pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationArgs) ElementType() reflect.Type {
@@ -223,6 +233,11 @@ func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutputWithCo
 // Whether to automatically enable Security Hub for new accounts in the organization.
 func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolOutput { return v.AutoEnable }).(pulumi.BoolOutput)
+}
+
+// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+func (o OrganizationConfigurationOutput) AutoEnableStandards() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.AutoEnableStandards }).(pulumi.StringOutput)
 }
 
 type OrganizationConfigurationArrayOutput struct{ *pulumi.OutputState }

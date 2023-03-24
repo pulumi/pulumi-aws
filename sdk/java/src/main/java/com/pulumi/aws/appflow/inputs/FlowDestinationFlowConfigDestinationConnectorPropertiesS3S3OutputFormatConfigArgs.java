@@ -7,6 +7,7 @@ import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnect
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,12 +63,28 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         return Optional.ofNullable(this.prefixConfig);
     }
 
+    /**
+     * Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+     * 
+     */
+    @Import(name="preserveSourceDataTyping")
+    private @Nullable Output<Boolean> preserveSourceDataTyping;
+
+    /**
+     * @return Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+     * 
+     */
+    public Optional<Output<Boolean>> preserveSourceDataTyping() {
+        return Optional.ofNullable(this.preserveSourceDataTyping);
+    }
+
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs() {}
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs $) {
         this.aggregationConfig = $.aggregationConfig;
         this.fileType = $.fileType;
         this.prefixConfig = $.prefixConfig;
+        this.preserveSourceDataTyping = $.preserveSourceDataTyping;
     }
 
     public static Builder builder() {
@@ -149,6 +166,27 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
          */
         public Builder prefixConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs prefixConfig) {
             return prefixConfig(Output.of(prefixConfig));
+        }
+
+        /**
+         * @param preserveSourceDataTyping Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preserveSourceDataTyping(@Nullable Output<Boolean> preserveSourceDataTyping) {
+            $.preserveSourceDataTyping = preserveSourceDataTyping;
+            return this;
+        }
+
+        /**
+         * @param preserveSourceDataTyping Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preserveSourceDataTyping(Boolean preserveSourceDataTyping) {
+            return preserveSourceDataTyping(Output.of(preserveSourceDataTyping));
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs build() {

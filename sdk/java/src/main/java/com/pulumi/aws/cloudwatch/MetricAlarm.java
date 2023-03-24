@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *         var foobar = new MetricAlarm(&#34;foobar&#34;, MetricAlarmArgs.builder()        
  *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
  *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
- *             .evaluationPeriods(&#34;2&#34;)
+ *             .evaluationPeriods(2)
  *             .insufficientDataActions()
  *             .metricName(&#34;CPUUtilization&#34;)
  *             .namespace(&#34;AWS/EC2&#34;)
- *             .period(&#34;120&#34;)
+ *             .period(120)
  *             .statistic(&#34;Average&#34;)
- *             .threshold(&#34;80&#34;)
+ *             .threshold(80)
  *             .build());
  * 
  *     }
@@ -93,12 +93,12 @@ import javax.annotation.Nullable;
  * 
  *         var batMetricAlarm = new MetricAlarm(&#34;batMetricAlarm&#34;, MetricAlarmArgs.builder()        
  *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
- *             .evaluationPeriods(&#34;2&#34;)
+ *             .evaluationPeriods(2)
  *             .metricName(&#34;CPUUtilization&#34;)
  *             .namespace(&#34;AWS/EC2&#34;)
- *             .period(&#34;120&#34;)
+ *             .period(120)
  *             .statistic(&#34;Average&#34;)
- *             .threshold(&#34;80&#34;)
+ *             .threshold(80)
  *             .dimensions(Map.of(&#34;AutoScalingGroupName&#34;, aws_autoscaling_group.bar().name()))
  *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
  *             .alarmActions(batPolicy.arn())
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *         var foobar = new MetricAlarm(&#34;foobar&#34;, MetricAlarmArgs.builder()        
  *             .alarmDescription(&#34;Request error rate has exceeded 10%&#34;)
  *             .comparisonOperator(&#34;GreaterThanOrEqualToThreshold&#34;)
- *             .evaluationPeriods(&#34;2&#34;)
+ *             .evaluationPeriods(2)
  *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
  *                         .metricName(&#34;RequestCount&#34;)
  *                         .namespace(&#34;AWS/ApplicationELB&#34;)
- *                         .period(&#34;120&#34;)
+ *                         .period(120)
  *                         .stat(&#34;Sum&#34;)
  *                         .unit(&#34;Count&#34;)
  *                         .build())
@@ -161,12 +161,12 @@ import javax.annotation.Nullable;
  *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
  *                         .metricName(&#34;HTTPCode_ELB_5XX_Count&#34;)
  *                         .namespace(&#34;AWS/ApplicationELB&#34;)
- *                         .period(&#34;120&#34;)
+ *                         .period(120)
  *                         .stat(&#34;Sum&#34;)
  *                         .unit(&#34;Count&#34;)
  *                         .build())
  *                     .build())
- *             .threshold(&#34;10&#34;)
+ *             .threshold(10)
  *             .build());
  * 
  *     }
@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  *         var xxAnomalyDetection = new MetricAlarm(&#34;xxAnomalyDetection&#34;, MetricAlarmArgs.builder()        
  *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
  *             .comparisonOperator(&#34;GreaterThanUpperThreshold&#34;)
- *             .evaluationPeriods(&#34;2&#34;)
+ *             .evaluationPeriods(2)
  *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *                         .dimensions(Map.of(&#34;InstanceId&#34;, &#34;i-abc123&#34;))
  *                         .metricName(&#34;CPUUtilization&#34;)
  *                         .namespace(&#34;AWS/EC2&#34;)
- *                         .period(&#34;120&#34;)
+ *                         .period(120)
  *                         .stat(&#34;Average&#34;)
  *                         .unit(&#34;Count&#34;)
  *                         .build())
@@ -250,10 +250,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var nlbHealthyhosts = new MetricAlarm(&#34;nlbHealthyhosts&#34;, MetricAlarmArgs.builder()        
  *             .comparisonOperator(&#34;LessThanThreshold&#34;)
- *             .evaluationPeriods(&#34;1&#34;)
+ *             .evaluationPeriods(1)
  *             .metricName(&#34;HealthyHostCount&#34;)
  *             .namespace(&#34;AWS/NetworkELB&#34;)
- *             .period(&#34;60&#34;)
+ *             .period(60)
  *             .statistic(&#34;Average&#34;)
  *             .threshold(var_.logstash_servers_count())
  *             .alarmDescription(&#34;Number of healthy nodes in Target Group&#34;)
@@ -383,11 +383,9 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dimensions);
     }
     /**
-     * Used only for alarms
-     * based on percentiles. If you specify `ignore`, the alarm state will not
-     * change during periods with too few data points to be statistically significant.
-     * If you specify `evaluate` or omit this parameter, the alarm will always be
-     * evaluated and possibly change state no matter how many data points are available.
+     * Used only for alarms based on percentiles.
+     * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      * 
      */
@@ -395,11 +393,9 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
     private Output<String> evaluateLowSampleCountPercentiles;
 
     /**
-     * @return Used only for alarms
-     * based on percentiles. If you specify `ignore`, the alarm state will not
-     * change during periods with too few data points to be statistically significant.
-     * If you specify `evaluate` or omit this parameter, the alarm will always be
-     * evaluated and possibly change state no matter how many data points are available.
+     * @return Used only for alarms based on percentiles.
+     * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      * 
      */
@@ -524,6 +520,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
     }
     /**
      * The period in seconds over which the specified `statistic` is applied.
+     * Valid values are `10`, `30`, or any multiple of `60`.
      * 
      */
     @Export(name="period", refs={Integer.class}, tree="[0]")
@@ -531,6 +528,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The period in seconds over which the specified `statistic` is applied.
+     * Valid values are `10`, `30`, or any multiple of `60`.
      * 
      */
     public Output<Optional<Integer>> period() {

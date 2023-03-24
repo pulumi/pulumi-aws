@@ -86,6 +86,7 @@ import * as utilities from "../utilities";
  *             "test",
  *         ],
  *         image: "busybox",
+ *         jobRoleArn: "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
  *         fargatePlatformConfiguration: {
  *             platformVersion: "LATEST",
  *         },

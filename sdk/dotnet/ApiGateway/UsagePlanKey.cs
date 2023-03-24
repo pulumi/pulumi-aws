@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ApiGateway
     ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
     ///             {
     ///                 ApiId = test.Id,
-    ///                 Stage = aws_api_gateway_deployment.Foo.Stage_name,
+    ///                 Stage = aws_api_gateway_stage.Foo.Stage_name,
     ///             },
     ///         },
     ///     });

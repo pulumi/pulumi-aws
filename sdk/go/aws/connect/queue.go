@@ -145,7 +145,8 @@ type Queue struct {
 	// The identifier for the Queue.
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds            pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
+	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
+	// Deprecated: Use the quick_connect_ids instead
 	QuickConnectIdsAssociateds pulumi.StringArrayOutput `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -207,7 +208,8 @@ type queueState struct {
 	// The identifier for the Queue.
 	QueueId *string `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds            []string `pulumi:"quickConnectIds"`
+	QuickConnectIds []string `pulumi:"quickConnectIds"`
+	// Deprecated: Use the quick_connect_ids instead
 	QuickConnectIdsAssociateds []string `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -235,7 +237,8 @@ type QueueState struct {
 	// The identifier for the Queue.
 	QueueId pulumi.StringPtrInput
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
-	QuickConnectIds            pulumi.StringArrayInput
+	QuickConnectIds pulumi.StringArrayInput
+	// Deprecated: Use the quick_connect_ids instead
 	QuickConnectIdsAssociateds pulumi.StringArrayInput
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
@@ -424,6 +427,7 @@ func (o QueueOutput) QuickConnectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIds }).(pulumi.StringArrayOutput)
 }
 
+// Deprecated: Use the quick_connect_ids instead
 func (o QueueOutput) QuickConnectIdsAssociateds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIdsAssociateds }).(pulumi.StringArrayOutput)
 }

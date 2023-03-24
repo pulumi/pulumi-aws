@@ -24,7 +24,7 @@ public final class DomainEbsOptions {
      */
     private @Nullable Integer iops;
     /**
-     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
      * 
      */
     private @Nullable Integer throughput;
@@ -55,7 +55,7 @@ public final class DomainEbsOptions {
         return Optional.ofNullable(this.iops);
     }
     /**
-     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
      * 
      */
     public Optional<Integer> throughput() {

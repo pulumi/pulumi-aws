@@ -116,6 +116,10 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly elasticsearchConfig!: pulumi.Output<outputs.appsync.DataSourceElasticsearchConfig | undefined>;
     /**
+     * AWS EventBridge settings. See below
+     */
+    public readonly eventBridgeConfig!: pulumi.Output<outputs.appsync.DataSourceEventBridgeConfig | undefined>;
+    /**
      * HTTP settings. See below
      */
     public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
@@ -136,7 +140,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -158,6 +162,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dynamodbConfig"] = state ? state.dynamodbConfig : undefined;
             resourceInputs["elasticsearchConfig"] = state ? state.elasticsearchConfig : undefined;
+            resourceInputs["eventBridgeConfig"] = state ? state.eventBridgeConfig : undefined;
             resourceInputs["httpConfig"] = state ? state.httpConfig : undefined;
             resourceInputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -176,6 +181,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dynamodbConfig"] = args ? args.dynamodbConfig : undefined;
             resourceInputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
+            resourceInputs["eventBridgeConfig"] = args ? args.eventBridgeConfig : undefined;
             resourceInputs["httpConfig"] = args ? args.httpConfig : undefined;
             resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -214,6 +220,10 @@ export interface DataSourceState {
      */
     elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig>;
     /**
+     * AWS EventBridge settings. See below
+     */
+    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfig>;
+    /**
      * HTTP settings. See below
      */
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig>;
@@ -234,7 +244,7 @@ export interface DataSourceState {
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -260,6 +270,10 @@ export interface DataSourceArgs {
      */
     elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig>;
     /**
+     * AWS EventBridge settings. See below
+     */
+    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfig>;
+    /**
      * HTTP settings. See below
      */
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig>;
@@ -280,7 +294,7 @@ export interface DataSourceArgs {
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      */
     type: pulumi.Input<string>;
 }

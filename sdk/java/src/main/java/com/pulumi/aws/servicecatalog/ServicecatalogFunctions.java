@@ -14,11 +14,14 @@ import com.pulumi.aws.servicecatalog.inputs.GetPortfolioConstraintsPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetPortfolioPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetProductArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetProductPlainArgs;
+import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsArgs;
+import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsPlainArgs;
 import com.pulumi.aws.servicecatalog.outputs.GetConstraintResult;
 import com.pulumi.aws.servicecatalog.outputs.GetLaunchPathsResult;
 import com.pulumi.aws.servicecatalog.outputs.GetPortfolioConstraintsResult;
 import com.pulumi.aws.servicecatalog.outputs.GetPortfolioResult;
 import com.pulumi.aws.servicecatalog.outputs.GetProductResult;
+import com.pulumi.aws.servicecatalog.outputs.GetProvisioningArtifactsResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -793,5 +796,157 @@ public final class ServicecatalogFunctions {
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicecatalog/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the provisioning artifacts for the specified product.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
+     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetProvisioningArtifactsResult> getProvisioningArtifacts(GetProvisioningArtifactsArgs args) {
+        return getProvisioningArtifacts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the provisioning artifacts for the specified product.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
+     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetProvisioningArtifactsResult> getProvisioningArtifactsPlain(GetProvisioningArtifactsPlainArgs args) {
+        return getProvisioningArtifactsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the provisioning artifacts for the specified product.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
+     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetProvisioningArtifactsResult> getProvisioningArtifacts(GetProvisioningArtifactsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", TypeShape.of(GetProvisioningArtifactsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the provisioning artifacts for the specified product.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
+     *             .productId(&#34;prod-yakog5pdriver&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetProvisioningArtifactsResult> getProvisioningArtifactsPlain(GetProvisioningArtifactsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", TypeShape.of(GetProvisioningArtifactsResult.class), args, Utilities.withVersion(options));
     }
 }

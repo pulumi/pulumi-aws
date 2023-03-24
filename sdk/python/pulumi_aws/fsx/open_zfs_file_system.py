@@ -34,9 +34,9 @@ class OpenZfsFileSystemArgs:
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OpenZfsFileSystem resource.
-        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
-        :param pulumi.Input[int] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        :param pulumi.Input[int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
@@ -85,7 +85,7 @@ class OpenZfsFileSystemArgs:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Input[str]:
         """
-        The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -109,7 +109,7 @@ class OpenZfsFileSystemArgs:
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> pulumi.Input[int]:
         """
-        Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "throughput_capacity")
 
@@ -308,7 +308,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
         :param pulumi.Input[bool] copy_tags_to_volumes: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
-        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         :param pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -322,7 +322,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[int] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        :param pulumi.Input[int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
@@ -449,7 +449,7 @@ class _OpenZfsFileSystemState:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -617,7 +617,7 @@ class _OpenZfsFileSystemState:
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "throughput_capacity")
 
@@ -718,7 +718,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
         :param pulumi.Input[bool] copy_tags_to_volumes: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
-        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
@@ -727,7 +727,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] storage_type: The filesystem storage type. Only `SSD` is supported.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[int] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        :param pulumi.Input[int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         ...
@@ -890,7 +890,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
         :param pulumi.Input[bool] copy_tags_to_volumes: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
-        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -904,7 +904,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[int] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        :param pulumi.Input[int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
@@ -989,7 +989,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Output[str]:
         """
-        The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -1101,7 +1101,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> pulumi.Output[int]:
         """
-        Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+        Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         """
         return pulumi.get(self, "throughput_capacity")
 

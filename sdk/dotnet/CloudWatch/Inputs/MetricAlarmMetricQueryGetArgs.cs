@@ -43,6 +43,14 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<Inputs.MetricAlarmMetricQueryMetricGetArgs>? Metric { get; set; }
 
         /// <summary>
+        /// Granularity in seconds of returned data points.
+        /// For metrics with regular resolution, valid values are any multiple of `60`.
+        /// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        /// </summary>
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
+        /// <summary>
         /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
         /// </summary>
         [Input("returnData")]

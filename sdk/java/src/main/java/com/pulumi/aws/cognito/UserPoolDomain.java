@@ -97,8 +97,8 @@ import javax.annotation.Nullable;
  *             .zoneId(exampleZone.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(false)
- *                 .name(main.cloudfrontDistributionArn())
- *                 .zoneId(&#34;Z2FDTNDATAQYW2&#34;)
+ *                 .name(main.cloudfrontDistribution())
+ *                 .zoneId(main.cloudfrontDistributionZoneId())
  *                 .build())
  *             .build());
  * 
@@ -146,6 +146,20 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.certificateArn);
     }
     /**
+     * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+     * 
+     */
+    @Export(name="cloudfrontDistribution", refs={String.class}, tree="[0]")
+    private Output<String> cloudfrontDistribution;
+
+    /**
+     * @return The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+     * 
+     */
+    public Output<String> cloudfrontDistribution() {
+        return this.cloudfrontDistribution;
+    }
+    /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      * 
      */
@@ -158,6 +172,20 @@ public class UserPoolDomain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> cloudfrontDistributionArn() {
         return this.cloudfrontDistributionArn;
+    }
+    /**
+     * The Route 53 hosted zone ID of the CloudFront distribution.
+     * 
+     */
+    @Export(name="cloudfrontDistributionZoneId", refs={String.class}, tree="[0]")
+    private Output<String> cloudfrontDistributionZoneId;
+
+    /**
+     * @return The Route 53 hosted zone ID of the CloudFront distribution.
+     * 
+     */
+    public Output<String> cloudfrontDistributionZoneId() {
+        return this.cloudfrontDistributionZoneId;
     }
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.

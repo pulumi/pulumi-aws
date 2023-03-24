@@ -14,7 +14,7 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// Note that currently only one policy may be applied to a repository.
     /// 
-    /// &gt; **NOTE:** This resource can only be used with `us-east-1` region.
+    /// &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
     /// 
     /// ## Example Usage
     /// 

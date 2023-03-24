@@ -462,10 +462,16 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.DomainClusterConfig> ClusterConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
+        /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
         [Output("cognitoOptions")]
         public Output<Outputs.DomainCognitoOptions?> CognitoOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain-specific endpoint for Dashboard without https scheme.
+        /// </summary>
+        [Output("dashboardEndpoint")]
+        public Output<string> DashboardEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -510,7 +516,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Domain-specific endpoint for kibana without https scheme.
+        /// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         /// </summary>
         [Output("kibanaEndpoint")]
         public Output<string> KibanaEndpoint { get; private set; } = null!;
@@ -636,7 +642,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.DomainClusterConfigArgs>? ClusterConfig { get; set; }
 
         /// <summary>
-        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
+        /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
@@ -764,10 +770,16 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.DomainClusterConfigGetArgs>? ClusterConfig { get; set; }
 
         /// <summary>
-        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
+        /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsGetArgs>? CognitoOptions { get; set; }
+
+        /// <summary>
+        /// Domain-specific endpoint for Dashboard without https scheme.
+        /// </summary>
+        [Input("dashboardEndpoint")]
+        public Input<string>? DashboardEndpoint { get; set; }
 
         /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -812,7 +824,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// Domain-specific endpoint for kibana without https scheme.
+        /// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         /// </summary>
         [Input("kibanaEndpoint")]
         public Input<string>? KibanaEndpoint { get; set; }
