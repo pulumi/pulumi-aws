@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * // Create a new GitLab Lightsail Instance
  * const gitlabTest = new aws.lightsail.Instance("gitlabTest", {
  *     availabilityZone: "us-east-1b",
- *     blueprintId: "amazon_linux",
+ *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  *     keyPairName: "some_key_name",
  *     tags: {
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *         type: "AutoSnapshot",
  *     },
  *     availabilityZone: "us-east-1b",
- *     blueprintId: "amazon_linux",
+ *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  *     tags: {
  *         foo: "bar",

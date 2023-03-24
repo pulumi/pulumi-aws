@@ -82,7 +82,7 @@ type ProvisioningArtifact struct {
 	TemplatePhysicalId pulumi.StringPtrOutput `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
 	TemplateUrl pulumi.StringPtrOutput `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -138,7 +138,7 @@ type provisioningArtifactState struct {
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
 	TemplateUrl *string `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type *string `pulumi:"type"`
 }
 
@@ -163,7 +163,7 @@ type ProvisioningArtifactState struct {
 	TemplatePhysicalId pulumi.StringPtrInput
 	// Template source as URL of the CloudFormation template in Amazon S3.
 	TemplateUrl pulumi.StringPtrInput
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type pulumi.StringPtrInput
 }
 
@@ -190,7 +190,7 @@ type provisioningArtifactArgs struct {
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
 	TemplateUrl *string `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type *string `pulumi:"type"`
 }
 
@@ -214,7 +214,7 @@ type ProvisioningArtifactArgs struct {
 	TemplatePhysicalId pulumi.StringPtrInput
 	// Template source as URL of the CloudFormation template in Amazon S3.
 	TemplateUrl pulumi.StringPtrInput
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type pulumi.StringPtrInput
 }
 
@@ -355,7 +355,7 @@ func (o ProvisioningArtifactOutput) TemplateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.TemplateUrl }).(pulumi.StringPtrOutput)
 }
 
-// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 func (o ProvisioningArtifactOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

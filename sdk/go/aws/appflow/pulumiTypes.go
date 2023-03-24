@@ -12452,6 +12452,8 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 	FileType *string `pulumi:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
 	PrefixConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig `pulumi:"prefixConfig"`
+	// Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+	PreserveSourceDataTyping *bool `pulumi:"preserveSourceDataTyping"`
 }
 
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput values.
@@ -12472,6 +12474,8 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 	FileType pulumi.StringPtrInput `pulumi:"fileType"`
 	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
 	PrefixConfig FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrInput `pulumi:"prefixConfig"`
+	// Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+	PreserveSourceDataTyping pulumi.BoolPtrInput `pulumi:"preserveSourceDataTyping"`
 }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs) ElementType() reflect.Type {
@@ -12572,6 +12576,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput)
 }
 
+// Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput) PreserveSourceDataTyping() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig) *bool {
+		return v.PreserveSourceDataTyping
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput) ElementType() reflect.Type {
@@ -12624,6 +12635,16 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 		}
 		return v.PrefixConfig
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput)
+}
+
+// Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput) PreserveSourceDataTyping() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveSourceDataTyping
+	}).(pulumi.BoolPtrOutput)
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig struct {

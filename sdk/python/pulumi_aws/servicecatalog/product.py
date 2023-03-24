@@ -31,7 +31,7 @@ class ProductArgs:
         The set of arguments for constructing a Product resource.
         :param pulumi.Input[str] owner: Owner of the product.
         :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
-        :param pulumi.Input[str] type: Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+        :param pulumi.Input[str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] description: Description of the product.
         :param pulumi.Input[str] distributor: Distributor (i.e., vendor) of the product.
@@ -89,7 +89,7 @@ class ProductArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+        Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         """
         return pulumi.get(self, "type")
 
@@ -230,7 +230,7 @@ class _ProductState:
         :param pulumi.Input[str] support_url: Contact URL for product support.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+        :param pulumi.Input[str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -449,7 +449,7 @@ class _ProductState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+        Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         """
         return pulumi.get(self, "type")
 
@@ -520,7 +520,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] support_email: Contact email for product support.
         :param pulumi.Input[str] support_url: Contact URL for product support.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+        :param pulumi.Input[str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         """
         ...
     @overload
@@ -666,7 +666,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] support_url: Contact URL for product support.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+        :param pulumi.Input[str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -814,7 +814,7 @@ class Product(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+        Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         """
         return pulumi.get(self, "type")
 

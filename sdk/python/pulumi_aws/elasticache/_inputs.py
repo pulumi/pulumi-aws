@@ -16,6 +16,8 @@ __all__ = [
     'ParameterGroupParameterArgs',
     'ReplicationGroupClusterModeArgs',
     'ReplicationGroupLogDeliveryConfigurationArgs',
+    'UserAuthenticationModeArgs',
+    'GetUserAuthenticationModeArgs',
 ]
 
 @pulumi.input_type
@@ -346,5 +348,84 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
     @log_type.setter
     def log_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_type", value)
+
+
+@pulumi.input_type
+class UserAuthenticationModeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 password_count: Optional[pulumi.Input[int]] = None,
+                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Specifies the passwords to use for authentication if `type` is set to `password`.
+        """
+        pulumi.set(__self__, "type", type)
+        if password_count is not None:
+            pulumi.set(__self__, "password_count", password_count)
+        if passwords is not None:
+            pulumi.set(__self__, "passwords", passwords)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="passwordCount")
+    def password_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "password_count")
+
+    @password_count.setter
+    def password_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "password_count", value)
+
+    @property
+    @pulumi.getter
+    def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the passwords to use for authentication if `type` is set to `password`.
+        """
+        return pulumi.get(self, "passwords")
+
+    @passwords.setter
+    def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "passwords", value)
+
+
+@pulumi.input_type
+class GetUserAuthenticationModeArgs:
+    def __init__(__self__, *,
+                 password_count: Optional[int] = None,
+                 type: Optional[str] = None):
+        if password_count is not None:
+            pulumi.set(__self__, "password_count", password_count)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="passwordCount")
+    def password_count(self) -> Optional[int]:
+        return pulumi.get(self, "password_count")
+
+    @password_count.setter
+    def password_count(self, value: Optional[int]):
+        pulumi.set(self, "password_count", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[str]):
+        pulumi.set(self, "type", value)
 
 

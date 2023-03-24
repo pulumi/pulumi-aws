@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange',
     'ClusterAutoTerminationPolicy',
     'ClusterBootstrapAction',
     'ClusterCoreInstanceFleet',
@@ -45,6 +46,54 @@ __all__ = [
     'ManagedScalingPolicyComputeLimit',
     'GetReleaseLabelsFiltersResult',
 ]
+
+@pulumi.output_type
+class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRange":
+            suggest = "max_range"
+        elif key == "minRange":
+            suggest = "min_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_range: int,
+                 min_range: int):
+        """
+        :param int max_range: The final port in the range of TCP ports.
+        :param int min_range: The first port in the range of TCP ports.
+        """
+        pulumi.set(__self__, "max_range", max_range)
+        pulumi.set(__self__, "min_range", min_range)
+
+    @property
+    @pulumi.getter(name="maxRange")
+    def max_range(self) -> int:
+        """
+        The final port in the range of TCP ports.
+        """
+        return pulumi.get(self, "max_range")
+
+    @property
+    @pulumi.getter(name="minRange")
+    def min_range(self) -> int:
+        """
+        The first port in the range of TCP ports.
+        """
+        return pulumi.get(self, "min_range")
+
 
 @pulumi.output_type
 class ClusterAutoTerminationPolicy(dict):

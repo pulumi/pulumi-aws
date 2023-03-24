@@ -65,13 +65,13 @@ type App struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecOutput `pulumi:"resourceSpec"`
-	// The name of the space. At least on of `userProfileName` or `spaceName` required.
+	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrOutput `pulumi:"spaceName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The user profile name. At least on of `userProfileName` or `spaceName` required.
+	// The user profile name. At least one of `userProfileName` or `spaceName` required.
 	UserProfileName pulumi.StringPtrOutput `pulumi:"userProfileName"`
 }
 
@@ -123,13 +123,13 @@ type appState struct {
 	DomainId *string `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
-	// The name of the space. At least on of `userProfileName` or `spaceName` required.
+	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName *string `pulumi:"spaceName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The user profile name. At least on of `userProfileName` or `spaceName` required.
+	// The user profile name. At least one of `userProfileName` or `spaceName` required.
 	UserProfileName *string `pulumi:"userProfileName"`
 }
 
@@ -144,13 +144,13 @@ type AppState struct {
 	DomainId pulumi.StringPtrInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
-	// The name of the space. At least on of `userProfileName` or `spaceName` required.
+	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The user profile name. At least on of `userProfileName` or `spaceName` required.
+	// The user profile name. At least one of `userProfileName` or `spaceName` required.
 	UserProfileName pulumi.StringPtrInput
 }
 
@@ -167,11 +167,11 @@ type appArgs struct {
 	DomainId string `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
-	// The name of the space. At least on of `userProfileName` or `spaceName` required.
+	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName *string `pulumi:"spaceName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The user profile name. At least on of `userProfileName` or `spaceName` required.
+	// The user profile name. At least one of `userProfileName` or `spaceName` required.
 	UserProfileName *string `pulumi:"userProfileName"`
 }
 
@@ -185,11 +185,11 @@ type AppArgs struct {
 	DomainId pulumi.StringInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
-	// The name of the space. At least on of `userProfileName` or `spaceName` required.
+	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The user profile name. At least on of `userProfileName` or `spaceName` required.
+	// The user profile name. At least one of `userProfileName` or `spaceName` required.
 	UserProfileName pulumi.StringPtrInput
 }
 
@@ -305,7 +305,7 @@ func (o AppOutput) ResourceSpec() AppResourceSpecOutput {
 	return o.ApplyT(func(v *App) AppResourceSpecOutput { return v.ResourceSpec }).(AppResourceSpecOutput)
 }
 
-// The name of the space. At least on of `userProfileName` or `spaceName` required.
+// The name of the space. At least one of `userProfileName` or `spaceName` required.
 func (o AppOutput) SpaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.SpaceName }).(pulumi.StringPtrOutput)
 }
@@ -320,7 +320,7 @@ func (o AppOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The user profile name. At least on of `userProfileName` or `spaceName` required.
+// The user profile name. At least one of `userProfileName` or `spaceName` required.
 func (o AppOutput) UserProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.UserProfileName }).(pulumi.StringPtrOutput)
 }

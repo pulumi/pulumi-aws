@@ -1121,7 +1121,7 @@ func (o ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput) Index(i 
 }
 
 type ScheduleTargetEcsParametersNetworkConfiguration struct {
-	// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launchType` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+	// Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
 	// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -1141,7 +1141,7 @@ type ScheduleTargetEcsParametersNetworkConfigurationInput interface {
 }
 
 type ScheduleTargetEcsParametersNetworkConfigurationArgs struct {
-	// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launchType` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+	// Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
 	// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -1226,7 +1226,7 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationOutput) ToScheduleTargetE
 	}).(ScheduleTargetEcsParametersNetworkConfigurationPtrOutput)
 }
 
-// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launchType` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+// Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
 func (o ScheduleTargetEcsParametersNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -1265,7 +1265,7 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) Elem() Schedul
 	}).(ScheduleTargetEcsParametersNetworkConfigurationOutput)
 }
 
-// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launchType` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+// Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
 func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParametersNetworkConfiguration) *bool {
 		if v == nil {

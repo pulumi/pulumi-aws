@@ -23,7 +23,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,6 +33,9 @@ class GetTableResult:
         if billing_mode and not isinstance(billing_mode, str):
             raise TypeError("Expected argument 'billing_mode' to be a str")
         pulumi.set(__self__, "billing_mode", billing_mode)
+        if deletion_protection_enabled and not isinstance(deletion_protection_enabled, bool):
+            raise TypeError("Expected argument 'deletion_protection_enabled' to be a bool")
+        pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
@@ -102,6 +105,11 @@ class GetTableResult:
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> str:
         return pulumi.get(self, "billing_mode")
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> bool:
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
@@ -206,6 +214,7 @@ class AwaitableGetTableResult(GetTableResult):
             arn=self.arn,
             attributes=self.attributes,
             billing_mode=self.billing_mode,
+            deletion_protection_enabled=self.deletion_protection_enabled,
             global_secondary_indexes=self.global_secondary_indexes,
             hash_key=self.hash_key,
             id=self.id,
@@ -256,6 +265,7 @@ def get_table(name: Optional[str] = None,
         arn=__ret__.arn,
         attributes=__ret__.attributes,
         billing_mode=__ret__.billing_mode,
+        deletion_protection_enabled=__ret__.deletion_protection_enabled,
         global_secondary_indexes=__ret__.global_secondary_indexes,
         hash_key=__ret__.hash_key,
         id=__ret__.id,

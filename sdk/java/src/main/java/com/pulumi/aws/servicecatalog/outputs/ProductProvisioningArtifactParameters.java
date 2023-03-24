@@ -38,7 +38,7 @@ public final class ProductProvisioningArtifactParameters {
      */
     private @Nullable String templateUrl;
     /**
-     * @return Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * @return Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      * 
      */
     private @Nullable String type;
@@ -80,7 +80,7 @@ public final class ProductProvisioningArtifactParameters {
         return Optional.ofNullable(this.templateUrl);
     }
     /**
-     * @return Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * @return Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      * 
      */
     public Optional<String> type() {

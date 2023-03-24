@@ -105,6 +105,8 @@ if typing.TYPE_CHECKING:
     codecommit = __codecommit
     import pulumi_aws.codedeploy as __codedeploy
     codedeploy = __codedeploy
+    import pulumi_aws.codegurureviewer as __codegurureviewer
+    codegurureviewer = __codegurureviewer
     import pulumi_aws.codepipeline as __codepipeline
     codepipeline = __codepipeline
     import pulumi_aws.codestarconnections as __codestarconnections
@@ -275,6 +277,8 @@ if typing.TYPE_CHECKING:
     networkfirewall = __networkfirewall
     import pulumi_aws.networkmanager as __networkmanager
     networkmanager = __networkmanager
+    import pulumi_aws.oam as __oam
+    oam = __oam
     import pulumi_aws.opensearch as __opensearch
     opensearch = __opensearch
     import pulumi_aws.opsworks as __opsworks
@@ -424,6 +428,7 @@ else:
     codebuild = _utilities.lazy_import('pulumi_aws.codebuild')
     codecommit = _utilities.lazy_import('pulumi_aws.codecommit')
     codedeploy = _utilities.lazy_import('pulumi_aws.codedeploy')
+    codegurureviewer = _utilities.lazy_import('pulumi_aws.codegurureviewer')
     codepipeline = _utilities.lazy_import('pulumi_aws.codepipeline')
     codestarconnections = _utilities.lazy_import('pulumi_aws.codestarconnections')
     codestarnotifications = _utilities.lazy_import('pulumi_aws.codestarnotifications')
@@ -509,6 +514,7 @@ else:
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
+    oam = _utilities.lazy_import('pulumi_aws.oam')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
     opsworks = _utilities.lazy_import('pulumi_aws.opsworks')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
@@ -2326,6 +2332,14 @@ _utilities.register(
   "fqn": "pulumi_aws.codedeploy",
   "classes": {
    "aws:codedeploy/deploymentGroup:DeploymentGroup": "DeploymentGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "codegurureviewer/repositoryAssociation",
+  "fqn": "pulumi_aws.codegurureviewer",
+  "classes": {
+   "aws:codegurureviewer/repositoryAssociation:RepositoryAssociation": "RepositoryAssociation"
   }
  },
  {
@@ -4794,6 +4808,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "emr/blockPublicAccessConfiguration",
+  "fqn": "pulumi_aws.emr",
+  "classes": {
+   "aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration": "BlockPublicAccessConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "emr/cluster",
   "fqn": "pulumi_aws.emr",
   "classes": {
@@ -6034,6 +6056,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "kms/keyPolicy",
+  "fqn": "pulumi_aws.kms",
+  "classes": {
+   "aws:kms/keyPolicy:KeyPolicy": "KeyPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kms/replicaExternalKey",
   "fqn": "pulumi_aws.kms",
   "classes": {
@@ -7038,6 +7068,22 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/vpcAttachment:VpcAttachment": "VpcAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "oam/sink",
+  "fqn": "pulumi_aws.oam",
+  "classes": {
+   "aws:oam/sink:Sink": "Sink"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "oam/sinkPolicy",
+  "fqn": "pulumi_aws.oam",
+  "classes": {
+   "aws:oam/sinkPolicy:SinkPolicy": "SinkPolicy"
   }
  },
  {

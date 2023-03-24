@@ -340,8 +340,10 @@ type Domain struct {
 	AutoTuneOptions DomainAutoTuneOptionsOutput `pulumi:"autoTuneOptions"`
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig DomainClusterConfigOutput `pulumi:"clusterConfig"`
-	// Configuration block for authenticating Kibana with Cognito. Detailed below.
+	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions DomainCognitoOptionsPtrOutput `pulumi:"cognitoOptions"`
+	// Domain-specific endpoint for Dashboard without https scheme.
+	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsOutput `pulumi:"domainEndpointOptions"`
 	// Unique identifier for the domain.
@@ -356,7 +358,7 @@ type Domain struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
-	// Domain-specific endpoint for kibana without https scheme.
+	// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
 	KibanaEndpoint pulumi.StringOutput `pulumi:"kibanaEndpoint"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayOutput `pulumi:"logPublishingOptions"`
@@ -415,8 +417,10 @@ type domainState struct {
 	AutoTuneOptions *DomainAutoTuneOptions `pulumi:"autoTuneOptions"`
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
-	// Configuration block for authenticating Kibana with Cognito. Detailed below.
+	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
+	// Domain-specific endpoint for Dashboard without https scheme.
+	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Unique identifier for the domain.
@@ -431,7 +435,7 @@ type domainState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// Domain-specific endpoint for kibana without https scheme.
+	// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
 	KibanaEndpoint *string `pulumi:"kibanaEndpoint"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
@@ -462,8 +466,10 @@ type DomainState struct {
 	AutoTuneOptions DomainAutoTuneOptionsPtrInput
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig DomainClusterConfigPtrInput
-	// Configuration block for authenticating Kibana with Cognito. Detailed below.
+	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions DomainCognitoOptionsPtrInput
+	// Domain-specific endpoint for Dashboard without https scheme.
+	DashboardEndpoint pulumi.StringPtrInput
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Unique identifier for the domain.
@@ -478,7 +484,7 @@ type DomainState struct {
 	Endpoint pulumi.StringPtrInput
 	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
 	EngineVersion pulumi.StringPtrInput
-	// Domain-specific endpoint for kibana without https scheme.
+	// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
 	KibanaEndpoint pulumi.StringPtrInput
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
@@ -511,7 +517,7 @@ type domainArgs struct {
 	AutoTuneOptions *DomainAutoTuneOptions `pulumi:"autoTuneOptions"`
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
-	// Configuration block for authenticating Kibana with Cognito. Detailed below.
+	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
@@ -547,7 +553,7 @@ type DomainArgs struct {
 	AutoTuneOptions DomainAutoTuneOptionsPtrInput
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig DomainClusterConfigPtrInput
-	// Configuration block for authenticating Kibana with Cognito. Detailed below.
+	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions DomainCognitoOptionsPtrInput
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
@@ -688,9 +694,14 @@ func (o DomainOutput) ClusterConfig() DomainClusterConfigOutput {
 	return o.ApplyT(func(v *Domain) DomainClusterConfigOutput { return v.ClusterConfig }).(DomainClusterConfigOutput)
 }
 
-// Configuration block for authenticating Kibana with Cognito. Detailed below.
+// Configuration block for authenticating dashboard with Cognito. Detailed below.
 func (o DomainOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainCognitoOptionsPtrOutput { return v.CognitoOptions }).(DomainCognitoOptionsPtrOutput)
+}
+
+// Domain-specific endpoint for Dashboard without https scheme.
+func (o DomainOutput) DashboardEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }
 
 // Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -728,7 +739,7 @@ func (o DomainOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
-// Domain-specific endpoint for kibana without https scheme.
+// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
 func (o DomainOutput) KibanaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.KibanaEndpoint }).(pulumi.StringOutput)
 }

@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Inspector2.Outputs
         /// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
         /// </summary>
         public readonly bool Ecr;
+        /// <summary>
+        /// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+        /// </summary>
+        public readonly bool? Lambda;
 
         [OutputConstructor]
         private OrganizationConfigurationAutoEnable(
             bool ec2,
 
-            bool ecr)
+            bool ecr,
+
+            bool? lambda)
         {
             Ec2 = ec2;
             Ecr = ecr;
+            Lambda = lambda;
         }
     }
 }

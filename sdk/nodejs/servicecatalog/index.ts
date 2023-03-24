@@ -40,6 +40,11 @@ export const getProduct: typeof import("./getProduct").getProduct = null as any;
 export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
 utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
 
+export { GetProvisioningArtifactsArgs, GetProvisioningArtifactsResult, GetProvisioningArtifactsOutputArgs } from "./getProvisioningArtifacts";
+export const getProvisioningArtifacts: typeof import("./getProvisioningArtifacts").getProvisioningArtifacts = null as any;
+export const getProvisioningArtifactsOutput: typeof import("./getProvisioningArtifacts").getProvisioningArtifactsOutput = null as any;
+utilities.lazyLoad(exports, ["getProvisioningArtifacts","getProvisioningArtifactsOutput"], () => require("./getProvisioningArtifacts"));
+
 export { OrganizationsAccessArgs, OrganizationsAccessState } from "./organizationsAccess";
 export type OrganizationsAccess = import("./organizationsAccess").OrganizationsAccess;
 export const OrganizationsAccess: typeof import("./organizationsAccess").OrganizationsAccess = null as any;

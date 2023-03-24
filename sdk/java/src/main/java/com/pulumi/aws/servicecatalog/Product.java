@@ -283,14 +283,14 @@ public class Product extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+     * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
+     * @return Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      * 
      */
     public Output<String> type() {

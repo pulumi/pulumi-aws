@@ -84,8 +84,8 @@ import (
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						EvaluateTargetHealth: pulumi.Bool(false),
-//						Name:                 main.CloudfrontDistributionArn,
-//						ZoneId:               pulumi.String("Z2FDTNDATAQYW2"),
+//						Name:                 main.CloudfrontDistribution,
+//						ZoneId:               main.CloudfrontDistributionZoneId,
 //					},
 //				},
 //			})
@@ -114,8 +114,12 @@ type UserPoolDomain struct {
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
+	// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+	CloudfrontDistribution pulumi.StringOutput `pulumi:"cloudfrontDistribution"`
 	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn pulumi.StringOutput `pulumi:"cloudfrontDistributionArn"`
+	// The Route 53 hosted zone ID of the CloudFront distribution.
+	CloudfrontDistributionZoneId pulumi.StringOutput `pulumi:"cloudfrontDistributionZoneId"`
 	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// The S3 bucket where the static files for this domain are stored.
@@ -165,8 +169,12 @@ type userPoolDomainState struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn *string `pulumi:"certificateArn"`
+	// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+	CloudfrontDistribution *string `pulumi:"cloudfrontDistribution"`
 	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn *string `pulumi:"cloudfrontDistributionArn"`
+	// The Route 53 hosted zone ID of the CloudFront distribution.
+	CloudfrontDistributionZoneId *string `pulumi:"cloudfrontDistributionZoneId"`
 	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain *string `pulumi:"domain"`
 	// The S3 bucket where the static files for this domain are stored.
@@ -182,8 +190,12 @@ type UserPoolDomainState struct {
 	AwsAccountId pulumi.StringPtrInput
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn pulumi.StringPtrInput
+	// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+	CloudfrontDistribution pulumi.StringPtrInput
 	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn pulumi.StringPtrInput
+	// The Route 53 hosted zone ID of the CloudFront distribution.
+	CloudfrontDistributionZoneId pulumi.StringPtrInput
 	// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
 	Domain pulumi.StringPtrInput
 	// The S3 bucket where the static files for this domain are stored.
@@ -314,9 +326,19 @@ func (o UserPoolDomainOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+func (o UserPoolDomainOutput) CloudfrontDistribution() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.CloudfrontDistribution }).(pulumi.StringOutput)
+}
+
 // The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 func (o UserPoolDomainOutput) CloudfrontDistributionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.CloudfrontDistributionArn }).(pulumi.StringOutput)
+}
+
+// The Route 53 hosted zone ID of the CloudFront distribution.
+func (o UserPoolDomainOutput) CloudfrontDistributionZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.CloudfrontDistributionZoneId }).(pulumi.StringOutput)
 }
 
 // For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.

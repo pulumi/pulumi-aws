@@ -41,8 +41,8 @@ import * as utilities from "../utilities";
  *     zoneId: exampleZone.then(exampleZone => exampleZone.zoneId),
  *     aliases: [{
  *         evaluateTargetHealth: false,
- *         name: main.cloudfrontDistributionArn,
- *         zoneId: "Z2FDTNDATAQYW2",
+ *         name: main.cloudfrontDistribution,
+ *         zoneId: main.cloudfrontDistributionZoneId,
  *     }],
  * });
  * ```
@@ -92,9 +92,17 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
+     * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+     */
+    public /*out*/ readonly cloudfrontDistribution!: pulumi.Output<string>;
+    /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
     public /*out*/ readonly cloudfrontDistributionArn!: pulumi.Output<string>;
+    /**
+     * The Route 53 hosted zone ID of the CloudFront distribution.
+     */
+    public /*out*/ readonly cloudfrontDistributionZoneId!: pulumi.Output<string>;
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */
@@ -127,7 +135,9 @@ export class UserPoolDomain extends pulumi.CustomResource {
             const state = argsOrState as UserPoolDomainState | undefined;
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["cloudfrontDistribution"] = state ? state.cloudfrontDistribution : undefined;
             resourceInputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;
+            resourceInputs["cloudfrontDistributionZoneId"] = state ? state.cloudfrontDistributionZoneId : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
@@ -144,7 +154,9 @@ export class UserPoolDomain extends pulumi.CustomResource {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["cloudfrontDistribution"] = undefined /*out*/;
             resourceInputs["cloudfrontDistributionArn"] = undefined /*out*/;
+            resourceInputs["cloudfrontDistributionZoneId"] = undefined /*out*/;
             resourceInputs["s3Bucket"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
@@ -166,9 +178,17 @@ export interface UserPoolDomainState {
      */
     certificateArn?: pulumi.Input<string>;
     /**
+     * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+     */
+    cloudfrontDistribution?: pulumi.Input<string>;
+    /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
     cloudfrontDistributionArn?: pulumi.Input<string>;
+    /**
+     * The Route 53 hosted zone ID of the CloudFront distribution.
+     */
+    cloudfrontDistributionZoneId?: pulumi.Input<string>;
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      */

@@ -21,6 +21,7 @@ class DataSourceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_config: Optional[pulumi.Input['DataSourceDynamodbConfigArgs']] = None,
                  elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
+                 event_bridge_config: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']] = None,
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -29,10 +30,11 @@ class DataSourceArgs:
         """
         The set of arguments for constructing a DataSource resource.
         :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
-        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See below
+        :param pulumi.Input['DataSourceEventBridgeConfigArgs'] event_bridge_config: AWS EventBridge settings. See below
         :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: User-supplied name for the data source.
@@ -47,6 +49,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "dynamodb_config", dynamodb_config)
         if elasticsearch_config is not None:
             pulumi.set(__self__, "elasticsearch_config", elasticsearch_config)
+        if event_bridge_config is not None:
+            pulumi.set(__self__, "event_bridge_config", event_bridge_config)
         if http_config is not None:
             pulumi.set(__self__, "http_config", http_config)
         if lambda_config is not None:
@@ -74,7 +78,7 @@ class DataSourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         """
         return pulumi.get(self, "type")
 
@@ -117,6 +121,18 @@ class DataSourceArgs:
     @elasticsearch_config.setter
     def elasticsearch_config(self, value: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']]):
         pulumi.set(self, "elasticsearch_config", value)
+
+    @property
+    @pulumi.getter(name="eventBridgeConfig")
+    def event_bridge_config(self) -> Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']]:
+        """
+        AWS EventBridge settings. See below
+        """
+        return pulumi.get(self, "event_bridge_config")
+
+    @event_bridge_config.setter
+    def event_bridge_config(self, value: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']]):
+        pulumi.set(self, "event_bridge_config", value)
 
     @property
     @pulumi.getter(name="httpConfig")
@@ -187,6 +203,7 @@ class _DataSourceState:
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_config: Optional[pulumi.Input['DataSourceDynamodbConfigArgs']] = None,
                  elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
+                 event_bridge_config: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']] = None,
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -200,12 +217,13 @@ class _DataSourceState:
         :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See below
+        :param pulumi.Input['DataSourceEventBridgeConfigArgs'] event_bridge_config: AWS EventBridge settings. See below
         :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -217,6 +235,8 @@ class _DataSourceState:
             pulumi.set(__self__, "dynamodb_config", dynamodb_config)
         if elasticsearch_config is not None:
             pulumi.set(__self__, "elasticsearch_config", elasticsearch_config)
+        if event_bridge_config is not None:
+            pulumi.set(__self__, "event_bridge_config", event_bridge_config)
         if http_config is not None:
             pulumi.set(__self__, "http_config", http_config)
         if lambda_config is not None:
@@ -291,6 +311,18 @@ class _DataSourceState:
         pulumi.set(self, "elasticsearch_config", value)
 
     @property
+    @pulumi.getter(name="eventBridgeConfig")
+    def event_bridge_config(self) -> Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']]:
+        """
+        AWS EventBridge settings. See below
+        """
+        return pulumi.get(self, "event_bridge_config")
+
+    @event_bridge_config.setter
+    def event_bridge_config(self, value: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']]):
+        pulumi.set(self, "event_bridge_config", value)
+
+    @property
     @pulumi.getter(name="httpConfig")
     def http_config(self) -> Optional[pulumi.Input['DataSourceHttpConfigArgs']]:
         """
@@ -354,7 +386,7 @@ class _DataSourceState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         """
         return pulumi.get(self, "type")
 
@@ -372,6 +404,7 @@ class DataSource(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamodbConfigArgs']]] = None,
                  elasticsearch_config: Optional[pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']]] = None,
+                 event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -438,12 +471,13 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceDynamodbConfigArgs']] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']] elasticsearch_config: Amazon Elasticsearch settings. See below
+        :param pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']] event_bridge_config: AWS EventBridge settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']] http_config: HTTP settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         """
         ...
     @overload
@@ -523,6 +557,7 @@ class DataSource(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamodbConfigArgs']]] = None,
                  elasticsearch_config: Optional[pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']]] = None,
+                 event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -544,6 +579,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamodb_config"] = dynamodb_config
             __props__.__dict__["elasticsearch_config"] = elasticsearch_config
+            __props__.__dict__["event_bridge_config"] = event_bridge_config
             __props__.__dict__["http_config"] = http_config
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["name"] = name
@@ -568,6 +604,7 @@ class DataSource(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             dynamodb_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamodbConfigArgs']]] = None,
             elasticsearch_config: Optional[pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']]] = None,
+            event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
             http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
             lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -586,12 +623,13 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceDynamodbConfigArgs']] dynamodb_config: DynamoDB settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']] elasticsearch_config: Amazon Elasticsearch settings. See below
+        :param pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']] event_bridge_config: AWS EventBridge settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']] http_config: HTTP settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
-        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -602,6 +640,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["dynamodb_config"] = dynamodb_config
         __props__.__dict__["elasticsearch_config"] = elasticsearch_config
+        __props__.__dict__["event_bridge_config"] = event_bridge_config
         __props__.__dict__["http_config"] = http_config
         __props__.__dict__["lambda_config"] = lambda_config
         __props__.__dict__["name"] = name
@@ -651,6 +690,14 @@ class DataSource(pulumi.CustomResource):
         return pulumi.get(self, "elasticsearch_config")
 
     @property
+    @pulumi.getter(name="eventBridgeConfig")
+    def event_bridge_config(self) -> pulumi.Output[Optional['outputs.DataSourceEventBridgeConfig']]:
+        """
+        AWS EventBridge settings. See below
+        """
+        return pulumi.get(self, "event_bridge_config")
+
+    @property
     @pulumi.getter(name="httpConfig")
     def http_config(self) -> pulumi.Output[Optional['outputs.DataSourceHttpConfig']]:
         """
@@ -694,7 +741,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         """
         return pulumi.get(self, "type")
 

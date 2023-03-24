@@ -157,6 +157,8 @@ type Table struct {
 	Attributes TableAttributeArrayOutput `pulumi:"attributes"`
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
@@ -238,6 +240,8 @@ type tableState struct {
 	Attributes []TableAttribute `pulumi:"attributes"`
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode *string `pulumi:"billingMode"`
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
@@ -291,6 +295,8 @@ type TableState struct {
 	Attributes TableAttributeArrayInput
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode pulumi.StringPtrInput
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
@@ -346,6 +352,8 @@ type tableArgs struct {
 	Attributes []TableAttribute `pulumi:"attributes"`
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode *string `pulumi:"billingMode"`
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
@@ -394,6 +402,8 @@ type TableArgs struct {
 	Attributes TableAttributeArrayInput
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode pulumi.StringPtrInput
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
@@ -536,6 +546,11 @@ func (o TableOutput) Attributes() TableAttributeArrayOutput {
 // Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 func (o TableOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
+}
+
+// Enables deletion protection for table. Defaults to `false`.
+func (o TableOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.

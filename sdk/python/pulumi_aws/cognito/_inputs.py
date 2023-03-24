@@ -828,22 +828,23 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
 @pulumi.input_type
 class UserPoolAccountRecoverySettingArgs:
     def __init__(__self__, *,
-                 recovery_mechanisms: pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]):
+                 recovery_mechanisms: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]] recovery_mechanisms: List of Account Recovery Options of the following structure:
         """
-        pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
+        if recovery_mechanisms is not None:
+            pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
 
     @property
     @pulumi.getter(name="recoveryMechanisms")
-    def recovery_mechanisms(self) -> pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]:
+    def recovery_mechanisms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]]:
         """
         List of Account Recovery Options of the following structure:
         """
         return pulumi.get(self, "recovery_mechanisms")
 
     @recovery_mechanisms.setter
-    def recovery_mechanisms(self, value: pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]):
+    def recovery_mechanisms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]]):
         pulumi.set(self, "recovery_mechanisms", value)
 
 

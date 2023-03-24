@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1/io2"`.
+        /// This must be set with a `volume_type` of `"io1/io2/gp3"`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }

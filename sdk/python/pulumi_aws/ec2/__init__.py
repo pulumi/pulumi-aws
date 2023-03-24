@@ -62,6 +62,8 @@ from .get_network_insights_path import *
 from .get_network_interface import *
 from .get_network_interfaces import *
 from .get_prefix_list import *
+from .get_public_ipv4_pool import *
+from .get_public_ipv4_pools import *
 from .get_route import *
 from .get_route_table import *
 from .get_route_tables import *

@@ -41,7 +41,7 @@ import (
 //			_, err := ec2.NewLaunchTemplate(ctx, "foo", &ec2.LaunchTemplateArgs{
 //				BlockDeviceMappings: ec2.LaunchTemplateBlockDeviceMappingArray{
 //					&ec2.LaunchTemplateBlockDeviceMappingArgs{
-//						DeviceName: pulumi.String("/dev/sda1"),
+//						DeviceName: pulumi.String("/dev/sdf"),
 //						Ebs: &ec2.LaunchTemplateBlockDeviceMappingEbsArgs{
 //							VolumeSize: pulumi.Int(20),
 //						},

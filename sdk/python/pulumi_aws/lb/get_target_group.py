@@ -22,7 +22,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetTargetGroupResult:
         if load_balancing_algorithm_type and not isinstance(load_balancing_algorithm_type, str):
             raise TypeError("Expected argument 'load_balancing_algorithm_type' to be a str")
         pulumi.set(__self__, "load_balancing_algorithm_type", load_balancing_algorithm_type)
+        if load_balancing_cross_zone_enabled and not isinstance(load_balancing_cross_zone_enabled, str):
+            raise TypeError("Expected argument 'load_balancing_cross_zone_enabled' to be a str")
+        pulumi.set(__self__, "load_balancing_cross_zone_enabled", load_balancing_cross_zone_enabled)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -125,6 +128,11 @@ class GetTargetGroupResult:
         return pulumi.get(self, "load_balancing_algorithm_type")
 
     @property
+    @pulumi.getter(name="loadBalancingCrossZoneEnabled")
+    def load_balancing_cross_zone_enabled(self) -> str:
+        return pulumi.get(self, "load_balancing_cross_zone_enabled")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -194,6 +202,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             id=self.id,
             lambda_multi_value_headers_enabled=self.lambda_multi_value_headers_enabled,
             load_balancing_algorithm_type=self.load_balancing_algorithm_type,
+            load_balancing_cross_zone_enabled=self.load_balancing_cross_zone_enabled,
             name=self.name,
             port=self.port,
             preserve_client_ip=self.preserve_client_ip,
@@ -258,6 +267,7 @@ def get_target_group(arn: Optional[str] = None,
         id=__ret__.id,
         lambda_multi_value_headers_enabled=__ret__.lambda_multi_value_headers_enabled,
         load_balancing_algorithm_type=__ret__.load_balancing_algorithm_type,
+        load_balancing_cross_zone_enabled=__ret__.load_balancing_cross_zone_enabled,
         name=__ret__.name,
         port=__ret__.port,
         preserve_client_ip=__ret__.preserve_client_ip,

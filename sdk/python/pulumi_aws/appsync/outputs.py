@@ -14,6 +14,7 @@ __all__ = [
     'DataSourceDynamodbConfig',
     'DataSourceDynamodbConfigDeltaSyncConfig',
     'DataSourceElasticsearchConfig',
+    'DataSourceEventBridgeConfig',
     'DataSourceHttpConfig',
     'DataSourceHttpConfigAuthorizationConfig',
     'DataSourceHttpConfigAuthorizationConfigAwsIamConfig',
@@ -194,6 +195,41 @@ class DataSourceElasticsearchConfig(dict):
         AWS region of Elasticsearch domain. Defaults to current region.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class DataSourceEventBridgeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventBusArn":
+            suggest = "event_bus_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceEventBridgeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceEventBridgeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceEventBridgeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_bus_arn: str):
+        """
+        :param str event_bus_arn: ARN for the EventBridge bus.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> str:
+        """
+        ARN for the EventBridge bus.
+        """
+        return pulumi.get(self, "event_bus_arn")
 
 
 @pulumi.output_type

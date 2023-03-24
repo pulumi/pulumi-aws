@@ -92,6 +92,12 @@ namespace Pulumi.Aws.Fms
         public Output<bool?> DeleteUnusedFmManagedResources { get; private set; } = null!;
 
         /// <summary>
+        /// The description of the AWS Network Firewall firewall policy.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// A map of lists of accounts and OU's to exclude from the policy.
         /// </summary>
         [Output("excludeMap")]
@@ -222,6 +228,12 @@ namespace Pulumi.Aws.Fms
         public Input<bool>? DeleteUnusedFmManagedResources { get; set; }
 
         /// <summary>
+        /// The description of the AWS Network Firewall firewall policy.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// A map of lists of accounts and OU's to exclude from the policy.
         /// </summary>
         [Input("excludeMap")]
@@ -321,6 +333,12 @@ namespace Pulumi.Aws.Fms
         /// </summary>
         [Input("deleteUnusedFmManagedResources")]
         public Input<bool>? DeleteUnusedFmManagedResources { get; set; }
+
+        /// <summary>
+        /// The description of the AWS Network Firewall firewall policy.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// A map of lists of accounts and OU's to exclude from the policy.

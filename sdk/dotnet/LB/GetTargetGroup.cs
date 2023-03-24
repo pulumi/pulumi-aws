@@ -166,6 +166,7 @@ namespace Pulumi.Aws.LB
         public readonly string Id;
         public readonly bool LambdaMultiValueHeadersEnabled;
         public readonly string LoadBalancingAlgorithmType;
+        public readonly string LoadBalancingCrossZoneEnabled;
         public readonly string Name;
         public readonly int Port;
         public readonly string PreserveClientIp;
@@ -195,6 +196,8 @@ namespace Pulumi.Aws.LB
             bool lambdaMultiValueHeadersEnabled,
 
             string loadBalancingAlgorithmType,
+
+            string loadBalancingCrossZoneEnabled,
 
             string name,
 
@@ -226,6 +229,7 @@ namespace Pulumi.Aws.LB
             Id = id;
             LambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             LoadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            LoadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
             Name = name;
             Port = port;
             PreserveClientIp = preserveClientIp;

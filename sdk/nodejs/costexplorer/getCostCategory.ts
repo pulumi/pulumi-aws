@@ -50,6 +50,10 @@ export interface GetCostCategoryArgs {
 export interface GetCostCategoryResult {
     readonly costCategoryArn: string;
     /**
+     * Default value for the cost category.
+     */
+    readonly defaultValue: string;
+    /**
      * Effective end data of your Cost Category.
      */
     readonly effectiveEnd: string;

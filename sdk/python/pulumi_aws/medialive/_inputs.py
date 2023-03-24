@@ -3536,10 +3536,10 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     def __init__(__self__, *,
                  destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs'],
                  acquisition_point_id: Optional[pulumi.Input[str]] = None,
-                 audio_only_timecodec_control: Optional[pulumi.Input[str]] = None,
+                 audio_only_timecode_control: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
-                 event_id: Optional[pulumi.Input[int]] = None,
+                 event_id: Optional[pulumi.Input[str]] = None,
                  event_id_mode: Optional[pulumi.Input[str]] = None,
                  event_stop_behavior: Optional[pulumi.Input[str]] = None,
                  filecache_duration: Optional[pulumi.Input[int]] = None,
@@ -3564,8 +3564,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
         pulumi.set(__self__, "destination", destination)
         if acquisition_point_id is not None:
             pulumi.set(__self__, "acquisition_point_id", acquisition_point_id)
-        if audio_only_timecodec_control is not None:
-            pulumi.set(__self__, "audio_only_timecodec_control", audio_only_timecodec_control)
+        if audio_only_timecode_control is not None:
+            pulumi.set(__self__, "audio_only_timecode_control", audio_only_timecode_control)
         if certificate_mode is not None:
             pulumi.set(__self__, "certificate_mode", certificate_mode)
         if connection_retry_interval is not None:
@@ -3621,13 +3621,13 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
         pulumi.set(self, "acquisition_point_id", value)
 
     @property
-    @pulumi.getter(name="audioOnlyTimecodecControl")
-    def audio_only_timecodec_control(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "audio_only_timecodec_control")
+    @pulumi.getter(name="audioOnlyTimecodeControl")
+    def audio_only_timecode_control(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "audio_only_timecode_control")
 
-    @audio_only_timecodec_control.setter
-    def audio_only_timecodec_control(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "audio_only_timecodec_control", value)
+    @audio_only_timecode_control.setter
+    def audio_only_timecode_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audio_only_timecode_control", value)
 
     @property
     @pulumi.getter(name="certificateMode")
@@ -3655,11 +3655,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
 
     @property
     @pulumi.getter(name="eventId")
-    def event_id(self) -> Optional[pulumi.Input[int]]:
+    def event_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "event_id")
 
     @event_id.setter
-    def event_id(self, value: Optional[pulumi.Input[int]]):
+    def event_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_id", value)
 
     @property

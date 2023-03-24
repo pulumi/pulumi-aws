@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.elasticache.inputs;
 
+import com.pulumi.aws.elasticache.inputs.GetUserAuthenticationModeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -30,6 +31,13 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<String>> accessString() {
         return Optional.ofNullable(this.accessString);
+    }
+
+    @Import(name="authenticationModes")
+    private @Nullable Output<List<GetUserAuthenticationModeArgs>> authenticationModes;
+
+    public Optional<Output<List<GetUserAuthenticationModeArgs>>> authenticationModes() {
+        return Optional.ofNullable(this.authenticationModes);
     }
 
     @Import(name="engine")
@@ -87,6 +95,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetUserArgs(GetUserArgs $) {
         this.accessString = $.accessString;
+        this.authenticationModes = $.authenticationModes;
         this.engine = $.engine;
         this.noPasswordRequired = $.noPasswordRequired;
         this.passwords = $.passwords;
@@ -131,6 +140,19 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder accessString(String accessString) {
             return accessString(Output.of(accessString));
+        }
+
+        public Builder authenticationModes(@Nullable Output<List<GetUserAuthenticationModeArgs>> authenticationModes) {
+            $.authenticationModes = authenticationModes;
+            return this;
+        }
+
+        public Builder authenticationModes(List<GetUserAuthenticationModeArgs> authenticationModes) {
+            return authenticationModes(Output.of(authenticationModes));
+        }
+
+        public Builder authenticationModes(GetUserAuthenticationModeArgs... authenticationModes) {
+            return authenticationModes(List.of(authenticationModes));
         }
 
         public Builder engine(@Nullable Output<String> engine) {

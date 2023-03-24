@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmMetricQueryMetric;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -38,6 +39,13 @@ public final class MetricAlarmMetricQuery {
      * 
      */
     private @Nullable MetricAlarmMetricQueryMetric metric;
+    /**
+     * @return Granularity in seconds of returned data points.
+     * For metrics with regular resolution, valid values are any multiple of `60`.
+     * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+     * 
+     */
+    private @Nullable Integer period;
     /**
      * @return Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
      * 
@@ -81,6 +89,15 @@ public final class MetricAlarmMetricQuery {
         return Optional.ofNullable(this.metric);
     }
     /**
+     * @return Granularity in seconds of returned data points.
+     * For metrics with regular resolution, valid values are any multiple of `60`.
+     * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+     * 
+     */
+    public Optional<Integer> period() {
+        return Optional.ofNullable(this.period);
+    }
+    /**
      * @return Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
      * 
      */
@@ -102,6 +119,7 @@ public final class MetricAlarmMetricQuery {
         private String id;
         private @Nullable String label;
         private @Nullable MetricAlarmMetricQueryMetric metric;
+        private @Nullable Integer period;
         private @Nullable Boolean returnData;
         public Builder() {}
         public Builder(MetricAlarmMetricQuery defaults) {
@@ -111,6 +129,7 @@ public final class MetricAlarmMetricQuery {
     	      this.id = defaults.id;
     	      this.label = defaults.label;
     	      this.metric = defaults.metric;
+    	      this.period = defaults.period;
     	      this.returnData = defaults.returnData;
         }
 
@@ -140,6 +159,11 @@ public final class MetricAlarmMetricQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder period(@Nullable Integer period) {
+            this.period = period;
+            return this;
+        }
+        @CustomType.Setter
         public Builder returnData(@Nullable Boolean returnData) {
             this.returnData = returnData;
             return this;
@@ -151,6 +175,7 @@ public final class MetricAlarmMetricQuery {
             o.id = id;
             o.label = label;
             o.metric = metric;
+            o.period = period;
             o.returnData = returnData;
             return o;
         }

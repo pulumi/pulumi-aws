@@ -119,6 +119,9 @@ namespace Pulumi.Aws.DirectConnect
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to enable or disable SiteLink.
+        /// </summary>
         [Output("sitelinkEnabled")]
         public Output<bool?> SitelinkEnabled { get; private set; } = null!;
 
@@ -247,6 +250,9 @@ namespace Pulumi.Aws.DirectConnect
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicates whether to enable or disable SiteLink.
+        /// </summary>
         [Input("sitelinkEnabled")]
         public Input<bool>? SitelinkEnabled { get; set; }
 
@@ -358,6 +364,9 @@ namespace Pulumi.Aws.DirectConnect
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicates whether to enable or disable SiteLink.
+        /// </summary>
         [Input("sitelinkEnabled")]
         public Input<bool>? SitelinkEnabled { get; set; }
 

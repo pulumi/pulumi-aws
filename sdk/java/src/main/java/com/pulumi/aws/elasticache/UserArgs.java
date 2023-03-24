@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.elasticache;
 
+import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -34,18 +35,18 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the created ElastiCache User.
+     * Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
-    @Import(name="arn")
-    private @Nullable Output<String> arn;
+    @Import(name="authenticationMode")
+    private @Nullable Output<UserAuthenticationModeArgs> authenticationMode;
 
     /**
-     * @return The ARN of the created ElastiCache User.
+     * @return Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
-    public Optional<Output<String>> arn() {
-        return Optional.ofNullable(this.arn);
+    public Optional<Output<UserAuthenticationModeArgs>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
     }
 
     /**
@@ -142,7 +143,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     private UserArgs(UserArgs $) {
         this.accessString = $.accessString;
-        this.arn = $.arn;
+        this.authenticationMode = $.authenticationMode;
         this.engine = $.engine;
         this.noPasswordRequired = $.noPasswordRequired;
         this.passwords = $.passwords;
@@ -191,24 +192,24 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the created ElastiCache User.
+         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder arn(@Nullable Output<String> arn) {
-            $.arn = arn;
+        public Builder authenticationMode(@Nullable Output<UserAuthenticationModeArgs> authenticationMode) {
+            $.authenticationMode = authenticationMode;
             return this;
         }
 
         /**
-         * @param arn The ARN of the created ElastiCache User.
+         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder arn(String arn) {
-            return arn(Output.of(arn));
+        public Builder authenticationMode(UserAuthenticationModeArgs authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         /**

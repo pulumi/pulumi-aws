@@ -26,7 +26,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
     private @Nullable String encrypted;
     /**
      * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-     * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+     * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
      * 
      */
     private @Nullable Integer iops;
@@ -77,7 +77,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
     }
     /**
      * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-     * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+     * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
      * 
      */
     public Optional<Integer> iops() {

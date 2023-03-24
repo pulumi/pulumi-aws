@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.LaunchTemplateBlockDeviceMappingArgs
     ///             {
-    ///                 DeviceName = "/dev/sda1",
+    ///                 DeviceName = "/dev/sdf",
     ///                 Ebs = new Aws.Ec2.Inputs.LaunchTemplateBlockDeviceMappingEbsArgs
     ///                 {
     ///                     VolumeSize = 20,

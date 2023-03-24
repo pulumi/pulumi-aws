@@ -6,7 +6,10 @@ package com.pulumi.aws.securityhub;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class OrganizationConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -28,10 +31,26 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         return this.autoEnable;
     }
 
+    /**
+     * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+     * 
+     */
+    @Import(name="autoEnableStandards")
+    private @Nullable Output<String> autoEnableStandards;
+
+    /**
+     * @return Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+     * 
+     */
+    public Optional<Output<String>> autoEnableStandards() {
+        return Optional.ofNullable(this.autoEnableStandards);
+    }
+
     private OrganizationConfigurationArgs() {}
 
     private OrganizationConfigurationArgs(OrganizationConfigurationArgs $) {
         this.autoEnable = $.autoEnable;
+        this.autoEnableStandards = $.autoEnableStandards;
     }
 
     public static Builder builder() {
@@ -71,6 +90,27 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
          */
         public Builder autoEnable(Boolean autoEnable) {
             return autoEnable(Output.of(autoEnable));
+        }
+
+        /**
+         * @param autoEnableStandards Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoEnableStandards(@Nullable Output<String> autoEnableStandards) {
+            $.autoEnableStandards = autoEnableStandards;
+            return this;
+        }
+
+        /**
+         * @param autoEnableStandards Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoEnableStandards(String autoEnableStandards) {
+            return autoEnableStandards(Output.of(autoEnableStandards));
         }
 
         public OrganizationConfigurationArgs build() {

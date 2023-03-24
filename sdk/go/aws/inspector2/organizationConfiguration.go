@@ -15,7 +15,7 @@ import (
 //
 // > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
 //
-// > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+// > **NOTE:** When this resource is deleted, EC2, ECR and Lambda scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
 //
 // ## Example Usage
 // ### Basic Usage
@@ -34,8 +34,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := inspector2.NewOrganizationConfiguration(ctx, "example", &inspector2.OrganizationConfigurationArgs{
 //				AutoEnable: &inspector2.OrganizationConfigurationAutoEnableArgs{
-//					Ec2: pulumi.Bool(true),
-//					Ecr: pulumi.Bool(false),
+//					Ec2:    pulumi.Bool(true),
+//					Ecr:    pulumi.Bool(false),
+//					Lambda: pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {

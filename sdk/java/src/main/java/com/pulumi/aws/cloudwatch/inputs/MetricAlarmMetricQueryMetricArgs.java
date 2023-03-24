@@ -67,14 +67,18 @@ public final class MetricAlarmMetricQueryMetricArgs extends com.pulumi.resources
     }
 
     /**
-     * The period in seconds over which the specified `stat` is applied.
+     * Granularity in seconds of returned data points.
+     * For metrics with regular resolution, valid values are any multiple of `60`.
+     * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
      * 
      */
     @Import(name="period", required=true)
     private Output<Integer> period;
 
     /**
-     * @return The period in seconds over which the specified `stat` is applied.
+     * @return Granularity in seconds of returned data points.
+     * For metrics with regular resolution, valid values are any multiple of `60`.
+     * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
      * 
      */
     public Output<Integer> period() {
@@ -210,7 +214,9 @@ public final class MetricAlarmMetricQueryMetricArgs extends com.pulumi.resources
         }
 
         /**
-         * @param period The period in seconds over which the specified `stat` is applied.
+         * @param period Granularity in seconds of returned data points.
+         * For metrics with regular resolution, valid values are any multiple of `60`.
+         * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
          * 
          * @return builder
          * 
@@ -221,7 +227,9 @@ public final class MetricAlarmMetricQueryMetricArgs extends com.pulumi.resources
         }
 
         /**
-         * @param period The period in seconds over which the specified `stat` is applied.
+         * @param period Granularity in seconds of returned data points.
+         * For metrics with regular resolution, valid values are any multiple of `60`.
+         * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
          * 
          * @return builder
          * 

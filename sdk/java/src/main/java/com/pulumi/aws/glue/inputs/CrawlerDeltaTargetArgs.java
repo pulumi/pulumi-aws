@@ -33,6 +33,21 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+     * 
+     */
+    @Import(name="createNativeDeltaTable")
+    private @Nullable Output<Boolean> createNativeDeltaTable;
+
+    /**
+     * @return Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+     * 
+     */
+    public Optional<Output<Boolean>> createNativeDeltaTable() {
+        return Optional.ofNullable(this.createNativeDeltaTable);
+    }
+
+    /**
      * A list of the Amazon S3 paths to the Delta tables.
      * 
      */
@@ -66,6 +81,7 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
 
     private CrawlerDeltaTargetArgs(CrawlerDeltaTargetArgs $) {
         this.connectionName = $.connectionName;
+        this.createNativeDeltaTable = $.createNativeDeltaTable;
         this.deltaTables = $.deltaTables;
         this.writeManifest = $.writeManifest;
     }
@@ -107,6 +123,27 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
          */
         public Builder connectionName(String connectionName) {
             return connectionName(Output.of(connectionName));
+        }
+
+        /**
+         * @param createNativeDeltaTable Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createNativeDeltaTable(@Nullable Output<Boolean> createNativeDeltaTable) {
+            $.createNativeDeltaTable = createNativeDeltaTable;
+            return this;
+        }
+
+        /**
+         * @param createNativeDeltaTable Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createNativeDeltaTable(Boolean createNativeDeltaTable) {
+            return createNativeDeltaTable(Output.of(createNativeDeltaTable));
         }
 
         /**

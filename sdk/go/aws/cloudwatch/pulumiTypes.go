@@ -4528,6 +4528,10 @@ type MetricAlarmMetricQuery struct {
 	Label *string `pulumi:"label"`
 	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
 	Metric *MetricAlarmMetricQueryMetric `pulumi:"metric"`
+	// Granularity in seconds of returned data points.
+	// For metrics with regular resolution, valid values are any multiple of `60`.
+	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+	Period *int `pulumi:"period"`
 	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
 	ReturnData *bool `pulumi:"returnData"`
 }
@@ -4554,6 +4558,10 @@ type MetricAlarmMetricQueryArgs struct {
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
 	Metric MetricAlarmMetricQueryMetricPtrInput `pulumi:"metric"`
+	// Granularity in seconds of returned data points.
+	// For metrics with regular resolution, valid values are any multiple of `60`.
+	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+	Period pulumi.IntPtrInput `pulumi:"period"`
 	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
 	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
 }
@@ -4634,6 +4642,13 @@ func (o MetricAlarmMetricQueryOutput) Metric() MetricAlarmMetricQueryMetricPtrOu
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *MetricAlarmMetricQueryMetric { return v.Metric }).(MetricAlarmMetricQueryMetricPtrOutput)
 }
 
+// Granularity in seconds of returned data points.
+// For metrics with regular resolution, valid values are any multiple of `60`.
+// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+func (o MetricAlarmMetricQueryOutput) Period() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MetricAlarmMetricQuery) *int { return v.Period }).(pulumi.IntPtrOutput)
+}
+
 // Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
 func (o MetricAlarmMetricQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
@@ -4668,7 +4683,9 @@ type MetricAlarmMetricQueryMetric struct {
 	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace *string `pulumi:"namespace"`
-	// The period in seconds over which the specified `stat` is applied.
+	// Granularity in seconds of returned data points.
+	// For metrics with regular resolution, valid values are any multiple of `60`.
+	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
 	Period int `pulumi:"period"`
 	// The statistic to apply to this metric.
 	// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
@@ -4697,7 +4714,9 @@ type MetricAlarmMetricQueryMetricArgs struct {
 	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// The period in seconds over which the specified `stat` is applied.
+	// Granularity in seconds of returned data points.
+	// For metrics with regular resolution, valid values are any multiple of `60`.
+	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntInput `pulumi:"period"`
 	// The statistic to apply to this metric.
 	// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
@@ -4800,7 +4819,9 @@ func (o MetricAlarmMetricQueryMetricOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The period in seconds over which the specified `stat` is applied.
+// Granularity in seconds of returned data points.
+// For metrics with regular resolution, valid values are any multiple of `60`.
+// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
 func (o MetricAlarmMetricQueryMetricOutput) Period() pulumi.IntOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) int { return v.Period }).(pulumi.IntOutput)
 }
@@ -4872,7 +4893,9 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Namespace() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The period in seconds over which the specified `stat` is applied.
+// Granularity in seconds of returned data points.
+// For metrics with regular resolution, valid values are any multiple of `60`.
+// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
 func (o MetricAlarmMetricQueryMetricPtrOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) *int {
 		if v == nil {

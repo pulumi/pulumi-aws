@@ -174,6 +174,9 @@ class _RoutingProfileState:
         if queue_configs is not None:
             pulumi.set(__self__, "queue_configs", queue_configs)
         if queue_configs_associateds is not None:
+            warnings.warn("""Use the queue_configs instead""", DeprecationWarning)
+            pulumi.log.warn("""queue_configs_associateds is deprecated: Use the queue_configs instead""")
+        if queue_configs_associateds is not None:
             pulumi.set(__self__, "queue_configs_associateds", queue_configs_associateds)
         if routing_profile_id is not None:
             pulumi.set(__self__, "routing_profile_id", routing_profile_id)

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+        /// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

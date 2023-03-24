@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange struct {
+	// The final port in the range of TCP ports.
+	MaxRange int `pulumi:"maxRange"`
+	// The first port in the range of TCP ports.
+	MinRange int `pulumi:"minRange"`
+}
+
+// BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeInput is an input type that accepts BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs and BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput values.
+// You can construct a concrete instance of `BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeInput` via:
+//
+//	BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{...}
+type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeInput interface {
+	pulumi.Input
+
+	ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput() BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput
+	ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutputWithContext(context.Context) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput
+}
+
+type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs struct {
+	// The final port in the range of TCP ports.
+	MaxRange pulumi.IntInput `pulumi:"maxRange"`
+	// The first port in the range of TCP ports.
+	MinRange pulumi.IntInput `pulumi:"minRange"`
+}
+
+func (BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange)(nil)).Elem()
+}
+
+func (i BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput() BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput {
+	return i.ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutputWithContext(context.Background())
+}
+
+func (i BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput)
+}
+
+// BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput is an input type that accepts BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray and BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput values.
+// You can construct a concrete instance of `BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput` via:
+//
+//	BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{ BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{...} }
+type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput interface {
+	pulumi.Input
+
+	ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput() BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput
+	ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutputWithContext(context.Context) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput
+}
+
+type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeInput
+
+func (BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange)(nil)).Elem()
+}
+
+func (i BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput() BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput {
+	return i.ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutputWithContext(context.Background())
+}
+
+func (i BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput)
+}
+
+type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput struct{ *pulumi.OutputState }
+
+func (BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange)(nil)).Elem()
+}
+
+func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput() BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput {
+	return o
+}
+
+func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput {
+	return o
+}
+
+// The final port in the range of TCP ports.
+func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput) MaxRange() pulumi.IntOutput {
+	return o.ApplyT(func(v BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange) int { return v.MaxRange }).(pulumi.IntOutput)
+}
+
+// The first port in the range of TCP ports.
+func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput) MinRange() pulumi.IntOutput {
+	return o.ApplyT(func(v BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange) int { return v.MinRange }).(pulumi.IntOutput)
+}
+
+type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange)(nil)).Elem()
+}
+
+func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput() BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput {
+	return o
+}
+
+func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput {
+	return o
+}
+
+func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput) Index(i pulumi.IntInput) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange {
+		return vs[0].([]BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange)[vs[1].(int)]
+	}).(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput)
+}
+
 type ClusterAutoTerminationPolicy struct {
 	// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
 	IdleTimeout *int `pulumi:"idleTimeout"`
@@ -4948,6 +5054,8 @@ func (o GetReleaseLabelsFiltersPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeInput)(nil)).Elem(), BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput)(nil)).Elem(), BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoTerminationPolicyInput)(nil)).Elem(), ClusterAutoTerminationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoTerminationPolicyPtrInput)(nil)).Elem(), ClusterAutoTerminationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBootstrapActionInput)(nil)).Elem(), ClusterBootstrapActionArgs{})
@@ -5013,6 +5121,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyComputeLimitArrayInput)(nil)).Elem(), ManagedScalingPolicyComputeLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseLabelsFiltersInput)(nil)).Elem(), GetReleaseLabelsFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseLabelsFiltersPtrInput)(nil)).Elem(), GetReleaseLabelsFiltersArgs{})
+	pulumi.RegisterOutputType(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput{})
+	pulumi.RegisterOutputType(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBootstrapActionOutput{})

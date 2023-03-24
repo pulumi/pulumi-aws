@@ -15,8 +15,8 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("acquisitionPointId")]
         public Input<string>? AcquisitionPointId { get; set; }
 
-        [Input("audioOnlyTimecodecControl")]
-        public Input<string>? AudioOnlyTimecodecControl { get; set; }
+        [Input("audioOnlyTimecodeControl")]
+        public Input<string>? AudioOnlyTimecodeControl { get; set; }
 
         /// <summary>
         /// Setting to allow self signed or verified RTMP certificates.
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationGetArgs> Destination { get; set; } = null!;
 
         [Input("eventId")]
-        public Input<int>? EventId { get; set; }
+        public Input<string>? EventId { get; set; }
 
         [Input("eventIdMode")]
         public Input<string>? EventIdMode { get; set; }

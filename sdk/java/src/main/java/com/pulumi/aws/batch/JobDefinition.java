@@ -149,6 +149,7 @@ import javax.annotation.Nullable;
  *                         &#34;test&#34;
  *                     )),
  *                     jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
+ *                     jsonProperty(&#34;jobRoleArn&#34;, &#34;arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly&#34;),
  *                     jsonProperty(&#34;fargatePlatformConfiguration&#34;, jsonObject(
  *                         jsonProperty(&#34;platformVersion&#34;, &#34;LATEST&#34;)
  *                     )),

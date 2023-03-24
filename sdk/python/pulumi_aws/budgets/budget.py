@@ -675,6 +675,30 @@ class Budget(pulumi.CustomResource):
             limit_unit="PERCENTAGE")
         ```
 
+        Create a Cost Filter using Resource Tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
+            name="TagKeyValue",
+            values=["TagKey$TagValue"],
+        )])
+        ```
+
+        Create a cost_filter using resource tags, obtaining the tag value from a variable
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
+            name="TagKeyValue",
+            values=["TagKey${var.TagValue}"],
+        )])
+        ```
+
         ## Import
 
         Budgets can be imported using `AccountID:BudgetName`, e.g.,
@@ -830,6 +854,30 @@ class Budget(pulumi.CustomResource):
             ),
             limit_amount="100.0",
             limit_unit="PERCENTAGE")
+        ```
+
+        Create a Cost Filter using Resource Tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
+            name="TagKeyValue",
+            values=["TagKey$TagValue"],
+        )])
+        ```
+
+        Create a cost_filter using resource tags, obtaining the tag value from a variable
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
+            name="TagKeyValue",
+            values=["TagKey${var.TagValue}"],
+        )])
         ```
 
         ## Import

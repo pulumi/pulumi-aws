@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs',
     'ClusterAutoTerminationPolicyArgs',
     'ClusterBootstrapActionArgs',
     'ClusterCoreInstanceFleetArgs',
@@ -44,6 +45,43 @@ __all__ = [
     'ManagedScalingPolicyComputeLimitArgs',
     'GetReleaseLabelsFiltersArgs',
 ]
+
+@pulumi.input_type
+class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs:
+    def __init__(__self__, *,
+                 max_range: pulumi.Input[int],
+                 min_range: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_range: The final port in the range of TCP ports.
+        :param pulumi.Input[int] min_range: The first port in the range of TCP ports.
+        """
+        pulumi.set(__self__, "max_range", max_range)
+        pulumi.set(__self__, "min_range", min_range)
+
+    @property
+    @pulumi.getter(name="maxRange")
+    def max_range(self) -> pulumi.Input[int]:
+        """
+        The final port in the range of TCP ports.
+        """
+        return pulumi.get(self, "max_range")
+
+    @max_range.setter
+    def max_range(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_range", value)
+
+    @property
+    @pulumi.getter(name="minRange")
+    def min_range(self) -> pulumi.Input[int]:
+        """
+        The first port in the range of TCP ports.
+        """
+        return pulumi.get(self, "min_range")
+
+    @min_range.setter
+    def min_range(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_range", value)
+
 
 @pulumi.input_type
 class ClusterAutoTerminationPolicyArgs:

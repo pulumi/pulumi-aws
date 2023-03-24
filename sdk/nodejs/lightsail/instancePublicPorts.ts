@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * const testInstance = new aws.lightsail.Instance("testInstance", {
  *     availabilityZone: data.aws_availability_zones.available.names[0],
- *     blueprintId: "amazon_linux",
+ *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  * });
  * const testInstancePublicPorts = new aws.lightsail.InstancePublicPorts("testInstancePublicPorts", {

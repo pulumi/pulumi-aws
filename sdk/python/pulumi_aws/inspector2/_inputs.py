@@ -17,13 +17,17 @@ __all__ = [
 class OrganizationConfigurationAutoEnableArgs:
     def __init__(__self__, *,
                  ec2: pulumi.Input[bool],
-                 ecr: pulumi.Input[bool]):
+                 ecr: pulumi.Input[bool],
+                 lambda_: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] ec2: Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
         :param pulumi.Input[bool] ecr: Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
+        :param pulumi.Input[bool] lambda_: Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
         """
         pulumi.set(__self__, "ec2", ec2)
         pulumi.set(__self__, "ecr", ecr)
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
 
     @property
     @pulumi.getter
@@ -48,5 +52,17 @@ class OrganizationConfigurationAutoEnableArgs:
     @ecr.setter
     def ecr(self, value: pulumi.Input[bool]):
         pulumi.set(self, "ecr", value)
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+        """
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "lambda_", value)
 
 

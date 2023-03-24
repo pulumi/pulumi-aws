@@ -766,6 +766,177 @@ func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntI
 	}).(ReplicationGroupLogDeliveryConfigurationOutput)
 }
 
+type UserAuthenticationMode struct {
+	PasswordCount *int `pulumi:"passwordCount"`
+	// Specifies the passwords to use for authentication if `type` is set to `password`.
+	Passwords []string `pulumi:"passwords"`
+	// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+	Type string `pulumi:"type"`
+}
+
+// UserAuthenticationModeInput is an input type that accepts UserAuthenticationModeArgs and UserAuthenticationModeOutput values.
+// You can construct a concrete instance of `UserAuthenticationModeInput` via:
+//
+//	UserAuthenticationModeArgs{...}
+type UserAuthenticationModeInput interface {
+	pulumi.Input
+
+	ToUserAuthenticationModeOutput() UserAuthenticationModeOutput
+	ToUserAuthenticationModeOutputWithContext(context.Context) UserAuthenticationModeOutput
+}
+
+type UserAuthenticationModeArgs struct {
+	PasswordCount pulumi.IntPtrInput `pulumi:"passwordCount"`
+	// Specifies the passwords to use for authentication if `type` is set to `password`.
+	Passwords pulumi.StringArrayInput `pulumi:"passwords"`
+	// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UserAuthenticationModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAuthenticationMode)(nil)).Elem()
+}
+
+func (i UserAuthenticationModeArgs) ToUserAuthenticationModeOutput() UserAuthenticationModeOutput {
+	return i.ToUserAuthenticationModeOutputWithContext(context.Background())
+}
+
+func (i UserAuthenticationModeArgs) ToUserAuthenticationModeOutputWithContext(ctx context.Context) UserAuthenticationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAuthenticationModeOutput)
+}
+
+func (i UserAuthenticationModeArgs) ToUserAuthenticationModePtrOutput() UserAuthenticationModePtrOutput {
+	return i.ToUserAuthenticationModePtrOutputWithContext(context.Background())
+}
+
+func (i UserAuthenticationModeArgs) ToUserAuthenticationModePtrOutputWithContext(ctx context.Context) UserAuthenticationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAuthenticationModeOutput).ToUserAuthenticationModePtrOutputWithContext(ctx)
+}
+
+// UserAuthenticationModePtrInput is an input type that accepts UserAuthenticationModeArgs, UserAuthenticationModePtr and UserAuthenticationModePtrOutput values.
+// You can construct a concrete instance of `UserAuthenticationModePtrInput` via:
+//
+//	        UserAuthenticationModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserAuthenticationModePtrInput interface {
+	pulumi.Input
+
+	ToUserAuthenticationModePtrOutput() UserAuthenticationModePtrOutput
+	ToUserAuthenticationModePtrOutputWithContext(context.Context) UserAuthenticationModePtrOutput
+}
+
+type userAuthenticationModePtrType UserAuthenticationModeArgs
+
+func UserAuthenticationModePtr(v *UserAuthenticationModeArgs) UserAuthenticationModePtrInput {
+	return (*userAuthenticationModePtrType)(v)
+}
+
+func (*userAuthenticationModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAuthenticationMode)(nil)).Elem()
+}
+
+func (i *userAuthenticationModePtrType) ToUserAuthenticationModePtrOutput() UserAuthenticationModePtrOutput {
+	return i.ToUserAuthenticationModePtrOutputWithContext(context.Background())
+}
+
+func (i *userAuthenticationModePtrType) ToUserAuthenticationModePtrOutputWithContext(ctx context.Context) UserAuthenticationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAuthenticationModePtrOutput)
+}
+
+type UserAuthenticationModeOutput struct{ *pulumi.OutputState }
+
+func (UserAuthenticationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAuthenticationMode)(nil)).Elem()
+}
+
+func (o UserAuthenticationModeOutput) ToUserAuthenticationModeOutput() UserAuthenticationModeOutput {
+	return o
+}
+
+func (o UserAuthenticationModeOutput) ToUserAuthenticationModeOutputWithContext(ctx context.Context) UserAuthenticationModeOutput {
+	return o
+}
+
+func (o UserAuthenticationModeOutput) ToUserAuthenticationModePtrOutput() UserAuthenticationModePtrOutput {
+	return o.ToUserAuthenticationModePtrOutputWithContext(context.Background())
+}
+
+func (o UserAuthenticationModeOutput) ToUserAuthenticationModePtrOutputWithContext(ctx context.Context) UserAuthenticationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAuthenticationMode) *UserAuthenticationMode {
+		return &v
+	}).(UserAuthenticationModePtrOutput)
+}
+
+func (o UserAuthenticationModeOutput) PasswordCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserAuthenticationMode) *int { return v.PasswordCount }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the passwords to use for authentication if `type` is set to `password`.
+func (o UserAuthenticationModeOutput) Passwords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserAuthenticationMode) []string { return v.Passwords }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+func (o UserAuthenticationModeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAuthenticationMode) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type UserAuthenticationModePtrOutput struct{ *pulumi.OutputState }
+
+func (UserAuthenticationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAuthenticationMode)(nil)).Elem()
+}
+
+func (o UserAuthenticationModePtrOutput) ToUserAuthenticationModePtrOutput() UserAuthenticationModePtrOutput {
+	return o
+}
+
+func (o UserAuthenticationModePtrOutput) ToUserAuthenticationModePtrOutputWithContext(ctx context.Context) UserAuthenticationModePtrOutput {
+	return o
+}
+
+func (o UserAuthenticationModePtrOutput) Elem() UserAuthenticationModeOutput {
+	return o.ApplyT(func(v *UserAuthenticationMode) UserAuthenticationMode {
+		if v != nil {
+			return *v
+		}
+		var ret UserAuthenticationMode
+		return ret
+	}).(UserAuthenticationModeOutput)
+}
+
+func (o UserAuthenticationModePtrOutput) PasswordCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserAuthenticationMode) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the passwords to use for authentication if `type` is set to `password`.
+func (o UserAuthenticationModePtrOutput) Passwords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserAuthenticationMode) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Passwords
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+func (o UserAuthenticationModePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAuthenticationMode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetClusterCacheNode struct {
 	Address string `pulumi:"address"`
 	// Availability Zone for the cache cluster.
@@ -1117,6 +1288,106 @@ func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.I
 	}).(GetReplicationGroupLogDeliveryConfigurationOutput)
 }
 
+type GetUserAuthenticationMode struct {
+	PasswordCount *int    `pulumi:"passwordCount"`
+	Type          *string `pulumi:"type"`
+}
+
+// GetUserAuthenticationModeInput is an input type that accepts GetUserAuthenticationModeArgs and GetUserAuthenticationModeOutput values.
+// You can construct a concrete instance of `GetUserAuthenticationModeInput` via:
+//
+//	GetUserAuthenticationModeArgs{...}
+type GetUserAuthenticationModeInput interface {
+	pulumi.Input
+
+	ToGetUserAuthenticationModeOutput() GetUserAuthenticationModeOutput
+	ToGetUserAuthenticationModeOutputWithContext(context.Context) GetUserAuthenticationModeOutput
+}
+
+type GetUserAuthenticationModeArgs struct {
+	PasswordCount pulumi.IntPtrInput    `pulumi:"passwordCount"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (GetUserAuthenticationModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAuthenticationMode)(nil)).Elem()
+}
+
+func (i GetUserAuthenticationModeArgs) ToGetUserAuthenticationModeOutput() GetUserAuthenticationModeOutput {
+	return i.ToGetUserAuthenticationModeOutputWithContext(context.Background())
+}
+
+func (i GetUserAuthenticationModeArgs) ToGetUserAuthenticationModeOutputWithContext(ctx context.Context) GetUserAuthenticationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAuthenticationModeOutput)
+}
+
+// GetUserAuthenticationModeArrayInput is an input type that accepts GetUserAuthenticationModeArray and GetUserAuthenticationModeArrayOutput values.
+// You can construct a concrete instance of `GetUserAuthenticationModeArrayInput` via:
+//
+//	GetUserAuthenticationModeArray{ GetUserAuthenticationModeArgs{...} }
+type GetUserAuthenticationModeArrayInput interface {
+	pulumi.Input
+
+	ToGetUserAuthenticationModeArrayOutput() GetUserAuthenticationModeArrayOutput
+	ToGetUserAuthenticationModeArrayOutputWithContext(context.Context) GetUserAuthenticationModeArrayOutput
+}
+
+type GetUserAuthenticationModeArray []GetUserAuthenticationModeInput
+
+func (GetUserAuthenticationModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserAuthenticationMode)(nil)).Elem()
+}
+
+func (i GetUserAuthenticationModeArray) ToGetUserAuthenticationModeArrayOutput() GetUserAuthenticationModeArrayOutput {
+	return i.ToGetUserAuthenticationModeArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserAuthenticationModeArray) ToGetUserAuthenticationModeArrayOutputWithContext(ctx context.Context) GetUserAuthenticationModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAuthenticationModeArrayOutput)
+}
+
+type GetUserAuthenticationModeOutput struct{ *pulumi.OutputState }
+
+func (GetUserAuthenticationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAuthenticationMode)(nil)).Elem()
+}
+
+func (o GetUserAuthenticationModeOutput) ToGetUserAuthenticationModeOutput() GetUserAuthenticationModeOutput {
+	return o
+}
+
+func (o GetUserAuthenticationModeOutput) ToGetUserAuthenticationModeOutputWithContext(ctx context.Context) GetUserAuthenticationModeOutput {
+	return o
+}
+
+func (o GetUserAuthenticationModeOutput) PasswordCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetUserAuthenticationMode) *int { return v.PasswordCount }).(pulumi.IntPtrOutput)
+}
+
+func (o GetUserAuthenticationModeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUserAuthenticationMode) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type GetUserAuthenticationModeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserAuthenticationModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserAuthenticationMode)(nil)).Elem()
+}
+
+func (o GetUserAuthenticationModeArrayOutput) ToGetUserAuthenticationModeArrayOutput() GetUserAuthenticationModeArrayOutput {
+	return o
+}
+
+func (o GetUserAuthenticationModeArrayOutput) ToGetUserAuthenticationModeArrayOutputWithContext(ctx context.Context) GetUserAuthenticationModeArrayOutput {
+	return o
+}
+
+func (o GetUserAuthenticationModeArrayOutput) Index(i pulumi.IntInput) GetUserAuthenticationModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserAuthenticationMode {
+		return vs[0].([]GetUserAuthenticationMode)[vs[1].(int)]
+	}).(GetUserAuthenticationModeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeInput)(nil)).Elem(), ClusterCacheNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeArrayInput)(nil)).Elem(), ClusterCacheNodeArray{})
@@ -1130,12 +1401,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModePtrInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModeInput)(nil)).Elem(), UserAuthenticationModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePtrInput)(nil)).Elem(), UserAuthenticationModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeInput)(nil)).Elem(), GetClusterCacheNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeArrayInput)(nil)).Elem(), GetClusterCacheNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLogDeliveryConfigurationInput)(nil)).Elem(), GetClusterLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLogDeliveryConfigurationArrayInput)(nil)).Elem(), GetClusterLogDeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), GetReplicationGroupLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), GetReplicationGroupLogDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAuthenticationModeInput)(nil)).Elem(), GetUserAuthenticationModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAuthenticationModeArrayInput)(nil)).Elem(), GetUserAuthenticationModeArray{})
 	pulumi.RegisterOutputType(ClusterCacheNodeOutput{})
 	pulumi.RegisterOutputType(ClusterCacheNodeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterLogDeliveryConfigurationOutput{})
@@ -1148,10 +1423,14 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationGroupClusterModePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(UserAuthenticationModeOutput{})
+	pulumi.RegisterOutputType(UserAuthenticationModePtrOutput{})
 	pulumi.RegisterOutputType(GetClusterCacheNodeOutput{})
 	pulumi.RegisterOutputType(GetClusterCacheNodeArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(GetClusterLogDeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetReplicationGroupLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(GetReplicationGroupLogDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetUserAuthenticationModeOutput{})
+	pulumi.RegisterOutputType(GetUserAuthenticationModeArrayOutput{})
 }

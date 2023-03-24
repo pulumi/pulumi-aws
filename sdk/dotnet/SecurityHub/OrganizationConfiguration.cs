@@ -70,6 +70,12 @@ namespace Pulumi.Aws.SecurityHub
         [Output("autoEnable")]
         public Output<bool> AutoEnable { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+        /// </summary>
+        [Output("autoEnableStandards")]
+        public Output<string> AutoEnableStandards { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -122,6 +128,12 @@ namespace Pulumi.Aws.SecurityHub
         [Input("autoEnable", required: true)]
         public Input<bool> AutoEnable { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+        /// </summary>
+        [Input("autoEnableStandards")]
+        public Input<string>? AutoEnableStandards { get; set; }
+
         public OrganizationConfigurationArgs()
         {
         }
@@ -135,6 +147,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("autoEnable")]
         public Input<bool>? AutoEnable { get; set; }
+
+        /// <summary>
+        /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+        /// </summary>
+        [Input("autoEnableStandards")]
+        public Input<string>? AutoEnableStandards { get; set; }
 
         public OrganizationConfigurationState()
         {

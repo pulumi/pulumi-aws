@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const foo = new aws.ec2.LaunchTemplate("foo", {
  *     blockDeviceMappings: [{
- *         deviceName: "/dev/sda1",
+ *         deviceName: "/dev/sdf",
  *         ebs: {
  *             volumeSize: 20,
  *         },

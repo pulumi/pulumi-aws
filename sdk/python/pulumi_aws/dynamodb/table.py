@@ -18,6 +18,7 @@ class TableArgs:
     def __init__(__self__, *,
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
@@ -41,6 +42,7 @@ class TableArgs:
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        :param pulumi.Input[bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -67,6 +69,8 @@ class TableArgs:
             pulumi.set(__self__, "attributes", attributes)
         if billing_mode is not None:
             pulumi.set(__self__, "billing_mode", billing_mode)
+        if deletion_protection_enabled is not None:
+            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if hash_key is not None:
@@ -129,6 +133,18 @@ class TableArgs:
     @billing_mode.setter
     def billing_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables deletion protection for table. Defaults to `false`.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
+
+    @deletion_protection_enabled.setter
+    def deletion_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deletion_protection_enabled", value)
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
@@ -367,6 +383,7 @@ class _TableState:
                  arn: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
@@ -393,6 +410,7 @@ class _TableState:
         :param pulumi.Input[str] arn: ARN of the table
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        :param pulumi.Input[bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -423,6 +441,8 @@ class _TableState:
             pulumi.set(__self__, "attributes", attributes)
         if billing_mode is not None:
             pulumi.set(__self__, "billing_mode", billing_mode)
+        if deletion_protection_enabled is not None:
+            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if hash_key is not None:
@@ -501,6 +521,18 @@ class _TableState:
     @billing_mode.setter
     def billing_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables deletion protection for table. Defaults to `false`.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
+
+    @deletion_protection_enabled.setter
+    def deletion_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deletion_protection_enabled", value)
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
@@ -764,6 +796,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
@@ -888,6 +921,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        :param pulumi.Input[bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -1033,6 +1067,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
@@ -1063,6 +1098,7 @@ class Table(pulumi.CustomResource):
 
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["billing_mode"] = billing_mode
+            __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
             __props__.__dict__["hash_key"] = hash_key
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
@@ -1098,6 +1134,7 @@ class Table(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]]] = None,
             billing_mode: Optional[pulumi.Input[str]] = None,
+            deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
             global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
             hash_key: Optional[pulumi.Input[str]] = None,
             local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
@@ -1129,6 +1166,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the table
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        :param pulumi.Input[bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
@@ -1160,6 +1198,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["attributes"] = attributes
         __props__.__dict__["billing_mode"] = billing_mode
+        __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
         __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
         __props__.__dict__["hash_key"] = hash_key
         __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
@@ -1206,6 +1245,14 @@ class Table(pulumi.CustomResource):
         Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         """
         return pulumi.get(self, "billing_mode")
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables deletion protection for table. Defaults to `false`.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")

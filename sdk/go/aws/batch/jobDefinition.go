@@ -152,7 +152,8 @@ import (
 //							"echo",
 //							"test",
 //						},
-//						"image": "busybox",
+//						"image":      "busybox",
+//						"jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
 //						"fargatePlatformConfiguration": map[string]interface{}{
 //							"platformVersion": "LATEST",
 //						},

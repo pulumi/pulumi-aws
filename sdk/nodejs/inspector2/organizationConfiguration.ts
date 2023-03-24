@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
  *
- * > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+ * > **NOTE:** When this resource is deleted, EC2, ECR and Lambda scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  * const example = new aws.inspector2.OrganizationConfiguration("example", {autoEnable: {
  *     ec2: true,
  *     ecr: false,
+ *     lambda: true,
  * }});
  * ```
  */

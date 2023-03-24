@@ -1352,7 +1352,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
         foo = aws.ec2.LaunchTemplate("foo",
             block_device_mappings=[aws.ec2.LaunchTemplateBlockDeviceMappingArgs(
-                device_name="/dev/sda1",
+                device_name="/dev/sdf",
                 ebs=aws.ec2.LaunchTemplateBlockDeviceMappingEbsArgs(
                     volume_size=20,
                 ),
@@ -1491,7 +1491,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
         foo = aws.ec2.LaunchTemplate("foo",
             block_device_mappings=[aws.ec2.LaunchTemplateBlockDeviceMappingArgs(
-                device_name="/dev/sda1",
+                device_name="/dev/sdf",
                 ebs=aws.ec2.LaunchTemplateBlockDeviceMappingEbsArgs(
                     volume_size=20,
                 ),

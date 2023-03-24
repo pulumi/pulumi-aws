@@ -334,6 +334,97 @@ import (
 //	}
 //
 // ```
+// ### Cross-Account Event Bus target
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"events.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			eventBusInvokeRemoteEventBusRole, err := iam.NewRole(ctx, "eventBusInvokeRemoteEventBusRole", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			eventBusInvokeRemoteEventBusPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"events:PutEvents",
+//						},
+//						Resources: []string{
+//							"arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			eventBusInvokeRemoteEventBusPolicy, err := iam.NewPolicy(ctx, "eventBusInvokeRemoteEventBusPolicy", &iam.PolicyArgs{
+//				Policy: *pulumi.String(eventBusInvokeRemoteEventBusPolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "eventBusInvokeRemoteEventBusRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//				Role:      eventBusInvokeRemoteEventBusRole.Name,
+//				PolicyArn: eventBusInvokeRemoteEventBusPolicy.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			stopInstancesEventRule, err := cloudwatch.NewEventRule(ctx, "stopInstancesEventRule", &cloudwatch.EventRuleArgs{
+//				Description:        pulumi.String("Stop instances nightly"),
+//				ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
+//				Arn:     pulumi.String("arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"),
+//				Rule:    stopInstancesEventRule.Name,
+//				RoleArn: eventBusInvokeRemoteEventBusRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Input Transformer Usage - JSON Object
 //
 // ```go

@@ -100,7 +100,7 @@ class ClusterServerlessV2ScalingConfiguration(dict):
                  min_capacity: Optional[float] = None):
         """
         :param float max_capacity: The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        :param float min_capacity: The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        :param float min_capacity: The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
@@ -119,7 +119,7 @@ class ClusterServerlessV2ScalingConfiguration(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[float]:
         """
-        The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         return pulumi.get(self, "min_capacity")
 

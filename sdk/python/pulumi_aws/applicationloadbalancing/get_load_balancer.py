@@ -24,7 +24,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_waf_fail_open=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -55,9 +55,15 @@ class GetLoadBalancerResult:
         if enable_http2 and not isinstance(enable_http2, bool):
             raise TypeError("Expected argument 'enable_http2' to be a bool")
         pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_tls_version_and_cipher_suite_headers and not isinstance(enable_tls_version_and_cipher_suite_headers, bool):
+            raise TypeError("Expected argument 'enable_tls_version_and_cipher_suite_headers' to be a bool")
+        pulumi.set(__self__, "enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
         if enable_waf_fail_open and not isinstance(enable_waf_fail_open, bool):
             raise TypeError("Expected argument 'enable_waf_fail_open' to be a bool")
         pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
+        if enable_xff_client_port and not isinstance(enable_xff_client_port, bool):
+            raise TypeError("Expected argument 'enable_xff_client_port' to be a bool")
+        pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -94,6 +100,9 @@ class GetLoadBalancerResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if xff_header_processing_mode and not isinstance(xff_header_processing_mode, str):
+            raise TypeError("Expected argument 'xff_header_processing_mode' to be a str")
+        pulumi.set(__self__, "xff_header_processing_mode", xff_header_processing_mode)
         if zone_id and not isinstance(zone_id, str):
             raise TypeError("Expected argument 'zone_id' to be a str")
         pulumi.set(__self__, "zone_id", zone_id)
@@ -149,9 +158,19 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "enable_http2")
 
     @property
+    @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
+    def enable_tls_version_and_cipher_suite_headers(self) -> bool:
+        return pulumi.get(self, "enable_tls_version_and_cipher_suite_headers")
+
+    @property
     @pulumi.getter(name="enableWafFailOpen")
     def enable_waf_fail_open(self) -> bool:
         return pulumi.get(self, "enable_waf_fail_open")
+
+    @property
+    @pulumi.getter(name="enableXffClientPort")
+    def enable_xff_client_port(self) -> bool:
+        return pulumi.get(self, "enable_xff_client_port")
 
     @property
     @pulumi.getter
@@ -217,6 +236,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "vpc_id")
 
     @property
+    @pulumi.getter(name="xffHeaderProcessingMode")
+    def xff_header_processing_mode(self) -> str:
+        return pulumi.get(self, "xff_header_processing_mode")
+
+    @property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> str:
         return pulumi.get(self, "zone_id")
@@ -238,7 +262,9 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             enable_cross_zone_load_balancing=self.enable_cross_zone_load_balancing,
             enable_deletion_protection=self.enable_deletion_protection,
             enable_http2=self.enable_http2,
+            enable_tls_version_and_cipher_suite_headers=self.enable_tls_version_and_cipher_suite_headers,
             enable_waf_fail_open=self.enable_waf_fail_open,
+            enable_xff_client_port=self.enable_xff_client_port,
             id=self.id,
             idle_timeout=self.idle_timeout,
             internal=self.internal,
@@ -251,6 +277,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             subnets=self.subnets,
             tags=self.tags,
             vpc_id=self.vpc_id,
+            xff_header_processing_mode=self.xff_header_processing_mode,
             zone_id=self.zone_id)
 
 
@@ -308,7 +335,9 @@ def get_load_balancer(arn: Optional[str] = None,
         enable_cross_zone_load_balancing=__ret__.enable_cross_zone_load_balancing,
         enable_deletion_protection=__ret__.enable_deletion_protection,
         enable_http2=__ret__.enable_http2,
+        enable_tls_version_and_cipher_suite_headers=__ret__.enable_tls_version_and_cipher_suite_headers,
         enable_waf_fail_open=__ret__.enable_waf_fail_open,
+        enable_xff_client_port=__ret__.enable_xff_client_port,
         id=__ret__.id,
         idle_timeout=__ret__.idle_timeout,
         internal=__ret__.internal,
@@ -321,6 +350,7 @@ def get_load_balancer(arn: Optional[str] = None,
         subnets=__ret__.subnets,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id,
+        xff_header_processing_mode=__ret__.xff_header_processing_mode,
         zone_id=__ret__.zone_id)
 
 

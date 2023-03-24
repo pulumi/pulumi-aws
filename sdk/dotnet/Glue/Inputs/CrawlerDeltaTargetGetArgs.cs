@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
+        /// <summary>
+        /// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+        /// </summary>
+        [Input("createNativeDeltaTable")]
+        public Input<bool>? CreateNativeDeltaTable { get; set; }
+
         [Input("deltaTables", required: true)]
         private InputList<string>? _deltaTables;
 

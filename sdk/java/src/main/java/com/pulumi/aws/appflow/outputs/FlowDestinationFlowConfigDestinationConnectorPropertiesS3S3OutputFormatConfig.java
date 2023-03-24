@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.outputs;
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig;
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,6 +29,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig;
+    /**
+     * @return Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+     * 
+     */
+    private @Nullable Boolean preserveSourceDataTyping;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig() {}
     /**
@@ -51,6 +57,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig> prefixConfig() {
         return Optional.ofNullable(this.prefixConfig);
     }
+    /**
+     * @return Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+     * 
+     */
+    public Optional<Boolean> preserveSourceDataTyping() {
+        return Optional.ofNullable(this.preserveSourceDataTyping);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,12 +77,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig;
         private @Nullable String fileType;
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig;
+        private @Nullable Boolean preserveSourceDataTyping;
         public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregationConfig = defaults.aggregationConfig;
     	      this.fileType = defaults.fileType;
     	      this.prefixConfig = defaults.prefixConfig;
+    	      this.preserveSourceDataTyping = defaults.preserveSourceDataTyping;
         }
 
         @CustomType.Setter
@@ -87,11 +102,17 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
             this.prefixConfig = prefixConfig;
             return this;
         }
+        @CustomType.Setter
+        public Builder preserveSourceDataTyping(@Nullable Boolean preserveSourceDataTyping) {
+            this.preserveSourceDataTyping = preserveSourceDataTyping;
+            return this;
+        }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig build() {
             final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig();
             o.aggregationConfig = aggregationConfig;
             o.fileType = fileType;
             o.prefixConfig = prefixConfig;
+            o.preserveSourceDataTyping = preserveSourceDataTyping;
             return o;
         }
     }

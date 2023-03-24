@@ -313,9 +313,13 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly clusterConfig!: pulumi.Output<outputs.opensearch.DomainClusterConfig>;
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
     public readonly cognitoOptions!: pulumi.Output<outputs.opensearch.DomainCognitoOptions | undefined>;
+    /**
+     * Domain-specific endpoint for Dashboard without https scheme.
+     */
+    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
@@ -345,7 +349,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      */
     public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
     /**
@@ -395,6 +399,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["autoTuneOptions"] = state ? state.autoTuneOptions : undefined;
             resourceInputs["clusterConfig"] = state ? state.clusterConfig : undefined;
             resourceInputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
+            resourceInputs["dashboardEndpoint"] = state ? state.dashboardEndpoint : undefined;
             resourceInputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
@@ -428,6 +433,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dashboardEndpoint"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["kibanaEndpoint"] = undefined /*out*/;
@@ -467,9 +473,13 @@ export interface DomainState {
      */
     clusterConfig?: pulumi.Input<inputs.opensearch.DomainClusterConfig>;
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
     cognitoOptions?: pulumi.Input<inputs.opensearch.DomainCognitoOptions>;
+    /**
+     * Domain-specific endpoint for Dashboard without https scheme.
+     */
+    dashboardEndpoint?: pulumi.Input<string>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
@@ -499,7 +509,7 @@ export interface DomainState {
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      */
     kibanaEndpoint?: pulumi.Input<string>;
     /**
@@ -555,7 +565,7 @@ export interface DomainArgs {
      */
     clusterConfig?: pulumi.Input<inputs.opensearch.DomainClusterConfig>;
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
     cognitoOptions?: pulumi.Input<inputs.opensearch.DomainCognitoOptions>;
     /**

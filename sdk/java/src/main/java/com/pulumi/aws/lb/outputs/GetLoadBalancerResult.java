@@ -25,7 +25,9 @@ public final class GetLoadBalancerResult {
     private Boolean enableCrossZoneLoadBalancing;
     private Boolean enableDeletionProtection;
     private Boolean enableHttp2;
+    private Boolean enableTlsVersionAndCipherSuiteHeaders;
     private Boolean enableWafFailOpen;
+    private Boolean enableXffClientPort;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -42,6 +44,7 @@ public final class GetLoadBalancerResult {
     private List<String> subnets;
     private Map<String,String> tags;
     private String vpcId;
+    private String xffHeaderProcessingMode;
     private String zoneId;
 
     private GetLoadBalancerResult() {}
@@ -75,8 +78,14 @@ public final class GetLoadBalancerResult {
     public Boolean enableHttp2() {
         return this.enableHttp2;
     }
+    public Boolean enableTlsVersionAndCipherSuiteHeaders() {
+        return this.enableTlsVersionAndCipherSuiteHeaders;
+    }
     public Boolean enableWafFailOpen() {
         return this.enableWafFailOpen;
+    }
+    public Boolean enableXffClientPort() {
+        return this.enableXffClientPort;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -118,6 +127,9 @@ public final class GetLoadBalancerResult {
     public String vpcId() {
         return this.vpcId;
     }
+    public String xffHeaderProcessingMode() {
+        return this.xffHeaderProcessingMode;
+    }
     public String zoneId() {
         return this.zoneId;
     }
@@ -141,7 +153,9 @@ public final class GetLoadBalancerResult {
         private Boolean enableCrossZoneLoadBalancing;
         private Boolean enableDeletionProtection;
         private Boolean enableHttp2;
+        private Boolean enableTlsVersionAndCipherSuiteHeaders;
         private Boolean enableWafFailOpen;
+        private Boolean enableXffClientPort;
         private String id;
         private Integer idleTimeout;
         private Boolean internal;
@@ -154,6 +168,7 @@ public final class GetLoadBalancerResult {
         private List<String> subnets;
         private Map<String,String> tags;
         private String vpcId;
+        private String xffHeaderProcessingMode;
         private String zoneId;
         public Builder() {}
         public Builder(GetLoadBalancerResult defaults) {
@@ -168,7 +183,9 @@ public final class GetLoadBalancerResult {
     	      this.enableCrossZoneLoadBalancing = defaults.enableCrossZoneLoadBalancing;
     	      this.enableDeletionProtection = defaults.enableDeletionProtection;
     	      this.enableHttp2 = defaults.enableHttp2;
+    	      this.enableTlsVersionAndCipherSuiteHeaders = defaults.enableTlsVersionAndCipherSuiteHeaders;
     	      this.enableWafFailOpen = defaults.enableWafFailOpen;
+    	      this.enableXffClientPort = defaults.enableXffClientPort;
     	      this.id = defaults.id;
     	      this.idleTimeout = defaults.idleTimeout;
     	      this.internal = defaults.internal;
@@ -181,6 +198,7 @@ public final class GetLoadBalancerResult {
     	      this.subnets = defaults.subnets;
     	      this.tags = defaults.tags;
     	      this.vpcId = defaults.vpcId;
+    	      this.xffHeaderProcessingMode = defaults.xffHeaderProcessingMode;
     	      this.zoneId = defaults.zoneId;
         }
 
@@ -235,8 +253,18 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder enableTlsVersionAndCipherSuiteHeaders(Boolean enableTlsVersionAndCipherSuiteHeaders) {
+            this.enableTlsVersionAndCipherSuiteHeaders = Objects.requireNonNull(enableTlsVersionAndCipherSuiteHeaders);
+            return this;
+        }
+        @CustomType.Setter
         public Builder enableWafFailOpen(Boolean enableWafFailOpen) {
             this.enableWafFailOpen = Objects.requireNonNull(enableWafFailOpen);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableXffClientPort(Boolean enableXffClientPort) {
+            this.enableXffClientPort = Objects.requireNonNull(enableXffClientPort);
             return this;
         }
         @CustomType.Setter
@@ -309,6 +337,11 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder xffHeaderProcessingMode(String xffHeaderProcessingMode) {
+            this.xffHeaderProcessingMode = Objects.requireNonNull(xffHeaderProcessingMode);
+            return this;
+        }
+        @CustomType.Setter
         public Builder zoneId(String zoneId) {
             this.zoneId = Objects.requireNonNull(zoneId);
             return this;
@@ -325,7 +358,9 @@ public final class GetLoadBalancerResult {
             o.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             o.enableDeletionProtection = enableDeletionProtection;
             o.enableHttp2 = enableHttp2;
+            o.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             o.enableWafFailOpen = enableWafFailOpen;
+            o.enableXffClientPort = enableXffClientPort;
             o.id = id;
             o.idleTimeout = idleTimeout;
             o.internal = internal;
@@ -338,6 +373,7 @@ public final class GetLoadBalancerResult {
             o.subnets = subnets;
             o.tags = tags;
             o.vpcId = vpcId;
+            o.xffHeaderProcessingMode = xffHeaderProcessingMode;
             o.zoneId = zoneId;
             return o;
         }

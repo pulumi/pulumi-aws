@@ -97,14 +97,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
      * 
      */
     @Import(name="deploymentType", required=true)
     private Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * @return The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
      * 
      */
     public Output<String> deploymentType() {
@@ -232,14 +232,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+     * Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      * 
      */
     @Import(name="throughputCapacity", required=true)
     private Output<Integer> throughputCapacity;
 
     /**
-     * @return Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+     * @return Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      * 
      */
     public Output<Integer> throughputCapacity() {
@@ -406,7 +406,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+         * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+         * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param throughputCapacity Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+         * @param throughputCapacity Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param throughputCapacity Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+         * @param throughputCapacity Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
          * 
          * @return builder
          * 

@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .block_public_access_configuration import *
 from .cluster import *
 from .get_release_labels import *
 from .instance_fleet import *

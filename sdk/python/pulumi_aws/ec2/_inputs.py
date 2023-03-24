@@ -260,6 +260,7 @@ __all__ = [
     'GetNetworkInterfaceFilterArgs',
     'GetNetworkInterfacesFilterArgs',
     'GetPrefixListFilterArgs',
+    'GetPublicIpv4PoolsFilterArgs',
     'GetRouteTableFilterArgs',
     'GetRouteTablesFilterArgs',
     'GetSecurityGroupFilterArgs',
@@ -4221,7 +4222,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
         :param pulumi.Input[str] encrypted: Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
                Cannot be used with `snapshot_id`.
         :param pulumi.Input[int] iops: The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1/io2"`.
+               This must be set with a `volume_type` of `"io1/io2/gp3"`.
         :param pulumi.Input[str] kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
                `encrypted` must be set to `true` when this is set.
         :param pulumi.Input[str] snapshot_id: The Snapshot ID to mount.
@@ -4278,7 +4279,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1/io2"`.
+        This must be set with a `volume_type` of `"io1/io2/gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -16601,6 +16602,43 @@ class GetPrefixListFilterArgs:
     def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetPublicIpv4PoolsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
         """
         return pulumi.get(self, "values")
 

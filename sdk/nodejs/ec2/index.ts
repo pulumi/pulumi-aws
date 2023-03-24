@@ -285,6 +285,16 @@ export const getPrefixList: typeof import("./getPrefixList").getPrefixList = nul
 export const getPrefixListOutput: typeof import("./getPrefixList").getPrefixListOutput = null as any;
 utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
 
+export { GetPublicIpv4PoolArgs, GetPublicIpv4PoolResult, GetPublicIpv4PoolOutputArgs } from "./getPublicIpv4Pool";
+export const getPublicIpv4Pool: typeof import("./getPublicIpv4Pool").getPublicIpv4Pool = null as any;
+export const getPublicIpv4PoolOutput: typeof import("./getPublicIpv4Pool").getPublicIpv4PoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicIpv4Pool","getPublicIpv4PoolOutput"], () => require("./getPublicIpv4Pool"));
+
+export { GetPublicIpv4PoolsArgs, GetPublicIpv4PoolsResult, GetPublicIpv4PoolsOutputArgs } from "./getPublicIpv4Pools";
+export const getPublicIpv4Pools: typeof import("./getPublicIpv4Pools").getPublicIpv4Pools = null as any;
+export const getPublicIpv4PoolsOutput: typeof import("./getPublicIpv4Pools").getPublicIpv4PoolsOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicIpv4Pools","getPublicIpv4PoolsOutput"], () => require("./getPublicIpv4Pools"));
+
 export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
 export const getRoute: typeof import("./getRoute").getRoute = null as any;
 export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;

@@ -67,6 +67,10 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      * Whether to automatically enable Security Hub for new accounts in the organization.
      */
     public readonly autoEnable!: pulumi.Output<boolean>;
+    /**
+     * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+     */
+    public readonly autoEnableStandards!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -82,12 +86,14 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
             resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
+            resourceInputs["autoEnableStandards"] = state ? state.autoEnableStandards : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
             if ((!args || args.autoEnable === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
             resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
+            resourceInputs["autoEnableStandards"] = args ? args.autoEnableStandards : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -102,6 +108,10 @@ export interface OrganizationConfigurationState {
      * Whether to automatically enable Security Hub for new accounts in the organization.
      */
     autoEnable?: pulumi.Input<boolean>;
+    /**
+     * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+     */
+    autoEnableStandards?: pulumi.Input<string>;
 }
 
 /**
@@ -112,4 +122,8 @@ export interface OrganizationConfigurationArgs {
      * Whether to automatically enable Security Hub for new accounts in the organization.
      */
     autoEnable: pulumi.Input<boolean>;
+    /**
+     * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+     */
+    autoEnableStandards?: pulumi.Input<string>;
 }

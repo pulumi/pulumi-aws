@@ -34,6 +34,12 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly Outputs.MetricAlarmMetricQueryMetric? Metric;
         /// <summary>
+        /// Granularity in seconds of returned data points.
+        /// For metrics with regular resolution, valid values are any multiple of `60`.
+        /// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        /// </summary>
+        public readonly int? Period;
+        /// <summary>
         /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
         /// </summary>
         public readonly bool? ReturnData;
@@ -50,6 +56,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
             Outputs.MetricAlarmMetricQueryMetric? metric,
 
+            int? period,
+
             bool? returnData)
         {
             AccountId = accountId;
@@ -57,6 +65,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
             Id = id;
             Label = label;
             Metric = metric;
+            Period = period;
             ReturnData = returnData;
         }
     }

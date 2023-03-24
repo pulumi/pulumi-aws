@@ -24,11 +24,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         return Optional.ofNullable(this.acquisitionPointId);
     }
 
-    @Import(name="audioOnlyTimecodecControl")
-    private @Nullable Output<String> audioOnlyTimecodecControl;
+    @Import(name="audioOnlyTimecodeControl")
+    private @Nullable Output<String> audioOnlyTimecodeControl;
 
-    public Optional<Output<String>> audioOnlyTimecodecControl() {
-        return Optional.ofNullable(this.audioOnlyTimecodecControl);
+    public Optional<Output<String>> audioOnlyTimecodeControl() {
+        return Optional.ofNullable(this.audioOnlyTimecodeControl);
     }
 
     /**
@@ -77,9 +77,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     }
 
     @Import(name="eventId")
-    private @Nullable Output<Integer> eventId;
+    private @Nullable Output<String> eventId;
 
-    public Optional<Output<Integer>> eventId() {
+    public Optional<Output<String>> eventId() {
         return Optional.ofNullable(this.eventId);
     }
 
@@ -202,7 +202,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs $) {
         this.acquisitionPointId = $.acquisitionPointId;
-        this.audioOnlyTimecodecControl = $.audioOnlyTimecodecControl;
+        this.audioOnlyTimecodeControl = $.audioOnlyTimecodeControl;
         this.certificateMode = $.certificateMode;
         this.connectionRetryInterval = $.connectionRetryInterval;
         this.destination = $.destination;
@@ -249,13 +249,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return acquisitionPointId(Output.of(acquisitionPointId));
         }
 
-        public Builder audioOnlyTimecodecControl(@Nullable Output<String> audioOnlyTimecodecControl) {
-            $.audioOnlyTimecodecControl = audioOnlyTimecodecControl;
+        public Builder audioOnlyTimecodeControl(@Nullable Output<String> audioOnlyTimecodeControl) {
+            $.audioOnlyTimecodeControl = audioOnlyTimecodeControl;
             return this;
         }
 
-        public Builder audioOnlyTimecodecControl(String audioOnlyTimecodecControl) {
-            return audioOnlyTimecodecControl(Output.of(audioOnlyTimecodecControl));
+        public Builder audioOnlyTimecodeControl(String audioOnlyTimecodeControl) {
+            return audioOnlyTimecodeControl(Output.of(audioOnlyTimecodeControl));
         }
 
         /**
@@ -321,12 +321,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return destination(Output.of(destination));
         }
 
-        public Builder eventId(@Nullable Output<Integer> eventId) {
+        public Builder eventId(@Nullable Output<String> eventId) {
             $.eventId = eventId;
             return this;
         }
 
-        public Builder eventId(Integer eventId) {
+        public Builder eventId(String eventId) {
             return eventId(Output.of(eventId));
         }
 

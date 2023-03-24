@@ -9,6 +9,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainAdvancedSecurityOption {
+    private Boolean anonymousAuthEnabled;
     /**
      * @return Whether node to node encryption is enabled.
      * 
@@ -21,6 +22,9 @@ public final class GetDomainAdvancedSecurityOption {
     private Boolean internalUserDatabaseEnabled;
 
     private GetDomainAdvancedSecurityOption() {}
+    public Boolean anonymousAuthEnabled() {
+        return this.anonymousAuthEnabled;
+    }
     /**
      * @return Whether node to node encryption is enabled.
      * 
@@ -45,15 +49,22 @@ public final class GetDomainAdvancedSecurityOption {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean anonymousAuthEnabled;
         private Boolean enabled;
         private Boolean internalUserDatabaseEnabled;
         public Builder() {}
         public Builder(GetDomainAdvancedSecurityOption defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.anonymousAuthEnabled = defaults.anonymousAuthEnabled;
     	      this.enabled = defaults.enabled;
     	      this.internalUserDatabaseEnabled = defaults.internalUserDatabaseEnabled;
         }
 
+        @CustomType.Setter
+        public Builder anonymousAuthEnabled(Boolean anonymousAuthEnabled) {
+            this.anonymousAuthEnabled = Objects.requireNonNull(anonymousAuthEnabled);
+            return this;
+        }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
@@ -66,6 +77,7 @@ public final class GetDomainAdvancedSecurityOption {
         }
         public GetDomainAdvancedSecurityOption build() {
             final var o = new GetDomainAdvancedSecurityOption();
+            o.anonymousAuthEnabled = anonymousAuthEnabled;
             o.enabled = enabled;
             o.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return o;

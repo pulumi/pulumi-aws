@@ -1338,7 +1338,7 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) AvailabilityZoneCount()
 }
 
 type DomainCognitoOptions struct {
-	// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+	// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// ID of the Cognito Identity Pool to use.
 	IdentityPoolId string `pulumi:"identityPoolId"`
@@ -1360,7 +1360,7 @@ type DomainCognitoOptionsInput interface {
 }
 
 type DomainCognitoOptionsArgs struct {
-	// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+	// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// ID of the Cognito Identity Pool to use.
 	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
@@ -1447,7 +1447,7 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(c
 	}).(DomainCognitoOptionsPtrOutput)
 }
 
-// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
 func (o DomainCognitoOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1491,7 +1491,7 @@ func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
 	}).(DomainCognitoOptionsOutput)
 }
 
-// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
+// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
 func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainCognitoOptions) *bool {
 		if v == nil {
@@ -1749,7 +1749,7 @@ type DomainEbsOptions struct {
 	EbsEnabled bool `pulumi:"ebsEnabled"`
 	// Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
 	Iops *int `pulumi:"iops"`
-	// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+	// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
 	Throughput *int `pulumi:"throughput"`
 	// Size of EBS volumes attached to data nodes (in GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
@@ -1773,7 +1773,7 @@ type DomainEbsOptionsArgs struct {
 	EbsEnabled pulumi.BoolInput `pulumi:"ebsEnabled"`
 	// Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+	// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Size of EBS volumes attached to data nodes (in GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
@@ -1868,7 +1868,7 @@ func (o DomainEbsOptionsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
 func (o DomainEbsOptionsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -1927,7 +1927,7 @@ func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
 func (o DomainEbsOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainEbsOptions) *int {
 		if v == nil {
@@ -3446,6 +3446,7 @@ func (o OutboundConnectionRemoteDomainInfoPtrOutput) Region() pulumi.StringPtrOu
 }
 
 type GetDomainAdvancedSecurityOption struct {
+	AnonymousAuthEnabled bool `pulumi:"anonymousAuthEnabled"`
 	// Whether node to node encryption is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
@@ -3464,6 +3465,7 @@ type GetDomainAdvancedSecurityOptionInput interface {
 }
 
 type GetDomainAdvancedSecurityOptionArgs struct {
+	AnonymousAuthEnabled pulumi.BoolInput `pulumi:"anonymousAuthEnabled"`
 	// Whether node to node encryption is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
@@ -3519,6 +3521,10 @@ func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOption
 
 func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionOutput {
 	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionOutput) AnonymousAuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.AnonymousAuthEnabled }).(pulumi.BoolOutput)
 }
 
 // Whether node to node encryption is enabled.

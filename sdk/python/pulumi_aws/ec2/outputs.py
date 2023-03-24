@@ -394,6 +394,8 @@ __all__ = [
     'GetNetworkInterfaceFilterResult',
     'GetNetworkInterfacesFilterResult',
     'GetPrefixListFilterResult',
+    'GetPublicIpv4PoolPoolAddressRangeResult',
+    'GetPublicIpv4PoolsFilterResult',
     'GetRouteTableAssociationResult',
     'GetRouteTableFilterResult',
     'GetRouteTableRouteResult',
@@ -4366,7 +4368,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
         :param str encrypted: Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
                Cannot be used with `snapshot_id`.
         :param int iops: The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1/io2"`.
+               This must be set with a `volume_type` of `"io1/io2/gp3"`.
         :param str kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
                `encrypted` must be set to `true` when this is set.
         :param str snapshot_id: The Snapshot ID to mount.
@@ -4415,7 +4417,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
     def iops(self) -> Optional[int]:
         """
         The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1/io2"`.
+        This must be set with a `volume_type` of `"io1/io2/gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -21132,6 +21134,86 @@ class GetPrefixListFilterResult(dict):
     def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetPublicIpv4PoolPoolAddressRangeResult(dict):
+    def __init__(__self__, *,
+                 address_count: int,
+                 available_address_count: int,
+                 first_address: str,
+                 last_address: str):
+        """
+        :param int address_count: Number of addresses in the range.
+        :param int available_address_count: Number of available addresses in the range.
+        :param str first_address: First address in the range.
+        :param str last_address: Last address in the range.
+        """
+        pulumi.set(__self__, "address_count", address_count)
+        pulumi.set(__self__, "available_address_count", available_address_count)
+        pulumi.set(__self__, "first_address", first_address)
+        pulumi.set(__self__, "last_address", last_address)
+
+    @property
+    @pulumi.getter(name="addressCount")
+    def address_count(self) -> int:
+        """
+        Number of addresses in the range.
+        """
+        return pulumi.get(self, "address_count")
+
+    @property
+    @pulumi.getter(name="availableAddressCount")
+    def available_address_count(self) -> int:
+        """
+        Number of available addresses in the range.
+        """
+        return pulumi.get(self, "available_address_count")
+
+    @property
+    @pulumi.getter(name="firstAddress")
+    def first_address(self) -> str:
+        """
+        First address in the range.
+        """
+        return pulumi.get(self, "first_address")
+
+    @property
+    @pulumi.getter(name="lastAddress")
+    def last_address(self) -> str:
+        """
+        Last address in the range.
+        """
+        return pulumi.get(self, "last_address")
+
+
+@pulumi.output_type
+class GetPublicIpv4PoolsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
         """
         return pulumi.get(self, "values")
 

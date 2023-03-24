@@ -8,6 +8,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class UserPoolAccountRecoverySettingArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +20,15 @@ public final class UserPoolAccountRecoverySettingArgs extends com.pulumi.resourc
      * List of Account Recovery Options of the following structure:
      * 
      */
-    @Import(name="recoveryMechanisms", required=true)
-    private Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms;
+    @Import(name="recoveryMechanisms")
+    private @Nullable Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms;
 
     /**
      * @return List of Account Recovery Options of the following structure:
      * 
      */
-    public Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms() {
-        return this.recoveryMechanisms;
+    public Optional<Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>>> recoveryMechanisms() {
+        return Optional.ofNullable(this.recoveryMechanisms);
     }
 
     private UserPoolAccountRecoverySettingArgs() {}
@@ -59,7 +61,7 @@ public final class UserPoolAccountRecoverySettingArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder recoveryMechanisms(Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms) {
+        public Builder recoveryMechanisms(@Nullable Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms) {
             $.recoveryMechanisms = recoveryMechanisms;
             return this;
         }
@@ -85,7 +87,6 @@ public final class UserPoolAccountRecoverySettingArgs extends com.pulumi.resourc
         }
 
         public UserPoolAccountRecoverySettingArgs build() {
-            $.recoveryMechanisms = Objects.requireNonNull($.recoveryMechanisms, "expected parameter 'recoveryMechanisms' to be non-null");
             return $;
         }
     }

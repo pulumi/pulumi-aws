@@ -214,6 +214,20 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.billingMode);
     }
     /**
+     * Enables deletion protection for table. Defaults to `false`.
+     * 
+     */
+    @Export(name="deletionProtectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> deletionProtectionEnabled;
+
+    /**
+     * @return Enables deletion protection for table. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> deletionProtectionEnabled() {
+        return Codegen.optional(this.deletionProtectionEnabled);
+    }
+    /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */

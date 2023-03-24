@@ -15,15 +15,36 @@ __all__ = [
 
 @pulumi.output_type
 class OrganizationConfigurationAutoEnable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigurationAutoEnable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigurationAutoEnable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigurationAutoEnable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ec2: bool,
-                 ecr: bool):
+                 ecr: bool,
+                 lambda_: Optional[bool] = None):
         """
         :param bool ec2: Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
         :param bool ecr: Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
+        :param bool lambda_: Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
         """
         pulumi.set(__self__, "ec2", ec2)
         pulumi.set(__self__, "ecr", ecr)
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
 
     @property
     @pulumi.getter
@@ -40,5 +61,13 @@ class OrganizationConfigurationAutoEnable(dict):
         Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
         """
         return pulumi.get(self, "ecr")
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional[bool]:
+        """
+        Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+        """
+        return pulumi.get(self, "lambda_")
 
 

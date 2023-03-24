@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * // ...
  * const myusageplan = new aws.apigateway.UsagePlan("myusageplan", {apiStages: [{
  *     apiId: test.id,
- *     stage: aws_api_gateway_deployment.foo.stage_name,
+ *     stage: aws_api_gateway_stage.foo.stage_name,
  * }]});
  * const mykey = new aws.apigateway.ApiKey("mykey", {});
  * const main = new aws.apigateway.UsagePlanKey("main", {

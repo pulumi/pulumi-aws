@@ -92,7 +92,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     """
     ## Example Usage
 
-    The following shows outputing all network ACL ids in a vpc.
+    The following shows outputting all network ACL ids in a vpc.
 
     ```python
     import pulumi
@@ -158,7 +158,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     """
     ## Example Usage
 
-    The following shows outputing all network ACL ids in a vpc.
+    The following shows outputting all network ACL ids in a vpc.
 
     ```python
     import pulumi

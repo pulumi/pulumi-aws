@@ -48,14 +48,14 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+     * Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
      * 
      */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
     /**
-     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+     * @return Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
      * 
      */
     public Optional<Output<Integer>> throughput() {
@@ -163,7 +163,7 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param throughput Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+         * @param throughput Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class DomainEbsOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param throughput Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+         * @param throughput Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
          * 
          * @return builder
          * 

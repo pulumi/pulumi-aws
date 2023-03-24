@@ -289,6 +289,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.loadBalancingAlgorithmType;
     }
     /**
+     * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+     * 
+     */
+    @Export(name="loadBalancingCrossZoneEnabled", refs={String.class}, tree="[0]")
+    private Output<String> loadBalancingCrossZoneEnabled;
+
+    /**
+     * @return Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+     * 
+     */
+    public Output<String> loadBalancingCrossZoneEnabled() {
+        return this.loadBalancingCrossZoneEnabled;
+    }
+    /**
      * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */

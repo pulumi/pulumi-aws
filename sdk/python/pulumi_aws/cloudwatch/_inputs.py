@@ -1664,6 +1664,7 @@ class MetricAlarmMetricQueryArgs:
                  expression: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  metric: Optional[pulumi.Input['MetricAlarmMetricQueryMetricArgs']] = None,
+                 period: Optional[pulumi.Input[int]] = None,
                  return_data: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] id: A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
@@ -1671,6 +1672,9 @@ class MetricAlarmMetricQueryArgs:
         :param pulumi.Input[str] expression: The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
         :param pulumi.Input[str] label: A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
         :param pulumi.Input['MetricAlarmMetricQueryMetricArgs'] metric: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+        :param pulumi.Input[int] period: Granularity in seconds of returned data points.
+               For metrics with regular resolution, valid values are any multiple of `60`.
+               For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         :param pulumi.Input[bool] return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
         """
         pulumi.set(__self__, "id", id)
@@ -1682,6 +1686,8 @@ class MetricAlarmMetricQueryArgs:
             pulumi.set(__self__, "label", label)
         if metric is not None:
             pulumi.set(__self__, "metric", metric)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if return_data is not None:
             pulumi.set(__self__, "return_data", return_data)
 
@@ -1746,6 +1752,20 @@ class MetricAlarmMetricQueryArgs:
         pulumi.set(self, "metric", value)
 
     @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Granularity in seconds of returned data points.
+        For metrics with regular resolution, valid values are any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        """
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period", value)
+
+    @property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1770,7 +1790,9 @@ class MetricAlarmMetricQueryMetricArgs:
         """
         :param pulumi.Input[str] metric_name: The name for this metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[int] period: The period in seconds over which the specified `stat` is applied.
+        :param pulumi.Input[int] period: Granularity in seconds of returned data points.
+               For metrics with regular resolution, valid values are any multiple of `60`.
+               For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         :param pulumi.Input[str] stat: The statistic to apply to this metric.
                See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -1805,7 +1827,9 @@ class MetricAlarmMetricQueryMetricArgs:
     @pulumi.getter
     def period(self) -> pulumi.Input[int]:
         """
-        The period in seconds over which the specified `stat` is applied.
+        Granularity in seconds of returned data points.
+        For metrics with regular resolution, valid values are any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 

@@ -23,6 +23,7 @@ public final class GetTableResult {
     private String arn;
     private List<GetTableAttribute> attributes;
     private String billingMode;
+    private Boolean deletionProtectionEnabled;
     private List<GetTableGlobalSecondaryIndex> globalSecondaryIndexes;
     private String hashKey;
     /**
@@ -55,6 +56,9 @@ public final class GetTableResult {
     }
     public String billingMode() {
         return this.billingMode;
+    }
+    public Boolean deletionProtectionEnabled() {
+        return this.deletionProtectionEnabled;
     }
     public List<GetTableGlobalSecondaryIndex> globalSecondaryIndexes() {
         return this.globalSecondaryIndexes;
@@ -127,6 +131,7 @@ public final class GetTableResult {
         private String arn;
         private List<GetTableAttribute> attributes;
         private String billingMode;
+        private Boolean deletionProtectionEnabled;
         private List<GetTableGlobalSecondaryIndex> globalSecondaryIndexes;
         private String hashKey;
         private String id;
@@ -151,6 +156,7 @@ public final class GetTableResult {
     	      this.arn = defaults.arn;
     	      this.attributes = defaults.attributes;
     	      this.billingMode = defaults.billingMode;
+    	      this.deletionProtectionEnabled = defaults.deletionProtectionEnabled;
     	      this.globalSecondaryIndexes = defaults.globalSecondaryIndexes;
     	      this.hashKey = defaults.hashKey;
     	      this.id = defaults.id;
@@ -187,6 +193,11 @@ public final class GetTableResult {
         @CustomType.Setter
         public Builder billingMode(String billingMode) {
             this.billingMode = Objects.requireNonNull(billingMode);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deletionProtectionEnabled(Boolean deletionProtectionEnabled) {
+            this.deletionProtectionEnabled = Objects.requireNonNull(deletionProtectionEnabled);
             return this;
         }
         @CustomType.Setter
@@ -293,6 +304,7 @@ public final class GetTableResult {
             o.arn = arn;
             o.attributes = attributes;
             o.billingMode = billingMode;
+            o.deletionProtectionEnabled = deletionProtectionEnabled;
             o.globalSecondaryIndexes = globalSecondaryIndexes;
             o.hashKey = hashKey;
             o.id = id;

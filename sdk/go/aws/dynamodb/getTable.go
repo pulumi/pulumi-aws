@@ -56,11 +56,12 @@ type LookupTableArgs struct {
 
 // A collection of values returned by getTable.
 type LookupTableResult struct {
-	Arn                    string                         `pulumi:"arn"`
-	Attributes             []GetTableAttribute            `pulumi:"attributes"`
-	BillingMode            string                         `pulumi:"billingMode"`
-	GlobalSecondaryIndexes []GetTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	HashKey                string                         `pulumi:"hashKey"`
+	Arn                       string                         `pulumi:"arn"`
+	Attributes                []GetTableAttribute            `pulumi:"attributes"`
+	BillingMode               string                         `pulumi:"billingMode"`
+	DeletionProtectionEnabled bool                           `pulumi:"deletionProtectionEnabled"`
+	GlobalSecondaryIndexes    []GetTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
+	HashKey                   string                         `pulumi:"hashKey"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                    string                        `pulumi:"id"`
 	LocalSecondaryIndexes []GetTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
@@ -130,6 +131,10 @@ func (o LookupTableResultOutput) Attributes() GetTableAttributeArrayOutput {
 
 func (o LookupTableResultOutput) BillingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.BillingMode }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTableResult) bool { return v.DeletionProtectionEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupTableResultOutput) GlobalSecondaryIndexes() GetTableGlobalSecondaryIndexArrayOutput {

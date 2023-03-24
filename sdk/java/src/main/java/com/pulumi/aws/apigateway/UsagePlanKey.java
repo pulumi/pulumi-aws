@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var myusageplan = new UsagePlan(&#34;myusageplan&#34;, UsagePlanArgs.builder()        
  *             .apiStages(UsagePlanApiStageArgs.builder()
  *                 .apiId(test.id())
- *                 .stage(aws_api_gateway_deployment.foo().stage_name())
+ *                 .stage(aws_api_gateway_stage.foo().stage_name())
  *                 .build())
  *             .build());
  * 

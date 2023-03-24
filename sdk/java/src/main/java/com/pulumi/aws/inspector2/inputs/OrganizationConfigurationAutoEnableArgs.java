@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.resources.ResourceArgs {
@@ -43,11 +45,27 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
         return this.ecr;
     }
 
+    /**
+     * Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+     * 
+     */
+    @Import(name="lambda")
+    private @Nullable Output<Boolean> lambda;
+
+    /**
+     * @return Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+     * 
+     */
+    public Optional<Output<Boolean>> lambda() {
+        return Optional.ofNullable(this.lambda);
+    }
+
     private OrganizationConfigurationAutoEnableArgs() {}
 
     private OrganizationConfigurationAutoEnableArgs(OrganizationConfigurationAutoEnableArgs $) {
         this.ec2 = $.ec2;
         this.ecr = $.ecr;
+        this.lambda = $.lambda;
     }
 
     public static Builder builder() {
@@ -108,6 +126,27 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
          */
         public Builder ecr(Boolean ecr) {
             return ecr(Output.of(ecr));
+        }
+
+        /**
+         * @param lambda Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambda(@Nullable Output<Boolean> lambda) {
+            $.lambda = lambda;
+            return this;
+        }
+
+        /**
+         * @param lambda Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambda(Boolean lambda) {
+            return lambda(Output.of(lambda));
         }
 
         public OrganizationConfigurationAutoEnableArgs build() {

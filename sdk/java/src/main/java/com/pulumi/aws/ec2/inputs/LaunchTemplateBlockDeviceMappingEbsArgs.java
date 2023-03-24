@@ -52,7 +52,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     /**
      * The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-     * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+     * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
      * 
      */
     @Import(name="iops")
@@ -60,7 +60,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     /**
      * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-     * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+     * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
      * 
      */
     public Optional<Output<Integer>> iops() {
@@ -225,7 +225,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
         /**
          * @param iops The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+         * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
         /**
          * @param iops The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This must be set with a `volume_type` of `&#34;io1/io2&#34;`.
+         * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
          * 
          * @return builder
          * 

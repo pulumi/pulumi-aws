@@ -528,18 +528,32 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.clusterConfig;
     }
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
     @Export(name="cognitoOptions", refs={DomainCognitoOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainCognitoOptions> cognitoOptions;
 
     /**
-     * @return Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * @return Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
     public Output<Optional<DomainCognitoOptions>> cognitoOptions() {
         return Codegen.optional(this.cognitoOptions);
+    }
+    /**
+     * Domain-specific endpoint for Dashboard without https scheme.
+     * 
+     */
+    @Export(name="dashboardEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> dashboardEndpoint;
+
+    /**
+     * @return Domain-specific endpoint for Dashboard without https scheme.
+     * 
+     */
+    public Output<String> dashboardEndpoint() {
+        return this.dashboardEndpoint;
     }
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -640,14 +654,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.engineVersion);
     }
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      * 
      */
     @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kibanaEndpoint;
 
     /**
-     * @return Domain-specific endpoint for kibana without https scheme.
+     * @return Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      * 
      */
     public Output<String> kibanaEndpoint() {

@@ -14,7 +14,9 @@ import java.util.concurrent.CompletableFuture;
 
 public final class EcrpublicFunctions {
     /**
-     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
+     * 
+     * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
      * ```java
@@ -48,7 +50,9 @@ public final class EcrpublicFunctions {
         return getAuthorizationToken(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
+     * 
+     * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
      * ```java
@@ -82,7 +86,9 @@ public final class EcrpublicFunctions {
         return getAuthorizationTokenPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
+     * 
+     * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
      * ```java
@@ -116,7 +122,9 @@ public final class EcrpublicFunctions {
         return getAuthorizationToken(args, InvokeOptions.Empty);
     }
     /**
-     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
+     * 
+     * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
      * ```java
@@ -150,7 +158,9 @@ public final class EcrpublicFunctions {
         return getAuthorizationTokenPlain(args, InvokeOptions.Empty);
     }
     /**
-     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
+     * 
+     * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
      * ```java
@@ -184,7 +194,9 @@ public final class EcrpublicFunctions {
         return Deployment.getInstance().invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name and password to be retrieved for a Public ECR repository.
+     * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
+     * 
+     * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
      * ```java

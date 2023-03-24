@@ -88,7 +88,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
 
-        > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+        > **NOTE:** When this resource is deleted, EC2, ECR and Lambda scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
 
         ## Example Usage
         ### Basic Usage
@@ -100,6 +100,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example = aws.inspector2.OrganizationConfiguration("example", auto_enable=aws.inspector2.OrganizationConfigurationAutoEnableArgs(
             ec2=True,
             ecr=False,
+            lambda_=True,
         ))
         ```
 
@@ -118,7 +119,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
 
-        > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+        > **NOTE:** When this resource is deleted, EC2, ECR and Lambda scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
 
         ## Example Usage
         ### Basic Usage
@@ -130,6 +131,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example = aws.inspector2.OrganizationConfiguration("example", auto_enable=aws.inspector2.OrganizationConfigurationAutoEnableArgs(
             ec2=True,
             ecr=False,
+            lambda_=True,
         ))
         ```
 

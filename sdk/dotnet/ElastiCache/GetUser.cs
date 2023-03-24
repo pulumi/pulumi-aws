@@ -75,6 +75,14 @@ namespace Pulumi.Aws.ElastiCache
         [Input("accessString")]
         public string? AccessString { get; set; }
 
+        [Input("authenticationModes")]
+        private List<Inputs.GetUserAuthenticationModeArgs>? _authenticationModes;
+        public List<Inputs.GetUserAuthenticationModeArgs> AuthenticationModes
+        {
+            get => _authenticationModes ?? (_authenticationModes = new List<Inputs.GetUserAuthenticationModeArgs>());
+            set => _authenticationModes = value;
+        }
+
         [Input("engine")]
         public string? Engine { get; set; }
 
@@ -114,6 +122,14 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
+
+        [Input("authenticationModes")]
+        private InputList<Inputs.GetUserAuthenticationModeInputArgs>? _authenticationModes;
+        public InputList<Inputs.GetUserAuthenticationModeInputArgs> AuthenticationModes
+        {
+            get => _authenticationModes ?? (_authenticationModes = new InputList<Inputs.GetUserAuthenticationModeInputArgs>());
+            set => _authenticationModes = value;
+        }
 
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -159,6 +175,7 @@ namespace Pulumi.Aws.ElastiCache
         /// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
         /// </summary>
         public readonly string? AccessString;
+        public readonly ImmutableArray<Outputs.GetUserAuthenticationModeResult> AuthenticationModes;
         public readonly string? Engine;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -179,6 +196,8 @@ namespace Pulumi.Aws.ElastiCache
         private GetUserResult(
             string? accessString,
 
+            ImmutableArray<Outputs.GetUserAuthenticationModeResult> authenticationModes,
+
             string? engine,
 
             string id,
@@ -192,6 +211,7 @@ namespace Pulumi.Aws.ElastiCache
             string? userName)
         {
             AccessString = accessString;
+            AuthenticationModes = authenticationModes;
             Engine = engine;
             Id = id;
             NoPasswordRequired = noPasswordRequired;

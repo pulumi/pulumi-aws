@@ -7,6 +7,7 @@ import com.pulumi.aws.cognito.outputs.UserPoolAccountRecoverySettingRecoveryMech
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolAccountRecoverySetting {
@@ -14,7 +15,7 @@ public final class UserPoolAccountRecoverySetting {
      * @return List of Account Recovery Options of the following structure:
      * 
      */
-    private List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms;
+    private @Nullable List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms;
 
     private UserPoolAccountRecoverySetting() {}
     /**
@@ -22,7 +23,7 @@ public final class UserPoolAccountRecoverySetting {
      * 
      */
     public List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms() {
-        return this.recoveryMechanisms;
+        return this.recoveryMechanisms == null ? List.of() : this.recoveryMechanisms;
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class UserPoolAccountRecoverySetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms;
+        private @Nullable List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms;
         public Builder() {}
         public Builder(UserPoolAccountRecoverySetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,8 +43,8 @@ public final class UserPoolAccountRecoverySetting {
         }
 
         @CustomType.Setter
-        public Builder recoveryMechanisms(List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms) {
-            this.recoveryMechanisms = Objects.requireNonNull(recoveryMechanisms);
+        public Builder recoveryMechanisms(@Nullable List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms) {
+            this.recoveryMechanisms = recoveryMechanisms;
             return this;
         }
         public Builder recoveryMechanisms(UserPoolAccountRecoverySettingRecoveryMechanism... recoveryMechanisms) {

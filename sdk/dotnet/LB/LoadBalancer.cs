@@ -146,10 +146,22 @@ namespace Pulumi.Aws.LB
         public Output<bool?> EnableHttp2 { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        /// </summary>
+        [Output("enableTlsVersionAndCipherSuiteHeaders")]
+        public Output<bool?> EnableTlsVersionAndCipherSuiteHeaders { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         /// </summary>
         [Output("enableWafFailOpen")]
         public Output<bool?> EnableWafFailOpen { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        /// </summary>
+        [Output("enableXffClientPort")]
+        public Output<bool?> EnableXffClientPort { get; private set; } = null!;
 
         /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -229,6 +241,12 @@ namespace Pulumi.Aws.LB
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// </summary>
+        [Output("xffHeaderProcessingMode")]
+        public Output<string?> XffHeaderProcessingMode { get; private set; } = null!;
 
         /// <summary>
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -329,10 +347,22 @@ namespace Pulumi.Aws.LB
         public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
+        /// Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        /// </summary>
+        [Input("enableTlsVersionAndCipherSuiteHeaders")]
+        public Input<bool>? EnableTlsVersionAndCipherSuiteHeaders { get; set; }
+
+        /// <summary>
         /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         /// </summary>
         [Input("enableWafFailOpen")]
         public Input<bool>? EnableWafFailOpen { get; set; }
+
+        /// <summary>
+        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        /// </summary>
+        [Input("enableXffClientPort")]
+        public Input<bool>? EnableXffClientPort { get; set; }
 
         /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -428,6 +458,12 @@ namespace Pulumi.Aws.LB
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// </summary>
+        [Input("xffHeaderProcessingMode")]
+        public Input<string>? XffHeaderProcessingMode { get; set; }
+
         public LoadBalancerArgs()
         {
         }
@@ -497,10 +533,22 @@ namespace Pulumi.Aws.LB
         public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
+        /// Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        /// </summary>
+        [Input("enableTlsVersionAndCipherSuiteHeaders")]
+        public Input<bool>? EnableTlsVersionAndCipherSuiteHeaders { get; set; }
+
+        /// <summary>
         /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         /// </summary>
         [Input("enableWafFailOpen")]
         public Input<bool>? EnableWafFailOpen { get; set; }
+
+        /// <summary>
+        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        /// </summary>
+        [Input("enableXffClientPort")]
+        public Input<bool>? EnableXffClientPort { get; set; }
 
         /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -610,6 +658,12 @@ namespace Pulumi.Aws.LB
 
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
+
+        /// <summary>
+        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// </summary>
+        [Input("xffHeaderProcessingMode")]
+        public Input<string>? XffHeaderProcessingMode { get; set; }
 
         /// <summary>
         /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).

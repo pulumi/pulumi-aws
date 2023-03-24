@@ -125,6 +125,10 @@ namespace Pulumi.Aws.CostExplorer
     {
         public readonly string CostCategoryArn;
         /// <summary>
+        /// Default value for the cost category.
+        /// </summary>
+        public readonly string DefaultValue;
+        /// <summary>
         /// Effective end data of your Cost Category.
         /// </summary>
         public readonly string EffectiveEnd;
@@ -158,6 +162,8 @@ namespace Pulumi.Aws.CostExplorer
         private GetCostCategoryResult(
             string costCategoryArn,
 
+            string defaultValue,
+
             string effectiveEnd,
 
             string effectiveStart,
@@ -175,6 +181,7 @@ namespace Pulumi.Aws.CostExplorer
             ImmutableDictionary<string, string> tags)
         {
             CostCategoryArn = costCategoryArn;
+            DefaultValue = defaultValue;
             EffectiveEnd = effectiveEnd;
             EffectiveStart = effectiveStart;
             Id = id;

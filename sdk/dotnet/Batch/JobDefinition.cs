@@ -149,6 +149,7 @@ namespace Pulumi.Aws.Batch
     ///                 "test",
     ///             },
     ///             ["image"] = "busybox",
+    ///             ["jobRoleArn"] = "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
     ///             ["fargatePlatformConfiguration"] = new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["platformVersion"] = "LATEST",

@@ -53,7 +53,7 @@ public final class GetDomainResult {
      */
     private List<GetDomainClusterConfig> clusterConfigs;
     /**
-     * @return Domain Amazon Cognito Authentication options for Kibana.
+     * @return Domain Amazon Cognito Authentication options for Dashboard.
      * 
      */
     private List<GetDomainCognitoOption> cognitoOptions;
@@ -62,6 +62,11 @@ public final class GetDomainResult {
      * 
      */
     private Boolean created;
+    /**
+     * @return Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
+     * 
+     */
+    private String dashboardEndpoint;
     /**
      * @return Status of the deletion of the domain.
      * 
@@ -99,7 +104,7 @@ public final class GetDomainResult {
      */
     private String id;
     /**
-     * @return Domain-specific endpoint used to access the Kibana application.
+     * @return Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      * 
      */
     private String kibanaEndpoint;
@@ -178,7 +183,7 @@ public final class GetDomainResult {
         return this.clusterConfigs;
     }
     /**
-     * @return Domain Amazon Cognito Authentication options for Kibana.
+     * @return Domain Amazon Cognito Authentication options for Dashboard.
      * 
      */
     public List<GetDomainCognitoOption> cognitoOptions() {
@@ -190,6 +195,13 @@ public final class GetDomainResult {
      */
     public Boolean created() {
         return this.created;
+    }
+    /**
+     * @return Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
+     * 
+     */
+    public String dashboardEndpoint() {
+        return this.dashboardEndpoint;
     }
     /**
      * @return Status of the deletion of the domain.
@@ -244,7 +256,7 @@ public final class GetDomainResult {
         return this.id;
     }
     /**
-     * @return Domain-specific endpoint used to access the Kibana application.
+     * @return Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      * 
      */
     public String kibanaEndpoint() {
@@ -310,6 +322,7 @@ public final class GetDomainResult {
         private List<GetDomainClusterConfig> clusterConfigs;
         private List<GetDomainCognitoOption> cognitoOptions;
         private Boolean created;
+        private String dashboardEndpoint;
         private Boolean deleted;
         private String domainId;
         private String domainName;
@@ -336,6 +349,7 @@ public final class GetDomainResult {
     	      this.clusterConfigs = defaults.clusterConfigs;
     	      this.cognitoOptions = defaults.cognitoOptions;
     	      this.created = defaults.created;
+    	      this.dashboardEndpoint = defaults.dashboardEndpoint;
     	      this.deleted = defaults.deleted;
     	      this.domainId = defaults.domainId;
     	      this.domainName = defaults.domainName;
@@ -403,6 +417,11 @@ public final class GetDomainResult {
         @CustomType.Setter
         public Builder created(Boolean created) {
             this.created = Objects.requireNonNull(created);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dashboardEndpoint(String dashboardEndpoint) {
+            this.dashboardEndpoint = Objects.requireNonNull(dashboardEndpoint);
             return this;
         }
         @CustomType.Setter
@@ -508,6 +527,7 @@ public final class GetDomainResult {
             o.clusterConfigs = clusterConfigs;
             o.cognitoOptions = cognitoOptions;
             o.created = created;
+            o.dashboardEndpoint = dashboardEndpoint;
             o.deleted = deleted;
             o.domainId = domainId;
             o.domainName = domainName;

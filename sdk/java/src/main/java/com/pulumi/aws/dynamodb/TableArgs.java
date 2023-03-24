@@ -57,6 +57,21 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables deletion protection for table. Defaults to `false`.
+     * 
+     */
+    @Import(name="deletionProtectionEnabled")
+    private @Nullable Output<Boolean> deletionProtectionEnabled;
+
+    /**
+     * @return Enables deletion protection for table. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> deletionProtectionEnabled() {
+        return Optional.ofNullable(this.deletionProtectionEnabled);
+    }
+
+    /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
@@ -350,6 +365,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     private TableArgs(TableArgs $) {
         this.attributes = $.attributes;
         this.billingMode = $.billingMode;
+        this.deletionProtectionEnabled = $.deletionProtectionEnabled;
         this.globalSecondaryIndexes = $.globalSecondaryIndexes;
         this.hashKey = $.hashKey;
         this.localSecondaryIndexes = $.localSecondaryIndexes;
@@ -439,6 +455,27 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder billingMode(String billingMode) {
             return billingMode(Output.of(billingMode));
+        }
+
+        /**
+         * @param deletionProtectionEnabled Enables deletion protection for table. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtectionEnabled(@Nullable Output<Boolean> deletionProtectionEnabled) {
+            $.deletionProtectionEnabled = deletionProtectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param deletionProtectionEnabled Enables deletion protection for table. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtectionEnabled(Boolean deletionProtectionEnabled) {
+            return deletionProtectionEnabled(Output.of(deletionProtectionEnabled));
         }
 
         /**

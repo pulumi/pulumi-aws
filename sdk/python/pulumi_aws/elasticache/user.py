@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['UserArgs', 'User']
 
@@ -18,7 +20,7 @@ class UserArgs:
                  engine: pulumi.Input[str],
                  user_id: pulumi.Input[str],
                  user_name: pulumi.Input[str],
-                 arn: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input['UserAuthenticationModeArgs']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -28,7 +30,7 @@ class UserArgs:
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
-        :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
+        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
@@ -37,8 +39,8 @@ class UserArgs:
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "user_id", user_id)
         pulumi.set(__self__, "user_name", user_name)
-        if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if no_password_required is not None:
             pulumi.set(__self__, "no_password_required", no_password_required)
         if passwords is not None:
@@ -95,16 +97,16 @@ class UserArgs:
         pulumi.set(self, "user_name", value)
 
     @property
-    @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input['UserAuthenticationModeArgs']]:
         """
-        The ARN of the created ElastiCache User.
+        Denotes the user's authentication properties. Detailed below.
         """
-        return pulumi.get(self, "arn")
+        return pulumi.get(self, "authentication_mode")
 
-    @arn.setter
-    def arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "arn", value)
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input['UserAuthenticationModeArgs']]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter(name="noPasswordRequired")
@@ -148,6 +150,7 @@ class _UserState:
     def __init__(__self__, *,
                  access_string: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input['UserAuthenticationModeArgs']] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -159,6 +162,7 @@ class _UserState:
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
+        :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
@@ -170,6 +174,8 @@ class _UserState:
             pulumi.set(__self__, "access_string", access_string)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if no_password_required is not None:
@@ -208,6 +214,18 @@ class _UserState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input['UserAuthenticationModeArgs']]:
+        """
+        Denotes the user's authentication properties. Detailed below.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input['UserAuthenticationModeArgs']]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter
@@ -297,7 +315,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 arn: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -322,6 +340,38 @@ class User(pulumi.CustomResource):
             user_name="testUserName")
         ```
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.elasticache.User("test",
+            access_string="on ~* +@all",
+            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
+                type="iam",
+            ),
+            engine="REDIS",
+            user_id="testUserId",
+            user_name="testUserName")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.elasticache.User("test",
+            access_string="on ~* +@all",
+            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
+                passwords=[
+                    "password1",
+                    "password2",
+                ],
+                type="password",
+            ),
+            engine="REDIS",
+            user_id="testUserId",
+            user_name="testUserName")
+        ```
+
         ## Import
 
         ElastiCache users can be imported using the `user_id`, e.g.,
@@ -333,7 +383,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
+        :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
@@ -364,6 +414,38 @@ class User(pulumi.CustomResource):
             user_name="testUserName")
         ```
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.elasticache.User("test",
+            access_string="on ~* +@all",
+            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
+                type="iam",
+            ),
+            engine="REDIS",
+            user_id="testUserId",
+            user_name="testUserName")
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.elasticache.User("test",
+            access_string="on ~* +@all",
+            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
+                passwords=[
+                    "password1",
+                    "password2",
+                ],
+                type="password",
+            ),
+            engine="REDIS",
+            user_id="testUserId",
+            user_name="testUserName")
+        ```
+
         ## Import
 
         ElastiCache users can be imported using the `user_id`, e.g.,
@@ -388,7 +470,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 arn: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -407,7 +489,7 @@ class User(pulumi.CustomResource):
             if access_string is None and not opts.urn:
                 raise TypeError("Missing required property 'access_string'")
             __props__.__dict__["access_string"] = access_string
-            __props__.__dict__["arn"] = arn
+            __props__.__dict__["authentication_mode"] = authentication_mode
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")
             __props__.__dict__["engine"] = engine
@@ -420,6 +502,7 @@ class User(pulumi.CustomResource):
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["passwords"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -435,6 +518,7 @@ class User(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_string: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             no_password_required: Optional[pulumi.Input[bool]] = None,
             passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -451,6 +535,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
+        :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
@@ -464,6 +549,7 @@ class User(pulumi.CustomResource):
 
         __props__.__dict__["access_string"] = access_string
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["authentication_mode"] = authentication_mode
         __props__.__dict__["engine"] = engine
         __props__.__dict__["no_password_required"] = no_password_required
         __props__.__dict__["passwords"] = passwords
@@ -488,6 +574,14 @@ class User(pulumi.CustomResource):
         The ARN of the created ElastiCache User.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> pulumi.Output['outputs.UserAuthenticationMode']:
+        """
+        Denotes the user's authentication properties. Detailed below.
+        """
+        return pulumi.get(self, "authentication_mode")
 
     @property
     @pulumi.getter

@@ -110,7 +110,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string?> TemplateUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? TemplateUrl { get; set; }
 
         /// <summary>
-        /// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? TemplateUrl { get; set; }
 
         /// <summary>
-        /// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

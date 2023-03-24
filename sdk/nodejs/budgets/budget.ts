@@ -137,6 +137,30 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Create a Cost Filter using Resource Tags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {costFilters: [{
+ *     name: "TagKeyValue",
+ *     values: ["TagKey$TagValue"],
+ * }]});
+ * ```
+ *
+ * Create a costFilter using resource tags, obtaining the tag value from a variable
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {costFilters: [{
+ *     name: "TagKeyValue",
+ *     values: ["TagKey${var.TagValue}"],
+ * }]});
+ * ```
+ *
  * ## Import
  *
  * Budgets can be imported using `AccountID:BudgetName`, e.g.,

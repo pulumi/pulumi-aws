@@ -16,9 +16,11 @@ __all__ = [
     'ParameterGroupParameter',
     'ReplicationGroupClusterMode',
     'ReplicationGroupLogDeliveryConfiguration',
+    'UserAuthenticationMode',
     'GetClusterCacheNodeResult',
     'GetClusterLogDeliveryConfigurationResult',
     'GetReplicationGroupLogDeliveryConfigurationResult',
+    'GetUserAuthenticationModeResult',
 ]
 
 @pulumi.output_type
@@ -367,6 +369,61 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
 
 
 @pulumi.output_type
+class UserAuthenticationMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordCount":
+            suggest = "password_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAuthenticationMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAuthenticationMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAuthenticationMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 password_count: Optional[int] = None,
+                 passwords: Optional[Sequence[str]] = None):
+        """
+        :param str type: Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+        :param Sequence[str] passwords: Specifies the passwords to use for authentication if `type` is set to `password`.
+        """
+        pulumi.set(__self__, "type", type)
+        if password_count is not None:
+            pulumi.set(__self__, "password_count", password_count)
+        if passwords is not None:
+            pulumi.set(__self__, "passwords", passwords)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="passwordCount")
+    def password_count(self) -> Optional[int]:
+        return pulumi.get(self, "password_count")
+
+    @property
+    @pulumi.getter
+    def passwords(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the passwords to use for authentication if `type` is set to `password`.
+        """
+        return pulumi.get(self, "passwords")
+
+
+@pulumi.output_type
 class GetClusterCacheNodeResult(dict):
     def __init__(__self__, *,
                  address: str,
@@ -482,5 +539,26 @@ class GetReplicationGroupLogDeliveryConfigurationResult(dict):
     @pulumi.getter(name="logType")
     def log_type(self) -> str:
         return pulumi.get(self, "log_type")
+
+
+@pulumi.output_type
+class GetUserAuthenticationModeResult(dict):
+    def __init__(__self__, *,
+                 password_count: Optional[int] = None,
+                 type: Optional[str] = None):
+        if password_count is not None:
+            pulumi.set(__self__, "password_count", password_count)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="passwordCount")
+    def password_count(self) -> Optional[int]:
+        return pulumi.get(self, "password_count")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
 
 

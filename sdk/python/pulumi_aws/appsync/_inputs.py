@@ -13,6 +13,7 @@ __all__ = [
     'DataSourceDynamodbConfigArgs',
     'DataSourceDynamodbConfigDeltaSyncConfigArgs',
     'DataSourceElasticsearchConfigArgs',
+    'DataSourceEventBridgeConfigArgs',
     'DataSourceHttpConfigArgs',
     'DataSourceHttpConfigAuthorizationConfigArgs',
     'DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs',
@@ -191,6 +192,28 @@ class DataSourceElasticsearchConfigArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
+
+
+@pulumi.input_type
+class DataSourceEventBridgeConfigArgs:
+    def __init__(__self__, *,
+                 event_bus_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] event_bus_arn: ARN for the EventBridge bus.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> pulumi.Input[str]:
+        """
+        ARN for the EventBridge bus.
+        """
+        return pulumi.get(self, "event_bus_arn")
+
+    @event_bus_arn.setter
+    def event_bus_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_bus_arn", value)
 
 
 @pulumi.input_type

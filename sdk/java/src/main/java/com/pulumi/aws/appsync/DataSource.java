@@ -8,6 +8,7 @@ import com.pulumi.aws.appsync.DataSourceArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceState;
 import com.pulumi.aws.appsync.outputs.DataSourceDynamodbConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceElasticsearchConfig;
+import com.pulumi.aws.appsync.outputs.DataSourceEventBridgeConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceHttpConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceLambdaConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceRelationalDatabaseConfig;
@@ -194,6 +195,20 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.elasticsearchConfig);
     }
     /**
+     * AWS EventBridge settings. See below
+     * 
+     */
+    @Export(name="eventBridgeConfig", refs={DataSourceEventBridgeConfig.class}, tree="[0]")
+    private Output</* @Nullable */ DataSourceEventBridgeConfig> eventBridgeConfig;
+
+    /**
+     * @return AWS EventBridge settings. See below
+     * 
+     */
+    public Output<Optional<DataSourceEventBridgeConfig>> eventBridgeConfig() {
+        return Codegen.optional(this.eventBridgeConfig);
+    }
+    /**
      * HTTP settings. See below
      * 
      */
@@ -264,14 +279,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceRoleArn);
     }
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      * 
      */
     public Output<String> type() {
