@@ -936,7 +936,7 @@ func Provider() tfbridge.ProviderInfo {
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"ec2_configuration": {
 									Name:        "ec2Configuration",
-									MaxItemsOne: tfbridge.False(),
+									MaxItemsOne: tfbridge.True(),
 								},
 							},
 						},
