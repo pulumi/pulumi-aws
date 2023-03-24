@@ -8870,7 +8870,7 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings s
 	ConnectionRetryInterval *int `pulumi:"connectionRetryInterval"`
 	// A director and base filename where archive files should be written. See Destination for more details.
 	Destination       ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination `pulumi:"destination"`
-	EventId           *int                                                                                 `pulumi:"eventId"`
+	EventId           *string                                                                              `pulumi:"eventId"`
 	EventIdMode       *string                                                                              `pulumi:"eventIdMode"`
 	EventStopBehavior *string                                                                              `pulumi:"eventStopBehavior"`
 	FilecacheDuration *int                                                                                 `pulumi:"filecacheDuration"`
@@ -8909,7 +8909,7 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsAr
 	ConnectionRetryInterval pulumi.IntPtrInput `pulumi:"connectionRetryInterval"`
 	// A director and base filename where archive files should be written. See Destination for more details.
 	Destination       ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationInput `pulumi:"destination"`
-	EventId           pulumi.IntPtrInput                                                                        `pulumi:"eventId"`
+	EventId           pulumi.StringPtrInput                                                                     `pulumi:"eventId"`
 	EventIdMode       pulumi.StringPtrInput                                                                     `pulumi:"eventIdMode"`
 	EventStopBehavior pulumi.StringPtrInput                                                                     `pulumi:"eventStopBehavior"`
 	FilecacheDuration pulumi.IntPtrInput                                                                        `pulumi:"filecacheDuration"`
@@ -9038,10 +9038,10 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		return v.EventId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventIdMode() pulumi.StringPtrOutput {
@@ -9197,13 +9197,13 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationPtrOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return v.EventId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventIdMode() pulumi.StringPtrOutput {

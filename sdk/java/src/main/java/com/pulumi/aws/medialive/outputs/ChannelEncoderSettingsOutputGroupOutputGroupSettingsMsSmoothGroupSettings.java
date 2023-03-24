@@ -30,7 +30,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination;
-    private @Nullable Integer eventId;
+    private @Nullable String eventId;
     private @Nullable String eventIdMode;
     private @Nullable String eventStopBehavior;
     private @Nullable Integer filecacheDuration;
@@ -85,7 +85,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination() {
         return this.destination;
     }
-    public Optional<Integer> eventId() {
+    public Optional<String> eventId() {
         return Optional.ofNullable(this.eventId);
     }
     public Optional<String> eventIdMode() {
@@ -154,7 +154,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         private @Nullable String certificateMode;
         private @Nullable Integer connectionRetryInterval;
         private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination;
-        private @Nullable Integer eventId;
+        private @Nullable String eventId;
         private @Nullable String eventIdMode;
         private @Nullable String eventStopBehavior;
         private @Nullable Integer filecacheDuration;
@@ -218,7 +218,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return this;
         }
         @CustomType.Setter
-        public Builder eventId(@Nullable Integer eventId) {
+        public Builder eventId(@Nullable String eventId) {
             this.eventId = eventId;
             return this;
         }

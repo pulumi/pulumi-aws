@@ -77,9 +77,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     }
 
     @Import(name="eventId")
-    private @Nullable Output<Integer> eventId;
+    private @Nullable Output<String> eventId;
 
-    public Optional<Output<Integer>> eventId() {
+    public Optional<Output<String>> eventId() {
         return Optional.ofNullable(this.eventId);
     }
 
@@ -321,12 +321,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return destination(Output.of(destination));
         }
 
-        public Builder eventId(@Nullable Output<Integer> eventId) {
+        public Builder eventId(@Nullable Output<String> eventId) {
             $.eventId = eventId;
             return this;
         }
 
-        public Builder eventId(Integer eventId) {
+        public Builder eventId(String eventId) {
             return eventId(Output.of(eventId));
         }
 

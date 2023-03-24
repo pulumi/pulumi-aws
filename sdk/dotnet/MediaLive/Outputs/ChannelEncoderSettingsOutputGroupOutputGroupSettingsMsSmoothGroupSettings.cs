@@ -27,7 +27,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// A director and base filename where archive files should be written. See Destination for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination Destination;
-        public readonly int? EventId;
+        public readonly string? EventId;
         public readonly string? EventIdMode;
         public readonly string? EventStopBehavior;
         public readonly int? FilecacheDuration;
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination,
 
-            int? eventId,
+            string? eventId,
 
             string? eventIdMode,
 
