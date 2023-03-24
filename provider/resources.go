@@ -78,6 +78,7 @@ const (
 	codebuildMod                = "CodeBuild"                // Code Build
 	codecommitMod               = "CodeCommit"               // Code Commit
 	codedeployMod               = "CodeDeploy"               // Code Deploy
+	codeguruReviewerMod         = "CodeGuruReviewer"         // CodeGuru Reviewer
 	codepipelineMod             = "CodePipeline"             // Code Pipeline
 	codestarConnectionsMod      = "CodeStarConnections"      // CodeStar Connections
 	codestarNotificationsMod    = "CodeStarNotifications"    // CodeStar Notifications
@@ -162,6 +163,7 @@ const (
 	neptuneMod                  = "Neptune"                  // Neptune
 	networkFirewallMod          = "NetworkFirewall"          // Network Firewall
 	networkManagerMod           = "NetworkManager"           // Network Manager
+	oamMod                      = "Oam"                      // Observability Access Manager
 	opensearchMod               = "OpenSearch"               // OpenSearch
 	opsworksMod                 = "OpsWorks"                 // OpsWorks
 	organizationsMod            = "Organizations"            // Organizations
@@ -1125,6 +1127,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_codecommit_approval_rule_template_association": {
 				Tok: awsResource(codecommitMod, "ApprovalRuleTemplateAssociation"),
 			},
+			// CodeGuruReviewer
+			"aws_codegurureviewer_repository_association": {Tok: awsResource(codeguruReviewerMod, "RepositoryAssociation")},
 			// CodePipeline
 			"aws_codepipeline":                    {Tok: awsResource(codepipelineMod, "Pipeline")},
 			"aws_codepipeline_custom_action_type": {Tok: awsResource(codepipelineMod, "CustomActionType")},
@@ -1878,6 +1882,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Elastic MapReduce
+			"aws_emr_block_public_access_configuration": {Tok: awsResource(emrMod, "BlockPublicAccessConfiguration")},
 			"aws_emr_cluster": {
 				Tok: awsResource(emrMod, "Cluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2326,6 +2331,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_external_key":         {Tok: awsResource(kmsMod, "ExternalKey")},
 			"aws_kms_grant":                {Tok: awsResource(kmsMod, "Grant")},
 			"aws_kms_key":                  {Tok: awsResource(kmsMod, "Key")},
+			"aws_kms_key_policy":           {Tok: awsResource(kmsMod, "KeyPolicy")},
 			"aws_kms_replica_external_key": {Tok: awsResource(kmsMod, "ReplicaExternalKey")},
 			"aws_kms_replica_key":          {Tok: awsResource(kmsMod, "ReplicaKey")},
 			// Lambda
@@ -2712,6 +2718,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_proxy_endpoint":                         {Tok: awsResource(rdsMod, "ProxyEndpoint")},
 			"aws_db_instance_automated_backups_replication": {Tok: awsResource(rdsMod, "InstanceAutomatedBackupsReplication")},
 			"aws_db_snapshot_copy":                          {Tok: awsResource(rdsMod, "SnapshotCopy")},
+
+			// OAM
+			"aws_oam_sink":        {Tok: awsResource(oamMod, "Sink")},
+			"aws_oam_sink_policy": {Tok: awsResource(oamMod, "SinkPolicy")},
 
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
@@ -5781,12 +5791,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dx_locations":            {Tok: awsDataSource(dxMod, "getLocations")},
 			"aws_dx_router_configuration": {Tok: awsDataSource(dxMod, "getRouterConfiguration")},
 			// EC2
-			"aws_customer_gateway":     {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
-			"aws_instance":             {Tok: awsDataSource(ec2Mod, "getInstance")},
-			"aws_ec2_instance_type":    {Tok: awsDataSource(ec2Mod, "getInstanceType")},
-			"aws_instances":            {Tok: awsDataSource(ec2Mod, "getInstances")},
-			"aws_internet_gateway":     {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
-			"aws_launch_configuration": {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
+			"aws_customer_gateway":      {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
+			"aws_instance":              {Tok: awsDataSource(ec2Mod, "getInstance")},
+			"aws_ec2_instance_type":     {Tok: awsDataSource(ec2Mod, "getInstanceType")},
+			"aws_ec2_public_ipv4_pool":  {Tok: awsDataSource(ec2Mod, "getPublicIpv4Pool")},
+			"aws_ec2_public_ipv4_pools": {Tok: awsDataSource(ec2Mod, "getPublicIpv4Pools")},
+			"aws_instances":             {Tok: awsDataSource(ec2Mod, "getInstances")},
+			"aws_internet_gateway":      {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
+			"aws_launch_configuration":  {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
 			"aws_launch_template": {
 				Tok: awsDataSource(ec2Mod, "getLaunchTemplate"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -6294,11 +6306,12 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsDataSource(serverlessRepositoryMod, "getApplication"),
 			},
 			// servicecatalog
-			"aws_servicecatalog_constraint":            {Tok: awsDataSource(servicecatalogMod, "getConstraint")},
-			"aws_servicecatalog_portfolio":             {Tok: awsDataSource(servicecatalogMod, "getPortfolio")},
-			"aws_servicecatalog_product":               {Tok: awsDataSource(servicecatalogMod, "getProduct")},
-			"aws_servicecatalog_launch_paths":          {Tok: awsDataSource(servicecatalogMod, "getLaunchPaths")},
-			"aws_servicecatalog_portfolio_constraints": {Tok: awsDataSource(servicecatalogMod, "getPortfolioConstraints")},
+			"aws_servicecatalog_constraint":             {Tok: awsDataSource(servicecatalogMod, "getConstraint")},
+			"aws_servicecatalog_portfolio":              {Tok: awsDataSource(servicecatalogMod, "getPortfolio")},
+			"aws_servicecatalog_product":                {Tok: awsDataSource(servicecatalogMod, "getProduct")},
+			"aws_servicecatalog_launch_paths":           {Tok: awsDataSource(servicecatalogMod, "getLaunchPaths")},
+			"aws_servicecatalog_portfolio_constraints":  {Tok: awsDataSource(servicecatalogMod, "getPortfolioConstraints")},
+			"aws_servicecatalog_provisioning_artifacts": {Tok: awsDataSource(servicecatalogMod, "getProvisioningArtifacts")},
 
 			// LakeFormation
 			"aws_lakeformation_data_lake_settings": {Tok: awsDataSource(lakeFormationMod, "getDataLakeSettings")},

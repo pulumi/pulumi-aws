@@ -86,6 +86,16 @@
       "new": "Data source for retrieving a value from an AWS DynamoDB table."
     }
   ],
+  "website/docs/d/ec2_public_ipv4_pools.html.markdown": [
+    {
+      "old": "Terraform data source for getting information about AWS EC2 Public IPv4 Pools.",
+      "new": "Data source for getting information about AWS EC2 Public IPv4 Pools."
+    },
+    {
+      "old": "Terraform data source for getting information about AWS EC2 Public IPv4 Pools.",
+      "new": "Data source for getting information about AWS EC2 Public IPv4 Pools."
+    }
+  ],
   "website/docs/d/ec2_transit_gateway_vpc_attachments.html.markdown": [
     {
       "old": "[2]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ec2_transit_gateway_vpc_attachment"
@@ -571,6 +581,12 @@
       "new": "  name = \"my_test_batch_job_definition\""
     }
   ],
+  "website/docs/r/budgets_budget.html.markdown": [
+    {
+      "old": "Create a cost_filter using resource tags, obtaining the tag value from a terraform variable",
+      "new": "Create a cost_filter using resource tags, obtaining the tag value from a variable"
+    }
+  ],
   "website/docs/r/cloudcontrolapi_resource.html.markdown": [
     {
       "old": "* `desired_state` - (Required) JSON string matching the CloudFormation resource type schema with desired configuration. Terraform configuration expressions can be converted into JSON using the `jsonencode()` function.",
@@ -671,6 +687,16 @@
   "website/docs/r/codecommit_trigger.html.markdown": [
     {
       "old": "~> **NOTE:** Terraform currently can create only one trigger per repository, even if multiple aws_codecommit_trigger resources are defined. Moreover, creating triggers with Terraform will delete all other triggers in the repository (also manually-created triggers)."
+    }
+  ],
+  "website/docs/r/codegurureviewer_repository_association.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS CodeGuru Reviewer Repository Association.",
+      "new": "Resource for managing an AWS CodeGuru Reviewer Repository Association."
+    },
+    {
+      "old": "Terraform resource for managing an AWS CodeGuru Reviewer Repository Association.",
+      "new": "Resource for managing an AWS CodeGuru Reviewer Repository Association."
     }
   ],
   "website/docs/r/codepipeline_custom_action_type.html.markdown": [
@@ -1110,6 +1136,28 @@
       "new": "  name         = \"aws_elastictranscoder_pipeline_my_test_\""
     }
   ],
+  "website/docs/r/emr_block_public_access_configuration.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS EMR Block Public Access Configuration.",
+      "new": "Resource for managing an AWS EMR Block Public Access Configuration."
+    },
+    {
+      "old": "By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this Terraform resource.",
+      "new": "By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource."
+    },
+    {
+      "old": "Terraform resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.",
+      "new": "Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information."
+    },
+    {
+      "old": "To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this Terraform resource.",
+      "new": "To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource."
+    },
+    {
+      "old": "~> **NOTE:** If an `aws_emr_block_public_access_configuration` Terraform resource is destroyed, the configuration will reset to this default configuration.",
+      "new": "~> **NOTE:** If an `aws_emr_block_public_access_configuration` resource is destroyed, the configuration will reset to this default configuration."
+    }
+  ],
   "website/docs/r/emr_cluster.html.markdown": [
     {
       "old": "* `additional_info` - (Optional) JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore Terraform cannot detect drift from the actual EMR cluster if its value is changed outside Terraform.",
@@ -1539,6 +1587,12 @@
       "new": "Resource for managing an AWS KMS (Key Management) Custom Key Store."
     }
   ],
+  "website/docs/r/kms_key_policy.html.markdown": [
+    {
+      "old": "* `policy` - (Required) A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws_iam_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.",
+      "new": "* `policy` - (Required) A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws_iam_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide."
+    }
+  ],
   "website/docs/r/kms_replica_external_key.html.markdown": [
     {
       "old": "For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide."
@@ -1961,6 +2015,26 @@
     {
       "old": "Terraform resource for managing an AWS NetworkManager VpcAttachment.",
       "new": "Resource for managing an AWS NetworkManager VpcAttachment."
+    }
+  ],
+  "website/docs/r/oam_sink.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink.",
+      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink."
+    },
+    {
+      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink.",
+      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink."
+    }
+  ],
+  "website/docs/r/oam_sink_policy.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.",
+      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy."
+    },
+    {
+      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.",
+      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy."
     }
   ],
   "website/docs/r/opensearch_domain.html.markdown": [
