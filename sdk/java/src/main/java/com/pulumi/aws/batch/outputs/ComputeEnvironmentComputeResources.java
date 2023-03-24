@@ -35,7 +35,7 @@ public final class ComputeEnvironmentComputeResources {
      * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configuration;
+    private @Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration;
     /**
      * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
@@ -123,8 +123,8 @@ public final class ComputeEnvironmentComputeResources {
      * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    public List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configuration() {
-        return this.ec2Configuration == null ? List.of() : this.ec2Configuration;
+    public Optional<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configuration() {
+        return Optional.ofNullable(this.ec2Configuration);
     }
     /**
      * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
@@ -223,7 +223,7 @@ public final class ComputeEnvironmentComputeResources {
         private @Nullable String allocationStrategy;
         private @Nullable Integer bidPercentage;
         private @Nullable Integer desiredVcpus;
-        private @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configuration;
+        private @Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration;
         private @Nullable String ec2KeyPair;
         private @Nullable String imageId;
         private @Nullable String instanceRole;
@@ -273,12 +273,9 @@ public final class ComputeEnvironmentComputeResources {
             return this;
         }
         @CustomType.Setter
-        public Builder ec2Configuration(@Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configuration) {
+        public Builder ec2Configuration(@Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration) {
             this.ec2Configuration = ec2Configuration;
             return this;
-        }
-        public Builder ec2Configuration(ComputeEnvironmentComputeResourcesEc2Configuration... ec2Configuration) {
-            return ec2Configuration(List.of(ec2Configuration));
         }
         @CustomType.Setter
         public Builder ec2KeyPair(@Nullable String ec2KeyPair) {

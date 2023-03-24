@@ -70,13 +70,13 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
      * 
      */
     @Import(name="ec2Configuration")
-    private @Nullable Output<List<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>> ec2Configuration;
+    private @Nullable Output<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs> ec2Configuration;
 
     /**
      * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    public Optional<Output<List<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>>> ec2Configuration() {
+    public Optional<Output<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>> ec2Configuration() {
         return Optional.ofNullable(this.ec2Configuration);
     }
 
@@ -368,7 +368,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder ec2Configuration(@Nullable Output<List<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>> ec2Configuration) {
+        public Builder ec2Configuration(@Nullable Output<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs> ec2Configuration) {
             $.ec2Configuration = ec2Configuration;
             return this;
         }
@@ -379,18 +379,8 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder ec2Configuration(List<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs> ec2Configuration) {
+        public Builder ec2Configuration(ComputeEnvironmentComputeResourcesEc2ConfigurationArgs ec2Configuration) {
             return ec2Configuration(Output.of(ec2Configuration));
-        }
-
-        /**
-         * @param ec2Configuration Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ec2Configuration(ComputeEnvironmentComputeResourcesEc2ConfigurationArgs... ec2Configuration) {
-            return ec2Configuration(List.of(ec2Configuration));
         }
 
         /**

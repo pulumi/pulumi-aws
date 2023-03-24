@@ -75,7 +75,7 @@ class ComputeEnvironmentComputeResources(dict):
                  allocation_strategy: Optional[str] = None,
                  bid_percentage: Optional[int] = None,
                  desired_vcpus: Optional[int] = None,
-                 ec2_configuration: Optional[Sequence['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']] = None,
+                 ec2_configuration: Optional['outputs.ComputeEnvironmentComputeResourcesEc2Configuration'] = None,
                  ec2_key_pair: Optional[str] = None,
                  image_id: Optional[str] = None,
                  instance_role: Optional[str] = None,
@@ -92,7 +92,7 @@ class ComputeEnvironmentComputeResources(dict):
         :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int bid_percentage: Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param Sequence['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs'] ec2_configuration: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        :param 'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs' ec2_configuration: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         :param str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -183,7 +183,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter(name="ec2Configuration")
-    def ec2_configuration(self) -> Optional[Sequence['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']]:
+    def ec2_configuration(self) -> Optional['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']:
         """
         Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         """

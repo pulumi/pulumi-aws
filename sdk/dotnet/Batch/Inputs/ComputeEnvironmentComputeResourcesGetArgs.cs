@@ -30,17 +30,11 @@ namespace Pulumi.Aws.Batch.Inputs
         [Input("desiredVcpus")]
         public Input<int>? DesiredVcpus { get; set; }
 
-        [Input("ec2Configuration")]
-        private InputList<Inputs.ComputeEnvironmentComputeResourcesEc2ConfigurationGetArgs>? _ec2Configuration;
-
         /// <summary>
         /// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        public InputList<Inputs.ComputeEnvironmentComputeResourcesEc2ConfigurationGetArgs> Ec2Configuration
-        {
-            get => _ec2Configuration ?? (_ec2Configuration = new InputList<Inputs.ComputeEnvironmentComputeResourcesEc2ConfigurationGetArgs>());
-            set => _ec2Configuration = value;
-        }
+        [Input("ec2Configuration")]
+        public Input<Inputs.ComputeEnvironmentComputeResourcesEc2ConfigurationGetArgs>? Ec2Configuration { get; set; }
 
         /// <summary>
         /// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
