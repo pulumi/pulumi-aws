@@ -18,7 +18,7 @@ type ComputeEnvironmentComputeResources struct {
 	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus *int `pulumi:"desiredVcpus"`
 	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
-	Ec2Configurations []ComputeEnvironmentComputeResourcesEc2Configuration `pulumi:"ec2Configurations"`
+	Ec2Configuration []ComputeEnvironmentComputeResourcesEc2Configuration `pulumi:"ec2Configuration"`
 	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair *string `pulumi:"ec2KeyPair"`
 	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
@@ -64,7 +64,7 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus pulumi.IntPtrInput `pulumi:"desiredVcpus"`
 	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
-	Ec2Configurations ComputeEnvironmentComputeResourcesEc2ConfigurationArrayInput `pulumi:"ec2Configurations"`
+	Ec2Configuration ComputeEnvironmentComputeResourcesEc2ConfigurationArrayInput `pulumi:"ec2Configuration"`
 	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair pulumi.StringPtrInput `pulumi:"ec2KeyPair"`
 	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
@@ -184,9 +184,9 @@ func (o ComputeEnvironmentComputeResourcesOutput) DesiredVcpus() pulumi.IntPtrOu
 }
 
 // Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
-func (o ComputeEnvironmentComputeResourcesOutput) Ec2Configurations() ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
+func (o ComputeEnvironmentComputeResourcesOutput) Ec2Configuration() ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []ComputeEnvironmentComputeResourcesEc2Configuration {
-		return v.Ec2Configurations
+		return v.Ec2Configuration
 	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput)
 }
 
@@ -307,12 +307,12 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPt
 }
 
 // Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
-func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2Configurations() ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
+func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2Configuration() ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []ComputeEnvironmentComputeResourcesEc2Configuration {
 		if v == nil {
 			return nil
 		}
-		return v.Ec2Configurations
+		return v.Ec2Configuration
 	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput)
 }
 

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs> Destination { get; set; } = null!;
 
         [Input("eventId")]
-        public Input<string>? EventId { get; set; }
+        public Input<int>? EventId { get; set; }
 
         [Input("eventIdMode")]
         public Input<string>? EventIdMode { get; set; }

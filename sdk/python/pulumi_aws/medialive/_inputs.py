@@ -3539,7 +3539,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
                  audio_only_timecode_control: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
-                 event_id: Optional[pulumi.Input[str]] = None,
+                 event_id: Optional[pulumi.Input[int]] = None,
                  event_id_mode: Optional[pulumi.Input[str]] = None,
                  event_stop_behavior: Optional[pulumi.Input[str]] = None,
                  filecache_duration: Optional[pulumi.Input[int]] = None,
@@ -3655,11 +3655,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
 
     @property
     @pulumi.getter(name="eventId")
-    def event_id(self) -> Optional[pulumi.Input[str]]:
+    def event_id(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "event_id")
 
     @event_id.setter
-    def event_id(self, value: Optional[pulumi.Input[str]]):
+    def event_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "event_id", value)
 
     @property
