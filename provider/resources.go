@@ -927,10 +927,25 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Batch
-			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
-			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
-			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
-			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
+			"aws_batch_compute_environment": {
+				Tok: awsResource(batchMod, "ComputeEnvironment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Introduced in https://github.com/hashicorp/terraform-provider-aws/pull/27207/files
+					"compute_resources": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"ec2_configuration": {
+									Name:        "ec2Configuration",
+									MaxItemsOne: tfbridge.False(),
+								},
+							},
+						},
+					},
+				},
+			},
+			"aws_batch_job_definition":    {Tok: awsResource(batchMod, "JobDefinition")},
+			"aws_batch_job_queue":         {Tok: awsResource(batchMod, "JobQueue")},
+			"aws_batch_scheduling_policy": {Tok: awsResource(batchMod, "SchedulingPolicy")},
 			// Budgets
 			"aws_budgets_budget": {
 				Tok: awsResource(budgetsMod, "Budget"),
@@ -2470,7 +2485,40 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_media_convert_queue": {Tok: awsResource(mediaconvertMod, "Queue")},
 
 			// MediaLive
-			"aws_medialive_channel":              {Tok: awsResource(medialiveMod, "Channel")},
+			"aws_medialive_channel": {
+				Tok: awsResource(medialiveMod, "Channel"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"encoder_settings": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"output_groups": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"output_group_settings": {
+												Elem: &tfbridge.SchemaInfo{
+													Fields: map[string]*tfbridge.SchemaInfo{
+														"ms_smooth_group_settings": {
+															Elem: &tfbridge.SchemaInfo{
+																Fields: map[string]*tfbridge.SchemaInfo{
+																	// Introduced in https://github.com/hashicorp/terraform-provider-aws/pull/29917/files
+																	"event_id": {
+																		Name: "eventId",
+																		Type: "integer",
+																	},
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
 			"aws_medialive_input":                {Tok: awsResource(medialiveMod, "Input")},
 			"aws_medialive_input_security_group": {Tok: awsResource(medialiveMod, "InputSecurityGroup")},
 			"aws_medialive_multiplex":            {Tok: awsResource(medialiveMod, "Multiplex")},
