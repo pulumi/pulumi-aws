@@ -2737,6 +2737,7 @@ func Provider() tfbridge.ProviderInfo {
 			// OAM
 			"aws_oam_sink":        {Tok: awsResource(oamMod, "Sink")},
 			"aws_oam_sink_policy": {Tok: awsResource(oamMod, "SinkPolicy")},
+			"aws_oam_link":        {Tok: awsResource(oamMod, "Link")},
 
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
@@ -2991,6 +2992,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_sesv2_contact_list": {Tok: awsResource(sesV2Mod, "ContactList")},
 
 			// Shield
 			"aws_shield_protection":                          {Tok: awsResource(shieldMod, "Protection")},
@@ -5713,6 +5715,8 @@ func Provider() tfbridge.ProviderInfo {
 			// AppMesh
 			"aws_appmesh_mesh":            {Tok: awsDataSource(appmeshMod, "getMesh")},
 			"aws_appmesh_virtual_service": {Tok: awsDataSource(appmeshMod, "getVirtualService")},
+			"aws_appmesh_route":           {Tok: awsDataSource(appmeshMod, "getRoute")},
+			"aws_appmesh_virtual_gateway": {Tok: awsDataSource(appmeshMod, "getVirtualGateway")},
 			// API Gateway
 			"aws_api_gateway_api_key":     {Tok: awsDataSource(apigatewayMod, "getKey")},
 			"aws_api_gateway_resource":    {Tok: awsDataSource(apigatewayMod, "getResource")},
