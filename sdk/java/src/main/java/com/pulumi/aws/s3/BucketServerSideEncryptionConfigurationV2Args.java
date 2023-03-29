@@ -18,14 +18,14 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
     public static final BucketServerSideEncryptionConfigurationV2Args Empty = new BucketServerSideEncryptionConfigurationV2Args();
 
     /**
-     * The name of the bucket.
+     * ID (name) of the bucket.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return ID (name) of the bucket.
      * 
      */
     public Output<String> bucket() {
@@ -33,14 +33,14 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
     }
 
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -48,14 +48,14 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
     }
 
     /**
-     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<BucketServerSideEncryptionConfigurationV2RuleArgs>> rules;
 
     /**
-     * @return Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * @return Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      * 
      */
     public Output<List<BucketServerSideEncryptionConfigurationV2RuleArgs>> rules() {
@@ -89,7 +89,7 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket ID (name) of the bucket.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket ID (name) of the bucket.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
         }
 
         /**
-         * @param rules Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+         * @param rules Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
         }
 
         /**
-         * @param rules Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+         * @param rules Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
         }
 
         /**
-         * @param rules Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+         * @param rules Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
          * 
          * @return builder
          * 

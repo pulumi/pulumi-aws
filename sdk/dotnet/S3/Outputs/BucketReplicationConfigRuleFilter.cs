@@ -14,15 +14,15 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketReplicationConfigRuleFilter
     {
         /// <summary>
-        /// A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+        /// Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleFilterAnd? And;
         /// <summary>
-        /// An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        /// Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// A configuration block for specifying a tag key and value documented below.
+        /// Configuration block for specifying a tag key and value. See below.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleFilterTag? Tag;
 

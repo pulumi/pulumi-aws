@@ -36,41 +36,60 @@ namespace Pulumi.Aws.AppSync
     ///         },
     ///     });
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "appsync.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""appsync.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "dynamodb:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleTable.Arn,
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
     ///     {
     ///         Role = exampleRole.Id,
-    ///         Policy = exampleTable.Arn.Apply(arn =&gt; @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Action"": [
-    ///         ""dynamodb:*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": [
-    ///         ""{arn}""
-    ///       ]
-    ///     }}
-    ///   ]
-    /// }}
-    /// "),
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
@@ -135,6 +154,12 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.DataSourceElasticsearchConfig?> ElasticsearchConfig { get; private set; } = null!;
 
         /// <summary>
+        /// AWS EventBridge settings. See below
+        /// </summary>
+        [Output("eventBridgeConfig")]
+        public Output<Outputs.DataSourceEventBridgeConfig?> EventBridgeConfig { get; private set; } = null!;
+
+        /// <summary>
         /// HTTP settings. See below
         /// </summary>
         [Output("httpConfig")]
@@ -165,7 +190,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -241,6 +266,12 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceElasticsearchConfigArgs>? ElasticsearchConfig { get; set; }
 
         /// <summary>
+        /// AWS EventBridge settings. See below
+        /// </summary>
+        [Input("eventBridgeConfig")]
+        public Input<Inputs.DataSourceEventBridgeConfigArgs>? EventBridgeConfig { get; set; }
+
+        /// <summary>
         /// HTTP settings. See below
         /// </summary>
         [Input("httpConfig")]
@@ -271,7 +302,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -315,6 +346,12 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceElasticsearchConfigGetArgs>? ElasticsearchConfig { get; set; }
 
         /// <summary>
+        /// AWS EventBridge settings. See below
+        /// </summary>
+        [Input("eventBridgeConfig")]
+        public Input<Inputs.DataSourceEventBridgeConfigGetArgs>? EventBridgeConfig { get; set; }
+
+        /// <summary>
         /// HTTP settings. See below
         /// </summary>
         [Input("httpConfig")]
@@ -345,7 +382,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

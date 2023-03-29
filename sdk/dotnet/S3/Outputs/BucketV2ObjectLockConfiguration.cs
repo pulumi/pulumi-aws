@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? ObjectLockEnabled;
         /// <summary>
-        /// The Object Lock rule in place for this bucket (documented below).
+        /// Object Lock rule in place for this bucket (documented below).
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ObjectLockConfigurationRule> Rules;
 

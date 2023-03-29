@@ -87,7 +87,7 @@ def get_delegation_set(id: Optional[str] = None,
     ```
 
 
-    :param str id: Hosted Zone id of the desired delegation set.
+    :param str id: Delegation set ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -121,6 +121,6 @@ def get_delegation_set_output(id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str id: Hosted Zone id of the desired delegation set.
+    :param str id: Delegation set ID.
     """
     ...

@@ -114,14 +114,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+     * The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
      * 
      */
     @Import(name="dynamicPartitioningConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs> dynamicPartitioningConfiguration;
 
     /**
-     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+     * @return The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs>> dynamicPartitioningConfiguration() {
@@ -401,7 +401,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details.
+         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. See Dynamic Partitioning Configuration below for more details. Required when using dynamic partitioning.
          * 
          * @return builder
          * 

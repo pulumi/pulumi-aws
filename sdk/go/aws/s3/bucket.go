@@ -51,7 +51,6 @@ import (
 //
 // import (
 //
-//	"fmt"
 //	"os"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
@@ -76,17 +75,7 @@ import (
 //				Website: &s3.BucketWebsiteArgs{
 //					IndexDocument: pulumi.String("index.html"),
 //					ErrorDocument: pulumi.String("error.html"),
-//					RoutingRules: pulumi.Any(fmt.Sprintf(`[{
-//	    "Condition": {
-//	        "KeyPrefixEquals": "docs/"
-//	    },
-//	    "Redirect": {
-//	        "ReplaceKeyPrefixWith": "documents/"
-//	    }
-//	}]
-//
-// `)),
-//
+//					RoutingRules:  pulumi.Any("[{\n    \"Condition\": {\n        \"KeyPrefixEquals\": \"docs/\"\n    },\n    \"Redirect\": {\n        \"ReplaceKeyPrefixWith\": \"documents/\"\n    }\n}]\n"),
 //				},
 //			})
 //			if err != nil {
@@ -317,22 +306,7 @@ import (
 //				return err
 //			}
 //			replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "s3.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: pulumi.Any("{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"s3.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -578,7 +552,7 @@ type Bucket struct {
 	// developer guide for more information.
 	RequestPayer pulumi.StringOutput `pulumi:"requestPayer"`
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
-	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
+	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -1015,10 +989,10 @@ func (o BucketOutput) RequestPayer() pulumi.StringOutput {
 }
 
 // A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
-func (o BucketOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func(v *Bucket) BucketServerSideEncryptionConfigurationPtrOutput {
+func (o BucketOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *Bucket) BucketServerSideEncryptionConfigurationOutput {
 		return v.ServerSideEncryptionConfiguration
-	}).(BucketServerSideEncryptionConfigurationPtrOutput)
+	}).(BucketServerSideEncryptionConfigurationOutput)
 }
 
 // A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

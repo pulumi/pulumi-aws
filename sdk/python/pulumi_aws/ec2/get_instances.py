@@ -23,7 +23,7 @@ class GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, instance_state_names=None, instance_tags=None, private_ips=None, public_ips=None):
+    def __init__(__self__, filters=None, id=None, ids=None, instance_state_names=None, instance_tags=None, ipv6_addresses=None, private_ips=None, public_ips=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetInstancesResult:
         if instance_tags and not isinstance(instance_tags, dict):
             raise TypeError("Expected argument 'instance_tags' to be a dict")
         pulumi.set(__self__, "instance_tags", instance_tags)
+        if ipv6_addresses and not isinstance(ipv6_addresses, list):
+            raise TypeError("Expected argument 'ipv6_addresses' to be a list")
+        pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
         if private_ips and not isinstance(private_ips, list):
             raise TypeError("Expected argument 'private_ips' to be a list")
         pulumi.set(__self__, "private_ips", private_ips)
@@ -78,6 +81,14 @@ class GetInstancesResult:
         return pulumi.get(self, "instance_tags")
 
     @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Sequence[str]:
+        """
+        IPv6 addresses of instances found through the filter
+        """
+        return pulumi.get(self, "ipv6_addresses")
+
+    @property
     @pulumi.getter(name="privateIps")
     def private_ips(self) -> Sequence[str]:
         """
@@ -105,6 +116,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             ids=self.ids,
             instance_state_names=self.instance_state_names,
             instance_tags=self.instance_tags,
+            ipv6_addresses=self.ipv6_addresses,
             private_ips=self.private_ips,
             public_ips=self.public_ips)
 
@@ -143,6 +155,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
         ids=__ret__.ids,
         instance_state_names=__ret__.instance_state_names,
         instance_tags=__ret__.instance_tags,
+        ipv6_addresses=__ret__.ipv6_addresses,
         private_ips=__ret__.private_ips,
         public_ips=__ret__.public_ips)
 

@@ -70,7 +70,9 @@ class _UserPoolDomainState:
     def __init__(__self__, *,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
+                 cloudfront_distribution: Optional[pulumi.Input[str]] = None,
                  cloudfront_distribution_arn: Optional[pulumi.Input[str]] = None,
+                 cloudfront_distribution_zone_id: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
@@ -79,7 +81,9 @@ class _UserPoolDomainState:
         Input properties used for looking up and filtering UserPoolDomain resources.
         :param pulumi.Input[str] aws_account_id: The AWS account ID for the user pool owner.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+        :param pulumi.Input[str] cloudfront_distribution: The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
         :param pulumi.Input[str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
+        :param pulumi.Input[str] cloudfront_distribution_zone_id: The Route 53 hosted zone ID of the CloudFront distribution.
         :param pulumi.Input[str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
@@ -89,8 +93,12 @@ class _UserPoolDomainState:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if cloudfront_distribution is not None:
+            pulumi.set(__self__, "cloudfront_distribution", cloudfront_distribution)
         if cloudfront_distribution_arn is not None:
             pulumi.set(__self__, "cloudfront_distribution_arn", cloudfront_distribution_arn)
+        if cloudfront_distribution_zone_id is not None:
+            pulumi.set(__self__, "cloudfront_distribution_zone_id", cloudfront_distribution_zone_id)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if s3_bucket is not None:
@@ -125,6 +133,18 @@ class _UserPoolDomainState:
         pulumi.set(self, "certificate_arn", value)
 
     @property
+    @pulumi.getter(name="cloudfrontDistribution")
+    def cloudfront_distribution(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+        """
+        return pulumi.get(self, "cloudfront_distribution")
+
+    @cloudfront_distribution.setter
+    def cloudfront_distribution(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudfront_distribution", value)
+
+    @property
     @pulumi.getter(name="cloudfrontDistributionArn")
     def cloudfront_distribution_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -135,6 +155,18 @@ class _UserPoolDomainState:
     @cloudfront_distribution_arn.setter
     def cloudfront_distribution_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloudfront_distribution_arn", value)
+
+    @property
+    @pulumi.getter(name="cloudfrontDistributionZoneId")
+    def cloudfront_distribution_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Route 53 hosted zone ID of the CloudFront distribution.
+        """
+        return pulumi.get(self, "cloudfront_distribution_zone_id")
+
+    @cloudfront_distribution_zone_id.setter
+    def cloudfront_distribution_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudfront_distribution_zone_id", value)
 
     @property
     @pulumi.getter
@@ -227,8 +259,8 @@ class UserPoolDomain(pulumi.CustomResource):
             zone_id=example_zone.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,
-                name=main.cloudfront_distribution_arn,
-                zone_id="Z2FDTNDATAQYW2",
+                name=main.cloudfront_distribution,
+                zone_id=main.cloudfront_distribution_zone_id,
             )])
         ```
 
@@ -285,8 +317,8 @@ class UserPoolDomain(pulumi.CustomResource):
             zone_id=example_zone.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,
-                name=main.cloudfront_distribution_arn,
-                zone_id="Z2FDTNDATAQYW2",
+                name=main.cloudfront_distribution,
+                zone_id=main.cloudfront_distribution_zone_id,
             )])
         ```
 
@@ -333,7 +365,9 @@ class UserPoolDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
             __props__.__dict__["aws_account_id"] = None
+            __props__.__dict__["cloudfront_distribution"] = None
             __props__.__dict__["cloudfront_distribution_arn"] = None
+            __props__.__dict__["cloudfront_distribution_zone_id"] = None
             __props__.__dict__["s3_bucket"] = None
             __props__.__dict__["version"] = None
         super(UserPoolDomain, __self__).__init__(
@@ -348,7 +382,9 @@ class UserPoolDomain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aws_account_id: Optional[pulumi.Input[str]] = None,
             certificate_arn: Optional[pulumi.Input[str]] = None,
+            cloudfront_distribution: Optional[pulumi.Input[str]] = None,
             cloudfront_distribution_arn: Optional[pulumi.Input[str]] = None,
+            cloudfront_distribution_zone_id: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             s3_bucket: Optional[pulumi.Input[str]] = None,
             user_pool_id: Optional[pulumi.Input[str]] = None,
@@ -362,7 +398,9 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The AWS account ID for the user pool owner.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+        :param pulumi.Input[str] cloudfront_distribution: The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
         :param pulumi.Input[str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
+        :param pulumi.Input[str] cloudfront_distribution_zone_id: The Route 53 hosted zone ID of the CloudFront distribution.
         :param pulumi.Input[str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
@@ -374,7 +412,9 @@ class UserPoolDomain(pulumi.CustomResource):
 
         __props__.__dict__["aws_account_id"] = aws_account_id
         __props__.__dict__["certificate_arn"] = certificate_arn
+        __props__.__dict__["cloudfront_distribution"] = cloudfront_distribution
         __props__.__dict__["cloudfront_distribution_arn"] = cloudfront_distribution_arn
+        __props__.__dict__["cloudfront_distribution_zone_id"] = cloudfront_distribution_zone_id
         __props__.__dict__["domain"] = domain
         __props__.__dict__["s3_bucket"] = s3_bucket
         __props__.__dict__["user_pool_id"] = user_pool_id
@@ -398,12 +438,28 @@ class UserPoolDomain(pulumi.CustomResource):
         return pulumi.get(self, "certificate_arn")
 
     @property
+    @pulumi.getter(name="cloudfrontDistribution")
+    def cloudfront_distribution(self) -> pulumi.Output[str]:
+        """
+        The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+        """
+        return pulumi.get(self, "cloudfront_distribution")
+
+    @property
     @pulumi.getter(name="cloudfrontDistributionArn")
     def cloudfront_distribution_arn(self) -> pulumi.Output[str]:
         """
         The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
         """
         return pulumi.get(self, "cloudfront_distribution_arn")
+
+    @property
+    @pulumi.getter(name="cloudfrontDistributionZoneId")
+    def cloudfront_distribution_zone_id(self) -> pulumi.Output[str]:
+        """
+        The Route 53 hosted zone ID of the CloudFront distribution.
+        """
+        return pulumi.get(self, "cloudfront_distribution_zone_id")
 
     @property
     @pulumi.getter

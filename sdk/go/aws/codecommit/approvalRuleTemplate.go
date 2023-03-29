@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -29,20 +29,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecommit.NewApprovalRuleTemplate(ctx, "example", &codecommit.ApprovalRuleTemplateArgs{
-//				Content: pulumi.String(fmt.Sprintf(`{
-//	    "Version": "2018-11-08",
-//	    "DestinationReferences": ["refs/heads/master"],
-//	    "Statements": [{
-//	        "Type": "Approvers",
-//	        "NumberOfApprovalsNeeded": 2,
-//	        "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"]
-//	    }]
-//	}
-//
-// `)),
-//
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2018-11-08",
+//				"DestinationReferences": []string{
+//					"refs/heads/master",
+//				},
+//				"Statements": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Type":                    "Approvers",
+//						"NumberOfApprovalsNeeded": 2,
+//						"ApprovalPoolMembers": []string{
+//							"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = codecommit.NewApprovalRuleTemplate(ctx, "example", &codecommit.ApprovalRuleTemplateArgs{
 //				Description: pulumi.String("This is an example approval rule template"),
+//				Content:     pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

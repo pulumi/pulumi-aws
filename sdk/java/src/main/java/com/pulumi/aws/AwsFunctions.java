@@ -1969,6 +1969,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -1993,40 +1995,33 @@ public final class AwsFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(                    
+     *                         &#34;s3:GetBucketAcl&#34;,
+     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -2051,6 +2046,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -2075,40 +2072,33 @@ public final class AwsFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(                    
+     *                         &#34;s3:GetBucketAcl&#34;,
+     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -2133,6 +2123,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -2157,40 +2149,33 @@ public final class AwsFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(                    
+     *                         &#34;s3:GetBucketAcl&#34;,
+     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -2215,6 +2200,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -2239,40 +2226,33 @@ public final class AwsFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(                    
+     *                         &#34;s3:GetBucketAcl&#34;,
+     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -2297,6 +2277,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -2321,40 +2303,33 @@ public final class AwsFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(                    
+     *                         &#34;s3:GetBucketAcl&#34;,
+     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
@@ -2379,6 +2354,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.List;
@@ -2403,40 +2380,33 @@ public final class AwsFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowBillingLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(                    
+     *                         &#34;s3:GetBucketAcl&#34;,
+     *                         &#34;s3:GetBucketPolicy&#34;)
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect(&#34;Allow&#34;)
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type(&#34;AWS&#34;)
+     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()))
+     *                         .build())
+     *                     .actions(&#34;s3:PutObject&#34;)
+     *                     .resources(billingLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+     *                     .build())
+     *             .build());
+     * 
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy(&#34;allowBillingLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.applyValue(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
+     *             .policy(allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowBillingLoggingPolicyDocument -&gt; allowBillingLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }

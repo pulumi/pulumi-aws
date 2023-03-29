@@ -119,18 +119,33 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
     @Import(name="cognitoOptions")
     private @Nullable Output<DomainCognitoOptionsArgs> cognitoOptions;
 
     /**
-     * @return Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * @return Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
     public Optional<Output<DomainCognitoOptionsArgs>> cognitoOptions() {
         return Optional.ofNullable(this.cognitoOptions);
+    }
+
+    /**
+     * Domain-specific endpoint for Dashboard without https scheme.
+     * 
+     */
+    @Import(name="dashboardEndpoint")
+    private @Nullable Output<String> dashboardEndpoint;
+
+    /**
+     * @return Domain-specific endpoint for Dashboard without https scheme.
+     * 
+     */
+    public Optional<Output<String>> dashboardEndpoint() {
+        return Optional.ofNullable(this.dashboardEndpoint);
     }
 
     /**
@@ -239,14 +254,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      * 
      */
     @Import(name="kibanaEndpoint")
     private @Nullable Output<String> kibanaEndpoint;
 
     /**
-     * @return Domain-specific endpoint for kibana without https scheme.
+     * @return Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      * 
      */
     public Optional<Output<String>> kibanaEndpoint() {
@@ -357,6 +372,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.autoTuneOptions = $.autoTuneOptions;
         this.clusterConfig = $.clusterConfig;
         this.cognitoOptions = $.cognitoOptions;
+        this.dashboardEndpoint = $.dashboardEndpoint;
         this.domainEndpointOptions = $.domainEndpointOptions;
         this.domainId = $.domainId;
         this.domainName = $.domainName;
@@ -518,7 +534,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cognitoOptions Configuration block for authenticating Kibana with Cognito. Detailed below.
+         * @param cognitoOptions Configuration block for authenticating dashboard with Cognito. Detailed below.
          * 
          * @return builder
          * 
@@ -529,13 +545,34 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cognitoOptions Configuration block for authenticating Kibana with Cognito. Detailed below.
+         * @param cognitoOptions Configuration block for authenticating dashboard with Cognito. Detailed below.
          * 
          * @return builder
          * 
          */
         public Builder cognitoOptions(DomainCognitoOptionsArgs cognitoOptions) {
             return cognitoOptions(Output.of(cognitoOptions));
+        }
+
+        /**
+         * @param dashboardEndpoint Domain-specific endpoint for Dashboard without https scheme.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboardEndpoint(@Nullable Output<String> dashboardEndpoint) {
+            $.dashboardEndpoint = dashboardEndpoint;
+            return this;
+        }
+
+        /**
+         * @param dashboardEndpoint Domain-specific endpoint for Dashboard without https scheme.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboardEndpoint(String dashboardEndpoint) {
+            return dashboardEndpoint(Output.of(dashboardEndpoint));
         }
 
         /**
@@ -686,7 +723,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kibanaEndpoint Domain-specific endpoint for kibana without https scheme.
+         * @param kibanaEndpoint Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
          * 
          * @return builder
          * 
@@ -697,7 +734,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kibanaEndpoint Domain-specific endpoint for kibana without https scheme.
+         * @param kibanaEndpoint Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
          * 
          * @return builder
          * 

@@ -22,21 +22,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ * const lbRoPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["ec2:Describe*"],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const lbRoUserPolicy = new aws.iam.UserPolicy("lbRoUserPolicy", {
  *     user: lbUser.name,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
+ *     policy: lbRoPolicyDocument.then(lbRoPolicyDocument => lbRoPolicyDocument.json),
  * });
  * ```
  *

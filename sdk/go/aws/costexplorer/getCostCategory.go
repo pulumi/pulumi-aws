@@ -57,6 +57,8 @@ type LookupCostCategoryArgs struct {
 // A collection of values returned by getCostCategory.
 type LookupCostCategoryResult struct {
 	CostCategoryArn string `pulumi:"costCategoryArn"`
+	// Default value for the cost category.
+	DefaultValue string `pulumi:"defaultValue"`
 	// Effective end data of your Cost Category.
 	EffectiveEnd string `pulumi:"effectiveEnd"`
 	// Effective state data of your Cost Category.
@@ -116,6 +118,11 @@ func (o LookupCostCategoryResultOutput) ToLookupCostCategoryResultOutputWithCont
 
 func (o LookupCostCategoryResultOutput) CostCategoryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.CostCategoryArn }).(pulumi.StringOutput)
+}
+
+// Default value for the cost category.
+func (o LookupCostCategoryResultOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) string { return v.DefaultValue }).(pulumi.StringOutput)
 }
 
 // Effective end data of your Cost Category.

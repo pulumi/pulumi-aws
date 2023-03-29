@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sns.TopicPolicy;
  * import com.pulumi.aws.sns.TopicPolicyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,13 +53,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var console = new EventRule(&#34;console&#34;, EventRuleArgs.builder()        
  *             .description(&#34;Capture each AWS Console Sign In&#34;)
- *             .eventPattern(&#34;&#34;&#34;
- * {
- *   &#34;detail-type&#34;: [
- *     &#34;AWS Console Sign In via CloudTrail&#34;
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .eventPattern(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;detail-type&#34;, jsonArray(&#34;AWS Console Sign In via CloudTrail&#34;))
+ *                 )))
  *             .build());
  * 
  *         var awsLogins = new Topic(&#34;awsLogins&#34;);

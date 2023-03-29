@@ -31,8 +31,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -58,7 +56,7 @@ import (
 //				MinSize:         pulumi.Int(1),
 //				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
 //					Id:      foobar.ID(),
-//					Version: pulumi.String(fmt.Sprintf("$Latest")),
+//					Version: pulumi.String("$Latest"),
 //				},
 //			})
 //			if err != nil {

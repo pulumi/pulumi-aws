@@ -116,19 +116,19 @@ export class BucketAclV2 extends pulumi.CustomResource {
     }
 
     /**
-     * A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
     public readonly accessControlPolicy!: pulumi.Output<outputs.s3.BucketAclV2AccessControlPolicy>;
     /**
-     * The canned ACL to apply to the bucket.
+     * Canned ACL to apply to the bucket.
      */
     public readonly acl!: pulumi.Output<string | undefined>;
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
 
@@ -169,19 +169,19 @@ export class BucketAclV2 extends pulumi.CustomResource {
  */
 export interface BucketAclV2State {
     /**
-     * A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
     accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicy>;
     /**
-     * The canned ACL to apply to the bucket.
+     * Canned ACL to apply to the bucket.
      */
     acl?: pulumi.Input<string>;
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
 }
@@ -191,19 +191,19 @@ export interface BucketAclV2State {
  */
 export interface BucketAclV2Args {
     /**
-     * A configuration block that sets the ACL permissions for an object per grantee documented below.
+     * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
     accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicy>;
     /**
-     * The canned ACL to apply to the bucket.
+     * Canned ACL to apply to the bucket.
      */
     acl?: pulumi.Input<string>;
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
 }

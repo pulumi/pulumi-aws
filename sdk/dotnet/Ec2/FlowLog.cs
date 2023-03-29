@@ -25,22 +25,35 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "vpc-flow-logs.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Sid"": """",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""vpc-flow-logs.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
@@ -51,107 +64,33 @@ namespace Pulumi.Aws.Ec2
     ///         VpcId = aws_vpc.Example.Id,
     ///     });
     /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         Role = exampleRole.Id,
-    ///         Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""logs:CreateLogGroup"",
-    ///         ""logs:CreateLogStream"",
-    ///         ""logs:PutLogEvents"",
-    ///         ""logs:DescribeLogGroups"",
-    ///         ""logs:DescribeLogStreams""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""*""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Amazon Kinesis Data Firehose logging
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @" {
-    ///    ""Version"":""2012-10-17"",
-    ///    ""Statement"": [
-    ///      {
-    ///        ""Action"":""sts:AssumeRole"",
-    ///        ""Principal"":{
-    ///          ""Service"":""firehose.amazonaws.com""
-    ///        },
-    ///        ""Effect"":""Allow"",
-    ///        ""Sid"":""""
-    ///      }
-    ///    ]
-    ///  }
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", new()
-    ///     {
-    ///         Destination = "extended_s3",
-    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///         Statements = new[]
     ///         {
-    ///             RoleArn = exampleRole.Arn,
-    ///             BucketArn = exampleBucketV2.Arn,
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogGroup",
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                     "logs:DescribeLogGroups",
+    ///                     "logs:DescribeLogStreams",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
     ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "LogDeliveryEnabled", "true" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
-    ///     {
-    ///         LogDestination = exampleFirehoseDeliveryStream.Arn,
-    ///         LogDestinationType = "kinesis-data-firehose",
-    ///         TrafficType = "ALL",
-    ///         VpcId = aws_vpc.Example.Id,
-    ///     });
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Acl = "private",
     ///     });
     /// 
     ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
     ///     {
     ///         Role = exampleRole.Id,
-    ///         Policy = @" {
-    ///    ""Version"":""2012-10-17"",
-    ///    ""Statement"":[
-    ///      {
-    ///        ""Action"": [
-    ///          ""logs:CreateLogDelivery"",
-    ///          ""logs:DeleteLogDelivery"",
-    ///          ""logs:ListLogDeliveries"",
-    ///          ""logs:GetLogDelivery"",
-    ///          ""firehose:TagDeliveryStream""
-    ///        ],
-    ///        ""Effect"":""Allow"",
-    ///        ""Resource"":""*""
-    ///      }
-    ///    ]
-    ///  }
-    /// ",
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
@@ -222,6 +161,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Output("deliverCrossAccountRole")]
+        public Output<string?> DeliverCrossAccountRole { get; private set; } = null!;
+
+        /// <summary>
         /// Describes the destination options for a flow log. More details below.
         /// </summary>
         [Output("destinationOptions")]
@@ -267,7 +212,7 @@ namespace Pulumi.Aws.Ec2
         /// The maximum interval of time
         /// during which a flow of packets is captured and aggregated into a flow
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Output("maxAggregationInterval")]
         public Output<int?> MaxAggregationInterval { get; private set; } = null!;
@@ -361,6 +306,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class FlowLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Input("deliverCrossAccountRole")]
+        public Input<string>? DeliverCrossAccountRole { get; set; }
+
+        /// <summary>
         /// Describes the destination options for a flow log. More details below.
         /// </summary>
         [Input("destinationOptions")]
@@ -406,7 +357,7 @@ namespace Pulumi.Aws.Ec2
         /// The maximum interval of time
         /// during which a flow of packets is captured and aggregated into a flow
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
@@ -468,6 +419,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Input("deliverCrossAccountRole")]
+        public Input<string>? DeliverCrossAccountRole { get; set; }
+
+        /// <summary>
         /// Describes the destination options for a flow log. More details below.
         /// </summary>
         [Input("destinationOptions")]
@@ -513,7 +470,7 @@ namespace Pulumi.Aws.Ec2
         /// The maximum interval of time
         /// during which a flow of packets is captured and aggregated into a flow
         /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }

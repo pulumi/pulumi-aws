@@ -16,14 +16,14 @@ public final class BucketV2LoggingArgs extends com.pulumi.resources.ResourceArgs
     public static final BucketV2LoggingArgs Empty = new BucketV2LoggingArgs();
 
     /**
-     * The name of the bucket that will receive the log objects.
+     * Name of the bucket that will receive the log objects.
      * 
      */
     @Import(name="targetBucket", required=true)
     private Output<String> targetBucket;
 
     /**
-     * @return The name of the bucket that will receive the log objects.
+     * @return Name of the bucket that will receive the log objects.
      * 
      */
     public Output<String> targetBucket() {
@@ -71,7 +71,7 @@ public final class BucketV2LoggingArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param targetBucket The name of the bucket that will receive the log objects.
+         * @param targetBucket Name of the bucket that will receive the log objects.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BucketV2LoggingArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param targetBucket The name of the bucket that will receive the log objects.
+         * @param targetBucket Name of the bucket that will receive the log objects.
          * 
          * @return builder
          * 

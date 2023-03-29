@@ -17,66 +17,11 @@ import (
 //
 // > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
 //
+// > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+//
 // > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 //
 // ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "lambda.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
-//				Role:    iamForLambda.Arn,
-//				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs16.x"),
-//				Environment: &lambda.FunctionEnvironmentArgs{
-//					Variables: pulumi.StringMap{
-//						"foo": pulumi.String("bar"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Lambda Layers
 //
 // ```go
@@ -117,8 +62,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -127,23 +70,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"lambda.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "lambda.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -254,8 +203,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
@@ -277,33 +224,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			lambdaLogging, err := iam.NewPolicy(ctx, "lambdaLogging", &iam.PolicyArgs{
+//			lambdaLoggingPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"logs:CreateLogGroup",
+//							"logs:CreateLogStream",
+//							"logs:PutLogEvents",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*:*:*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			lambdaLoggingPolicy, err := iam.NewPolicy(ctx, "lambdaLoggingPolicy", &iam.PolicyArgs{
 //				Path:        pulumi.String("/"),
 //				Description: pulumi.String("IAM policy for logging from a lambda"),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "logs:CreateLogGroup",
-//	        "logs:CreateLogStream",
-//	        "logs:PutLogEvents"
-//	      ],
-//	      "Resource": "arn:aws:logs:*:*:*",
-//	      "Effect": "Allow"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				Policy:      *pulumi.String(lambdaLoggingPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			lambdaLogs, err := iam.NewRolePolicyAttachment(ctx, "lambdaLogs", &iam.RolePolicyAttachmentArgs{
 //				Role:      pulumi.Any(aws_iam_role.Iam_for_lambda.Name),
-//				PolicyArn: lambdaLogging.Arn,
+//				PolicyArn: lambdaLoggingPolicy.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -406,6 +355,8 @@ type Function struct {
 	// ARN of the signing profile version.
 	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
+	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
 	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
@@ -524,6 +475,8 @@ type functionState struct {
 	// ARN of the signing profile version.
 	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
+	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
@@ -611,6 +564,8 @@ type FunctionState struct {
 	// ARN of the signing profile version.
 	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn pulumi.StringPtrInput
+	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+	SkipDestroy pulumi.BoolPtrInput
 	// Snap start settings block. Detailed below.
 	SnapStart FunctionSnapStartPtrInput
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
@@ -687,6 +642,8 @@ type functionArgs struct {
 	S3Key *string `pulumi:"s3Key"`
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
+	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
@@ -753,6 +710,8 @@ type FunctionArgs struct {
 	S3Key pulumi.StringPtrInput
 	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 	S3ObjectVersion pulumi.StringPtrInput
+	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+	SkipDestroy pulumi.BoolPtrInput
 	// Snap start settings block. Detailed below.
 	SnapStart FunctionSnapStartPtrInput
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
@@ -1013,6 +972,11 @@ func (o FunctionOutput) SigningJobArn() pulumi.StringOutput {
 // * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 func (o FunctionOutput) SigningProfileVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
+}
+
+// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+func (o FunctionOutput) SkipDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // Snap start settings block. Detailed below.

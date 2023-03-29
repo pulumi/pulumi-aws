@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings
     {
         public readonly string? AcquisitionPointId;
-        public readonly string? AudioOnlyTimecodecControl;
+        public readonly string? AudioOnlyTimecodeControl;
         /// <summary>
         /// Setting to allow self signed or verified RTMP certificates.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// A director and base filename where archive files should be written. See Destination for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination Destination;
-        public readonly int? EventId;
+        public readonly string? EventId;
         public readonly string? EventIdMode;
         public readonly string? EventStopBehavior;
         public readonly int? FilecacheDuration;
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
             string? acquisitionPointId,
 
-            string? audioOnlyTimecodecControl,
+            string? audioOnlyTimecodeControl,
 
             string? certificateMode,
 
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination,
 
-            int? eventId,
+            string? eventId,
 
             string? eventIdMode,
 
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
             string? timestampOffsetMode)
         {
             AcquisitionPointId = acquisitionPointId;
-            AudioOnlyTimecodecControl = audioOnlyTimecodecControl;
+            AudioOnlyTimecodeControl = audioOnlyTimecodeControl;
             CertificateMode = certificateMode;
             ConnectionRetryInterval = connectionRetryInterval;
             Destination = destination;

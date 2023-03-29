@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketServerSideEncryptionConfigurationV2RuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A single object for setting server-side encryption by default documented below
+        /// Single object for setting server-side encryption by default. See below.
         /// </summary>
         [Input("applyServerSideEncryptionByDefault")]
         public Input<Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultGetArgs>? ApplyServerSideEncryptionByDefault { get; set; }

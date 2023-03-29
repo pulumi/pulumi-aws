@@ -22,6 +22,9 @@ __all__ = [
     'ConfigurationSetSendingOptions',
     'ConfigurationSetSuppressionOptions',
     'ConfigurationSetTrackingOptions',
+    'ConfigurationSetVdmOptions',
+    'ConfigurationSetVdmOptionsDashboardOptions',
+    'ConfigurationSetVdmOptionsGuardianOptions',
     'EmailIdentityDkimSigningAttributes',
     'GetDedicatedIpPoolDedicatedIpResult',
 ]
@@ -540,6 +543,128 @@ class ConfigurationSetTrackingOptions(dict):
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
+
+
+@pulumi.output_type
+class ConfigurationSetVdmOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dashboardOptions":
+            suggest = "dashboard_options"
+        elif key == "guardianOptions":
+            suggest = "guardian_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetVdmOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetVdmOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetVdmOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dashboard_options: Optional['outputs.ConfigurationSetVdmOptionsDashboardOptions'] = None,
+                 guardian_options: Optional['outputs.ConfigurationSetVdmOptionsGuardianOptions'] = None):
+        """
+        :param 'ConfigurationSetVdmOptionsDashboardOptionsArgs' dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param 'ConfigurationSetVdmOptionsGuardianOptionsArgs' guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        """
+        if dashboard_options is not None:
+            pulumi.set(__self__, "dashboard_options", dashboard_options)
+        if guardian_options is not None:
+            pulumi.set(__self__, "guardian_options", guardian_options)
+
+    @property
+    @pulumi.getter(name="dashboardOptions")
+    def dashboard_options(self) -> Optional['outputs.ConfigurationSetVdmOptionsDashboardOptions']:
+        """
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        """
+        return pulumi.get(self, "dashboard_options")
+
+    @property
+    @pulumi.getter(name="guardianOptions")
+    def guardian_options(self) -> Optional['outputs.ConfigurationSetVdmOptionsGuardianOptions']:
+        """
+        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        """
+        return pulumi.get(self, "guardian_options")
+
+
+@pulumi.output_type
+class ConfigurationSetVdmOptionsDashboardOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "engagementMetrics":
+            suggest = "engagement_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetVdmOptionsDashboardOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetVdmOptionsDashboardOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetVdmOptionsDashboardOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 engagement_metrics: Optional[str] = None):
+        """
+        :param str engagement_metrics: Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        if engagement_metrics is not None:
+            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> Optional[str]:
+        """
+        Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+
+@pulumi.output_type
+class ConfigurationSetVdmOptionsGuardianOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optimizedSharedDelivery":
+            suggest = "optimized_shared_delivery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetVdmOptionsGuardianOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetVdmOptionsGuardianOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetVdmOptionsGuardianOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 optimized_shared_delivery: Optional[str] = None):
+        """
+        :param str optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        if optimized_shared_delivery is not None:
+            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> Optional[str]:
+        """
+        Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
 
 
 @pulumi.output_type

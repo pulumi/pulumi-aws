@@ -12,6 +12,7 @@ from .get_launch_paths import *
 from .get_portfolio import *
 from .get_portfolio_constraints import *
 from .get_product import *
+from .get_provisioning_artifacts import *
 from .organizations_access import *
 from .portfolio import *
 from .portfolio_share import *

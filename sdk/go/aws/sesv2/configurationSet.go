@@ -87,6 +87,8 @@ type ConfigurationSet struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
+	// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+	VdmOptions ConfigurationSetVdmOptionsPtrOutput `pulumi:"vdmOptions"`
 }
 
 // NewConfigurationSet registers a new resource with the given unique name, arguments, and options.
@@ -138,6 +140,8 @@ type configurationSetState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
+	// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+	VdmOptions *ConfigurationSetVdmOptions `pulumi:"vdmOptions"`
 }
 
 type ConfigurationSetState struct {
@@ -158,6 +162,8 @@ type ConfigurationSetState struct {
 	TagsAll pulumi.StringMapInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
+	// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+	VdmOptions ConfigurationSetVdmOptionsPtrInput
 }
 
 func (ConfigurationSetState) ElementType() reflect.Type {
@@ -179,6 +185,8 @@ type configurationSetArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
+	// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+	VdmOptions *ConfigurationSetVdmOptions `pulumi:"vdmOptions"`
 }
 
 // The set of arguments for constructing a ConfigurationSet resource.
@@ -197,6 +205,8 @@ type ConfigurationSetArgs struct {
 	Tags pulumi.StringMapInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
+	// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+	VdmOptions ConfigurationSetVdmOptionsPtrInput
 }
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
@@ -328,6 +338,11 @@ func (o ConfigurationSetOutput) TagsAll() pulumi.StringMapOutput {
 // An object that defines the open and click tracking options for emails that you send using the configuration set.
 func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTrackingOptionsPtrOutput { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
+}
+
+// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+func (o ConfigurationSetOutput) VdmOptions() ConfigurationSetVdmOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetVdmOptionsPtrOutput { return v.VdmOptions }).(ConfigurationSetVdmOptionsPtrOutput)
 }
 
 type ConfigurationSetArrayOutput struct{ *pulumi.OutputState }

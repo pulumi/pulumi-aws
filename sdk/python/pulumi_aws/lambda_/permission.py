@@ -492,7 +492,7 @@ class Permission(pulumi.CustomResource):
             action="lambda:InvokeFunction",
             function="MyDemoFunction",
             principal="apigateway.amazonaws.com",
-            source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*/*/*"))
+            source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*"))
         ```
 
         ## Usage with CloudWatch log group
@@ -502,20 +502,15 @@ class Permission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_log_group = aws.cloudwatch.LogGroup("defaultLogGroup")
-        default_role = aws.iam.Role("defaultRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        default_role = aws.iam.Role("defaultRole", assume_role_policy=assume_role.json)
         logging_function = aws.lambda_.Function("loggingFunction",
             code=pulumi.FileArchive("lamba_logging.zip"),
             handler="exports.handler",
@@ -669,7 +664,7 @@ class Permission(pulumi.CustomResource):
             action="lambda:InvokeFunction",
             function="MyDemoFunction",
             principal="apigateway.amazonaws.com",
-            source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*/*/*"))
+            source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*"))
         ```
 
         ## Usage with CloudWatch log group
@@ -679,20 +674,15 @@ class Permission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_log_group = aws.cloudwatch.LogGroup("defaultLogGroup")
-        default_role = aws.iam.Role("defaultRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        default_role = aws.iam.Role("defaultRole", assume_role_policy=assume_role.json)
         logging_function = aws.lambda_.Function("loggingFunction",
             code=pulumi.FileArchive("lamba_logging.zip"),
             handler="exports.handler",

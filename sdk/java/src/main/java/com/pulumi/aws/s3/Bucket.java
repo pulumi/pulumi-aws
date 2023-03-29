@@ -821,14 +821,14 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serverSideEncryptionConfiguration", refs={BucketServerSideEncryptionConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ BucketServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
+    private Output<BucketServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
     /**
      * @return A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      * 
      */
-    public Output<Optional<BucketServerSideEncryptionConfiguration>> serverSideEncryptionConfiguration() {
-        return Codegen.optional(this.serverSideEncryptionConfiguration);
+    public Output<BucketServerSideEncryptionConfiguration> serverSideEncryptionConfiguration() {
+        return this.serverSideEncryptionConfiguration;
     }
     /**
      * A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

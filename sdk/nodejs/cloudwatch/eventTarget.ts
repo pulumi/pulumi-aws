@@ -21,18 +21,15 @@ import * as utilities from "../utilities";
  *
  * const console = new aws.cloudwatch.EventRule("console", {
  *     description: "Capture all EC2 scaling events",
- *     eventPattern: `{
- *   "source": [
- *     "aws.autoscaling"
- *   ],
- *   "detail-type": [
- *     "EC2 Instance Launch Successful",
- *     "EC2 Instance Terminate Successful",
- *     "EC2 Instance Launch Unsuccessful",
- *     "EC2 Instance Terminate Unsuccessful"
- *   ]
- * }
- * `,
+ *     eventPattern: JSON.stringify({
+ *         source: ["aws.autoscaling"],
+ *         "detail-type": [
+ *             "EC2 Instance Launch Successful",
+ *             "EC2 Instance Terminate Successful",
+ *             "EC2 Instance Launch Unsuccessful",
+ *             "EC2 Instance Terminate Unsuccessful",
+ *         ],
+ *     }),
  * });
  * const testStream = new aws.kinesis.Stream("testStream", {shardCount: 1});
  * const yada = new aws.cloudwatch.EventTarget("yada", {
@@ -67,24 +64,19 @@ import * as utilities from "../utilities";
  * });
  * const stopInstance = new aws.ssm.Document("stopInstance", {
  *     documentType: "Command",
- *     content: `  {
- *     "schemaVersion": "1.2",
- *     "description": "Stop an instance",
- *     "parameters": {
- *
- *     },
- *     "runtimeConfig": {
- *       "aws:runShellScript": {
- *         "properties": [
- *           {
- *             "id": "0.aws:runShellScript",
- *             "runCommand": ["halt"]
- *           }
- *         ]
- *       }
- *     }
- *   }
- * `,
+ *     content: JSON.stringify({
+ *         schemaVersion: "1.2",
+ *         description: "Stop an instance",
+ *         parameters: {},
+ *         runtimeConfig: {
+ *             "aws:runShellScript": {
+ *                 properties: [{
+ *                     id: "0.aws:runShellScript",
+ *                     runCommand: ["halt"],
+ *                 }],
+ *             },
+ *         },
+ *     }),
  * });
  * const ssmLifecyclePolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [
@@ -166,7 +158,7 @@ import * as utilities from "../utilities";
  *     rule: exampleEventRule.id,
  *     httpTarget: {
  *         queryStringParameters: {
- *             Body: `$.detail.body`,
+ *             Body: "$.detail.body",
  *         },
  *         headerParameters: {
  *             Env: "Test",
@@ -180,19 +172,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const eventBusInvokeRemoteEventBusRole = new aws.iam.Role("eventBusInvokeRemoteEventBusRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "events.amazonaws.com"
- *       },
- *       "Effect": "Allow"
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["events.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const eventBusInvokeRemoteEventBusRole = new aws.iam.Role("eventBusInvokeRemoteEventBusRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const eventBusInvokeRemoteEventBusPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -228,8 +218,8 @@ import * as utilities from "../utilities";
  *     rule: exampleEventRule.id,
  *     inputTransformer: {
  *         inputPaths: {
- *             instance: `$.detail.instance`,
- *             status: `$.detail.status`,
+ *             instance: "$.detail.instance",
+ *             status: "$.detail.status",
  *         },
  *         inputTemplate: `{
  *   "instance_id": <instance>,
@@ -252,8 +242,8 @@ import * as utilities from "../utilities";
  *     rule: exampleEventRule.id,
  *     inputTransformer: {
  *         inputPaths: {
- *             instance: `$.detail.instance`,
- *             status: `$.detail.status`,
+ *             instance: "$.detail.instance",
+ *             status: "$.detail.status",
  *         },
  *         inputTemplate: "\"<instance> is in state <status>\"",
  *     },

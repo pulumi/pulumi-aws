@@ -523,6 +523,7 @@ class StackSet(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -539,27 +540,29 @@ class StackSet(pulumi.CustomResource):
             parameters={
                 "VPCCidr": "10.0.0.0/16",
             },
-            template_body=\"\"\"{
-          "Parameters" : {
-            "VPCCidr" : {
-              "Type" : "String",
-              "Default" : "10.0.0.0/16",
-              "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
-            }
-          },
-          "Resources" : {
-            "myVpc": {
-              "Type" : "AWS::EC2::VPC",
-              "Properties" : {
-                "CidrBlock" : { "Ref" : "VPCCidr" },
-                "Tags" : [
-                  {"Key": "Name", "Value": "Primary_CF_VPC"}
-                ]
-              }
-            }
-          }
-        }
-        \"\"\")
+            template_body=json.dumps({
+                "Parameters": {
+                    "VPCCidr": {
+                        "Type": "String",
+                        "Default": "10.0.0.0/16",
+                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+                    },
+                },
+                "Resources": {
+                    "myVpc": {
+                        "Type": "AWS::EC2::VPC",
+                        "Properties": {
+                            "CidrBlock": {
+                                "Ref": "VPCCidr",
+                            },
+                            "Tags": [{
+                                "Key": "Name",
+                                "Value": "Primary_CF_VPC",
+                            }],
+                        },
+                    },
+                },
+            }))
         a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             effect="Allow",
@@ -611,6 +614,7 @@ class StackSet(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -627,27 +631,29 @@ class StackSet(pulumi.CustomResource):
             parameters={
                 "VPCCidr": "10.0.0.0/16",
             },
-            template_body=\"\"\"{
-          "Parameters" : {
-            "VPCCidr" : {
-              "Type" : "String",
-              "Default" : "10.0.0.0/16",
-              "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
-            }
-          },
-          "Resources" : {
-            "myVpc": {
-              "Type" : "AWS::EC2::VPC",
-              "Properties" : {
-                "CidrBlock" : { "Ref" : "VPCCidr" },
-                "Tags" : [
-                  {"Key": "Name", "Value": "Primary_CF_VPC"}
-                ]
-              }
-            }
-          }
-        }
-        \"\"\")
+            template_body=json.dumps({
+                "Parameters": {
+                    "VPCCidr": {
+                        "Type": "String",
+                        "Default": "10.0.0.0/16",
+                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+                    },
+                },
+                "Resources": {
+                    "myVpc": {
+                        "Type": "AWS::EC2::VPC",
+                        "Properties": {
+                            "CidrBlock": {
+                                "Ref": "VPCCidr",
+                            },
+                            "Tags": [{
+                                "Key": "Name",
+                                "Value": "Primary_CF_VPC",
+                            }],
+                        },
+                    },
+                },
+            }))
         a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             effect="Allow",

@@ -160,10 +160,10 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableDnsSupport);
     }
     @Export(name="enableNetworkAddressUsageMetrics", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableNetworkAddressUsageMetrics;
+    private Output<Boolean> enableNetworkAddressUsageMetrics;
 
-    public Output<Optional<Boolean>> enableNetworkAddressUsageMetrics() {
-        return Codegen.optional(this.enableNetworkAddressUsageMetrics);
+    public Output<Boolean> enableNetworkAddressUsageMetrics() {
+        return this.enableNetworkAddressUsageMetrics;
     }
     @Export(name="existingDefaultVpc", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> existingDefaultVpc;

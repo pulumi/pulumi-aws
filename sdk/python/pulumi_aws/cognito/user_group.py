@@ -207,33 +207,32 @@ class UserGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role = aws.iam.Role("groupRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Federated": "cognito-identity.amazonaws.com"
-              },
-              "Action": "sts:AssumeRoleWithWebIdentity",
-              "Condition": {
-                "StringEquals": {
-                  "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
-                },
-                "ForAnyValue:StringLike": {
-                  "cognito-identity.amazonaws.com:amr": "authenticated"
-                }
-              }
-            }
-          ]
-        }
-        \"\"\")
+        group_role_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Federated",
+                identifiers=["cognito-identity.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            conditions=[
+                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="cognito-identity.amazonaws.com:aud",
+                    values=["us-east-1:12345678-dead-beef-cafe-123456790ab"],
+                ),
+                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="ForAnyValue:StringLike",
+                    variable="cognito-identity.amazonaws.com:amr",
+                    values=["authenticated"],
+                ),
+            ],
+        )])
+        group_role_role = aws.iam.Role("groupRoleRole", assume_role_policy=group_role_policy_document.json)
         main_user_group = aws.cognito.UserGroup("mainUserGroup",
             user_pool_id=main_user_pool.id,
             description="Managed by Pulumi",
             precedence=42,
-            role_arn=group_role.arn)
+            role_arn=group_role_role.arn)
         ```
 
         ## Import
@@ -268,33 +267,32 @@ class UserGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role = aws.iam.Role("groupRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Federated": "cognito-identity.amazonaws.com"
-              },
-              "Action": "sts:AssumeRoleWithWebIdentity",
-              "Condition": {
-                "StringEquals": {
-                  "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
-                },
-                "ForAnyValue:StringLike": {
-                  "cognito-identity.amazonaws.com:amr": "authenticated"
-                }
-              }
-            }
-          ]
-        }
-        \"\"\")
+        group_role_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Federated",
+                identifiers=["cognito-identity.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            conditions=[
+                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="cognito-identity.amazonaws.com:aud",
+                    values=["us-east-1:12345678-dead-beef-cafe-123456790ab"],
+                ),
+                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="ForAnyValue:StringLike",
+                    variable="cognito-identity.amazonaws.com:amr",
+                    values=["authenticated"],
+                ),
+            ],
+        )])
+        group_role_role = aws.iam.Role("groupRoleRole", assume_role_policy=group_role_policy_document.json)
         main_user_group = aws.cognito.UserGroup("mainUserGroup",
             user_pool_id=main_user_pool.id,
             description="Managed by Pulumi",
             precedence=42,
-            role_arn=group_role.arn)
+            role_arn=group_role_role.arn)
         ```
 
         ## Import

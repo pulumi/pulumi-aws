@@ -19,6 +19,21 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     public static final FlowLogArgs Empty = new FlowLogArgs();
 
     /**
+     * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * 
+     */
+    @Import(name="deliverCrossAccountRole")
+    private @Nullable Output<String> deliverCrossAccountRole;
+
+    /**
+     * @return ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+     * 
+     */
+    public Optional<Output<String>> deliverCrossAccountRole() {
+        return Optional.ofNullable(this.deliverCrossAccountRole);
+    }
+
+    /**
      * Describes the destination options for a flow log. More details below.
      * 
      */
@@ -135,7 +150,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
      * The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
     @Import(name="maxAggregationInterval")
@@ -145,7 +160,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
      * @return The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
     public Optional<Output<Integer>> maxAggregationInterval() {
@@ -245,6 +260,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     private FlowLogArgs() {}
 
     private FlowLogArgs(FlowLogArgs $) {
+        this.deliverCrossAccountRole = $.deliverCrossAccountRole;
         this.destinationOptions = $.destinationOptions;
         this.eniId = $.eniId;
         this.iamRoleArn = $.iamRoleArn;
@@ -277,6 +293,27 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(FlowLogArgs defaults) {
             $ = new FlowLogArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param deliverCrossAccountRole ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deliverCrossAccountRole(@Nullable Output<String> deliverCrossAccountRole) {
+            $.deliverCrossAccountRole = deliverCrossAccountRole;
+            return this;
+        }
+
+        /**
+         * @param deliverCrossAccountRole ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deliverCrossAccountRole(String deliverCrossAccountRole) {
+            return deliverCrossAccountRole(Output.of(deliverCrossAccountRole));
         }
 
         /**
@@ -438,7 +475,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
          * @param maxAggregationInterval The maximum interval of time
          * during which a flow of packets is captured and aggregated into a flow
          * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-         * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+         * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
          * 
          * @return builder
          * 
@@ -452,7 +489,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
          * @param maxAggregationInterval The maximum interval of time
          * during which a flow of packets is captured and aggregated into a flow
          * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-         * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
+         * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
          * 
          * @return builder
          * 

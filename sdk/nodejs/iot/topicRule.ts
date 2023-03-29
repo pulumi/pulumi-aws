@@ -16,19 +16,17 @@ import * as utilities from "../utilities";
  *
  * const mytopic = new aws.sns.Topic("mytopic", {});
  * const myerrortopic = new aws.sns.Topic("myerrortopic", {});
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "iot.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["iot.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const rule = new aws.iot.TopicRule("rule", {
  *     description: "Example rule",
  *     enabled: true,
@@ -47,21 +45,16 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const iamPolicyForLambda = new aws.iam.RolePolicy("iamPolicyForLambda", {
+ * const iamPolicyForLambdaPolicyDocument = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["sns:Publish"],
+ *         resources: [arn],
+ *     }],
+ * }));
+ * const iamPolicyForLambdaRolePolicy = new aws.iam.RolePolicy("iamPolicyForLambdaRolePolicy", {
  *     role: role.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *         "Effect": "Allow",
- *         "Action": [
- *             "sns:Publish"
- *         ],
- *         "Resource": "${mytopic.arn}"
- *     }
- *   ]
- * }
- * `,
+ *     policy: iamPolicyForLambdaPolicyDocument.apply(iamPolicyForLambdaPolicyDocument => iamPolicyForLambdaPolicyDocument.json),
  * });
  * ```
  *

@@ -106,24 +106,17 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pubsub = aws.iot.Policy("pubsub", policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "iot:*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+        pubsub_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["iot:*"],
+            resources=["*"],
+        )])
+        pubsub_policy = aws.iot.Policy("pubsubPolicy", policy=pubsub_policy_document.json)
         cert = aws.iot.Certificate("cert",
             csr=(lambda path: open(path).read())("csr.pem"),
             active=True)
         att = aws.iot.PolicyAttachment("att",
-            policy=pubsub.name,
+            policy=pubsub_policy.name,
             target=cert.arn)
         ```
 
@@ -147,24 +140,17 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pubsub = aws.iot.Policy("pubsub", policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "iot:*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+        pubsub_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["iot:*"],
+            resources=["*"],
+        )])
+        pubsub_policy = aws.iot.Policy("pubsubPolicy", policy=pubsub_policy_document.json)
         cert = aws.iot.Certificate("cert",
             csr=(lambda path: open(path).read())("csr.pem"),
             active=True)
         att = aws.iot.PolicyAttachment("att",
-            policy=pubsub.name,
+            policy=pubsub_policy.name,
             target=cert.arn)
         ```
 

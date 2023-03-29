@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -58,25 +58,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
-//				MonitorSpecification: pulumi.String(fmt.Sprintf(`{
-//		"And": null,
-//		"CostCategories": null,
-//		"Dimensions": null,
-//		"Not": null,
-//		"Or": null,
-//		"Tags": {
-//			"Key": "CostCenter",
-//			"MatchOptions": null,
-//			"Values": [
-//				"10000"
-//			]
-//		}
-//	}
-//
-// `)),
-//
-//				MonitorType: pulumi.String("CUSTOM"),
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"And":            nil,
+//				"CostCategories": nil,
+//				"Dimensions":     nil,
+//				"Not":            nil,
+//				"Or":             nil,
+//				"Tags": map[string]interface{}{
+//					"Key":          "CostCenter",
+//					"MatchOptions": nil,
+//					"Values": []string{
+//						"10000",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
+//				MonitorType:          pulumi.String("CUSTOM"),
+//				MonitorSpecification: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

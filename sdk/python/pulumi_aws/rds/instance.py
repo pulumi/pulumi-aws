@@ -1197,6 +1197,7 @@ class _InstanceState:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  latest_restorable_time: Optional[pulumi.Input[str]] = None,
                  license_model: Optional[pulumi.Input[str]] = None,
+                 listener_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  max_allocated_storage: Optional[pulumi.Input[int]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
@@ -1233,7 +1234,7 @@ class _InstanceState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
-        :param pulumi.Input[str] address: The hostname of the RDS instance. See also `endpoint` and `port`.
+        :param pulumi.Input[str] address: Specifies the DNS address of the DB instance.
         :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
                upgrades are allowed. Changing this parameter does not result in an outage and
@@ -1294,8 +1295,7 @@ class _InstanceState:
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
-        :param pulumi.Input[str] hosted_zone_id: The canonical hosted zone ID of the DB instance (to be used
-               in a Route 53 Alias record).
+        :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
         :param pulumi.Input[str] identifier: The name of the RDS instance,
@@ -1312,6 +1312,7 @@ class _InstanceState:
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
                SE1) License model information for this DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]] listener_endpoints: Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
                Maintenance Window
@@ -1463,6 +1464,8 @@ class _InstanceState:
             pulumi.set(__self__, "latest_restorable_time", latest_restorable_time)
         if license_model is not None:
             pulumi.set(__self__, "license_model", license_model)
+        if listener_endpoints is not None:
+            pulumi.set(__self__, "listener_endpoints", listener_endpoints)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
         if max_allocated_storage is not None:
@@ -1539,7 +1542,7 @@ class _InstanceState:
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[str]]:
         """
-        The hostname of the RDS instance. See also `endpoint` and `port`.
+        Specifies the DNS address of the DB instance.
         """
         return pulumi.get(self, "address")
 
@@ -1897,8 +1900,7 @@ class _InstanceState:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The canonical hosted zone ID of the DB instance (to be used
-        in a Route 53 Alias record).
+        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -2009,6 +2011,18 @@ class _InstanceState:
     @license_model.setter
     def license_model(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "license_model", value)
+
+    @property
+    @pulumi.getter(name="listenerEndpoints")
+    def listener_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]]]:
+        """
+        Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+        """
+        return pulumi.get(self, "listener_endpoints")
+
+    @listener_endpoints.setter
+    def listener_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]]]):
+        pulumi.set(self, "listener_endpoints", value)
 
     @property
     @pulumi.getter(name="maintenanceWindow")
@@ -2990,6 +3004,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["latest_restorable_time"] = None
+            __props__.__dict__["listener_endpoints"] = None
             __props__.__dict__["replicas"] = None
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["status"] = None
@@ -3042,6 +3057,7 @@ class Instance(pulumi.CustomResource):
             kms_key_id: Optional[pulumi.Input[str]] = None,
             latest_restorable_time: Optional[pulumi.Input[str]] = None,
             license_model: Optional[pulumi.Input[str]] = None,
+            listener_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceListenerEndpointArgs']]]]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             max_allocated_storage: Optional[pulumi.Input[int]] = None,
             monitoring_interval: Optional[pulumi.Input[int]] = None,
@@ -3083,7 +3099,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address: The hostname of the RDS instance. See also `endpoint` and `port`.
+        :param pulumi.Input[str] address: Specifies the DNS address of the DB instance.
         :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
                upgrades are allowed. Changing this parameter does not result in an outage and
@@ -3144,8 +3160,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
-        :param pulumi.Input[str] hosted_zone_id: The canonical hosted zone ID of the DB instance (to be used
-               in a Route 53 Alias record).
+        :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
         :param pulumi.Input[str] identifier: The name of the RDS instance,
@@ -3162,6 +3177,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
                SE1) License model information for this DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceListenerEndpointArgs']]]] listener_endpoints: Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
                Maintenance Window
@@ -3281,6 +3297,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["latest_restorable_time"] = latest_restorable_time
         __props__.__dict__["license_model"] = license_model
+        __props__.__dict__["listener_endpoints"] = listener_endpoints
         __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["max_allocated_storage"] = max_allocated_storage
         __props__.__dict__["monitoring_interval"] = monitoring_interval
@@ -3321,7 +3338,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def address(self) -> pulumi.Output[str]:
         """
-        The hostname of the RDS instance. See also `endpoint` and `port`.
+        Specifies the DNS address of the DB instance.
         """
         return pulumi.get(self, "address")
 
@@ -3571,8 +3588,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
         """
-        The canonical hosted zone ID of the DB instance (to be used
-        in a Route 53 Alias record).
+        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -3647,6 +3663,14 @@ class Instance(pulumi.CustomResource):
         SE1) License model information for this DB instance.
         """
         return pulumi.get(self, "license_model")
+
+    @property
+    @pulumi.getter(name="listenerEndpoints")
+    def listener_endpoints(self) -> pulumi.Output[Sequence['outputs.InstanceListenerEndpoint']]:
+        """
+        Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+        """
+        return pulumi.get(self, "listener_endpoints")
 
     @property
     @pulumi.getter(name="maintenanceWindow")

@@ -134,7 +134,11 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly loadBalancingAlgorithmType!: pulumi.Output<string>;
     /**
-     * Name of the target group. If omitted, this provider will assign a random, unique name.
+     * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
+     */
+    public readonly loadBalancingCrossZoneEnabled!: pulumi.Output<string>;
+    /**
+     * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -214,6 +218,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = state ? state.loadBalancingAlgorithmType : undefined;
+            resourceInputs["loadBalancingCrossZoneEnabled"] = state ? state.loadBalancingCrossZoneEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
@@ -236,6 +241,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = args ? args.loadBalancingAlgorithmType : undefined;
+            resourceInputs["loadBalancingCrossZoneEnabled"] = args ? args.loadBalancingCrossZoneEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -295,7 +301,11 @@ export interface TargetGroupState {
      */
     loadBalancingAlgorithmType?: pulumi.Input<string>;
     /**
-     * Name of the target group. If omitted, this provider will assign a random, unique name.
+     * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
+     */
+    loadBalancingCrossZoneEnabled?: pulumi.Input<string>;
+    /**
+     * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      */
     name?: pulumi.Input<string>;
     /**
@@ -381,7 +391,11 @@ export interface TargetGroupArgs {
      */
     loadBalancingAlgorithmType?: pulumi.Input<string>;
     /**
-     * Name of the target group. If omitted, this provider will assign a random, unique name.
+     * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
+     */
+    loadBalancingCrossZoneEnabled?: pulumi.Input<string>;
+    /**
+     * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      */
     name?: pulumi.Input<string>;
     /**

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
         /// </summary>
         public readonly string? TemplateUrl;
         /// <summary>
-        /// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         /// </summary>
         public readonly string? Type;
 

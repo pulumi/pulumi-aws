@@ -21,8 +21,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -31,23 +29,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"apigateway.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatchRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Sid": "",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Service": "apigateway.amazonaws.com"
-//	      },
-//	      "Action": "sts:AssumeRole"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -58,29 +62,31 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			cloudwatchPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"logs:CreateLogGroup",
+//							"logs:CreateLogStream",
+//							"logs:DescribeLogGroups",
+//							"logs:DescribeLogStreams",
+//							"logs:PutLogEvents",
+//							"logs:GetLogEvents",
+//							"logs:FilterLogEvents",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = iam.NewRolePolicy(ctx, "cloudwatchRolePolicy", &iam.RolePolicyArgs{
-//				Role: cloudwatchRole.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Effect": "Allow",
-//	            "Action": [
-//	                "logs:CreateLogGroup",
-//	                "logs:CreateLogStream",
-//	                "logs:DescribeLogGroups",
-//	                "logs:DescribeLogStreams",
-//	                "logs:PutLogEvents",
-//	                "logs:GetLogEvents",
-//	                "logs:FilterLogEvents"
-//	            ],
-//	            "Resource": "*"
-//	        }
-//	    ]
-//	}
-//
-// `)),
-//
+//				Role:   cloudwatchRole.ID(),
+//				Policy: *pulumi.String(cloudwatchPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

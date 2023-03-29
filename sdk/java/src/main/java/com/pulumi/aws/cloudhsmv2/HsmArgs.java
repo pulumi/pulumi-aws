@@ -16,14 +16,14 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
     public static final HsmArgs Empty = new HsmArgs();
 
     /**
-     * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     * @return The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -61,14 +61,14 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of subnet in which HSM module will be located.
+     * The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of subnet in which HSM module will be located.
+     * @return The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -103,7 +103,7 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+         * @param availabilityZone The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+         * @param availabilityZone The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The ID of subnet in which HSM module will be located.
+         * @param subnetId The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The ID of subnet in which HSM module will be located.
+         * @param subnetId The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
          * 
          * @return builder
          * 

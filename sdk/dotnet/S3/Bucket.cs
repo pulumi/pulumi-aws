@@ -587,7 +587,7 @@ namespace Pulumi.Aws.S3
         /// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
-        public Output<Outputs.BucketServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
+        public Output<Outputs.BucketServerSideEncryptionConfiguration> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

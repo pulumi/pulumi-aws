@@ -335,42 +335,6 @@ class Grant(pulumi.CustomResource):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        key = aws.kms.Key("key")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        grant = aws.kms.Grant("grant",
-            key_id=key.key_id,
-            grantee_principal=role.arn,
-            operations=[
-                "Encrypt",
-                "Decrypt",
-                "GenerateDataKey",
-            ],
-            constraints=[aws.kms.GrantConstraintArgs(
-                encryption_context_equals={
-                    "Department": "Finance",
-                },
-            )])
-        ```
-
         ## Import
 
         KMS Grants can be imported using the Key ID and Grant ID separated by a colon (`:`), e.g.,
@@ -399,42 +363,6 @@ class Grant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        key = aws.kms.Key("key")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        grant = aws.kms.Grant("grant",
-            key_id=key.key_id,
-            grantee_principal=role.arn,
-            operations=[
-                "Encrypt",
-                "Decrypt",
-                "GenerateDataKey",
-            ],
-            constraints=[aws.kms.GrantConstraintArgs(
-                encryption_context_equals={
-                    "Department": "Finance",
-                },
-            )])
-        ```
 
         ## Import
 

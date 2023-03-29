@@ -72,16 +72,22 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+        /// Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
         /// </summary>
         [Input("imageDigest")]
         public string? ImageDigest { get; set; }
 
         /// <summary>
-        /// Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+        /// Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
         /// </summary>
         [Input("imageTag")]
         public string? ImageTag { get; set; }
+
+        /// <summary>
+        /// Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+        /// </summary>
+        [Input("mostRecent")]
+        public bool? MostRecent { get; set; }
 
         /// <summary>
         /// ID of the Registry where the repository resides.
@@ -104,16 +110,22 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+        /// Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
         /// </summary>
         [Input("imageDigest")]
         public Input<string>? ImageDigest { get; set; }
 
         /// <summary>
-        /// Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+        /// Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
         /// </summary>
         [Input("imageTag")]
         public Input<string>? ImageTag { get; set; }
+
+        /// <summary>
+        /// Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+        /// </summary>
+        [Input("mostRecent")]
+        public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
         /// ID of the Registry where the repository resides.
@@ -155,6 +167,7 @@ namespace Pulumi.Aws.Ecr
         /// List of tags associated with this image.
         /// </summary>
         public readonly ImmutableArray<string> ImageTags;
+        public readonly bool? MostRecent;
         public readonly string RegistryId;
         public readonly string RepositoryName;
 
@@ -172,6 +185,8 @@ namespace Pulumi.Aws.Ecr
 
             ImmutableArray<string> imageTags,
 
+            bool? mostRecent,
+
             string registryId,
 
             string repositoryName)
@@ -182,6 +197,7 @@ namespace Pulumi.Aws.Ecr
             ImageSizeInBytes = imageSizeInBytes;
             ImageTag = imageTag;
             ImageTags = imageTags;
+            MostRecent = mostRecent;
             RegistryId = registryId;
             RepositoryName = repositoryName;
         }

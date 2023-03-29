@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// <summary>
         /// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAlias> ClientAliases;
+        public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAlias> ClientAlias;
         /// <summary>
         /// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceServiceConnectConfigurationService(
-            ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAlias> clientAliases,
+            ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAlias> clientAlias,
 
             string? discoveryName,
 
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string portName)
         {
-            ClientAliases = clientAliases;
+            ClientAlias = clientAlias;
             DiscoveryName = discoveryName;
             IngressPortOverride = ingressPortOverride;
             PortName = portName;

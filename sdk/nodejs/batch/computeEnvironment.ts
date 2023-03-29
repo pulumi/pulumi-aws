@@ -23,37 +23,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRoleRole", {assumeRolePolicy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- * 	{
- * 	    "Action": "sts:AssumeRole",
- * 	    "Effect": "Allow",
- * 	    "Principal": {
- * 	        "Service": "ec2.amazonaws.com"
- * 	    }
- * 	}
- *     ]
- * }
- * `});
+ * const ec2AssumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["ec2.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRoleRole", {assumeRolePolicy: ec2AssumeRole.then(ec2AssumeRole => ec2AssumeRole.json)});
  * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", {
  *     role: ecsInstanceRoleRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
  * });
  * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", {role: ecsInstanceRoleRole.name});
- * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRoleRole", {assumeRolePolicy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- * 	{
- * 	    "Action": "sts:AssumeRole",
- * 	    "Effect": "Allow",
- * 	    "Principal": {
- * 		"Service": "batch.amazonaws.com"
- * 	    }
- * 	}
- *     ]
- * }
- * `});
+ * const batchAssumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["batch.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRoleRole", {assumeRolePolicy: batchAssumeRole.then(batchAssumeRole => batchAssumeRole.json)});
  * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", {
  *     role: awsBatchServiceRoleRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
@@ -115,7 +111,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
  * ```
  *
- *  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+ *  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
  */
 export class ComputeEnvironment extends pulumi.CustomResource {
     /**

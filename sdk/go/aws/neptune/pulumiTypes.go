@@ -128,7 +128,7 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 type ClusterServerlessV2ScalingConfiguration struct {
 	// The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
-	// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+	// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 }
 
@@ -146,7 +146,7 @@ type ClusterServerlessV2ScalingConfigurationInput interface {
 type ClusterServerlessV2ScalingConfigurationArgs struct {
 	// The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
 	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
-	// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+	// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
 	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
 }
 
@@ -232,7 +232,7 @@ func (o ClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Floa
 	return o.ApplyT(func(v ClusterServerlessV2ScalingConfiguration) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
 func (o ClusterServerlessV2ScalingConfigurationOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterServerlessV2ScalingConfiguration) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
@@ -271,7 +271,7 @@ func (o ClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
 func (o ClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessV2ScalingConfiguration) *float64 {
 		if v == nil {

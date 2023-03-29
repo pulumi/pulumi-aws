@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iot.Policy;
  * import com.pulumi.aws.iot.PolicyArgs;
  * import com.pulumi.aws.iot.Certificate;
@@ -42,21 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pubsub = new Policy(&#34;pubsub&#34;, PolicyArgs.builder()        
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;iot:*&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;*&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *         final var pubsubPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(&#34;iot:*&#34;)
+ *                 .resources(&#34;*&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var pubsubPolicy = new Policy(&#34;pubsubPolicy&#34;, PolicyArgs.builder()        
+ *             .policy(pubsubPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
@@ -65,7 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var att = new PolicyAttachment(&#34;att&#34;, PolicyAttachmentArgs.builder()        
- *             .policy(pubsub.name())
+ *             .policy(pubsubPolicy.name())
  *             .target(cert.arn())
  *             .build());
  * 

@@ -41,22 +41,35 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///     });
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "config.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""config.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var rolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("rolePolicyAttachment", new()
@@ -70,30 +83,30 @@ namespace Pulumi.Aws.Cfg
     ///         RoleArn = role.Arn,
     ///     });
     /// 
+    ///     var policyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     bucketV2.Arn,
+    ///                     $"{bucketV2.Arn}/*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
     ///     {
     ///         Role = role.Id,
-    ///         Policy = Output.Tuple(bucketV2.Arn, bucketV2.Arn).Apply(values =&gt;
-    ///         {
-    ///             var bucketV2Arn = values.Item1;
-    ///             var bucketV2Arn1 = values.Item2;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Action"": [
-    ///         ""s3:*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": [
-    ///         ""{bucketV2Arn}"",
-    ///         ""{bucketV2Arn1}/*""
-    ///       ]
-    ///     }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
+    ///         Policy = policyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

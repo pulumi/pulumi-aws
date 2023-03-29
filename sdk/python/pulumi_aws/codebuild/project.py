@@ -867,79 +867,70 @@ class Project(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "codebuild.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["codebuild.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_policy_document = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=[
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents",
+                ],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=[
+                    "ec2:CreateNetworkInterface",
+                    "ec2:DescribeDhcpOptions",
+                    "ec2:DescribeNetworkInterfaces",
+                    "ec2:DeleteNetworkInterface",
+                    "ec2:DescribeSubnets",
+                    "ec2:DescribeSecurityGroups",
+                    "ec2:DescribeVpcs",
+                ],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ec2:CreateNetworkInterfacePermission"],
+                resources=["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
+                conditions=[
+                    aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="ec2:Subnet",
+                        values=[
+                            aws_subnet["example1"]["arn"],
+                            aws_subnet["example2"]["arn"],
+                        ],
+                    ),
+                    aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="ec2:AuthorizedService",
+                        values=["codebuild.amazonaws.com"],
+                    ),
+                ],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["s3:*"],
+                resources=[
+                    example_bucket_v2_arn,
+                    f"{example_bucket_v2_arn1}/*",
+                ],
+            ),
+        ]))
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.name,
-            policy=pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Resource": [
-                "*"
-              ],
-              "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ]
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterface",
-                "ec2:DescribeDhcpOptions",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeVpcs"
-              ],
-              "Resource": "*"
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterfacePermission"
-              ],
-              "Resource": [
-                "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
-              ],
-              "Condition": {{
-                "StringEquals": {{
-                  "ec2:Subnet": [
-                    "{aws_subnet["example1"]["arn"]}",
-                    "{aws_subnet["example2"]["arn"]}"
-                  ],
-                  "ec2:AuthorizedService": "codebuild.amazonaws.com"
-                }}
-              }}
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "s3:*"
-              ],
-              "Resource": [
-                "{example_bucket_v2_arn}",
-                "{example_bucket_v2_arn1}/*"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=example_policy_document.json)
         example_project = aws.codebuild.Project("exampleProject",
             description="test_codebuild_project",
             build_timeout=5,
@@ -1089,79 +1080,70 @@ class Project(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "codebuild.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["codebuild.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        example_policy_document = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=[
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents",
+                ],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=[
+                    "ec2:CreateNetworkInterface",
+                    "ec2:DescribeDhcpOptions",
+                    "ec2:DescribeNetworkInterfaces",
+                    "ec2:DeleteNetworkInterface",
+                    "ec2:DescribeSubnets",
+                    "ec2:DescribeSecurityGroups",
+                    "ec2:DescribeVpcs",
+                ],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ec2:CreateNetworkInterfacePermission"],
+                resources=["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
+                conditions=[
+                    aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="ec2:Subnet",
+                        values=[
+                            aws_subnet["example1"]["arn"],
+                            aws_subnet["example2"]["arn"],
+                        ],
+                    ),
+                    aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="ec2:AuthorizedService",
+                        values=["codebuild.amazonaws.com"],
+                    ),
+                ],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["s3:*"],
+                resources=[
+                    example_bucket_v2_arn,
+                    f"{example_bucket_v2_arn1}/*",
+                ],
+            ),
+        ]))
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
             role=example_role.name,
-            policy=pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Resource": [
-                "*"
-              ],
-              "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ]
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterface",
-                "ec2:DescribeDhcpOptions",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeVpcs"
-              ],
-              "Resource": "*"
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterfacePermission"
-              ],
-              "Resource": [
-                "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
-              ],
-              "Condition": {{
-                "StringEquals": {{
-                  "ec2:Subnet": [
-                    "{aws_subnet["example1"]["arn"]}",
-                    "{aws_subnet["example2"]["arn"]}"
-                  ],
-                  "ec2:AuthorizedService": "codebuild.amazonaws.com"
-                }}
-              }}
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "s3:*"
-              ],
-              "Resource": [
-                "{example_bucket_v2_arn}",
-                "{example_bucket_v2_arn1}/*"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=example_policy_document.json)
         example_project = aws.codebuild.Project("exampleProject",
             description="test_codebuild_project",
             build_timeout=5,

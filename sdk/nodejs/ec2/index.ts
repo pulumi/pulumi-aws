@@ -285,6 +285,16 @@ export const getPrefixList: typeof import("./getPrefixList").getPrefixList = nul
 export const getPrefixListOutput: typeof import("./getPrefixList").getPrefixListOutput = null as any;
 utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
 
+export { GetPublicIpv4PoolArgs, GetPublicIpv4PoolResult, GetPublicIpv4PoolOutputArgs } from "./getPublicIpv4Pool";
+export const getPublicIpv4Pool: typeof import("./getPublicIpv4Pool").getPublicIpv4Pool = null as any;
+export const getPublicIpv4PoolOutput: typeof import("./getPublicIpv4Pool").getPublicIpv4PoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicIpv4Pool","getPublicIpv4PoolOutput"], () => require("./getPublicIpv4Pool"));
+
+export { GetPublicIpv4PoolsArgs, GetPublicIpv4PoolsResult, GetPublicIpv4PoolsOutputArgs } from "./getPublicIpv4Pools";
+export const getPublicIpv4Pools: typeof import("./getPublicIpv4Pools").getPublicIpv4Pools = null as any;
+export const getPublicIpv4PoolsOutput: typeof import("./getPublicIpv4Pools").getPublicIpv4PoolsOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicIpv4Pools","getPublicIpv4PoolsOutput"], () => require("./getPublicIpv4Pools"));
+
 export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
 export const getRoute: typeof import("./getRoute").getRoute = null as any;
 export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
@@ -699,6 +709,16 @@ export type VpcIpamPreviewNextCidr = import("./vpcIpamPreviewNextCidr").VpcIpamP
 export const VpcIpamPreviewNextCidr: typeof import("./vpcIpamPreviewNextCidr").VpcIpamPreviewNextCidr = null as any;
 utilities.lazyLoad(exports, ["VpcIpamPreviewNextCidr"], () => require("./vpcIpamPreviewNextCidr"));
 
+export { VpcIpamResourceDiscoveryArgs, VpcIpamResourceDiscoveryState } from "./vpcIpamResourceDiscovery";
+export type VpcIpamResourceDiscovery = import("./vpcIpamResourceDiscovery").VpcIpamResourceDiscovery;
+export const VpcIpamResourceDiscovery: typeof import("./vpcIpamResourceDiscovery").VpcIpamResourceDiscovery = null as any;
+utilities.lazyLoad(exports, ["VpcIpamResourceDiscovery"], () => require("./vpcIpamResourceDiscovery"));
+
+export { VpcIpamResourceDiscoveryAssociationArgs, VpcIpamResourceDiscoveryAssociationState } from "./vpcIpamResourceDiscoveryAssociation";
+export type VpcIpamResourceDiscoveryAssociation = import("./vpcIpamResourceDiscoveryAssociation").VpcIpamResourceDiscoveryAssociation;
+export const VpcIpamResourceDiscoveryAssociation: typeof import("./vpcIpamResourceDiscoveryAssociation").VpcIpamResourceDiscoveryAssociation = null as any;
+utilities.lazyLoad(exports, ["VpcIpamResourceDiscoveryAssociation"], () => require("./vpcIpamResourceDiscoveryAssociation"));
+
 export { VpcIpamScopeArgs, VpcIpamScopeState } from "./vpcIpamScope";
 export type VpcIpamScope = import("./vpcIpamScope").VpcIpamScope;
 export const VpcIpamScope: typeof import("./vpcIpamScope").VpcIpamScope = null as any;
@@ -922,6 +942,10 @@ const _module = {
                 return new VpcIpamPoolCidrAllocation(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr":
                 return new VpcIpamPreviewNextCidr(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery":
+                return new VpcIpamResourceDiscovery(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation":
+                return new VpcIpamResourceDiscoveryAssociation(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpamScope:VpcIpamScope":
                 return new VpcIpamScope(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation":
@@ -1029,6 +1053,8 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPool", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPoolCidr", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPoolCidrAllocation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPreviewNextCidr", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamResourceDiscovery", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamResourceDiscoveryAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamScope", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv4CidrBlockAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv6CidrBlockAssociation", _module)

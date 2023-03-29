@@ -107,6 +107,8 @@ type PolicyAttachment struct {
 
 	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
@@ -148,6 +150,8 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 type policyAttachmentState struct {
 	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId *string `pulumi:"policyId"`
+	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId *string `pulumi:"targetId"`
 }
@@ -155,6 +159,8 @@ type policyAttachmentState struct {
 type PolicyAttachmentState struct {
 	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId pulumi.StringPtrInput
+	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+	SkipDestroy pulumi.BoolPtrInput
 	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId pulumi.StringPtrInput
 }
@@ -166,6 +172,8 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 type policyAttachmentArgs struct {
 	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId string `pulumi:"policyId"`
+	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId string `pulumi:"targetId"`
 }
@@ -174,6 +182,8 @@ type policyAttachmentArgs struct {
 type PolicyAttachmentArgs struct {
 	// The unique identifier (ID) of the policy that you want to attach to the target.
 	PolicyId pulumi.StringInput
+	// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+	SkipDestroy pulumi.BoolPtrInput
 	// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
 	TargetId pulumi.StringInput
 }
@@ -268,6 +278,11 @@ func (o PolicyAttachmentOutput) ToPolicyAttachmentOutputWithContext(ctx context.
 // The unique identifier (ID) of the policy that you want to attach to the target.
 func (o PolicyAttachmentOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+func (o PolicyAttachmentOutput) SkipDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyAttachment) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.

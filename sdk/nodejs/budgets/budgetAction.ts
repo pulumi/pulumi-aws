@@ -16,40 +16,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["ec2:Describe*"],
+ *         resources: ["*"],
+ *     }],
+ * });
  * const examplePolicy = new aws.iam.Policy("examplePolicy", {
  *     description: "My example policy",
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
+ *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * const current = aws.getPartition({});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: current.then(current => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": [
- *           "budgets.${current.dnsSuffix}"
- *         ]
- *       },
- *       "Action": [
- *         "sts:AssumeRole"
- *       ]
- *     }
- *   ]
- * }
- * `)});
+ * const assumeRole = current.then(current => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: [`budgets.${current.dnsSuffix}`],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * }));
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const exampleBudget = new aws.budgets.Budget("exampleBudget", {
  *     budgetType: "USAGE",
  *     limitAmount: "10.0",

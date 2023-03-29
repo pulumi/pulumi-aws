@@ -20,6 +20,7 @@ class PolicyArgs:
                  security_service_policy_data: pulumi.Input['PolicySecurityServicePolicyDataArgs'],
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
                  delete_unused_fm_managed_resources: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  exclude_map: Optional[pulumi.Input['PolicyExcludeMapArgs']] = None,
                  include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,7 @@ class PolicyArgs:
         :param pulumi.Input['PolicySecurityServicePolicyDataArgs'] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
         :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         :param pulumi.Input[bool] delete_unused_fm_managed_resources: If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+        :param pulumi.Input[str] description: The description of the AWS Network Firewall firewall policy.
         :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
         :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists of accounts and OU's to include in the policy.
         :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
@@ -49,6 +51,8 @@ class PolicyArgs:
             pulumi.set(__self__, "delete_all_policy_resources", delete_all_policy_resources)
         if delete_unused_fm_managed_resources is not None:
             pulumi.set(__self__, "delete_unused_fm_managed_resources", delete_unused_fm_managed_resources)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if exclude_map is not None:
             pulumi.set(__self__, "exclude_map", exclude_map)
         if include_map is not None:
@@ -113,6 +117,18 @@ class PolicyArgs:
     @delete_unused_fm_managed_resources.setter
     def delete_unused_fm_managed_resources(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_unused_fm_managed_resources", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the AWS Network Firewall firewall policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="excludeMap")
@@ -217,6 +233,7 @@ class _PolicyState:
                  arn: Optional[pulumi.Input[str]] = None,
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
                  delete_unused_fm_managed_resources: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  exclude_map: Optional[pulumi.Input['PolicyExcludeMapArgs']] = None,
                  exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
                  include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
@@ -233,6 +250,7 @@ class _PolicyState:
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         :param pulumi.Input[bool] delete_unused_fm_managed_resources: If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+        :param pulumi.Input[str] description: The description of the AWS Network Firewall firewall policy.
         :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
         :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists of accounts and OU's to include in the policy.
@@ -252,6 +270,8 @@ class _PolicyState:
             pulumi.set(__self__, "delete_all_policy_resources", delete_all_policy_resources)
         if delete_unused_fm_managed_resources is not None:
             pulumi.set(__self__, "delete_unused_fm_managed_resources", delete_unused_fm_managed_resources)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if exclude_map is not None:
             pulumi.set(__self__, "exclude_map", exclude_map)
         if exclude_resource_tags is not None:
@@ -309,6 +329,18 @@ class _PolicyState:
     @delete_unused_fm_managed_resources.setter
     def delete_unused_fm_managed_resources(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_unused_fm_managed_resources", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the AWS Network Firewall firewall policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="excludeMap")
@@ -462,6 +494,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
                  delete_unused_fm_managed_resources: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']]] = None,
                  exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
                  include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']]] = None,
@@ -521,6 +554,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         :param pulumi.Input[bool] delete_unused_fm_managed_resources: If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+        :param pulumi.Input[str] description: The description of the AWS Network Firewall firewall policy.
         :param pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
         :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         :param pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']] include_map: A map of lists of accounts and OU's to include in the policy.
@@ -599,6 +633,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
                  delete_unused_fm_managed_resources: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']]] = None,
                  exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
                  include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']]] = None,
@@ -620,6 +655,7 @@ class Policy(pulumi.CustomResource):
 
             __props__.__dict__["delete_all_policy_resources"] = delete_all_policy_resources
             __props__.__dict__["delete_unused_fm_managed_resources"] = delete_unused_fm_managed_resources
+            __props__.__dict__["description"] = description
             __props__.__dict__["exclude_map"] = exclude_map
             if exclude_resource_tags is None and not opts.urn:
                 raise TypeError("Missing required property 'exclude_resource_tags'")
@@ -650,6 +686,7 @@ class Policy(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
             delete_unused_fm_managed_resources: Optional[pulumi.Input[bool]] = None,
+            description: Optional[pulumi.Input[str]] = None,
             exclude_map: Optional[pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']]] = None,
             exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
             include_map: Optional[pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']]] = None,
@@ -671,6 +708,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         :param pulumi.Input[bool] delete_unused_fm_managed_resources: If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+        :param pulumi.Input[str] description: The description of the AWS Network Firewall firewall policy.
         :param pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
         :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         :param pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']] include_map: A map of lists of accounts and OU's to include in the policy.
@@ -691,6 +729,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["delete_all_policy_resources"] = delete_all_policy_resources
         __props__.__dict__["delete_unused_fm_managed_resources"] = delete_unused_fm_managed_resources
+        __props__.__dict__["description"] = description
         __props__.__dict__["exclude_map"] = exclude_map
         __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
         __props__.__dict__["include_map"] = include_map
@@ -725,6 +764,14 @@ class Policy(pulumi.CustomResource):
         If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
         """
         return pulumi.get(self, "delete_unused_fm_managed_resources")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the AWS Network Firewall firewall policy.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="excludeMap")

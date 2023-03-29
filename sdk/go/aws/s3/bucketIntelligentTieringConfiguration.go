@@ -33,7 +33,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-entire-bucket", &s3.BucketIntelligentTieringConfigurationArgs{
-//				Bucket: example.Bucket,
+//				Bucket: example.ID(),
 //				Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
 //					&s3.BucketIntelligentTieringConfigurationTieringArgs{
 //						AccessTier: pulumi.String("DEEP_ARCHIVE_ACCESS"),
@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-filtered", &s3.BucketIntelligentTieringConfigurationArgs{
-//				Bucket: example.Bucket,
+//				Bucket: example.ID(),
 //				Status: pulumi.String("Disabled"),
 //				Filter: &s3.BucketIntelligentTieringConfigurationFilterArgs{
 //					Prefix: pulumi.String("documents/"),
@@ -109,15 +109,15 @@ import (
 type BucketIntelligentTieringConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket this intelligent tiering configuration is associated with.
+	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
 	Filter BucketIntelligentTieringConfigurationFilterPtrOutput `pulumi:"filter"`
-	// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
 	Tierings BucketIntelligentTieringConfigurationTieringArrayOutput `pulumi:"tierings"`
 }
 
@@ -156,28 +156,28 @@ func GetBucketIntelligentTieringConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketIntelligentTieringConfiguration resources.
 type bucketIntelligentTieringConfigurationState struct {
-	// The name of the bucket this intelligent tiering configuration is associated with.
+	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket *string `pulumi:"bucket"`
-	// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
 	Filter *BucketIntelligentTieringConfigurationFilter `pulumi:"filter"`
-	// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name *string `pulumi:"name"`
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status *string `pulumi:"status"`
-	// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
 	Tierings []BucketIntelligentTieringConfigurationTiering `pulumi:"tierings"`
 }
 
 type BucketIntelligentTieringConfigurationState struct {
-	// The name of the bucket this intelligent tiering configuration is associated with.
+	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket pulumi.StringPtrInput
-	// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
 	Filter BucketIntelligentTieringConfigurationFilterPtrInput
-	// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringPtrInput
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrInput
-	// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
 	Tierings BucketIntelligentTieringConfigurationTieringArrayInput
 }
 
@@ -186,29 +186,29 @@ func (BucketIntelligentTieringConfigurationState) ElementType() reflect.Type {
 }
 
 type bucketIntelligentTieringConfigurationArgs struct {
-	// The name of the bucket this intelligent tiering configuration is associated with.
+	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket string `pulumi:"bucket"`
-	// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
 	Filter *BucketIntelligentTieringConfigurationFilter `pulumi:"filter"`
-	// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name *string `pulumi:"name"`
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status *string `pulumi:"status"`
-	// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
 	Tierings []BucketIntelligentTieringConfigurationTiering `pulumi:"tierings"`
 }
 
 // The set of arguments for constructing a BucketIntelligentTieringConfiguration resource.
 type BucketIntelligentTieringConfigurationArgs struct {
-	// The name of the bucket this intelligent tiering configuration is associated with.
+	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket pulumi.StringInput
-	// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
 	Filter BucketIntelligentTieringConfigurationFilterPtrInput
-	// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringPtrInput
 	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrInput
-	// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
 	Tierings BucketIntelligentTieringConfigurationTieringArrayInput
 }
 
@@ -299,19 +299,19 @@ func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringC
 	return o
 }
 
-// The name of the bucket this intelligent tiering configuration is associated with.
+// Name of the bucket this intelligent tiering configuration is associated with.
 func (o BucketIntelligentTieringConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// A bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
 func (o BucketIntelligentTieringConfigurationOutput) Filter() BucketIntelligentTieringConfigurationFilterPtrOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) BucketIntelligentTieringConfigurationFilterPtrOutput {
 		return v.Filter
 	}).(BucketIntelligentTieringConfigurationFilterPtrOutput)
 }
 
-// The unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 func (o BucketIntelligentTieringConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -321,7 +321,7 @@ func (o BucketIntelligentTieringConfigurationOutput) Status() pulumi.StringPtrOu
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
 func (o BucketIntelligentTieringConfigurationOutput) Tierings() BucketIntelligentTieringConfigurationTieringArrayOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) BucketIntelligentTieringConfigurationTieringArrayOutput {
 		return v.Tierings

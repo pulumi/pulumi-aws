@@ -25,6 +25,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("aws:ecr/getImage:getImage", {
         "imageDigest": args.imageDigest,
         "imageTag": args.imageTag,
+        "mostRecent": args.mostRecent,
         "registryId": args.registryId,
         "repositoryName": args.repositoryName,
     }, opts);
@@ -35,13 +36,17 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetImageArgs {
     /**
-     * Sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
+     * Sha256 digest of the image manifest. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
      */
     imageDigest?: string;
     /**
-     * Tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
+     * Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
      */
     imageTag?: string;
+    /**
+     * Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
+     */
+    mostRecent?: boolean;
     /**
      * ID of the Registry where the repository resides.
      */
@@ -74,6 +79,7 @@ export interface GetImageResult {
      * List of tags associated with this image.
      */
     readonly imageTags: string[];
+    readonly mostRecent?: boolean;
     readonly registryId: string;
     readonly repositoryName: string;
 }
@@ -101,13 +107,17 @@ export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetImageOutputArgs {
     /**
-     * Sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
+     * Sha256 digest of the image manifest. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
      */
     imageDigest?: pulumi.Input<string>;
     /**
-     * Tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
+     * Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
      */
     imageTag?: pulumi.Input<string>;
+    /**
+     * Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
+     */
+    mostRecent?: pulumi.Input<boolean>;
     /**
      * ID of the Registry where the repository resides.
      */

@@ -15,14 +15,14 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
     public static final BucketReplicationConfigRuleDestinationReplicationTimeArgs Empty = new BucketReplicationConfigRuleDestinationReplicationTimeArgs();
 
     /**
-     * The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
+     * Status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
+     * @return Status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
      */
     public Output<String> status() {
@@ -30,14 +30,14 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
     }
 
     /**
-     * A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
+     * Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
      * 
      */
     @Import(name="time", required=true)
     private Output<BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs> time;
 
     /**
-     * @return A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
+     * @return Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
      * 
      */
     public Output<BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs> time() {
@@ -70,7 +70,7 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
         }
 
         /**
-         * @param status The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
+         * @param status Status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
         }
 
         /**
-         * @param status The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
+         * @param status Status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
         }
 
         /**
-         * @param time A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
+         * @param time Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
         }
 
         /**
-         * @param time A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
+         * @param time Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
          * 
          * @return builder
          * 

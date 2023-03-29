@@ -69,7 +69,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly dbName!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
     public readonly defaultIamRoleArn!: pulumi.Output<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface NamespaceState {
      */
     dbName?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
     defaultIamRoleArn?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface NamespaceArgs {
      */
     dbName?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
     defaultIamRoleArn?: pulumi.Input<string>;
     /**

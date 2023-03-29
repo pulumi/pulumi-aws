@@ -1665,6 +1665,440 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConfigurationSetVdmOptions struct {
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	DashboardOptions *ConfigurationSetVdmOptionsDashboardOptions `pulumi:"dashboardOptions"`
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	GuardianOptions *ConfigurationSetVdmOptionsGuardianOptions `pulumi:"guardianOptions"`
+}
+
+// ConfigurationSetVdmOptionsInput is an input type that accepts ConfigurationSetVdmOptionsArgs and ConfigurationSetVdmOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetVdmOptionsInput` via:
+//
+//	ConfigurationSetVdmOptionsArgs{...}
+type ConfigurationSetVdmOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetVdmOptionsOutput() ConfigurationSetVdmOptionsOutput
+	ToConfigurationSetVdmOptionsOutputWithContext(context.Context) ConfigurationSetVdmOptionsOutput
+}
+
+type ConfigurationSetVdmOptionsArgs struct {
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	DashboardOptions ConfigurationSetVdmOptionsDashboardOptionsPtrInput `pulumi:"dashboardOptions"`
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	GuardianOptions ConfigurationSetVdmOptionsGuardianOptionsPtrInput `pulumi:"guardianOptions"`
+}
+
+func (ConfigurationSetVdmOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetVdmOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsOutput() ConfigurationSetVdmOptionsOutput {
+	return i.ToConfigurationSetVdmOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsOutput)
+}
+
+func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
+	return i.ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsOutput).ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetVdmOptionsPtrInput is an input type that accepts ConfigurationSetVdmOptionsArgs, ConfigurationSetVdmOptionsPtr and ConfigurationSetVdmOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetVdmOptionsPtrInput` via:
+//
+//	        ConfigurationSetVdmOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetVdmOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput
+	ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Context) ConfigurationSetVdmOptionsPtrOutput
+}
+
+type configurationSetVdmOptionsPtrType ConfigurationSetVdmOptionsArgs
+
+func ConfigurationSetVdmOptionsPtr(v *ConfigurationSetVdmOptionsArgs) ConfigurationSetVdmOptionsPtrInput {
+	return (*configurationSetVdmOptionsPtrType)(v)
+}
+
+func (*configurationSetVdmOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetVdmOptions)(nil)).Elem()
+}
+
+func (i *configurationSetVdmOptionsPtrType) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
+	return i.ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetVdmOptionsPtrType) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetVdmOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetVdmOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsOutput() ConfigurationSetVdmOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
+	return o.ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptions {
+		return &v
+	}).(ConfigurationSetVdmOptionsPtrOutput)
+}
+
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+func (o ConfigurationSetVdmOptionsOutput) DashboardOptions() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsDashboardOptions {
+		return v.DashboardOptions
+	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
+}
+
+// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+func (o ConfigurationSetVdmOptionsOutput) GuardianOptions() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsGuardianOptions {
+		return v.GuardianOptions
+	}).(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetVdmOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetVdmOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetVdmOptionsPtrOutput) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsPtrOutput) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptions) ConfigurationSetVdmOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetVdmOptions
+		return ret
+	}).(ConfigurationSetVdmOptionsOutput)
+}
+
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsDashboardOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DashboardOptions
+	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
+}
+
+// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+func (o ConfigurationSetVdmOptionsPtrOutput) GuardianOptions() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsGuardianOptions {
+		if v == nil {
+			return nil
+		}
+		return v.GuardianOptions
+	}).(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsDashboardOptions struct {
+	// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+	EngagementMetrics *string `pulumi:"engagementMetrics"`
+}
+
+// ConfigurationSetVdmOptionsDashboardOptionsInput is an input type that accepts ConfigurationSetVdmOptionsDashboardOptionsArgs and ConfigurationSetVdmOptionsDashboardOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetVdmOptionsDashboardOptionsInput` via:
+//
+//	ConfigurationSetVdmOptionsDashboardOptionsArgs{...}
+type ConfigurationSetVdmOptionsDashboardOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetVdmOptionsDashboardOptionsOutput() ConfigurationSetVdmOptionsDashboardOptionsOutput
+	ToConfigurationSetVdmOptionsDashboardOptionsOutputWithContext(context.Context) ConfigurationSetVdmOptionsDashboardOptionsOutput
+}
+
+type ConfigurationSetVdmOptionsDashboardOptionsArgs struct {
+	// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+	EngagementMetrics pulumi.StringPtrInput `pulumi:"engagementMetrics"`
+}
+
+func (ConfigurationSetVdmOptionsDashboardOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetVdmOptionsDashboardOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetVdmOptionsDashboardOptionsArgs) ToConfigurationSetVdmOptionsDashboardOptionsOutput() ConfigurationSetVdmOptionsDashboardOptionsOutput {
+	return i.ToConfigurationSetVdmOptionsDashboardOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetVdmOptionsDashboardOptionsArgs) ToConfigurationSetVdmOptionsDashboardOptionsOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsDashboardOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsDashboardOptionsOutput)
+}
+
+func (i ConfigurationSetVdmOptionsDashboardOptionsArgs) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutput() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return i.ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetVdmOptionsDashboardOptionsArgs) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsDashboardOptionsOutput).ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetVdmOptionsDashboardOptionsPtrInput is an input type that accepts ConfigurationSetVdmOptionsDashboardOptionsArgs, ConfigurationSetVdmOptionsDashboardOptionsPtr and ConfigurationSetVdmOptionsDashboardOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetVdmOptionsDashboardOptionsPtrInput` via:
+//
+//	        ConfigurationSetVdmOptionsDashboardOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetVdmOptionsDashboardOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetVdmOptionsDashboardOptionsPtrOutput() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput
+	ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(context.Context) ConfigurationSetVdmOptionsDashboardOptionsPtrOutput
+}
+
+type configurationSetVdmOptionsDashboardOptionsPtrType ConfigurationSetVdmOptionsDashboardOptionsArgs
+
+func ConfigurationSetVdmOptionsDashboardOptionsPtr(v *ConfigurationSetVdmOptionsDashboardOptionsArgs) ConfigurationSetVdmOptionsDashboardOptionsPtrInput {
+	return (*configurationSetVdmOptionsDashboardOptionsPtrType)(v)
+}
+
+func (*configurationSetVdmOptionsDashboardOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetVdmOptionsDashboardOptions)(nil)).Elem()
+}
+
+func (i *configurationSetVdmOptionsDashboardOptionsPtrType) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutput() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return i.ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetVdmOptionsDashboardOptionsPtrType) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsDashboardOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetVdmOptionsDashboardOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetVdmOptionsDashboardOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) ToConfigurationSetVdmOptionsDashboardOptionsOutput() ConfigurationSetVdmOptionsDashboardOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) ToConfigurationSetVdmOptionsDashboardOptionsOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsDashboardOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutput() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return o.ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetVdmOptionsDashboardOptions) *ConfigurationSetVdmOptionsDashboardOptions {
+		return &v
+	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
+}
+
+// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) EngagementMetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetVdmOptionsDashboardOptions) *string { return v.EngagementMetrics }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsDashboardOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetVdmOptionsDashboardOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutput() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsDashboardOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptionsDashboardOptions) ConfigurationSetVdmOptionsDashboardOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetVdmOptionsDashboardOptions
+		return ret
+	}).(ConfigurationSetVdmOptionsDashboardOptionsOutput)
+}
+
+// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) EngagementMetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptionsDashboardOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EngagementMetrics
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsGuardianOptions struct {
+	// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+	OptimizedSharedDelivery *string `pulumi:"optimizedSharedDelivery"`
+}
+
+// ConfigurationSetVdmOptionsGuardianOptionsInput is an input type that accepts ConfigurationSetVdmOptionsGuardianOptionsArgs and ConfigurationSetVdmOptionsGuardianOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetVdmOptionsGuardianOptionsInput` via:
+//
+//	ConfigurationSetVdmOptionsGuardianOptionsArgs{...}
+type ConfigurationSetVdmOptionsGuardianOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetVdmOptionsGuardianOptionsOutput() ConfigurationSetVdmOptionsGuardianOptionsOutput
+	ToConfigurationSetVdmOptionsGuardianOptionsOutputWithContext(context.Context) ConfigurationSetVdmOptionsGuardianOptionsOutput
+}
+
+type ConfigurationSetVdmOptionsGuardianOptionsArgs struct {
+	// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+	OptimizedSharedDelivery pulumi.StringPtrInput `pulumi:"optimizedSharedDelivery"`
+}
+
+func (ConfigurationSetVdmOptionsGuardianOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetVdmOptionsGuardianOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetVdmOptionsGuardianOptionsArgs) ToConfigurationSetVdmOptionsGuardianOptionsOutput() ConfigurationSetVdmOptionsGuardianOptionsOutput {
+	return i.ToConfigurationSetVdmOptionsGuardianOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetVdmOptionsGuardianOptionsArgs) ToConfigurationSetVdmOptionsGuardianOptionsOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsGuardianOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsGuardianOptionsOutput)
+}
+
+func (i ConfigurationSetVdmOptionsGuardianOptionsArgs) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutput() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return i.ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetVdmOptionsGuardianOptionsArgs) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsGuardianOptionsOutput).ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetVdmOptionsGuardianOptionsPtrInput is an input type that accepts ConfigurationSetVdmOptionsGuardianOptionsArgs, ConfigurationSetVdmOptionsGuardianOptionsPtr and ConfigurationSetVdmOptionsGuardianOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetVdmOptionsGuardianOptionsPtrInput` via:
+//
+//	        ConfigurationSetVdmOptionsGuardianOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetVdmOptionsGuardianOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetVdmOptionsGuardianOptionsPtrOutput() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput
+	ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(context.Context) ConfigurationSetVdmOptionsGuardianOptionsPtrOutput
+}
+
+type configurationSetVdmOptionsGuardianOptionsPtrType ConfigurationSetVdmOptionsGuardianOptionsArgs
+
+func ConfigurationSetVdmOptionsGuardianOptionsPtr(v *ConfigurationSetVdmOptionsGuardianOptionsArgs) ConfigurationSetVdmOptionsGuardianOptionsPtrInput {
+	return (*configurationSetVdmOptionsGuardianOptionsPtrType)(v)
+}
+
+func (*configurationSetVdmOptionsGuardianOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetVdmOptionsGuardianOptions)(nil)).Elem()
+}
+
+func (i *configurationSetVdmOptionsGuardianOptionsPtrType) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutput() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return i.ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetVdmOptionsGuardianOptionsPtrType) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsGuardianOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetVdmOptionsGuardianOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetVdmOptionsGuardianOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) ToConfigurationSetVdmOptionsGuardianOptionsOutput() ConfigurationSetVdmOptionsGuardianOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) ToConfigurationSetVdmOptionsGuardianOptionsOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsGuardianOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutput() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return o.ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetVdmOptionsGuardianOptions) *ConfigurationSetVdmOptionsGuardianOptions {
+		return &v
+	}).(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput)
+}
+
+// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetVdmOptionsGuardianOptions) *string { return v.OptimizedSharedDelivery }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsGuardianOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetVdmOptionsGuardianOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutput() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsGuardianOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptionsGuardianOptions) ConfigurationSetVdmOptionsGuardianOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetVdmOptionsGuardianOptions
+		return ret
+	}).(ConfigurationSetVdmOptionsGuardianOptionsOutput)
+}
+
+// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptionsGuardianOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OptimizedSharedDelivery
+	}).(pulumi.StringPtrOutput)
+}
+
 type EmailIdentityDkimSigningAttributes struct {
 	// [Easy DKIM] The key length of the DKIM key pair in use.
 	CurrentSigningKeyLength *string `pulumi:"currentSigningKeyLength"`
@@ -2073,6 +2507,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsInput)(nil)).Elem(), ConfigurationSetVdmOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsPtrInput)(nil)).Elem(), ConfigurationSetVdmOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsDashboardOptionsInput)(nil)).Elem(), ConfigurationSetVdmOptionsDashboardOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsDashboardOptionsPtrInput)(nil)).Elem(), ConfigurationSetVdmOptionsDashboardOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsGuardianOptionsInput)(nil)).Elem(), ConfigurationSetVdmOptionsGuardianOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsGuardianOptionsPtrInput)(nil)).Elem(), ConfigurationSetVdmOptionsGuardianOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesPtrInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArgs{})
@@ -2099,6 +2539,12 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsDashboardOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsGuardianOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput{})
 	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesOutput{})
 	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesPtrOutput{})
 	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpOutput{})

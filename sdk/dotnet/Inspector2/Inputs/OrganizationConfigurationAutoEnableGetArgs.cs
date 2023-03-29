@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Inspector2.Inputs
         [Input("ecr", required: true)]
         public Input<bool> Ecr { get; set; } = null!;
 
+        /// <summary>
+        /// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+        /// </summary>
+        [Input("lambda")]
+        public Input<bool>? Lambda { get; set; }
+
         public OrganizationConfigurationAutoEnableGetArgs()
         {
         }

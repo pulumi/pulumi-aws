@@ -32,22 +32,29 @@ namespace Pulumi.Aws.Iam
     ///         PgpKey = "keybase:some_person_that_exists",
     ///     });
     /// 
-    ///     var lbRo = new Aws.Iam.UserPolicy("lbRo", new()
+    ///     var lbRoPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ec2:Describe*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lbRoUserPolicy", new()
     ///     {
     ///         User = lbUser.Name,
-    ///         Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""ec2:Describe*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""*""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         Policy = lbRoPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     return new Dictionary&lt;string, object?&gt;

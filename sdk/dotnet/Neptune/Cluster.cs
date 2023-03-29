@@ -190,6 +190,12 @@ namespace Pulumi.Aws.Neptune
         public Output<string?> NeptuneClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// </summary>
+        [Output("neptuneInstanceParameterGroupName")]
+        public Output<string?> NeptuneInstanceParameterGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// A Neptune subnet group to associate with this Neptune instance.
         /// </summary>
         [Output("neptuneSubnetGroupName")]
@@ -434,6 +440,12 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneClusterParameterGroupName { get; set; }
 
         /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// </summary>
+        [Input("neptuneInstanceParameterGroupName")]
+        public Input<string>? NeptuneInstanceParameterGroupName { get; set; }
+
+        /// <summary>
         /// A Neptune subnet group to associate with this Neptune instance.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
@@ -674,6 +686,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("neptuneClusterParameterGroupName")]
         public Input<string>? NeptuneClusterParameterGroupName { get; set; }
+
+        /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// </summary>
+        [Input("neptuneInstanceParameterGroupName")]
+        public Input<string>? NeptuneInstanceParameterGroupName { get; set; }
 
         /// <summary>
         /// A Neptune subnet group to associate with this Neptune instance.

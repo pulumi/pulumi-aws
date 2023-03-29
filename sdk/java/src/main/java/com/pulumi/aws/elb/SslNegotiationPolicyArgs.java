@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -84,6 +85,21 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * 
+     */
+    @Import(name="triggers")
+    private @Nullable Output<Map<String,String>> triggers;
+
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> triggers() {
+        return Optional.ofNullable(this.triggers);
+    }
+
     private SslNegotiationPolicyArgs() {}
 
     private SslNegotiationPolicyArgs(SslNegotiationPolicyArgs $) {
@@ -91,6 +107,7 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
         this.lbPort = $.lbPort;
         this.loadBalancer = $.loadBalancer;
         this.name = $.name;
+        this.triggers = $.triggers;
     }
 
     public static Builder builder() {
@@ -209,6 +226,27 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
+            $.triggers = triggers;
+            return this;
+        }
+
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(Map<String,String> triggers) {
+            return triggers(Output.of(triggers));
         }
 
         public SslNegotiationPolicyArgs build() {

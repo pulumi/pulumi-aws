@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.gamelift.Script("example", {storageLocation: {
- *     bucket: aws_s3_bucket.example.bucket,
+ *     bucket: aws_s3_bucket.example.id,
  *     key: aws_s3_object.example.key,
  *     roleArn: aws_iam_role.example.arn,
  * }});

@@ -32,21 +32,40 @@ namespace Pulumi.Aws.CodeArtifact
     ///         EncryptionKey = exampleKey.Arn,
     ///     });
     /// 
-    ///     var test = new Aws.CodeArtifact.DomainPermissions("test", new()
+    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "codeartifact:CreateRepository",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleDomain.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testDomainPermissions = new Aws.CodeArtifact.DomainPermissions("testDomainPermissions", new()
     ///     {
     ///         Domain = exampleDomain.DomainName,
-    ///         PolicyDocument = exampleDomain.Arn.Apply(arn =&gt; @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Action"": ""codeartifact:CreateRepository"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": ""*"",
-    ///             ""Resource"": ""{arn}""
-    ///         }}
-    ///     ]
-    /// }}
-    /// "),
+    ///         PolicyDocument = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

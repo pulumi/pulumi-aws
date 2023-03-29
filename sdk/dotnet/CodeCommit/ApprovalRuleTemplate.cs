@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -23,18 +24,27 @@ namespace Pulumi.Aws.CodeCommit
     /// {
     ///     var example = new Aws.CodeCommit.ApprovalRuleTemplate("example", new()
     ///     {
-    ///         Content = @"{
-    ///     ""Version"": ""2018-11-08"",
-    ///     ""DestinationReferences"": [""refs/heads/master""],
-    ///     ""Statements"": [{
-    ///         ""Type"": ""Approvers"",
-    ///         ""NumberOfApprovalsNeeded"": 2,
-    ///         ""ApprovalPoolMembers"": [""arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*""]
-    ///     }]
-    /// }
-    /// 
-    /// ",
     ///         Description = "This is an example approval rule template",
+    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2018-11-08",
+    ///             ["DestinationReferences"] = new[]
+    ///             {
+    ///                 "refs/heads/master",
+    ///             },
+    ///             ["Statements"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Type"] = "Approvers",
+    ///                     ["NumberOfApprovalsNeeded"] = 2,
+    ///                     ["ApprovalPoolMembers"] = new[]
+    ///                     {
+    ///                         "arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });

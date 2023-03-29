@@ -155,6 +155,10 @@ namespace Pulumi.Aws.Ecr
         /// The tag mutability setting for the repository.
         /// </summary>
         public readonly string ImageTagMutability;
+        /// <summary>
+        /// List of image tags associated with the most recently pushed image in the repository.
+        /// </summary>
+        public readonly ImmutableArray<string> MostRecentImageTags;
         public readonly string Name;
         public readonly string RegistryId;
         /// <summary>
@@ -178,6 +182,8 @@ namespace Pulumi.Aws.Ecr
 
             string imageTagMutability,
 
+            ImmutableArray<string> mostRecentImageTags,
+
             string name,
 
             string registryId,
@@ -191,6 +197,7 @@ namespace Pulumi.Aws.Ecr
             Id = id;
             ImageScanningConfigurations = imageScanningConfigurations;
             ImageTagMutability = imageTagMutability;
+            MostRecentImageTags = mostRecentImageTags;
             Name = name;
             RegistryId = registryId;
             RepositoryUrl = repositoryUrl;

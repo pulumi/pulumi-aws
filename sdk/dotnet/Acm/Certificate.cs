@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Acm
         /// Configuration block used to set certificate options. Detailed below.
         /// </summary>
         [Output("options")]
-        public Output<Outputs.CertificateOptions?> Options { get; private set; } = null!;
+        public Output<Outputs.CertificateOptions> Options { get; private set; } = null!;
 
         /// <summary>
         /// `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.

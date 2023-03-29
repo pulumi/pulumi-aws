@@ -93,6 +93,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
  * import java.util.List;
@@ -114,23 +116,25 @@ import javax.annotation.Nullable;
  * 
  *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .accessPolicies(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;es:*&#34;,
- *       &#34;Principal&#34;: &#34;*&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;arn:aws:es:%s:%s:domain/%s/*&#34;,
- *       &#34;Condition&#34;: {
- *         &#34;IpAddress&#34;: {&#34;aws:SourceIp&#34;: [&#34;66.193.100.22/32&#34;]}
- *       }
- *     }
- *   ]
- * }
- * &#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(&#34;es:*&#34;)
+ *                 .resources(String.format(&#34;arn:aws:es:%s:%s:domain/%s/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;IpAddress&#34;)
+ *                     .variable(&#34;aws:SourceIp&#34;)
+ *                     .values(&#34;66.193.100.22/32&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
+ *             .accessPolicies(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
@@ -144,6 +148,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
  * import com.pulumi.aws.opensearch.Domain;
@@ -164,27 +170,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;es.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;logs:PutLogEvents&#34;,
+ *                     &#34;logs:PutLogEventsBatch&#34;,
+ *                     &#34;logs:CreateLogStream&#34;)
+ *                 .resources(&#34;arn:aws:logs:*&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
  *             .policyName(&#34;example&#34;)
- *             .policyDocument(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;es.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: [
- *         &#34;logs:PutLogEvents&#34;,
- *         &#34;logs:PutLogEventsBatch&#34;,
- *         &#34;logs:CreateLogStream&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;arn:aws:logs:*&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policyDocument(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
@@ -214,6 +217,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
  * import com.pulumi.aws.iam.ServiceLinkedRole;
  * import com.pulumi.aws.iam.ServiceLinkedRoleArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
@@ -263,6 +268,18 @@ import javax.annotation.Nullable;
  *             .awsServiceName(&#34;opensearchservice.amazonaws.com&#34;)
  *             .build());
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(&#34;es:*&#34;)
+ *                 .resources(String.format(&#34;arn:aws:es:%s:%s:domain/%s/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
  *             .engineVersion(&#34;OpenSearch_1.0&#34;)
  *             .clusterConfig(DomainClusterConfigArgs.builder()
@@ -276,19 +293,7 @@ import javax.annotation.Nullable;
  *                 .securityGroupIds(exampleSecurityGroup.id())
  *                 .build())
  *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
- *             .accessPolicies(&#34;&#34;&#34;
- * {
- * 	&#34;Version&#34;: &#34;2012-10-17&#34;,
- * 	&#34;Statement&#34;: [
- * 		{
- * 			&#34;Action&#34;: &#34;es:*&#34;,
- * 			&#34;Principal&#34;: &#34;*&#34;,
- * 			&#34;Effect&#34;: &#34;Allow&#34;,
- * 			&#34;Resource&#34;: &#34;arn:aws:es:%s:%s:domain/%s/*&#34;
- * 		}
- * 	]
- * }
- * &#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
+ *             .accessPolicies(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleServiceLinkedRole)
@@ -523,18 +528,32 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.clusterConfig;
     }
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
     @Export(name="cognitoOptions", refs={DomainCognitoOptions.class}, tree="[0]")
     private Output</* @Nullable */ DomainCognitoOptions> cognitoOptions;
 
     /**
-     * @return Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * @return Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
     public Output<Optional<DomainCognitoOptions>> cognitoOptions() {
         return Codegen.optional(this.cognitoOptions);
+    }
+    /**
+     * Domain-specific endpoint for Dashboard without https scheme.
+     * 
+     */
+    @Export(name="dashboardEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> dashboardEndpoint;
+
+    /**
+     * @return Domain-specific endpoint for Dashboard without https scheme.
+     * 
+     */
+    public Output<String> dashboardEndpoint() {
+        return this.dashboardEndpoint;
     }
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -635,14 +654,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.engineVersion);
     }
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      * 
      */
     @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kibanaEndpoint;
 
     /**
-     * @return Domain-specific endpoint for kibana without https scheme.
+     * @return Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      * 
      */
     public Output<String> kibanaEndpoint() {

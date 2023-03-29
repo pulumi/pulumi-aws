@@ -810,36 +810,26 @@ class UserPoolClient(pulumi.CustomResource):
         current = aws.get_caller_identity()
         test_user_pool = aws.cognito.UserPool("testUserPool")
         test_app = aws.pinpoint.App("testApp")
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "cognito-idp.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["cognito-idp.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "mobiletargeting:UpdateEndpoint",
+                "mobiletargeting:PutItems",
+            ],
+            resources=[test_app.application_id.apply(lambda application_id: f"arn:aws:mobiletargeting:*:{current.account_id}:apps/{application_id}*")],
+        )])
         test_role_policy = aws.iam.RolePolicy("testRolePolicy",
             role=test_role.id,
-            policy=test_app.application_id.apply(lambda application_id: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": [
-                "mobiletargeting:UpdateEndpoint",
-                "mobiletargeting:PutItems"
-              ],
-              "Effect": "Allow",
-              "Resource": "arn:aws:mobiletargeting:*:{current.account_id}:apps/{application_id}*"
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=test_policy_document.json)
         test_user_pool_client = aws.cognito.UserPoolClient("testUserPoolClient",
             user_pool_id=test_user_pool.id,
             analytics_configuration=aws.cognito.UserPoolClientAnalyticsConfigurationArgs(
@@ -944,36 +934,26 @@ class UserPoolClient(pulumi.CustomResource):
         current = aws.get_caller_identity()
         test_user_pool = aws.cognito.UserPool("testUserPool")
         test_app = aws.pinpoint.App("testApp")
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "cognito-idp.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["cognito-idp.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "mobiletargeting:UpdateEndpoint",
+                "mobiletargeting:PutItems",
+            ],
+            resources=[test_app.application_id.apply(lambda application_id: f"arn:aws:mobiletargeting:*:{current.account_id}:apps/{application_id}*")],
+        )])
         test_role_policy = aws.iam.RolePolicy("testRolePolicy",
             role=test_role.id,
-            policy=test_app.application_id.apply(lambda application_id: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": [
-                "mobiletargeting:UpdateEndpoint",
-                "mobiletargeting:PutItems"
-              ],
-              "Effect": "Allow",
-              "Resource": "arn:aws:mobiletargeting:*:{current.account_id}:apps/{application_id}*"
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=test_policy_document.json)
         test_user_pool_client = aws.cognito.UserPoolClient("testUserPoolClient",
             user_pool_id=test_user_pool.id,
             analytics_configuration=aws.cognito.UserPoolClientAnalyticsConfigurationArgs(

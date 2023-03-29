@@ -89,6 +89,8 @@ type DomainAssociation struct {
 	CertificateVerificationDnsRecord pulumi.StringOutput `pulumi:"certificateVerificationDnsRecord"`
 	// Domain name for the domain association.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// Enables the automated creation of subdomains for branches.
+	EnableAutoSubDomain pulumi.BoolPtrOutput `pulumi:"enableAutoSubDomain"`
 	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayOutput `pulumi:"subDomains"`
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
@@ -141,6 +143,8 @@ type domainAssociationState struct {
 	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
 	// Domain name for the domain association.
 	DomainName *string `pulumi:"domainName"`
+	// Enables the automated creation of subdomains for branches.
+	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
 	// Setting for the subdomain. Documented below.
 	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
@@ -156,6 +160,8 @@ type DomainAssociationState struct {
 	CertificateVerificationDnsRecord pulumi.StringPtrInput
 	// Domain name for the domain association.
 	DomainName pulumi.StringPtrInput
+	// Enables the automated creation of subdomains for branches.
+	EnableAutoSubDomain pulumi.BoolPtrInput
 	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayInput
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
@@ -171,6 +177,8 @@ type domainAssociationArgs struct {
 	AppId string `pulumi:"appId"`
 	// Domain name for the domain association.
 	DomainName string `pulumi:"domainName"`
+	// Enables the automated creation of subdomains for branches.
+	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
 	// Setting for the subdomain. Documented below.
 	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
@@ -183,6 +191,8 @@ type DomainAssociationArgs struct {
 	AppId pulumi.StringInput
 	// Domain name for the domain association.
 	DomainName pulumi.StringInput
+	// Enables the automated creation of subdomains for branches.
+	EnableAutoSubDomain pulumi.BoolPtrInput
 	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayInput
 	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
@@ -294,6 +304,11 @@ func (o DomainAssociationOutput) CertificateVerificationDnsRecord() pulumi.Strin
 // Domain name for the domain association.
 func (o DomainAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Enables the automated creation of subdomains for branches.
+func (o DomainAssociationOutput) EnableAutoSubDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAssociation) pulumi.BoolPtrOutput { return v.EnableAutoSubDomain }).(pulumi.BoolPtrOutput)
 }
 
 // Setting for the subdomain. Documented below.

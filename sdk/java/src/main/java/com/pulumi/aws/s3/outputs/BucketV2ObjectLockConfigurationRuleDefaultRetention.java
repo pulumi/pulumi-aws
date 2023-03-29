@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketV2ObjectLockConfigurationRuleDefaultRetention {
     /**
-     * @return The number of days that you want to specify for the default retention period.
+     * @return Number of days that you want to specify for the default retention period.
      * 
      */
     private @Nullable Integer days;
     /**
-     * @return The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     * @return Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
     private String mode;
     /**
-     * @return The number of years that you want to specify for the default retention period.
+     * @return Number of years that you want to specify for the default retention period.
      * 
      */
     private @Nullable Integer years;
 
     private BucketV2ObjectLockConfigurationRuleDefaultRetention() {}
     /**
-     * @return The number of days that you want to specify for the default retention period.
+     * @return Number of days that you want to specify for the default retention period.
      * 
      */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
     /**
-     * @return The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+     * @return Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
     public String mode() {
         return this.mode;
     }
     /**
-     * @return The number of years that you want to specify for the default retention period.
+     * @return Number of years that you want to specify for the default retention period.
      * 
      */
     public Optional<Integer> years() {

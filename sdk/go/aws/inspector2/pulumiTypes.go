@@ -15,6 +15,8 @@ type OrganizationConfigurationAutoEnable struct {
 	Ec2 bool `pulumi:"ec2"`
 	// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
 	Ecr bool `pulumi:"ecr"`
+	// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+	Lambda *bool `pulumi:"lambda"`
 }
 
 // OrganizationConfigurationAutoEnableInput is an input type that accepts OrganizationConfigurationAutoEnableArgs and OrganizationConfigurationAutoEnableOutput values.
@@ -33,6 +35,8 @@ type OrganizationConfigurationAutoEnableArgs struct {
 	Ec2 pulumi.BoolInput `pulumi:"ec2"`
 	// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
 	Ecr pulumi.BoolInput `pulumi:"ecr"`
+	// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+	Lambda pulumi.BoolPtrInput `pulumi:"lambda"`
 }
 
 func (OrganizationConfigurationAutoEnableArgs) ElementType() reflect.Type {
@@ -122,6 +126,11 @@ func (o OrganizationConfigurationAutoEnableOutput) Ecr() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) bool { return v.Ecr }).(pulumi.BoolOutput)
 }
 
+// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+func (o OrganizationConfigurationAutoEnableOutput) Lambda() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) *bool { return v.Lambda }).(pulumi.BoolPtrOutput)
+}
+
 type OrganizationConfigurationAutoEnablePtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationAutoEnablePtrOutput) ElementType() reflect.Type {
@@ -163,6 +172,16 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Ecr() pulumi.BoolPtrOutput
 			return nil
 		}
 		return &v.Ecr
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+func (o OrganizationConfigurationAutoEnablePtrOutput) Lambda() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Lambda
 	}).(pulumi.BoolPtrOutput)
 }
 

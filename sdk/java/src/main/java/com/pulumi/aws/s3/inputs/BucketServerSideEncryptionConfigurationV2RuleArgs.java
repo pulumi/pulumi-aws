@@ -17,14 +17,14 @@ public final class BucketServerSideEncryptionConfigurationV2RuleArgs extends com
     public static final BucketServerSideEncryptionConfigurationV2RuleArgs Empty = new BucketServerSideEncryptionConfigurationV2RuleArgs();
 
     /**
-     * A single object for setting server-side encryption by default documented below
+     * Single object for setting server-side encryption by default. See below.
      * 
      */
     @Import(name="applyServerSideEncryptionByDefault")
     private @Nullable Output<BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs> applyServerSideEncryptionByDefault;
 
     /**
-     * @return A single object for setting server-side encryption by default documented below
+     * @return Single object for setting server-side encryption by default. See below.
      * 
      */
     public Optional<Output<BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs>> applyServerSideEncryptionByDefault() {
@@ -72,7 +72,7 @@ public final class BucketServerSideEncryptionConfigurationV2RuleArgs extends com
         }
 
         /**
-         * @param applyServerSideEncryptionByDefault A single object for setting server-side encryption by default documented below
+         * @param applyServerSideEncryptionByDefault Single object for setting server-side encryption by default. See below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketServerSideEncryptionConfigurationV2RuleArgs extends com
         }
 
         /**
-         * @param applyServerSideEncryptionByDefault A single object for setting server-side encryption by default documented below
+         * @param applyServerSideEncryptionByDefault Single object for setting server-side encryption by default. See below.
          * 
          * @return builder
          * 

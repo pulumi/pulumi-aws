@@ -21,79 +21,74 @@ import * as utilities from "../utilities";
  *     bucket: exampleBucketV2.id,
  *     acl: "private",
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "codebuild.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["codebuild.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const examplePolicyDocument = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [
+ *         {
+ *             effect: "Allow",
+ *             actions: [
+ *                 "logs:CreateLogGroup",
+ *                 "logs:CreateLogStream",
+ *                 "logs:PutLogEvents",
+ *             ],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: [
+ *                 "ec2:CreateNetworkInterface",
+ *                 "ec2:DescribeDhcpOptions",
+ *                 "ec2:DescribeNetworkInterfaces",
+ *                 "ec2:DeleteNetworkInterface",
+ *                 "ec2:DescribeSubnets",
+ *                 "ec2:DescribeSecurityGroups",
+ *                 "ec2:DescribeVpcs",
+ *             ],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: ["ec2:CreateNetworkInterfacePermission"],
+ *             resources: ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
+ *             conditions: [
+ *                 {
+ *                     test: "StringEquals",
+ *                     variable: "ec2:Subnet",
+ *                     values: [
+ *                         aws_subnet.example1.arn,
+ *                         aws_subnet.example2.arn,
+ *                     ],
+ *                 },
+ *                 {
+ *                     test: "StringEquals",
+ *                     variable: "ec2:AuthorizedService",
+ *                     values: ["codebuild.amazonaws.com"],
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: ["s3:*"],
+ *             resources: [
+ *                 exampleBucketV2Arn,
+ *                 `${exampleBucketV2Arn1}/*`,
+ *             ],
+ *         },
+ *     ],
+ * }));
  * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
  *     role: exampleRole.name,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Resource": [
- *         "*"
- *       ],
- *       "Action": [
- *         "logs:CreateLogGroup",
- *         "logs:CreateLogStream",
- *         "logs:PutLogEvents"
- *       ]
- *     },
- *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "ec2:CreateNetworkInterface",
- *         "ec2:DescribeDhcpOptions",
- *         "ec2:DescribeNetworkInterfaces",
- *         "ec2:DeleteNetworkInterface",
- *         "ec2:DescribeSubnets",
- *         "ec2:DescribeSecurityGroups",
- *         "ec2:DescribeVpcs"
- *       ],
- *       "Resource": "*"
- *     },
- *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "ec2:CreateNetworkInterfacePermission"
- *       ],
- *       "Resource": [
- *         "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
- *       ],
- *       "Condition": {
- *         "StringEquals": {
- *           "ec2:Subnet": [
- *             "${aws_subnet.example1.arn}",
- *             "${aws_subnet.example2.arn}"
- *           ],
- *           "ec2:AuthorizedService": "codebuild.amazonaws.com"
- *         }
- *       }
- *     },
- *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "s3:*"
- *       ],
- *       "Resource": [
- *         "${exampleBucketV2.arn}",
- *         "${exampleBucketV2.arn}/*"
- *       ]
- *     }
- *   ]
- * }
- * `,
+ *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * const exampleProject = new aws.codebuild.Project("exampleProject", {
  *     description: "test_codebuild_project",

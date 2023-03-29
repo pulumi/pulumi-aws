@@ -18,7 +18,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationMetric {
      */
     private @Nullable Integer minutes;
     /**
-     * @return The status of replication metrics. Either `Enabled` or `Disabled`.
+     * @return Status of replication metrics. Either `Enabled` or `Disabled`.
      * 
      */
     private @Nullable String status;
@@ -32,7 +32,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationMetric {
         return Optional.ofNullable(this.minutes);
     }
     /**
-     * @return The status of replication metrics. Either `Enabled` or `Disabled`.
+     * @return Status of replication metrics. Either `Enabled` or `Disabled`.
      * 
      */
     public Optional<String> status() {

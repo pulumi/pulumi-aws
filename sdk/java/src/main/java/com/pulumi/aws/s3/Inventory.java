@@ -135,14 +135,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/inventory:Inventory")
 public class Inventory extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the source bucket that inventory lists the objects for.
+     * @return Name of the source bucket that inventory lists the objects for.
      * 
      */
     public Output<String> bucket() {

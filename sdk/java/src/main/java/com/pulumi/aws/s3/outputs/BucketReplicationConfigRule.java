@@ -23,17 +23,17 @@ public final class BucketReplicationConfigRule {
      */
     private @Nullable BucketReplicationConfigRuleDeleteMarkerReplication deleteMarkerReplication;
     /**
-     * @return Specifies the destination for the rule documented below.
+     * @return Specifies the destination for the rule. See below.
      * 
      */
     private BucketReplicationConfigRuleDestination destination;
     /**
-     * @return Replicate existing objects in the source bucket according to the rule configurations documented below.
+     * @return Replicate existing objects in the source bucket according to the rule configurations. See below.
      * 
      */
     private @Nullable BucketReplicationConfigRuleExistingObjectReplication existingObjectReplication;
     /**
-     * @return Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+     * @return Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
      * 
      */
     private @Nullable BucketReplicationConfigRuleFilter filter;
@@ -52,17 +52,17 @@ public final class BucketReplicationConfigRule {
     @Deprecated /* Use filter instead */
     private @Nullable String prefix;
     /**
-     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     private @Nullable Integer priority;
     /**
-     * @return Specifies special object selection criteria documented below.
+     * @return Specifies special object selection criteria. See below.
      * 
      */
     private @Nullable BucketReplicationConfigRuleSourceSelectionCriteria sourceSelectionCriteria;
     /**
-     * @return The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+     * @return Status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
      * 
      */
     private String status;
@@ -76,21 +76,21 @@ public final class BucketReplicationConfigRule {
         return Optional.ofNullable(this.deleteMarkerReplication);
     }
     /**
-     * @return Specifies the destination for the rule documented below.
+     * @return Specifies the destination for the rule. See below.
      * 
      */
     public BucketReplicationConfigRuleDestination destination() {
         return this.destination;
     }
     /**
-     * @return Replicate existing objects in the source bucket according to the rule configurations documented below.
+     * @return Replicate existing objects in the source bucket according to the rule configurations. See below.
      * 
      */
     public Optional<BucketReplicationConfigRuleExistingObjectReplication> existingObjectReplication() {
         return Optional.ofNullable(this.existingObjectReplication);
     }
     /**
-     * @return Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+     * @return Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
      * 
      */
     public Optional<BucketReplicationConfigRuleFilter> filter() {
@@ -115,21 +115,21 @@ public final class BucketReplicationConfigRule {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
     /**
-     * @return Specifies special object selection criteria documented below.
+     * @return Specifies special object selection criteria. See below.
      * 
      */
     public Optional<BucketReplicationConfigRuleSourceSelectionCriteria> sourceSelectionCriteria() {
         return Optional.ofNullable(this.sourceSelectionCriteria);
     }
     /**
-     * @return The status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
+     * @return Status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
      * 
      */
     public String status() {

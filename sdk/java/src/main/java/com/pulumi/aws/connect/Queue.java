@@ -266,6 +266,12 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> quickConnectIds() {
         return Codegen.optional(this.quickConnectIds);
     }
+    /**
+     * @deprecated
+     * Use the quick_connect_ids instead
+     * 
+     */
+    @Deprecated /* Use the quick_connect_ids instead */
     @Export(name="quickConnectIdsAssociateds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> quickConnectIdsAssociateds;
 

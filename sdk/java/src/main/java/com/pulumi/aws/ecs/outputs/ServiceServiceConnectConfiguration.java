@@ -8,6 +8,7 @@ import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationService;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -33,7 +34,7 @@ public final class ServiceServiceConnectConfiguration {
      * @return The list of Service Connect service objects. See below.
      * 
      */
-    private @Nullable ServiceServiceConnectConfigurationService service;
+    private @Nullable List<ServiceServiceConnectConfigurationService> services;
 
     private ServiceServiceConnectConfiguration() {}
     /**
@@ -61,8 +62,8 @@ public final class ServiceServiceConnectConfiguration {
      * @return The list of Service Connect service objects. See below.
      * 
      */
-    public Optional<ServiceServiceConnectConfigurationService> service() {
-        return Optional.ofNullable(this.service);
+    public List<ServiceServiceConnectConfigurationService> services() {
+        return this.services == null ? List.of() : this.services;
     }
 
     public static Builder builder() {
@@ -77,14 +78,14 @@ public final class ServiceServiceConnectConfiguration {
         private Boolean enabled;
         private @Nullable ServiceServiceConnectConfigurationLogConfiguration logConfiguration;
         private @Nullable String namespace;
-        private @Nullable ServiceServiceConnectConfigurationService service;
+        private @Nullable List<ServiceServiceConnectConfigurationService> services;
         public Builder() {}
         public Builder(ServiceServiceConnectConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.logConfiguration = defaults.logConfiguration;
     	      this.namespace = defaults.namespace;
-    	      this.service = defaults.service;
+    	      this.services = defaults.services;
         }
 
         @CustomType.Setter
@@ -103,16 +104,19 @@ public final class ServiceServiceConnectConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder service(@Nullable ServiceServiceConnectConfigurationService service) {
-            this.service = service;
+        public Builder services(@Nullable List<ServiceServiceConnectConfigurationService> services) {
+            this.services = services;
             return this;
+        }
+        public Builder services(ServiceServiceConnectConfigurationService... services) {
+            return services(List.of(services));
         }
         public ServiceServiceConnectConfiguration build() {
             final var o = new ServiceServiceConnectConfiguration();
             o.enabled = enabled;
             o.logConfiguration = logConfiguration;
             o.namespace = namespace;
-            o.service = service;
+            o.services = services;
             return o;
         }
     }

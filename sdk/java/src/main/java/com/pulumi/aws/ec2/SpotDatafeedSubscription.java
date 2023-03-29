@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *         var defaultBucketV2 = new BucketV2(&#34;defaultBucketV2&#34;);
  * 
  *         var defaultSpotDatafeedSubscription = new SpotDatafeedSubscription(&#34;defaultSpotDatafeedSubscription&#34;, SpotDatafeedSubscriptionArgs.builder()        
- *             .bucket(defaultBucketV2.bucket())
+ *             .bucket(defaultBucketV2.id())
  *             .prefix(&#34;my_subdirectory&#34;)
  *             .build());
  * 

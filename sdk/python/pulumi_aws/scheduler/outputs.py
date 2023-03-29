@@ -548,7 +548,7 @@ class ScheduleTargetEcsParametersNetworkConfiguration(dict):
                  security_groups: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] subnets: Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
-        :param bool assign_public_ip: Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launch_type` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+        :param bool assign_public_ip: Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
         :param Sequence[str] security_groups: Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -569,7 +569,7 @@ class ScheduleTargetEcsParametersNetworkConfiguration(dict):
     @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional[bool]:
         """
-        Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launch_type` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
+        Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
         """
         return pulumi.get(self, "assign_public_ip")
 

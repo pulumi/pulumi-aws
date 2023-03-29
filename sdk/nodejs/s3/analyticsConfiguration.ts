@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = new aws.s3.BucketV2("example", {});
  * const analytics = new aws.s3.BucketV2("analytics", {});
  * const example_entire_bucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
- *     bucket: example.bucket,
+ *     bucket: example.id,
  *     storageClassAnalysis: {
  *         dataExport: {
  *             destination: {
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.BucketV2("example", {});
  * const example_filtered = new aws.s3.AnalyticsConfiguration("example-filtered", {
- *     bucket: example.bucket,
+ *     bucket: example.id,
  *     filter: {
  *         prefix: "documents/",
  *         tags: {
@@ -88,7 +88,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket this analytics configuration is associated with.
+     * Name of the bucket this analytics configuration is associated with.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
  */
 export interface AnalyticsConfigurationState {
     /**
-     * The name of the bucket this analytics configuration is associated with.
+     * Name of the bucket this analytics configuration is associated with.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -163,7 +163,7 @@ export interface AnalyticsConfigurationState {
  */
 export interface AnalyticsConfigurationArgs {
     /**
-     * The name of the bucket this analytics configuration is associated with.
+     * Name of the bucket this analytics configuration is associated with.
      */
     bucket: pulumi.Input<string>;
     /**

@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -22,7 +23,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    private UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
+    private @Nullable UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
      * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
@@ -41,8 +42,8 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
      * 
      */
-    public UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        return this.defaultResourceSpec;
+    public Optional<UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec> defaultResourceSpec() {
+        return Optional.ofNullable(this.defaultResourceSpec);
     }
     /**
      * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -62,7 +63,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
-        private UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
+        private @Nullable UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
         private @Nullable List<String> lifecycleConfigArns;
         public Builder() {}
         public Builder(UserProfileUserSettingsJupyterServerAppSettings defaults) {
@@ -81,8 +82,8 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
             return codeRepositories(List.of(codeRepositories));
         }
         @CustomType.Setter
-        public Builder defaultResourceSpec(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec) {
-            this.defaultResourceSpec = Objects.requireNonNull(defaultResourceSpec);
+        public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec) {
+            this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * Note that currently only one policy may be applied to a repository.
  *
- * > **NOTE:** This resource can only be used with `us-east-1` region.
+ * > **NOTE:** This resource can only be used in the `us-east-1` region.
  *
  * ## Example Usage
  *
@@ -18,35 +18,35 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleRepository = new aws.ecrpublic.Repository("exampleRepository", {repositoryName: "example"});
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "new policy",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: [
+ *             "ecr:GetDownloadUrlForLayer",
+ *             "ecr:BatchGetImage",
+ *             "ecr:BatchCheckLayerAvailability",
+ *             "ecr:PutImage",
+ *             "ecr:InitiateLayerUpload",
+ *             "ecr:UploadLayerPart",
+ *             "ecr:CompleteLayerUpload",
+ *             "ecr:DescribeRepositories",
+ *             "ecr:GetRepositoryPolicy",
+ *             "ecr:ListImages",
+ *             "ecr:DeleteRepository",
+ *             "ecr:BatchDeleteImage",
+ *             "ecr:SetRepositoryPolicy",
+ *             "ecr:DeleteRepositoryPolicy",
+ *         ],
+ *     }],
+ * });
  * const exampleRepositoryPolicy = new aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy", {
  *     repositoryName: exampleRepository.repositoryName,
- *     policy: `{
- *     "Version": "2008-10-17",
- *     "Statement": [
- *         {
- *             "Sid": "new policy",
- *             "Effect": "Allow",
- *             "Principal": "*",
- *             "Action": [
- *                 "ecr:GetDownloadUrlForLayer",
- *                 "ecr:BatchGetImage",
- *                 "ecr:BatchCheckLayerAvailability",
- *                 "ecr:PutImage",
- *                 "ecr:InitiateLayerUpload",
- *                 "ecr:UploadLayerPart",
- *                 "ecr:CompleteLayerUpload",
- *                 "ecr:DescribeRepositories",
- *                 "ecr:GetRepositoryPolicy",
- *                 "ecr:ListImages",
- *                 "ecr:DeleteRepository",
- *                 "ecr:BatchDeleteImage",
- *                 "ecr:SetRepositoryPolicy",
- *                 "ecr:DeleteRepositoryPolicy"
- *             ]
- *         }
- *     ]
- * }
- * `,
+ *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

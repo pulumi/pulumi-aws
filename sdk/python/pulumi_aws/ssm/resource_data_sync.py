@@ -110,37 +110,36 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi_aws as aws
 
         hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
+        hoge_policy_document = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="SSMBucketPermissionsCheck",
+                effect="Allow",
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["ssm.amazonaws.com"],
+                )],
+                actions=["s3:GetBucketAcl"],
+                resources=["arn:aws:s3:::tf-test-bucket-1234"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="SSMBucketDelivery",
+                effect="Allow",
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["ssm.amazonaws.com"],
+                )],
+                actions=["s3:PutObject"],
+                resources=["arn:aws:s3:::tf-test-bucket-1234/*"],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="s3:x-amz-acl",
+                    values=["bucket-owner-full-control"],
+                )],
+            ),
+        ])
         hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
-            bucket=hoge_bucket_v2.bucket,
-            policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Sid": "SSMBucketPermissionsCheck",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ssm.amazonaws.com"
-                    },
-                    "Action": "s3:GetBucketAcl",
-                    "Resource": "arn:aws:s3:::tf-test-bucket-1234"
-                },
-                {
-                    "Sid": " SSMBucketDelivery",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ssm.amazonaws.com"
-                    },
-                    "Action": "s3:PutObject",
-                    "Resource": ["arn:aws:s3:::tf-test-bucket-1234/*"],
-                    "Condition": {
-                        "StringEquals": {
-                            "s3:x-amz-acl": "bucket-owner-full-control"
-                        }
-                    }
-                }
-            ]
-        }
-        \"\"\")
+            bucket=hoge_bucket_v2.id,
+            policy=hoge_policy_document.json)
         foo = aws.ssm.ResourceDataSync("foo", s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
             bucket_name=hoge_bucket_v2.bucket,
             region=hoge_bucket_v2.region,
@@ -176,37 +175,36 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi_aws as aws
 
         hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
+        hoge_policy_document = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="SSMBucketPermissionsCheck",
+                effect="Allow",
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["ssm.amazonaws.com"],
+                )],
+                actions=["s3:GetBucketAcl"],
+                resources=["arn:aws:s3:::tf-test-bucket-1234"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="SSMBucketDelivery",
+                effect="Allow",
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["ssm.amazonaws.com"],
+                )],
+                actions=["s3:PutObject"],
+                resources=["arn:aws:s3:::tf-test-bucket-1234/*"],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="s3:x-amz-acl",
+                    values=["bucket-owner-full-control"],
+                )],
+            ),
+        ])
         hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
-            bucket=hoge_bucket_v2.bucket,
-            policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Sid": "SSMBucketPermissionsCheck",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ssm.amazonaws.com"
-                    },
-                    "Action": "s3:GetBucketAcl",
-                    "Resource": "arn:aws:s3:::tf-test-bucket-1234"
-                },
-                {
-                    "Sid": " SSMBucketDelivery",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ssm.amazonaws.com"
-                    },
-                    "Action": "s3:PutObject",
-                    "Resource": ["arn:aws:s3:::tf-test-bucket-1234/*"],
-                    "Condition": {
-                        "StringEquals": {
-                            "s3:x-amz-acl": "bucket-owner-full-control"
-                        }
-                    }
-                }
-            ]
-        }
-        \"\"\")
+            bucket=hoge_bucket_v2.id,
+            policy=hoge_policy_document.json)
         foo = aws.ssm.ResourceDataSync("foo", s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
             bucket_name=hoge_bucket_v2.bucket,
             region=hoge_bucket_v2.region,

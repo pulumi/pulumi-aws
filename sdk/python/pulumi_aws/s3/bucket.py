@@ -1751,7 +1751,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.BucketServerSideEncryptionConfiguration']]:
+    def server_side_encryption_configuration(self) -> pulumi.Output['outputs.BucketServerSideEncryptionConfiguration']:
         """
         A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         """

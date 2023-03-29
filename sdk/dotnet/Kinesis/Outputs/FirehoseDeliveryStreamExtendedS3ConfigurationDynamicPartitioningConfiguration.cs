@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration
     {
         /// <summary>
-        /// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+        /// Enables or disables dynamic partitioning. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

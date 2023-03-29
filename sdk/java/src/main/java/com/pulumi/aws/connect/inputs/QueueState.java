@@ -154,9 +154,21 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.quickConnectIds);
     }
 
+    /**
+     * @deprecated
+     * Use the quick_connect_ids instead
+     * 
+     */
+    @Deprecated /* Use the quick_connect_ids instead */
     @Import(name="quickConnectIdsAssociateds")
     private @Nullable Output<List<String>> quickConnectIdsAssociateds;
 
+    /**
+     * @deprecated
+     * Use the quick_connect_ids instead
+     * 
+     */
+    @Deprecated /* Use the quick_connect_ids instead */
     public Optional<Output<List<String>>> quickConnectIdsAssociateds() {
         return Optional.ofNullable(this.quickConnectIdsAssociateds);
     }
@@ -441,15 +453,39 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
             return quickConnectIds(List.of(quickConnectIds));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use the quick_connect_ids instead
+         * 
+         */
+        @Deprecated /* Use the quick_connect_ids instead */
         public Builder quickConnectIdsAssociateds(@Nullable Output<List<String>> quickConnectIdsAssociateds) {
             $.quickConnectIdsAssociateds = quickConnectIdsAssociateds;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use the quick_connect_ids instead
+         * 
+         */
+        @Deprecated /* Use the quick_connect_ids instead */
         public Builder quickConnectIdsAssociateds(List<String> quickConnectIdsAssociateds) {
             return quickConnectIdsAssociateds(Output.of(quickConnectIdsAssociateds));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use the quick_connect_ids instead
+         * 
+         */
+        @Deprecated /* Use the quick_connect_ids instead */
         public Builder quickConnectIdsAssociateds(String... quickConnectIdsAssociateds) {
             return quickConnectIdsAssociateds(List.of(quickConnectIdsAssociateds));
         }

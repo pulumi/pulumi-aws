@@ -25,23 +25,50 @@ namespace Pulumi.Aws.CloudSearch
     /// {
     ///     var exampleDomain = new Aws.CloudSearch.Domain("exampleDomain");
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "search_only",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "cloudsearch:search",
+    ///                     "cloudsearch:document",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "IpAddress",
+    ///                         Variable = "aws:SourceIp",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "192.0.2.0/32",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleDomainServiceAccessPolicy = new Aws.CloudSearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", new()
     ///     {
     ///         DomainName = exampleDomain.Id,
-    ///         AccessPolicy = @"{
-    ///   ""Version"":""2012-10-17"",
-    ///   ""Statement"":[{
-    ///     ""Sid"":""search_only"",
-    ///     ""Effect"":""Allow"",
-    ///     ""Principal"":""*"",
-    ///     ""Action"":[
-    ///       ""cloudsearch:search"",
-    ///       ""cloudsearch:document""
-    ///     ],
-    ///     ""Condition"":{""IpAddress"":{""aws:SourceIp"":""192.0.2.0/32""}}
-    ///   }]
-    /// }
-    /// ",
+    ///         AccessPolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

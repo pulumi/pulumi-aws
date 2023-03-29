@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? ColumnDepth { get; set; }
 
         /// <summary>
-        /// Enables column oly or column and row based FEC.
+        /// Enables column only or column and row based FEC.
         /// </summary>
         [Input("includeFec")]
         public Input<string>? IncludeFec { get; set; }

@@ -19,6 +19,21 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     public static final GroupInstanceRefreshPreferencesArgs Empty = new GroupInstanceRefreshPreferencesArgs();
 
     /**
+     * Automatically rollback if instance refresh fails. Defaults to `false`.
+     * 
+     */
+    @Import(name="autoRollback")
+    private @Nullable Output<Boolean> autoRollback;
+
+    /**
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> autoRollback() {
+        return Optional.ofNullable(this.autoRollback);
+    }
+
+    /**
      * Number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
      */
@@ -96,6 +111,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     private GroupInstanceRefreshPreferencesArgs() {}
 
     private GroupInstanceRefreshPreferencesArgs(GroupInstanceRefreshPreferencesArgs $) {
+        this.autoRollback = $.autoRollback;
         this.checkpointDelay = $.checkpointDelay;
         this.checkpointPercentages = $.checkpointPercentages;
         this.instanceWarmup = $.instanceWarmup;
@@ -119,6 +135,27 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
 
         public Builder(GroupInstanceRefreshPreferencesArgs defaults) {
             $ = new GroupInstanceRefreshPreferencesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRollback(@Nullable Output<Boolean> autoRollback) {
+            $.autoRollback = autoRollback;
+            return this;
+        }
+
+        /**
+         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRollback(Boolean autoRollback) {
+            return autoRollback(Output.of(autoRollback));
         }
 
         /**

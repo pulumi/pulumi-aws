@@ -39,6 +39,7 @@ class S3EndpointArgs:
                  date_partition_enabled: Optional[pulumi.Input[bool]] = None,
                  date_partition_sequence: Optional[pulumi.Input[str]] = None,
                  date_partition_timezone: Optional[pulumi.Input[str]] = None,
+                 detach_target_on_lob_lookup_failure_parquet: Optional[pulumi.Input[bool]] = None,
                  dict_page_size_limit: Optional[pulumi.Input[int]] = None,
                  enable_statistics: Optional[pulumi.Input[bool]] = None,
                  encoding_type: Optional[pulumi.Input[str]] = None,
@@ -87,6 +88,7 @@ class S3EndpointArgs:
         :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+        :param pulumi.Input[bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
@@ -155,6 +157,8 @@ class S3EndpointArgs:
             pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
         if date_partition_timezone is not None:
             pulumi.set(__self__, "date_partition_timezone", date_partition_timezone)
+        if detach_target_on_lob_lookup_failure_parquet is not None:
+            pulumi.set(__self__, "detach_target_on_lob_lookup_failure_parquet", detach_target_on_lob_lookup_failure_parquet)
         if dict_page_size_limit is not None:
             pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
         if enable_statistics is not None:
@@ -499,6 +503,18 @@ class S3EndpointArgs:
         pulumi.set(self, "date_partition_timezone", value)
 
     @property
+    @pulumi.getter(name="detachTargetOnLobLookupFailureParquet")
+    def detach_target_on_lob_lookup_failure_parquet(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Undocumented argument for use as directed by AWS Support.
+        """
+        return pulumi.get(self, "detach_target_on_lob_lookup_failure_parquet")
+
+    @detach_target_on_lob_lookup_failure_parquet.setter
+    def detach_target_on_lob_lookup_failure_parquet(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detach_target_on_lob_lookup_failure_parquet", value)
+
+    @property
     @pulumi.getter(name="dictPageSizeLimit")
     def dict_page_size_limit(self) -> Optional[pulumi.Input[int]]:
         """
@@ -776,6 +792,7 @@ class _S3EndpointState:
                  date_partition_enabled: Optional[pulumi.Input[bool]] = None,
                  date_partition_sequence: Optional[pulumi.Input[str]] = None,
                  date_partition_timezone: Optional[pulumi.Input[str]] = None,
+                 detach_target_on_lob_lookup_failure_parquet: Optional[pulumi.Input[bool]] = None,
                  dict_page_size_limit: Optional[pulumi.Input[int]] = None,
                  enable_statistics: Optional[pulumi.Input[bool]] = None,
                  encoding_type: Optional[pulumi.Input[str]] = None,
@@ -829,6 +846,7 @@ class _S3EndpointState:
         :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+        :param pulumi.Input[bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
@@ -903,6 +921,8 @@ class _S3EndpointState:
             pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
         if date_partition_timezone is not None:
             pulumi.set(__self__, "date_partition_timezone", date_partition_timezone)
+        if detach_target_on_lob_lookup_failure_parquet is not None:
+            pulumi.set(__self__, "detach_target_on_lob_lookup_failure_parquet", detach_target_on_lob_lookup_failure_parquet)
         if dict_page_size_limit is not None:
             pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
         if enable_statistics is not None:
@@ -1225,6 +1245,18 @@ class _S3EndpointState:
     @date_partition_timezone.setter
     def date_partition_timezone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "date_partition_timezone", value)
+
+    @property
+    @pulumi.getter(name="detachTargetOnLobLookupFailureParquet")
+    def detach_target_on_lob_lookup_failure_parquet(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Undocumented argument for use as directed by AWS Support.
+        """
+        return pulumi.get(self, "detach_target_on_lob_lookup_failure_parquet")
+
+    @detach_target_on_lob_lookup_failure_parquet.setter
+    def detach_target_on_lob_lookup_failure_parquet(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detach_target_on_lob_lookup_failure_parquet", value)
 
     @property
     @pulumi.getter(name="dictPageSizeLimit")
@@ -1602,6 +1634,7 @@ class S3Endpoint(pulumi.CustomResource):
                  date_partition_enabled: Optional[pulumi.Input[bool]] = None,
                  date_partition_sequence: Optional[pulumi.Input[str]] = None,
                  date_partition_timezone: Optional[pulumi.Input[str]] = None,
+                 detach_target_on_lob_lookup_failure_parquet: Optional[pulumi.Input[bool]] = None,
                  dict_page_size_limit: Optional[pulumi.Input[int]] = None,
                  enable_statistics: Optional[pulumi.Input[bool]] = None,
                  encoding_type: Optional[pulumi.Input[str]] = None,
@@ -1740,6 +1773,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+        :param pulumi.Input[bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
@@ -1897,6 +1931,7 @@ class S3Endpoint(pulumi.CustomResource):
                  date_partition_enabled: Optional[pulumi.Input[bool]] = None,
                  date_partition_sequence: Optional[pulumi.Input[str]] = None,
                  date_partition_timezone: Optional[pulumi.Input[str]] = None,
+                 detach_target_on_lob_lookup_failure_parquet: Optional[pulumi.Input[bool]] = None,
                  dict_page_size_limit: Optional[pulumi.Input[int]] = None,
                  enable_statistics: Optional[pulumi.Input[bool]] = None,
                  encoding_type: Optional[pulumi.Input[str]] = None,
@@ -1954,6 +1989,7 @@ class S3Endpoint(pulumi.CustomResource):
             __props__.__dict__["date_partition_enabled"] = date_partition_enabled
             __props__.__dict__["date_partition_sequence"] = date_partition_sequence
             __props__.__dict__["date_partition_timezone"] = date_partition_timezone
+            __props__.__dict__["detach_target_on_lob_lookup_failure_parquet"] = detach_target_on_lob_lookup_failure_parquet
             __props__.__dict__["dict_page_size_limit"] = dict_page_size_limit
             __props__.__dict__["enable_statistics"] = enable_statistics
             __props__.__dict__["encoding_type"] = encoding_type
@@ -2021,6 +2057,7 @@ class S3Endpoint(pulumi.CustomResource):
             date_partition_enabled: Optional[pulumi.Input[bool]] = None,
             date_partition_sequence: Optional[pulumi.Input[str]] = None,
             date_partition_timezone: Optional[pulumi.Input[str]] = None,
+            detach_target_on_lob_lookup_failure_parquet: Optional[pulumi.Input[bool]] = None,
             dict_page_size_limit: Optional[pulumi.Input[int]] = None,
             enable_statistics: Optional[pulumi.Input[bool]] = None,
             encoding_type: Optional[pulumi.Input[str]] = None,
@@ -2079,6 +2116,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_sequence: Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
         :param pulumi.Input[str] date_partition_timezone: Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+        :param pulumi.Input[bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
         :param pulumi.Input[int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
@@ -2135,6 +2173,7 @@ class S3Endpoint(pulumi.CustomResource):
         __props__.__dict__["date_partition_enabled"] = date_partition_enabled
         __props__.__dict__["date_partition_sequence"] = date_partition_sequence
         __props__.__dict__["date_partition_timezone"] = date_partition_timezone
+        __props__.__dict__["detach_target_on_lob_lookup_failure_parquet"] = detach_target_on_lob_lookup_failure_parquet
         __props__.__dict__["dict_page_size_limit"] = dict_page_size_limit
         __props__.__dict__["enable_statistics"] = enable_statistics
         __props__.__dict__["encoding_type"] = encoding_type
@@ -2341,6 +2380,14 @@ class S3Endpoint(pulumi.CustomResource):
         Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "date_partition_timezone")
+
+    @property
+    @pulumi.getter(name="detachTargetOnLobLookupFailureParquet")
+    def detach_target_on_lob_lookup_failure_parquet(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Undocumented argument for use as directed by AWS Support.
+        """
+        return pulumi.get(self, "detach_target_on_lob_lookup_failure_parquet")
 
     @property
     @pulumi.getter(name="dictPageSizeLimit")

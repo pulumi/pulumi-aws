@@ -139,6 +139,7 @@ import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codecommit from "./codecommit";
 import * as codedeploy from "./codedeploy";
+import * as codegurureviewer from "./codegurureviewer";
 import * as codepipeline from "./codepipeline";
 import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
@@ -224,6 +225,7 @@ import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
+import * as oam from "./oam";
 import * as opensearch from "./opensearch";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
@@ -321,6 +323,7 @@ export {
     codebuild,
     codecommit,
     codedeploy,
+    codegurureviewer,
     codepipeline,
     codestarconnections,
     codestarnotifications,
@@ -406,6 +409,7 @@ export {
     neptune,
     networkfirewall,
     networkmanager,
+    oam,
     opensearch,
     opsworks,
     organizations,

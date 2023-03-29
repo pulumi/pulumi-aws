@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * Provides an AWS Cognito Identity Pool Roles Attachment.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -29,6 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.IdentityPool;
  * import com.pulumi.aws.cognito.IdentityPoolArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -55,51 +58,44 @@ import javax.annotation.Nullable;
  *             .supportedLoginProviders(Map.of(&#34;graph.facebook.com&#34;, &#34;7346241598935555&#34;))
  *             .build());
  * 
- *         var authenticatedRole = new Role(&#34;authenticatedRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(mainIdentityPool.id().applyValue(id -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Federated&#34;: &#34;cognito-identity.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRoleWithWebIdentity&#34;,
- *       &#34;Condition&#34;: {
- *         &#34;StringEquals&#34;: {
- *           &#34;cognito-identity.amazonaws.com:aud&#34;: &#34;%s&#34;
- *         },
- *         &#34;ForAnyValue:StringLike&#34;: {
- *           &#34;cognito-identity.amazonaws.com:amr&#34;: &#34;authenticated&#34;
- *         }
- *       }
- *     }
- *   ]
- * }
- * &#34;, id)))
+ *         final var authenticatedPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Federated&#34;)
+ *                     .identifiers(&#34;cognito-identity.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRoleWithWebIdentity&#34;)
+ *                 .conditions(                
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test(&#34;StringEquals&#34;)
+ *                         .variable(&#34;cognito-identity.amazonaws.com:aud&#34;)
+ *                         .values(mainIdentityPool.id())
+ *                         .build(),
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test(&#34;ForAnyValue:StringLike&#34;)
+ *                         .variable(&#34;cognito-identity.amazonaws.com:amr&#34;)
+ *                         .values(&#34;authenticated&#34;)
+ *                         .build())
+ *                 .build())
  *             .build());
  * 
- *         var authenticatedRolePolicy = new RolePolicy(&#34;authenticatedRolePolicy&#34;, RolePolicyArgs.builder()        
+ *         var authenticatedRole = new Role(&#34;authenticatedRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(authenticatedPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(authenticatedPolicyDocument -&gt; authenticatedPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .build());
+ * 
+ *         final var authenticatedRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .effect(&#34;Allow&#34;)
+ *             .actions(            
+ *                 &#34;mobileanalytics:PutEvents&#34;,
+ *                 &#34;cognito-sync:*&#34;,
+ *                 &#34;cognito-identity:*&#34;)
+ *             .resources(&#34;*&#34;)
+ *             .build());
+ * 
+ *         var authenticatedIam_rolePolicyRolePolicy = new RolePolicy(&#34;authenticatedIam/rolePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(authenticatedRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;mobileanalytics:PutEvents&#34;,
- *         &#34;cognito-sync:*&#34;,
- *         &#34;cognito-identity:*&#34;
- *       ],
- *       &#34;Resource&#34;: [
- *         &#34;*&#34;
- *       ]
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(authenticatedRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var mainIdentityPoolRoleAttachment = new IdentityPoolRoleAttachment(&#34;mainIdentityPoolRoleAttachment&#34;, IdentityPoolRoleAttachmentArgs.builder()        

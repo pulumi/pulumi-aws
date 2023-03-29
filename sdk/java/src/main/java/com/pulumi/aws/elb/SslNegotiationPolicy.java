@@ -15,6 +15,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -160,6 +161,20 @@ public class SslNegotiationPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * 
+     */
+    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> triggers;
+
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> triggers() {
+        return Codegen.optional(this.triggers);
     }
 
     /**

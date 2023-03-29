@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * The following shows outputing all network interface ids in a region.
+ * The following shows outputting all network interface ids in a region.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -93,7 +93,7 @@ export interface GetNetworkInterfacesResult {
 /**
  * ## Example Usage
  *
- * The following shows outputing all network interface ids in a region.
+ * The following shows outputting all network interface ids in a region.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

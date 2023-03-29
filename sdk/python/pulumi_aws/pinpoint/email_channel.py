@@ -254,41 +254,31 @@ class EmailChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         app = aws.pinpoint.App("app")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "pinpoint.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["pinpoint.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         email = aws.pinpoint.EmailChannel("email",
             application_id=app.application_id,
             from_address="user@example.com",
             role_arn=role.arn)
         identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": {
-            "Action": [
-              "mobileanalytics:PutEvents",
-              "mobileanalytics:PutItems"
+        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "mobileanalytics:PutEvents",
+                "mobileanalytics:PutItems",
             ],
-            "Effect": "Allow",
-            "Resource": [
-              "*"
-            ]
-          }
-        }
-        \"\"\")
+            resources=["*"],
+        )])
+        role_policy_role_policy = aws.iam.RolePolicy("rolePolicyRolePolicy",
+            role=role.id,
+            policy=role_policy_policy_document.json)
         ```
 
         ## Import
@@ -324,41 +314,31 @@ class EmailChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         app = aws.pinpoint.App("app")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "pinpoint.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["pinpoint.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         email = aws.pinpoint.EmailChannel("email",
             application_id=app.application_id,
             from_address="user@example.com",
             role_arn=role.arn)
         identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": {
-            "Action": [
-              "mobileanalytics:PutEvents",
-              "mobileanalytics:PutItems"
+        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "mobileanalytics:PutEvents",
+                "mobileanalytics:PutItems",
             ],
-            "Effect": "Allow",
-            "Resource": [
-              "*"
-            ]
-          }
-        }
-        \"\"\")
+            resources=["*"],
+        )])
+        role_policy_role_policy = aws.iam.RolePolicy("rolePolicyRolePolicy",
+            role=role.id,
+            policy=role_policy_policy_document.json)
         ```
 
         ## Import

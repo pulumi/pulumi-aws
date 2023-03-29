@@ -19,19 +19,17 @@ import * as utilities from "../utilities";
  *         NAME: "tf-acc-test-transfer-server",
  *     },
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 		"Effect": "Allow",
- * 		"Principal": {
- * 			"Service": "transfer.amazonaws.com"
- * 		},
- * 		"Action": "sts:AssumeRole"
- * 		}
- * 	]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["transfer.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const exampleUser = new aws.transfer.User("exampleUser", {
  *     serverId: exampleServer.id,
  *     userName: "tftestuser",
@@ -45,22 +43,17 @@ import * as utilities from "../utilities";
  *     userName: exampleUser.userName,
  *     body: "... SSH key ...",
  * });
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "AllowFullAccesstoS3",
+ *         effect: "Allow",
+ *         actions: ["s3:*"],
+ *         resources: ["*"],
+ *     }],
+ * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
  *     role: exampleRole.id,
- *     policy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Sid": "AllowFullAccesstoS3",
- * 			"Effect": "Allow",
- * 			"Action": [
- * 				"s3:*"
- * 			],
- * 			"Resource": "*"
- * 		}
- * 	]
- * }
- * `,
+ *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

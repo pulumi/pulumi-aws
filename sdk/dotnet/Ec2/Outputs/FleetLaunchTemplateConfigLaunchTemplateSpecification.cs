@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class FleetLaunchTemplateConfigLaunchTemplateSpecification
     {
         /// <summary>
-        /// ID of the launch template.
+        /// The ID of the launch template.
         /// </summary>
         public readonly string? LaunchTemplateId;
         /// <summary>
-        /// Name of the launch template.
+        /// The name of the launch template.
         /// </summary>
         public readonly string? LaunchTemplateName;
         /// <summary>
-        /// Version number of the launch template.
+        /// The launch template version number, `$Latest`, or `$Default.`
         /// </summary>
         public readonly string Version;
 

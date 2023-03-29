@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+        /// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
         /// </summary>
         public readonly Outputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration? DocumentsMetadataConfiguration;
         /// <summary>

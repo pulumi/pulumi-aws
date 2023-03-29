@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -93,6 +94,25 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Granularity in seconds of returned data points.
+     * For metrics with regular resolution, valid values are any multiple of `60`.
+     * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+     * 
+     */
+    @Import(name="period")
+    private @Nullable Output<Integer> period;
+
+    /**
+     * @return Granularity in seconds of returned data points.
+     * For metrics with regular resolution, valid values are any multiple of `60`.
+     * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+     * 
+     */
+    public Optional<Output<Integer>> period() {
+        return Optional.ofNullable(this.period);
+    }
+
+    /**
      * Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
      * 
      */
@@ -115,6 +135,7 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
         this.id = $.id;
         this.label = $.label;
         this.metric = $.metric;
+        this.period = $.period;
         this.returnData = $.returnData;
     }
 
@@ -239,6 +260,31 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
          */
         public Builder metric(MetricAlarmMetricQueryMetricArgs metric) {
             return metric(Output.of(metric));
+        }
+
+        /**
+         * @param period Granularity in seconds of returned data points.
+         * For metrics with regular resolution, valid values are any multiple of `60`.
+         * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder period(@Nullable Output<Integer> period) {
+            $.period = period;
+            return this;
+        }
+
+        /**
+         * @param period Granularity in seconds of returned data points.
+         * For metrics with regular resolution, valid values are any multiple of `60`.
+         * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder period(Integer period) {
+            return period(Output.of(period));
         }
 
         /**

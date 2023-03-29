@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionOriginGroup
     {
         /// <summary>
-        /// The failover criteria for when to failover to the secondary origin
+        /// The failover criteria for when to failover to the secondary origin.
         /// </summary>
         public readonly Outputs.DistributionOriginGroupFailoverCriteria FailoverCriteria;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOriginGroupMember> Members;
         /// <summary>
-        /// A unique identifier for the origin.
+        /// Unique identifier for the origin.
         /// </summary>
         public readonly string OriginId;
 

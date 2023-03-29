@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,19 +61,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var console = new EventRule(&#34;console&#34;, EventRuleArgs.builder()        
  *             .description(&#34;Capture all EC2 scaling events&#34;)
- *             .eventPattern(&#34;&#34;&#34;
- * {
- *   &#34;source&#34;: [
- *     &#34;aws.autoscaling&#34;
- *   ],
- *   &#34;detail-type&#34;: [
- *     &#34;EC2 Instance Launch Successful&#34;,
- *     &#34;EC2 Instance Terminate Successful&#34;,
- *     &#34;EC2 Instance Launch Unsuccessful&#34;,
- *     &#34;EC2 Instance Terminate Unsuccessful&#34;
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .eventPattern(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;source&#34;, jsonArray(&#34;aws.autoscaling&#34;)),
+ *                     jsonProperty(&#34;detail-type&#34;, jsonArray(
+ *                         &#34;EC2 Instance Launch Successful&#34;, 
+ *                         &#34;EC2 Instance Terminate Successful&#34;, 
+ *                         &#34;EC2 Instance Launch Unsuccessful&#34;, 
+ *                         &#34;EC2 Instance Terminate Unsuccessful&#34;
+ *                     ))
+ *                 )))
  *             .build());
  * 
  *         var testStream = new Stream(&#34;testStream&#34;, StreamArgs.builder()        
@@ -118,6 +116,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -143,25 +142,22 @@ import javax.annotation.Nullable;
  * 
  *         var stopInstance = new Document(&#34;stopInstance&#34;, DocumentArgs.builder()        
  *             .documentType(&#34;Command&#34;)
- *             .content(&#34;&#34;&#34;
- *   {
- *     &#34;schemaVersion&#34;: &#34;1.2&#34;,
- *     &#34;description&#34;: &#34;Stop an instance&#34;,
- *     &#34;parameters&#34;: {
+ *             .content(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;schemaVersion&#34;, &#34;1.2&#34;),
+ *                     jsonProperty(&#34;description&#34;, &#34;Stop an instance&#34;),
+ *                     jsonProperty(&#34;parameters&#34;, jsonObject(
  * 
- *     },
- *     &#34;runtimeConfig&#34;: {
- *       &#34;aws:runShellScript&#34;: {
- *         &#34;properties&#34;: [
- *           {
- *             &#34;id&#34;: &#34;0.aws:runShellScript&#34;,
- *             &#34;runCommand&#34;: [&#34;halt&#34;]
- *           }
- *         ]
- *       }
- *     }
- *   }
- *             &#34;&#34;&#34;)
+ *                     )),
+ *                     jsonProperty(&#34;runtimeConfig&#34;, jsonObject(
+ *                         jsonProperty(&#34;aws:runShellScript&#34;, jsonObject(
+ *                             jsonProperty(&#34;properties&#34;, jsonArray(jsonObject(
+ *                                 jsonProperty(&#34;id&#34;, &#34;0.aws:runShellScript&#34;),
+ *                                 jsonProperty(&#34;runCommand&#34;, jsonArray(&#34;halt&#34;))
+ *                             )))
+ *                         ))
+ *                     ))
+ *                 )))
  *             .build());
  * 
  *         final var ssmLifecyclePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -316,10 +312,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
@@ -341,21 +337,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;events.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var eventBusInvokeRemoteEventBusRole = new Role(&#34;eventBusInvokeRemoteEventBusRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;events.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var eventBusInvokeRemoteEventBusPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

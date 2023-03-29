@@ -214,7 +214,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Configuration block used to set certificate options. Detailed below.
      */
-    public readonly options!: pulumi.Output<outputs.acm.CertificateOptions | undefined>;
+    public readonly options!: pulumi.Output<outputs.acm.CertificateOptions>;
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      */

@@ -70,6 +70,11 @@ jobs:
         cache: gradle
         distribution: temurin
         java-version: ${{matrix.javaversion}}
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        # Pin to known good version until #2262 is resolved
+        gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -235,6 +240,23 @@ jobs:
     steps:
     - name: Is workflow a success
       run: echo yes
+
+  go_test_shim:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    name: Run test of provider shim
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ env.PR_COMMIT_SHA }}
+        submodules: true
+    - name: go test
+      run: |
+        cd provider/shim
+        go test -v .
+
   test:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
@@ -286,6 +308,11 @@ jobs:
         cache: gradle
         distribution: temurin
         java-version: ${{matrix.javaversion}}
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        # Pin to known good version until #2262 is resolved
+        gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:

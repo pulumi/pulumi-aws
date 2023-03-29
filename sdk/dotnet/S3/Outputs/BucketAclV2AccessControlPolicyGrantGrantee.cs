@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketAclV2AccessControlPolicyGrantGrantee
     {
         /// <summary>
-        /// The display name of the owner.
+        /// Display name of the owner.
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? EmailAddress;
         /// <summary>
-        /// The canonical user ID of the grantee.
+        /// Canonical user ID of the grantee.
         /// </summary>
         public readonly string? Id;
         /// <summary>

@@ -125,6 +125,162 @@ func (o RecordAliasArrayOutput) Index(i pulumi.IntInput) RecordAliasOutput {
 	}).(RecordAliasOutput)
 }
 
+type RecordCidrRoutingPolicy struct {
+	// The CIDR collection ID. See the `awsRoute53CidrCollection` resource for more details.
+	CollectionId string `pulumi:"collectionId"`
+	// The CIDR collection location name. See the `awsRoute53CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
+	LocationName string `pulumi:"locationName"`
+}
+
+// RecordCidrRoutingPolicyInput is an input type that accepts RecordCidrRoutingPolicyArgs and RecordCidrRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordCidrRoutingPolicyInput` via:
+//
+//	RecordCidrRoutingPolicyArgs{...}
+type RecordCidrRoutingPolicyInput interface {
+	pulumi.Input
+
+	ToRecordCidrRoutingPolicyOutput() RecordCidrRoutingPolicyOutput
+	ToRecordCidrRoutingPolicyOutputWithContext(context.Context) RecordCidrRoutingPolicyOutput
+}
+
+type RecordCidrRoutingPolicyArgs struct {
+	// The CIDR collection ID. See the `awsRoute53CidrCollection` resource for more details.
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
+	// The CIDR collection location name. See the `awsRoute53CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
+	LocationName pulumi.StringInput `pulumi:"locationName"`
+}
+
+func (RecordCidrRoutingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordCidrRoutingPolicy)(nil)).Elem()
+}
+
+func (i RecordCidrRoutingPolicyArgs) ToRecordCidrRoutingPolicyOutput() RecordCidrRoutingPolicyOutput {
+	return i.ToRecordCidrRoutingPolicyOutputWithContext(context.Background())
+}
+
+func (i RecordCidrRoutingPolicyArgs) ToRecordCidrRoutingPolicyOutputWithContext(ctx context.Context) RecordCidrRoutingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordCidrRoutingPolicyOutput)
+}
+
+func (i RecordCidrRoutingPolicyArgs) ToRecordCidrRoutingPolicyPtrOutput() RecordCidrRoutingPolicyPtrOutput {
+	return i.ToRecordCidrRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RecordCidrRoutingPolicyArgs) ToRecordCidrRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordCidrRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordCidrRoutingPolicyOutput).ToRecordCidrRoutingPolicyPtrOutputWithContext(ctx)
+}
+
+// RecordCidrRoutingPolicyPtrInput is an input type that accepts RecordCidrRoutingPolicyArgs, RecordCidrRoutingPolicyPtr and RecordCidrRoutingPolicyPtrOutput values.
+// You can construct a concrete instance of `RecordCidrRoutingPolicyPtrInput` via:
+//
+//	        RecordCidrRoutingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordCidrRoutingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRecordCidrRoutingPolicyPtrOutput() RecordCidrRoutingPolicyPtrOutput
+	ToRecordCidrRoutingPolicyPtrOutputWithContext(context.Context) RecordCidrRoutingPolicyPtrOutput
+}
+
+type recordCidrRoutingPolicyPtrType RecordCidrRoutingPolicyArgs
+
+func RecordCidrRoutingPolicyPtr(v *RecordCidrRoutingPolicyArgs) RecordCidrRoutingPolicyPtrInput {
+	return (*recordCidrRoutingPolicyPtrType)(v)
+}
+
+func (*recordCidrRoutingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordCidrRoutingPolicy)(nil)).Elem()
+}
+
+func (i *recordCidrRoutingPolicyPtrType) ToRecordCidrRoutingPolicyPtrOutput() RecordCidrRoutingPolicyPtrOutput {
+	return i.ToRecordCidrRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *recordCidrRoutingPolicyPtrType) ToRecordCidrRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordCidrRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordCidrRoutingPolicyPtrOutput)
+}
+
+type RecordCidrRoutingPolicyOutput struct{ *pulumi.OutputState }
+
+func (RecordCidrRoutingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordCidrRoutingPolicy)(nil)).Elem()
+}
+
+func (o RecordCidrRoutingPolicyOutput) ToRecordCidrRoutingPolicyOutput() RecordCidrRoutingPolicyOutput {
+	return o
+}
+
+func (o RecordCidrRoutingPolicyOutput) ToRecordCidrRoutingPolicyOutputWithContext(ctx context.Context) RecordCidrRoutingPolicyOutput {
+	return o
+}
+
+func (o RecordCidrRoutingPolicyOutput) ToRecordCidrRoutingPolicyPtrOutput() RecordCidrRoutingPolicyPtrOutput {
+	return o.ToRecordCidrRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RecordCidrRoutingPolicyOutput) ToRecordCidrRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordCidrRoutingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordCidrRoutingPolicy) *RecordCidrRoutingPolicy {
+		return &v
+	}).(RecordCidrRoutingPolicyPtrOutput)
+}
+
+// The CIDR collection ID. See the `awsRoute53CidrCollection` resource for more details.
+func (o RecordCidrRoutingPolicyOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordCidrRoutingPolicy) string { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+// The CIDR collection location name. See the `awsRoute53CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
+func (o RecordCidrRoutingPolicyOutput) LocationName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordCidrRoutingPolicy) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+type RecordCidrRoutingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordCidrRoutingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordCidrRoutingPolicy)(nil)).Elem()
+}
+
+func (o RecordCidrRoutingPolicyPtrOutput) ToRecordCidrRoutingPolicyPtrOutput() RecordCidrRoutingPolicyPtrOutput {
+	return o
+}
+
+func (o RecordCidrRoutingPolicyPtrOutput) ToRecordCidrRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordCidrRoutingPolicyPtrOutput {
+	return o
+}
+
+func (o RecordCidrRoutingPolicyPtrOutput) Elem() RecordCidrRoutingPolicyOutput {
+	return o.ApplyT(func(v *RecordCidrRoutingPolicy) RecordCidrRoutingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RecordCidrRoutingPolicy
+		return ret
+	}).(RecordCidrRoutingPolicyOutput)
+}
+
+// The CIDR collection ID. See the `awsRoute53CidrCollection` resource for more details.
+func (o RecordCidrRoutingPolicyPtrOutput) CollectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordCidrRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CIDR collection location name. See the `awsRoute53CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
+func (o RecordCidrRoutingPolicyPtrOutput) LocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordCidrRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocationName
+	}).(pulumi.StringPtrOutput)
+}
+
 type RecordFailoverRoutingPolicy struct {
 	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
 	Type string `pulumi:"type"`
@@ -2387,6 +2543,8 @@ func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) RuleReference() pulumi.S
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasInput)(nil)).Elem(), RecordAliasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasArrayInput)(nil)).Elem(), RecordAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordCidrRoutingPolicyInput)(nil)).Elem(), RecordCidrRoutingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordCidrRoutingPolicyPtrInput)(nil)).Elem(), RecordCidrRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordFailoverRoutingPolicyInput)(nil)).Elem(), RecordFailoverRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordFailoverRoutingPolicyArrayInput)(nil)).Elem(), RecordFailoverRoutingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeolocationRoutingPolicyInput)(nil)).Elem(), RecordGeolocationRoutingPolicyArgs{})
@@ -2423,6 +2581,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondaryPtrInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleSecondaryArgs{})
 	pulumi.RegisterOutputType(RecordAliasOutput{})
 	pulumi.RegisterOutputType(RecordAliasArrayOutput{})
+	pulumi.RegisterOutputType(RecordCidrRoutingPolicyOutput{})
+	pulumi.RegisterOutputType(RecordCidrRoutingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RecordFailoverRoutingPolicyOutput{})
 	pulumi.RegisterOutputType(RecordFailoverRoutingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(RecordGeolocationRoutingPolicyOutput{})

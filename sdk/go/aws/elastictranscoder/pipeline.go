@@ -28,14 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elastictranscoder.NewPipeline(ctx, "bar", &elastictranscoder.PipelineArgs{
-//				InputBucket: pulumi.Any(aws_s3_bucket.Input_bucket.Bucket),
+//				InputBucket: pulumi.Any(aws_s3_bucket.Input_bucket.Id),
 //				Role:        pulumi.Any(aws_iam_role.Test_role.Arn),
 //				ContentConfig: &elastictranscoder.PipelineContentConfigArgs{
-//					Bucket:       pulumi.Any(aws_s3_bucket.Content_bucket.Bucket),
+//					Bucket:       pulumi.Any(aws_s3_bucket.Content_bucket.Id),
 //					StorageClass: pulumi.String("Standard"),
 //				},
 //				ThumbnailConfig: &elastictranscoder.PipelineThumbnailConfigArgs{
-//					Bucket:       pulumi.Any(aws_s3_bucket.Thumb_bucket.Bucket),
+//					Bucket:       pulumi.Any(aws_s3_bucket.Thumb_bucket.Id),
 //					StorageClass: pulumi.String("Standard"),
 //				},
 //			})

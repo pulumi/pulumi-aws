@@ -17,14 +17,14 @@ public final class BucketOwnershipControlsState extends com.pulumi.resources.Res
     public static final BucketOwnershipControlsState Empty = new BucketOwnershipControlsState();
 
     /**
-     * The name of the bucket that you want to associate this access point with.
+     * Name of the bucket that you want to associate this access point with.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return The name of the bucket that you want to associate this access point with.
+     * @return Name of the bucket that you want to associate this access point with.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -72,7 +72,7 @@ public final class BucketOwnershipControlsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bucket The name of the bucket that you want to associate this access point with.
+         * @param bucket Name of the bucket that you want to associate this access point with.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketOwnershipControlsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bucket The name of the bucket that you want to associate this access point with.
+         * @param bucket Name of the bucket that you want to associate this access point with.
          * 
          * @return builder
          * 

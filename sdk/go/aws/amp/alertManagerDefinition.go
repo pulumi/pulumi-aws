@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -35,7 +33,7 @@ import (
 //			}
 //			_, err = amp.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp.AlertManagerDefinitionArgs{
 //				WorkspaceId: demoWorkspace.ID(),
-//				Definition:  pulumi.String(fmt.Sprintf("alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n")),
+//				Definition:  pulumi.String("alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"),
 //			})
 //			if err != nil {
 //				return err

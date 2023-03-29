@@ -27,6 +27,11 @@ public final class GetInstancesResult {
     private @Nullable List<String> instanceStateNames;
     private Map<String,String> instanceTags;
     /**
+     * @return IPv6 addresses of instances found through the filter
+     * 
+     */
+    private List<String> ipv6Addresses;
+    /**
      * @return Private IP addresses of instances found through the filter
      * 
      */
@@ -62,6 +67,13 @@ public final class GetInstancesResult {
         return this.instanceTags;
     }
     /**
+     * @return IPv6 addresses of instances found through the filter
+     * 
+     */
+    public List<String> ipv6Addresses() {
+        return this.ipv6Addresses;
+    }
+    /**
      * @return Private IP addresses of instances found through the filter
      * 
      */
@@ -90,6 +102,7 @@ public final class GetInstancesResult {
         private List<String> ids;
         private @Nullable List<String> instanceStateNames;
         private Map<String,String> instanceTags;
+        private List<String> ipv6Addresses;
         private List<String> privateIps;
         private List<String> publicIps;
         public Builder() {}
@@ -100,6 +113,7 @@ public final class GetInstancesResult {
     	      this.ids = defaults.ids;
     	      this.instanceStateNames = defaults.instanceStateNames;
     	      this.instanceTags = defaults.instanceTags;
+    	      this.ipv6Addresses = defaults.ipv6Addresses;
     	      this.privateIps = defaults.privateIps;
     	      this.publicIps = defaults.publicIps;
         }
@@ -139,6 +153,14 @@ public final class GetInstancesResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipv6Addresses(List<String> ipv6Addresses) {
+            this.ipv6Addresses = Objects.requireNonNull(ipv6Addresses);
+            return this;
+        }
+        public Builder ipv6Addresses(String... ipv6Addresses) {
+            return ipv6Addresses(List.of(ipv6Addresses));
+        }
+        @CustomType.Setter
         public Builder privateIps(List<String> privateIps) {
             this.privateIps = Objects.requireNonNull(privateIps);
             return this;
@@ -161,6 +183,7 @@ public final class GetInstancesResult {
             o.ids = ids;
             o.instanceStateNames = instanceStateNames;
             o.instanceTags = instanceTags;
+            o.ipv6Addresses = ipv6Addresses;
             o.privateIps = privateIps;
             o.publicIps = publicIps;
             return o;

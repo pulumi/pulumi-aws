@@ -42,6 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -77,88 +79,73 @@ import javax.annotation.Nullable;
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;codebuild.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;codebuild.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;logs:CreateLogGroup&#34;,
+ *                         &#34;logs:CreateLogStream&#34;,
+ *                         &#34;logs:PutLogEvents&#34;)
+ *                     .resources(&#34;*&#34;)
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;ec2:CreateNetworkInterface&#34;,
+ *                         &#34;ec2:DescribeDhcpOptions&#34;,
+ *                         &#34;ec2:DescribeNetworkInterfaces&#34;,
+ *                         &#34;ec2:DeleteNetworkInterface&#34;,
+ *                         &#34;ec2:DescribeSubnets&#34;,
+ *                         &#34;ec2:DescribeSecurityGroups&#34;,
+ *                         &#34;ec2:DescribeVpcs&#34;)
+ *                     .resources(&#34;*&#34;)
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(&#34;ec2:CreateNetworkInterfacePermission&#34;)
+ *                     .resources(&#34;arn:aws:ec2:us-east-1:123456789012:network-interface/*&#34;)
+ *                     .conditions(                    
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test(&#34;StringEquals&#34;)
+ *                             .variable(&#34;ec2:Subnet&#34;)
+ *                             .values(                            
+ *                                 aws_subnet.example1().arn(),
+ *                                 aws_subnet.example2().arn())
+ *                             .build(),
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test(&#34;StringEquals&#34;)
+ *                             .variable(&#34;ec2:AuthorizedService&#34;)
+ *                             .values(&#34;codebuild.amazonaws.com&#34;)
+ *                             .build())
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(&#34;s3:*&#34;)
+ *                     .resources(                    
+ *                         exampleBucketV2.arn(),
+ *                         exampleBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     .build())
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.name())
- *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
- *                 var exampleBucketV2Arn = values.t1;
- *                 var exampleBucketV2Arn1 = values.t2;
- *                 return &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;*&#34;
- *       ],
- *       &#34;Action&#34;: [
- *         &#34;logs:CreateLogGroup&#34;,
- *         &#34;logs:CreateLogStream&#34;,
- *         &#34;logs:PutLogEvents&#34;
- *       ]
- *     },
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;ec2:CreateNetworkInterface&#34;,
- *         &#34;ec2:DescribeDhcpOptions&#34;,
- *         &#34;ec2:DescribeNetworkInterfaces&#34;,
- *         &#34;ec2:DeleteNetworkInterface&#34;,
- *         &#34;ec2:DescribeSubnets&#34;,
- *         &#34;ec2:DescribeSecurityGroups&#34;,
- *         &#34;ec2:DescribeVpcs&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;*&#34;
- *     },
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;ec2:CreateNetworkInterfacePermission&#34;
- *       ],
- *       &#34;Resource&#34;: [
- *         &#34;arn:aws:ec2:us-east-1:123456789012:network-interface/*&#34;
- *       ],
- *       &#34;Condition&#34;: {
- *         &#34;StringEquals&#34;: {
- *           &#34;ec2:Subnet&#34;: [
- *             &#34;%s&#34;,
- *             &#34;%s&#34;
- *           ],
- *           &#34;ec2:AuthorizedService&#34;: &#34;codebuild.amazonaws.com&#34;
- *         }
- *       }
- *     },
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;s3:*&#34;
- *       ],
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;,
- *         &#34;%s/*&#34;
- *       ]
- *     }
- *   ]
- * }
- * &#34;, aws_subnet.example1().arn(),aws_subnet.example2().arn(),exampleBucketV2Arn,exampleBucketV2Arn1);
- *             }))
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        

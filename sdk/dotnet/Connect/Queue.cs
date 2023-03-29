@@ -361,6 +361,7 @@ namespace Pulumi.Aws.Connect
 
         [Input("quickConnectIdsAssociateds")]
         private InputList<string>? _quickConnectIdsAssociateds;
+        [Obsolete(@"Use the quick_connect_ids instead")]
         public InputList<string> QuickConnectIdsAssociateds
         {
             get => _quickConnectIdsAssociateds ?? (_quickConnectIdsAssociateds = new InputList<string>());

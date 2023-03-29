@@ -74,7 +74,9 @@ export interface GetLoadBalancerResult {
     readonly enableCrossZoneLoadBalancing: boolean;
     readonly enableDeletionProtection: boolean;
     readonly enableHttp2: boolean;
+    readonly enableTlsVersionAndCipherSuiteHeaders: boolean;
     readonly enableWafFailOpen: boolean;
+    readonly enableXffClientPort: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -90,6 +92,7 @@ export interface GetLoadBalancerResult {
     readonly subnets: string[];
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
+    readonly xffHeaderProcessingMode: string;
     readonly zoneId: string;
 }
 /**

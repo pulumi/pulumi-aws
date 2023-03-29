@@ -504,6 +504,8 @@ public final class ElbFunctions {
      * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
+     * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -516,6 +518,8 @@ public final class ElbFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import com.pulumi.aws.elb.LoadBalancer;
@@ -544,34 +548,27 @@ public final class ElbFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowElbLogging = new BucketPolicy(&#34;allowElbLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .build())
+     *                 .actions(&#34;s3:PutObject&#34;)
+     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .build())
+     *             .build());
+     * 
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.bucket())
+     *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -594,6 +591,8 @@ public final class ElbFunctions {
      * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
+     * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -606,6 +605,8 @@ public final class ElbFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import com.pulumi.aws.elb.LoadBalancer;
@@ -634,34 +635,27 @@ public final class ElbFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowElbLogging = new BucketPolicy(&#34;allowElbLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .build())
+     *                 .actions(&#34;s3:PutObject&#34;)
+     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .build())
+     *             .build());
+     * 
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.bucket())
+     *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -684,6 +678,8 @@ public final class ElbFunctions {
      * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
+     * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -696,6 +692,8 @@ public final class ElbFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import com.pulumi.aws.elb.LoadBalancer;
@@ -724,34 +722,27 @@ public final class ElbFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowElbLogging = new BucketPolicy(&#34;allowElbLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .build())
+     *                 .actions(&#34;s3:PutObject&#34;)
+     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .build())
+     *             .build());
+     * 
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.bucket())
+     *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -774,6 +765,8 @@ public final class ElbFunctions {
      * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
+     * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -786,6 +779,8 @@ public final class ElbFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import com.pulumi.aws.elb.LoadBalancer;
@@ -814,34 +809,27 @@ public final class ElbFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowElbLogging = new BucketPolicy(&#34;allowElbLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .build())
+     *                 .actions(&#34;s3:PutObject&#34;)
+     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .build())
+     *             .build());
+     * 
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.bucket())
+     *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -864,6 +852,8 @@ public final class ElbFunctions {
      * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
+     * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -876,6 +866,8 @@ public final class ElbFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import com.pulumi.aws.elb.LoadBalancer;
@@ -904,34 +896,27 @@ public final class ElbFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowElbLogging = new BucketPolicy(&#34;allowElbLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .build())
+     *                 .actions(&#34;s3:PutObject&#34;)
+     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .build())
+     *             .build());
+     * 
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.bucket())
+     *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -954,6 +939,8 @@ public final class ElbFunctions {
      * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
+     * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -966,6 +953,8 @@ public final class ElbFunctions {
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import com.pulumi.aws.elb.LoadBalancer;
@@ -994,34 +983,27 @@ public final class ElbFunctions {
      *             .acl(&#34;private&#34;)
      *             .build());
      * 
-     *         var allowElbLogging = new BucketPolicy(&#34;allowElbLogging&#34;, BucketPolicyArgs.builder()        
+     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect(&#34;Allow&#34;)
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type(&#34;AWS&#34;)
+     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
+     *                     .build())
+     *                 .actions(&#34;s3:PutObject&#34;)
+     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
+     *                 .build())
+     *             .build());
+     * 
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
      *             .bucket(elbLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
      *             .availabilityZones(&#34;us-west-2a&#34;)
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.bucket())
+     *                 .bucket(elbLogs.id())
      *                 .interval(5)
      *                 .build())
      *             .listeners(LoadBalancerListenerArgs.builder()

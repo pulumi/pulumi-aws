@@ -10,10 +10,35 @@ export type Association = import("./association").Association;
 export const Association: typeof import("./association").Association = null as any;
 utilities.lazyLoad(exports, ["Association"], () => require("./association"));
 
+export { GetLicenseGrantsArgs, GetLicenseGrantsResult, GetLicenseGrantsOutputArgs } from "./getLicenseGrants";
+export const getLicenseGrants: typeof import("./getLicenseGrants").getLicenseGrants = null as any;
+export const getLicenseGrantsOutput: typeof import("./getLicenseGrants").getLicenseGrantsOutput = null as any;
+utilities.lazyLoad(exports, ["getLicenseGrants","getLicenseGrantsOutput"], () => require("./getLicenseGrants"));
+
+export { GetReceivedLicenseArgs, GetReceivedLicenseResult, GetReceivedLicenseOutputArgs } from "./getReceivedLicense";
+export const getReceivedLicense: typeof import("./getReceivedLicense").getReceivedLicense = null as any;
+export const getReceivedLicenseOutput: typeof import("./getReceivedLicense").getReceivedLicenseOutput = null as any;
+utilities.lazyLoad(exports, ["getReceivedLicense","getReceivedLicenseOutput"], () => require("./getReceivedLicense"));
+
+export { GetReceivedLicensesArgs, GetReceivedLicensesResult, GetReceivedLicensesOutputArgs } from "./getReceivedLicenses";
+export const getReceivedLicenses: typeof import("./getReceivedLicenses").getReceivedLicenses = null as any;
+export const getReceivedLicensesOutput: typeof import("./getReceivedLicenses").getReceivedLicensesOutput = null as any;
+utilities.lazyLoad(exports, ["getReceivedLicenses","getReceivedLicensesOutput"], () => require("./getReceivedLicenses"));
+
 export { LicenseConfigurationArgs, LicenseConfigurationState } from "./licenseConfiguration";
 export type LicenseConfiguration = import("./licenseConfiguration").LicenseConfiguration;
 export const LicenseConfiguration: typeof import("./licenseConfiguration").LicenseConfiguration = null as any;
 utilities.lazyLoad(exports, ["LicenseConfiguration"], () => require("./licenseConfiguration"));
+
+export { LicenseGrantArgs, LicenseGrantState } from "./licenseGrant";
+export type LicenseGrant = import("./licenseGrant").LicenseGrant;
+export const LicenseGrant: typeof import("./licenseGrant").LicenseGrant = null as any;
+utilities.lazyLoad(exports, ["LicenseGrant"], () => require("./licenseGrant"));
+
+export { LicenseGrantAccepterArgs, LicenseGrantAccepterState } from "./licenseGrantAccepter";
+export type LicenseGrantAccepter = import("./licenseGrantAccepter").LicenseGrantAccepter;
+export const LicenseGrantAccepter: typeof import("./licenseGrantAccepter").LicenseGrantAccepter = null as any;
+utilities.lazyLoad(exports, ["LicenseGrantAccepter"], () => require("./licenseGrantAccepter"));
 
 
 const _module = {
@@ -24,6 +49,10 @@ const _module = {
                 return new Association(name, <any>undefined, { urn })
             case "aws:licensemanager/licenseConfiguration:LicenseConfiguration":
                 return new LicenseConfiguration(name, <any>undefined, { urn })
+            case "aws:licensemanager/licenseGrant:LicenseGrant":
+                return new LicenseGrant(name, <any>undefined, { urn })
+            case "aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter":
+                return new LicenseGrantAccepter(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +60,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "licensemanager/association", _module)
 pulumi.runtime.registerResourceModule("aws", "licensemanager/licenseConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "licensemanager/licenseGrant", _module)
+pulumi.runtime.registerResourceModule("aws", "licensemanager/licenseGrantAccepter", _module)

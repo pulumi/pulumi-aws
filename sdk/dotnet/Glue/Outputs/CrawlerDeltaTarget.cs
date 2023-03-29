@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
+        /// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+        /// </summary>
+        public readonly bool? CreateNativeDeltaTable;
+        /// <summary>
         /// A list of the Amazon S3 paths to the Delta tables.
         /// </summary>
         public readonly ImmutableArray<string> DeltaTables;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.Glue.Outputs
         private CrawlerDeltaTarget(
             string? connectionName,
 
+            bool? createNativeDeltaTable,
+
             ImmutableArray<string> deltaTables,
 
             bool writeManifest)
         {
             ConnectionName = connectionName;
+            CreateNativeDeltaTable = createNativeDeltaTable;
             DeltaTables = deltaTables;
             WriteManifest = writeManifest;
         }

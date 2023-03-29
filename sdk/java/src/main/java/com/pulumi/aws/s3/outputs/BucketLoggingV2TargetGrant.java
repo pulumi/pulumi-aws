@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class BucketLoggingV2TargetGrant {
     /**
-     * @return A configuration block for the person being granted permissions documented below.
+     * @return Configuration block for the person being granted permissions. See below.
      * 
      */
     private BucketLoggingV2TargetGrantGrantee grantee;
@@ -23,7 +23,7 @@ public final class BucketLoggingV2TargetGrant {
 
     private BucketLoggingV2TargetGrant() {}
     /**
-     * @return A configuration block for the person being granted permissions documented below.
+     * @return Configuration block for the person being granted permissions. See below.
      * 
      */
     public BucketLoggingV2TargetGrantGrantee grantee() {

@@ -213,41 +213,29 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user = aws.iam.User("user")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "ec2.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ec2.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         group = aws.iam.Group("group")
-        policy = aws.iam.Policy("policy",
+        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:Describe*"],
+            resources=["*"],
+        )])
+        policy_policy = aws.iam.Policy("policyPolicy",
             description="A test policy",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=policy_policy_document.json)
         test_attach = aws.iam.PolicyAttachment("test-attach",
             users=[user.name],
             roles=[role.name],
             groups=[group.name],
-            policy_arn=policy.arn)
+            policy_arn=policy_policy.arn)
         ```
 
         :param str resource_name: The name of the resource.
@@ -280,41 +268,29 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user = aws.iam.User("user")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "ec2.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ec2.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         group = aws.iam.Group("group")
-        policy = aws.iam.Policy("policy",
+        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:Describe*"],
+            resources=["*"],
+        )])
+        policy_policy = aws.iam.Policy("policyPolicy",
             description="A test policy",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=policy_policy_document.json)
         test_attach = aws.iam.PolicyAttachment("test-attach",
             users=[user.name],
             roles=[role.name],
             groups=[group.name],
-            policy_arn=policy.arn)
+            policy_arn=policy_policy.arn)
         ```
 
         :param str resource_name: The name of the resource.

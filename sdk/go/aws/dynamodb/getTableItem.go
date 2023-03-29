@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -35,7 +33,7 @@ import (
 //					"#P": "Percentile",
 //				},
 //				ProjectionExpression: pulumi.StringRef("#P"),
-//				Key:                  fmt.Sprintf("{\n	\"hashKey\": {\"S\": \"example\"}\n}\n"),
+//				Key:                  "{\n	\"hashKey\": {\"S\": \"example\"}\n}\n",
 //			}, nil)
 //			if err != nil {
 //				return err

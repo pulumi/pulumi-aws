@@ -111,10 +111,9 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,28 +124,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"es.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"logs:PutLogEvents",
+//							"logs:PutLogEventsBatch",
+//							"logs:CreateLogStream",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyName: pulumi.String("example"),
-//				PolicyDocument: pulumi.String(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Service": "es.amazonaws.com"
-//	      },
-//	      "Action": [
-//	        "logs:PutLogEvents",
-//	        "logs:PutLogEventsBatch",
-//	        "logs:CreateLogStream"
-//	      ],
-//	      "Resource": "arn:aws:logs:*"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				PolicyName:     pulumi.String("example"),
+//				PolicyDocument: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * Provides a CodePipeline.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -31,6 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codestarconnections.Connection;
  * import com.pulumi.aws.codestarconnections.ConnectionArgs;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.kms.KmsFunctions;
@@ -63,21 +66,19 @@ import javax.annotation.Nullable;
  * 
  *         var codepipelineBucket = new BucketV2(&#34;codepipelineBucket&#34;);
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;codepipeline.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var codepipelineRole = new Role(&#34;codepipelineRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;codepipeline.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var s3kmskey = KmsFunctions.getAlias(GetAliasArgs.builder()
@@ -149,49 +150,37 @@ import javax.annotation.Nullable;
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
- *         var codepipelinePolicy = new RolePolicy(&#34;codepipelinePolicy&#34;, RolePolicyArgs.builder()        
+ *         final var codepipelinePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;s3:GetObject&#34;,
+ *                         &#34;s3:GetObjectVersion&#34;,
+ *                         &#34;s3:GetBucketVersioning&#34;,
+ *                         &#34;s3:PutObjectAcl&#34;,
+ *                         &#34;s3:PutObject&#34;)
+ *                     .resources(                    
+ *                         codepipelineBucket.arn(),
+ *                         codepipelineBucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(&#34;codestar-connections:UseConnection&#34;)
+ *                     .resource(example.arn())
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;codebuild:BatchGetBuilds&#34;,
+ *                         &#34;codebuild:StartBuild&#34;)
+ *                     .resources(&#34;*&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var codepipelinePolicyRolePolicy = new RolePolicy(&#34;codepipelinePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(codepipelineRole.id())
- *             .policy(Output.tuple(codepipelineBucket.arn(), codepipelineBucket.arn(), example.arn()).applyValue(values -&gt; {
- *                 var codepipelineBucketArn = values.t1;
- *                 var codepipelineBucketArn1 = values.t2;
- *                 var exampleArn = values.t3;
- *                 return &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;:&#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;s3:GetObject&#34;,
- *         &#34;s3:GetObjectVersion&#34;,
- *         &#34;s3:GetBucketVersioning&#34;,
- *         &#34;s3:PutObjectAcl&#34;,
- *         &#34;s3:PutObject&#34;
- *       ],
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;,
- *         &#34;%s/*&#34;
- *       ]
- *     },
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;codestar-connections:UseConnection&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;%s&#34;
- *     },
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;codebuild:BatchGetBuilds&#34;,
- *         &#34;codebuild:StartBuild&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;*&#34;
- *     }
- *   ]
- * }
- * &#34;, codepipelineBucketArn,codepipelineBucketArn1,exampleArn);
- *             }))
+ *             .policy(codepipelinePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(codepipelinePolicyPolicyDocument -&gt; codepipelinePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

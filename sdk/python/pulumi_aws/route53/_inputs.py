@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'RecordAliasArgs',
+    'RecordCidrRoutingPolicyArgs',
     'RecordFailoverRoutingPolicyArgs',
     'RecordGeolocationRoutingPolicyArgs',
     'RecordLatencyRoutingPolicyArgs',
@@ -80,6 +81,43 @@ class RecordAliasArgs:
     @zone_id.setter
     def zone_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "zone_id", value)
+
+
+@pulumi.input_type
+class RecordCidrRoutingPolicyArgs:
+    def __init__(__self__, *,
+                 collection_id: pulumi.Input[str],
+                 location_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] collection_id: The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+        :param pulumi.Input[str] location_name: The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        """
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> pulumi.Input[str]:
+        """
+        The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+        """
+        return pulumi.get(self, "collection_id")
+
+    @collection_id.setter
+    def collection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "collection_id", value)
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> pulumi.Input[str]:
+        """
+        The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        """
+        return pulumi.get(self, "location_name")
+
+    @location_name.setter
+    def location_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location_name", value)
 
 
 @pulumi.input_type

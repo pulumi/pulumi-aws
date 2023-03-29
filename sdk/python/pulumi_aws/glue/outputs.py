@@ -1337,6 +1337,8 @@ class CrawlerDeltaTarget(dict):
             suggest = "write_manifest"
         elif key == "connectionName":
             suggest = "connection_name"
+        elif key == "createNativeDeltaTable":
+            suggest = "create_native_delta_table"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CrawlerDeltaTarget. Access the value via the '{suggest}' property getter instead.")
@@ -1352,16 +1354,20 @@ class CrawlerDeltaTarget(dict):
     def __init__(__self__, *,
                  delta_tables: Sequence[str],
                  write_manifest: bool,
-                 connection_name: Optional[str] = None):
+                 connection_name: Optional[str] = None,
+                 create_native_delta_table: Optional[bool] = None):
         """
         :param Sequence[str] delta_tables: A list of the Amazon S3 paths to the Delta tables.
         :param bool write_manifest: Specifies whether to write the manifest files to the Delta table path.
         :param str connection_name: The name of the connection to use to connect to the Delta table target.
+        :param bool create_native_delta_table: Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
         """
         pulumi.set(__self__, "delta_tables", delta_tables)
         pulumi.set(__self__, "write_manifest", write_manifest)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
+        if create_native_delta_table is not None:
+            pulumi.set(__self__, "create_native_delta_table", create_native_delta_table)
 
     @property
     @pulumi.getter(name="deltaTables")
@@ -1386,6 +1392,14 @@ class CrawlerDeltaTarget(dict):
         The name of the connection to use to connect to the Delta table target.
         """
         return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter(name="createNativeDeltaTable")
+    def create_native_delta_table(self) -> Optional[bool]:
+        """
+        Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+        """
+        return pulumi.get(self, "create_native_delta_table")
 
 
 @pulumi.output_type

@@ -150,6 +150,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly billingMode!: pulumi.Output<string | undefined>;
     /**
+     * Enables deletion protection for table. Defaults to `false`.
+     */
+    public readonly deletionProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
@@ -158,7 +162,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly hashKey!: pulumi.Output<string>;
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     /**
@@ -214,7 +218,9 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly streamViewType!: pulumi.Output<string>;
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      */
     public readonly tableClass!: pulumi.Output<string | undefined>;
     /**
@@ -250,6 +256,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["attributes"] = state ? state.attributes : undefined;
             resourceInputs["billingMode"] = state ? state.billingMode : undefined;
+            resourceInputs["deletionProtectionEnabled"] = state ? state.deletionProtectionEnabled : undefined;
             resourceInputs["globalSecondaryIndexes"] = state ? state.globalSecondaryIndexes : undefined;
             resourceInputs["hashKey"] = state ? state.hashKey : undefined;
             resourceInputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
@@ -275,6 +282,7 @@ export class Table extends pulumi.CustomResource {
             const args = argsOrState as TableArgs | undefined;
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
             resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
             resourceInputs["hashKey"] = args ? args.hashKey : undefined;
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
@@ -320,6 +328,10 @@ export interface TableState {
      */
     billingMode?: pulumi.Input<string>;
     /**
+     * Enables deletion protection for table. Defaults to `false`.
+     */
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndex>[]>;
@@ -328,7 +340,7 @@ export interface TableState {
      */
     hashKey?: pulumi.Input<string>;
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
@@ -384,7 +396,9 @@ export interface TableState {
      */
     streamViewType?: pulumi.Input<string>;
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      */
     tableClass?: pulumi.Input<string>;
     /**
@@ -418,6 +432,10 @@ export interface TableArgs {
      */
     billingMode?: pulumi.Input<string>;
     /**
+     * Enables deletion protection for table. Defaults to `false`.
+     */
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndex>[]>;
@@ -426,7 +444,7 @@ export interface TableArgs {
      */
     hashKey?: pulumi.Input<string>;
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
@@ -474,7 +492,9 @@ export interface TableArgs {
      */
     streamViewType?: pulumi.Input<string>;
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      */
     tableClass?: pulumi.Input<string>;
     /**

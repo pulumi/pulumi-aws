@@ -19,6 +19,7 @@ __all__ = [
     'ClusterServerlessv2ScalingConfiguration',
     'GlobalClusterGlobalClusterMember',
     'InstanceBlueGreenUpdate',
+    'InstanceListenerEndpoint',
     'InstanceRestoreToPointInTime',
     'InstanceS3Import',
     'OptionGroupOption',
@@ -475,6 +476,66 @@ class InstanceBlueGreenUpdate(dict):
 
 
 @pulumi.output_type
+class InstanceListenerEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceListenerEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceListenerEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceListenerEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 hosted_zone_id: Optional[str] = None,
+                 port: Optional[int] = None):
+        """
+        :param str address: Specifies the DNS address of the DB instance.
+        :param str hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        :param int port: The port on which the DB accepts connections.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Specifies the DNS address of the DB instance.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[str]:
+        """
+        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port on which the DB accepts connections.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
 class InstanceRestoreToPointInTime(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -853,6 +914,8 @@ class ProxyAuth(dict):
         suggest = None
         if key == "authScheme":
             suggest = "auth_scheme"
+        elif key == "clientPasswordAuthType":
+            suggest = "client_password_auth_type"
         elif key == "iamAuth":
             suggest = "iam_auth"
         elif key == "secretArn":
@@ -871,12 +934,14 @@ class ProxyAuth(dict):
 
     def __init__(__self__, *,
                  auth_scheme: Optional[str] = None,
+                 client_password_auth_type: Optional[str] = None,
                  description: Optional[str] = None,
                  iam_auth: Optional[str] = None,
                  secret_arn: Optional[str] = None,
                  username: Optional[str] = None):
         """
         :param str auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+        :param str client_password_auth_type: The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
         :param str iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
@@ -884,6 +949,8 @@ class ProxyAuth(dict):
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
+        if client_password_auth_type is not None:
+            pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if iam_auth is not None:
@@ -900,6 +967,14 @@ class ProxyAuth(dict):
         The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
         """
         return pulumi.get(self, "auth_scheme")
+
+    @property
+    @pulumi.getter(name="clientPasswordAuthType")
+    def client_password_auth_type(self) -> Optional[str]:
+        """
+        The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        """
+        return pulumi.get(self, "client_password_auth_type")
 
     @property
     @pulumi.getter

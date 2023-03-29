@@ -396,7 +396,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketLifecycleConfigurationV2(ctx, "bucket-config", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: bucket.Bucket,
+//				Bucket: bucket.ID(),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("log"),
@@ -515,11 +515,11 @@ import (
 type BucketLifecycleConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketLifecycleConfigurationV2RuleArrayOutput `pulumi:"rules"`
 }
 
@@ -558,20 +558,20 @@ func GetBucketLifecycleConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketLifecycleConfigurationV2 resources.
 type bucketLifecycleConfigurationV2State struct {
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules []BucketLifecycleConfigurationV2Rule `pulumi:"rules"`
 }
 
 type BucketLifecycleConfigurationV2State struct {
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketLifecycleConfigurationV2RuleArrayInput
 }
 
@@ -580,21 +580,21 @@ func (BucketLifecycleConfigurationV2State) ElementType() reflect.Type {
 }
 
 type bucketLifecycleConfigurationV2Args struct {
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules []BucketLifecycleConfigurationV2Rule `pulumi:"rules"`
 }
 
 // The set of arguments for constructing a BucketLifecycleConfigurationV2 resource.
 type BucketLifecycleConfigurationV2Args struct {
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketLifecycleConfigurationV2RuleArrayInput
 }
 
@@ -685,17 +685,17 @@ func (o BucketLifecycleConfigurationV2Output) ToBucketLifecycleConfigurationV2Ou
 	return o
 }
 
-// The name of the source S3 bucket you want Amazon S3 to monitor.
+// Name of the source S3 bucket you want Amazon S3 to monitor.
 func (o BucketLifecycleConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 func (o BucketLifecycleConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// List of configuration blocks describing the rules managing the replication documented below.
+// List of configuration blocks describing the rules managing the replication. See below.
 func (o BucketLifecycleConfigurationV2Output) Rules() BucketLifecycleConfigurationV2RuleArrayOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) BucketLifecycleConfigurationV2RuleArrayOutput { return v.Rules }).(BucketLifecycleConfigurationV2RuleArrayOutput)
 }

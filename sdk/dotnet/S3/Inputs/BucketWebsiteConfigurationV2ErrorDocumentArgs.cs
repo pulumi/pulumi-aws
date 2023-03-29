@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketWebsiteConfigurationV2ErrorDocumentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The object key name to use when a 4XX class error occurs.
+        /// Object key name to use when a 4XX class error occurs.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

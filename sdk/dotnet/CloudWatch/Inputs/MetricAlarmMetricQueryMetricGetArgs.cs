@@ -39,7 +39,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
+        /// Granularity in seconds of returned data points.
+        /// For metrics with regular resolution, valid values are any multiple of `60`.
+        /// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         /// </summary>
         [Input("period", required: true)]
         public Input<int> Period { get; set; } = null!;

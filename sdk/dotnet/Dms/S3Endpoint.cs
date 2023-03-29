@@ -259,6 +259,12 @@ namespace Pulumi.Aws.Dms
         public Output<string?> DatePartitionTimezone { get; private set; } = null!;
 
         /// <summary>
+        /// Undocumented argument for use as directed by AWS Support.
+        /// </summary>
+        [Output("detachTargetOnLobLookupFailureParquet")]
+        public Output<bool?> DetachTargetOnLobLookupFailureParquet { get; private set; } = null!;
+
+        /// <summary>
         /// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         /// </summary>
         [Output("dictPageSizeLimit")]
@@ -611,6 +617,12 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatePartitionTimezone { get; set; }
 
         /// <summary>
+        /// Undocumented argument for use as directed by AWS Support.
+        /// </summary>
+        [Input("detachTargetOnLobLookupFailureParquet")]
+        public Input<bool>? DetachTargetOnLobLookupFailureParquet { get; set; }
+
+        /// <summary>
         /// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         /// </summary>
         [Input("dictPageSizeLimit")]
@@ -899,6 +911,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("datePartitionTimezone")]
         public Input<string>? DatePartitionTimezone { get; set; }
+
+        /// <summary>
+        /// Undocumented argument for use as directed by AWS Support.
+        /// </summary>
+        [Input("detachTargetOnLobLookupFailureParquet")]
+        public Input<bool>? DetachTargetOnLobLookupFailureParquet { get; set; }
 
         /// <summary>
         /// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)

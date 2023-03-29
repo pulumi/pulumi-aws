@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -23,42 +24,66 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var test = new Aws.Batch.JobDefinition("test", new()
     ///     {
-    ///         ContainerProperties = @"{
-    /// 	""command"": [""ls"", ""-la""],
-    /// 	""image"": ""busybox"",
-    /// 	""resourceRequirements"": [
-    ///     {""type"": ""VCPU"", ""value"": ""0.25""},
-    ///     {""type"": ""MEMORY"", ""value"": ""512""}
-    ///   ],
-    /// 	""volumes"": [
-    ///       {
-    ///         ""host"": {
-    ///           ""sourcePath"": ""/tmp""
-    ///         },
-    ///         ""name"": ""tmp""
-    ///       }
-    ///     ],
-    /// 	""environment"": [
-    /// 		{""name"": ""VARNAME"", ""value"": ""VARVAL""}
-    /// 	],
-    /// 	""mountPoints"": [
-    /// 		{
-    ///           ""sourceVolume"": ""tmp"",
-    ///           ""containerPath"": ""/tmp"",
-    ///           ""readOnly"": false
-    ///         }
-    /// 	],
-    ///     ""ulimits"": [
-    ///       {
-    ///         ""hardLimit"": 1024,
-    ///         ""name"": ""nofile"",
-    ///         ""softLimit"": 1024
-    ///       }
-    ///     ]
-    /// }
-    /// 
-    /// ",
     ///         Type = "container",
+    ///         ContainerProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["command"] = new[]
+    ///             {
+    ///                 "ls",
+    ///                 "-la",
+    ///             },
+    ///             ["image"] = "busybox",
+    ///             ["resourceRequirements"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = "VCPU",
+    ///                     ["value"] = "0.25",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = "MEMORY",
+    ///                     ["value"] = "512",
+    ///                 },
+    ///             },
+    ///             ["volumes"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["host"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["sourcePath"] = "/tmp",
+    ///                     },
+    ///                     ["name"] = "tmp",
+    ///                 },
+    ///             },
+    ///             ["environment"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["name"] = "VARNAME",
+    ///                     ["value"] = "VARVAL",
+    ///                 },
+    ///             },
+    ///             ["mountPoints"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["sourceVolume"] = "tmp",
+    ///                     ["containerPath"] = "/tmp",
+    ///                     ["readOnly"] = false,
+    ///                 },
+    ///             },
+    ///             ["ulimits"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["hardLimit"] = 1024,
+    ///                     ["name"] = "nofile",
+    ///                     ["softLimit"] = 1024,
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });
@@ -67,6 +92,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -115,19 +141,34 @@ namespace Pulumi.Aws.Batch
     ///         {
     ///             "FARGATE",
     ///         },
-    ///         ContainerProperties = ecsTaskExecutionRole.Arn.Apply(arn =&gt; @$"{{
-    ///   ""command"": [""echo"", ""test""],
-    ///   ""image"": ""busybox"",
-    ///   ""fargatePlatformConfiguration"": {{
-    ///     ""platformVersion"": ""LATEST""
-    ///   }},
-    ///   ""resourceRequirements"": [
-    ///     {{""type"": ""VCPU"", ""value"": ""0.25""}},
-    ///     {{""type"": ""MEMORY"", ""value"": ""512""}}
-    ///   ],
-    ///   ""executionRoleArn"": ""{arn}""
-    /// }}
-    /// "),
+    ///         ContainerProperties = ecsTaskExecutionRole.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["command"] = new[]
+    ///             {
+    ///                 "echo",
+    ///                 "test",
+    ///             },
+    ///             ["image"] = "busybox",
+    ///             ["jobRoleArn"] = "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
+    ///             ["fargatePlatformConfiguration"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["platformVersion"] = "LATEST",
+    ///             },
+    ///             ["resourceRequirements"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = "VCPU",
+    ///                     ["value"] = "0.25",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = "MEMORY",
+    ///                     ["value"] = "512",
+    ///                 },
+    ///             },
+    ///             ["executionRoleArn"] = arn,
+    ///         })),
     ///     });
     /// 
     /// });

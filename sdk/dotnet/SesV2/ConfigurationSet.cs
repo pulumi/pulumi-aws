@@ -116,6 +116,12 @@ namespace Pulumi.Aws.SesV2
         [Output("trackingOptions")]
         public Output<Outputs.ConfigurationSetTrackingOptions?> TrackingOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+        /// </summary>
+        [Output("vdmOptions")]
+        public Output<Outputs.ConfigurationSetVdmOptions?> VdmOptions { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -210,6 +216,12 @@ namespace Pulumi.Aws.SesV2
         [Input("trackingOptions")]
         public Input<Inputs.ConfigurationSetTrackingOptionsArgs>? TrackingOptions { get; set; }
 
+        /// <summary>
+        /// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+        /// </summary>
+        [Input("vdmOptions")]
+        public Input<Inputs.ConfigurationSetVdmOptionsArgs>? VdmOptions { get; set; }
+
         public ConfigurationSetArgs()
         {
         }
@@ -279,6 +291,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("trackingOptions")]
         public Input<Inputs.ConfigurationSetTrackingOptionsGetArgs>? TrackingOptions { get; set; }
+
+        /// <summary>
+        /// An object that defines the VDM settings that apply to emails that you send using the configuration set.
+        /// </summary>
+        [Input("vdmOptions")]
+        public Input<Inputs.ConfigurationSetVdmOptionsGetArgs>? VdmOptions { get; set; }
 
         public ConfigurationSetState()
         {

@@ -205,24 +205,22 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        topic = aws.sns.Topic("topic", policy=\"\"\"{
-            "Version":"2012-10-17",
-            "Statement":[{
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "vpce.amazonaws.com"
-                },
-                "Action": "SNS:Publish",
-                "Resource": "arn:aws:sns:*:*:vpce-notification-topic"
-            }]
-        }
-        \"\"\")
+        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["vpce.amazonaws.com"],
+            )],
+            actions=["SNS:Publish"],
+            resources=["arn:aws:sns:*:*:vpce-notification-topic"],
+        )])
+        topic_topic = aws.sns.Topic("topicTopic", policy=topic_policy_document.json)
         foo_vpc_endpoint_service = aws.ec2.VpcEndpointService("fooVpcEndpointService",
             acceptance_required=False,
             network_load_balancer_arns=[aws_lb["test"]["arn"]])
         foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification",
             vpc_endpoint_service_id=foo_vpc_endpoint_service.id,
-            connection_notification_arn=topic.arn,
+            connection_notification_arn=topic_topic.arn,
             connection_events=[
                 "Accept",
                 "Reject",
@@ -260,24 +258,22 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        topic = aws.sns.Topic("topic", policy=\"\"\"{
-            "Version":"2012-10-17",
-            "Statement":[{
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "vpce.amazonaws.com"
-                },
-                "Action": "SNS:Publish",
-                "Resource": "arn:aws:sns:*:*:vpce-notification-topic"
-            }]
-        }
-        \"\"\")
+        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["vpce.amazonaws.com"],
+            )],
+            actions=["SNS:Publish"],
+            resources=["arn:aws:sns:*:*:vpce-notification-topic"],
+        )])
+        topic_topic = aws.sns.Topic("topicTopic", policy=topic_policy_document.json)
         foo_vpc_endpoint_service = aws.ec2.VpcEndpointService("fooVpcEndpointService",
             acceptance_required=False,
             network_load_balancer_arns=[aws_lb["test"]["arn"]])
         foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification",
             vpc_endpoint_service_id=foo_vpc_endpoint_service.id,
-            connection_notification_arn=topic.arn,
+            connection_notification_arn=topic_topic.arn,
             connection_events=[
                 "Accept",
                 "Reject",

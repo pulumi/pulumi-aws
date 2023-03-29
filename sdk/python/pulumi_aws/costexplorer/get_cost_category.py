@@ -22,10 +22,13 @@ class GetCostCategoryResult:
     """
     A collection of values returned by getCostCategory.
     """
-    def __init__(__self__, cost_category_arn=None, effective_end=None, effective_start=None, id=None, name=None, rule_version=None, rules=None, split_charge_rules=None, tags=None):
+    def __init__(__self__, cost_category_arn=None, default_value=None, effective_end=None, effective_start=None, id=None, name=None, rule_version=None, rules=None, split_charge_rules=None, tags=None):
         if cost_category_arn and not isinstance(cost_category_arn, str):
             raise TypeError("Expected argument 'cost_category_arn' to be a str")
         pulumi.set(__self__, "cost_category_arn", cost_category_arn)
+        if default_value and not isinstance(default_value, str):
+            raise TypeError("Expected argument 'default_value' to be a str")
+        pulumi.set(__self__, "default_value", default_value)
         if effective_end and not isinstance(effective_end, str):
             raise TypeError("Expected argument 'effective_end' to be a str")
         pulumi.set(__self__, "effective_end", effective_end)
@@ -55,6 +58,14 @@ class GetCostCategoryResult:
     @pulumi.getter(name="costCategoryArn")
     def cost_category_arn(self) -> str:
         return pulumi.get(self, "cost_category_arn")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> str:
+        """
+        Default value for the cost category.
+        """
+        return pulumi.get(self, "default_value")
 
     @property
     @pulumi.getter(name="effectiveEnd")
@@ -125,6 +136,7 @@ class AwaitableGetCostCategoryResult(GetCostCategoryResult):
             yield self
         return GetCostCategoryResult(
             cost_category_arn=self.cost_category_arn,
+            default_value=self.default_value,
             effective_end=self.effective_end,
             effective_start=self.effective_start,
             id=self.id,
@@ -162,6 +174,7 @@ def get_cost_category(cost_category_arn: Optional[str] = None,
 
     return AwaitableGetCostCategoryResult(
         cost_category_arn=__ret__.cost_category_arn,
+        default_value=__ret__.default_value,
         effective_end=__ret__.effective_end,
         effective_start=__ret__.effective_start,
         id=__ret__.id,

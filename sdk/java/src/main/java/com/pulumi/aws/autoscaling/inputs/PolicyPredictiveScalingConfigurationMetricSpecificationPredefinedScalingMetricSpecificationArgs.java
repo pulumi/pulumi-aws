@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs extends com.pulumi.resources.ResourceArgs {
@@ -32,15 +34,15 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
      * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
-    @Import(name="resourceLabel", required=true)
-    private Output<String> resourceLabel;
+    @Import(name="resourceLabel")
+    private @Nullable Output<String> resourceLabel;
 
     /**
      * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
      * 
      */
-    public Output<String> resourceLabel() {
-        return this.resourceLabel;
+    public Optional<Output<String>> resourceLabel() {
+        return Optional.ofNullable(this.resourceLabel);
     }
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs() {}
@@ -95,7 +97,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
          * @return builder
          * 
          */
-        public Builder resourceLabel(Output<String> resourceLabel) {
+        public Builder resourceLabel(@Nullable Output<String> resourceLabel) {
             $.resourceLabel = resourceLabel;
             return this;
         }
@@ -112,7 +114,6 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
 
         public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs build() {
             $.predefinedMetricType = Objects.requireNonNull($.predefinedMetricType, "expected parameter 'predefinedMetricType' to be non-null");
-            $.resourceLabel = Objects.requireNonNull($.resourceLabel, "expected parameter 'resourceLabel' to be non-null");
             return $;
         }
     }

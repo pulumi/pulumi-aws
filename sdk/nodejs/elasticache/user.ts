@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -17,6 +20,40 @@ import * as utilities from "../utilities";
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
+ *     userId: "testUserId",
+ *     userName: "testUserName",
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.elasticache.User("test", {
+ *     accessString: "on ~* +@all",
+ *     authenticationMode: {
+ *         type: "iam",
+ *     },
+ *     engine: "REDIS",
+ *     userId: "testUserId",
+ *     userName: "testUserName",
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.elasticache.User("test", {
+ *     accessString: "on ~* +@all",
+ *     authenticationMode: {
+ *         passwords: [
+ *             "password1",
+ *             "password2",
+ *         ],
+ *         type: "password",
+ *     },
+ *     engine: "REDIS",
  *     userId: "testUserId",
  *     userName: "testUserName",
  * });
@@ -65,7 +102,11 @@ export class User extends pulumi.CustomResource {
     /**
      * The ARN of the created ElastiCache User.
      */
-    public readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Denotes the user's authentication properties. Detailed below.
+     */
+    public readonly authenticationMode!: pulumi.Output<outputs.elasticache.UserAuthenticationMode>;
     /**
      * The current supported value is `REDIS`.
      */
@@ -107,6 +148,7 @@ export class User extends pulumi.CustomResource {
             const state = argsOrState as UserState | undefined;
             resourceInputs["accessString"] = state ? state.accessString : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["noPasswordRequired"] = state ? state.noPasswordRequired : undefined;
             resourceInputs["passwords"] = state ? state.passwords : undefined;
@@ -129,13 +171,14 @@ export class User extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userName'");
             }
             resourceInputs["accessString"] = args ? args.accessString : undefined;
-            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
             resourceInputs["passwords"] = args?.passwords ? pulumi.secret(args.passwords) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -157,6 +200,10 @@ export interface UserState {
      * The ARN of the created ElastiCache User.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Denotes the user's authentication properties. Detailed below.
+     */
+    authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode>;
     /**
      * The current supported value is `REDIS`.
      */
@@ -193,9 +240,9 @@ export interface UserArgs {
      */
     accessString: pulumi.Input<string>;
     /**
-     * The ARN of the created ElastiCache User.
+     * Denotes the user's authentication properties. Detailed below.
      */
-    arn?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode>;
     /**
      * The current supported value is `REDIS`.
      */

@@ -406,6 +406,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
+    /**
      * Snap start settings block. Detailed below.
      * 
      */
@@ -523,6 +538,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.s3Bucket = $.s3Bucket;
         this.s3Key = $.s3Key;
         this.s3ObjectVersion = $.s3ObjectVersion;
+        this.skipDestroy = $.skipDestroy;
         this.snapStart = $.snapStart;
         this.sourceCodeHash = $.sourceCodeHash;
         this.tags = $.tags;
@@ -1122,6 +1138,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder s3ObjectVersion(String s3ObjectVersion) {
             return s3ObjectVersion(Output.of(s3ObjectVersion));
+        }
+
+        /**
+         * @param skipDestroy Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

@@ -147,6 +147,20 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
+     * Enables the automated creation of subdomains for branches.
+     * 
+     */
+    @Export(name="enableAutoSubDomain", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableAutoSubDomain;
+
+    /**
+     * @return Enables the automated creation of subdomains for branches.
+     * 
+     */
+    public Output<Optional<Boolean>> enableAutoSubDomain() {
+        return Codegen.optional(this.enableAutoSubDomain);
+    }
+    /**
      * Setting for the subdomain. Documented below.
      * 
      */

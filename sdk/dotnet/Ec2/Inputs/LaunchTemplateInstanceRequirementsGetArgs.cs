@@ -60,6 +60,18 @@ namespace Pulumi.Aws.Ec2.Inputs
             set => _acceleratorTypes = value;
         }
 
+        [Input("allowedInstanceTypes")]
+        private InputList<string>? _allowedInstanceTypes;
+
+        /// <summary>
+        /// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+        /// </summary>
+        public InputList<string> AllowedInstanceTypes
+        {
+            get => _allowedInstanceTypes ?? (_allowedInstanceTypes = new InputList<string>());
+            set => _allowedInstanceTypes = value;
+        }
+
         /// <summary>
         /// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         /// </summary>
@@ -94,7 +106,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _excludedInstanceTypes;
 
         /// <summary>
-        /// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        /// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         /// </summary>
         public InputList<string> ExcludedInstanceTypes
         {
@@ -143,6 +155,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// </summary>
         [Input("memoryMib", required: true)]
         public Input<Inputs.LaunchTemplateInstanceRequirementsMemoryMibGetArgs> MemoryMib { get; set; } = null!;
+
+        /// <summary>
+        /// Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        /// </summary>
+        [Input("networkBandwidthGbps")]
+        public Input<Inputs.LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsGetArgs>? NetworkBandwidthGbps { get; set; }
 
         /// <summary>
         /// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.

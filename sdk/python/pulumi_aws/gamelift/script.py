@@ -242,7 +242,7 @@ class Script(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Script("example", storage_location=aws.gamelift.ScriptStorageLocationArgs(
-            bucket=aws_s3_bucket["example"]["bucket"],
+            bucket=aws_s3_bucket["example"]["id"],
             key=aws_s3_object["example"]["key"],
             role_arn=aws_iam_role["example"]["arn"],
         ))
@@ -280,7 +280,7 @@ class Script(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Script("example", storage_location=aws.gamelift.ScriptStorageLocationArgs(
-            bucket=aws_s3_bucket["example"]["bucket"],
+            bucket=aws_s3_bucket["example"]["id"],
             key=aws_s3_object["example"]["key"],
             role_arn=aws_iam_role["example"]["arn"],
         ))

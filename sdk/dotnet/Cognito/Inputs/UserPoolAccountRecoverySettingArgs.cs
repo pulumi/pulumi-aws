@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolAccountRecoverySettingArgs : global::Pulumi.ResourceArgs
     {
-        [Input("recoveryMechanisms", required: true)]
+        [Input("recoveryMechanisms")]
         private InputList<Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs>? _recoveryMechanisms;
 
         /// <summary>

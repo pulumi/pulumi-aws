@@ -149,6 +149,10 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<string> InstanceStateNames;
         public readonly ImmutableDictionary<string, string> InstanceTags;
         /// <summary>
+        /// IPv6 addresses of instances found through the filter
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv6Addresses;
+        /// <summary>
         /// Private IP addresses of instances found through the filter
         /// </summary>
         public readonly ImmutableArray<string> PrivateIps;
@@ -169,6 +173,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableDictionary<string, string> instanceTags,
 
+            ImmutableArray<string> ipv6Addresses,
+
             ImmutableArray<string> privateIps,
 
             ImmutableArray<string> publicIps)
@@ -178,6 +184,7 @@ namespace Pulumi.Aws.Ec2
             Ids = ids;
             InstanceStateNames = instanceStateNames;
             InstanceTags = instanceTags;
+            Ipv6Addresses = ipv6Addresses;
             PrivateIps = privateIps;
             PublicIps = publicIps;
         }

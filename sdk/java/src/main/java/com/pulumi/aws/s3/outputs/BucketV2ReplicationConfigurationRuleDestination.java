@@ -21,12 +21,12 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
      */
     private @Nullable List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations;
     /**
-     * @return The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
     private @Nullable String accountId;
     /**
-     * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * @return ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      * 
      */
     private String bucket;
@@ -61,14 +61,14 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
         return this.accessControlTranslations == null ? List.of() : this.accessControlTranslations;
     }
     /**
-     * @return The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
     /**
-     * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * @return ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      * 
      */
     public String bucket() {

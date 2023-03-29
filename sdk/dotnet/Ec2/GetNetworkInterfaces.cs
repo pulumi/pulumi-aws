@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following shows outputing all network interface ids in a region.
+        /// The following shows outputting all network interface ids in a region.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following shows outputing all network interface ids in a region.
+        /// The following shows outputting all network interface ids in a region.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

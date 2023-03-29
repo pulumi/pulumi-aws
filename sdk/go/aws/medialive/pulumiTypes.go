@@ -4649,13 +4649,13 @@ func (o ChannelEncoderSettingsOutputGroupArrayOutput) Index(i pulumi.IntInput) C
 type ChannelEncoderSettingsOutputGroupOutputType struct {
 	// The names of the audio descriptions used as audio sources for the output.
 	AudioDescriptionNames []string `pulumi:"audioDescriptionNames"`
-	// The names of the caption descriptions used as audio sources for the output.
+	// The names of the caption descriptions used as caption sources for the output.
 	CaptionDescriptionNames []string `pulumi:"captionDescriptionNames"`
 	// The name used to identify an output.
 	OutputName *string `pulumi:"outputName"`
 	// Settings for output. See Output Settings for more details.
 	OutputSettings ChannelEncoderSettingsOutputGroupOutputOutputSettings `pulumi:"outputSettings"`
-	// The name of the video description used as audio sources for the output.
+	// The name of the video description used as video source for the output.
 	VideoDescriptionName *string `pulumi:"videoDescriptionName"`
 }
 
@@ -4673,13 +4673,13 @@ type ChannelEncoderSettingsOutputGroupOutputTypeInput interface {
 type ChannelEncoderSettingsOutputGroupOutputTypeArgs struct {
 	// The names of the audio descriptions used as audio sources for the output.
 	AudioDescriptionNames pulumi.StringArrayInput `pulumi:"audioDescriptionNames"`
-	// The names of the caption descriptions used as audio sources for the output.
+	// The names of the caption descriptions used as caption sources for the output.
 	CaptionDescriptionNames pulumi.StringArrayInput `pulumi:"captionDescriptionNames"`
 	// The name used to identify an output.
 	OutputName pulumi.StringPtrInput `pulumi:"outputName"`
 	// Settings for output. See Output Settings for more details.
 	OutputSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsInput `pulumi:"outputSettings"`
-	// The name of the video description used as audio sources for the output.
+	// The name of the video description used as video source for the output.
 	VideoDescriptionName pulumi.StringPtrInput `pulumi:"videoDescriptionName"`
 }
 
@@ -4739,7 +4739,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputTypeOutput) AudioDescriptionNames
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputType) []string { return v.AudioDescriptionNames }).(pulumi.StringArrayOutput)
 }
 
-// The names of the caption descriptions used as audio sources for the output.
+// The names of the caption descriptions used as caption sources for the output.
 func (o ChannelEncoderSettingsOutputGroupOutputTypeOutput) CaptionDescriptionNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputType) []string { return v.CaptionDescriptionNames }).(pulumi.StringArrayOutput)
 }
@@ -4756,7 +4756,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputTypeOutput) OutputSettings() Chan
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsOutput)
 }
 
-// The name of the video description used as audio sources for the output.
+// The name of the video description used as video source for the output.
 func (o ChannelEncoderSettingsOutputGroupOutputTypeOutput) VideoDescriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputType) *string { return v.VideoDescriptionName }).(pulumi.StringPtrOutput)
 }
@@ -8862,15 +8862,15 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSet
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings struct {
-	AcquisitionPointId        *string `pulumi:"acquisitionPointId"`
-	AudioOnlyTimecodecControl *string `pulumi:"audioOnlyTimecodecControl"`
+	AcquisitionPointId       *string `pulumi:"acquisitionPointId"`
+	AudioOnlyTimecodeControl *string `pulumi:"audioOnlyTimecodeControl"`
 	// Setting to allow self signed or verified RTMP certificates.
 	CertificateMode *string `pulumi:"certificateMode"`
 	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval *int `pulumi:"connectionRetryInterval"`
 	// A director and base filename where archive files should be written. See Destination for more details.
 	Destination       ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination `pulumi:"destination"`
-	EventId           *int                                                                                 `pulumi:"eventId"`
+	EventId           *string                                                                              `pulumi:"eventId"`
 	EventIdMode       *string                                                                              `pulumi:"eventIdMode"`
 	EventStopBehavior *string                                                                              `pulumi:"eventStopBehavior"`
 	FilecacheDuration *int                                                                                 `pulumi:"filecacheDuration"`
@@ -8901,15 +8901,15 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsIn
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs struct {
-	AcquisitionPointId        pulumi.StringPtrInput `pulumi:"acquisitionPointId"`
-	AudioOnlyTimecodecControl pulumi.StringPtrInput `pulumi:"audioOnlyTimecodecControl"`
+	AcquisitionPointId       pulumi.StringPtrInput `pulumi:"acquisitionPointId"`
+	AudioOnlyTimecodeControl pulumi.StringPtrInput `pulumi:"audioOnlyTimecodeControl"`
 	// Setting to allow self signed or verified RTMP certificates.
 	CertificateMode pulumi.StringPtrInput `pulumi:"certificateMode"`
 	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval pulumi.IntPtrInput `pulumi:"connectionRetryInterval"`
 	// A director and base filename where archive files should be written. See Destination for more details.
 	Destination       ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationInput `pulumi:"destination"`
-	EventId           pulumi.IntPtrInput                                                                        `pulumi:"eventId"`
+	EventId           pulumi.StringPtrInput                                                                     `pulumi:"eventId"`
 	EventIdMode       pulumi.StringPtrInput                                                                     `pulumi:"eventIdMode"`
 	EventStopBehavior pulumi.StringPtrInput                                                                     `pulumi:"eventStopBehavior"`
 	FilecacheDuration pulumi.IntPtrInput                                                                        `pulumi:"filecacheDuration"`
@@ -9011,9 +9011,9 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) AudioOnlyTimecodecControl() pulumi.StringPtrOutput {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) AudioOnlyTimecodeControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
-		return v.AudioOnlyTimecodecControl
+		return v.AudioOnlyTimecodeControl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9038,10 +9038,10 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		return v.EventId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) EventIdMode() pulumi.StringPtrOutput {
@@ -9158,12 +9158,12 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) AudioOnlyTimecodecControl() pulumi.StringPtrOutput {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) AudioOnlyTimecodeControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AudioOnlyTimecodecControl
+		return v.AudioOnlyTimecodeControl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9197,13 +9197,13 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationPtrOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
+func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return v.EventId
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) EventIdMode() pulumi.StringPtrOutput {
@@ -16536,7 +16536,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDe
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings struct {
 	// The height of the FEC protection matrix.
 	ColumnDepth *int `pulumi:"columnDepth"`
-	// Enables column oly or column and row based FEC.
+	// Enables column only or column and row based FEC.
 	IncludeFec *string `pulumi:"includeFec"`
 	// The width of the FEC protection matrix.
 	RowLength *int `pulumi:"rowLength"`
@@ -16556,7 +16556,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOu
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs struct {
 	// The height of the FEC protection matrix.
 	ColumnDepth pulumi.IntPtrInput `pulumi:"columnDepth"`
-	// Enables column oly or column and row based FEC.
+	// Enables column only or column and row based FEC.
 	IncludeFec pulumi.StringPtrInput `pulumi:"includeFec"`
 	// The width of the FEC protection matrix.
 	RowLength pulumi.IntPtrInput `pulumi:"rowLength"`
@@ -16646,7 +16646,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enables column oly or column and row based FEC.
+// Enables column only or column and row based FEC.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsOutput) IncludeFec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings) *string {
 		return v.IncludeFec
@@ -16694,7 +16694,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enables column oly or column and row based FEC.
+// Enables column only or column and row based FEC.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsPtrOutput) IncludeFec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings) *string {
 		if v == nil {

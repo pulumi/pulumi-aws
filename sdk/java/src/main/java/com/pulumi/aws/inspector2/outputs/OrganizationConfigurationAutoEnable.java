@@ -6,6 +6,8 @@ package com.pulumi.aws.inspector2.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class OrganizationConfigurationAutoEnable {
@@ -19,6 +21,11 @@ public final class OrganizationConfigurationAutoEnable {
      * 
      */
     private Boolean ecr;
+    /**
+     * @return Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+     * 
+     */
+    private @Nullable Boolean lambda;
 
     private OrganizationConfigurationAutoEnable() {}
     /**
@@ -35,6 +42,13 @@ public final class OrganizationConfigurationAutoEnable {
     public Boolean ecr() {
         return this.ecr;
     }
+    /**
+     * @return Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+     * 
+     */
+    public Optional<Boolean> lambda() {
+        return Optional.ofNullable(this.lambda);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -47,11 +61,13 @@ public final class OrganizationConfigurationAutoEnable {
     public static final class Builder {
         private Boolean ec2;
         private Boolean ecr;
+        private @Nullable Boolean lambda;
         public Builder() {}
         public Builder(OrganizationConfigurationAutoEnable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ec2 = defaults.ec2;
     	      this.ecr = defaults.ecr;
+    	      this.lambda = defaults.lambda;
         }
 
         @CustomType.Setter
@@ -64,10 +80,16 @@ public final class OrganizationConfigurationAutoEnable {
             this.ecr = Objects.requireNonNull(ecr);
             return this;
         }
+        @CustomType.Setter
+        public Builder lambda(@Nullable Boolean lambda) {
+            this.lambda = lambda;
+            return this;
+        }
         public OrganizationConfigurationAutoEnable build() {
             final var o = new OrganizationConfigurationAutoEnable();
             o.ec2 = ec2;
             o.ecr = ecr;
+            o.lambda = lambda;
             return o;
         }
     }

@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
@@ -45,47 +43,51 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"appsync.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "appsync.amazonaws.com"
-//	      },
-//	      "Effect": "Allow"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("dynamodb:*"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleTable.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
 //				Role: exampleRole.ID(),
-//				Policy: exampleTable.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "dynamodb:*"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": [
-//	        "%v"
-//	      ]
-//	    }
-//	  ]
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &examplePolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -136,6 +138,8 @@ type DataSource struct {
 	DynamodbConfig DataSourceDynamodbConfigPtrOutput `pulumi:"dynamodbConfig"`
 	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig DataSourceElasticsearchConfigPtrOutput `pulumi:"elasticsearchConfig"`
+	// AWS EventBridge settings. See below
+	EventBridgeConfig DataSourceEventBridgeConfigPtrOutput `pulumi:"eventBridgeConfig"`
 	// HTTP settings. See below
 	HttpConfig DataSourceHttpConfigPtrOutput `pulumi:"httpConfig"`
 	// AWS Lambda settings. See below
@@ -146,7 +150,7 @@ type DataSource struct {
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrOutput `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -195,6 +199,8 @@ type dataSourceState struct {
 	DynamodbConfig *DataSourceDynamodbConfig `pulumi:"dynamodbConfig"`
 	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig *DataSourceElasticsearchConfig `pulumi:"elasticsearchConfig"`
+	// AWS EventBridge settings. See below
+	EventBridgeConfig *DataSourceEventBridgeConfig `pulumi:"eventBridgeConfig"`
 	// HTTP settings. See below
 	HttpConfig *DataSourceHttpConfig `pulumi:"httpConfig"`
 	// AWS Lambda settings. See below
@@ -205,7 +211,7 @@ type dataSourceState struct {
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
 	Type *string `pulumi:"type"`
 }
 
@@ -220,6 +226,8 @@ type DataSourceState struct {
 	DynamodbConfig DataSourceDynamodbConfigPtrInput
 	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig DataSourceElasticsearchConfigPtrInput
+	// AWS EventBridge settings. See below
+	EventBridgeConfig DataSourceEventBridgeConfigPtrInput
 	// HTTP settings. See below
 	HttpConfig DataSourceHttpConfigPtrInput
 	// AWS Lambda settings. See below
@@ -230,7 +238,7 @@ type DataSourceState struct {
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrInput
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
 	Type pulumi.StringPtrInput
 }
 
@@ -247,6 +255,8 @@ type dataSourceArgs struct {
 	DynamodbConfig *DataSourceDynamodbConfig `pulumi:"dynamodbConfig"`
 	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig *DataSourceElasticsearchConfig `pulumi:"elasticsearchConfig"`
+	// AWS EventBridge settings. See below
+	EventBridgeConfig *DataSourceEventBridgeConfig `pulumi:"eventBridgeConfig"`
 	// HTTP settings. See below
 	HttpConfig *DataSourceHttpConfig `pulumi:"httpConfig"`
 	// AWS Lambda settings. See below
@@ -257,7 +267,7 @@ type dataSourceArgs struct {
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
 	Type string `pulumi:"type"`
 }
 
@@ -271,6 +281,8 @@ type DataSourceArgs struct {
 	DynamodbConfig DataSourceDynamodbConfigPtrInput
 	// Amazon Elasticsearch settings. See below
 	ElasticsearchConfig DataSourceElasticsearchConfigPtrInput
+	// AWS EventBridge settings. See below
+	EventBridgeConfig DataSourceEventBridgeConfigPtrInput
 	// HTTP settings. See below
 	HttpConfig DataSourceHttpConfigPtrInput
 	// AWS Lambda settings. See below
@@ -281,7 +293,7 @@ type DataSourceArgs struct {
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrInput
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
 	Type pulumi.StringInput
 }
 
@@ -397,6 +409,11 @@ func (o DataSourceOutput) ElasticsearchConfig() DataSourceElasticsearchConfigPtr
 	return o.ApplyT(func(v *DataSource) DataSourceElasticsearchConfigPtrOutput { return v.ElasticsearchConfig }).(DataSourceElasticsearchConfigPtrOutput)
 }
 
+// AWS EventBridge settings. See below
+func (o DataSourceOutput) EventBridgeConfig() DataSourceEventBridgeConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceEventBridgeConfigPtrOutput { return v.EventBridgeConfig }).(DataSourceEventBridgeConfigPtrOutput)
+}
+
 // HTTP settings. See below
 func (o DataSourceOutput) HttpConfig() DataSourceHttpConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceHttpConfigPtrOutput { return v.HttpConfig }).(DataSourceHttpConfigPtrOutput)
@@ -422,7 +439,7 @@ func (o DataSourceOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -2411,8 +2411,8 @@ class GetCostCategoryRuleRuleResult(dict):
         :param Sequence['GetCostCategoryRuleRuleAndArgs'] ands: Return results that match both `Dimension` objects.
         :param Sequence['GetCostCategoryRuleRuleCostCategoryArgs'] cost_categories: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param Sequence['GetCostCategoryRuleRuleDimensionArgs'] dimensions: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param Sequence['GetCostCategoryRuleRuleNotArgs'] nots: Return results that match both `Dimension` object.
-        :param Sequence['GetCostCategoryRuleRuleOrArgs'] ors: Return results that match both `Dimension` object.
+        :param Sequence['GetCostCategoryRuleRuleNotArgs'] nots: Return results that do not match the `Dimension` object.
+        :param Sequence['GetCostCategoryRuleRuleOrArgs'] ors: Return results that match either `Dimension` object.
         :param Sequence['GetCostCategoryRuleRuleTagArgs'] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         pulumi.set(__self__, "ands", ands)
@@ -2450,7 +2450,7 @@ class GetCostCategoryRuleRuleResult(dict):
     @pulumi.getter
     def nots(self) -> Sequence['outputs.GetCostCategoryRuleRuleNotResult']:
         """
-        Return results that match both `Dimension` object.
+        Return results that do not match the `Dimension` object.
         """
         return pulumi.get(self, "nots")
 
@@ -2458,7 +2458,7 @@ class GetCostCategoryRuleRuleResult(dict):
     @pulumi.getter
     def ors(self) -> Sequence['outputs.GetCostCategoryRuleRuleOrResult']:
         """
-        Return results that match both `Dimension` object.
+        Return results that match either `Dimension` object.
         """
         return pulumi.get(self, "ors")
 

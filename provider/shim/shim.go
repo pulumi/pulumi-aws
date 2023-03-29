@@ -7,6 +7,9 @@ import (
 )
 
 func NewProvider() *schema.Provider {
-	prov, _ := provider.New(context.Background())
+	prov, err := provider.New(context.Background())
+	if err != nil {
+		panic(err)
+	}
 	return prov
 }

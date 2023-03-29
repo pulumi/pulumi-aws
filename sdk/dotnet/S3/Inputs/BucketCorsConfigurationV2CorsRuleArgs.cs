@@ -67,7 +67,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The time in seconds that your browser is to cache the preflight response for the specified resource.
+        /// Time in seconds that your browser is to cache the preflight response for the specified resource.
         /// </summary>
         [Input("maxAgeSeconds")]
         public Input<int>? MaxAgeSeconds { get; set; }

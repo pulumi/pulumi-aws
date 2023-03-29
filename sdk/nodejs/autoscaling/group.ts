@@ -42,7 +42,7 @@ import {Metric} from "./index";
  *     minSize: 1,
  *     launchTemplate: {
  *         id: foobar.id,
- *         version: `$Latest`,
+ *         version: "$Latest",
  *     },
  * });
  * ```

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Bucket,
+    ///         Bucket = exampleBucketV2.Id,
     ///         Key = "example-flink-application",
     ///         Source = new FileAsset("flink-app.jar"),
     ///     });
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Bucket,
+    ///         Bucket = exampleBucketV2.Id,
     ///         Key = "example-flink-application",
     ///         Source = new FileAsset("flink-app.jar"),
     ///     });

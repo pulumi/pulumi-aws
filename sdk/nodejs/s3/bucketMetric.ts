@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketV2("example", {});
- * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {bucket: example.bucket});
+ * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {bucket: example.id});
  * ```
  * ### Add metrics configuration with S3 object filter
  *
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.BucketV2("example", {});
  * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
- *     bucket: example.bucket,
+ *     bucket: example.id,
  *     filter: {
  *         prefix: "documents/",
  *         tags: {
@@ -76,7 +76,7 @@ export class BucketMetric extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket to put metric configuration.
+     * Name of the bucket to put metric configuration.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class BucketMetric extends pulumi.CustomResource {
  */
 export interface BucketMetricState {
     /**
-     * The name of the bucket to put metric configuration.
+     * Name of the bucket to put metric configuration.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -141,7 +141,7 @@ export interface BucketMetricState {
  */
 export interface BucketMetricArgs {
     /**
-     * The name of the bucket to put metric configuration.
+     * Name of the bucket to put metric configuration.
      */
     bucket: pulumi.Input<string>;
     /**

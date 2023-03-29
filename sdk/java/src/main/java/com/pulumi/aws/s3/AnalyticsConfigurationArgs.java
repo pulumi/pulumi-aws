@@ -18,14 +18,14 @@ public final class AnalyticsConfigurationArgs extends com.pulumi.resources.Resou
     public static final AnalyticsConfigurationArgs Empty = new AnalyticsConfigurationArgs();
 
     /**
-     * The name of the bucket this analytics configuration is associated with.
+     * Name of the bucket this analytics configuration is associated with.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket this analytics configuration is associated with.
+     * @return Name of the bucket this analytics configuration is associated with.
      * 
      */
     public Output<String> bucket() {
@@ -105,7 +105,7 @@ public final class AnalyticsConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bucket The name of the bucket this analytics configuration is associated with.
+         * @param bucket Name of the bucket this analytics configuration is associated with.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class AnalyticsConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bucket The name of the bucket this analytics configuration is associated with.
+         * @param bucket Name of the bucket this analytics configuration is associated with.
          * 
          * @return builder
          * 

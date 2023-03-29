@@ -109,6 +109,10 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
      * The name of the attribute
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SslNegotiationPolicy resource with the given unique name, arguments, and options.
@@ -127,6 +131,7 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
             resourceInputs["lbPort"] = state ? state.lbPort : undefined;
             resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as SslNegotiationPolicyArgs | undefined;
             if ((!args || args.lbPort === undefined) && !opts.urn) {
@@ -139,6 +144,7 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
             resourceInputs["lbPort"] = args ? args.lbPort : undefined;
             resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy" }] };
@@ -170,6 +176,10 @@ export interface SslNegotiationPolicyState {
      * The name of the attribute
      */
     name?: pulumi.Input<string>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -195,4 +205,8 @@ export interface SslNegotiationPolicyArgs {
      * The name of the attribute
      */
     name?: pulumi.Input<string>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

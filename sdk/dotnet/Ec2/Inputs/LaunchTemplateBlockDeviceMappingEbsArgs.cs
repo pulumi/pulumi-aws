@@ -13,22 +13,22 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class LaunchTemplateBlockDeviceMappingEbsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+        /// Whether the volume should be destroyed on instance termination.
+        /// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<string>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+        /// Cannot be used with `snapshot_id`.
         /// </summary>
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
 
         /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1/io2"`.
+        /// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+        /// This must be set with a `volume_type` of `"io1/io2/gp3"`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -59,7 +59,8 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? VolumeSize { get; set; }
 
         /// <summary>
-        /// The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// The volume type.
+        /// Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

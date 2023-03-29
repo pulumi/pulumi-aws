@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     role: aws_iam_role.example.arn,
  *     jdbcTargets: [{
  *         connectionName: aws_glue_connection.example.name,
- *         path: `database-name/%`,
+ *         path: "database-name/%",
  *     }],
  * });
  * ```
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  *     role: aws_iam_role.example.arn,
  *     mongodbTargets: [{
  *         connectionName: aws_glue_connection.example.name,
- *         path: `database-name/%`,
+ *         path: "database-name/%",
  *     }],
  * });
  * ```

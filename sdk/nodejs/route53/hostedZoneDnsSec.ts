@@ -20,48 +20,27 @@ import * as utilities from "../utilities";
  *     customerMasterKeySpec: "ECC_NIST_P256",
  *     deletionWindowInDays: 7,
  *     keyUsage: "SIGN_VERIFY",
- *     policy: Promise.all([current, current]).then(([current, current1]) => JSON.stringify({
+ *     policy: current.then(current => JSON.stringify({
  *         Statement: [
  *             {
  *                 Action: [
  *                     "kms:DescribeKey",
  *                     "kms:GetPublicKey",
  *                     "kms:Sign",
+ *                     "kms:Verify",
  *                 ],
  *                 Effect: "Allow",
  *                 Principal: {
  *                     Service: "dnssec-route53.amazonaws.com",
  *                 },
+ *                 Resource: "*",
  *                 Sid: "Allow Route 53 DNSSEC Service",
- *                 Resource: "*",
- *                 Condition: {
- *                     StringEquals: {
- *                         "aws:SourceAccount": current.accountId,
- *                     },
- *                     ArnLike: {
- *                         "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
- *                     },
- *                 },
- *             },
- *             {
- *                 Action: "kms:CreateGrant",
- *                 Effect: "Allow",
- *                 Principal: {
- *                     Service: "dnssec-route53.amazonaws.com",
- *                 },
- *                 Sid: "Allow Route 53 DNSSEC Service to CreateGrant",
- *                 Resource: "*",
- *                 Condition: {
- *                     Bool: {
- *                         "kms:GrantIsForAWSResource": "true",
- *                     },
- *                 },
  *             },
  *             {
  *                 Action: "kms:*",
  *                 Effect: "Allow",
  *                 Principal: {
- *                     AWS: `arn:aws:iam::${current1.accountId}:root`,
+ *                     AWS: `arn:aws:iam::${current.accountId}:root`,
  *                 },
  *                 Resource: "*",
  *                 Sid: "Enable IAM User Permissions",

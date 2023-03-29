@@ -181,6 +181,8 @@ type S3Endpoint struct {
 	DatePartitionSequence pulumi.StringPtrOutput `pulumi:"datePartitionSequence"`
 	// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
 	DatePartitionTimezone pulumi.StringPtrOutput `pulumi:"datePartitionTimezone"`
+	// Undocumented argument for use as directed by AWS Support.
+	DetachTargetOnLobLookupFailureParquet pulumi.BoolPtrOutput `pulumi:"detachTargetOnLobLookupFailureParquet"`
 	// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
 	DictPageSizeLimit pulumi.IntPtrOutput `pulumi:"dictPageSizeLimit"`
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
@@ -326,6 +328,8 @@ type s3endpointState struct {
 	DatePartitionSequence *string `pulumi:"datePartitionSequence"`
 	// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
 	DatePartitionTimezone *string `pulumi:"datePartitionTimezone"`
+	// Undocumented argument for use as directed by AWS Support.
+	DetachTargetOnLobLookupFailureParquet *bool `pulumi:"detachTargetOnLobLookupFailureParquet"`
 	// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
 	DictPageSizeLimit *int `pulumi:"dictPageSizeLimit"`
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
@@ -431,6 +435,8 @@ type S3EndpointState struct {
 	DatePartitionSequence pulumi.StringPtrInput
 	// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
 	DatePartitionTimezone pulumi.StringPtrInput
+	// Undocumented argument for use as directed by AWS Support.
+	DetachTargetOnLobLookupFailureParquet pulumi.BoolPtrInput
 	// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
 	DictPageSizeLimit pulumi.IntPtrInput
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
@@ -540,6 +546,8 @@ type s3endpointArgs struct {
 	DatePartitionSequence *string `pulumi:"datePartitionSequence"`
 	// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
 	DatePartitionTimezone *string `pulumi:"datePartitionTimezone"`
+	// Undocumented argument for use as directed by AWS Support.
+	DetachTargetOnLobLookupFailureParquet *bool `pulumi:"detachTargetOnLobLookupFailureParquet"`
 	// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
 	DictPageSizeLimit *int `pulumi:"dictPageSizeLimit"`
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
@@ -636,6 +644,8 @@ type S3EndpointArgs struct {
 	DatePartitionSequence pulumi.StringPtrInput
 	// Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
 	DatePartitionTimezone pulumi.StringPtrInput
+	// Undocumented argument for use as directed by AWS Support.
+	DetachTargetOnLobLookupFailureParquet pulumi.BoolPtrInput
 	// Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
 	DictPageSizeLimit pulumi.IntPtrInput
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
@@ -881,6 +891,11 @@ func (o S3EndpointOutput) DatePartitionSequence() pulumi.StringPtrOutput {
 // Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
 func (o S3EndpointOutput) DatePartitionTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.DatePartitionTimezone }).(pulumi.StringPtrOutput)
+}
+
+// Undocumented argument for use as directed by AWS Support.
+func (o S3EndpointOutput) DetachTargetOnLobLookupFailureParquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.DetachTargetOnLobLookupFailureParquet }).(pulumi.BoolPtrOutput)
 }
 
 // Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)

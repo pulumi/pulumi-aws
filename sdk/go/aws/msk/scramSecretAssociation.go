@@ -31,8 +31,8 @@ import (
 // import (
 //
 //	"encoding/json"
-//	"fmt"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
@@ -90,25 +90,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("AWSKafkaResourcePolicy"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("kafka.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("secretsmanager:getSecretValue"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleSecret.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
 //				SecretArn: exampleSecret.Arn,
-//				Policy: exampleSecret.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "Version" : "2012-10-17",
-//	  "Statement" : [ {
-//	    "Sid": "AWSKafkaResourcePolicy",
-//	    "Effect" : "Allow",
-//	    "Principal" : {
-//	      "Service" : "kafka.amazonaws.com"
-//	    },
-//	    "Action" : "secretsmanager:getSecretValue",
-//	    "Resource" : "%v"
-//	  } ]
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &examplePolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

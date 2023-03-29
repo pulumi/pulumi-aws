@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketReplicationConfigRuleDestinationReplicationTime
     {
         /// <summary>
-        /// The status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
+        /// Status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
+        /// Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleDestinationReplicationTimeTime Time;
 

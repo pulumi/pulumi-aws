@@ -59,6 +59,21 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The description of the AWS Network Firewall firewall policy.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the AWS Network Firewall firewall policy.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * A map of lists of accounts and OU&#39;s to exclude from the policy.
      * 
      */
@@ -244,6 +259,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.deleteAllPolicyResources = $.deleteAllPolicyResources;
         this.deleteUnusedFmManagedResources = $.deleteUnusedFmManagedResources;
+        this.description = $.description;
         this.excludeMap = $.excludeMap;
         this.excludeResourceTags = $.excludeResourceTags;
         this.includeMap = $.includeMap;
@@ -325,6 +341,27 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder deleteUnusedFmManagedResources(Boolean deleteUnusedFmManagedResources) {
             return deleteUnusedFmManagedResources(Output.of(deleteUnusedFmManagedResources));
+        }
+
+        /**
+         * @param description The description of the AWS Network Firewall firewall policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the AWS Network Firewall firewall policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

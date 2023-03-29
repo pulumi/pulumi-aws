@@ -14,45 +14,44 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.acmpca.Policy("example", {
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             sid: "1",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [data.aws_caller_identity.current.account_id],
+ *             }],
+ *             actions: [
+ *                 "acm-pca:DescribeCertificateAuthority",
+ *                 "acm-pca:GetCertificate",
+ *                 "acm-pca:GetCertificateAuthorityCertificate",
+ *                 "acm-pca:ListPermissions",
+ *                 "acm-pca:ListTags",
+ *             ],
+ *             resources: [aws_acmpca_certificate_authority.example.arn],
+ *         },
+ *         {
+ *             sid: "2",
+ *             effect: Allow,
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [data.aws_caller_identity.current.account_id],
+ *             }],
+ *             actions: ["acm-pca:IssueCertificate"],
+ *             resources: [aws_acmpca_certificate_authority.example.arn],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "acm-pca:TemplateArn",
+ *                 values: ["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const examplePolicy = new aws.acmpca.Policy("examplePolicy", {
  *     resourceArn: aws_acmpca_certificate_authority.example.arn,
- *     policy: `{                        
- *    "Version":"2012-10-17",
- *    "Statement":[
- *       {    
- *          "Sid":"1",
- *          "Effect":"Allow",         
- *          "Principal":{                                                                                                                                               
- *             "AWS":"${data.aws_caller_identity.current.account_id}"                                                                                
- *          },
- *          "Action":[
- *             "acm-pca:DescribeCertificateAuthority",
- *             "acm-pca:GetCertificate",
- *             "acm-pca:GetCertificateAuthorityCertificate",
- *             "acm-pca:ListPermissions",
- *             "acm-pca:ListTags"                                                                                   
- *          ],                                                                                              
- *          "Resource":"${aws_acmpca_certificate_authority.example.arn}"
- *       },
- *       {
- *          "Sid":"1",  
- *          "Effect":"Allow",
- *          "Principal":{
- *             "AWS":"${data.aws_caller_identity.current.account_id}"
- *          },
- *          "Action":[
- *             "acm-pca:IssueCertificate"
- *          ],
- *          "Resource":"${aws_acmpca_certificate_authority.example.arn}",
- *          "Condition":{
- *             "StringEquals":{
- *                "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
- *             }
- *          }
- *       }
- *    ]
- * }
- * `,
+ *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

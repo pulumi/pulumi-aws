@@ -779,19 +779,15 @@ class TopicRule(pulumi.CustomResource):
 
         mytopic = aws.sns.Topic("mytopic")
         myerrortopic = aws.sns.Topic("myerrortopic")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "iot.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["iot.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         rule = aws.iot.TopicRule("rule",
             description="Example rule",
             enabled=True,
@@ -809,21 +805,14 @@ class TopicRule(pulumi.CustomResource):
                     target_arn=myerrortopic.arn,
                 ),
             ))
-        iam_policy_for_lambda = aws.iam.RolePolicy("iamPolicyForLambda",
+        iam_policy_for_lambda_policy_document = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["sns:Publish"],
+            resources=[arn],
+        )]))
+        iam_policy_for_lambda_role_policy = aws.iam.RolePolicy("iamPolicyForLambdaRolePolicy",
             role=role.id,
-            policy=mytopic.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-                "Effect": "Allow",
-                "Action": [
-                    "sns:Publish"
-                ],
-                "Resource": "{arn}"
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=iam_policy_for_lambda_policy_document.json)
         ```
 
         ## Import
@@ -859,19 +848,15 @@ class TopicRule(pulumi.CustomResource):
 
         mytopic = aws.sns.Topic("mytopic")
         myerrortopic = aws.sns.Topic("myerrortopic")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "iot.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["iot.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         rule = aws.iot.TopicRule("rule",
             description="Example rule",
             enabled=True,
@@ -889,21 +874,14 @@ class TopicRule(pulumi.CustomResource):
                     target_arn=myerrortopic.arn,
                 ),
             ))
-        iam_policy_for_lambda = aws.iam.RolePolicy("iamPolicyForLambda",
+        iam_policy_for_lambda_policy_document = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["sns:Publish"],
+            resources=[arn],
+        )]))
+        iam_policy_for_lambda_role_policy = aws.iam.RolePolicy("iamPolicyForLambdaRolePolicy",
             role=role.id,
-            policy=mytopic.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-                "Effect": "Allow",
-                "Action": [
-                    "sns:Publish"
-                ],
-                "Resource": "{arn}"
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=iam_policy_for_lambda_policy_document.json)
         ```
 
         ## Import

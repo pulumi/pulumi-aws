@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.elasticache.inputs;
 
+import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -46,6 +47,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Denotes the user&#39;s authentication properties. Detailed below.
+     * 
+     */
+    @Import(name="authenticationMode")
+    private @Nullable Output<UserAuthenticationModeArgs> authenticationMode;
+
+    /**
+     * @return Denotes the user&#39;s authentication properties. Detailed below.
+     * 
+     */
+    public Optional<Output<UserAuthenticationModeArgs>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
     }
 
     /**
@@ -150,6 +166,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     private UserState(UserState $) {
         this.accessString = $.accessString;
         this.arn = $.arn;
+        this.authenticationMode = $.authenticationMode;
         this.engine = $.engine;
         this.noPasswordRequired = $.noPasswordRequired;
         this.passwords = $.passwords;
@@ -217,6 +234,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(@Nullable Output<UserAuthenticationModeArgs> authenticationMode) {
+            $.authenticationMode = authenticationMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(UserAuthenticationModeArgs authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         /**

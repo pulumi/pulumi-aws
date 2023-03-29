@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -36,16 +34,9 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewType(ctx, "exampleType", &appsync.TypeArgs{
-//				ApiId:  exampleGraphQLApi.ID(),
-//				Format: pulumi.String("SDL"),
-//				Definition: pulumi.String(fmt.Sprintf(`type Mutation
-//
-// {
-// putPost(id: ID!,title: String! ): Post
-//
-// }
-// `)),
-//
+//				ApiId:      exampleGraphQLApi.ID(),
+//				Format:     pulumi.String("SDL"),
+//				Definition: pulumi.String("type Mutation\n\n{\nputPost(id: ID!,title: String! ): Post\n\n}\n"),
 //			})
 //			if err != nil {
 //				return err

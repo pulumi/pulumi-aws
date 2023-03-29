@@ -326,57 +326,56 @@ class ContactFlowModule(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         example = aws.connect.ContactFlowModule("example",
-            content=\"\"\"    {
-        		"Version": "2019-10-30",
-        		"StartAction": "12345678-1234-1234-1234-123456789012",
-        		"Actions": [
-        			{
-        				"Identifier": "12345678-1234-1234-1234-123456789012",
-        				"Parameters": {
-        					"Text": "Hello contact flow module"
-        				},
-        				"Transitions": {
-        					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-        					"Errors": [],
-        					"Conditions": []
-        				},
-        				"Type": "MessageParticipant"
-        			},
-        			{
-        				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-        				"Type": "DisconnectParticipant",
-        				"Parameters": {},
-        				"Transitions": {}
-        			}
-        		],
-        		"Settings": {
-        			"InputParameters": [],
-        			"OutputParameters": [],
-        			"Transitions": [
-        				{
-        					"DisplayName": "Success",
-        					"ReferenceName": "Success",
-        					"Description": ""
-        				},
-        				{
-        					"DisplayName": "Error",
-        					"ReferenceName": "Error",
-        					"Description": ""
-        				}
-        			]
-        		}
-        	}
-            
-        \"\"\",
-            description="Example Contact Flow Module Description",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            description="Example Contact Flow Module Description",
+            content=json.dumps({
+                "Version": "2019-10-30",
+                "StartAction": "12345678-1234-1234-1234-123456789012",
+                "Actions": [
+                    {
+                        "Identifier": "12345678-1234-1234-1234-123456789012",
+                        "Parameters": {
+                            "Text": "Hello contact flow module",
+                        },
+                        "Transitions": {
+                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "Errors": [],
+                            "Conditions": [],
+                        },
+                        "Type": "MessageParticipant",
+                    },
+                    {
+                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "Type": "DisconnectParticipant",
+                        "Parameters": {},
+                        "Transitions": {},
+                    },
+                ],
+                "Settings": {
+                    "InputParameters": [],
+                    "OutputParameters": [],
+                    "Transitions": [
+                        {
+                            "DisplayName": "Success",
+                            "ReferenceName": "Success",
+                            "Description": "",
+                        },
+                        {
+                            "DisplayName": "Error",
+                            "ReferenceName": "Error",
+                            "Description": "",
+                        },
+                    ],
+                },
+            }),
             tags={
+                "Name": "Example Contact Flow Module",
                 "Application": "Example",
                 "Method": "Create",
-                "Name": "Example Contact Flow Module",
             })
         ```
 
@@ -419,57 +418,56 @@ class ContactFlowModule(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         example = aws.connect.ContactFlowModule("example",
-            content=\"\"\"    {
-        		"Version": "2019-10-30",
-        		"StartAction": "12345678-1234-1234-1234-123456789012",
-        		"Actions": [
-        			{
-        				"Identifier": "12345678-1234-1234-1234-123456789012",
-        				"Parameters": {
-        					"Text": "Hello contact flow module"
-        				},
-        				"Transitions": {
-        					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-        					"Errors": [],
-        					"Conditions": []
-        				},
-        				"Type": "MessageParticipant"
-        			},
-        			{
-        				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-        				"Type": "DisconnectParticipant",
-        				"Parameters": {},
-        				"Transitions": {}
-        			}
-        		],
-        		"Settings": {
-        			"InputParameters": [],
-        			"OutputParameters": [],
-        			"Transitions": [
-        				{
-        					"DisplayName": "Success",
-        					"ReferenceName": "Success",
-        					"Description": ""
-        				},
-        				{
-        					"DisplayName": "Error",
-        					"ReferenceName": "Error",
-        					"Description": ""
-        				}
-        			]
-        		}
-        	}
-            
-        \"\"\",
-            description="Example Contact Flow Module Description",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            description="Example Contact Flow Module Description",
+            content=json.dumps({
+                "Version": "2019-10-30",
+                "StartAction": "12345678-1234-1234-1234-123456789012",
+                "Actions": [
+                    {
+                        "Identifier": "12345678-1234-1234-1234-123456789012",
+                        "Parameters": {
+                            "Text": "Hello contact flow module",
+                        },
+                        "Transitions": {
+                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "Errors": [],
+                            "Conditions": [],
+                        },
+                        "Type": "MessageParticipant",
+                    },
+                    {
+                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "Type": "DisconnectParticipant",
+                        "Parameters": {},
+                        "Transitions": {},
+                    },
+                ],
+                "Settings": {
+                    "InputParameters": [],
+                    "OutputParameters": [],
+                    "Transitions": [
+                        {
+                            "DisplayName": "Success",
+                            "ReferenceName": "Success",
+                            "Description": "",
+                        },
+                        {
+                            "DisplayName": "Error",
+                            "ReferenceName": "Error",
+                            "Description": "",
+                        },
+                    ],
+                },
+            }),
             tags={
+                "Name": "Example Contact Flow Module",
                 "Application": "Example",
                 "Method": "Create",
-                "Name": "Example Contact Flow Module",
             })
         ```
 

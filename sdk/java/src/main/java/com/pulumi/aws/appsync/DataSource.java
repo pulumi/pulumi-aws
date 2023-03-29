@@ -8,6 +8,7 @@ import com.pulumi.aws.appsync.DataSourceArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceState;
 import com.pulumi.aws.appsync.outputs.DataSourceDynamodbConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceElasticsearchConfig;
+import com.pulumi.aws.appsync.outputs.DataSourceEventBridgeConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceHttpConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceLambdaConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceRelationalDatabaseConfig;
@@ -32,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
  * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -64,41 +67,32 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;appsync.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;appsync.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(&#34;dynamodb:*&#34;)
+ *                 .resources(exampleTable.arn())
+ *                 .build())
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.id())
- *             .policy(exampleTable.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;dynamodb:*&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;
- *       ]
- *     }
- *   ]
- * }
- * &#34;, arn)))
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
@@ -201,6 +195,20 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.elasticsearchConfig);
     }
     /**
+     * AWS EventBridge settings. See below
+     * 
+     */
+    @Export(name="eventBridgeConfig", refs={DataSourceEventBridgeConfig.class}, tree="[0]")
+    private Output</* @Nullable */ DataSourceEventBridgeConfig> eventBridgeConfig;
+
+    /**
+     * @return AWS EventBridge settings. See below
+     * 
+     */
+    public Output<Optional<DataSourceEventBridgeConfig>> eventBridgeConfig() {
+        return Codegen.optional(this.eventBridgeConfig);
+    }
+    /**
      * HTTP settings. See below
      * 
      */
@@ -271,14 +279,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceRoleArn);
     }
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
      * 
      */
     public Output<String> type() {

@@ -269,6 +269,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+     */
+    public /*out*/ readonly arnWithoutRevision!: pulumi.Output<string>;
+    /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
     public readonly containerDefinitions!: pulumi.Output<string>;
@@ -363,6 +367,7 @@ export class TaskDefinition extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TaskDefinitionState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["arnWithoutRevision"] = state ? state.arnWithoutRevision : undefined;
             resourceInputs["containerDefinitions"] = state ? state.containerDefinitions : undefined;
             resourceInputs["cpu"] = state ? state.cpu : undefined;
             resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
@@ -410,6 +415,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["arnWithoutRevision"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -426,6 +432,10 @@ export interface TaskDefinitionState {
      * Full ARN of the Task Definition (including both `family` and `revision`).
      */
     arn?: pulumi.Input<string>;
+    /**
+     * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+     */
+    arnWithoutRevision?: pulumi.Input<string>;
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */

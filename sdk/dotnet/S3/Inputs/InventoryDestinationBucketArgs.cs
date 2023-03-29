@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class InventoryDestinationBucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+        /// ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The Amazon S3 bucket ARN of the destination.
+        /// Amazon S3 bucket ARN of the destination.
         /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// The prefix that is prepended to all inventory results.
+        /// Prefix that is prepended to all inventory results.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

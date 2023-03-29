@@ -114,7 +114,7 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
-     * The hostname of the RDS instance. See also `endpoint` and `port`.
+     * Specifies the DNS address of the DB instance.
      */
     public /*out*/ readonly address!: pulumi.Output<string>;
     /**
@@ -256,8 +256,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The canonical hosted zone ID of the DB instance (to be used
-     * in a Route 53 Alias record).
+     * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
@@ -300,6 +299,10 @@ export class Instance extends pulumi.CustomResource {
      * SE1) License model information for this DB instance.
      */
     public readonly licenseModel!: pulumi.Output<string>;
+    /**
+     * Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+     */
+    public /*out*/ readonly listenerEndpoints!: pulumi.Output<outputs.rds.InstanceListenerEndpoint[]>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -530,6 +533,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["latestRestorableTime"] = state ? state.latestRestorableTime : undefined;
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
+            resourceInputs["listenerEndpoints"] = state ? state.listenerEndpoints : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["maxAllocatedStorage"] = state ? state.maxAllocatedStorage : undefined;
             resourceInputs["monitoringInterval"] = state ? state.monitoringInterval : undefined;
@@ -635,6 +639,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["engineVersionActual"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["latestRestorableTime"] = undefined /*out*/;
+            resourceInputs["listenerEndpoints"] = undefined /*out*/;
             resourceInputs["replicas"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -652,7 +657,7 @@ export class Instance extends pulumi.CustomResource {
  */
 export interface InstanceState {
     /**
-     * The hostname of the RDS instance. See also `endpoint` and `port`.
+     * Specifies the DNS address of the DB instance.
      */
     address?: pulumi.Input<string>;
     /**
@@ -794,8 +799,7 @@ export interface InstanceState {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The canonical hosted zone ID of the DB instance (to be used
-     * in a Route 53 Alias record).
+     * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      */
     hostedZoneId?: pulumi.Input<string>;
     /**
@@ -838,6 +842,10 @@ export interface InstanceState {
      * SE1) License model information for this DB instance.
      */
     licenseModel?: pulumi.Input<string>;
+    /**
+     * Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+     */
+    listenerEndpoints?: pulumi.Input<pulumi.Input<inputs.rds.InstanceListenerEndpoint>[]>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS

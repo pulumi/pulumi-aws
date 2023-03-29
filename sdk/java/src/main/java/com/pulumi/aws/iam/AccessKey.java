@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.UserArgs;
  * import com.pulumi.aws.iam.AccessKey;
  * import com.pulumi.aws.iam.AccessKeyArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.UserPolicy;
  * import com.pulumi.aws.iam.UserPolicyArgs;
  * import java.util.List;
@@ -53,22 +55,17 @@ import javax.annotation.Nullable;
  *             .pgpKey(&#34;keybase:some_person_that_exists&#34;)
  *             .build());
  * 
- *         var lbRo = new UserPolicy(&#34;lbRo&#34;, UserPolicyArgs.builder()        
+ *         final var lbRoPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(&#34;ec2:Describe*&#34;)
+ *                 .resources(&#34;*&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var lbRoUserPolicy = new UserPolicy(&#34;lbRoUserPolicy&#34;, UserPolicyArgs.builder()        
  *             .user(lbUser.name())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;ec2:Describe*&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;*&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(lbRoPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         ctx.export(&#34;secret&#34;, lbAccessKey.encryptedSecret());

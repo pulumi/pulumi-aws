@@ -14,14 +14,14 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSapoData
     {
         /// <summary>
-        /// Object specified in the flow destination.
+        /// Object path specified in the SAPOData flow destination.
         /// </summary>
-        public readonly string Object;
+        public readonly string ObjectPath;
 
         [OutputConstructor]
-        private FlowSourceFlowConfigSourceConnectorPropertiesSapoData(string @object)
+        private FlowSourceFlowConfigSourceConnectorPropertiesSapoData(string objectPath)
         {
-            Object = @object;
+            ObjectPath = objectPath;
         }
     }
 }

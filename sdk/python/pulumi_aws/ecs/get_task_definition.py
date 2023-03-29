@@ -21,10 +21,13 @@ class GetTaskDefinitionResult:
     """
     A collection of values returned by getTaskDefinition.
     """
-    def __init__(__self__, arn=None, family=None, id=None, network_mode=None, revision=None, status=None, task_definition=None, task_role_arn=None):
+    def __init__(__self__, arn=None, arn_without_revision=None, family=None, id=None, network_mode=None, revision=None, status=None, task_definition=None, task_role_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if arn_without_revision and not isinstance(arn_without_revision, str):
+            raise TypeError("Expected argument 'arn_without_revision' to be a str")
+        pulumi.set(__self__, "arn_without_revision", arn_without_revision)
         if family and not isinstance(family, str):
             raise TypeError("Expected argument 'family' to be a str")
         pulumi.set(__self__, "family", family)
@@ -51,15 +54,23 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        ARN of the task definition
+        ARN of the task definition.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="arnWithoutRevision")
+    def arn_without_revision(self) -> str:
+        """
+        ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+        """
+        return pulumi.get(self, "arn_without_revision")
 
     @property
     @pulumi.getter
     def family(self) -> str:
         """
-        Family of this task definition
+        Family of this task definition.
         """
         return pulumi.get(self, "family")
 
@@ -83,7 +94,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def revision(self) -> int:
         """
-        Revision of this task definition
+        Revision of this task definition.
         """
         return pulumi.get(self, "revision")
 
@@ -91,7 +102,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Status of this task definition
+        Status of this task definition.
         """
         return pulumi.get(self, "status")
 
@@ -104,7 +115,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> str:
         """
-        ARN of the IAM role that containers in this task can assume
+        ARN of the IAM role that containers in this task can assume.
         """
         return pulumi.get(self, "task_role_arn")
 
@@ -116,6 +127,7 @@ class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
             yield self
         return GetTaskDefinitionResult(
             arn=self.arn,
+            arn_without_revision=self.arn_without_revision,
             family=self.family,
             id=self.id,
             network_mode=self.network_mode,
@@ -172,6 +184,7 @@ def get_task_definition(task_definition: Optional[str] = None,
 
     return AwaitableGetTaskDefinitionResult(
         arn=__ret__.arn,
+        arn_without_revision=__ret__.arn_without_revision,
         family=__ret__.family,
         id=__ret__.id,
         network_mode=__ret__.network_mode,

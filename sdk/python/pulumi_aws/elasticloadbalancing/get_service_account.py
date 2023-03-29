@@ -73,6 +73,8 @@ def get_service_account(region: Optional[str] = None,
     Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
     in a given region for the purpose of permitting in S3 bucket policy.
 
+    > **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+
     ## Example Usage
 
     ```python
@@ -84,31 +86,22 @@ def get_service_account(region: Optional[str] = None,
     elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging = aws.s3.BucketPolicy("allowElbLogging",
+    allow_elb_logging_policy_document = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        effect="Allow",
+        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            type="AWS",
+            identifiers=[main.arn],
+        )],
+        actions=["s3:PutObject"],
+        resources=[f"{arn}/AWSLogs/*"],
+    )]))
+    allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allowElbLoggingBucketPolicy",
         bucket=elb_logs.id,
-        policy=f\"\"\"{{
-      "Id": "Policy",
-      "Version": "2012-10-17",
-      "Statement": [
-        {{
-          "Action": [
-            "s3:PutObject"
-          ],
-          "Effect": "Allow",
-          "Resource": "arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*",
-          "Principal": {{
-            "AWS": [
-              "{main.arn}"
-            ]
-          }}
-        }}
-      ]
-    }}
-    \"\"\")
+        policy=allow_elb_logging_policy_document.json)
     bar = aws.elb.LoadBalancer("bar",
         availability_zones=["us-west-2a"],
         access_logs=aws.elb.LoadBalancerAccessLogsArgs(
-            bucket=elb_logs.bucket,
+            bucket=elb_logs.id,
             interval=5,
         ),
         listeners=[aws.elb.LoadBalancerListenerArgs(
@@ -142,6 +135,8 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
     in a given region for the purpose of permitting in S3 bucket policy.
 
+    > **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+
     ## Example Usage
 
     ```python
@@ -153,31 +148,22 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging = aws.s3.BucketPolicy("allowElbLogging",
+    allow_elb_logging_policy_document = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        effect="Allow",
+        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            type="AWS",
+            identifiers=[main.arn],
+        )],
+        actions=["s3:PutObject"],
+        resources=[f"{arn}/AWSLogs/*"],
+    )]))
+    allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allowElbLoggingBucketPolicy",
         bucket=elb_logs.id,
-        policy=f\"\"\"{{
-      "Id": "Policy",
-      "Version": "2012-10-17",
-      "Statement": [
-        {{
-          "Action": [
-            "s3:PutObject"
-          ],
-          "Effect": "Allow",
-          "Resource": "arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*",
-          "Principal": {{
-            "AWS": [
-              "{main.arn}"
-            ]
-          }}
-        }}
-      ]
-    }}
-    \"\"\")
+        policy=allow_elb_logging_policy_document.json)
     bar = aws.elb.LoadBalancer("bar",
         availability_zones=["us-west-2a"],
         access_logs=aws.elb.LoadBalancerAccessLogsArgs(
-            bucket=elb_logs.bucket,
+            bucket=elb_logs.id,
             interval=5,
         ),
         listeners=[aws.elb.LoadBalancerListenerArgs(

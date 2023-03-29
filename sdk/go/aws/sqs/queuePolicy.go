@@ -14,62 +14,6 @@ import (
 // Allows you to set a policy of an SQS Queue
 // while referencing ARN of the queue within the policy.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			queue, err := sqs.NewQueue(ctx, "queue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-//				QueueUrl: queue.ID(),
-//				Policy: queue.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Id": "sqspolicy",
-//	  "Statement": [
-//	    {
-//	      "Sid": "First",
-//	      "Effect": "Allow",
-//	      "Principal": "*",
-//	      "Action": "sqs:SendMessage",
-//	      "Resource": "%v",
-//	      "Condition": {
-//	        "ArnEquals": {
-//	          "aws:SourceArn": "%v"
-//	        }
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `, arn, aws_sns_topic.Example.Arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // SQS Queue Policies can be imported using the queue URL, e.g.,

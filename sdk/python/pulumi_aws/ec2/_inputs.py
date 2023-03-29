@@ -22,6 +22,7 @@ __all__ = [
     'DefaultRouteTableRouteArgs',
     'DefaultSecurityGroupEgressArgs',
     'DefaultSecurityGroupIngressArgs',
+    'FleetFleetInstanceSetArgs',
     'FleetLaunchTemplateConfigArgs',
     'FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs',
     'FleetLaunchTemplateConfigOverrideArgs',
@@ -31,6 +32,7 @@ __all__ = [
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs',
@@ -75,6 +77,7 @@ __all__ = [
     'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
     'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs',
     'LaunchTemplateInstanceRequirementsMemoryMibArgs',
+    'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs',
     'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs',
     'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs',
     'LaunchTemplateInstanceRequirementsVcpuCountArgs',
@@ -188,6 +191,7 @@ __all__ = [
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs',
@@ -212,6 +216,7 @@ __all__ = [
     'VpcEndpointServicePrivateDnsNameConfigurationArgs',
     'VpcIpamOperatingRegionArgs',
     'VpcIpamPoolCidrCidrAuthorizationContextArgs',
+    'VpcIpamResourceDiscoveryOperatingRegionArgs',
     'VpcPeeringConnectionAccepterArgs',
     'VpcPeeringConnectionAccepterAccepterArgs',
     'VpcPeeringConnectionAccepterRequesterArgs',
@@ -255,6 +260,7 @@ __all__ = [
     'GetNetworkInterfaceFilterArgs',
     'GetNetworkInterfacesFilterArgs',
     'GetPrefixListFilterArgs',
+    'GetPublicIpv4PoolsFilterArgs',
     'GetRouteTableFilterArgs',
     'GetRouteTablesFilterArgs',
     'GetSecurityGroupFilterArgs',
@@ -1674,28 +1680,100 @@ class DefaultSecurityGroupIngressArgs:
 
 
 @pulumi.input_type
+class FleetFleetInstanceSetArgs:
+    def __init__(__self__, *,
+                 instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 lifecycle: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_ids: The IDs of the instances.
+        :param pulumi.Input[str] instance_type: Instance type.
+        :param pulumi.Input[str] lifecycle: Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+        :param pulumi.Input[str] platform: The value is `Windows` for Windows instances. Otherwise, the value is blank.
+        """
+        if instance_ids is not None:
+            pulumi.set(__self__, "instance_ids", instance_ids)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle is not None:
+            pulumi.set(__self__, "lifecycle", lifecycle)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+
+    @property
+    @pulumi.getter(name="instanceIds")
+    def instance_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the instances.
+        """
+        return pulumi.get(self, "instance_ids")
+
+    @instance_ids.setter
+    def instance_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "instance_ids", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter
+    def lifecycle(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+        """
+        return pulumi.get(self, "lifecycle")
+
+    @lifecycle.setter
+    def lifecycle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value is `Windows` for Windows instances. Otherwise, the value is blank.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform", value)
+
+
+@pulumi.input_type
 class FleetLaunchTemplateConfigArgs:
     def __init__(__self__, *,
-                 launch_template_specification: pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs'],
+                 launch_template_specification: Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgs']]]] = None):
         """
         :param pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs'] launch_template_specification: Nested argument containing EC2 Launch Template to use. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgs']]] overrides: Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
         """
-        pulumi.set(__self__, "launch_template_specification", launch_template_specification)
+        if launch_template_specification is not None:
+            pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if overrides is not None:
             pulumi.set(__self__, "overrides", overrides)
 
     @property
     @pulumi.getter(name="launchTemplateSpecification")
-    def launch_template_specification(self) -> pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']:
+    def launch_template_specification(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']]:
         """
         Nested argument containing EC2 Launch Template to use. Defined below.
         """
         return pulumi.get(self, "launch_template_specification")
 
     @launch_template_specification.setter
-    def launch_template_specification(self, value: pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']):
+    def launch_template_specification(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']]):
         pulumi.set(self, "launch_template_specification", value)
 
     @property
@@ -1718,9 +1796,9 @@ class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs:
                  launch_template_id: Optional[pulumi.Input[str]] = None,
                  launch_template_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] version: Version number of the launch template.
-        :param pulumi.Input[str] launch_template_id: ID of the launch template.
-        :param pulumi.Input[str] launch_template_name: Name of the launch template.
+        :param pulumi.Input[str] version: The launch template version number, `$Latest`, or `$Default.`
+        :param pulumi.Input[str] launch_template_id: The ID of the launch template.
+        :param pulumi.Input[str] launch_template_name: The name of the launch template.
         """
         pulumi.set(__self__, "version", version)
         if launch_template_id is not None:
@@ -1732,7 +1810,7 @@ class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        Version number of the launch template.
+        The launch template version number, `$Latest`, or `$Default.`
         """
         return pulumi.get(self, "version")
 
@@ -1744,7 +1822,7 @@ class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs:
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the launch template.
+        The ID of the launch template.
         """
         return pulumi.get(self, "launch_template_id")
 
@@ -1756,7 +1834,7 @@ class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs:
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the launch template.
+        The name of the launch template.
         """
         return pulumi.get(self, "launch_template_name")
 
@@ -1894,6 +1972,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_total_memory_mib: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
@@ -1903,28 +1982,32 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
                  local_storage: Optional[pulumi.Input[str]] = None,
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_gib_per_vcpu: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  total_local_storage_gb: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']] = None):
         """
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: The accelerator types that must be on the instance type. Default is any accelerator type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
-        :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
+        :param pulumi.Input[str] burstable_performance: Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: The CPU manufacturers to include. Default is any manufacturer.
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
         :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
@@ -1943,6 +2026,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
             pulumi.set(__self__, "accelerator_total_memory_mib", accelerator_total_memory_mib)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -1961,6 +2046,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
         if memory_gib_per_vcpu is not None:
             pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -1976,7 +2063,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="memoryMib")
     def memory_mib(self) -> pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']:
         """
-        Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
         """
         return pulumi.get(self, "memory_mib")
 
@@ -2000,7 +2087,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]:
         """
-        Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
         """
         return pulumi.get(self, "accelerator_count")
 
@@ -2048,13 +2135,25 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="acceleratorTypes")
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of accelerator types. Default is any accelerator type.
+        The accelerator types that must be on the instance type. Default is any accelerator type.
         """
         return pulumi.get(self, "accelerator_types")
 
     @accelerator_types.setter
     def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "accelerator_types", value)
+
+    @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+        """
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
 
     @property
     @pulumi.getter(name="bareMetal")
@@ -2084,7 +2183,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="burstablePerformance")
     def burstable_performance(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         """
         return pulumi.get(self, "burstable_performance")
 
@@ -2096,7 +2195,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="cpuManufacturers")
     def cpu_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of CPU manufacturer names. Default is any manufacturer.
+        The CPU manufacturers to include. Default is any manufacturer.
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -2108,7 +2208,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -2120,7 +2220,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="instanceGenerations")
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of instance generation names. Default is any generation.
+        Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         """
         return pulumi.get(self, "instance_generations")
 
@@ -2144,7 +2244,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="localStorageTypes")
     def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of local storage type names. Default any storage type.
+        List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -2163,6 +2263,18 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @memory_gib_per_vcpu.setter
     def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]):
         pulumi.set(self, "memory_gib_per_vcpu", value)
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]:
+        """
+        The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+        """
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @network_bandwidth_gbps.setter
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]):
+        pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -2420,6 +2532,45 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
 
 
 @pulumi.input_type
+class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
+        :param pulumi.Input[float] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum. Set to `0` to exclude instance types with accelerators.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
@@ -2538,12 +2689,29 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
 @pulumi.input_type
 class FleetOnDemandOptionsArgs:
     def __init__(__self__, *,
-                 allocation_strategy: Optional[pulumi.Input[str]] = None):
+                 allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 max_total_price: Optional[pulumi.Input[str]] = None,
+                 min_target_capacity: Optional[pulumi.Input[int]] = None,
+                 single_availability_zone: Optional[pulumi.Input[bool]] = None,
+                 single_instance_type: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+        :param pulumi.Input[str] max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay.
+        :param pulumi.Input[int] min_target_capacity: The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+               If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
+        :param pulumi.Input[bool] single_availability_zone: Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        :param pulumi.Input[bool] single_instance_type: Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if max_total_price is not None:
+            pulumi.set(__self__, "max_total_price", max_total_price)
+        if min_target_capacity is not None:
+            pulumi.set(__self__, "min_target_capacity", min_target_capacity)
+        if single_availability_zone is not None:
+            pulumi.set(__self__, "single_availability_zone", single_availability_zone)
+        if single_instance_type is not None:
+            pulumi.set(__self__, "single_instance_type", single_instance_type)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -2556,6 +2724,55 @@ class FleetOnDemandOptionsArgs:
     @allocation_strategy.setter
     def allocation_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "allocation_strategy", value)
+
+    @property
+    @pulumi.getter(name="maxTotalPrice")
+    def max_total_price(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum amount per hour for On-Demand Instances that you're willing to pay.
+        """
+        return pulumi.get(self, "max_total_price")
+
+    @max_total_price.setter
+    def max_total_price(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_total_price", value)
+
+    @property
+    @pulumi.getter(name="minTargetCapacity")
+    def min_target_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
+        """
+        return pulumi.get(self, "min_target_capacity")
+
+    @min_target_capacity.setter
+    def min_target_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_target_capacity", value)
+
+    @property
+    @pulumi.getter(name="singleAvailabilityZone")
+    def single_availability_zone(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "single_availability_zone")
+
+    @single_availability_zone.setter
+    def single_availability_zone(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "single_availability_zone", value)
+
+    @property
+    @pulumi.getter(name="singleInstanceType")
+    def single_instance_type(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "single_instance_type")
+
+    @single_instance_type.setter
+    def single_instance_type(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "single_instance_type", value)
 
 
 @pulumi.input_type
@@ -2655,12 +2872,15 @@ class FleetSpotOptionsMaintenanceStrategiesArgs:
 @pulumi.input_type
 class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs:
     def __init__(__self__, *,
-                 replacement_strategy: Optional[pulumi.Input[str]] = None):
+                 replacement_strategy: Optional[pulumi.Input[str]] = None,
+                 termination_delay: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] replacement_strategy: The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
         """
         if replacement_strategy is not None:
             pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+        if termination_delay is not None:
+            pulumi.set(__self__, "termination_delay", termination_delay)
 
     @property
     @pulumi.getter(name="replacementStrategy")
@@ -2673,6 +2893,15 @@ class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs:
     @replacement_strategy.setter
     def replacement_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "replacement_strategy", value)
+
+    @property
+    @pulumi.getter(name="terminationDelay")
+    def termination_delay(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "termination_delay")
+
+    @termination_delay.setter
+    def termination_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "termination_delay", value)
 
 
 @pulumi.input_type
@@ -2688,7 +2917,8 @@ class FleetTargetCapacitySpecificationArgs:
         :param pulumi.Input[int] total_target_capacity: The number of units to request, filled using `default_target_capacity_type`.
         :param pulumi.Input[int] on_demand_target_capacity: The number of On-Demand units to request.
         :param pulumi.Input[int] spot_target_capacity: The number of Spot units to request.
-        :param pulumi.Input[str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
+        :param pulumi.Input[str] target_capacity_unit_type: The unit for the target capacity.
+               If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
         """
         pulumi.set(__self__, "default_target_capacity_type", default_target_capacity_type)
         pulumi.set(__self__, "total_target_capacity", total_target_capacity)
@@ -2751,7 +2981,8 @@ class FleetTargetCapacitySpecificationArgs:
     @pulumi.getter(name="targetCapacityUnitType")
     def target_capacity_unit_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The unit for the target capacity. This can only be done with `instance_requirements` defined
+        The unit for the target capacity.
+        If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
         """
         return pulumi.get(self, "target_capacity_unit_type")
 
@@ -3986,18 +4217,19 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
-        :param pulumi.Input[str] encrypted: Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-               on the volume (Default: `false`). Cannot be used with `snapshot_id`.
-        :param pulumi.Input[int] iops: The amount of provisioned
-               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-               This must be set with a `volume_type` of `"io1/io2"`.
+        :param pulumi.Input[str] delete_on_termination: Whether the volume should be destroyed on instance termination.
+               See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+        :param pulumi.Input[str] encrypted: Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+               Cannot be used with `snapshot_id`.
+        :param pulumi.Input[int] iops: The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+               This must be set with a `volume_type` of `"io1/io2/gp3"`.
         :param pulumi.Input[str] kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
                `encrypted` must be set to `true` when this is set.
         :param pulumi.Input[str] snapshot_id: The Snapshot ID to mount.
         :param pulumi.Input[int] throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
         :param pulumi.Input[int] volume_size: The size of the volume in gigabytes.
-        :param pulumi.Input[str] volume_type: The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        :param pulumi.Input[str] volume_type: The volume type.
+               Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -4020,7 +4252,8 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+        Whether the volume should be destroyed on instance termination.
+        See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
         """
         return pulumi.get(self, "delete_on_termination")
 
@@ -4032,8 +4265,8 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+        Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+        Cannot be used with `snapshot_id`.
         """
         return pulumi.get(self, "encrypted")
 
@@ -4045,9 +4278,8 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of provisioned
-        [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1/io2"`.
+        The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+        This must be set with a `volume_type` of `"io1/io2/gp3"`.
         """
         return pulumi.get(self, "iops")
 
@@ -4108,7 +4340,8 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        The volume type.
+        Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
         """
         return pulumi.get(self, "volume_type")
 
@@ -4525,6 +4758,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_total_memory_mib: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
@@ -4534,6 +4768,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                  local_storage: Optional[pulumi.Input[str]] = None,
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_gib_per_vcpu: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
@@ -4547,15 +4782,17 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
         :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
@@ -4574,6 +4811,8 @@ class LaunchTemplateInstanceRequirementsArgs:
             pulumi.set(__self__, "accelerator_total_memory_mib", accelerator_total_memory_mib)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -4592,6 +4831,8 @@ class LaunchTemplateInstanceRequirementsArgs:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
         if memory_gib_per_vcpu is not None:
             pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -4688,6 +4929,18 @@ class LaunchTemplateInstanceRequirementsArgs:
         pulumi.set(self, "accelerator_types", value)
 
     @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+        """
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
+
+    @property
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> Optional[pulumi.Input[str]]:
         """
@@ -4739,7 +4992,7 @@ class LaunchTemplateInstanceRequirementsArgs:
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -4794,6 +5047,18 @@ class LaunchTemplateInstanceRequirementsArgs:
     @memory_gib_per_vcpu.setter
     def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']]):
         pulumi.set(self, "memory_gib_per_vcpu", value)
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs']]:
+        """
+        Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @network_bandwidth_gbps.setter
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs']]):
+        pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -5048,6 +5313,45 @@ class LaunchTemplateInstanceRequirementsMemoryMibArgs:
     @max.setter
     def max(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
+        :param pulumi.Input[float] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum. Set to `0` to exclude instance types with accelerators.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
 
 
 @pulumi.input_type
@@ -5344,9 +5648,12 @@ class LaunchTemplateNetworkInterfaceArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
-        :param pulumi.Input[str] associate_public_ip_address: Associate a public ip address with the network interface.  Boolean value.
-        :param pulumi.Input[str] delete_on_termination: Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+        :param pulumi.Input[str] associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface.
+               Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+               Boolean value, can be left unset.
+        :param pulumi.Input[str] associate_public_ip_address: Associate a public ip address with the network interface.
+               Boolean value, can be left unset.
+        :param pulumi.Input[str] delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param pulumi.Input[str] description: Description of the network interface.
         :param pulumi.Input[int] device_index: The integer index of the network interface attachment.
         :param pulumi.Input[str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
@@ -5407,7 +5714,9 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="associateCarrierIpAddress")
     def associate_carrier_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
+        Associate a Carrier IP address with `eth0` for a new network interface.
+        Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+        Boolean value, can be left unset.
         """
         return pulumi.get(self, "associate_carrier_ip_address")
 
@@ -5419,7 +5728,8 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Associate a public ip address with the network interface.  Boolean value.
+        Associate a public ip address with the network interface.
+        Boolean value, can be left unset.
         """
         return pulumi.get(self, "associate_public_ip_address")
 
@@ -5431,7 +5741,7 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+        Whether the network interface should be destroyed on instance termination.
         """
         return pulumi.get(self, "delete_on_termination")
 
@@ -12655,6 +12965,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_total_memory_mib: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
@@ -12665,6 +12976,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_gib_per_vcpu: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
                  memory_mib: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
@@ -12677,16 +12989,18 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
         :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
@@ -12704,6 +13018,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
             pulumi.set(__self__, "accelerator_total_memory_mib", accelerator_total_memory_mib)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -12724,6 +13040,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
             pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
         if memory_mib is not None:
             pulumi.set(__self__, "memory_mib", memory_mib)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -12798,6 +13116,18 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         pulumi.set(self, "accelerator_types", value)
 
     @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+        """
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
+
+    @property
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> Optional[pulumi.Input[str]]:
         """
@@ -12849,7 +13179,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -12916,6 +13246,18 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @memory_mib.setter
     def memory_mib(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']]):
         pulumi.set(self, "memory_mib", value)
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]:
+        """
+        Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @network_bandwidth_gbps.setter
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]):
+        pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -13182,6 +13524,45 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibA
 
     @min.setter
     def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
+        :param pulumi.Input[float] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum. Set to `0` to exclude instance types with accelerators.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min", value)
 
 
@@ -14410,6 +14791,28 @@ class VpcIpamPoolCidrCidrAuthorizationContextArgs:
     @signature.setter
     def signature(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "signature", value)
+
+
+@pulumi.input_type
+class VpcIpamResourceDiscoveryOperatingRegionArgs:
+    def __init__(__self__, *,
+                 region_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] region_name: The name of the Region you want to add to the IPAM.
+        """
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Region you want to add to the IPAM.
+        """
+        return pulumi.get(self, "region_name")
+
+    @region_name.setter
+    def region_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region_name", value)
 
 
 @pulumi.input_type
@@ -16199,6 +16602,43 @@ class GetPrefixListFilterArgs:
     def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetPublicIpv4PoolsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
         """
         return pulumi.get(self, "values")
 

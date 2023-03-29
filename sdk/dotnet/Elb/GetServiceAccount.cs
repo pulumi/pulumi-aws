@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Elb
         /// Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
         /// in a given region for the purpose of permitting in S3 bucket policy.
         /// 
+        /// &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -36,28 +38,40 @@ namespace Pulumi.Aws.Elb
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowElbLogging = new Aws.S3.BucketPolicy("allowElbLogging", new()
+        ///     var allowElbLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{elbLogs.Arn}/AWSLogs/*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowElbLoggingBucketPolicy", new()
         ///     {
         ///         Bucket = elbLogs.Id,
-        ///         Policy = @$"{{
-        ///   ""Id"": ""Policy"",
-        ///   ""Version"": ""2012-10-17"",
-        ///   ""Statement"": [
-        ///     {{
-        ///       ""Action"": [
-        ///         ""s3:PutObject""
-        ///       ],
-        ///       ""Effect"": ""Allow"",
-        ///       ""Resource"": ""arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": [
-        ///           ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
-        ///         ]
-        ///       }}
-        ///     }}
-        ///   ]
-        /// }}
-        /// ",
+        ///         Policy = allowElbLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
@@ -68,7 +82,7 @@ namespace Pulumi.Aws.Elb
         ///         },
         ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
         ///         {
-        ///             Bucket = elbLogs.Bucket,
+        ///             Bucket = elbLogs.Id,
         ///             Interval = 5,
         ///         },
         ///         Listeners = new[]
@@ -95,6 +109,8 @@ namespace Pulumi.Aws.Elb
         /// Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
         /// in a given region for the purpose of permitting in S3 bucket policy.
         /// 
+        /// &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -116,28 +132,40 @@ namespace Pulumi.Aws.Elb
         ///         Acl = "private",
         ///     });
         /// 
-        ///     var allowElbLogging = new Aws.S3.BucketPolicy("allowElbLogging", new()
+        ///     var allowElbLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{elbLogs.Arn}/AWSLogs/*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowElbLoggingBucketPolicy", new()
         ///     {
         ///         Bucket = elbLogs.Id,
-        ///         Policy = @$"{{
-        ///   ""Id"": ""Policy"",
-        ///   ""Version"": ""2012-10-17"",
-        ///   ""Statement"": [
-        ///     {{
-        ///       ""Action"": [
-        ///         ""s3:PutObject""
-        ///       ],
-        ///       ""Effect"": ""Allow"",
-        ///       ""Resource"": ""arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": [
-        ///           ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
-        ///         ]
-        ///       }}
-        ///     }}
-        ///   ]
-        /// }}
-        /// ",
+        ///         Policy = allowElbLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
@@ -148,7 +176,7 @@ namespace Pulumi.Aws.Elb
         ///         },
         ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
         ///         {
-        ///             Bucket = elbLogs.Bucket,
+        ///             Bucket = elbLogs.Id,
         ///             Interval = 5,
         ///         },
         ///         Listeners = new[]

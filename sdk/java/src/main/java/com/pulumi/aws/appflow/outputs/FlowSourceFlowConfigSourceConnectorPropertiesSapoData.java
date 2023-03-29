@@ -10,18 +10,18 @@ import java.util.Objects;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
     /**
-     * @return Object specified in the flow destination.
+     * @return Object path specified in the SAPOData flow destination.
      * 
      */
-    private String object;
+    private String objectPath;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoData() {}
     /**
-     * @return Object specified in the flow destination.
+     * @return Object path specified in the SAPOData flow destination.
      * 
      */
-    public String object() {
-        return this.object;
+    public String objectPath() {
+        return this.objectPath;
     }
 
     public static Builder builder() {
@@ -33,21 +33,21 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String object;
+        private String objectPath;
         public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesSapoData defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.object = defaults.object;
+    	      this.objectPath = defaults.objectPath;
         }
 
         @CustomType.Setter
-        public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+        public Builder objectPath(String objectPath) {
+            this.objectPath = Objects.requireNonNull(objectPath);
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSapoData build() {
             final var o = new FlowSourceFlowConfigSourceConnectorPropertiesSapoData();
-            o.object = object;
+            o.objectPath = objectPath;
             return o;
         }
     }

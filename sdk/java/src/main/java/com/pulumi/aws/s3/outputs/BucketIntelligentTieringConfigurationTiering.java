@@ -16,7 +16,7 @@ public final class BucketIntelligentTieringConfigurationTiering {
      */
     private String accessTier;
     /**
-     * @return The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+     * @return Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
      * 
      */
     private Integer days;
@@ -30,7 +30,7 @@ public final class BucketIntelligentTieringConfigurationTiering {
         return this.accessTier;
     }
     /**
-     * @return The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+     * @return Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
      * 
      */
     public Integer days() {

@@ -13,12 +13,10 @@ namespace Pulumi.Aws.Ec2
     /// Provides a security group rule resource. Represents a single `ingress` or
     /// `egress` group rule, which can be added to external Security Groups.
     /// 
-    /// &gt; **NOTE on Security Groups and Security Group Rules:** This provider currently
-    /// provides both a standalone Security Group Rule resource (one or many `ingress` or
-    /// `egress` rules), and a Security Group resource with `ingress` and `egress` rules
-    /// defined in-line. At this time you cannot use a Security Group with in-line rules
-    /// in conjunction with any Security Group Rule resources. Doing so will cause
-    /// a conflict of rule settings and will overwrite rules.
+    /// &gt; **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or
+    /// `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID.
+    /// The `aws_vpc_security_group_egress_rule` and `aws_vpc_security_group_ingress_rule` resources have been added to address these limitations and should be used for all new security group rules.
+    /// You should not use the `aws_vpc_security_group_egress_rule` and `aws_vpc_security_group_ingress_rule` resources in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
     /// 
     /// &gt; **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
     /// 

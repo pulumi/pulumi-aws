@@ -127,6 +127,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
  * import com.pulumi.aws.elasticsearch.Domain;
@@ -147,27 +149,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;es.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;logs:PutLogEvents&#34;,
+ *                     &#34;logs:PutLogEventsBatch&#34;,
+ *                     &#34;logs:CreateLogStream&#34;)
+ *                 .resources(&#34;arn:aws:logs:*&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
  *             .policyName(&#34;example&#34;)
- *             .policyDocument(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;es.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: [
- *         &#34;logs:PutLogEvents&#34;,
- *         &#34;logs:PutLogEventsBatch&#34;,
- *         &#34;logs:CreateLogStream&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;arn:aws:logs:*&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policyDocument(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        

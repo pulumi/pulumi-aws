@@ -101,6 +101,9 @@ export class RoutingProfile extends pulumi.CustomResource {
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
     public readonly queueConfigs!: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
+    /**
+     * @deprecated Use the queue_configs instead
+     */
     public /*out*/ readonly queueConfigsAssociateds!: pulumi.Output<outputs.connect.RoutingProfileQueueConfigsAssociated[]>;
     /**
      * The identifier for the Routing Profile.
@@ -203,6 +206,9 @@ export interface RoutingProfileState {
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
     queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
+    /**
+     * @deprecated Use the queue_configs instead
+     */
     queueConfigsAssociateds?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfigsAssociated>[]>;
     /**
      * The identifier for the Routing Profile.

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketAclV2AccessControlPolicyGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the person being granted permissions documented below.
+        /// Configuration block for the person being granted permissions. See below.
         /// </summary>
         [Input("grantee")]
         public Input<Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs>? Grantee { get; set; }

@@ -124,6 +124,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetTableAttributeResult> Attributes;
         public readonly string BillingMode;
+        public readonly bool DeletionProtectionEnabled;
         public readonly ImmutableArray<Outputs.GetTableGlobalSecondaryIndexResult> GlobalSecondaryIndexes;
         public readonly string HashKey;
         /// <summary>
@@ -153,6 +154,8 @@ namespace Pulumi.Aws.DynamoDB
             ImmutableArray<Outputs.GetTableAttributeResult> attributes,
 
             string billingMode,
+
+            bool deletionProtectionEnabled,
 
             ImmutableArray<Outputs.GetTableGlobalSecondaryIndexResult> globalSecondaryIndexes,
 
@@ -193,6 +196,7 @@ namespace Pulumi.Aws.DynamoDB
             Arn = arn;
             Attributes = attributes;
             BillingMode = billingMode;
+            DeletionProtectionEnabled = deletionProtectionEnabled;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
             HashKey = hashKey;
             Id = id;

@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
- *     bucket: exampleBucketVersioningV2.bucket,
+ *     bucket: exampleBucketVersioningV2.id,
  *     key: "droeloe",
  *     source: new pulumi.asset.FileAsset("example.txt"),
  * });
@@ -122,19 +122,19 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the S3 bucket.
+     * Name of the S3 bucket.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
-     * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+     * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
     public readonly mfa!: pulumi.Output<string | undefined>;
     /**
-     * Configuration block for the versioning parameters detailed below.
+     * Configuration block for the versioning parameters. See below.
      */
     public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningV2VersioningConfiguration>;
 
@@ -178,19 +178,19 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
  */
 export interface BucketVersioningV2State {
     /**
-     * The name of the S3 bucket.
+     * Name of the S3 bucket.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+     * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
     mfa?: pulumi.Input<string>;
     /**
-     * Configuration block for the versioning parameters detailed below.
+     * Configuration block for the versioning parameters. See below.
      */
     versioningConfiguration?: pulumi.Input<inputs.s3.BucketVersioningV2VersioningConfiguration>;
 }
@@ -200,19 +200,19 @@ export interface BucketVersioningV2State {
  */
 export interface BucketVersioningV2Args {
     /**
-     * The name of the S3 bucket.
+     * Name of the S3 bucket.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+     * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
     mfa?: pulumi.Input<string>;
     /**
-     * Configuration block for the versioning parameters detailed below.
+     * Configuration block for the versioning parameters. See below.
      */
     versioningConfiguration: pulumi.Input<inputs.s3.BucketVersioningV2VersioningConfiguration>;
 }

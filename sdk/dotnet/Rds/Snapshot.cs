@@ -130,6 +130,12 @@ namespace Pulumi.Aws.Rds
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
+        /// <summary>
+        /// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        /// </summary>
+        [Output("sharedAccounts")]
+        public Output<ImmutableArray<string>> SharedAccounts { get; private set; } = null!;
+
         [Output("snapshotType")]
         public Output<string> SnapshotType { get; private set; } = null!;
 
@@ -233,6 +239,18 @@ namespace Pulumi.Aws.Rds
         [Input("dbSnapshotIdentifier", required: true)]
         public Input<string> DbSnapshotIdentifier { get; set; } = null!;
 
+        [Input("sharedAccounts")]
+        private InputList<string>? _sharedAccounts;
+
+        /// <summary>
+        /// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        /// </summary>
+        public InputList<string> SharedAccounts
+        {
+            get => _sharedAccounts ?? (_sharedAccounts = new InputList<string>());
+            set => _sharedAccounts = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -327,6 +345,18 @@ namespace Pulumi.Aws.Rds
 
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        [Input("sharedAccounts")]
+        private InputList<string>? _sharedAccounts;
+
+        /// <summary>
+        /// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        /// </summary>
+        public InputList<string> SharedAccounts
+        {
+            get => _sharedAccounts ?? (_sharedAccounts = new InputList<string>());
+            set => _sharedAccounts = value;
+        }
 
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }

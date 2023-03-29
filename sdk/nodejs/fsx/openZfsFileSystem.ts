@@ -100,7 +100,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
-     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+     * Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      */
     public readonly throughputCapacity!: pulumi.Output<number>;
     /**
@@ -273,7 +273,7 @@ export interface OpenZfsFileSystemState {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
      */
     deploymentType?: pulumi.Input<string>;
     /**
@@ -329,7 +329,7 @@ export interface OpenZfsFileSystemState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+     * Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      */
     throughputCapacity?: pulumi.Input<number>;
     /**
@@ -367,7 +367,7 @@ export interface OpenZfsFileSystemArgs {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
      */
     deploymentType: pulumi.Input<string>;
     /**
@@ -403,7 +403,7 @@ export interface OpenZfsFileSystemArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
+     * Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      */
     throughputCapacity: pulumi.Input<number>;
     /**

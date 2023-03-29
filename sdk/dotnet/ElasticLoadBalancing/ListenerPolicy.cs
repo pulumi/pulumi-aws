@@ -163,6 +163,12 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         [Output("policyNames")]
         public Output<ImmutableArray<string>> PolicyNames { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an update.
+        /// </summary>
+        [Output("triggers")]
+        public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ListenerPolicy resource with the given unique name, arguments, and options.
@@ -233,6 +239,18 @@ namespace Pulumi.Aws.ElasticLoadBalancing
             set => _policyNames = value;
         }
 
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an update.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
+
         public ListenerPolicyArgs()
         {
         }
@@ -263,6 +281,18 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());
             set => _policyNames = value;
+        }
+
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an update.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
         }
 
         public ListenerPolicyState()

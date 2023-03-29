@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -40,24 +38,8 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
-//				Family: pulumi.String("mongodb"),
-//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
-//	  {
-//	    "cpu": 128,
-//	    "environment": [{
-//	      "name": "SECRET",
-//	      "value": "KEY"
-//	    }],
-//	    "essential": true,
-//	    "image": "mongo:latest",
-//	    "memory": 128,
-//	    "memoryReservation": 64,
-//	    "name": "mongodb"
-//	  }
-//
-// ]
-// `)),
-//
+//				Family:               pulumi.String("mongodb"),
+//				ContainerDefinitions: pulumi.String("[\n  {\n    \"cpu\": 128,\n    \"environment\": [{\n      \"name\": \"SECRET\",\n      \"value\": \"KEY\"\n    }],\n    \"essential\": true,\n    \"image\": \"mongo:latest\",\n    \"memory\": 128,\n    \"memoryReservation\": 64,\n    \"name\": \"mongodb\"\n  }\n]\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -92,20 +74,22 @@ type LookupTaskDefinitionArgs struct {
 
 // A collection of values returned by getTaskDefinition.
 type LookupTaskDefinitionResult struct {
-	// ARN of the task definition
+	// ARN of the task definition.
 	Arn string `pulumi:"arn"`
-	// Family of this task definition
+	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+	ArnWithoutRevision string `pulumi:"arnWithoutRevision"`
+	// Family of this task definition.
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Docker networking mode to use for the containers in this task.
 	NetworkMode string `pulumi:"networkMode"`
-	// Revision of this task definition
+	// Revision of this task definition.
 	Revision int `pulumi:"revision"`
-	// Status of this task definition
+	// Status of this task definition.
 	Status         string `pulumi:"status"`
 	TaskDefinition string `pulumi:"taskDefinition"`
-	// ARN of the IAM role that containers in this task can assume
+	// ARN of the IAM role that containers in this task can assume.
 	TaskRoleArn string `pulumi:"taskRoleArn"`
 }
 
@@ -147,12 +131,17 @@ func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWith
 	return o
 }
 
-// ARN of the task definition
+// ARN of the task definition.
 func (o LookupTaskDefinitionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Family of this task definition
+// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+func (o LookupTaskDefinitionResultOutput) ArnWithoutRevision() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.ArnWithoutRevision }).(pulumi.StringOutput)
+}
+
+// Family of this task definition.
 func (o LookupTaskDefinitionResultOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Family }).(pulumi.StringOutput)
 }
@@ -167,12 +156,12 @@ func (o LookupTaskDefinitionResultOutput) NetworkMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.NetworkMode }).(pulumi.StringOutput)
 }
 
-// Revision of this task definition
+// Revision of this task definition.
 func (o LookupTaskDefinitionResultOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) int { return v.Revision }).(pulumi.IntOutput)
 }
 
-// Status of this task definition
+// Status of this task definition.
 func (o LookupTaskDefinitionResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -181,7 +170,7 @@ func (o LookupTaskDefinitionResultOutput) TaskDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskDefinition }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role that containers in this task can assume
+// ARN of the IAM role that containers in this task can assume.
 func (o LookupTaskDefinitionResultOutput) TaskRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskRoleArn }).(pulumi.StringOutput)
 }

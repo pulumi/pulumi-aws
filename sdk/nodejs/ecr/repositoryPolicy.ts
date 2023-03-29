@@ -18,35 +18,35 @@ import {PolicyDocument} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ecr.Repository("foo", {});
- * const foopolicy = new aws.ecr.RepositoryPolicy("foopolicy", {
+ * const foopolicyPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "new policy",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: [
+ *             "ecr:GetDownloadUrlForLayer",
+ *             "ecr:BatchGetImage",
+ *             "ecr:BatchCheckLayerAvailability",
+ *             "ecr:PutImage",
+ *             "ecr:InitiateLayerUpload",
+ *             "ecr:UploadLayerPart",
+ *             "ecr:CompleteLayerUpload",
+ *             "ecr:DescribeRepositories",
+ *             "ecr:GetRepositoryPolicy",
+ *             "ecr:ListImages",
+ *             "ecr:DeleteRepository",
+ *             "ecr:BatchDeleteImage",
+ *             "ecr:SetRepositoryPolicy",
+ *             "ecr:DeleteRepositoryPolicy",
+ *         ],
+ *     }],
+ * });
+ * const foopolicyRepositoryPolicy = new aws.ecr.RepositoryPolicy("foopolicyRepositoryPolicy", {
  *     repository: foo.name,
- *     policy: `{
- *     "Version": "2008-10-17",
- *     "Statement": [
- *         {
- *             "Sid": "new policy",
- *             "Effect": "Allow",
- *             "Principal": "*",
- *             "Action": [
- *                 "ecr:GetDownloadUrlForLayer",
- *                 "ecr:BatchGetImage",
- *                 "ecr:BatchCheckLayerAvailability",
- *                 "ecr:PutImage",
- *                 "ecr:InitiateLayerUpload",
- *                 "ecr:UploadLayerPart",
- *                 "ecr:CompleteLayerUpload",
- *                 "ecr:DescribeRepositories",
- *                 "ecr:GetRepositoryPolicy",
- *                 "ecr:ListImages",
- *                 "ecr:DeleteRepository",
- *                 "ecr:BatchDeleteImage",
- *                 "ecr:SetRepositoryPolicy",
- *                 "ecr:DeleteRepositoryPolicy"
- *             ]
- *         }
- *     ]
- * }
- * `,
+ *     policy: foopolicyPolicyDocument.then(foopolicyPolicyDocument => foopolicyPolicyDocument.json),
  * });
  * ```
  *

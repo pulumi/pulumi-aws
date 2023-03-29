@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following shows outputing all network ACL ids in a vpc.
+        /// The following shows outputting all network ACL ids in a vpc.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following shows outputing all network ACL ids in a vpc.
+        /// The following shows outputting all network ACL ids in a vpc.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

@@ -18,15 +18,15 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleDeleteMarkerReplication? DeleteMarkerReplication;
         /// <summary>
-        /// Specifies the destination for the rule documented below.
+        /// Specifies the destination for the rule. See below.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleDestination Destination;
         /// <summary>
-        /// Replicate existing objects in the source bucket according to the rule configurations documented below.
+        /// Replicate existing objects in the source bucket according to the rule configurations. See below.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleExistingObjectReplication? ExistingObjectReplication;
         /// <summary>
-        /// Filter that identifies subset of objects to which the replication rule applies documented below. If not specified, the `rule` will default to using `prefix`.
+        /// Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleFilter? Filter;
         /// <summary>
@@ -38,15 +38,15 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        /// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// Specifies special object selection criteria documented below.
+        /// Specifies special object selection criteria. See below.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleSourceSelectionCriteria? SourceSelectionCriteria;
         /// <summary>
-        /// The status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
+        /// Status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
         /// </summary>
         public readonly string Status;
 

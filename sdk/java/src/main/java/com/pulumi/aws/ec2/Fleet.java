@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.FleetArgs;
 import com.pulumi.aws.ec2.inputs.FleetState;
+import com.pulumi.aws.ec2.outputs.FleetFleetInstanceSet;
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfig;
 import com.pulumi.aws.ec2.outputs.FleetOnDemandOptions;
 import com.pulumi.aws.ec2.outputs.FleetSpotOptions;
@@ -15,7 +16,9 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -105,18 +108,74 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.context);
     }
     /**
-     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      * 
      */
     @Export(name="excessCapacityTerminationPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excessCapacityTerminationPolicy;
 
     /**
-     * @return Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * @return Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      * 
      */
     public Output<Optional<String>> excessCapacityTerminationPolicy() {
         return Codegen.optional(this.excessCapacityTerminationPolicy);
+    }
+    /**
+     * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+     * 
+     */
+    @Export(name="fleetInstanceSets", refs={List.class,FleetFleetInstanceSet.class}, tree="[0,1]")
+    private Output<List<FleetFleetInstanceSet>> fleetInstanceSets;
+
+    /**
+     * @return Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+     * 
+     */
+    public Output<List<FleetFleetInstanceSet>> fleetInstanceSets() {
+        return this.fleetInstanceSets;
+    }
+    /**
+     * The state of the EC2 Fleet.
+     * 
+     */
+    @Export(name="fleetState", refs={String.class}, tree="[0]")
+    private Output<String> fleetState;
+
+    /**
+     * @return The state of the EC2 Fleet.
+     * 
+     */
+    public Output<String> fleetState() {
+        return this.fleetState;
+    }
+    /**
+     * The number of units fulfilled by this request compared to the set target capacity.
+     * 
+     */
+    @Export(name="fulfilledCapacity", refs={Double.class}, tree="[0]")
+    private Output<Double> fulfilledCapacity;
+
+    /**
+     * @return The number of units fulfilled by this request compared to the set target capacity.
+     * 
+     */
+    public Output<Double> fulfilledCapacity() {
+        return this.fulfilledCapacity;
+    }
+    /**
+     * The number of units fulfilled by this request compared to the set target On-Demand capacity.
+     * 
+     */
+    @Export(name="fulfilledOnDemandCapacity", refs={Double.class}, tree="[0]")
+    private Output<Double> fulfilledOnDemandCapacity;
+
+    /**
+     * @return The number of units fulfilled by this request compared to the set target On-Demand capacity.
+     * 
+     */
+    public Output<Double> fulfilledOnDemandCapacity() {
+        return this.fulfilledOnDemandCapacity;
     }
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
@@ -147,14 +206,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.onDemandOptions);
     }
     /**
-     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      * 
      */
     @Export(name="replaceUnhealthyInstances", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceUnhealthyInstances;
 
     /**
-     * @return Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * @return Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      * 
      */
     public Output<Optional<Boolean>> replaceUnhealthyInstances() {
@@ -245,18 +304,46 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.terminateInstancesWithExpiration);
     }
     /**
-     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * @return The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      * 
      */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
+    }
+    /**
+     * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+     * 
+     */
+    @Export(name="validFrom", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> validFrom;
+
+    /**
+     * @return The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+     * 
+     */
+    public Output<Optional<String>> validFrom() {
+        return Codegen.optional(this.validFrom);
+    }
+    /**
+     * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     * 
+     */
+    @Export(name="validUntil", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> validUntil;
+
+    /**
+     * @return The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     * 
+     */
+    public Output<Optional<String>> validUntil() {
+        return Codegen.optional(this.validUntil);
     }
 
     /**

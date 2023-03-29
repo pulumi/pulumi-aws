@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new LaunchTemplate(&#34;foo&#34;, LaunchTemplateArgs.builder()        
  *             .blockDeviceMappings(LaunchTemplateBlockDeviceMappingArgs.builder()
- *                 .deviceName(&#34;/dev/sda1&#34;)
+ *                 .deviceName(&#34;/dev/sdf&#34;)
  *                 .ebs(LaunchTemplateBlockDeviceMappingEbsArgs.builder()
  *                     .volumeSize(20)
  *                     .build())

@@ -17,14 +17,14 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
     public static final BucketVersioningV2Args Empty = new BucketVersioningV2Args();
 
     /**
-     * The name of the S3 bucket.
+     * Name of the S3 bucket.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the S3 bucket.
+     * @return Name of the S3 bucket.
      * 
      */
     public Output<String> bucket() {
@@ -32,14 +32,14 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -47,14 +47,14 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+     * Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
      * 
      */
     @Import(name="mfa")
     private @Nullable Output<String> mfa;
 
     /**
-     * @return The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+     * @return Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
      * 
      */
     public Optional<Output<String>> mfa() {
@@ -62,14 +62,14 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configuration block for the versioning parameters detailed below.
+     * Configuration block for the versioning parameters. See below.
      * 
      */
     @Import(name="versioningConfiguration", required=true)
     private Output<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration;
 
     /**
-     * @return Configuration block for the versioning parameters detailed below.
+     * @return Configuration block for the versioning parameters. See below.
      * 
      */
     public Output<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration() {
@@ -104,7 +104,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucket The name of the S3 bucket.
+         * @param bucket Name of the S3 bucket.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucket The name of the S3 bucket.
+         * @param bucket Name of the S3 bucket.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mfa The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+         * @param mfa Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mfa The concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
+         * @param mfa Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param versioningConfiguration Configuration block for the versioning parameters detailed below.
+         * @param versioningConfiguration Configuration block for the versioning parameters. See below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param versioningConfiguration Configuration block for the versioning parameters detailed below.
+         * @param versioningConfiguration Configuration block for the versioning parameters. See below.
          * 
          * @return builder
          * 

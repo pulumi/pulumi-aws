@@ -16,14 +16,14 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
     public static final BucketAccelerateConfigurationV2State Empty = new BucketAccelerateConfigurationV2State();
 
     /**
-     * The name of the bucket.
+     * Name of the bucket.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -31,14 +31,14 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
     }
 
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -46,14 +46,14 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
     }
 
     /**
-     * The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+     * @return Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -87,7 +87,7 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
         }
 
         /**
-         * @param bucket The name of the bucket.
+         * @param bucket Name of the bucket.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
+         * @param expectedBucketOwner Account ID of the expected bucket owner.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
         }
 
         /**
-         * @param status The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+         * @param status Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class BucketAccelerateConfigurationV2State extends com.pulumi.resou
         }
 
         /**
-         * @param status The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
+         * @param status Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
          * 
          * @return builder
          * 

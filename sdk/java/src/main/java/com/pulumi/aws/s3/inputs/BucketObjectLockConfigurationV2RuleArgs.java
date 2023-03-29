@@ -14,14 +14,14 @@ public final class BucketObjectLockConfigurationV2RuleArgs extends com.pulumi.re
     public static final BucketObjectLockConfigurationV2RuleArgs Empty = new BucketObjectLockConfigurationV2RuleArgs();
 
     /**
-     * A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
+     * Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
     @Import(name="defaultRetention", required=true)
     private Output<BucketObjectLockConfigurationV2RuleDefaultRetentionArgs> defaultRetention;
 
     /**
-     * @return A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
+     * @return Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
     public Output<BucketObjectLockConfigurationV2RuleDefaultRetentionArgs> defaultRetention() {
@@ -53,7 +53,7 @@ public final class BucketObjectLockConfigurationV2RuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetention A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
+         * @param defaultRetention Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class BucketObjectLockConfigurationV2RuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetention A configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket detailed below.
+         * @param defaultRetention Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
          * 
          * @return builder
          * 

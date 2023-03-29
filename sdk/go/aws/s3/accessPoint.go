@@ -100,7 +100,7 @@ import (
 //
 // ```
 //
-//	For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.,
+//	For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
 //
 // ```sh
 //
@@ -112,18 +112,18 @@ type AccessPoint struct {
 
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The alias of the S3 Access Point.
+	// Alias of the S3 Access Point.
 	Alias pulumi.StringOutput `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the S3 Access Point.
+	// ARN of the S3 Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The AWS account ID associated with the S3 bucket associated with this access point.
+	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringOutput `pulumi:"bucketAccountId"`
-	// The DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
+	// DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
 	// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The VPC endpoints for the S3 Access Point.
+	// VPC endpoints for the S3 Access Point.
 	Endpoints pulumi.StringMapOutput `pulumi:"endpoints"`
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
@@ -173,18 +173,18 @@ func GetAccessPoint(ctx *pulumi.Context,
 type accessPointState struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The alias of the S3 Access Point.
+	// Alias of the S3 Access Point.
 	Alias *string `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the S3 Access Point.
+	// ARN of the S3 Access Point.
 	Arn *string `pulumi:"arn"`
-	// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket *string `pulumi:"bucket"`
-	// The AWS account ID associated with the S3 bucket associated with this access point.
+	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
-	// The DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
+	// DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
 	// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
 	DomainName *string `pulumi:"domainName"`
-	// The VPC endpoints for the S3 Access Point.
+	// VPC endpoints for the S3 Access Point.
 	Endpoints map[string]string `pulumi:"endpoints"`
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
@@ -203,18 +203,18 @@ type accessPointState struct {
 type AccessPointState struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The alias of the S3 Access Point.
+	// Alias of the S3 Access Point.
 	Alias pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the S3 Access Point.
+	// ARN of the S3 Access Point.
 	Arn pulumi.StringPtrInput
-	// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringPtrInput
-	// The AWS account ID associated with the S3 bucket associated with this access point.
+	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
-	// The DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
+	// DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
 	// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
 	DomainName pulumi.StringPtrInput
-	// The VPC endpoints for the S3 Access Point.
+	// VPC endpoints for the S3 Access Point.
 	Endpoints pulumi.StringMapInput
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolPtrInput
@@ -237,9 +237,9 @@ func (AccessPointState) ElementType() reflect.Type {
 type accessPointArgs struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket string `pulumi:"bucket"`
-	// The AWS account ID associated with the S3 bucket associated with this access point.
+	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
 	// Name you want to assign to this access point.
 	Name *string `pulumi:"name"`
@@ -255,9 +255,9 @@ type accessPointArgs struct {
 type AccessPointArgs struct {
 	// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
-	// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+	// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput
-	// The AWS account ID associated with the S3 bucket associated with this access point.
+	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
 	// Name you want to assign to this access point.
 	Name pulumi.StringPtrInput
@@ -361,33 +361,33 @@ func (o AccessPointOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The alias of the S3 Access Point.
+// Alias of the S3 Access Point.
 func (o AccessPointOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the S3 Access Point.
+// ARN of the S3 Access Point.
 func (o AccessPointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+// Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
 func (o AccessPointOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The AWS account ID associated with the S3 bucket associated with this access point.
+// AWS account ID associated with the S3 bucket associated with this access point.
 func (o AccessPointOutput) BucketAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.BucketAccountId }).(pulumi.StringOutput)
 }
 
-// The DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
+// DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
 // Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
 func (o AccessPointOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The VPC endpoints for the S3 Access Point.
+// VPC endpoints for the S3 Access Point.
 func (o AccessPointOutput) Endpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringMapOutput { return v.Endpoints }).(pulumi.StringMapOutput)
 }

@@ -65,7 +65,7 @@ import {Topic} from "../sns";
  * import * as aws from "@pulumi/aws";
  *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
- *     alarmDescription: `Request error rate has exceeded 10%`,
+ *     alarmDescription: "Request error rate has exceeded 10%",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
  *     insufficientDataActions: [],
@@ -235,11 +235,9 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly dimensions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Used only for alarms
-     * based on percentiles. If you specify `ignore`, the alarm state will not
-     * change during periods with too few data points to be statistically significant.
-     * If you specify `evaluate` or omit this parameter, the alarm will always be
-     * evaluated and possibly change state no matter how many data points are available.
+     * Used only for alarms based on percentiles.
+     * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      */
     public readonly evaluateLowSampleCountPercentiles!: pulumi.Output<string>;
@@ -279,6 +277,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     public readonly okActions!: pulumi.Output<string[] | undefined>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
+     * Valid values are `10`, `30`, or any multiple of `60`.
      */
     public readonly period!: pulumi.Output<number | undefined>;
     /**
@@ -419,11 +418,9 @@ export interface MetricAlarmState {
      */
     dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Used only for alarms
-     * based on percentiles. If you specify `ignore`, the alarm state will not
-     * change during periods with too few data points to be statistically significant.
-     * If you specify `evaluate` or omit this parameter, the alarm will always be
-     * evaluated and possibly change state no matter how many data points are available.
+     * Used only for alarms based on percentiles.
+     * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      */
     evaluateLowSampleCountPercentiles?: pulumi.Input<string>;
@@ -463,6 +460,7 @@ export interface MetricAlarmState {
     okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
+     * Valid values are `10`, `30`, or any multiple of `60`.
      */
     period?: pulumi.Input<number>;
     /**
@@ -525,11 +523,9 @@ export interface MetricAlarmArgs {
      */
     dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Used only for alarms
-     * based on percentiles. If you specify `ignore`, the alarm state will not
-     * change during periods with too few data points to be statistically significant.
-     * If you specify `evaluate` or omit this parameter, the alarm will always be
-     * evaluated and possibly change state no matter how many data points are available.
+     * Used only for alarms based on percentiles.
+     * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+     * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      */
     evaluateLowSampleCountPercentiles?: pulumi.Input<string>;
@@ -569,6 +565,7 @@ export interface MetricAlarmArgs {
     okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
+     * Valid values are `10`, `30`, or any multiple of `60`.
      */
     period?: pulumi.Input<number>;
     /**

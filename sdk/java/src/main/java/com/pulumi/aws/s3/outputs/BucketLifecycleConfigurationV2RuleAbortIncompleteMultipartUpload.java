@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload {
     /**
-     * @return The number of days after which Amazon S3 aborts an incomplete multipart upload.
+     * @return Number of days after which Amazon S3 aborts an incomplete multipart upload.
      * 
      */
     private @Nullable Integer daysAfterInitiation;
 
     private BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload() {}
     /**
-     * @return The number of days after which Amazon S3 aborts an incomplete multipart upload.
+     * @return Number of days after which Amazon S3 aborts an incomplete multipart upload.
      * 
      */
     public Optional<Integer> daysAfterInitiation() {

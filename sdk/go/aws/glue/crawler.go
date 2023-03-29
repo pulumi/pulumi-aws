@@ -52,8 +52,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -67,7 +65,7 @@ import (
 //				JdbcTargets: glue.CrawlerJdbcTargetArray{
 //					&glue.CrawlerJdbcTargetArgs{
 //						ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
-//						Path:           pulumi.String(fmt.Sprintf("database-name/%v", "%")),
+//						Path:           pulumi.String("database-name/%"),
 //					},
 //				},
 //			})
@@ -119,8 +117,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -142,15 +138,7 @@ import (
 //				SchemaChangePolicy: &glue.CrawlerSchemaChangePolicyArgs{
 //					DeleteBehavior: pulumi.String("LOG"),
 //				},
-//				Configuration: pulumi.String(fmt.Sprintf(`{
-//	  "Version":1.0,
-//	  "Grouping": {
-//	    "TableGroupingPolicy": "CombineCompatibleSchemas"
-//	  }
-//	}
-//
-// `)),
-//
+//				Configuration: pulumi.String("{\n  \"Version\":1.0,\n  \"Grouping\": {\n    \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"\n  }\n}\n"),
 //			})
 //			if err != nil {
 //				return err
@@ -167,8 +155,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -182,7 +168,7 @@ import (
 //				MongodbTargets: glue.CrawlerMongodbTargetArray{
 //					&glue.CrawlerMongodbTargetArgs{
 //						ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
-//						Path:           pulumi.String(fmt.Sprintf("database-name/%v", "%")),
+//						Path:           pulumi.String("database-name/%"),
 //					},
 //				},
 //			})

@@ -28,7 +28,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewScript(ctx, "example", &gamelift.ScriptArgs{
 //				StorageLocation: &gamelift.ScriptStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Example.Bucket),
+//					Bucket:  pulumi.Any(aws_s3_bucket.Example.Id),
 //					Key:     pulumi.Any(aws_s3_object.Example.Key),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 //				},

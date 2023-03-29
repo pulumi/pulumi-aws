@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3.BucketRequestPaymentConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
 //				Payer:  pulumi.String("Requester"),
 //			})
 //			if err != nil {
@@ -62,9 +62,9 @@ import (
 type BucketRequestPaymentConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringOutput `pulumi:"payer"`
@@ -105,18 +105,18 @@ func GetBucketRequestPaymentConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketRequestPaymentConfigurationV2 resources.
 type bucketRequestPaymentConfigurationV2State struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer *string `pulumi:"payer"`
 }
 
 type BucketRequestPaymentConfigurationV2State struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringPtrInput
@@ -127,9 +127,9 @@ func (BucketRequestPaymentConfigurationV2State) ElementType() reflect.Type {
 }
 
 type bucketRequestPaymentConfigurationV2Args struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer string `pulumi:"payer"`
@@ -137,9 +137,9 @@ type bucketRequestPaymentConfigurationV2Args struct {
 
 // The set of arguments for constructing a BucketRequestPaymentConfigurationV2 resource.
 type BucketRequestPaymentConfigurationV2Args struct {
-	// The name of the bucket.
+	// Name of the bucket.
 	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner.
+	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringInput
@@ -232,12 +232,12 @@ func (o BucketRequestPaymentConfigurationV2Output) ToBucketRequestPaymentConfigu
 	return o
 }
 
-// The name of the bucket.
+// Name of the bucket.
 func (o BucketRequestPaymentConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner.
+// Account ID of the expected bucket owner.
 func (o BucketRequestPaymentConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

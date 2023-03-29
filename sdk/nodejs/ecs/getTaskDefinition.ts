@@ -66,11 +66,15 @@ export interface GetTaskDefinitionArgs {
  */
 export interface GetTaskDefinitionResult {
     /**
-     * ARN of the task definition
+     * ARN of the task definition.
      */
     readonly arn: string;
     /**
-     * Family of this task definition
+     * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+     */
+    readonly arnWithoutRevision: string;
+    /**
+     * Family of this task definition.
      */
     readonly family: string;
     /**
@@ -82,16 +86,16 @@ export interface GetTaskDefinitionResult {
      */
     readonly networkMode: string;
     /**
-     * Revision of this task definition
+     * Revision of this task definition.
      */
     readonly revision: number;
     /**
-     * Status of this task definition
+     * Status of this task definition.
      */
     readonly status: string;
     readonly taskDefinition: string;
     /**
-     * ARN of the IAM role that containers in this task can assume
+     * ARN of the IAM role that containers in this task can assume.
      */
     readonly taskRoleArn: string;
 }

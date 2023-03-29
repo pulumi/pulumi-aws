@@ -40,23 +40,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"s3.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "s3.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -69,50 +75,50 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			replicationPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetReplicationConfiguration"),
+//							pulumi.String("s3:ListBucket"),
+//						},
+//						Resources: pulumi.StringArray{
+//							sourceBucketV2.Arn,
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetObjectVersionForReplication"),
+//							pulumi.String("s3:GetObjectVersionAcl"),
+//							pulumi.String("s3:GetObjectVersionTagging"),
+//						},
+//						Resources: pulumi.StringArray{
+//							sourceBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:ReplicateObject"),
+//							pulumi.String("s3:ReplicateDelete"),
+//							pulumi.String("s3:ReplicateTags"),
+//						},
+//						Resources: pulumi.StringArray{
+//							destinationBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
 //			replicationPolicy, err := iam.NewPolicy(ctx, "replicationPolicy", &iam.PolicyArgs{
-//				Policy: pulumi.All(sourceBucketV2.Arn, sourceBucketV2.Arn, destinationBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					sourceBucketV2Arn := _args[0].(string)
-//					sourceBucketV2Arn1 := _args[1].(string)
-//					destinationBucketV2Arn := _args[2].(string)
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "s3:GetReplicationConfiguration",
-//	        "s3:ListBucket"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": [
-//	        "%v"
-//	      ]
-//	    },
-//	    {
-//	      "Action": [
-//	        "s3:GetObjectVersionForReplication",
-//	        "s3:GetObjectVersionAcl",
-//	         "s3:GetObjectVersionTagging"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": [
-//	        "%v/*"
-//	      ]
-//	    },
-//	    {
-//	      "Action": [
-//	        "s3:ReplicateObject",
-//	        "s3:ReplicateDelete",
-//	        "s3:ReplicateTags"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": "%v/*"
-//	    }
-//	  ]
-//	}
-//
-// `, sourceBucketV2Arn, sourceBucketV2Arn1, destinationBucketV2Arn), nil
-//
-//				}).(pulumi.StringOutput),
+//				Policy: replicationPolicyDocument.ApplyT(func(replicationPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &replicationPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -278,13 +284,13 @@ import (
 type BucketReplicationConfig struct {
 	pulumi.CustomResourceState
 
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringOutput `pulumi:"role"`
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketReplicationConfigRuleArrayOutput `pulumi:"rules"`
-	// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+	// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
 	// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
 	Token pulumi.StringPtrOutput `pulumi:"token"`
 }
@@ -334,25 +340,25 @@ func GetBucketReplicationConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketReplicationConfig resources.
 type bucketReplicationConfigState struct {
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket *string `pulumi:"bucket"`
-	// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role *string `pulumi:"role"`
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules []BucketReplicationConfigRule `pulumi:"rules"`
-	// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+	// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
 	// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
 	Token *string `pulumi:"token"`
 }
 
 type BucketReplicationConfigState struct {
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringPtrInput
-	// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringPtrInput
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketReplicationConfigRuleArrayInput
-	// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+	// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
 	// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
 	Token pulumi.StringPtrInput
 }
@@ -362,26 +368,26 @@ func (BucketReplicationConfigState) ElementType() reflect.Type {
 }
 
 type bucketReplicationConfigArgs struct {
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket string `pulumi:"bucket"`
-	// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role string `pulumi:"role"`
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules []BucketReplicationConfigRule `pulumi:"rules"`
-	// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+	// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
 	// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
 	Token *string `pulumi:"token"`
 }
 
 // The set of arguments for constructing a BucketReplicationConfig resource.
 type BucketReplicationConfigArgs struct {
-	// The name of the source S3 bucket you want Amazon S3 to monitor.
+	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringInput
-	// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringInput
-	// List of configuration blocks describing the rules managing the replication documented below.
+	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketReplicationConfigRuleArrayInput
-	// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+	// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
 	// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
 	Token pulumi.StringPtrInput
 }
@@ -473,22 +479,22 @@ func (o BucketReplicationConfigOutput) ToBucketReplicationConfigOutputWithContex
 	return o
 }
 
-// The name of the source S3 bucket you want Amazon S3 to monitor.
+// Name of the source S3 bucket you want Amazon S3 to monitor.
 func (o BucketReplicationConfigOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketReplicationConfig) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 func (o BucketReplicationConfigOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketReplicationConfig) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
-// List of configuration blocks describing the rules managing the replication documented below.
+// List of configuration blocks describing the rules managing the replication. See below.
 func (o BucketReplicationConfigOutput) Rules() BucketReplicationConfigRuleArrayOutput {
 	return o.ApplyT(func(v *BucketReplicationConfig) BucketReplicationConfigRuleArrayOutput { return v.Rules }).(BucketReplicationConfigRuleArrayOutput)
 }
 
-// A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
 // For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
 func (o BucketReplicationConfigOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketReplicationConfig) pulumi.StringPtrOutput { return v.Token }).(pulumi.StringPtrOutput)

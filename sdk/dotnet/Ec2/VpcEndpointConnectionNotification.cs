@@ -22,20 +22,39 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var topic = new Aws.Sns.Topic("topic", new()
+    ///     var topicPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         Policy = @"{
-    ///     ""Version"":""2012-10-17"",
-    ///     ""Statement"":[{
-    ///         ""Effect"": ""Allow"",
-    ///         ""Principal"": {
-    ///             ""Service"": ""vpce.amazonaws.com""
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "vpce.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Publish",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:sns:*:*:vpce-notification-topic",
+    ///                 },
+    ///             },
     ///         },
-    ///         ""Action"": ""SNS:Publish"",
-    ///         ""Resource"": ""arn:aws:sns:*:*:vpce-notification-topic""
-    ///     }]
-    /// }
-    /// ",
+    ///     });
+    /// 
+    ///     var topicTopic = new Aws.Sns.Topic("topicTopic", new()
+    ///     {
+    ///         Policy = topicPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var fooVpcEndpointService = new Aws.Ec2.VpcEndpointService("fooVpcEndpointService", new()
@@ -50,7 +69,7 @@ namespace Pulumi.Aws.Ec2
     ///     var fooVpcEndpointConnectionNotification = new Aws.Ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", new()
     ///     {
     ///         VpcEndpointServiceId = fooVpcEndpointService.Id,
-    ///         ConnectionNotificationArn = topic.Arn,
+    ///         ConnectionNotificationArn = topicTopic.Arn,
     ///         ConnectionEvents = new[]
     ///         {
     ///             "Accept",

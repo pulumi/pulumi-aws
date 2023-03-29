@@ -20,8 +20,7 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -34,39 +33,61 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			hogePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("SSMBucketPermissionsCheck"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"ssm.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"s3:GetBucketAcl",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::tf-test-bucket-1234",
+//						},
+//					},
+//					{
+//						Sid:    pulumi.StringRef("SSMBucketDelivery"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"ssm.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"s3:PutObject",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::tf-test-bucket-1234/*",
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test:     "StringEquals",
+//								Variable: "s3:x-amz-acl",
+//								Values: []string{
+//									"bucket-owner-full-control",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = s3.NewBucketPolicy(ctx, "hogeBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: hogeBucketV2.Bucket,
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Sid": "SSMBucketPermissionsCheck",
-//	            "Effect": "Allow",
-//	            "Principal": {
-//	                "Service": "ssm.amazonaws.com"
-//	            },
-//	            "Action": "s3:GetBucketAcl",
-//	            "Resource": "arn:aws:s3:::tf-test-bucket-1234"
-//	        },
-//	        {
-//	            "Sid": " SSMBucketDelivery",
-//	            "Effect": "Allow",
-//	            "Principal": {
-//	                "Service": "ssm.amazonaws.com"
-//	            },
-//	            "Action": "s3:PutObject",
-//	            "Resource": ["arn:aws:s3:::tf-test-bucket-1234/*"],
-//	            "Condition": {
-//	                "StringEquals": {
-//	                    "s3:x-amz-acl": "bucket-owner-full-control"
-//	                }
-//	            }
-//	        }
-//	    ]
-//	}
-//
-// `)),
-//
+//				Bucket: hogeBucketV2.ID(),
+//				Policy: *pulumi.String(hogePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

@@ -36,6 +36,55 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.ElastiCache.User("test", new()
+    ///     {
+    ///         AccessString = "on ~* +@all",
+    ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
+    ///         {
+    ///             Type = "iam",
+    ///         },
+    ///         Engine = "REDIS",
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.ElastiCache.User("test", new()
+    ///     {
+    ///         AccessString = "on ~* +@all",
+    ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
+    ///         {
+    ///             Passwords = new[]
+    ///             {
+    ///                 "password1",
+    ///                 "password2",
+    ///             },
+    ///             Type = "password",
+    ///         },
+    ///         Engine = "REDIS",
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ElastiCache users can be imported using the `user_id`, e.g.,
@@ -58,6 +107,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Denotes the user's authentication properties. Detailed below.
+        /// </summary>
+        [Output("authenticationMode")]
+        public Output<Outputs.UserAuthenticationMode> AuthenticationMode { get; private set; } = null!;
 
         /// <summary>
         /// The current supported value is `REDIS`.
@@ -155,10 +210,10 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string> AccessString { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the created ElastiCache User.
+        /// Denotes the user's authentication properties. Detailed below.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("authenticationMode")]
+        public Input<Inputs.UserAuthenticationModeArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
         /// The current supported value is `REDIS`.
@@ -231,6 +286,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Denotes the user's authentication properties. Detailed below.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<Inputs.UserAuthenticationModeGetArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
         /// The current supported value is `REDIS`.

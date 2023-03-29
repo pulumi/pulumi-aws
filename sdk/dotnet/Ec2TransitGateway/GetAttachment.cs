@@ -187,6 +187,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ARN of the attachment.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
+        /// </summary>
+        public readonly string AssociationState;
+        /// <summary>
+        /// The ID of the route table for the transit gateway.
+        /// </summary>
+        public readonly string AssociationTransitGatewayRouteTableId;
         public readonly ImmutableArray<Outputs.GetAttachmentFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -226,6 +234,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private GetAttachmentResult(
             string arn,
 
+            string associationState,
+
+            string associationTransitGatewayRouteTableId,
+
             ImmutableArray<Outputs.GetAttachmentFilterResult> filters,
 
             string id,
@@ -247,6 +259,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
             string transitGatewayOwnerId)
         {
             Arn = arn;
+            AssociationState = associationState;
+            AssociationTransitGatewayRouteTableId = associationTransitGatewayRouteTableId;
             Filters = filters;
             Id = id;
             ResourceId = resourceId;

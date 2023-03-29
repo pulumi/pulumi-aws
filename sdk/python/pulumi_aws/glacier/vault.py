@@ -231,7 +231,20 @@ class Vault(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive = aws.glacier.Vault("myArchive",
+        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="add-read-only-perm",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=[
+                "glacier:InitiateJob",
+                "glacier:GetJobOutput",
+            ],
+            resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
+        )])
+        my_archive_vault = aws.glacier.Vault("myArchiveVault",
             notification=aws.glacier.VaultNotificationArgs(
                 sns_topic=aws_sns_topic.arn,
                 events=[
@@ -239,22 +252,7 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             ),
-            access_policy=\"\"\"{
-            "Version":"2012-10-17",
-            "Statement":[
-               {
-                  "Sid": "add-read-only-perm",
-                  "Principal": "*",
-                  "Effect": "Allow",
-                  "Action": [
-                     "glacier:InitiateJob",
-                     "glacier:GetJobOutput"
-                  ],
-                  "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
-               }
-            ]
-        }
-        \"\"\",
+            access_policy=my_archive_policy_document.json,
             tags={
                 "Test": "MyArchive",
             })
@@ -294,7 +292,20 @@ class Vault(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive = aws.glacier.Vault("myArchive",
+        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="add-read-only-perm",
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=[
+                "glacier:InitiateJob",
+                "glacier:GetJobOutput",
+            ],
+            resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
+        )])
+        my_archive_vault = aws.glacier.Vault("myArchiveVault",
             notification=aws.glacier.VaultNotificationArgs(
                 sns_topic=aws_sns_topic.arn,
                 events=[
@@ -302,22 +313,7 @@ class Vault(pulumi.CustomResource):
                     "InventoryRetrievalCompleted",
                 ],
             ),
-            access_policy=\"\"\"{
-            "Version":"2012-10-17",
-            "Statement":[
-               {
-                  "Sid": "add-read-only-perm",
-                  "Principal": "*",
-                  "Effect": "Allow",
-                  "Action": [
-                     "glacier:InitiateJob",
-                     "glacier:GetJobOutput"
-                  ],
-                  "Resource": "arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"
-               }
-            ]
-        }
-        \"\"\",
+            access_policy=my_archive_policy_document.json,
             tags={
                 "Test": "MyArchive",
             })

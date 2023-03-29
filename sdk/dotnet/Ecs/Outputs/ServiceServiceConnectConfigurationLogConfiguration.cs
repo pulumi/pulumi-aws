@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// <summary>
         /// The log driver to use for the container.
         /// </summary>
-        public readonly string? LogDriver;
+        public readonly string LogDriver;
         /// <summary>
         /// The configuration options to send to the log driver.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceServiceConnectConfigurationLogConfiguration(
-            string? logDriver,
+            string logDriver,
 
             ImmutableDictionary<string, string>? options,
 

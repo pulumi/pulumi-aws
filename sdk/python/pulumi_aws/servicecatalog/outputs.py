@@ -19,6 +19,7 @@ __all__ = [
     'GetLaunchPathsSummaryResult',
     'GetLaunchPathsSummaryConstraintSummaryResult',
     'GetPortfolioConstraintsDetailResult',
+    'GetProvisioningArtifactsProvisioningArtifactDetailResult',
 ]
 
 @pulumi.output_type
@@ -57,7 +58,7 @@ class ProductProvisioningArtifactParameters(dict):
         :param str name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         :param str template_physical_id: Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         :param str template_url: Template source as URL of the CloudFormation template in Amazon S3.
-        :param str type: Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        :param str type: Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -116,7 +117,7 @@ class ProductProvisioningArtifactParameters(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         """
         return pulumi.get(self, "type")
 
@@ -552,6 +553,90 @@ class GetPortfolioConstraintsDetailResult(dict):
     def type(self) -> str:
         """
         Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
+    def __init__(__self__, *,
+                 active: bool,
+                 created_time: str,
+                 description: str,
+                 guidance: str,
+                 id: str,
+                 name: str,
+                 type: str):
+        """
+        :param bool active: Indicates whether the product version is active.
+        :param str created_time: The UTC time stamp of the creation time.
+        :param str description: The description of the provisioning artifact.
+        :param str guidance: Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+        :param str id: The identifier of the provisioning artifact.
+        :param str name: The name of the provisioning artifact.
+        :param str type: The type of provisioning artifact.
+        """
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "guidance", guidance)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def active(self) -> bool:
+        """
+        Indicates whether the product version is active.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        The UTC time stamp of the creation time.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the provisioning artifact.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def guidance(self) -> str:
+        """
+        Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+        """
+        return pulumi.get(self, "guidance")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the provisioning artifact.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the provisioning artifact.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of provisioning artifact.
         """
         return pulumi.get(self, "type")
 

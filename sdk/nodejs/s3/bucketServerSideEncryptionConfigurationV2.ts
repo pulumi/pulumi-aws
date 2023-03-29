@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const mybucket = new aws.s3.BucketV2("mybucket", {});
  * const example = new aws.s3.BucketServerSideEncryptionConfigurationV2("example", {
- *     bucket: mybucket.bucket,
+ *     bucket: mybucket.id,
  *     rules: [{
  *         applyServerSideEncryptionByDefault: {
  *             kmsMasterKeyId: mykey.arn,
@@ -75,15 +75,15 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
     }
 
     /**
-     * The name of the bucket.
+     * ID (name) of the bucket.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
-     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
     public readonly rules!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfigurationV2Rule[]>;
 
@@ -125,15 +125,15 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
  */
 export interface BucketServerSideEncryptionConfigurationV2State {
     /**
-     * The name of the bucket.
+     * ID (name) of the bucket.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationV2Rule>[]>;
 }
@@ -143,15 +143,15 @@ export interface BucketServerSideEncryptionConfigurationV2State {
  */
 export interface BucketServerSideEncryptionConfigurationV2Args {
     /**
-     * The name of the bucket.
+     * ID (name) of the bucket.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
     rules: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationV2Rule>[]>;
 }

@@ -80,28 +80,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketPolicy:BucketPolicy")
 public class BucketPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket to which to apply the policy.
+     * Name of the bucket to which to apply the policy.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket to which to apply the policy.
+     * @return Name of the bucket to which to apply the policy.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     * Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+     * @return Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
      * 
      */
     public Output<String> policy() {

@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.lambda.Function;
@@ -63,40 +65,34 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bucket = new BucketV2(&#34;bucket&#34;);
  * 
+ *         final var firehoseAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var firehoseRole = new Role(&#34;firehoseRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;firehose.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(firehoseAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         final var lambdaAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
  *             .build());
  * 
  *         var lambdaIam = new Role(&#34;lambdaIam&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;lambda.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var lambdaProcessor = new Function(&#34;lambdaProcessor&#34;, FunctionArgs.builder()        
@@ -143,6 +139,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -162,9 +159,12 @@ import javax.annotation.Nullable;
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(aws_iam_role.firehose_role().arn())
  *                 .bucketArn(aws_s3_bucket.bucket().arn())
+ *                 .bufferSize(64)
+ *                 .dynamicPartitioningConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs.builder()
+ *                     .enabled(&#34;true&#34;)
+ *                     .build())
  *                 .prefix(&#34;data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/&#34;)
  *                 .errorOutputPrefix(&#34;errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/&#34;)
- *                 .bufferSize(64)
  *                 .processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.builder()
  *                     .enabled(&#34;true&#34;)
  *                     .processors(                    
@@ -207,6 +207,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
@@ -232,22 +234,19 @@ import javax.annotation.Nullable;
  *             .acl(&#34;private&#34;)
  *             .build());
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var firehoseRole = new Role(&#34;firehoseRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;firehose.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
@@ -402,6 +401,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticsearch.inputs.DomainClusterConfigArgs;
  * import com.pulumi.aws.elasticsearch.inputs.DomainEbsOptionsArgs;
  * import com.pulumi.aws.elasticsearch.inputs.DomainVpcOptionsArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
@@ -441,45 +442,33 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var firehose_elasticsearch = new RolePolicy(&#34;firehose-elasticsearch&#34;, RolePolicyArgs.builder()        
+ *         final var firehose-elasticsearchPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(            
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(&#34;es:*&#34;)
+ *                     .resources(                    
+ *                         testCluster.arn(),
+ *                         testCluster.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect(&#34;Allow&#34;)
+ *                     .actions(                    
+ *                         &#34;ec2:DescribeVpcs&#34;,
+ *                         &#34;ec2:DescribeVpcAttribute&#34;,
+ *                         &#34;ec2:DescribeSubnets&#34;,
+ *                         &#34;ec2:DescribeSecurityGroups&#34;,
+ *                         &#34;ec2:DescribeNetworkInterfaces&#34;,
+ *                         &#34;ec2:CreateNetworkInterface&#34;,
+ *                         &#34;ec2:CreateNetworkInterfacePermission&#34;,
+ *                         &#34;ec2:DeleteNetworkInterface&#34;)
+ *                     .resources(&#34;*&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var firehose_elasticsearchRolePolicy = new RolePolicy(&#34;firehose-elasticsearchRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(aws_iam_role.firehose().id())
- *             .policy(Output.tuple(testCluster.arn(), testCluster.arn()).applyValue(values -&gt; {
- *                 var testClusterArn = values.t1;
- *                 var testClusterArn1 = values.t2;
- *                 return &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;es:*&#34;
- *       ],
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;,
- *         &#34;%s/*&#34;
- *       ]
- *         },
- *         {
- *           &#34;Effect&#34;: &#34;Allow&#34;,
- *           &#34;Action&#34;: [
- *             &#34;ec2:DescribeVpcs&#34;,
- *             &#34;ec2:DescribeVpcAttribute&#34;,
- *             &#34;ec2:DescribeSubnets&#34;,
- *             &#34;ec2:DescribeSecurityGroups&#34;,
- *             &#34;ec2:DescribeNetworkInterfaces&#34;,
- *             &#34;ec2:CreateNetworkInterface&#34;,
- *             &#34;ec2:CreateNetworkInterfacePermission&#34;,
- *             &#34;ec2:DeleteNetworkInterface&#34;
- *           ],
- *           &#34;Resource&#34;: [
- *             &#34;*&#34;
- *           ]
- *         }
- *   ]
- * }
- * &#34;, testClusterArn,testClusterArn1);
- *             }))
+ *             .policy(firehose_elasticsearchPolicyDocument.applyValue(firehose_elasticsearchPolicyDocument -&gt; firehose_elasticsearchPolicyDocument.json()))
  *             .build());
  * 
  *         var test = new FirehoseDeliveryStream(&#34;test&#34;, FirehoseDeliveryStreamArgs.builder()        
@@ -502,7 +491,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(firehose_elasticsearch)
+ *                 .dependsOn(firehose_elasticsearchRolePolicy)
  *                 .build());
  * 
  *     }

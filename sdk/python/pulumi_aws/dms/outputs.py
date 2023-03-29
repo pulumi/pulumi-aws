@@ -959,7 +959,7 @@ class EndpointS3Settings(dict):
         :param bool add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
         :param str bucket_folder: Custom S3 Bucket Object prefix for intermediate storage.
         :param str bucket_name: Custom S3 Bucket name for intermediate storage.
-        :param str canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+        :param str canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         :param bool cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param bool cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param int cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
@@ -993,9 +993,7 @@ class EndpointS3Settings(dict):
         :param str service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         :param str timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         :param bool use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
-        :param bool use_task_start_time_for_full_load_timestamp: When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-               For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-               When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+        :param bool use_task_start_time_for_full_load_timestamp: When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
         if add_column_name is not None:
             pulumi.set(__self__, "add_column_name", add_column_name)
@@ -1102,7 +1100,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="cannedAclForObjects")
     def canned_acl_for_objects(self) -> Optional[str]:
         """
-        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
+        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         """
         return pulumi.get(self, "canned_acl_for_objects")
 
@@ -1374,9 +1372,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="useTaskStartTimeForFullLoadTimestamp")
     def use_task_start_time_for_full_load_timestamp(self) -> Optional[bool]:
         """
-        When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
-        For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.
-        When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
+        When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
         return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
 

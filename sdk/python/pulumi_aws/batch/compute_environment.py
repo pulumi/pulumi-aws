@@ -394,36 +394,28 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-        	{
-        	    "Action": "sts:AssumeRole",
-        	    "Effect": "Allow",
-        	    "Principal": {
-        	        "Service": "ec2.amazonaws.com"
-        	    }
-        	}
-            ]
-        }
-        \"\"\")
+        ec2_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ec2.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=ec2_assume_role.json)
         ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
             role=ecs_instance_role_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
         ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-        	{
-        	    "Action": "sts:AssumeRole",
-        	    "Effect": "Allow",
-        	    "Principal": {
-        		"Service": "batch.amazonaws.com"
-        	    }
-        	}
-            ]
-        }
-        \"\"\")
+        batch_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["batch.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=batch_assume_role.json)
         aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
             role=aws_batch_service_role_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
@@ -479,7 +471,7 @@ class ComputeEnvironment(pulumi.CustomResource):
          $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
         ```
 
-         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -514,36 +506,28 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-        	{
-        	    "Action": "sts:AssumeRole",
-        	    "Effect": "Allow",
-        	    "Principal": {
-        	        "Service": "ec2.amazonaws.com"
-        	    }
-        	}
-            ]
-        }
-        \"\"\")
+        ec2_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["ec2.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=ec2_assume_role.json)
         ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
             role=ecs_instance_role_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
         ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-        	{
-        	    "Action": "sts:AssumeRole",
-        	    "Effect": "Allow",
-        	    "Principal": {
-        		"Service": "batch.amazonaws.com"
-        	    }
-        	}
-            ]
-        }
-        \"\"\")
+        batch_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["batch.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=batch_assume_role.json)
         aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
             role=aws_batch_service_role_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
@@ -599,7 +583,7 @@ class ComputeEnvironment(pulumi.CustomResource):
          $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
         ```
 
-         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
         :param str resource_name: The name of the resource.
         :param ComputeEnvironmentArgs args: The arguments to use to populate this resource's properties.

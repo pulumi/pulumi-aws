@@ -30,6 +30,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("prefixConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigGetArgs>? PrefixConfig { get; set; }
 
+        /// <summary>
+        /// Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+        /// </summary>
+        [Input("preserveSourceDataTyping")]
+        public Input<bool>? PreserveSourceDataTyping { get; set; }
+
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigGetArgs()
         {
         }

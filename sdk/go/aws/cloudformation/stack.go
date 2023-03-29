@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -28,33 +28,40 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudformation.NewStack(ctx, "network", &cloudformation.StackArgs{
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Parameters": map[string]interface{}{
+//					"VPCCidr": map[string]interface{}{
+//						"Type":        "String",
+//						"Default":     "10.0.0.0/16",
+//						"Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+//					},
+//				},
+//				"Resources": map[string]interface{}{
+//					"myVpc": map[string]interface{}{
+//						"Type": "AWS::EC2::VPC",
+//						"Properties": map[string]interface{}{
+//							"CidrBlock": map[string]interface{}{
+//								"Ref": "VPCCidr",
+//							},
+//							"Tags": []map[string]interface{}{
+//								map[string]interface{}{
+//									"Key":   "Name",
+//									"Value": "Primary_CF_VPC",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = cloudformation.NewStack(ctx, "network", &cloudformation.StackArgs{
 //				Parameters: pulumi.StringMap{
 //					"VPCCidr": pulumi.String("10.0.0.0/16"),
 //				},
-//				TemplateBody: pulumi.String(fmt.Sprintf(`{
-//	  "Parameters" : {
-//	    "VPCCidr" : {
-//	      "Type" : "String",
-//	      "Default" : "10.0.0.0/16",
-//	      "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
-//	    }
-//	  },
-//	  "Resources" : {
-//	    "myVpc": {
-//	      "Type" : "AWS::EC2::VPC",
-//	      "Properties" : {
-//	        "CidrBlock" : { "Ref" : "VPCCidr" },
-//	        "Tags" : [
-//	          {"Key": "Name", "Value": "Primary_CF_VPC"}
-//	        ]
-//	      }
-//	    }
-//	  }
-//	}
-//
-// `)),
-//
+//				TemplateBody: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

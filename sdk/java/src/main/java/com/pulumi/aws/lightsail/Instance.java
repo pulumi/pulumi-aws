@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var gitlabTest = new Instance(&#34;gitlabTest&#34;, InstanceArgs.builder()        
  *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .blueprintId(&#34;amazon_linux&#34;)
+ *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
  *             .keyPairName(&#34;some_key_name&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .type(&#34;AutoSnapshot&#34;)
  *                 .build())
  *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .blueprintId(&#34;amazon_linux&#34;)
+ *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());

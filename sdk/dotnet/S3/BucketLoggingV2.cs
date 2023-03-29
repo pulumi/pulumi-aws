@@ -69,31 +69,31 @@ namespace Pulumi.Aws.S3
     public partial class BucketLoggingV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the bucket where you want Amazon S3 to store server access logs.
+        /// Name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
         [Output("targetBucket")]
         public Output<string> TargetBucket { get; private set; } = null!;
 
         /// <summary>
-        /// Set of configuration blocks with information for granting permissions documented below.
+        /// Set of configuration blocks with information for granting permissions. See below.
         /// </summary>
         [Output("targetGrants")]
         public Output<ImmutableArray<Outputs.BucketLoggingV2TargetGrant>> TargetGrants { get; private set; } = null!;
 
         /// <summary>
-        /// A prefix for all log object keys.
+        /// Prefix for all log object keys.
         /// </summary>
         [Output("targetPrefix")]
         public Output<string> TargetPrefix { get; private set; } = null!;
@@ -145,19 +145,19 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLoggingV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The name of the bucket where you want Amazon S3 to store server access logs.
+        /// Name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
         [Input("targetBucket", required: true)]
         public Input<string> TargetBucket { get; set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketLoggingV2TargetGrantArgs>? _targetGrants;
 
         /// <summary>
-        /// Set of configuration blocks with information for granting permissions documented below.
+        /// Set of configuration blocks with information for granting permissions. See below.
         /// </summary>
         public InputList<Inputs.BucketLoggingV2TargetGrantArgs> TargetGrants
         {
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// A prefix for all log object keys.
+        /// Prefix for all log object keys.
         /// </summary>
         [Input("targetPrefix", required: true)]
         public Input<string> TargetPrefix { get; set; } = null!;
@@ -189,19 +189,19 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLoggingV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// The name of the bucket where you want Amazon S3 to store server access logs.
+        /// Name of the bucket where you want Amazon S3 to store server access logs.
         /// </summary>
         [Input("targetBucket")]
         public Input<string>? TargetBucket { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketLoggingV2TargetGrantGetArgs>? _targetGrants;
 
         /// <summary>
-        /// Set of configuration blocks with information for granting permissions documented below.
+        /// Set of configuration blocks with information for granting permissions. See below.
         /// </summary>
         public InputList<Inputs.BucketLoggingV2TargetGrantGetArgs> TargetGrants
         {
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// A prefix for all log object keys.
+        /// Prefix for all log object keys.
         /// </summary>
         [Input("targetPrefix")]
         public Input<string>? TargetPrefix { get; set; }

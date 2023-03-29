@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class InventoryDestinationBucketEncryptionSseKmsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+        /// ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;

@@ -17,6 +17,7 @@ __all__ = ['EventDataStoreArgs', 'EventDataStore']
 class EventDataStoreArgs:
     def __init__(__self__, *,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_enabled: Optional[pulumi.Input[bool]] = None,
@@ -26,6 +27,7 @@ class EventDataStoreArgs:
         """
         The set of arguments for constructing a EventDataStore resource.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
+        :param pulumi.Input[str] kms_key_id: Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         :param pulumi.Input[str] name: The name of the event data store.
         :param pulumi.Input[bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
@@ -35,6 +37,8 @@ class EventDataStoreArgs:
         """
         if advanced_event_selectors is not None:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_region_enabled is not None:
             pulumi.set(__self__, "multi_region_enabled", multi_region_enabled)
         if name is not None:
@@ -59,6 +63,18 @@ class EventDataStoreArgs:
     @advanced_event_selectors.setter
     def advanced_event_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]]):
         pulumi.set(self, "advanced_event_selectors", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @property
     @pulumi.getter(name="multiRegionEnabled")
@@ -138,6 +154,7 @@ class _EventDataStoreState:
     def __init__(__self__, *,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_enabled: Optional[pulumi.Input[bool]] = None,
@@ -149,6 +166,7 @@ class _EventDataStoreState:
         Input properties used for looking up and filtering EventDataStore resources.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         :param pulumi.Input[str] arn: ARN of the event data store.
+        :param pulumi.Input[str] kms_key_id: Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         :param pulumi.Input[str] name: The name of the event data store.
         :param pulumi.Input[bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
@@ -161,6 +179,8 @@ class _EventDataStoreState:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_region_enabled is not None:
             pulumi.set(__self__, "multi_region_enabled", multi_region_enabled)
         if name is not None:
@@ -199,6 +219,18 @@ class _EventDataStoreState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @property
     @pulumi.getter(name="multiRegionEnabled")
@@ -291,6 +323,7 @@ class EventDataStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_enabled: Optional[pulumi.Input[bool]] = None,
@@ -363,6 +396,7 @@ class EventDataStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]] advanced_event_selectors: The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
+        :param pulumi.Input[str] kms_key_id: Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         :param pulumi.Input[str] name: The name of the event data store.
         :param pulumi.Input[bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
@@ -454,6 +488,7 @@ class EventDataStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization_enabled: Optional[pulumi.Input[bool]] = None,
@@ -470,6 +505,7 @@ class EventDataStore(pulumi.CustomResource):
             __props__ = EventDataStoreArgs.__new__(EventDataStoreArgs)
 
             __props__.__dict__["advanced_event_selectors"] = advanced_event_selectors
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["multi_region_enabled"] = multi_region_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["organization_enabled"] = organization_enabled
@@ -490,6 +526,7 @@ class EventDataStore(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            kms_key_id: Optional[pulumi.Input[str]] = None,
             multi_region_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             organization_enabled: Optional[pulumi.Input[bool]] = None,
@@ -506,6 +543,7 @@ class EventDataStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]] advanced_event_selectors: The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         :param pulumi.Input[str] arn: ARN of the event data store.
+        :param pulumi.Input[str] kms_key_id: Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         :param pulumi.Input[str] name: The name of the event data store.
         :param pulumi.Input[bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
@@ -520,6 +558,7 @@ class EventDataStore(pulumi.CustomResource):
 
         __props__.__dict__["advanced_event_selectors"] = advanced_event_selectors
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["multi_region_enabled"] = multi_region_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["organization_enabled"] = organization_enabled
@@ -544,6 +583,14 @@ class EventDataStore(pulumi.CustomResource):
         ARN of the event data store.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="multiRegionEnabled")

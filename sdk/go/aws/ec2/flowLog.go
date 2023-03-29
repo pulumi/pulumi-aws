@@ -21,8 +21,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
@@ -36,23 +34,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"vpc-flow-logs.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Sid": "",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Service": "vpc-flow-logs.amazonaws.com"
-//	      },
-//	      "Action": "sts:AssumeRole"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -66,130 +70,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-//				Role: exampleRole.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "logs:CreateLogGroup",
-//	        "logs:CreateLogStream",
-//	        "logs:PutLogEvents",
-//	        "logs:DescribeLogGroups",
-//	        "logs:DescribeLogStreams"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": "*"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Amazon Kinesis Data Firehose logging
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(` {
-//	   "Version":"2012-10-17",
-//	   "Statement": [
-//	     {
-//	       "Action":"sts:AssumeRole",
-//	       "Principal":{
-//	         "Service":"firehose.amazonaws.com"
-//	       },
-//	       "Effect":"Allow",
-//	       "Sid":""
-//	     }
-//	   ]
-//	 }
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "exampleFirehoseDeliveryStream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("extended_s3"),
-//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:   exampleRole.Arn,
-//					BucketArn: exampleBucketV2.Arn,
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"logs:CreateLogGroup",
+//							"logs:CreateLogStream",
+//							"logs:PutLogEvents",
+//							"logs:DescribeLogGroups",
+//							"logs:DescribeLogStreams",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
 //				},
-//				Tags: pulumi.StringMap{
-//					"LogDeliveryEnabled": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
-//				LogDestination:     exampleFirehoseDeliveryStream.Arn,
-//				LogDestinationType: pulumi.String("kinesis-data-firehose"),
-//				TrafficType:        pulumi.String("ALL"),
-//				VpcId:              pulumi.Any(aws_vpc.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-//				Role: exampleRole.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(` {
-//	   "Version":"2012-10-17",
-//	   "Statement":[
-//	     {
-//	       "Action": [
-//	         "logs:CreateLogDelivery",
-//	         "logs:DeleteLogDelivery",
-//	         "logs:ListLogDeliveries",
-//	         "logs:GetLogDelivery",
-//	         "firehose:TagDeliveryStream"
-//	       ],
-//	       "Effect":"Allow",
-//	       "Resource":"*"
-//	     }
-//	   ]
-//	 }
-//
-// `)),
-//
+//				Role:   exampleRole.ID(),
+//				Policy: *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -284,6 +187,8 @@ type FlowLog struct {
 
 	// The ARN of the Flow Log.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole pulumi.StringPtrOutput `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrOutput `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
@@ -303,7 +208,7 @@ type FlowLog struct {
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
 	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrOutput `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
@@ -352,6 +257,8 @@ func GetFlowLog(ctx *pulumi.Context,
 type flowLogState struct {
 	// The ARN of the Flow Log.
 	Arn *string `pulumi:"arn"`
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
@@ -371,7 +278,7 @@ type flowLogState struct {
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
 	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
@@ -392,6 +299,8 @@ type flowLogState struct {
 type FlowLogState struct {
 	// The ARN of the Flow Log.
 	Arn pulumi.StringPtrInput
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole pulumi.StringPtrInput
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrInput
 	// Elastic Network Interface ID to attach to
@@ -411,7 +320,7 @@ type FlowLogState struct {
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
 	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
@@ -434,6 +343,8 @@ func (FlowLogState) ElementType() reflect.Type {
 }
 
 type flowLogArgs struct {
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole *string `pulumi:"deliverCrossAccountRole"`
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
@@ -453,7 +364,7 @@ type flowLogArgs struct {
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
 	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
@@ -471,6 +382,8 @@ type flowLogArgs struct {
 
 // The set of arguments for constructing a FlowLog resource.
 type FlowLogArgs struct {
+	// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+	DeliverCrossAccountRole pulumi.StringPtrInput
 	// Describes the destination options for a flow log. More details below.
 	DestinationOptions FlowLogDestinationOptionsPtrInput
 	// Elastic Network Interface ID to attach to
@@ -490,7 +403,7 @@ type FlowLogArgs struct {
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
 	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+	// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
@@ -598,6 +511,11 @@ func (o FlowLogOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+func (o FlowLogOutput) DeliverCrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.DeliverCrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
 // Describes the destination options for a flow log. More details below.
 func (o FlowLogOutput) DestinationOptions() FlowLogDestinationOptionsPtrOutput {
 	return o.ApplyT(func(v *FlowLog) FlowLogDestinationOptionsPtrOutput { return v.DestinationOptions }).(FlowLogDestinationOptionsPtrOutput)
@@ -638,7 +556,7 @@ func (o FlowLogOutput) LogGroupName() pulumi.StringOutput {
 // The maximum interval of time
 // during which a flow of packets is captured and aggregated into a flow
 // log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` _must_ be 60 seconds (1 minute).
+// minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 func (o FlowLogOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.IntPtrOutput { return v.MaxAggregationInterval }).(pulumi.IntPtrOutput)
 }

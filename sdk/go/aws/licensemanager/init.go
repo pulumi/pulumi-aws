@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Association{}
 	case "aws:licensemanager/licenseConfiguration:LicenseConfiguration":
 		r = &LicenseConfiguration{}
+	case "aws:licensemanager/licenseGrant:LicenseGrant":
+		r = &LicenseGrant{}
+	case "aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter":
+		r = &LicenseGrantAccepter{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +50,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"licensemanager/licenseConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"licensemanager/licenseGrant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"licensemanager/licenseGrantAccepter",
 		&module{version},
 	)
 }

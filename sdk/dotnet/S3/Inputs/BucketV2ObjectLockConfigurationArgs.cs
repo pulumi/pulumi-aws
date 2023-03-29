@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ObjectLockConfigurationRuleArgs>? _rules;
 
         /// <summary>
-        /// The Object Lock rule in place for this bucket (documented below).
+        /// Object Lock rule in place for this bucket (documented below).
         /// </summary>
         [Obsolete(@"Use the aws_s3_bucket_object_lock_configuration resource instead")]
         public InputList<Inputs.BucketV2ObjectLockConfigurationRuleArgs> Rules

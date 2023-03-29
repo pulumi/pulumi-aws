@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.autoscaling.inputs;
 
+import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs;
 import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -36,45 +37,60 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * Name of the metric.
      * 
      */
-    @Import(name="metricName", required=true)
-    private Output<String> metricName;
+    @Import(name="metricName")
+    private @Nullable Output<String> metricName;
 
     /**
      * @return Name of the metric.
      * 
      */
-    public Output<String> metricName() {
-        return this.metricName;
+    public Optional<Output<String>> metricName() {
+        return Optional.ofNullable(this.metricName);
+    }
+
+    /**
+     * Metrics to include, as a metric data query.
+     * 
+     */
+    @Import(name="metrics")
+    private @Nullable Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs>> metrics;
+
+    /**
+     * @return Metrics to include, as a metric data query.
+     * 
+     */
+    public Optional<Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs>>> metrics() {
+        return Optional.ofNullable(this.metrics);
     }
 
     /**
      * Namespace of the metric.
      * 
      */
-    @Import(name="namespace", required=true)
-    private Output<String> namespace;
+    @Import(name="namespace")
+    private @Nullable Output<String> namespace;
 
     /**
      * @return Namespace of the metric.
      * 
      */
-    public Output<String> namespace() {
-        return this.namespace;
+    public Optional<Output<String>> namespace() {
+        return Optional.ofNullable(this.namespace);
     }
 
     /**
      * Statistic of the metric.
      * 
      */
-    @Import(name="statistic", required=true)
-    private Output<String> statistic;
+    @Import(name="statistic")
+    private @Nullable Output<String> statistic;
 
     /**
      * @return Statistic of the metric.
      * 
      */
-    public Output<String> statistic() {
-        return this.statistic;
+    public Optional<Output<String>> statistic() {
+        return Optional.ofNullable(this.statistic);
     }
 
     /**
@@ -97,6 +113,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs $) {
         this.metricDimensions = $.metricDimensions;
         this.metricName = $.metricName;
+        this.metrics = $.metrics;
         this.namespace = $.namespace;
         this.statistic = $.statistic;
         this.unit = $.unit;
@@ -157,7 +174,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
          * @return builder
          * 
          */
-        public Builder metricName(Output<String> metricName) {
+        public Builder metricName(@Nullable Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
@@ -173,12 +190,43 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
+         * @param metrics Metrics to include, as a metric data query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metrics(@Nullable Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs>> metrics) {
+            $.metrics = metrics;
+            return this;
+        }
+
+        /**
+         * @param metrics Metrics to include, as a metric data query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metrics(List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs> metrics) {
+            return metrics(Output.of(metrics));
+        }
+
+        /**
+         * @param metrics Metrics to include, as a metric data query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metrics(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs... metrics) {
+            return metrics(List.of(metrics));
+        }
+
+        /**
          * @param namespace Namespace of the metric.
          * 
          * @return builder
          * 
          */
-        public Builder namespace(Output<String> namespace) {
+        public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
@@ -199,7 +247,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
          * @return builder
          * 
          */
-        public Builder statistic(Output<String> statistic) {
+        public Builder statistic(@Nullable Output<String> statistic) {
             $.statistic = statistic;
             return this;
         }
@@ -236,9 +284,6 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         public PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs build() {
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.namespace = Objects.requireNonNull($.namespace, "expected parameter 'namespace' to be non-null");
-            $.statistic = Objects.requireNonNull($.statistic, "expected parameter 'statistic' to be non-null");
             return $;
         }
     }

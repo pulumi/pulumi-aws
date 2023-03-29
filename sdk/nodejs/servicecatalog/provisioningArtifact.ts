@@ -104,7 +104,7 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
      */
     public readonly templateUrl!: pulumi.Output<string | undefined>;
     /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -199,7 +199,7 @@ export interface ProvisioningArtifactState {
      */
     templateUrl?: pulumi.Input<string>;
     /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      */
     type?: pulumi.Input<string>;
 }
@@ -245,7 +245,7 @@ export interface ProvisioningArtifactArgs {
      */
     templateUrl?: pulumi.Input<string>;
     /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      */
     type?: pulumi.Input<string>;
 }

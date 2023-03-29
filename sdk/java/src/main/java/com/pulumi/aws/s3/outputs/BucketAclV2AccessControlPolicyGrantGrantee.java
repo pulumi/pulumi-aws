@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketAclV2AccessControlPolicyGrantGrantee {
     /**
-     * @return The display name of the owner.
+     * @return Display name of the owner.
      * 
      */
     private @Nullable String displayName;
@@ -22,7 +22,7 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
      */
     private @Nullable String emailAddress;
     /**
-     * @return The canonical user ID of the grantee.
+     * @return Canonical user ID of the grantee.
      * 
      */
     private @Nullable String id;
@@ -39,7 +39,7 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
 
     private BucketAclV2AccessControlPolicyGrantGrantee() {}
     /**
-     * @return The display name of the owner.
+     * @return Display name of the owner.
      * 
      */
     public Optional<String> displayName() {
@@ -53,7 +53,7 @@ public final class BucketAclV2AccessControlPolicyGrantGrantee {
         return Optional.ofNullable(this.emailAddress);
     }
     /**
-     * @return The canonical user ID of the grantee.
+     * @return Canonical user ID of the grantee.
      * 
      */
     public Optional<String> id() {

@@ -21,7 +21,6 @@ import (
 // import (
 //
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
@@ -66,7 +65,7 @@ import (
 //			testAlias, err := lambda.NewAlias(ctx, "testAlias", &lambda.AliasArgs{
 //				Description:     pulumi.String("a sample description"),
 //				FunctionName:    testLambda.Name,
-//				FunctionVersion: pulumi.String(fmt.Sprintf("$LATEST")),
+//				FunctionVersion: pulumi.String("$LATEST"),
 //			})
 //			if err != nil {
 //				return err
@@ -191,7 +190,7 @@ import (
 //				Function:  pulumi.Any("MyDemoFunction"),
 //				Principal: pulumi.String("apigateway.amazonaws.com"),
 //				SourceArn: myDemoAPI.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-//					return fmt.Sprintf("%v/*/*/*", executionArn), nil
+//					return fmt.Sprintf("%v/*", executionArn), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
@@ -225,23 +224,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"lambda.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			defaultRole, err := iam.NewRole(ctx, "defaultRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "lambda.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

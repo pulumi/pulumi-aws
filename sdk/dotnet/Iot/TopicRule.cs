@@ -23,21 +23,35 @@ namespace Pulumi.Aws.Iot
     /// 
     ///     var myerrortopic = new Aws.Sns.Topic("myerrortopic");
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "iot.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""iot.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var rule = new Aws.Iot.TopicRule("rule", new()
@@ -63,22 +77,29 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///     });
     /// 
-    ///     var iamPolicyForLambda = new Aws.Iam.RolePolicy("iamPolicyForLambda", new()
+    ///     var iamPolicyForLambdaPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sns:Publish",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     mytopic.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var iamPolicyForLambdaRolePolicy = new Aws.Iam.RolePolicy("iamPolicyForLambdaRolePolicy", new()
     ///     {
     ///         Role = role.Id,
-    ///         Policy = mytopic.Arn.Apply(arn =&gt; @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///         ""Effect"": ""Allow"",
-    ///         ""Action"": [
-    ///             ""sns:Publish""
-    ///         ],
-    ///         ""Resource"": ""{arn}""
-    ///     }}
-    ///   ]
-    /// }}
-    /// "),
+    ///         Policy = iamPolicyForLambdaPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

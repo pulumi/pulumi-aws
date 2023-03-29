@@ -38,14 +38,14 @@ public final class BucketLoggingV2TargetGrantGranteeArgs extends com.pulumi.reso
     }
 
     /**
-     * The canonical user ID of the grantee.
+     * Canonical user ID of the grantee.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The canonical user ID of the grantee.
+     * @return Canonical user ID of the grantee.
      * 
      */
     public Optional<Output<String>> id() {
@@ -141,7 +141,7 @@ public final class BucketLoggingV2TargetGrantGranteeArgs extends com.pulumi.reso
         }
 
         /**
-         * @param id The canonical user ID of the grantee.
+         * @param id Canonical user ID of the grantee.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class BucketLoggingV2TargetGrantGranteeArgs extends com.pulumi.reso
         }
 
         /**
-         * @param id The canonical user ID of the grantee.
+         * @param id Canonical user ID of the grantee.
          * 
          * @return builder
          * 

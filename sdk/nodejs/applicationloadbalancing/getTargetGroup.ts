@@ -77,6 +77,7 @@ export interface GetTargetGroupResult {
     readonly id: string;
     readonly lambdaMultiValueHeadersEnabled: boolean;
     readonly loadBalancingAlgorithmType: string;
+    readonly loadBalancingCrossZoneEnabled: string;
     readonly name: string;
     readonly port: number;
     readonly preserveClientIp: string;

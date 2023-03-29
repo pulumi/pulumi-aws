@@ -203,7 +203,7 @@ type Certificate struct {
 	// Start of the validity period of the certificate.
 	NotBefore pulumi.StringOutput `pulumi:"notBefore"`
 	// Configuration block used to set certificate options. Detailed below.
-	Options CertificateOptionsPtrOutput `pulumi:"options"`
+	Options CertificateOptionsOutput `pulumi:"options"`
 	// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
 	PendingRenewal pulumi.BoolOutput `pulumi:"pendingRenewal"`
 	// Certificate's PEM-formatted private key
@@ -601,8 +601,8 @@ func (o CertificateOutput) NotBefore() pulumi.StringOutput {
 }
 
 // Configuration block used to set certificate options. Detailed below.
-func (o CertificateOutput) Options() CertificateOptionsPtrOutput {
-	return o.ApplyT(func(v *Certificate) CertificateOptionsPtrOutput { return v.Options }).(CertificateOptionsPtrOutput)
+func (o CertificateOutput) Options() CertificateOptionsOutput {
+	return o.ApplyT(func(v *Certificate) CertificateOptionsOutput { return v.Options }).(CertificateOptionsOutput)
 }
 
 // `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.

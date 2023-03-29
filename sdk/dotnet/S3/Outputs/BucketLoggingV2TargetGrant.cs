@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLoggingV2TargetGrant
     {
         /// <summary>
-        /// A configuration block for the person being granted permissions documented below.
+        /// Configuration block for the person being granted permissions. See below.
         /// </summary>
         public readonly Outputs.BucketLoggingV2TargetGrantGrantee Grantee;
         /// <summary>

@@ -325,6 +325,7 @@ class ProviderEndpointArgs:
                  cloudwatchevidently: Optional[pulumi.Input[str]] = None,
                  cloudwatchlog: Optional[pulumi.Input[str]] = None,
                  cloudwatchlogs: Optional[pulumi.Input[str]] = None,
+                 cloudwatchobservabilityaccessmanager: Optional[pulumi.Input[str]] = None,
                  cloudwatchrum: Optional[pulumi.Input[str]] = None,
                  codeartifact: Optional[pulumi.Input[str]] = None,
                  codebuild: Optional[pulumi.Input[str]] = None,
@@ -521,6 +522,7 @@ class ProviderEndpointArgs:
                  networkmanager: Optional[pulumi.Input[str]] = None,
                  nimble: Optional[pulumi.Input[str]] = None,
                  nimblestudio: Optional[pulumi.Input[str]] = None,
+                 oam: Optional[pulumi.Input[str]] = None,
                  opensearch: Optional[pulumi.Input[str]] = None,
                  opensearchserverless: Optional[pulumi.Input[str]] = None,
                  opensearchservice: Optional[pulumi.Input[str]] = None,
@@ -762,6 +764,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "cloudwatchlog", cloudwatchlog)
         if cloudwatchlogs is not None:
             pulumi.set(__self__, "cloudwatchlogs", cloudwatchlogs)
+        if cloudwatchobservabilityaccessmanager is not None:
+            pulumi.set(__self__, "cloudwatchobservabilityaccessmanager", cloudwatchobservabilityaccessmanager)
         if cloudwatchrum is not None:
             pulumi.set(__self__, "cloudwatchrum", cloudwatchrum)
         if codeartifact is not None:
@@ -1154,6 +1158,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "nimble", nimble)
         if nimblestudio is not None:
             pulumi.set(__self__, "nimblestudio", nimblestudio)
+        if oam is not None:
+            pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
             pulumi.set(__self__, "opensearch", opensearch)
         if opensearchserverless is not None:
@@ -1946,6 +1952,15 @@ class ProviderEndpointArgs:
     @cloudwatchlogs.setter
     def cloudwatchlogs(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloudwatchlogs", value)
+
+    @property
+    @pulumi.getter
+    def cloudwatchobservabilityaccessmanager(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cloudwatchobservabilityaccessmanager")
+
+    @cloudwatchobservabilityaccessmanager.setter
+    def cloudwatchobservabilityaccessmanager(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudwatchobservabilityaccessmanager", value)
 
     @property
     @pulumi.getter
@@ -3710,6 +3725,15 @@ class ProviderEndpointArgs:
     @nimblestudio.setter
     def nimblestudio(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nimblestudio", value)
+
+    @property
+    @pulumi.getter
+    def oam(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "oam")
+
+    @oam.setter
+    def oam(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oam", value)
 
     @property
     @pulumi.getter

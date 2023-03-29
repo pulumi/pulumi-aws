@@ -349,6 +349,21 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+     * 
+     */
+    @Import(name="signatureVersion")
+    private @Nullable Output<Integer> signatureVersion;
+
+    /**
+     * @return If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+     * 
+     */
+    public Optional<Output<Integer>> signatureVersion() {
+        return Optional.ofNullable(this.signatureVersion);
+    }
+
+    /**
      * IAM role for failure feedback
      * 
      */
@@ -423,6 +438,21 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
+     * 
+     */
+    @Import(name="tracingConfig")
+    private @Nullable Output<String> tracingConfig;
+
+    /**
+     * @return Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
+     * 
+     */
+    public Optional<Output<String>> tracingConfig() {
+        return Optional.ofNullable(this.tracingConfig);
+    }
+
     private TopicState() {}
 
     private TopicState(TopicState $) {
@@ -448,11 +478,13 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.owner = $.owner;
         this.policy = $.policy;
+        this.signatureVersion = $.signatureVersion;
         this.sqsFailureFeedbackRoleArn = $.sqsFailureFeedbackRoleArn;
         this.sqsSuccessFeedbackRoleArn = $.sqsSuccessFeedbackRoleArn;
         this.sqsSuccessFeedbackSampleRate = $.sqsSuccessFeedbackSampleRate;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.tracingConfig = $.tracingConfig;
     }
 
     public static Builder builder() {
@@ -936,6 +968,27 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param signatureVersion If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signatureVersion(@Nullable Output<Integer> signatureVersion) {
+            $.signatureVersion = signatureVersion;
+            return this;
+        }
+
+        /**
+         * @param signatureVersion If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signatureVersion(Integer signatureVersion) {
+            return signatureVersion(Output.of(signatureVersion));
+        }
+
+        /**
          * @param sqsFailureFeedbackRoleArn IAM role for failure feedback
          * 
          * @return builder
@@ -1038,6 +1091,27 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param tracingConfig Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tracingConfig(@Nullable Output<String> tracingConfig) {
+            $.tracingConfig = tracingConfig;
+            return this;
+        }
+
+        /**
+         * @param tracingConfig Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tracingConfig(String tracingConfig) {
+            return tracingConfig(Output.of(tracingConfig));
         }
 
         public TopicState build() {

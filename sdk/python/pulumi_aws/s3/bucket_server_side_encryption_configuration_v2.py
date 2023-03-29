@@ -21,9 +21,9 @@ class BucketServerSideEncryptionConfigurationV2Args:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketServerSideEncryptionConfigurationV2 resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]] rules: Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] bucket: ID (name) of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "rules", rules)
@@ -34,7 +34,7 @@ class BucketServerSideEncryptionConfigurationV2Args:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket.
+        ID (name) of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -46,7 +46,7 @@ class BucketServerSideEncryptionConfigurationV2Args:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]]:
         """
-        Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         return pulumi.get(self, "rules")
 
@@ -58,7 +58,7 @@ class BucketServerSideEncryptionConfigurationV2Args:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -75,9 +75,9 @@ class _BucketServerSideEncryptionConfigurationV2State:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketServerSideEncryptionConfigurationV2 resources.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]] rules: Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        :param pulumi.Input[str] bucket: ID (name) of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -90,7 +90,7 @@ class _BucketServerSideEncryptionConfigurationV2State:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket.
+        ID (name) of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -102,7 +102,7 @@ class _BucketServerSideEncryptionConfigurationV2State:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -114,7 +114,7 @@ class _BucketServerSideEncryptionConfigurationV2State:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]]]:
         """
-        Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         return pulumi.get(self, "rules")
 
@@ -146,7 +146,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
             deletion_window_in_days=10)
         mybucket = aws.s3.BucketV2("mybucket")
         example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
-            bucket=mybucket.bucket,
+            bucket=mybucket.id,
             rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
                 apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs(
                     kms_master_key_id=mykey.arn,
@@ -171,9 +171,9 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] rules: Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        :param pulumi.Input[str] bucket: ID (name) of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         ...
     @overload
@@ -195,7 +195,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
             deletion_window_in_days=10)
         mybucket = aws.s3.BucketV2("mybucket")
         example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
-            bucket=mybucket.bucket,
+            bucket=mybucket.id,
             rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
                 apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs(
                     kms_master_key_id=mykey.arn,
@@ -272,9 +272,9 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] rules: Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        :param pulumi.Input[str] bucket: ID (name) of the bucket.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -289,7 +289,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket.
+        ID (name) of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -297,7 +297,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -305,7 +305,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.BucketServerSideEncryptionConfigurationV2Rule']]:
         """
-        Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+        Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         return pulumi.get(self, "rules")
 

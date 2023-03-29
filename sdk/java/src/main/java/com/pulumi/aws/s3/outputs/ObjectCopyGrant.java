@@ -18,7 +18,7 @@ public final class ObjectCopyGrant {
      */
     private @Nullable String email;
     /**
-     * @return The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+     * @return Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
      * 
      */
     private @Nullable String id;
@@ -47,7 +47,7 @@ public final class ObjectCopyGrant {
         return Optional.ofNullable(this.email);
     }
     /**
-     * @return The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+     * @return Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
      * 
      */
     public Optional<String> id() {

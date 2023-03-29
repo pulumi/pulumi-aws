@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,12 +63,28 @@ public final class ListenerPolicyArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.policyNames);
     }
 
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger an update.
+     * 
+     */
+    @Import(name="triggers")
+    private @Nullable Output<Map<String,String>> triggers;
+
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger an update.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> triggers() {
+        return Optional.ofNullable(this.triggers);
+    }
+
     private ListenerPolicyArgs() {}
 
     private ListenerPolicyArgs(ListenerPolicyArgs $) {
         this.loadBalancerName = $.loadBalancerName;
         this.loadBalancerPort = $.loadBalancerPort;
         this.policyNames = $.policyNames;
+        this.triggers = $.triggers;
     }
 
     public static Builder builder() {
@@ -159,6 +176,27 @@ public final class ListenerPolicyArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder policyNames(String... policyNames) {
             return policyNames(List.of(policyNames));
+        }
+
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an update.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
+            $.triggers = triggers;
+            return this;
+        }
+
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an update.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(Map<String,String> triggers) {
+            return triggers(Output.of(triggers));
         }
 
         public ListenerPolicyArgs build() {

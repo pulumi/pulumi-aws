@@ -17,6 +17,11 @@ public final class ProxyAuth {
      */
     private @Nullable String authScheme;
     /**
+     * @return The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+     * 
+     */
+    private @Nullable String clientPasswordAuthType;
+    /**
      * @return A user-specified description about the authentication used by a proxy to log in as a specific database user.
      * 
      */
@@ -44,6 +49,13 @@ public final class ProxyAuth {
      */
     public Optional<String> authScheme() {
         return Optional.ofNullable(this.authScheme);
+    }
+    /**
+     * @return The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+     * 
+     */
+    public Optional<String> clientPasswordAuthType() {
+        return Optional.ofNullable(this.clientPasswordAuthType);
     }
     /**
      * @return A user-specified description about the authentication used by a proxy to log in as a specific database user.
@@ -84,6 +96,7 @@ public final class ProxyAuth {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String authScheme;
+        private @Nullable String clientPasswordAuthType;
         private @Nullable String description;
         private @Nullable String iamAuth;
         private @Nullable String secretArn;
@@ -92,6 +105,7 @@ public final class ProxyAuth {
         public Builder(ProxyAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authScheme = defaults.authScheme;
+    	      this.clientPasswordAuthType = defaults.clientPasswordAuthType;
     	      this.description = defaults.description;
     	      this.iamAuth = defaults.iamAuth;
     	      this.secretArn = defaults.secretArn;
@@ -101,6 +115,11 @@ public final class ProxyAuth {
         @CustomType.Setter
         public Builder authScheme(@Nullable String authScheme) {
             this.authScheme = authScheme;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientPasswordAuthType(@Nullable String clientPasswordAuthType) {
+            this.clientPasswordAuthType = clientPasswordAuthType;
             return this;
         }
         @CustomType.Setter
@@ -126,6 +145,7 @@ public final class ProxyAuth {
         public ProxyAuth build() {
             final var o = new ProxyAuth();
             o.authScheme = authScheme;
+            o.clientPasswordAuthType = clientPasswordAuthType;
             o.description = description;
             o.iamAuth = iamAuth;
             o.secretArn = secretArn;

@@ -98,6 +98,12 @@ namespace Pulumi.Aws.Amplify
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
+        /// Enables the automated creation of subdomains for branches.
+        /// </summary>
+        [Output("enableAutoSubDomain")]
+        public Output<bool?> EnableAutoSubDomain { get; private set; } = null!;
+
+        /// <summary>
         /// Setting for the subdomain. Documented below.
         /// </summary>
         [Output("subDomains")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Amplify
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// Enables the automated creation of subdomains for branches.
+        /// </summary>
+        [Input("enableAutoSubDomain")]
+        public Input<bool>? EnableAutoSubDomain { get; set; }
+
         [Input("subDomains", required: true)]
         private InputList<Inputs.DomainAssociationSubDomainArgs>? _subDomains;
 
@@ -216,6 +228,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// Enables the automated creation of subdomains for branches.
+        /// </summary>
+        [Input("enableAutoSubDomain")]
+        public Input<bool>? EnableAutoSubDomain { get; set; }
 
         [Input("subDomains")]
         private InputList<Inputs.DomainAssociationSubDomainGetArgs>? _subDomains;

@@ -15,16 +15,14 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
     public static final DistributionOriginOriginShieldArgs Empty = new DistributionOriginOriginShieldArgs();
 
     /**
-     * Whether the distribution is enabled to accept end
-     * user requests for content.
+     * Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether the distribution is enabled to accept end
-     * user requests for content.
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Output<Boolean> enabled() {
@@ -32,14 +30,14 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
     }
 
     /**
-     * The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+     * AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
      * 
      */
     @Import(name="originShieldRegion", required=true)
     private Output<String> originShieldRegion;
 
     /**
-     * @return The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
      * 
      */
     public Output<String> originShieldRegion() {
@@ -72,8 +70,7 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Whether the distribution is enabled to accept end
-         * user requests for content.
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -84,8 +81,7 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Whether the distribution is enabled to accept end
-         * user requests for content.
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -95,7 +91,7 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param originShieldRegion The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+         * @param originShieldRegion AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
          * 
          * @return builder
          * 
@@ -106,7 +102,7 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param originShieldRegion The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+         * @param originShieldRegion AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
          * 
          * @return builder
          * 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following shows outputing all Transit Gateway Route Table Ids.
+        /// The following shows outputting all Transit Gateway Route Table Ids.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following shows outputing all Transit Gateway Route Table Ids.
+        /// The following shows outputting all Transit Gateway Route Table Ids.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

@@ -16,41 +16,11 @@ import {ARN} from "..";
  *
  * > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
  *
+ * > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+ *
  * > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const testLambda = new aws.lambda.Function("testLambda", {
- *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
- *     role: iamForLambda.arn,
- *     handler: "index.test",
- *     runtime: "nodejs16.x",
- *     environment: {
- *         variables: {
- *             foo: "bar",
- *         },
- *     },
- * });
- * ```
  * ### Lambda Layers
  *
  * ```typescript
@@ -69,20 +39,17 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["lambda.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const testLambda = new aws.lambda.Function("testLambda", {
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
  *     role: iamForLambda.arn,
@@ -158,29 +125,25 @@ import {ARN} from "..";
  * // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
  * // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
  * const example = new aws.cloudwatch.LogGroup("example", {retentionInDays: 14});
- * // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
- * const lambdaLogging = new aws.iam.Policy("lambdaLogging", {
+ * const lambdaLoggingPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "logs:CreateLogGroup",
+ *             "logs:CreateLogStream",
+ *             "logs:PutLogEvents",
+ *         ],
+ *         resources: ["arn:aws:logs:*:*:*"],
+ *     }],
+ * });
+ * const lambdaLoggingPolicy = new aws.iam.Policy("lambdaLoggingPolicy", {
  *     path: "/",
  *     description: "IAM policy for logging from a lambda",
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "logs:CreateLogGroup",
- *         "logs:CreateLogStream",
- *         "logs:PutLogEvents"
- *       ],
- *       "Resource": "arn:aws:logs:*:*:*",
- *       "Effect": "Allow"
- *     }
- *   ]
- * }
- * `,
+ *     policy: lambdaLoggingPolicyDocument.then(lambdaLoggingPolicyDocument => lambdaLoggingPolicyDocument.json),
  * });
  * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambdaLogs", {
  *     role: aws_iam_role.iam_for_lambda.name,
- *     policyArn: lambdaLogging.arn,
+ *     policyArn: lambdaLoggingPolicy.arn,
  * });
  * const testLambda = new aws.lambda.Function("testLambda", {}, {
  *     dependsOn: [
@@ -364,6 +327,10 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string>;
     /**
+     * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     */
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * Snap start settings block. Detailed below.
      */
     public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
@@ -446,6 +413,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
             resourceInputs["signingJobArn"] = state ? state.signingJobArn : undefined;
             resourceInputs["signingProfileVersionArn"] = state ? state.signingProfileVersionArn : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["snapStart"] = state ? state.snapStart : undefined;
             resourceInputs["sourceCodeHash"] = state ? state.sourceCodeHash : undefined;
             resourceInputs["sourceCodeSize"] = state ? state.sourceCodeSize : undefined;
@@ -485,6 +453,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
             resourceInputs["s3Key"] = args ? args.s3Key : undefined;
             resourceInputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["snapStart"] = args ? args.snapStart : undefined;
             resourceInputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -641,6 +610,10 @@ export interface FunctionState {
      */
     signingProfileVersionArn?: pulumi.Input<string>;
     /**
+     * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
+    /**
      * Snap start settings block. Detailed below.
      */
     snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
@@ -783,6 +756,10 @@ export interface FunctionArgs {
      * Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
     s3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * Snap start settings block. Detailed below.
      */

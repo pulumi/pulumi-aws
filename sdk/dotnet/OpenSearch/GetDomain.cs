@@ -148,13 +148,17 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainClusterConfigResult> ClusterConfigs;
         /// <summary>
-        /// Domain Amazon Cognito Authentication options for Kibana.
+        /// Domain Amazon Cognito Authentication options for Dashboard.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainCognitoOptionResult> CognitoOptions;
         /// <summary>
         /// Status of the creation of the domain.
         /// </summary>
         public readonly bool Created;
+        /// <summary>
+        /// Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
+        /// </summary>
+        public readonly string DashboardEndpoint;
         /// <summary>
         /// Status of the deletion of the domain.
         /// </summary>
@@ -185,7 +189,7 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Domain-specific endpoint used to access the Kibana application.
+        /// Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         /// </summary>
         public readonly string KibanaEndpoint;
         /// <summary>
@@ -231,6 +235,8 @@ namespace Pulumi.Aws.OpenSearch
 
             bool created,
 
+            string dashboardEndpoint,
+
             bool deleted,
 
             string domainId,
@@ -269,6 +275,7 @@ namespace Pulumi.Aws.OpenSearch
             ClusterConfigs = clusterConfigs;
             CognitoOptions = cognitoOptions;
             Created = created;
+            DashboardEndpoint = dashboardEndpoint;
             Deleted = deleted;
             DomainId = domainId;
             DomainName = domainName;

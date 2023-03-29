@@ -21,17 +21,35 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "ssm.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var testRole = new Aws.Iam.Role("testRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"  {
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": {
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {""Service"": ""ssm.amazonaws.com""},
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var testAttach = new Aws.Iam.RolePolicyAttachment("testAttach", new()

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
     private @Nullable String acquisitionPointId;
-    private @Nullable String audioOnlyTimecodecControl;
+    private @Nullable String audioOnlyTimecodeControl;
     /**
      * @return Setting to allow self signed or verified RTMP certificates.
      * 
@@ -30,7 +30,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination;
-    private @Nullable Integer eventId;
+    private @Nullable String eventId;
     private @Nullable String eventIdMode;
     private @Nullable String eventStopBehavior;
     private @Nullable Integer filecacheDuration;
@@ -61,8 +61,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     public Optional<String> acquisitionPointId() {
         return Optional.ofNullable(this.acquisitionPointId);
     }
-    public Optional<String> audioOnlyTimecodecControl() {
-        return Optional.ofNullable(this.audioOnlyTimecodecControl);
+    public Optional<String> audioOnlyTimecodeControl() {
+        return Optional.ofNullable(this.audioOnlyTimecodeControl);
     }
     /**
      * @return Setting to allow self signed or verified RTMP certificates.
@@ -85,7 +85,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination() {
         return this.destination;
     }
-    public Optional<Integer> eventId() {
+    public Optional<String> eventId() {
         return Optional.ofNullable(this.eventId);
     }
     public Optional<String> eventIdMode() {
@@ -150,11 +150,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String acquisitionPointId;
-        private @Nullable String audioOnlyTimecodecControl;
+        private @Nullable String audioOnlyTimecodeControl;
         private @Nullable String certificateMode;
         private @Nullable Integer connectionRetryInterval;
         private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination;
-        private @Nullable Integer eventId;
+        private @Nullable String eventId;
         private @Nullable String eventIdMode;
         private @Nullable String eventStopBehavior;
         private @Nullable Integer filecacheDuration;
@@ -172,7 +172,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         public Builder(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acquisitionPointId = defaults.acquisitionPointId;
-    	      this.audioOnlyTimecodecControl = defaults.audioOnlyTimecodecControl;
+    	      this.audioOnlyTimecodeControl = defaults.audioOnlyTimecodeControl;
     	      this.certificateMode = defaults.certificateMode;
     	      this.connectionRetryInterval = defaults.connectionRetryInterval;
     	      this.destination = defaults.destination;
@@ -198,8 +198,8 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return this;
         }
         @CustomType.Setter
-        public Builder audioOnlyTimecodecControl(@Nullable String audioOnlyTimecodecControl) {
-            this.audioOnlyTimecodecControl = audioOnlyTimecodecControl;
+        public Builder audioOnlyTimecodeControl(@Nullable String audioOnlyTimecodeControl) {
+            this.audioOnlyTimecodeControl = audioOnlyTimecodeControl;
             return this;
         }
         @CustomType.Setter
@@ -218,7 +218,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return this;
         }
         @CustomType.Setter
-        public Builder eventId(@Nullable Integer eventId) {
+        public Builder eventId(@Nullable String eventId) {
             this.eventId = eventId;
             return this;
         }
@@ -290,7 +290,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings build() {
             final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings();
             o.acquisitionPointId = acquisitionPointId;
-            o.audioOnlyTimecodecControl = audioOnlyTimecodecControl;
+            o.audioOnlyTimecodeControl = audioOnlyTimecodeControl;
             o.certificateMode = certificateMode;
             o.connectionRetryInterval = connectionRetryInterval;
             o.destination = destination;

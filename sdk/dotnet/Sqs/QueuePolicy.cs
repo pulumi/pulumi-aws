@@ -24,28 +24,53 @@ namespace Pulumi.Aws.Sqs
     /// {
     ///     var queue = new Aws.Sqs.Queue("queue");
     /// 
-    ///     var test = new Aws.Sqs.QueuePolicy("test", new()
+    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "First",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sqs:SendMessage",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     queue.Arn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnEquals",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             aws_sns_topic.Example.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testQueuePolicy = new Aws.Sqs.QueuePolicy("testQueuePolicy", new()
     ///     {
     ///         QueueUrl = queue.Id,
-    ///         Policy = queue.Arn.Apply(arn =&gt; @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Id"": ""sqspolicy"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Sid"": ""First"",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": ""*"",
-    ///       ""Action"": ""sqs:SendMessage"",
-    ///       ""Resource"": ""{arn}"",
-    ///       ""Condition"": {{
-    ///         ""ArnEquals"": {{
-    ///           ""aws:SourceArn"": ""{aws_sns_topic.Example.Arn}""
-    ///         }}
-    ///       }}
-    ///     }}
-    ///   ]
-    /// }}
-    /// "),
+    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

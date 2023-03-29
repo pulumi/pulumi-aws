@@ -244,6 +244,72 @@ import (
 //
 // ```
 //
+// # Create a Cost Filter using Resource Tags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
+//				CostFilters: budgets.BudgetCostFilterArray{
+//					&budgets.BudgetCostFilterArgs{
+//						Name: pulumi.String("TagKeyValue"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("TagKey$TagValue"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # Create a costFilter using resource tags, obtaining the tag value from a variable
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
+//				CostFilters: budgets.BudgetCostFilterArray{
+//					&budgets.BudgetCostFilterArgs{
+//						Name: pulumi.String("TagKeyValue"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("TagKey${var.TagValue}"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Budgets can be imported using `AccountID:BudgetName`, e.g.,

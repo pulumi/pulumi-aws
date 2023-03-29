@@ -352,66 +352,6 @@ class Authorizer(pulumi.CustomResource):
         """
         Provides an API Gateway Authorizer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        demo_rest_api = aws.apigateway.RestApi("demoRestApi")
-        invocation_role = aws.iam.Role("invocationRole",
-            path="/",
-            assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "apigateway.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        lambda_ = aws.iam.Role("lambda", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        authorizer = aws.lambda_.Function("authorizer",
-            code=pulumi.FileArchive("lambda-function.zip"),
-            role=lambda_.arn,
-            handler="exports.example")
-        demo_authorizer = aws.apigateway.Authorizer("demoAuthorizer",
-            rest_api=demo_rest_api.id,
-            authorizer_uri=authorizer.invoke_arn,
-            authorizer_credentials=invocation_role.arn)
-        invocation_policy = aws.iam.RolePolicy("invocationPolicy",
-            role=invocation_role.id,
-            policy=authorizer.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": "lambda:InvokeFunction",
-              "Effect": "Allow",
-              "Resource": "{arn}"
-            }}
-          ]
-        }}
-        \"\"\"))
-        ```
-
         ## Import
 
         AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.,
@@ -441,66 +381,6 @@ class Authorizer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an API Gateway Authorizer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        demo_rest_api = aws.apigateway.RestApi("demoRestApi")
-        invocation_role = aws.iam.Role("invocationRole",
-            path="/",
-            assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "apigateway.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        lambda_ = aws.iam.Role("lambda", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "lambda.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        authorizer = aws.lambda_.Function("authorizer",
-            code=pulumi.FileArchive("lambda-function.zip"),
-            role=lambda_.arn,
-            handler="exports.example")
-        demo_authorizer = aws.apigateway.Authorizer("demoAuthorizer",
-            rest_api=demo_rest_api.id,
-            authorizer_uri=authorizer.invoke_arn,
-            authorizer_credentials=invocation_role.arn)
-        invocation_policy = aws.iam.RolePolicy("invocationPolicy",
-            role=invocation_role.id,
-            policy=authorizer.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": "lambda:InvokeFunction",
-              "Effect": "Allow",
-              "Resource": "{arn}"
-            }}
-          ]
-        }}
-        \"\"\"))
-        ```
 
         ## Import
 

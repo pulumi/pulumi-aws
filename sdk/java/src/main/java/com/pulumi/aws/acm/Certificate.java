@@ -351,14 +351,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="options", refs={CertificateOptions.class}, tree="[0]")
-    private Output</* @Nullable */ CertificateOptions> options;
+    private Output<CertificateOptions> options;
 
     /**
      * @return Configuration block used to set certificate options. Detailed below.
      * 
      */
-    public Output<Optional<CertificateOptions>> options() {
-        return Codegen.optional(this.options);
+    public Output<CertificateOptions> options() {
+        return this.options;
     }
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.

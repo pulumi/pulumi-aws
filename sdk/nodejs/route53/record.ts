@@ -164,6 +164,10 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly allowOverwrite!: pulumi.Output<boolean>;
     /**
+     * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+     */
+    public readonly cidrRoutingPolicy!: pulumi.Output<outputs.route53.RecordCidrRoutingPolicy | undefined>;
+    /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
     public readonly failoverRoutingPolicies!: pulumi.Output<outputs.route53.RecordFailoverRoutingPolicy[] | undefined>;
@@ -196,7 +200,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly records!: pulumi.Output<string[] | undefined>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     public readonly setIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -231,6 +235,7 @@ export class Record extends pulumi.CustomResource {
             const state = argsOrState as RecordState | undefined;
             resourceInputs["aliases"] = state ? state.aliases : undefined;
             resourceInputs["allowOverwrite"] = state ? state.allowOverwrite : undefined;
+            resourceInputs["cidrRoutingPolicy"] = state ? state.cidrRoutingPolicy : undefined;
             resourceInputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["geolocationRoutingPolicies"] = state ? state.geolocationRoutingPolicies : undefined;
@@ -257,6 +262,7 @@ export class Record extends pulumi.CustomResource {
             }
             resourceInputs["aliases"] = args ? args.aliases : undefined;
             resourceInputs["allowOverwrite"] = args ? args.allowOverwrite : undefined;
+            resourceInputs["cidrRoutingPolicy"] = args ? args.cidrRoutingPolicy : undefined;
             resourceInputs["failoverRoutingPolicies"] = args ? args.failoverRoutingPolicies : undefined;
             resourceInputs["geolocationRoutingPolicies"] = args ? args.geolocationRoutingPolicies : undefined;
             resourceInputs["healthCheckId"] = args ? args.healthCheckId : undefined;
@@ -290,6 +296,10 @@ export interface RecordState {
      */
     allowOverwrite?: pulumi.Input<boolean>;
     /**
+     * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+     */
+    cidrRoutingPolicy?: pulumi.Input<inputs.route53.RecordCidrRoutingPolicy>;
+    /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
     failoverRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>[]>;
@@ -322,7 +332,7 @@ export interface RecordState {
      */
     records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     setIdentifier?: pulumi.Input<string>;
     /**
@@ -357,6 +367,10 @@ export interface RecordArgs {
      */
     allowOverwrite?: pulumi.Input<boolean>;
     /**
+     * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+     */
+    cidrRoutingPolicy?: pulumi.Input<inputs.route53.RecordCidrRoutingPolicy>;
+    /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
     failoverRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>[]>;
@@ -385,7 +399,7 @@ export interface RecordArgs {
      */
     records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     setIdentifier?: pulumi.Input<string>;
     /**

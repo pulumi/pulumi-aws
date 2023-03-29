@@ -71,28 +71,51 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var example = new Aws.OpenSearch.Domain("example", new()
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
+    ///         Statements = new[]
     ///         {
-    ///             var currentRegion = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Action"": ""es:*"",
-    ///       ""Principal"": ""*"",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""arn:aws:es:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
-    ///       ""Condition"": {{
-    ///         ""IpAddress"": {{""aws:SourceIp"": [""66.193.100.22/32""]}}
-    ///       }}
-    ///     }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "es:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:aws:es:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "IpAddress",
+    ///                         Variable = "aws:SourceIp",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "66.193.100.22/32",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new()
+    ///     {
+    ///         AccessPolicies = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
@@ -108,27 +131,42 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "es.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:PutLogEvents",
+    ///                     "logs:PutLogEventsBatch",
+    ///                     "logs:CreateLogStream",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:logs:*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("exampleLogResourcePolicy", new()
     ///     {
     ///         PolicyName = "example",
-    ///         PolicyDocument = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""es.amazonaws.com""
-    ///       },
-    ///       ""Action"": [
-    ///         ""logs:PutLogEvents"",
-    ///         ""logs:PutLogEventsBatch"",
-    ///         ""logs:CreateLogStream""
-    ///       ],
-    ///       ""Resource"": ""arn:aws:logs:*""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         PolicyDocument = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     // .. other configuration ...
@@ -203,6 +241,36 @@ namespace Pulumi.Aws.OpenSearch
     ///         AwsServiceName = "opensearchservice.amazonaws.com",
     ///     });
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "es:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:aws:es:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new()
     ///     {
     ///         EngineVersion = "OpenSearch_1.0",
@@ -227,23 +295,7 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             { "rest.action.multi.allow_explicit_index", "true" },
     ///         },
-    ///         AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
-    ///         {
-    ///             var currentRegion = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             return @$"{{
-    /// 	""Version"": ""2012-10-17"",
-    /// 	""Statement"": [
-    /// 		{{
-    /// 			""Action"": ""es:*"",
-    /// 			""Principal"": ""*"",
-    /// 			""Effect"": ""Allow"",
-    /// 			""Resource"": ""arn:aws:es:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
-    /// 		}}
-    /// 	]
-    /// }}
-    /// ";
-    ///         }),
+    ///         AccessPolicies = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         Tags = 
     ///         {
     ///             { "Domain", "TestDomain" },
@@ -410,10 +462,16 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.DomainClusterConfig> ClusterConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
+        /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
         [Output("cognitoOptions")]
         public Output<Outputs.DomainCognitoOptions?> CognitoOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain-specific endpoint for Dashboard without https scheme.
+        /// </summary>
+        [Output("dashboardEndpoint")]
+        public Output<string> DashboardEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -458,7 +516,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Domain-specific endpoint for kibana without https scheme.
+        /// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         /// </summary>
         [Output("kibanaEndpoint")]
         public Output<string> KibanaEndpoint { get; private set; } = null!;
@@ -584,7 +642,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.DomainClusterConfigArgs>? ClusterConfig { get; set; }
 
         /// <summary>
-        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
+        /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
@@ -712,10 +770,16 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.DomainClusterConfigGetArgs>? ClusterConfig { get; set; }
 
         /// <summary>
-        /// Configuration block for authenticating Kibana with Cognito. Detailed below.
+        /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsGetArgs>? CognitoOptions { get; set; }
+
+        /// <summary>
+        /// Domain-specific endpoint for Dashboard without https scheme.
+        /// </summary>
+        [Input("dashboardEndpoint")]
+        public Input<string>? DashboardEndpoint { get; set; }
 
         /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -760,7 +824,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// Domain-specific endpoint for kibana without https scheme.
+        /// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         /// </summary>
         [Input("kibanaEndpoint")]
         public Input<string>? KibanaEndpoint { get; set; }

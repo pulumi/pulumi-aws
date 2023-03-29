@@ -50,6 +50,7 @@ export interface GetTableResult {
     readonly arn: string;
     readonly attributes: outputs.dynamodb.GetTableAttribute[];
     readonly billingMode: string;
+    readonly deletionProtectionEnabled: boolean;
     readonly globalSecondaryIndexes: outputs.dynamodb.GetTableGlobalSecondaryIndex[];
     readonly hashKey: string;
     /**

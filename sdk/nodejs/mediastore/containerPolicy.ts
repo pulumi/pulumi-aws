@@ -16,22 +16,26 @@ import * as utilities from "../utilities";
  * const currentRegion = aws.getRegion({});
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const exampleContainer = new aws.mediastore.Container("exampleContainer", {});
+ * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         sid: "MediaStoreFullAccess",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: [currentCallerIdentity.then(currentCallerIdentity => `arn:aws:iam::${currentCallerIdentity.accountId}:root`)],
+ *         }],
+ *         actions: ["mediastore:*"],
+ *         resources: [pulumi.all([currentRegion, currentCallerIdentity, exampleContainer.name]).apply(([currentRegion, currentCallerIdentity, name]) => `arn:aws:mediastore:${currentRegion.name}:${currentCallerIdentity.accountId}:container/${name}/*`)],
+ *         conditions: [{
+ *             test: "Bool",
+ *             variable: "aws:SecureTransport",
+ *             values: ["true"],
+ *         }],
+ *     }],
+ * });
  * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("exampleContainerPolicy", {
  *     containerName: exampleContainer.name,
- *     policy: pulumi.all([currentCallerIdentity, currentRegion, currentCallerIdentity, exampleContainer.name]).apply(([currentCallerIdentity, currentRegion, currentCallerIdentity1, name]) => `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [{
- * 		"Sid": "MediaStoreFullAccess",
- * 		"Action": [ "mediastore:*" ],
- * 		"Principal": {"AWS" : "arn:aws:iam::${currentCallerIdentity.accountId}:root"},
- * 		"Effect": "Allow",
- * 		"Resource": "arn:aws:mediastore:${currentRegion.name}:${currentCallerIdentity1.accountId}:container/${name}/*",
- * 		"Condition": {
- * 			"Bool": { "aws:SecureTransport": "true" }
- * 		}
- * 	}]
- * }
- * `),
+ *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

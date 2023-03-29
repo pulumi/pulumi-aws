@@ -529,22 +529,18 @@ class GameServerGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_partition()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": [
-                  "autoscaling.amazonaws.com",
-                  "gamelift.amazonaws.com"
-                ]
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=[
+                    "autoscaling.amazonaws.com",
+                    "gamelift.amazonaws.com",
+                ],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
             policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
             role=example_role.name)
@@ -662,22 +658,18 @@ class GameServerGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_partition()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": [
-                  "autoscaling.amazonaws.com",
-                  "gamelift.amazonaws.com"
-                ]
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=[
+                    "autoscaling.amazonaws.com",
+                    "gamelift.amazonaws.com",
+                ],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
             policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
             role=example_role.name)

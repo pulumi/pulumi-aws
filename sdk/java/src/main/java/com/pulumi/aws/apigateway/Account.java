@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.apigateway.Account;
@@ -47,50 +49,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;apigateway.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var cloudwatchRole = new Role(&#34;cloudwatchRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;apigateway.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var demo = new Account(&#34;demo&#34;, AccountArgs.builder()        
  *             .cloudwatchRoleArn(cloudwatchRole.arn())
  *             .build());
  * 
+ *         final var cloudwatchPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(                
+ *                     &#34;logs:CreateLogGroup&#34;,
+ *                     &#34;logs:CreateLogStream&#34;,
+ *                     &#34;logs:DescribeLogGroups&#34;,
+ *                     &#34;logs:DescribeLogStreams&#34;,
+ *                     &#34;logs:PutLogEvents&#34;,
+ *                     &#34;logs:GetLogEvents&#34;,
+ *                     &#34;logs:FilterLogEvents&#34;)
+ *                 .resources(&#34;*&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var cloudwatchRolePolicy = new RolePolicy(&#34;cloudwatchRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(cloudwatchRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Action&#34;: [
- *                 &#34;logs:CreateLogGroup&#34;,
- *                 &#34;logs:CreateLogStream&#34;,
- *                 &#34;logs:DescribeLogGroups&#34;,
- *                 &#34;logs:DescribeLogStreams&#34;,
- *                 &#34;logs:PutLogEvents&#34;,
- *                 &#34;logs:GetLogEvents&#34;,
- *                 &#34;logs:FilterLogEvents&#34;
- *             ],
- *             &#34;Resource&#34;: &#34;*&#34;
- *         }
- *     ]
- * }
- *             &#34;&#34;&#34;)
+ *             .policy(cloudwatchPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

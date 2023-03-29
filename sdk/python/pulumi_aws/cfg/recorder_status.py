@@ -113,42 +113,30 @@ class RecorderStatus(pulumi.CustomResource):
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
         opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["config.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
             role=role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
+        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["s3:*"],
+            resources=[
+                bucket_v2.arn,
+                bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+            ],
+        )])
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
-            policy=pulumi.Output.all(bucket_v2.arn, bucket_v2.arn).apply(lambda bucketV2Arn, bucketV2Arn1: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": [
-                "s3:*"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                "{bucket_v2_arn}",
-                "{bucket_v2_arn1}/*"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=policy_document.json)
         ```
 
         ## Import
@@ -185,42 +173,30 @@ class RecorderStatus(pulumi.CustomResource):
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
         opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["config.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
             role=role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
+        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["s3:*"],
+            resources=[
+                bucket_v2.arn,
+                bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+            ],
+        )])
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
-            policy=pulumi.Output.all(bucket_v2.arn, bucket_v2.arn).apply(lambda bucketV2Arn, bucketV2Arn1: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": [
-                "s3:*"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                "{bucket_v2_arn}",
-                "{bucket_v2_arn1}/*"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
+            policy=policy_document.json)
         ```
 
         ## Import

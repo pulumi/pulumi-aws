@@ -280,11 +280,9 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableDictionary<string, string>?> Dimensions { get; private set; } = null!;
 
         /// <summary>
-        /// Used only for alarms
-        /// based on percentiles. If you specify `ignore`, the alarm state will not
-        /// change during periods with too few data points to be statistically significant.
-        /// If you specify `evaluate` or omit this parameter, the alarm will always be
-        /// evaluated and possibly change state no matter how many data points are available.
+        /// Used only for alarms based on percentiles.
+        /// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         /// The following values are supported: `ignore`, and `evaluate`.
         /// </summary>
         [Output("evaluateLowSampleCountPercentiles")]
@@ -342,6 +340,7 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The period in seconds over which the specified `statistic` is applied.
+        /// Valid values are `10`, `30`, or any multiple of `60`.
         /// </summary>
         [Output("period")]
         public Output<int?> Period { get; private set; } = null!;
@@ -484,11 +483,9 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
-        /// Used only for alarms
-        /// based on percentiles. If you specify `ignore`, the alarm state will not
-        /// change during periods with too few data points to be statistically significant.
-        /// If you specify `evaluate` or omit this parameter, the alarm will always be
-        /// evaluated and possibly change state no matter how many data points are available.
+        /// Used only for alarms based on percentiles.
+        /// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         /// The following values are supported: `ignore`, and `evaluate`.
         /// </summary>
         [Input("evaluateLowSampleCountPercentiles")]
@@ -564,6 +561,7 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The period in seconds over which the specified `statistic` is applied.
+        /// Valid values are `10`, `30`, or any multiple of `60`.
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
@@ -674,11 +672,9 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
-        /// Used only for alarms
-        /// based on percentiles. If you specify `ignore`, the alarm state will not
-        /// change during periods with too few data points to be statistically significant.
-        /// If you specify `evaluate` or omit this parameter, the alarm will always be
-        /// evaluated and possibly change state no matter how many data points are available.
+        /// Used only for alarms based on percentiles.
+        /// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         /// The following values are supported: `ignore`, and `evaluate`.
         /// </summary>
         [Input("evaluateLowSampleCountPercentiles")]
@@ -754,6 +750,7 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The period in seconds over which the specified `statistic` is applied.
+        /// Valid values are `10`, `30`, or any multiple of `60`.
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }

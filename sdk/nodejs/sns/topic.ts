@@ -194,6 +194,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+     */
+    public readonly signatureVersion!: pulumi.Output<number>;
+    /**
      * IAM role for failure feedback
      */
     public readonly sqsFailureFeedbackRoleArn!: pulumi.Output<string | undefined>;
@@ -213,6 +217,10 @@ export class Topic extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+     */
+    public readonly tracingConfig!: pulumi.Output<string>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -249,11 +257,13 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["signatureVersion"] = state ? state.signatureVersion : undefined;
             resourceInputs["sqsFailureFeedbackRoleArn"] = state ? state.sqsFailureFeedbackRoleArn : undefined;
             resourceInputs["sqsSuccessFeedbackRoleArn"] = state ? state.sqsSuccessFeedbackRoleArn : undefined;
             resourceInputs["sqsSuccessFeedbackSampleRate"] = state ? state.sqsSuccessFeedbackSampleRate : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tracingConfig"] = state ? state.tracingConfig : undefined;
         } else {
             const args = argsOrState as TopicArgs | undefined;
             resourceInputs["applicationFailureFeedbackRoleArn"] = args ? args.applicationFailureFeedbackRoleArn : undefined;
@@ -276,10 +286,12 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["signatureVersion"] = args ? args.signatureVersion : undefined;
             resourceInputs["sqsFailureFeedbackRoleArn"] = args ? args.sqsFailureFeedbackRoleArn : undefined;
             resourceInputs["sqsSuccessFeedbackRoleArn"] = args ? args.sqsSuccessFeedbackRoleArn : undefined;
             resourceInputs["sqsSuccessFeedbackSampleRate"] = args ? args.sqsSuccessFeedbackSampleRate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -382,6 +394,10 @@ export interface TopicState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+     */
+    signatureVersion?: pulumi.Input<number>;
+    /**
      * IAM role for failure feedback
      */
     sqsFailureFeedbackRoleArn?: pulumi.Input<string>;
@@ -401,6 +417,10 @@ export interface TopicState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+     */
+    tracingConfig?: pulumi.Input<string>;
 }
 
 /**
@@ -488,6 +508,10 @@ export interface TopicArgs {
      */
     policy?: pulumi.Input<string>;
     /**
+     * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+     */
+    signatureVersion?: pulumi.Input<number>;
+    /**
      * IAM role for failure feedback
      */
     sqsFailureFeedbackRoleArn?: pulumi.Input<string>;
@@ -503,4 +527,8 @@ export interface TopicArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+     */
+    tracingConfig?: pulumi.Input<string>;
 }

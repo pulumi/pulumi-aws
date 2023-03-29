@@ -118,6 +118,12 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// </summary>
+        [Output("triggers")]
+        public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SslNegotiationPolicy resource with the given unique name, arguments, and options.
@@ -197,6 +203,18 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
+
         public SslNegotiationPolicyArgs()
         {
         }
@@ -237,6 +255,18 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
 
         public SslNegotiationPolicyState()
         {

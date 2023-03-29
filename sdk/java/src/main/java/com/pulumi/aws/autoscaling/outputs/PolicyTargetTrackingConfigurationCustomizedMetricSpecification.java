@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.autoscaling.outputs;
 
+import com.pulumi.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric;
 import com.pulumi.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -22,17 +23,22 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * @return Name of the metric.
      * 
      */
-    private String metricName;
+    private @Nullable String metricName;
+    /**
+     * @return Metrics to include, as a metric data query.
+     * 
+     */
+    private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics;
     /**
      * @return Namespace of the metric.
      * 
      */
-    private String namespace;
+    private @Nullable String namespace;
     /**
      * @return Statistic of the metric.
      * 
      */
-    private String statistic;
+    private @Nullable String statistic;
     /**
      * @return Unit of the metric.
      * 
@@ -51,22 +57,29 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * @return Name of the metric.
      * 
      */
-    public String metricName() {
-        return this.metricName;
+    public Optional<String> metricName() {
+        return Optional.ofNullable(this.metricName);
+    }
+    /**
+     * @return Metrics to include, as a metric data query.
+     * 
+     */
+    public List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics() {
+        return this.metrics == null ? List.of() : this.metrics;
     }
     /**
      * @return Namespace of the metric.
      * 
      */
-    public String namespace() {
-        return this.namespace;
+    public Optional<String> namespace() {
+        return Optional.ofNullable(this.namespace);
     }
     /**
      * @return Statistic of the metric.
      * 
      */
-    public String statistic() {
-        return this.statistic;
+    public Optional<String> statistic() {
+        return Optional.ofNullable(this.statistic);
     }
     /**
      * @return Unit of the metric.
@@ -86,15 +99,17 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions;
-        private String metricName;
-        private String namespace;
-        private String statistic;
+        private @Nullable String metricName;
+        private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics;
+        private @Nullable String namespace;
+        private @Nullable String statistic;
         private @Nullable String unit;
         public Builder() {}
         public Builder(PolicyTargetTrackingConfigurationCustomizedMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricDimensions = defaults.metricDimensions;
     	      this.metricName = defaults.metricName;
+    	      this.metrics = defaults.metrics;
     	      this.namespace = defaults.namespace;
     	      this.statistic = defaults.statistic;
     	      this.unit = defaults.unit;
@@ -109,18 +124,26 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             return metricDimensions(List.of(metricDimensions));
         }
         @CustomType.Setter
-        public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+        public Builder metricName(@Nullable String metricName) {
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
-        public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+        public Builder metrics(@Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics) {
+            this.metrics = metrics;
+            return this;
+        }
+        public Builder metrics(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric... metrics) {
+            return metrics(List.of(metrics));
+        }
+        @CustomType.Setter
+        public Builder namespace(@Nullable String namespace) {
+            this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
-        public Builder statistic(String statistic) {
-            this.statistic = Objects.requireNonNull(statistic);
+        public Builder statistic(@Nullable String statistic) {
+            this.statistic = statistic;
             return this;
         }
         @CustomType.Setter
@@ -132,6 +155,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             final var o = new PolicyTargetTrackingConfigurationCustomizedMetricSpecification();
             o.metricDimensions = metricDimensions;
             o.metricName = metricName;
+            o.metrics = metrics;
             o.namespace = namespace;
             o.statistic = statistic;
             o.unit = unit;

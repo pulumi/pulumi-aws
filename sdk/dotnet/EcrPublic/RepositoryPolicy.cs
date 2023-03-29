@@ -14,7 +14,7 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// Note that currently only one policy may be applied to a repository.
     /// 
-    /// &gt; **NOTE:** This resource can only be used with `us-east-1` region.
+    /// &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
     /// 
     /// ## Example Usage
     /// 
@@ -30,36 +30,50 @@ namespace Pulumi.Aws.EcrPublic
     ///         RepositoryName = "example",
     ///     });
     /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "new policy",
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ecr:GetDownloadUrlForLayer",
+    ///                     "ecr:BatchGetImage",
+    ///                     "ecr:BatchCheckLayerAvailability",
+    ///                     "ecr:PutImage",
+    ///                     "ecr:InitiateLayerUpload",
+    ///                     "ecr:UploadLayerPart",
+    ///                     "ecr:CompleteLayerUpload",
+    ///                     "ecr:DescribeRepositories",
+    ///                     "ecr:GetRepositoryPolicy",
+    ///                     "ecr:ListImages",
+    ///                     "ecr:DeleteRepository",
+    ///                     "ecr:BatchDeleteImage",
+    ///                     "ecr:SetRepositoryPolicy",
+    ///                     "ecr:DeleteRepositoryPolicy",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRepositoryPolicy = new Aws.EcrPublic.RepositoryPolicy("exampleRepositoryPolicy", new()
     ///     {
     ///         RepositoryName = exampleRepository.RepositoryName,
-    ///         Policy = @"{
-    ///     ""Version"": ""2008-10-17"",
-    ///     ""Statement"": [
-    ///         {
-    ///             ""Sid"": ""new policy"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": ""*"",
-    ///             ""Action"": [
-    ///                 ""ecr:GetDownloadUrlForLayer"",
-    ///                 ""ecr:BatchGetImage"",
-    ///                 ""ecr:BatchCheckLayerAvailability"",
-    ///                 ""ecr:PutImage"",
-    ///                 ""ecr:InitiateLayerUpload"",
-    ///                 ""ecr:UploadLayerPart"",
-    ///                 ""ecr:CompleteLayerUpload"",
-    ///                 ""ecr:DescribeRepositories"",
-    ///                 ""ecr:GetRepositoryPolicy"",
-    ///                 ""ecr:ListImages"",
-    ///                 ""ecr:DeleteRepository"",
-    ///                 ""ecr:BatchDeleteImage"",
-    ///                 ""ecr:SetRepositoryPolicy"",
-    ///                 ""ecr:DeleteRepositoryPolicy""
-    ///             ]
-    ///         }
-    ///     ]
-    /// }
-    /// ",
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

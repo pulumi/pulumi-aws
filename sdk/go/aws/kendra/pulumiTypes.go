@@ -173,7 +173,7 @@ type DataSourceConfigurationS3Configuration struct {
 	AccessControlListConfiguration *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration `pulumi:"accessControlListConfiguration"`
 	// The name of the bucket that contains the documents.
 	BucketName string `pulumi:"bucketName"`
-	// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+	// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
 	DocumentsMetadataConfiguration *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration `pulumi:"documentsMetadataConfiguration"`
 	// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
 	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
@@ -199,7 +199,7 @@ type DataSourceConfigurationS3ConfigurationArgs struct {
 	AccessControlListConfiguration DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput `pulumi:"accessControlListConfiguration"`
 	// The name of the bucket that contains the documents.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+	// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
 	DocumentsMetadataConfiguration DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput `pulumi:"documentsMetadataConfiguration"`
 	// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
 	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
@@ -298,7 +298,7 @@ func (o DataSourceConfigurationS3ConfigurationOutput) BucketName() pulumi.String
 	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
 func (o DataSourceConfigurationS3ConfigurationOutput) DocumentsMetadataConfiguration() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
 		return v.DocumentsMetadataConfiguration
@@ -364,7 +364,7 @@ func (o DataSourceConfigurationS3ConfigurationPtrOutput) BucketName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+// A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
 func (o DataSourceConfigurationS3ConfigurationPtrOutput) DocumentsMetadataConfiguration() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
 		if v == nil {

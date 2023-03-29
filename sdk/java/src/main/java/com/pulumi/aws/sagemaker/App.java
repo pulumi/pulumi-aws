@@ -135,14 +135,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.resourceSpec;
     }
     /**
-     * The name of the space. At least on of `user_profile_name` or `space_name` required.
+     * The name of the space. At least one of `user_profile_name` or `space_name` required.
      * 
      */
     @Export(name="spaceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spaceName;
 
     /**
-     * @return The name of the space. At least on of `user_profile_name` or `space_name` required.
+     * @return The name of the space. At least one of `user_profile_name` or `space_name` required.
      * 
      */
     public Output<Optional<String>> spaceName() {
@@ -177,14 +177,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The user profile name. At least on of `user_profile_name` or `space_name` required.
+     * The user profile name. At least one of `user_profile_name` or `space_name` required.
      * 
      */
     @Export(name="userProfileName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userProfileName;
 
     /**
-     * @return The user profile name. At least on of `user_profile_name` or `space_name` required.
+     * @return The user profile name. At least one of `user_profile_name` or `space_name` required.
      * 
      */
     public Output<Optional<String>> userProfileName() {

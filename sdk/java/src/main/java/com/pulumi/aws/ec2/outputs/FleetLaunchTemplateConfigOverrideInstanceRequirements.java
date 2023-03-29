@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequi
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps;
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu;
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib;
+import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps;
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount;
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb;
 import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount;
@@ -23,7 +24,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     /**
-     * @return Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+     * @return Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
      * 
      */
     private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount acceleratorCount;
@@ -43,10 +44,15 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
      */
     private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
     /**
-     * @return List of accelerator types. Default is any accelerator type.
+     * @return The accelerator types that must be on the instance type. Default is any accelerator type.
      * 
      */
     private @Nullable List<String> acceleratorTypes;
+    /**
+     * @return The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+     * 
+     */
+    private @Nullable List<String> allowedInstanceTypes;
     /**
      * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
@@ -58,22 +64,23 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
      */
     private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps;
     /**
-     * @return Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * @return Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
     private @Nullable String burstablePerformance;
     /**
-     * @return List of CPU manufacturer names. Default is any manufacturer.
+     * @return The CPU manufacturers to include. Default is any manufacturer.
+     * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
      * 
      */
     private @Nullable List<String> cpuManufacturers;
     /**
-     * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+     * @return The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
      * 
      */
     private @Nullable List<String> excludedInstanceTypes;
     /**
-     * @return List of instance generation names. Default is any generation.
+     * @return Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
      * 
      */
     private @Nullable List<String> instanceGenerations;
@@ -83,7 +90,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
      */
     private @Nullable String localStorage;
     /**
-     * @return List of local storage type names. Default any storage type.
+     * @return List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
      * 
      */
     private @Nullable List<String> localStorageTypes;
@@ -93,10 +100,15 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
      */
     private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu;
     /**
-     * @return Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+     * @return The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
      * 
      */
     private FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib;
+    /**
+     * @return The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+     * 
+     */
+    private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps;
     /**
      * @return Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
      * 
@@ -130,7 +142,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
 
     private FleetLaunchTemplateConfigOverrideInstanceRequirements() {}
     /**
-     * @return Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+     * @return Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
      * 
      */
     public Optional<FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount> acceleratorCount() {
@@ -158,11 +170,18 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         return Optional.ofNullable(this.acceleratorTotalMemoryMib);
     }
     /**
-     * @return List of accelerator types. Default is any accelerator type.
+     * @return The accelerator types that must be on the instance type. Default is any accelerator type.
      * 
      */
     public List<String> acceleratorTypes() {
         return this.acceleratorTypes == null ? List.of() : this.acceleratorTypes;
+    }
+    /**
+     * @return The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+     * 
+     */
+    public List<String> allowedInstanceTypes() {
+        return this.allowedInstanceTypes == null ? List.of() : this.allowedInstanceTypes;
     }
     /**
      * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
@@ -179,28 +198,29 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         return Optional.ofNullable(this.baselineEbsBandwidthMbps);
     }
     /**
-     * @return Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * @return Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
     public Optional<String> burstablePerformance() {
         return Optional.ofNullable(this.burstablePerformance);
     }
     /**
-     * @return List of CPU manufacturer names. Default is any manufacturer.
+     * @return The CPU manufacturers to include. Default is any manufacturer.
+     * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
      * 
      */
     public List<String> cpuManufacturers() {
         return this.cpuManufacturers == null ? List.of() : this.cpuManufacturers;
     }
     /**
-     * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+     * @return The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
      * 
      */
     public List<String> excludedInstanceTypes() {
         return this.excludedInstanceTypes == null ? List.of() : this.excludedInstanceTypes;
     }
     /**
-     * @return List of instance generation names. Default is any generation.
+     * @return Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
      * 
      */
     public List<String> instanceGenerations() {
@@ -214,7 +234,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         return Optional.ofNullable(this.localStorage);
     }
     /**
-     * @return List of local storage type names. Default any storage type.
+     * @return List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
      * 
      */
     public List<String> localStorageTypes() {
@@ -228,11 +248,18 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         return Optional.ofNullable(this.memoryGibPerVcpu);
     }
     /**
-     * @return Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+     * @return The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
      * 
      */
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib() {
         return this.memoryMib;
+    }
+    /**
+     * @return The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+     * 
+     */
+    public Optional<FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps> networkBandwidthGbps() {
+        return Optional.ofNullable(this.networkBandwidthGbps);
     }
     /**
      * @return Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -291,6 +318,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         private @Nullable List<String> acceleratorNames;
         private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
         private @Nullable List<String> acceleratorTypes;
+        private @Nullable List<String> allowedInstanceTypes;
         private @Nullable String bareMetal;
         private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps;
         private @Nullable String burstablePerformance;
@@ -301,6 +329,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         private @Nullable List<String> localStorageTypes;
         private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu;
         private FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib;
+        private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps;
         private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount;
         private @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
         private @Nullable Boolean requireHibernateSupport;
@@ -315,6 +344,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     	      this.acceleratorNames = defaults.acceleratorNames;
     	      this.acceleratorTotalMemoryMib = defaults.acceleratorTotalMemoryMib;
     	      this.acceleratorTypes = defaults.acceleratorTypes;
+    	      this.allowedInstanceTypes = defaults.allowedInstanceTypes;
     	      this.bareMetal = defaults.bareMetal;
     	      this.baselineEbsBandwidthMbps = defaults.baselineEbsBandwidthMbps;
     	      this.burstablePerformance = defaults.burstablePerformance;
@@ -325,6 +355,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     	      this.localStorageTypes = defaults.localStorageTypes;
     	      this.memoryGibPerVcpu = defaults.memoryGibPerVcpu;
     	      this.memoryMib = defaults.memoryMib;
+    	      this.networkBandwidthGbps = defaults.networkBandwidthGbps;
     	      this.networkInterfaceCount = defaults.networkInterfaceCount;
     	      this.onDemandMaxPricePercentageOverLowestPrice = defaults.onDemandMaxPricePercentageOverLowestPrice;
     	      this.requireHibernateSupport = defaults.requireHibernateSupport;
@@ -366,6 +397,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         }
         public Builder acceleratorTypes(String... acceleratorTypes) {
             return acceleratorTypes(List.of(acceleratorTypes));
+        }
+        @CustomType.Setter
+        public Builder allowedInstanceTypes(@Nullable List<String> allowedInstanceTypes) {
+            this.allowedInstanceTypes = allowedInstanceTypes;
+            return this;
+        }
+        public Builder allowedInstanceTypes(String... allowedInstanceTypes) {
+            return allowedInstanceTypes(List.of(allowedInstanceTypes));
         }
         @CustomType.Setter
         public Builder bareMetal(@Nullable String bareMetal) {
@@ -430,6 +469,11 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
             return this;
         }
         @CustomType.Setter
+        public Builder networkBandwidthGbps(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps) {
+            this.networkBandwidthGbps = networkBandwidthGbps;
+            return this;
+        }
+        @CustomType.Setter
         public Builder networkInterfaceCount(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount) {
             this.networkInterfaceCount = networkInterfaceCount;
             return this;
@@ -466,6 +510,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
             o.acceleratorNames = acceleratorNames;
             o.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
             o.acceleratorTypes = acceleratorTypes;
+            o.allowedInstanceTypes = allowedInstanceTypes;
             o.bareMetal = bareMetal;
             o.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             o.burstablePerformance = burstablePerformance;
@@ -476,6 +521,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
             o.localStorageTypes = localStorageTypes;
             o.memoryGibPerVcpu = memoryGibPerVcpu;
             o.memoryMib = memoryMib;
+            o.networkBandwidthGbps = networkBandwidthGbps;
             o.networkInterfaceCount = networkInterfaceCount;
             o.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             o.requireHibernateSupport = requireHibernateSupport;

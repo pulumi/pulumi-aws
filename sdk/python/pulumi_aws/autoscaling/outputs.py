@@ -27,6 +27,7 @@ __all__ = [
     'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps',
     'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu',
     'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib',
+    'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps',
     'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount',
     'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb',
     'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount',
@@ -57,7 +58,11 @@ __all__ = [
     'PolicyStepAdjustment',
     'PolicyTargetTrackingConfiguration',
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecification',
+    'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric',
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension',
+    'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat',
+    'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric',
+    'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension',
     'PolicyTargetTrackingConfigurationPredefinedMetricSpecification',
     'TagTag',
     'GetAmiIdsFilterResult',
@@ -203,7 +208,9 @@ class GroupInstanceRefreshPreferences(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "checkpointDelay":
+        if key == "autoRollback":
+            suggest = "auto_rollback"
+        elif key == "checkpointDelay":
             suggest = "checkpoint_delay"
         elif key == "checkpointPercentages":
             suggest = "checkpoint_percentages"
@@ -226,18 +233,22 @@ class GroupInstanceRefreshPreferences(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 auto_rollback: Optional[bool] = None,
                  checkpoint_delay: Optional[str] = None,
                  checkpoint_percentages: Optional[Sequence[int]] = None,
                  instance_warmup: Optional[str] = None,
                  min_healthy_percentage: Optional[int] = None,
                  skip_matching: Optional[bool] = None):
         """
+        :param bool auto_rollback: Automatically rollback if instance refresh fails. Defaults to `false`.
         :param str checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param Sequence[int] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param str instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
         :param int min_healthy_percentage: Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         :param bool skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
         """
+        if auto_rollback is not None:
+            pulumi.set(__self__, "auto_rollback", auto_rollback)
         if checkpoint_delay is not None:
             pulumi.set(__self__, "checkpoint_delay", checkpoint_delay)
         if checkpoint_percentages is not None:
@@ -248,6 +259,14 @@ class GroupInstanceRefreshPreferences(dict):
             pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
         if skip_matching is not None:
             pulumi.set(__self__, "skip_matching", skip_matching)
+
+    @property
+    @pulumi.getter(name="autoRollback")
+    def auto_rollback(self) -> Optional[bool]:
+        """
+        Automatically rollback if instance refresh fails. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_rollback")
 
     @property
     @pulumi.getter(name="checkpointDelay")
@@ -690,6 +709,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
             suggest = "accelerator_total_memory_mib"
         elif key == "acceleratorTypes":
             suggest = "accelerator_types"
+        elif key == "allowedInstanceTypes":
+            suggest = "allowed_instance_types"
         elif key == "bareMetal":
             suggest = "bare_metal"
         elif key == "baselineEbsBandwidthMbps":
@@ -710,6 +731,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
             suggest = "memory_gib_per_vcpu"
         elif key == "memoryMib":
             suggest = "memory_mib"
+        elif key == "networkBandwidthGbps":
+            suggest = "network_bandwidth_gbps"
         elif key == "networkInterfaceCount":
             suggest = "network_interface_count"
         elif key == "onDemandMaxPricePercentageOverLowestPrice":
@@ -740,6 +763,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
                  accelerator_names: Optional[Sequence[str]] = None,
                  accelerator_total_memory_mib: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib'] = None,
                  accelerator_types: Optional[Sequence[str]] = None,
+                 allowed_instance_types: Optional[Sequence[str]] = None,
                  bare_metal: Optional[str] = None,
                  baseline_ebs_bandwidth_mbps: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps'] = None,
                  burstable_performance: Optional[str] = None,
@@ -750,6 +774,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
                  local_storage_types: Optional[Sequence[str]] = None,
                  memory_gib_per_vcpu: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu'] = None,
                  memory_mib: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib'] = None,
+                 network_bandwidth_gbps: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps'] = None,
                  network_interface_count: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount'] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
                  require_hibernate_support: Optional[bool] = None,
@@ -762,16 +787,18 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
+        :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
-        :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
         :param bool require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
@@ -789,6 +816,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
             pulumi.set(__self__, "accelerator_total_memory_mib", accelerator_total_memory_mib)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -809,6 +838,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
             pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
         if memory_mib is not None:
             pulumi.set(__self__, "memory_mib", memory_mib)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -863,6 +894,14 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
         return pulumi.get(self, "accelerator_types")
 
     @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[Sequence[str]]:
+        """
+        List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+        """
+        return pulumi.get(self, "allowed_instance_types")
+
+    @property
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> Optional[str]:
         """
@@ -898,7 +937,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Optional[Sequence[str]]:
         """
-        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -941,6 +980,14 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
         Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         """
         return pulumi.get(self, "memory_mib")
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps']:
+        """
+        Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "network_bandwidth_gbps")
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -1140,6 +1187,37 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryM
     @property
     @pulumi.getter
     def min(self) -> Optional[int]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps(dict):
+    def __init__(__self__, *,
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
+        """
+        :param float max: Maximum. Set to `0` to exclude instance types with accelerators.
+        :param float min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[float]:
+        """
+        Maximum. Set to `0` to exclude instance types with accelerators.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[float]:
         """
         Minimum.
         """
@@ -1595,7 +1673,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 target_value: int,
+                 target_value: float,
                  customized_capacity_metric_specification: Optional['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification'] = None,
                  customized_load_metric_specification: Optional['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification'] = None,
                  customized_scaling_metric_specification: Optional['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification'] = None,
@@ -1603,7 +1681,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecification(dict):
                  predefined_metric_pair_specification: Optional['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification'] = None,
                  predefined_scaling_metric_specification: Optional['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification'] = None):
         """
-        :param int target_value: Target value for the metric.
+        :param float target_value: Target value for the metric.
         :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs' customized_capacity_metric_specification: Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
         :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs' customized_load_metric_specification: Customized load metric specification.
         :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs' customized_scaling_metric_specification: Customized scaling metric specification.
@@ -1627,7 +1705,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecification(dict):
 
     @property
     @pulumi.getter(name="targetValue")
-    def target_value(self) -> int:
+    def target_value(self) -> float:
         """
         Target value for the metric.
         """
@@ -1749,7 +1827,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
         :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         :param str label: Human-readable label for this metric or expression.
         :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
-        :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+        :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         pulumi.set(__self__, "id", id)
         if expression is not None:
@@ -1797,7 +1875,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[bool]:
         """
-        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         return pulumi.get(self, "return_data")
 
@@ -1997,7 +2075,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
         :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         :param str label: Human-readable label for this metric or expression.
         :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
-        :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+        :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         pulumi.set(__self__, "id", id)
         if expression is not None:
@@ -2045,7 +2123,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[bool]:
         """
-        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         return pulumi.get(self, "return_data")
 
@@ -2245,7 +2323,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
         :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         :param str label: Human-readable label for this metric or expression.
         :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
-        :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+        :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         pulumi.set(__self__, "id", id)
         if expression is not None:
@@ -2293,7 +2371,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[bool]:
         """
-        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default it true
+        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         return pulumi.get(self, "return_data")
 
@@ -2449,13 +2527,14 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetri
 
     def __init__(__self__, *,
                  predefined_metric_type: str,
-                 resource_label: str):
+                 resource_label: Optional[str] = None):
         """
         :param str predefined_metric_type: Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
         :param str resource_label: Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
-        pulumi.set(__self__, "resource_label", resource_label)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedMetricType")
@@ -2467,7 +2546,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetri
 
     @property
     @pulumi.getter(name="resourceLabel")
-    def resource_label(self) -> str:
+    def resource_label(self) -> Optional[str]:
         """
         Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
@@ -2497,13 +2576,14 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPai
 
     def __init__(__self__, *,
                  predefined_metric_type: str,
-                 resource_label: str):
+                 resource_label: Optional[str] = None):
         """
         :param str predefined_metric_type: Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
         :param str resource_label: Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
-        pulumi.set(__self__, "resource_label", resource_label)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedMetricType")
@@ -2515,7 +2595,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPai
 
     @property
     @pulumi.getter(name="resourceLabel")
-    def resource_label(self) -> str:
+    def resource_label(self) -> Optional[str]:
         """
         Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
@@ -2545,13 +2625,14 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMe
 
     def __init__(__self__, *,
                  predefined_metric_type: str,
-                 resource_label: str):
+                 resource_label: Optional[str] = None):
         """
         :param str predefined_metric_type: Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
         :param str resource_label: Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
-        pulumi.set(__self__, "resource_label", resource_label)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedMetricType")
@@ -2563,7 +2644,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMe
 
     @property
     @pulumi.getter(name="resourceLabel")
-    def resource_label(self) -> str:
+    def resource_label(self) -> Optional[str]:
         """
         Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
@@ -2729,10 +2810,10 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "metricName":
-            suggest = "metric_name"
-        elif key == "metricDimensions":
+        if key == "metricDimensions":
             suggest = "metric_dimensions"
+        elif key == "metricName":
+            suggest = "metric_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingConfigurationCustomizedMetricSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -2746,25 +2827,269 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 metric_dimensions: Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension']] = None,
+                 metric_name: Optional[str] = None,
+                 metrics: Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric']] = None,
+                 namespace: Optional[str] = None,
+                 statistic: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs'] metric_dimensions: Dimensions of the metric.
+        :param str metric_name: Name of the metric.
+        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs'] metrics: Metrics to include, as a metric data query.
+        :param str namespace: Namespace of the metric.
+        :param str statistic: Statistic of the metric.
+        :param str unit: Unit of the metric.
+        """
+        if metric_dimensions is not None:
+            pulumi.set(__self__, "metric_dimensions", metric_dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if statistic is not None:
+            pulumi.set(__self__, "statistic", statistic)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="metricDimensions")
+    def metric_dimensions(self) -> Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension']]:
+        """
+        Dimensions of the metric.
+        """
+        return pulumi.get(self, "metric_dimensions")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric']]:
+        """
+        Metrics to include, as a metric data query.
+        """
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def statistic(self) -> Optional[str]:
+        """
+        Statistic of the metric.
+        """
+        return pulumi.get(self, "statistic")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        Unit of the metric.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricStat":
+            suggest = "metric_stat"
+        elif key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 expression: Optional[str] = None,
+                 label: Optional[str] = None,
+                 metric_stat: Optional['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat'] = None,
+                 return_data: Optional[bool] = None):
+        """
+        :param str id: Short name for the metric used in target tracking scaling policy.
+        :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+        :param str label: Human-readable label for this metric or expression.
+        :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
+        """
+        pulumi.set(__self__, "id", id)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Short name for the metric used in target tracking scaling policy.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Human-readable label for this metric or expression.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat']:
+        """
+        Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        """
+        return pulumi.get(self, "metric_stat")
+
+    @property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[bool]:
+        """
+        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
+        """
+        return pulumi.get(self, "return_data")
+
+
+@pulumi.output_type
+class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Name of the dimension.
+        :param str value: Value of the dimension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the dimension.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat(dict):
+    def __init__(__self__, *,
+                 metric: 'outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric',
+                 stat: str,
+                 unit: Optional[str] = None):
+        """
+        :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param str stat: Statistic of the metrics to return.
+        :param str unit: Unit of the metrics to return.
+        """
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> 'outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric':
+        """
+        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        """
+        Statistic of the metrics to return.
+        """
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        Unit of the metrics to return.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
                  metric_name: str,
                  namespace: str,
-                 statistic: str,
-                 metric_dimensions: Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension']] = None,
-                 unit: Optional[str] = None):
+                 dimensions: Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension']] = None):
         """
         :param str metric_name: Name of the metric.
         :param str namespace: Namespace of the metric.
-        :param str statistic: Statistic of the metric.
-        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs'] metric_dimensions: Dimensions of the metric.
-        :param str unit: Unit of the metric.
+        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "statistic", statistic)
-        if metric_dimensions is not None:
-            pulumi.set(__self__, "metric_dimensions", metric_dimensions)
-        if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter(name="metricName")
@@ -2784,31 +3109,15 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
 
     @property
     @pulumi.getter
-    def statistic(self) -> str:
-        """
-        Statistic of the metric.
-        """
-        return pulumi.get(self, "statistic")
-
-    @property
-    @pulumi.getter(name="metricDimensions")
-    def metric_dimensions(self) -> Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension']]:
+    def dimensions(self) -> Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension']]:
         """
         Dimensions of the metric.
         """
-        return pulumi.get(self, "metric_dimensions")
-
-    @property
-    @pulumi.getter
-    def unit(self) -> Optional[str]:
-        """
-        Unit of the metric.
-        """
-        return pulumi.get(self, "unit")
+        return pulumi.get(self, "dimensions")
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension(dict):
+class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):

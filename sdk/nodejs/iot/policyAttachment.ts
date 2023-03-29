@@ -17,25 +17,20 @@ import {Policy} from "./index";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const pubsub = new aws.iot.Policy("pubsub", {policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "iot:*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `});
+ * const pubsubPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["iot:*"],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const pubsubPolicy = new aws.iot.Policy("pubsubPolicy", {policy: pubsubPolicyDocument.then(pubsubPolicyDocument => pubsubPolicyDocument.json)});
  * const cert = new aws.iot.Certificate("cert", {
  *     csr: fs.readFileSync("csr.pem"),
  *     active: true,
  * });
  * const att = new aws.iot.PolicyAttachment("att", {
- *     policy: pubsub.name,
+ *     policy: pubsubPolicy.name,
  *     target: cert.arn,
  * });
  * ```

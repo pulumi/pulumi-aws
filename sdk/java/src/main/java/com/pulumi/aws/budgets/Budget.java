@@ -272,6 +272,74 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * Create a Cost Filter using Resource Tags
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
+ *             .costFilters(BudgetCostFilterArgs.builder()
+ *                 .name(&#34;TagKeyValue&#34;)
+ *                 .values(&#34;TagKey$TagValue&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * Create a cost_filter using resource tags, obtaining the tag value from a variable
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
+ *             .costFilters(BudgetCostFilterArgs.builder()
+ *                 .name(&#34;TagKeyValue&#34;)
+ *                 .values(&#34;TagKey${var.TagValue}&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Budgets can be imported using `AccountID:BudgetName`, e.g.,

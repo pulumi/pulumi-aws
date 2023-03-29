@@ -882,20 +882,6 @@
       "new": "* `retain_stack` - (Optional) During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`."
     }
   ],
-  "website/docs/r/cloudfront_distribution.html.markdown": [
-    {
-      "old": "* `tags` - (Optional) A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
-      "new": "* `tags` - (Optional) A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level."
-    },
-    {
-      "old": "    deleting it when destroying the resource through Terraform. If this is set,",
-      "new": "    deleting it when destroying the resource. If this is set,"
-    },
-    {
-      "old": "* `tags_all` - A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block).",
-      "new": "* `tags_all` - A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block."
-    }
-  ],
   "website/docs/r/cloudfront_origin_access_identity.html.markdown": [
     {
       "old": "[`aws_s3_bucket`][4] bucket policy, causing spurious diffs in Terraform. If",
@@ -1771,11 +1757,6 @@
   "website/docs/r/dms_certificate.html.markdown": [
     {
       "old": "~> **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.\n[Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).\n"
-    }
-  ],
-  "website/docs/r/dms_endpoint.html.markdown": [
-    {
-      "old": "~> **Note:** All arguments including the password will be stored in the raw state as plain-text.\n[Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).\n"
     }
   ],
   "website/docs/r/dms_event_subscription.html.markdown": [
@@ -3534,19 +3515,10 @@
       "new": "~> **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete."
     },
     {
-      "old": "  # The filebase64sha256() function is available in Terraform 0.11.12 and later\n  # For Terraform 0.11.11 and earlier, use the base64sha256() function and the file() function:\n  # source_code_hash = \"${base64sha256(file(\"lambda_function_payload.zip\"))}\"\n  source_code_hash = filebase64sha256(\"lambda_function_payload.zip\")\n"
-    },
-    {
       "old": "~> **NOTE:** The `aws_lambda_layer_version` attribute values for `arn` and `layer_arn` were swapped in version 2.0.0 of the Terraform AWS Provider. For version 1.x, use `layer_arn` references. For version 2.x, use `arn` references.\n"
     },
     {
-      "old": "[2]: https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-create-function.html"
-    },
-    {
       "old": "[11]: https://learn.hashicorp.com/terraform/aws/lambda-api-gateway"
-    },
-    {
-      "old": "[13]: https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html"
     }
   ],
   "website/docs/r/lambda_function_event_invoke_config.html.markdown": [
@@ -4894,34 +4866,7 @@
       "old": "-> **NOTE:** The parameter `server_side_encryption_configuration` is deprecated.\nUse the resource [`aws_s3_bucket_server_side_encryption_configuration`](s3_bucket_server_side_encryption_configuration.html) instead.\n"
     },
     {
-      "old": "~> **NOTE:** Currently, changes to the `cors_rule` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage changes of CORS rules to an S3 bucket, use the `aws_s3_bucket_cors_configuration` resource instead. If you use `cors_rule` on an `aws_s3_bucket`, Terraform will assume management over the full set of CORS rules for the S3 bucket, treating additional CORS rules as drift. For this reason, `cors_rule` cannot be mixed with the external `aws_s3_bucket_cors_configuration` resource for a given S3 bucket."
-    },
-    {
-      "old": "~> **NOTE:** Currently, changes to the `grant` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage changes of ACL grants to an S3 bucket, use the `aws_s3_bucket_acl` resource instead. If you use `grant` on an `aws_s3_bucket`, Terraform will assume management over the full set of ACL grants for the S3 bucket, treating additional ACL grants as drift. For this reason, `grant` cannot be mixed with the external `aws_s3_bucket_acl` resource for a given S3 bucket."
-    },
-    {
-      "old": "~> **NOTE:** Currently, changes to the `lifecycle_rule` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage changes of Lifecycle rules to an S3 bucket, use the `aws_s3_bucket_lifecycle_configuration` resource instead. If you use `lifecycle_rule` on an `aws_s3_bucket`, Terraform will assume management over the full set of Lifecycle rules for the S3 bucket, treating additional Lifecycle rules as drift. For this reason, `lifecycle_rule` cannot be mixed with the external `aws_s3_bucket_lifecycle_configuration` resource for a given S3 bucket."
-    },
-    {
-      "old": "~> **NOTE:** Currently, changes to the `logging` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage changes of logging parameters to an S3 bucket, use the `aws_s3_bucket_logging` resource instead. If you use `logging` on an `aws_s3_bucket`, Terraform will assume management over the full set of logging parameters for the S3 bucket, treating additional logging parameters as drift. For this reason, `logging` cannot be mixed with the external `aws_s3_bucket_logging` resource for a given S3 bucket."
-    },
-    {
-      "old": "~> **NOTE:** Currently, changes to the `object_lock_configuration` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage changes of Object Lock settings to an S3 bucket, use the `aws_s3_bucket_object_lock_configuration` resource instead. If you use `object_lock_configuration` on an `aws_s3_bucket`, Terraform will assume management over the full set of Object Lock configuration parameters for the S3 bucket, treating additional Object Lock configuration parameters as drift. For this reason, `object_lock_configuration` cannot be mixed with the external `aws_s3_bucket_object_lock_configuration` resource for a given S3 bucket."
-    },
-    {
       "old": "* `object_lock_enabled` - (Optional, **Deprecated**) Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead."
-    },
-    {
-      "old": "~> **NOTE:** Currently, changes to the `replication_configuration` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage replication configuration changes to an S3 bucket, use the `aws_s3_bucket_replication_configuration` resource instead. If you use `replication_configuration` on an `aws_s3_bucket`, Terraform will assume management over the full replication configuration for the S3 bucket, treating additional replication configuration rules as drift. For this reason, `replication_configuration` cannot be mixed with the external `aws_s3_bucket_replication_configuration` resource for a given S3 bucket."
-    },
-    {
-      "old": "~> **NOTE:** Currently, changes to the `server_side_encryption_configuration` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage changes in encryption of an S3 bucket, use the `aws_s3_bucket_server_side_encryption_configuration` resource instead. If you use `server_side_encryption_configuration` on an `aws_s3_bucket`, Terraform will assume management over the encryption configuration for the S3 bucket, treating additional encryption changes as drift. For this reason, `server_side_encryption_configuration` cannot be mixed with the external `aws_s3_bucket_server_side_encryption_configuration` resource for a given S3 bucket."
-    },
-    {
-      "old": "~> **NOTE:** Currently, changes to the `website` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage changes to the website configuration of an S3 bucket, use the `aws_s3_bucket_website_configuration` resource instead. If you use `website` on an `aws_s3_bucket`, Terraform will assume management over the configuration of the website of the S3 bucket, treating additional website configuration changes as drift. For this reason, `website` cannot be mixed with the external `aws_s3_bucket_website_configuration` resource for a given S3 bucket."
-    },
-    {
-      "old": "~> **NOTE:** Currently, changes to the `versioning` configuration of _existing_ resources cannot be automatically detected by Terraform. To manage changes of versioning state to an S3 bucket, use the `aws_s3_bucket_versioning` resource instead. If you use `versioning` on an `aws_s3_bucket`, Terraform will assume management over the versioning state of the S3 bucket, treating additional versioning state changes as drift. For this reason, `versioning` cannot be mixed with the external `aws_s3_bucket_versioning` resource for a given S3 bucket."
     }
   ],
   "website/docs/r/s3_bucket_object.html.markdown": [
@@ -4937,12 +4882,6 @@
       "old": "-> **Note:** Terraform ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`."
     }
   ],
-  "website/docs/r/s3_bucket_policy.html.markdown": [
-    {
-      "old": "* `policy` - (Required) The text of the policy. Although this is a bucket policy rather than an IAM policy, the [`aws_iam_policy_document`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://learn.hashicorp.com/terraform/aws/iam-policy). Note: Bucket policies are limited to 20 KB in size.",
-      "new": "* `policy` - (Required) The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws_iam_policy_document` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size."
-    }
-  ],
   "website/docs/r/s3_object.html.markdown": [
     {
       "old": "* `tags` - (Optional) Map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
@@ -4950,10 +4889,6 @@
     }
   ],
   "website/docs/r/s3_object_copy.html.markdown": [
-    {
-      "old": "* `tags` - (Optional) A map of tags to assign to the object. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
-      "new": "* `tags` - (Optional) A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level."
-    },
     {
       "old": "-> **Note:** Terraform ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.\n"
     }

@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Model;
  * import com.pulumi.aws.apigateway.ModelArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,11 +50,10 @@ import javax.annotation.Nullable;
  *             .restApi(myDemoAPI.id())
  *             .description(&#34;a JSON schema&#34;)
  *             .contentType(&#34;application/json&#34;)
- *             .schema(&#34;&#34;&#34;
- * {
- *   &#34;type&#34;: &#34;object&#34;
- * }
- *             &#34;&#34;&#34;)
+ *             .schema(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;type&#34;, &#34;object&#34;)
+ *                 )))
  *             .build());
  * 
  *     }

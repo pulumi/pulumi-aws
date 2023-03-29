@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ssm
     ///         {
     ///             RunCommandParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs
     ///             {
-    ///                 OutputS3Bucket = aws_s3_bucket.Example.Bucket,
+    ///                 OutputS3Bucket = aws_s3_bucket.Example.Id,
     ///                 OutputS3KeyPrefix = "output",
     ///                 ServiceRoleArn = aws_iam_role.Example.Arn,
     ///                 TimeoutSeconds = 600,

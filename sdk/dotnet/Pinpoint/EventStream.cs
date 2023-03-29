@@ -28,22 +28,35 @@ namespace Pulumi.Aws.Pinpoint
     ///         ShardCount = 1,
     ///     });
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "pinpoint.us-east-1.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var testRole = new Aws.Iam.Role("testRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""pinpoint.us-east-1.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var stream = new Aws.Pinpoint.EventStream("stream", new()
@@ -53,23 +66,30 @@ namespace Pulumi.Aws.Pinpoint
     ///         RoleArn = testRole.Arn,
     ///     });
     /// 
-    ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
+    ///     var testRolePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "kinesis:PutRecords",
+    ///                     "kinesis:DescribeStream",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:kinesis:us-east-1:*:*/*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testRolePolicyRolePolicy = new Aws.Iam.RolePolicy("testRolePolicyRolePolicy", new()
     ///     {
     ///         Role = testRole.Id,
-    ///         Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": {
-    ///     ""Action"": [
-    ///       ""kinesis:PutRecords"",
-    ///       ""kinesis:DescribeStream""
-    ///     ],
-    ///     ""Effect"": ""Allow"",
-    ///     ""Resource"": [
-    ///       ""arn:aws:kinesis:us-east-1:*:*/*""
-    ///     ]
-    ///   }
-    /// }
-    /// ",
+    ///         Policy = testRolePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

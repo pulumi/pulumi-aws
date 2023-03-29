@@ -18,11 +18,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> AccessControlTranslations;
         /// <summary>
-        /// The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        /// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
-        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        /// ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         /// </summary>
         public readonly string Bucket;
         /// <summary>

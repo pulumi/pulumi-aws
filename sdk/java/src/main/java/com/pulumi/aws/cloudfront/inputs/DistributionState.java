@@ -30,16 +30,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     public static final DistributionState Empty = new DistributionState();
 
     /**
-     * Extra CNAMEs (alternate domain names), if any, for
-     * this distribution.
+     * Extra CNAMEs (alternate domain names), if any, for this distribution.
      * 
      */
     @Import(name="aliases")
     private @Nullable Output<List<String>> aliases;
 
     /**
-     * @return Extra CNAMEs (alternate domain names), if any, for
-     * this distribution.
+     * @return Extra CNAMEs (alternate domain names), if any, for this distribution.
      * 
      */
     public Optional<Output<List<String>>> aliases() {
@@ -47,14 +45,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+     * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+     * @return ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -62,16 +60,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Internal value used by CloudFront to allow future
-     * updates to the distribution configuration.
+     * Internal value used by CloudFront to allow future updates to the distribution configuration.
      * 
      */
     @Import(name="callerReference")
     private @Nullable Output<String> callerReference;
 
     /**
-     * @return Internal value used by CloudFront to allow future
-     * updates to the distribution configuration.
+     * @return Internal value used by CloudFront to allow future updates to the distribution configuration.
      * 
      */
     public Optional<Output<String>> callerReference() {
@@ -79,16 +75,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Any comments you want to include about the
-     * distribution.
+     * Any comments you want to include about the distribution.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Any comments you want to include about the
-     * distribution.
+     * @return Any comments you want to include about the distribution.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -111,16 +105,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default cache behavior for this distribution (maximum
-     * one).
+     * Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
      * 
      */
     @Import(name="defaultCacheBehavior")
     private @Nullable Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
 
     /**
-     * @return The default cache behavior for this distribution (maximum
-     * one).
+     * @return Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
      * 
      */
     public Optional<Output<DistributionDefaultCacheBehaviorArgs>> defaultCacheBehavior() {
@@ -128,16 +120,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The object that you want CloudFront to
-     * return (for example, index.html) when an end user requests the root URL.
+     * Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
      * 
      */
     @Import(name="defaultRootObject")
     private @Nullable Output<String> defaultRootObject;
 
     /**
-     * @return The object that you want CloudFront to
-     * return (for example, index.html) when an end user requests the root URL.
+     * @return Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
      * 
      */
     public Optional<Output<String>> defaultRootObject() {
@@ -145,16 +135,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DNS domain name of either the S3 bucket, or
-     * web site of your custom origin.
+     * DNS domain name of either the S3 bucket, or web site of your custom origin.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The DNS domain name of either the S3 bucket, or
-     * web site of your custom origin.
+     * @return DNS domain name of either the S3 bucket, or web site of your custom origin.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -162,16 +150,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the distribution is enabled to accept end
-     * user requests for content.
+     * Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the distribution is enabled to accept end
-     * user requests for content.
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -179,16 +165,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current version of the distribution&#39;s information. For example:
-     * `E2QWRUHAPOMQZL`.
+     * Current version of the distribution&#39;s information. For example: `E2QWRUHAPOMQZL`.
      * 
      */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
     /**
-     * @return The current version of the distribution&#39;s information. For example:
-     * `E2QWRUHAPOMQZL`.
+     * @return Current version of the distribution&#39;s information. For example: `E2QWRUHAPOMQZL`.
      * 
      */
     public Optional<Output<String>> etag() {
@@ -196,18 +180,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
-     * alias for the zone ID `Z2FDTNDATAQYW2`.
+     * CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
     /**
-     * @return The CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
-     * alias for the zone ID `Z2FDTNDATAQYW2`.
+     * @return CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
     public Optional<Output<String>> hostedZoneId() {
@@ -215,18 +195,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-     * `http2`.
+     * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
      * 
      */
     @Import(name="httpVersion")
     private @Nullable Output<String> httpVersion;
 
     /**
-     * @return The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-     * `http2`.
+     * @return Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
      * 
      */
     public Optional<Output<String>> httpVersion() {
@@ -234,16 +210,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of invalidation batches
-     * currently in progress.
+     * Number of invalidation batches currently in progress.
      * 
      */
     @Import(name="inProgressValidationBatches")
     private @Nullable Output<Integer> inProgressValidationBatches;
 
     /**
-     * @return The number of invalidation batches
-     * currently in progress.
+     * @return Number of invalidation batches currently in progress.
      * 
      */
     public Optional<Output<Integer>> inProgressValidationBatches() {
@@ -266,14 +240,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The date and time the distribution was last modified.
+     * Date and time the distribution was last modified.
      * 
      */
     @Import(name="lastModifiedTime")
     private @Nullable Output<String> lastModifiedTime;
 
     /**
-     * @return The date and time the distribution was last modified.
+     * @return Date and time the distribution was last modified.
      * 
      */
     public Optional<Output<String>> lastModifiedTime() {
@@ -281,18 +255,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The logging
-     * configuration that controls how logs are written
-     * to your distribution (maximum one).
+     * The logging configuration that controls how logs are written to your distribution (maximum one).
      * 
      */
     @Import(name="loggingConfig")
     private @Nullable Output<DistributionLoggingConfigArgs> loggingConfig;
 
     /**
-     * @return The logging
-     * configuration that controls how logs are written
-     * to your distribution (maximum one).
+     * @return The logging configuration that controls how logs are written to your distribution (maximum one).
      * 
      */
     public Optional<Output<DistributionLoggingConfigArgs>> loggingConfig() {
@@ -300,18 +270,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An ordered list of cache behaviors
-     * resource for this distribution. List from top to bottom
-     * in order of precedence. The topmost cache behavior will have precedence 0.
+     * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      * 
      */
     @Import(name="orderedCacheBehaviors")
     private @Nullable Output<List<DistributionOrderedCacheBehaviorArgs>> orderedCacheBehaviors;
 
     /**
-     * @return An ordered list of cache behaviors
-     * resource for this distribution. List from top to bottom
-     * in order of precedence. The topmost cache behavior will have precedence 0.
+     * @return Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      * 
      */
     public Optional<Output<List<DistributionOrderedCacheBehaviorArgs>>> orderedCacheBehaviors() {
@@ -319,16 +285,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more origin_group for this
-     * distribution (multiples allowed).
+     * One or more origin_group for this distribution (multiples allowed).
      * 
      */
     @Import(name="originGroups")
     private @Nullable Output<List<DistributionOriginGroupArgs>> originGroups;
 
     /**
-     * @return One or more origin_group for this
-     * distribution (multiples allowed).
+     * @return One or more origin_group for this distribution (multiples allowed).
      * 
      */
     public Optional<Output<List<DistributionOriginGroupArgs>>> originGroups() {
@@ -336,16 +300,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more origins for this
-     * distribution (multiples allowed).
+     * One or more origins for this distribution (multiples allowed).
      * 
      */
     @Import(name="origins")
     private @Nullable Output<List<DistributionOriginArgs>> origins;
 
     /**
-     * @return One or more origins for this
-     * distribution (multiples allowed).
+     * @return One or more origins for this distribution (multiples allowed).
      * 
      */
     public Optional<Output<List<DistributionOriginArgs>>> origins() {
@@ -353,16 +315,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The price class for this distribution. One of
-     * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+     * Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
      * 
      */
     @Import(name="priceClass")
     private @Nullable Output<String> priceClass;
 
     /**
-     * @return The price class for this distribution. One of
-     * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+     * @return Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
      * 
      */
     public Optional<Output<String>> priceClass() {
@@ -370,16 +330,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The restriction
-     * configuration for this distribution (maximum one).
+     * The restriction configuration for this distribution (maximum one).
      * 
      */
     @Import(name="restrictions")
     private @Nullable Output<DistributionRestrictionsArgs> restrictions;
 
     /**
-     * @return The restriction
-     * configuration for this distribution (maximum one).
+     * @return The restriction configuration for this distribution (maximum one).
      * 
      */
     public Optional<Output<DistributionRestrictionsArgs>> restrictions() {
@@ -387,18 +345,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Disables the distribution instead of
-     * deleting it when destroying the resource. If this is set,
-     * the distribution needs to be deleted manually afterwards. Default: `false`.
+     * Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
      * 
      */
     @Import(name="retainOnDelete")
     private @Nullable Output<Boolean> retainOnDelete;
 
     /**
-     * @return Disables the distribution instead of
-     * deleting it when destroying the resource. If this is set,
-     * the distribution needs to be deleted manually afterwards. Default: `false`.
+     * @return Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> retainOnDelete() {
@@ -406,18 +360,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current status of the distribution. `Deployed` if the
-     * distribution&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
+     * Current status of the distribution. `Deployed` if the distribution&#39;s information is fully propagated throughout the Amazon CloudFront system.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of the distribution. `Deployed` if the
-     * distribution&#39;s information is fully propagated throughout the Amazon
-     * CloudFront system.
+     * @return Current status of the distribution. `Deployed` if the distribution&#39;s information is fully propagated throughout the Amazon CloudFront system.
      * 
      */
     public Optional<Output<String>> status() {
@@ -425,14 +375,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -440,14 +390,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -455,16 +405,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     @Import(name="trustedKeyGroups")
     private @Nullable Output<List<DistributionTrustedKeyGroupArgs>> trustedKeyGroups;
 
     /**
-     * @return A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     public Optional<Output<List<DistributionTrustedKeyGroupArgs>>> trustedKeyGroups() {
@@ -472,16 +420,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     @Import(name="trustedSigners")
     private @Nullable Output<List<DistributionTrustedSignerArgs>> trustedSigners;
 
     /**
-     * @return List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     public Optional<Output<List<DistributionTrustedSignerArgs>>> trustedSigners() {
@@ -489,18 +435,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SSL
-     * configuration for this distribution (maximum
-     * one).
+     * The SSL configuration for this distribution (maximum one).
      * 
      */
     @Import(name="viewerCertificate")
     private @Nullable Output<DistributionViewerCertificateArgs> viewerCertificate;
 
     /**
-     * @return The SSL
-     * configuration for this distribution (maximum
-     * one).
+     * @return The SSL configuration for this distribution (maximum one).
      * 
      */
     public Optional<Output<DistributionViewerCertificateArgs>> viewerCertificate() {
@@ -508,18 +450,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If enabled, the resource will wait for
-     * the distribution status to change from `InProgress` to `Deployed`. Setting
-     * this to`false` will skip the process. Default: `true`.
+     * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      * 
      */
     @Import(name="waitForDeployment")
     private @Nullable Output<Boolean> waitForDeployment;
 
     /**
-     * @return If enabled, the resource will wait for
-     * the distribution status to change from `InProgress` to `Deployed`. Setting
-     * this to`false` will skip the process. Default: `true`.
+     * @return If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      * 
      */
     public Optional<Output<Boolean>> waitForDeployment() {
@@ -527,26 +465,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A unique identifier that specifies the AWS WAF web ACL,
-     * if any, to associate with this distribution.
-     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
-     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+     * Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      * 
      */
     @Import(name="webAclId")
     private @Nullable Output<String> webAclId;
 
     /**
-     * @return A unique identifier that specifies the AWS WAF web ACL,
-     * if any, to associate with this distribution.
-     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
-     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+     * @return Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      * 
      */
     public Optional<Output<String>> webAclId() {
@@ -607,8 +533,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for
-         * this distribution.
+         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
          * 
          * @return builder
          * 
@@ -619,8 +544,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for
-         * this distribution.
+         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
          * 
          * @return builder
          * 
@@ -630,8 +554,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for
-         * this distribution.
+         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
          * 
          * @return builder
          * 
@@ -641,7 +564,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+         * @param arn ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
          * 
          * @return builder
          * 
@@ -652,7 +575,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+         * @param arn ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
          * 
          * @return builder
          * 
@@ -662,8 +585,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param callerReference Internal value used by CloudFront to allow future
-         * updates to the distribution configuration.
+         * @param callerReference Internal value used by CloudFront to allow future updates to the distribution configuration.
          * 
          * @return builder
          * 
@@ -674,8 +596,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param callerReference Internal value used by CloudFront to allow future
-         * updates to the distribution configuration.
+         * @param callerReference Internal value used by CloudFront to allow future updates to the distribution configuration.
          * 
          * @return builder
          * 
@@ -685,8 +606,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Any comments you want to include about the
-         * distribution.
+         * @param comment Any comments you want to include about the distribution.
          * 
          * @return builder
          * 
@@ -697,8 +617,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Any comments you want to include about the
-         * distribution.
+         * @param comment Any comments you want to include about the distribution.
          * 
          * @return builder
          * 
@@ -739,8 +658,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior The default cache behavior for this distribution (maximum
-         * one).
+         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
          * 
          * @return builder
          * 
@@ -751,8 +669,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior The default cache behavior for this distribution (maximum
-         * one).
+         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
          * 
          * @return builder
          * 
@@ -762,8 +679,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRootObject The object that you want CloudFront to
-         * return (for example, index.html) when an end user requests the root URL.
+         * @param defaultRootObject Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
          * 
          * @return builder
          * 
@@ -774,8 +690,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRootObject The object that you want CloudFront to
-         * return (for example, index.html) when an end user requests the root URL.
+         * @param defaultRootObject Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
          * 
          * @return builder
          * 
@@ -785,8 +700,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The DNS domain name of either the S3 bucket, or
-         * web site of your custom origin.
+         * @param domainName DNS domain name of either the S3 bucket, or web site of your custom origin.
          * 
          * @return builder
          * 
@@ -797,8 +711,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The DNS domain name of either the S3 bucket, or
-         * web site of your custom origin.
+         * @param domainName DNS domain name of either the S3 bucket, or web site of your custom origin.
          * 
          * @return builder
          * 
@@ -808,8 +721,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether the distribution is enabled to accept end
-         * user requests for content.
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -820,8 +732,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether the distribution is enabled to accept end
-         * user requests for content.
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -831,8 +742,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param etag The current version of the distribution&#39;s information. For example:
-         * `E2QWRUHAPOMQZL`.
+         * @param etag Current version of the distribution&#39;s information. For example: `E2QWRUHAPOMQZL`.
          * 
          * @return builder
          * 
@@ -843,8 +753,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param etag The current version of the distribution&#39;s information. For example:
-         * `E2QWRUHAPOMQZL`.
+         * @param etag Current version of the distribution&#39;s information. For example: `E2QWRUHAPOMQZL`.
          * 
          * @return builder
          * 
@@ -854,9 +763,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostedZoneId The CloudFront Route 53 zone ID that can be used to
-         * route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
-         * alias for the zone ID `Z2FDTNDATAQYW2`.
+         * @param hostedZoneId CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
          * 
          * @return builder
          * 
@@ -867,9 +774,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostedZoneId The CloudFront Route 53 zone ID that can be used to
-         * route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
-         * alias for the zone ID `Z2FDTNDATAQYW2`.
+         * @param hostedZoneId CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
          * 
          * @return builder
          * 
@@ -879,9 +784,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpVersion The maximum HTTP version to support on the
-         * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-         * `http2`.
+         * @param httpVersion Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
          * 
          * @return builder
          * 
@@ -892,9 +795,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpVersion The maximum HTTP version to support on the
-         * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-         * `http2`.
+         * @param httpVersion Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
          * 
          * @return builder
          * 
@@ -904,8 +805,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inProgressValidationBatches The number of invalidation batches
-         * currently in progress.
+         * @param inProgressValidationBatches Number of invalidation batches currently in progress.
          * 
          * @return builder
          * 
@@ -916,8 +816,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inProgressValidationBatches The number of invalidation batches
-         * currently in progress.
+         * @param inProgressValidationBatches Number of invalidation batches currently in progress.
          * 
          * @return builder
          * 
@@ -948,7 +847,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastModifiedTime The date and time the distribution was last modified.
+         * @param lastModifiedTime Date and time the distribution was last modified.
          * 
          * @return builder
          * 
@@ -959,7 +858,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastModifiedTime The date and time the distribution was last modified.
+         * @param lastModifiedTime Date and time the distribution was last modified.
          * 
          * @return builder
          * 
@@ -969,9 +868,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfig The logging
-         * configuration that controls how logs are written
-         * to your distribution (maximum one).
+         * @param loggingConfig The logging configuration that controls how logs are written to your distribution (maximum one).
          * 
          * @return builder
          * 
@@ -982,9 +879,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfig The logging
-         * configuration that controls how logs are written
-         * to your distribution (maximum one).
+         * @param loggingConfig The logging configuration that controls how logs are written to your distribution (maximum one).
          * 
          * @return builder
          * 
@@ -994,9 +889,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedCacheBehaviors An ordered list of cache behaviors
-         * resource for this distribution. List from top to bottom
-         * in order of precedence. The topmost cache behavior will have precedence 0.
+         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
          * 
          * @return builder
          * 
@@ -1007,9 +900,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedCacheBehaviors An ordered list of cache behaviors
-         * resource for this distribution. List from top to bottom
-         * in order of precedence. The topmost cache behavior will have precedence 0.
+         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
          * 
          * @return builder
          * 
@@ -1019,9 +910,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedCacheBehaviors An ordered list of cache behaviors
-         * resource for this distribution. List from top to bottom
-         * in order of precedence. The topmost cache behavior will have precedence 0.
+         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
          * 
          * @return builder
          * 
@@ -1031,8 +920,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this
-         * distribution (multiples allowed).
+         * @param originGroups One or more origin_group for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1043,8 +931,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this
-         * distribution (multiples allowed).
+         * @param originGroups One or more origin_group for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1054,8 +941,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this
-         * distribution (multiples allowed).
+         * @param originGroups One or more origin_group for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1065,8 +951,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins One or more origins for this
-         * distribution (multiples allowed).
+         * @param origins One or more origins for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1077,8 +962,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins One or more origins for this
-         * distribution (multiples allowed).
+         * @param origins One or more origins for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1088,8 +972,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins One or more origins for this
-         * distribution (multiples allowed).
+         * @param origins One or more origins for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -1099,8 +982,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priceClass The price class for this distribution. One of
-         * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+         * @param priceClass Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
          * 
          * @return builder
          * 
@@ -1111,8 +993,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priceClass The price class for this distribution. One of
-         * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+         * @param priceClass Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
          * 
          * @return builder
          * 
@@ -1122,8 +1003,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restrictions The restriction
-         * configuration for this distribution (maximum one).
+         * @param restrictions The restriction configuration for this distribution (maximum one).
          * 
          * @return builder
          * 
@@ -1134,8 +1014,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restrictions The restriction
-         * configuration for this distribution (maximum one).
+         * @param restrictions The restriction configuration for this distribution (maximum one).
          * 
          * @return builder
          * 
@@ -1145,9 +1024,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retainOnDelete Disables the distribution instead of
-         * deleting it when destroying the resource. If this is set,
-         * the distribution needs to be deleted manually afterwards. Default: `false`.
+         * @param retainOnDelete Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
          * 
          * @return builder
          * 
@@ -1158,9 +1035,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retainOnDelete Disables the distribution instead of
-         * deleting it when destroying the resource. If this is set,
-         * the distribution needs to be deleted manually afterwards. Default: `false`.
+         * @param retainOnDelete Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
          * 
          * @return builder
          * 
@@ -1170,9 +1045,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the distribution. `Deployed` if the
-         * distribution&#39;s information is fully propagated throughout the Amazon
-         * CloudFront system.
+         * @param status Current status of the distribution. `Deployed` if the distribution&#39;s information is fully propagated throughout the Amazon CloudFront system.
          * 
          * @return builder
          * 
@@ -1183,9 +1056,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the distribution. `Deployed` if the
-         * distribution&#39;s information is fully propagated throughout the Amazon
-         * CloudFront system.
+         * @param status Current status of the distribution. `Deployed` if the distribution&#39;s information is fully propagated throughout the Amazon CloudFront system.
          * 
          * @return builder
          * 
@@ -1195,7 +1066,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1206,7 +1077,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1216,7 +1087,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -1227,7 +1098,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -1237,8 +1108,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedKeyGroups A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -1249,8 +1119,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedKeyGroups A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -1260,8 +1129,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedKeyGroups A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -1271,8 +1139,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -1283,8 +1150,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -1294,8 +1160,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -1305,9 +1170,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param viewerCertificate The SSL
-         * configuration for this distribution (maximum
-         * one).
+         * @param viewerCertificate The SSL configuration for this distribution (maximum one).
          * 
          * @return builder
          * 
@@ -1318,9 +1181,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param viewerCertificate The SSL
-         * configuration for this distribution (maximum
-         * one).
+         * @param viewerCertificate The SSL configuration for this distribution (maximum one).
          * 
          * @return builder
          * 
@@ -1330,9 +1191,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForDeployment If enabled, the resource will wait for
-         * the distribution status to change from `InProgress` to `Deployed`. Setting
-         * this to`false` will skip the process. Default: `true`.
+         * @param waitForDeployment If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
          * 
          * @return builder
          * 
@@ -1343,9 +1202,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForDeployment If enabled, the resource will wait for
-         * the distribution status to change from `InProgress` to `Deployed`. Setting
-         * this to`false` will skip the process. Default: `true`.
+         * @param waitForDeployment If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
          * 
          * @return builder
          * 
@@ -1355,13 +1212,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webAclId A unique identifier that specifies the AWS WAF web ACL,
-         * if any, to associate with this distribution.
-         * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-         * for example `aws_wafv2_web_acl.example.arn`. To specify a web
-         * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-         * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-         * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+         * @param webAclId Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
          * 
          * @return builder
          * 
@@ -1372,13 +1223,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webAclId A unique identifier that specifies the AWS WAF web ACL,
-         * if any, to associate with this distribution.
-         * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-         * for example `aws_wafv2_web_acl.example.arn`. To specify a web
-         * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-         * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-         * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+         * @param webAclId Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
          * 
          * @return builder
          * 

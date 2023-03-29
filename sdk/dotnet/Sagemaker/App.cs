@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.AppResourceSpec> ResourceSpec { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// The name of the space. At least one of `user_profile_name` or `space_name` required.
         /// </summary>
         [Output("spaceName")]
         public Output<string?> SpaceName { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
+        /// The user profile name. At least one of `user_profile_name` or `space_name` required.
         /// </summary>
         [Output("userProfileName")]
         public Output<string?> UserProfileName { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.AppResourceSpecArgs>? ResourceSpec { get; set; }
 
         /// <summary>
-        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// The name of the space. At least one of `user_profile_name` or `space_name` required.
         /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
+        /// The user profile name. At least one of `user_profile_name` or `space_name` required.
         /// </summary>
         [Input("userProfileName")]
         public Input<string>? UserProfileName { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.AppResourceSpecGetArgs>? ResourceSpec { get; set; }
 
         /// <summary>
-        /// The name of the space. At least on of `user_profile_name` or `space_name` required.
+        /// The name of the space. At least one of `user_profile_name` or `space_name` required.
         /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The user profile name. At least on of `user_profile_name` or `space_name` required.
+        /// The user profile name. At least one of `user_profile_name` or `space_name` required.
         /// </summary>
         [Input("userProfileName")]
         public Input<string>? UserProfileName { get; set; }

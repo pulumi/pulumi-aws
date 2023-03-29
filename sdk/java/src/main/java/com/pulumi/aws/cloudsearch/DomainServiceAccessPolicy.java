@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudsearch.Domain;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicy;
  * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicyArgs;
  * import java.util.List;
@@ -43,23 +45,28 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;);
  * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;search_only&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;cloudsearch:search&#34;,
+ *                     &#34;cloudsearch:document&#34;)
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;IpAddress&#34;)
+ *                     .variable(&#34;aws:SourceIp&#34;)
+ *                     .values(&#34;192.0.2.0/32&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
  *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy(&#34;exampleDomainServiceAccessPolicy&#34;, DomainServiceAccessPolicyArgs.builder()        
  *             .domainName(exampleDomain.id())
- *             .accessPolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;:&#34;2012-10-17&#34;,
- *   &#34;Statement&#34;:[{
- *     &#34;Sid&#34;:&#34;search_only&#34;,
- *     &#34;Effect&#34;:&#34;Allow&#34;,
- *     &#34;Principal&#34;:&#34;*&#34;,
- *     &#34;Action&#34;:[
- *       &#34;cloudsearch:search&#34;,
- *       &#34;cloudsearch:document&#34;
- *     ],
- *     &#34;Condition&#34;:{&#34;IpAddress&#34;:{&#34;aws:SourceIp&#34;:&#34;192.0.2.0/32&#34;}}
- *   }]
- * }
- *             &#34;&#34;&#34;)
+ *             .accessPolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

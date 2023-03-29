@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.outputs.FleetLaunchTemplateConfigOverride;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,7 +17,7 @@ public final class FleetLaunchTemplateConfig {
      * @return Nested argument containing EC2 Launch Template to use. Defined below.
      * 
      */
-    private FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification;
+    private @Nullable FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification;
     /**
      * @return Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
      * 
@@ -28,8 +29,8 @@ public final class FleetLaunchTemplateConfig {
      * @return Nested argument containing EC2 Launch Template to use. Defined below.
      * 
      */
-    public FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification() {
-        return this.launchTemplateSpecification;
+    public Optional<FleetLaunchTemplateConfigLaunchTemplateSpecification> launchTemplateSpecification() {
+        return Optional.ofNullable(this.launchTemplateSpecification);
     }
     /**
      * @return Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
@@ -48,7 +49,7 @@ public final class FleetLaunchTemplateConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification;
+        private @Nullable FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification;
         private @Nullable List<FleetLaunchTemplateConfigOverride> overrides;
         public Builder() {}
         public Builder(FleetLaunchTemplateConfig defaults) {
@@ -58,8 +59,8 @@ public final class FleetLaunchTemplateConfig {
         }
 
         @CustomType.Setter
-        public Builder launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification) {
-            this.launchTemplateSpecification = Objects.requireNonNull(launchTemplateSpecification);
+        public Builder launchTemplateSpecification(@Nullable FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification) {
+            this.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
         @CustomType.Setter

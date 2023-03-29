@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Neptune.Inputs
         public Input<double>? MaxCapacity { get; set; }
 
         /// <summary>
-        /// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **2.5**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        /// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         /// </summary>
         [Input("minCapacity")]
         public Input<double>? MinCapacity { get; set; }

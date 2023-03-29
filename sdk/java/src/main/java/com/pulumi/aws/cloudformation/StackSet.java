@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudformation.StackSetArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,28 +72,30 @@ import javax.annotation.Nullable;
  *         var example = new StackSet(&#34;example&#34;, StackSetArgs.builder()        
  *             .administrationRoleArn(aWSCloudFormationStackSetAdministrationRole.arn())
  *             .parameters(Map.of(&#34;VPCCidr&#34;, &#34;10.0.0.0/16&#34;))
- *             .templateBody(&#34;&#34;&#34;
- * {
- *   &#34;Parameters&#34; : {
- *     &#34;VPCCidr&#34; : {
- *       &#34;Type&#34; : &#34;String&#34;,
- *       &#34;Default&#34; : &#34;10.0.0.0/16&#34;,
- *       &#34;Description&#34; : &#34;Enter the CIDR block for the VPC. Default is 10.0.0.0/16.&#34;
- *     }
- *   },
- *   &#34;Resources&#34; : {
- *     &#34;myVpc&#34;: {
- *       &#34;Type&#34; : &#34;AWS::EC2::VPC&#34;,
- *       &#34;Properties&#34; : {
- *         &#34;CidrBlock&#34; : { &#34;Ref&#34; : &#34;VPCCidr&#34; },
- *         &#34;Tags&#34; : [
- *           {&#34;Key&#34;: &#34;Name&#34;, &#34;Value&#34;: &#34;Primary_CF_VPC&#34;}
- *         ]
- *       }
- *     }
- *   }
- * }
- *             &#34;&#34;&#34;)
+ *             .templateBody(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;Parameters&#34;, jsonObject(
+ *                         jsonProperty(&#34;VPCCidr&#34;, jsonObject(
+ *                             jsonProperty(&#34;Type&#34;, &#34;String&#34;),
+ *                             jsonProperty(&#34;Default&#34;, &#34;10.0.0.0/16&#34;),
+ *                             jsonProperty(&#34;Description&#34;, &#34;Enter the CIDR block for the VPC. Default is 10.0.0.0/16.&#34;)
+ *                         ))
+ *                     )),
+ *                     jsonProperty(&#34;Resources&#34;, jsonObject(
+ *                         jsonProperty(&#34;myVpc&#34;, jsonObject(
+ *                             jsonProperty(&#34;Type&#34;, &#34;AWS::EC2::VPC&#34;),
+ *                             jsonProperty(&#34;Properties&#34;, jsonObject(
+ *                                 jsonProperty(&#34;CidrBlock&#34;, jsonObject(
+ *                                     jsonProperty(&#34;Ref&#34;, &#34;VPCCidr&#34;)
+ *                                 )),
+ *                                 jsonProperty(&#34;Tags&#34;, jsonArray(jsonObject(
+ *                                     jsonProperty(&#34;Key&#34;, &#34;Name&#34;),
+ *                                     jsonProperty(&#34;Value&#34;, &#34;Primary_CF_VPC&#34;)
+ *                                 )))
+ *                             ))
+ *                         ))
+ *                     ))
+ *                 )))
  *             .build());
  * 
  *         final var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

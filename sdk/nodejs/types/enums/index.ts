@@ -37,6 +37,7 @@ export const Region = {
     APSoutheast1: "ap-southeast-1",
     APSoutheast2: "ap-southeast-2",
     APSoutheast3: "ap-southeast-3",
+    APSoutheast4: "ap-southeast-4",
     CACentral: "ca-central-1",
     CNNorth1: "cn-north-1",
     CNNorthwest1: "cn-northwest-1",

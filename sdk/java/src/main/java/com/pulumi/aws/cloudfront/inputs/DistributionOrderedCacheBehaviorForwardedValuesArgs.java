@@ -19,16 +19,14 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
     public static final DistributionOrderedCacheBehaviorForwardedValuesArgs Empty = new DistributionOrderedCacheBehaviorForwardedValuesArgs();
 
     /**
-     * The forwarded values cookies
-     * that specifies how CloudFront handles cookies (maximum one).
+     * The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
      * 
      */
     @Import(name="cookies", required=true)
     private Output<DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs> cookies;
 
     /**
-     * @return The forwarded values cookies
-     * that specifies how CloudFront handles cookies (maximum one).
+     * @return The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
      * 
      */
     public Output<DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs> cookies() {
@@ -36,18 +34,14 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
     }
 
     /**
-     * Headers, if any, that you want
-     * CloudFront to vary upon for this cache behavior. Specify `*` to include all
-     * headers.
+     * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<String>> headers;
 
     /**
-     * @return Headers, if any, that you want
-     * CloudFront to vary upon for this cache behavior. Specify `*` to include all
-     * headers.
+     * @return Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
      * 
      */
     public Optional<Output<List<String>>> headers() {
@@ -55,16 +49,14 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
     }
 
     /**
-     * Indicates whether you want CloudFront to forward
-     * query strings to the origin that is associated with this cache behavior.
+     * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
      * 
      */
     @Import(name="queryString", required=true)
     private Output<Boolean> queryString;
 
     /**
-     * @return Indicates whether you want CloudFront to forward
-     * query strings to the origin that is associated with this cache behavior.
+     * @return Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
      * 
      */
     public Output<Boolean> queryString() {
@@ -72,20 +64,14 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
     }
 
     /**
-     * When specified, along with a value of
-     * `true` for `query_string`, all query strings are forwarded, however only the
-     * query string keys listed in this argument are cached. When omitted with a
-     * value of `true` for `query_string`, all query string keys are cached.
+     * When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
      * 
      */
     @Import(name="queryStringCacheKeys")
     private @Nullable Output<List<String>> queryStringCacheKeys;
 
     /**
-     * @return When specified, along with a value of
-     * `true` for `query_string`, all query strings are forwarded, however only the
-     * query string keys listed in this argument are cached. When omitted with a
-     * value of `true` for `query_string`, all query string keys are cached.
+     * @return When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
      * 
      */
     public Optional<Output<List<String>>> queryStringCacheKeys() {
@@ -120,8 +106,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param cookies The forwarded values cookies
-         * that specifies how CloudFront handles cookies (maximum one).
+         * @param cookies The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
          * 
          * @return builder
          * 
@@ -132,8 +117,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param cookies The forwarded values cookies
-         * that specifies how CloudFront handles cookies (maximum one).
+         * @param cookies The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
          * 
          * @return builder
          * 
@@ -143,9 +127,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param headers Headers, if any, that you want
-         * CloudFront to vary upon for this cache behavior. Specify `*` to include all
-         * headers.
+         * @param headers Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
          * 
          * @return builder
          * 
@@ -156,9 +138,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param headers Headers, if any, that you want
-         * CloudFront to vary upon for this cache behavior. Specify `*` to include all
-         * headers.
+         * @param headers Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
          * 
          * @return builder
          * 
@@ -168,9 +148,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param headers Headers, if any, that you want
-         * CloudFront to vary upon for this cache behavior. Specify `*` to include all
-         * headers.
+         * @param headers Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
          * 
          * @return builder
          * 
@@ -180,8 +158,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param queryString Indicates whether you want CloudFront to forward
-         * query strings to the origin that is associated with this cache behavior.
+         * @param queryString Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
          * 
          * @return builder
          * 
@@ -192,8 +169,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param queryString Indicates whether you want CloudFront to forward
-         * query strings to the origin that is associated with this cache behavior.
+         * @param queryString Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
          * 
          * @return builder
          * 
@@ -203,10 +179,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param queryStringCacheKeys When specified, along with a value of
-         * `true` for `query_string`, all query strings are forwarded, however only the
-         * query string keys listed in this argument are cached. When omitted with a
-         * value of `true` for `query_string`, all query string keys are cached.
+         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
          * 
          * @return builder
          * 
@@ -217,10 +190,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param queryStringCacheKeys When specified, along with a value of
-         * `true` for `query_string`, all query strings are forwarded, however only the
-         * query string keys listed in this argument are cached. When omitted with a
-         * value of `true` for `query_string`, all query string keys are cached.
+         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
          * 
          * @return builder
          * 
@@ -230,10 +200,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param queryStringCacheKeys When specified, along with a value of
-         * `true` for `query_string`, all query strings are forwarded, however only the
-         * query string keys listed in this argument are cached. When omitted with a
-         * value of `true` for `query_string`, all query string keys are cached.
+         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
          * 
          * @return builder
          * 

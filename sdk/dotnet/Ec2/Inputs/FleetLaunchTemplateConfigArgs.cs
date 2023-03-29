@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// <summary>
         /// Nested argument containing EC2 Launch Template to use. Defined below.
         /// </summary>
-        [Input("launchTemplateSpecification", required: true)]
-        public Input<Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs> LaunchTemplateSpecification { get; set; } = null!;
+        [Input("launchTemplateSpecification")]
+        public Input<Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs>? LaunchTemplateSpecification { get; set; }
 
         [Input("overrides")]
         private InputList<Inputs.FleetLaunchTemplateConfigOverrideArgs>? _overrides;

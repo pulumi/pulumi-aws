@@ -6,6 +6,7 @@ package com.pulumi.aws.elasticache;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.elasticache.UserArgs;
 import com.pulumi.aws.elasticache.inputs.UserState;
+import com.pulumi.aws.elasticache.outputs.UserAuthenticationMode;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -53,6 +54,79 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.User;
+ * import com.pulumi.aws.elasticache.UserArgs;
+ * import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .accessString(&#34;on ~* +@all&#34;)
+ *             .authenticationMode(UserAuthenticationModeArgs.builder()
+ *                 .type(&#34;iam&#34;)
+ *                 .build())
+ *             .engine(&#34;REDIS&#34;)
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.User;
+ * import com.pulumi.aws.elasticache.UserArgs;
+ * import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new User(&#34;test&#34;, UserArgs.builder()        
+ *             .accessString(&#34;on ~* +@all&#34;)
+ *             .authenticationMode(UserAuthenticationModeArgs.builder()
+ *                 .passwords(                
+ *                     &#34;password1&#34;,
+ *                     &#34;password2&#34;)
+ *                 .type(&#34;password&#34;)
+ *                 .build())
+ *             .engine(&#34;REDIS&#34;)
+ *             .userId(&#34;testUserId&#34;)
+ *             .userName(&#34;testUserName&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -92,6 +166,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Denotes the user&#39;s authentication properties. Detailed below.
+     * 
+     */
+    @Export(name="authenticationMode", refs={UserAuthenticationMode.class}, tree="[0]")
+    private Output<UserAuthenticationMode> authenticationMode;
+
+    /**
+     * @return Denotes the user&#39;s authentication properties. Detailed below.
+     * 
+     */
+    public Output<UserAuthenticationMode> authenticationMode() {
+        return this.authenticationMode;
     }
     /**
      * The current supported value is `REDIS`.

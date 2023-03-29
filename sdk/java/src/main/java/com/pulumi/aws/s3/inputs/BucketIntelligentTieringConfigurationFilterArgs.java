@@ -17,14 +17,14 @@ public final class BucketIntelligentTieringConfigurationFilterArgs extends com.p
     public static final BucketIntelligentTieringConfigurationFilterArgs Empty = new BucketIntelligentTieringConfigurationFilterArgs();
 
     /**
-     * An object key name prefix that identifies the subset of objects to which the configuration applies.
+     * Object key name prefix that identifies the subset of objects to which the configuration applies.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return An object key name prefix that identifies the subset of objects to which the configuration applies.
+     * @return Object key name prefix that identifies the subset of objects to which the configuration applies.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -72,7 +72,7 @@ public final class BucketIntelligentTieringConfigurationFilterArgs extends com.p
         }
 
         /**
-         * @param prefix An object key name prefix that identifies the subset of objects to which the configuration applies.
+         * @param prefix Object key name prefix that identifies the subset of objects to which the configuration applies.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketIntelligentTieringConfigurationFilterArgs extends com.p
         }
 
         /**
-         * @param prefix An object key name prefix that identifies the subset of objects to which the configuration applies.
+         * @param prefix Object key name prefix that identifies the subset of objects to which the configuration applies.
          * 
          * @return builder
          * 

@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cfg.DeliveryChannelArgs;
  * import com.pulumi.aws.cfg.RecorderStatus;
  * import com.pulumi.aws.cfg.RecorderStatusArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
@@ -65,22 +67,19 @@ import javax.annotation.Nullable;
  *                 .dependsOn(fooDeliveryChannel)
  *                 .build());
  * 
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;config.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;config.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var rolePolicyAttachment = new RolePolicyAttachment(&#34;rolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
@@ -92,29 +91,19 @@ import javax.annotation.Nullable;
  *             .roleArn(role.arn())
  *             .build());
  * 
+ *         final var policyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(&#34;s3:*&#34;)
+ *                 .resources(                
+ *                     bucketV2.arn(),
+ *                     bucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                 .build())
+ *             .build());
+ * 
  *         var rolePolicy = new RolePolicy(&#34;rolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(role.id())
- *             .policy(Output.tuple(bucketV2.arn(), bucketV2.arn()).applyValue(values -&gt; {
- *                 var bucketV2Arn = values.t1;
- *                 var bucketV2Arn1 = values.t2;
- *                 return &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;s3:*&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;,
- *         &#34;%s/*&#34;
- *       ]
- *     }
- *   ]
- * }
- * &#34;, bucketV2Arn,bucketV2Arn1);
- *             }))
+ *             .policy(policyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(policyDocument -&gt; policyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

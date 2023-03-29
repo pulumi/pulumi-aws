@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
- *     bucket: exampleBucketV2.bucket,
+ *     bucket: exampleBucketV2.id,
  *     key: "example-flink-application",
  *     source: new pulumi.asset.FileAsset("flink-app.jar"),
  * });
@@ -185,7 +185,7 @@ import * as utilities from "../utilities";
  *
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
- *     bucket: exampleBucketV2.bucket,
+ *     bucket: exampleBucketV2.id,
  *     key: "example-flink-application",
  *     source: new pulumi.asset.FileAsset("flink-app.jar"),
  * });

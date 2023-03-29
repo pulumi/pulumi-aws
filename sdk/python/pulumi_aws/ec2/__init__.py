@@ -62,6 +62,8 @@ from .get_network_insights_path import *
 from .get_network_interface import *
 from .get_network_interfaces import *
 from .get_prefix_list import *
+from .get_public_ipv4_pool import *
+from .get_public_ipv4_pools import *
 from .get_route import *
 from .get_route_table import *
 from .get_route_tables import *
@@ -144,6 +146,8 @@ from .vpc_ipam_pool import *
 from .vpc_ipam_pool_cidr import *
 from .vpc_ipam_pool_cidr_allocation import *
 from .vpc_ipam_preview_next_cidr import *
+from .vpc_ipam_resource_discovery import *
+from .vpc_ipam_resource_discovery_association import *
 from .vpc_ipam_scope import *
 from .vpc_ipv4_cidr_block_association import *
 from .vpc_ipv6_cidr_block_association import *

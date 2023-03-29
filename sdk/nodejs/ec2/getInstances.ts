@@ -64,6 +64,10 @@ export interface GetInstancesResult {
     readonly instanceStateNames?: string[];
     readonly instanceTags: {[key: string]: string};
     /**
+     * IPv6 addresses of instances found through the filter
+     */
+    readonly ipv6Addresses: string[];
+    /**
      * Private IP addresses of instances found through the filter
      */
     readonly privateIps: string[];

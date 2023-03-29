@@ -40,10 +40,9 @@ import * as utilities from "../utilities";
  *     defaultResult: "CONTINUE",
  *     heartbeatTimeout: 2000,
  *     lifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
- *     notificationMetadata: `{
- *   "foo": "bar"
- * }
- * `,
+ *     notificationMetadata: JSON.stringify({
+ *         foo: "bar",
+ *     }),
  *     notificationTargetArn: "arn:aws:sqs:us-east-1:444455556666:queue1*",
  *     roleArn: "arn:aws:iam::123456789012:role/S3Access",
  * });

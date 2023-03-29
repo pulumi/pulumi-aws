@@ -14,14 +14,14 @@ public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration
     public static final BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs Empty = new BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs();
 
     /**
-     * The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+     * ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
      * 
      */
     @Import(name="replicaKmsKeyId", required=true)
     private Output<String> replicaKmsKeyId;
 
     /**
-     * @return The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+     * @return ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
      * 
      */
     public Output<String> replicaKmsKeyId() {
@@ -53,7 +53,7 @@ public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration
         }
 
         /**
-         * @param replicaKmsKeyId The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+         * @param replicaKmsKeyId ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration
         }
 
         /**
-         * @param replicaKmsKeyId The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+         * @param replicaKmsKeyId ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
          * 
          * @return builder
          * 

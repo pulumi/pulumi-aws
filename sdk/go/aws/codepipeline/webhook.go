@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
 //	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -96,7 +94,7 @@ import (
 //				},
 //				Filters: codepipeline.WebhookFilterArray{
 //					&codepipeline.WebhookFilterArgs{
-//						JsonPath:    pulumi.String(fmt.Sprintf("$.ref")),
+//						JsonPath:    pulumi.String("$.ref"),
 //						MatchEquals: pulumi.String("refs/heads/{Branch}"),
 //					},
 //				},

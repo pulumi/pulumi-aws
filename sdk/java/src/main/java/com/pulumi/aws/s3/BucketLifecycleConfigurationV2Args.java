@@ -18,14 +18,14 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
     public static final BucketLifecycleConfigurationV2Args Empty = new BucketLifecycleConfigurationV2Args();
 
     /**
-     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     * Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the source S3 bucket you want Amazon S3 to monitor.
+     * @return Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
     public Output<String> bucket() {
@@ -33,14 +33,14 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
     }
 
     /**
-     * The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * @return Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     public Optional<Output<String>> expectedBucketOwner() {
@@ -48,14 +48,14 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
     }
 
     /**
-     * List of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules;
 
     /**
-     * @return List of configuration blocks describing the rules managing the replication documented below.
+     * @return List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     public Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules() {
@@ -89,7 +89,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param bucket The name of the source S3 bucket you want Amazon S3 to monitor.
+         * @param bucket Name of the source S3 bucket you want Amazon S3 to monitor.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param bucket The name of the source S3 bucket you want Amazon S3 to monitor.
+         * @param bucket Name of the source S3 bucket you want Amazon S3 to monitor.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+         * @param expectedBucketOwner Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+         * @param expectedBucketOwner Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
+         * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
+         * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
+         * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
          * @return builder
          * 

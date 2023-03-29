@@ -84,7 +84,7 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
 
     ## Example Usage
 
-    The following shows outputing all Transit Gateway Route Table Ids.
+    The following shows outputting all Transit Gateway Route Table Ids.
 
     ```python
     import pulumi
@@ -121,7 +121,7 @@ def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optio
 
     ## Example Usage
 
-    The following shows outputing all Transit Gateway Route Table Ids.
+    The following shows outputting all Transit Gateway Route Table Ids.
 
     ```python
     import pulumi

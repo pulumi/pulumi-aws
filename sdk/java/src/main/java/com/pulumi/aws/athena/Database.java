@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
  *             .name(&#34;database_name&#34;)
- *             .bucket(exampleBucketV2.bucket())
+ *             .bucket(exampleBucketV2.id())
  *             .build());
  * 
  *     }
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  *  = &#34;database_name&#34;
  * 
- *  bucket = aws_s3_bucket.example.bucket
+ *  bucket = aws_s3_bucket.example.id
  * 
  * # There is no API for reading bucket
  * 

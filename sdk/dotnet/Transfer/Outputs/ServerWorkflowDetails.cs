@@ -14,13 +14,21 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class ServerWorkflowDetails
     {
         /// <summary>
+        /// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+        /// </summary>
+        public readonly Outputs.ServerWorkflowDetailsOnPartialUpload? OnPartialUpload;
+        /// <summary>
         /// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
         /// </summary>
         public readonly Outputs.ServerWorkflowDetailsOnUpload? OnUpload;
 
         [OutputConstructor]
-        private ServerWorkflowDetails(Outputs.ServerWorkflowDetailsOnUpload? onUpload)
+        private ServerWorkflowDetails(
+            Outputs.ServerWorkflowDetailsOnPartialUpload? onPartialUpload,
+
+            Outputs.ServerWorkflowDetailsOnUpload? onUpload)
         {
+            OnPartialUpload = onPartialUpload;
             OnUpload = onUpload;
         }
     }

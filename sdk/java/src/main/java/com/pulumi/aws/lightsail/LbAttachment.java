@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .blueprintId(&#34;amazon_linux&#34;)
+ *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
  *             .build());
  * 

@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -34,7 +32,7 @@ import (
 //					pulumi.String("/aws/logGroup1"),
 //					pulumi.String("/aws/logGroup2"),
 //				},
-//				QueryString: pulumi.String(fmt.Sprintf("fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n\n")),
+//				QueryString: pulumi.String("fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n\n"),
 //			})
 //			if err != nil {
 //				return err

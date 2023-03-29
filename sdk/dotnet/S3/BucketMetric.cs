@@ -26,7 +26,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_entire_bucket = new Aws.S3.BucketMetric("example-entire-bucket", new()
     ///     {
-    ///         Bucket = example.Bucket,
+    ///         Bucket = example.Id,
     ///     });
     /// 
     /// });
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
     ///     {
-    ///         Bucket = example.Bucket,
+    ///         Bucket = example.Id,
     ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
     ///         {
     ///             Prefix = "documents/",
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.S3
     public partial class BucketMetric : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the bucket to put metric configuration.
+        /// Name of the bucket to put metric configuration.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket to put metric configuration.
+        /// Name of the bucket to put metric configuration.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketMetricState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket to put metric configuration.
+        /// Name of the bucket to put metric configuration.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

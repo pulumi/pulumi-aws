@@ -83,6 +83,12 @@ namespace Pulumi.Aws.Organizations
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
+        /// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         /// </summary>
         [Output("targetId")]
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.Organizations
         public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
+        /// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
+        /// <summary>
         /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         /// </summary>
         [Input("targetId", required: true)]
@@ -159,6 +171,12 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
         /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.

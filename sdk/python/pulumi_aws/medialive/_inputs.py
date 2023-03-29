@@ -1972,9 +1972,9 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
         """
         :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs'] output_settings: Settings for output. See Output Settings for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audio_description_names: The names of the audio descriptions used as audio sources for the output.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] caption_description_names: The names of the caption descriptions used as audio sources for the output.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] caption_description_names: The names of the caption descriptions used as caption sources for the output.
         :param pulumi.Input[str] output_name: The name used to identify an output.
-        :param pulumi.Input[str] video_description_name: The name of the video description used as audio sources for the output.
+        :param pulumi.Input[str] video_description_name: The name of the video description used as video source for the output.
         """
         pulumi.set(__self__, "output_settings", output_settings)
         if audio_description_names is not None:
@@ -2014,7 +2014,7 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
     @pulumi.getter(name="captionDescriptionNames")
     def caption_description_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The names of the caption descriptions used as audio sources for the output.
+        The names of the caption descriptions used as caption sources for the output.
         """
         return pulumi.get(self, "caption_description_names")
 
@@ -2038,7 +2038,7 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
     @pulumi.getter(name="videoDescriptionName")
     def video_description_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the video description used as audio sources for the output.
+        The name of the video description used as video source for the output.
         """
         return pulumi.get(self, "video_description_name")
 
@@ -3536,10 +3536,10 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
     def __init__(__self__, *,
                  destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs'],
                  acquisition_point_id: Optional[pulumi.Input[str]] = None,
-                 audio_only_timecodec_control: Optional[pulumi.Input[str]] = None,
+                 audio_only_timecode_control: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
-                 event_id: Optional[pulumi.Input[int]] = None,
+                 event_id: Optional[pulumi.Input[str]] = None,
                  event_id_mode: Optional[pulumi.Input[str]] = None,
                  event_stop_behavior: Optional[pulumi.Input[str]] = None,
                  filecache_duration: Optional[pulumi.Input[int]] = None,
@@ -3564,8 +3564,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
         pulumi.set(__self__, "destination", destination)
         if acquisition_point_id is not None:
             pulumi.set(__self__, "acquisition_point_id", acquisition_point_id)
-        if audio_only_timecodec_control is not None:
-            pulumi.set(__self__, "audio_only_timecodec_control", audio_only_timecodec_control)
+        if audio_only_timecode_control is not None:
+            pulumi.set(__self__, "audio_only_timecode_control", audio_only_timecode_control)
         if certificate_mode is not None:
             pulumi.set(__self__, "certificate_mode", certificate_mode)
         if connection_retry_interval is not None:
@@ -3621,13 +3621,13 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
         pulumi.set(self, "acquisition_point_id", value)
 
     @property
-    @pulumi.getter(name="audioOnlyTimecodecControl")
-    def audio_only_timecodec_control(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "audio_only_timecodec_control")
+    @pulumi.getter(name="audioOnlyTimecodeControl")
+    def audio_only_timecode_control(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "audio_only_timecode_control")
 
-    @audio_only_timecodec_control.setter
-    def audio_only_timecodec_control(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "audio_only_timecodec_control", value)
+    @audio_only_timecode_control.setter
+    def audio_only_timecode_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audio_only_timecode_control", value)
 
     @property
     @pulumi.getter(name="certificateMode")
@@ -3655,11 +3655,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
 
     @property
     @pulumi.getter(name="eventId")
-    def event_id(self) -> Optional[pulumi.Input[int]]:
+    def event_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "event_id")
 
     @event_id.setter
-    def event_id(self, value: Optional[pulumi.Input[int]]):
+    def event_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_id", value)
 
     @property
@@ -6408,7 +6408,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
                  row_length: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] column_depth: The height of the FEC protection matrix.
-        :param pulumi.Input[str] include_fec: Enables column oly or column and row based FEC.
+        :param pulumi.Input[str] include_fec: Enables column only or column and row based FEC.
         :param pulumi.Input[int] row_length: The width of the FEC protection matrix.
         """
         if column_depth is not None:
@@ -6434,7 +6434,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
     @pulumi.getter(name="includeFec")
     def include_fec(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables column oly or column and row based FEC.
+        Enables column only or column and row based FEC.
         """
         return pulumi.get(self, "include_fec")
 

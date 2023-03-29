@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupInstanceRefreshPreferences
     {
         /// <summary>
+        /// Automatically rollback if instance refresh fails. Defaults to `false`.
+        /// </summary>
+        public readonly bool? AutoRollback;
+        /// <summary>
         /// Number of seconds to wait after a checkpoint. Defaults to `3600`.
         /// </summary>
         public readonly string? CheckpointDelay;
@@ -36,6 +40,8 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
         [OutputConstructor]
         private GroupInstanceRefreshPreferences(
+            bool? autoRollback,
+
             string? checkpointDelay,
 
             ImmutableArray<int> checkpointPercentages,
@@ -46,6 +52,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             bool? skipMatching)
         {
+            AutoRollback = autoRollback;
             CheckpointDelay = checkpointDelay;
             CheckpointPercentages = checkpointPercentages;
             InstanceWarmup = instanceWarmup;

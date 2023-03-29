@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetUserResult',
@@ -21,10 +23,13 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, access_string=None, engine=None, id=None, no_password_required=None, passwords=None, user_id=None, user_name=None):
+    def __init__(__self__, access_string=None, authentication_modes=None, engine=None, id=None, no_password_required=None, passwords=None, user_id=None, user_name=None):
         if access_string and not isinstance(access_string, str):
             raise TypeError("Expected argument 'access_string' to be a str")
         pulumi.set(__self__, "access_string", access_string)
+        if authentication_modes and not isinstance(authentication_modes, list):
+            raise TypeError("Expected argument 'authentication_modes' to be a list")
+        pulumi.set(__self__, "authentication_modes", authentication_modes)
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
@@ -51,6 +56,11 @@ class GetUserResult:
         String for what access a user possesses within the associated ElastiCache replication groups or clusters.
         """
         return pulumi.get(self, "access_string")
+
+    @property
+    @pulumi.getter(name="authenticationModes")
+    def authentication_modes(self) -> Optional[Sequence['outputs.GetUserAuthenticationModeResult']]:
+        return pulumi.get(self, "authentication_modes")
 
     @property
     @pulumi.getter
@@ -99,6 +109,7 @@ class AwaitableGetUserResult(GetUserResult):
             yield self
         return GetUserResult(
             access_string=self.access_string,
+            authentication_modes=self.authentication_modes,
             engine=self.engine,
             id=self.id,
             no_password_required=self.no_password_required,
@@ -108,6 +119,7 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(access_string: Optional[str] = None,
+             authentication_modes: Optional[Sequence[pulumi.InputType['GetUserAuthenticationModeArgs']]] = None,
              engine: Optional[str] = None,
              no_password_required: Optional[bool] = None,
              passwords: Optional[Sequence[str]] = None,
@@ -133,6 +145,7 @@ def get_user(access_string: Optional[str] = None,
     """
     __args__ = dict()
     __args__['accessString'] = access_string
+    __args__['authenticationModes'] = authentication_modes
     __args__['engine'] = engine
     __args__['noPasswordRequired'] = no_password_required
     __args__['passwords'] = passwords
@@ -143,6 +156,7 @@ def get_user(access_string: Optional[str] = None,
 
     return AwaitableGetUserResult(
         access_string=__ret__.access_string,
+        authentication_modes=__ret__.authentication_modes,
         engine=__ret__.engine,
         id=__ret__.id,
         no_password_required=__ret__.no_password_required,
@@ -153,6 +167,7 @@ def get_user(access_string: Optional[str] = None,
 
 @_utilities.lift_output_func(get_user)
 def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
+                    authentication_modes: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserAuthenticationModeArgs']]]]] = None,
                     engine: Optional[pulumi.Input[Optional[str]]] = None,
                     no_password_required: Optional[pulumi.Input[Optional[bool]]] = None,
                     passwords: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,

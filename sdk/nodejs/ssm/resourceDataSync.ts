@@ -17,37 +17,38 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
- * const hogeBucketPolicy = new aws.s3.BucketPolicy("hogeBucketPolicy", {
- *     bucket: hogeBucketV2.bucket,
- *     policy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
+ * const hogePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [
  *         {
- *             "Sid": "SSMBucketPermissionsCheck",
- *             "Effect": "Allow",
- *             "Principal": {
- *                 "Service": "ssm.amazonaws.com"
- *             },
- *             "Action": "s3:GetBucketAcl",
- *             "Resource": "arn:aws:s3:::tf-test-bucket-1234"
+ *             sid: "SSMBucketPermissionsCheck",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["ssm.amazonaws.com"],
+ *             }],
+ *             actions: ["s3:GetBucketAcl"],
+ *             resources: ["arn:aws:s3:::tf-test-bucket-1234"],
  *         },
  *         {
- *             "Sid": " SSMBucketDelivery",
- *             "Effect": "Allow",
- *             "Principal": {
- *                 "Service": "ssm.amazonaws.com"
- *             },
- *             "Action": "s3:PutObject",
- *             "Resource": ["arn:aws:s3:::tf-test-bucket-1234/*"],
- *             "Condition": {
- *                 "StringEquals": {
- *                     "s3:x-amz-acl": "bucket-owner-full-control"
- *                 }
- *             }
- *         }
- *     ]
- * }
- * `,
+ *             sid: "SSMBucketDelivery",
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["ssm.amazonaws.com"],
+ *             }],
+ *             actions: ["s3:PutObject"],
+ *             resources: ["arn:aws:s3:::tf-test-bucket-1234/*"],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "s3:x-amz-acl",
+ *                 values: ["bucket-owner-full-control"],
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const hogeBucketPolicy = new aws.s3.BucketPolicy("hogeBucketPolicy", {
+ *     bucket: hogeBucketV2.id,
+ *     policy: hogePolicyDocument.then(hogePolicyDocument => hogePolicyDocument.json),
  * });
  * const foo = new aws.ssm.ResourceDataSync("foo", {s3Destination: {
  *     bucketName: hogeBucketV2.bucket,

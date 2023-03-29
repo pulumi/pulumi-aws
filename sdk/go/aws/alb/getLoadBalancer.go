@@ -75,31 +75,34 @@ type LookupLoadBalancerArgs struct {
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	AccessLogs                   GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
-	Arn                          string                    `pulumi:"arn"`
-	ArnSuffix                    string                    `pulumi:"arnSuffix"`
-	CustomerOwnedIpv4Pool        string                    `pulumi:"customerOwnedIpv4Pool"`
-	DesyncMitigationMode         string                    `pulumi:"desyncMitigationMode"`
-	DnsName                      string                    `pulumi:"dnsName"`
-	DropInvalidHeaderFields      bool                      `pulumi:"dropInvalidHeaderFields"`
-	EnableCrossZoneLoadBalancing bool                      `pulumi:"enableCrossZoneLoadBalancing"`
-	EnableDeletionProtection     bool                      `pulumi:"enableDeletionProtection"`
-	EnableHttp2                  bool                      `pulumi:"enableHttp2"`
-	EnableWafFailOpen            bool                      `pulumi:"enableWafFailOpen"`
+	AccessLogs                            GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
+	Arn                                   string                    `pulumi:"arn"`
+	ArnSuffix                             string                    `pulumi:"arnSuffix"`
+	CustomerOwnedIpv4Pool                 string                    `pulumi:"customerOwnedIpv4Pool"`
+	DesyncMitigationMode                  string                    `pulumi:"desyncMitigationMode"`
+	DnsName                               string                    `pulumi:"dnsName"`
+	DropInvalidHeaderFields               bool                      `pulumi:"dropInvalidHeaderFields"`
+	EnableCrossZoneLoadBalancing          bool                      `pulumi:"enableCrossZoneLoadBalancing"`
+	EnableDeletionProtection              bool                      `pulumi:"enableDeletionProtection"`
+	EnableHttp2                           bool                      `pulumi:"enableHttp2"`
+	EnableTlsVersionAndCipherSuiteHeaders bool                      `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
+	EnableWafFailOpen                     bool                      `pulumi:"enableWafFailOpen"`
+	EnableXffClientPort                   bool                      `pulumi:"enableXffClientPort"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string                         `pulumi:"id"`
-	IdleTimeout        int                            `pulumi:"idleTimeout"`
-	Internal           bool                           `pulumi:"internal"`
-	IpAddressType      string                         `pulumi:"ipAddressType"`
-	LoadBalancerType   string                         `pulumi:"loadBalancerType"`
-	Name               string                         `pulumi:"name"`
-	PreserveHostHeader bool                           `pulumi:"preserveHostHeader"`
-	SecurityGroups     []string                       `pulumi:"securityGroups"`
-	SubnetMappings     []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	Subnets            []string                       `pulumi:"subnets"`
-	Tags               map[string]string              `pulumi:"tags"`
-	VpcId              string                         `pulumi:"vpcId"`
-	ZoneId             string                         `pulumi:"zoneId"`
+	Id                      string                         `pulumi:"id"`
+	IdleTimeout             int                            `pulumi:"idleTimeout"`
+	Internal                bool                           `pulumi:"internal"`
+	IpAddressType           string                         `pulumi:"ipAddressType"`
+	LoadBalancerType        string                         `pulumi:"loadBalancerType"`
+	Name                    string                         `pulumi:"name"`
+	PreserveHostHeader      bool                           `pulumi:"preserveHostHeader"`
+	SecurityGroups          []string                       `pulumi:"securityGroups"`
+	SubnetMappings          []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
+	Subnets                 []string                       `pulumi:"subnets"`
+	Tags                    map[string]string              `pulumi:"tags"`
+	VpcId                   string                         `pulumi:"vpcId"`
+	XffHeaderProcessingMode string                         `pulumi:"xffHeaderProcessingMode"`
+	ZoneId                  string                         `pulumi:"zoneId"`
 }
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
@@ -184,8 +187,16 @@ func (o LookupLoadBalancerResultOutput) EnableHttp2() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableHttp2 }).(pulumi.BoolOutput)
 }
 
+func (o LookupLoadBalancerResultOutput) EnableTlsVersionAndCipherSuiteHeaders() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableTlsVersionAndCipherSuiteHeaders }).(pulumi.BoolOutput)
+}
+
 func (o LookupLoadBalancerResultOutput) EnableWafFailOpen() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableWafFailOpen }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) EnableXffClientPort() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableXffClientPort }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -235,6 +246,10 @@ func (o LookupLoadBalancerResultOutput) Tags() pulumi.StringMapOutput {
 
 func (o LookupLoadBalancerResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) XffHeaderProcessingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.XffHeaderProcessingMode }).(pulumi.StringOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) ZoneId() pulumi.StringOutput {

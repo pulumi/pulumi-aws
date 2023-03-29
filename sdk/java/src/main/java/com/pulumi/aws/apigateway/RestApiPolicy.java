@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.apigateway.RestApiPolicy;
  * import com.pulumi.aws.apigateway.RestApiPolicyArgs;
  * import java.util.List;
@@ -44,28 +46,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testRestApi = new RestApi(&#34;testRestApi&#34;);
  * 
+ *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(&#34;execute-api:Invoke&#34;)
+ *                 .resources(testRestApi.executionArn())
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;IpAddress&#34;)
+ *                     .variable(&#34;aws:SourceIp&#34;)
+ *                     .values(&#34;123.123.123.123/32&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
  *         var testRestApiPolicy = new RestApiPolicy(&#34;testRestApiPolicy&#34;, RestApiPolicyArgs.builder()        
  *             .restApiId(testRestApi.id())
- *             .policy(testRestApi.executionArn().applyValue(executionArn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;AWS&#34;: &#34;*&#34;
- *       },
- *       &#34;Action&#34;: &#34;execute-api:Invoke&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;Condition&#34;: {
- *         &#34;IpAddress&#34;: {
- *           &#34;aws:SourceIp&#34;: &#34;123.123.123.123/32&#34;
- *         }
- *       }
- *     }
- *   ]
- * }
- * &#34;, executionArn)))
+ *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

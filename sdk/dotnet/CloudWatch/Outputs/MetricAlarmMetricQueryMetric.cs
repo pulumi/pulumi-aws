@@ -28,7 +28,9 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly string? Namespace;
         /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
+        /// Granularity in seconds of returned data points.
+        /// For metrics with regular resolution, valid values are any multiple of `60`.
+        /// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         /// </summary>
         public readonly int Period;
         /// <summary>

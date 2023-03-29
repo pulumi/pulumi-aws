@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigurationV2RuleFilter {
     /**
-     * @return Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+     * @return Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
      * 
      */
     private @Nullable BucketLifecycleConfigurationV2RuleFilterAnd and;
@@ -34,14 +34,14 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
      */
     private @Nullable String prefix;
     /**
-     * @return A configuration block for specifying a tag key and value documented below.
+     * @return Configuration block for specifying a tag key and value. See below.
      * 
      */
     private @Nullable BucketLifecycleConfigurationV2RuleFilterTag tag;
 
     private BucketLifecycleConfigurationV2RuleFilter() {}
     /**
-     * @return Configuration block used to apply a logical `AND` to two or more predicates documented below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+     * @return Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
      * 
      */
     public Optional<BucketLifecycleConfigurationV2RuleFilterAnd> and() {
@@ -69,7 +69,7 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return A configuration block for specifying a tag key and value documented below.
+     * @return Configuration block for specifying a tag key and value. See below.
      * 
      */
     public Optional<BucketLifecycleConfigurationV2RuleFilterTag> tag() {

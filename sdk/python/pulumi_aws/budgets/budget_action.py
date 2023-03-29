@@ -381,39 +381,24 @@ class BudgetAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:Describe*"],
+            resources=["*"],
+        )])
         example_policy = aws.iam.Policy("examplePolicy",
             description="My example policy",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=example_policy_document.json)
         current = aws.get_partition()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Principal": {{
-                "Service": [
-                  "budgets.{current.dns_suffix}"
-                ]
-              }},
-              "Action": [
-                "sts:AssumeRole"
-              ]
-            }}
-          ]
-        }}
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=[f"budgets.{current.dns_suffix}"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_budget = aws.budgets.Budget("exampleBudget",
             budget_type="USAGE",
             limit_amount="10.0",
@@ -477,39 +462,24 @@ class BudgetAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:Describe*"],
+            resources=["*"],
+        )])
         example_policy = aws.iam.Policy("examplePolicy",
             description="My example policy",
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": [
-                "ec2:Describe*"
-              ],
-              "Effect": "Allow",
-              "Resource": "*"
-            }
-          ]
-        }
-        \"\"\")
+            policy=example_policy_document.json)
         current = aws.get_partition()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Principal": {{
-                "Service": [
-                  "budgets.{current.dns_suffix}"
-                ]
-              }},
-              "Action": [
-                "sts:AssumeRole"
-              ]
-            }}
-          ]
-        }}
-        \"\"\")
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=[f"budgets.{current.dns_suffix}"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_budget = aws.budgets.Budget("exampleBudget",
             budget_type="USAGE",
             limit_amount="10.0",

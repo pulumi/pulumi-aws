@@ -712,7 +712,7 @@ func (o OrganizationConformancePackInputParameterArrayOutput) Index(i pulumi.Int
 type RecorderRecordingGroup struct {
 	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 	AllSupported *bool `pulumi:"allSupported"`
-	// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+	// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
 	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 	ResourceTypes []string `pulumi:"resourceTypes"`
@@ -732,7 +732,7 @@ type RecorderRecordingGroupInput interface {
 type RecorderRecordingGroupArgs struct {
 	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 	AllSupported pulumi.BoolPtrInput `pulumi:"allSupported"`
-	// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+	// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes pulumi.BoolPtrInput `pulumi:"includeGlobalResourceTypes"`
 	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
@@ -820,7 +820,7 @@ func (o RecorderRecordingGroupOutput) AllSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
 }
@@ -864,7 +864,7 @@ func (o RecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
 		if v == nil {

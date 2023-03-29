@@ -86,6 +86,7 @@ type LookupTargetGroupResult struct {
 	Id                             string                   `pulumi:"id"`
 	LambdaMultiValueHeadersEnabled bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
 	LoadBalancingAlgorithmType     string                   `pulumi:"loadBalancingAlgorithmType"`
+	LoadBalancingCrossZoneEnabled  string                   `pulumi:"loadBalancingCrossZoneEnabled"`
 	Name                           string                   `pulumi:"name"`
 	Port                           int                      `pulumi:"port"`
 	PreserveClientIp               string                   `pulumi:"preserveClientIp"`
@@ -172,6 +173,10 @@ func (o LookupTargetGroupResultOutput) LambdaMultiValueHeadersEnabled() pulumi.B
 
 func (o LookupTargetGroupResultOutput) LoadBalancingAlgorithmType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.LoadBalancingAlgorithmType }).(pulumi.StringOutput)
+}
+
+func (o LookupTargetGroupResultOutput) LoadBalancingCrossZoneEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.LoadBalancingCrossZoneEnabled }).(pulumi.StringOutput)
 }
 
 func (o LookupTargetGroupResultOutput) Name() pulumi.StringOutput {

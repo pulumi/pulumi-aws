@@ -882,15 +882,15 @@ class ProjectSecondaryArtifact(dict):
                  path: Optional[str] = None):
         """
         :param str artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
-        :param str type: Build output artifact's type. The only valid value is `S3`.
-        :param str bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+        :param str type: Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
+        :param str bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         :param bool encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        :param str location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
-        :param str name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param str namespace_type: Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+        :param str location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
+        :param str name: Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output artifact object.
+        :param str namespace_type: Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
         :param bool override_artifact_name: Whether a name specified in the build specification overrides the artifact name.
-        :param str packaging: Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
-        :param str path: If `type` is set to `S3`, this is the path to the output artifact.
+        :param str packaging: Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
+        :param str path: Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the path to the output artifact.
         """
         pulumi.set(__self__, "artifact_identifier", artifact_identifier)
         pulumi.set(__self__, "type", type)
@@ -923,7 +923,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Build output artifact's type. The only valid value is `S3`.
+        Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
         """
         return pulumi.get(self, "type")
 
@@ -931,7 +931,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter(name="bucketOwnerAccess")
     def bucket_owner_access(self) -> Optional[str]:
         """
-        Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+        Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         """
         return pulumi.get(self, "bucket_owner_access")
 
@@ -947,7 +947,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
+        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
         """
         return pulumi.get(self, "location")
 
@@ -955,7 +955,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output artifact object.
         """
         return pulumi.get(self, "name")
 
@@ -963,7 +963,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> Optional[str]:
         """
-        Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+        Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
         """
         return pulumi.get(self, "namespace_type")
 
@@ -979,7 +979,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter
     def packaging(self) -> Optional[str]:
         """
-        Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+        Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
         """
         return pulumi.get(self, "packaging")
 
@@ -987,7 +987,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter
     def path(self) -> Optional[str]:
         """
-        If `type` is set to `S3`, this is the path to the output artifact.
+        Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the path to the output artifact.
         """
         return pulumi.get(self, "path")
 

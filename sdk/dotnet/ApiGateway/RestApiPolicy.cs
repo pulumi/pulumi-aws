@@ -26,28 +26,52 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var testRestApi = new Aws.ApiGateway.RestApi("testRestApi");
     /// 
+    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "execute-api:Invoke",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     testRestApi.ExecutionArn,
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "IpAddress",
+    ///                         Variable = "aws:SourceIp",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "123.123.123.123/32",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("testRestApiPolicy", new()
     ///     {
     ///         RestApiId = testRestApi.Id,
-    ///         Policy = testRestApi.ExecutionArn.Apply(executionArn =&gt; @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {{
-    ///         ""AWS"": ""*""
-    ///       }},
-    ///       ""Action"": ""execute-api:Invoke"",
-    ///       ""Resource"": ""{executionArn}"",
-    ///       ""Condition"": {{
-    ///         ""IpAddress"": {{
-    ///           ""aws:SourceIp"": ""123.123.123.123/32""
-    ///         }}
-    ///       }}
-    ///     }}
-    ///   ]
-    /// }}
-    /// "),
+    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

@@ -109,6 +109,10 @@ export class ConfigurationSet extends pulumi.CustomResource {
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
     public readonly trackingOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetTrackingOptions | undefined>;
+    /**
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     */
+    public readonly vdmOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetVdmOptions | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -132,6 +136,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["trackingOptions"] = state ? state.trackingOptions : undefined;
+            resourceInputs["vdmOptions"] = state ? state.vdmOptions : undefined;
         } else {
             const args = argsOrState as ConfigurationSetArgs | undefined;
             if ((!args || args.configurationSetName === undefined) && !opts.urn) {
@@ -144,6 +149,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
+            resourceInputs["vdmOptions"] = args ? args.vdmOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -189,6 +195,10 @@ export interface ConfigurationSetState {
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
     trackingOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetTrackingOptions>;
+    /**
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     */
+    vdmOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetVdmOptions>;
 }
 
 /**
@@ -223,4 +233,8 @@ export interface ConfigurationSetArgs {
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
     trackingOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetTrackingOptions>;
+    /**
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     */
+    vdmOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetVdmOptions>;
 }

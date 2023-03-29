@@ -17,42 +17,44 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.batch.JobDefinition("test", {
- *     containerProperties: `{
- * 	"command": ["ls", "-la"],
- * 	"image": "busybox",
- * 	"resourceRequirements": [
- *     {"type": "VCPU", "value": "0.25"},
- *     {"type": "MEMORY", "value": "512"}
- *   ],
- * 	"volumes": [
- *       {
- *         "host": {
- *           "sourcePath": "/tmp"
- *         },
- *         "name": "tmp"
- *       }
- *     ],
- * 	"environment": [
- * 		{"name": "VARNAME", "value": "VARVAL"}
- * 	],
- * 	"mountPoints": [
- * 		{
- *           "sourceVolume": "tmp",
- *           "containerPath": "/tmp",
- *           "readOnly": false
- *         }
- * 	],
- *     "ulimits": [
- *       {
- *         "hardLimit": 1024,
- *         "name": "nofile",
- *         "softLimit": 1024
- *       }
- *     ]
- * }
- *
- * `,
  *     type: "container",
+ *     containerProperties: JSON.stringify({
+ *         command: [
+ *             "ls",
+ *             "-la",
+ *         ],
+ *         image: "busybox",
+ *         resourceRequirements: [
+ *             {
+ *                 type: "VCPU",
+ *                 value: "0.25",
+ *             },
+ *             {
+ *                 type: "MEMORY",
+ *                 value: "512",
+ *             },
+ *         ],
+ *         volumes: [{
+ *             host: {
+ *                 sourcePath: "/tmp",
+ *             },
+ *             name: "tmp",
+ *         }],
+ *         environment: [{
+ *             name: "VARNAME",
+ *             value: "VARVAL",
+ *         }],
+ *         mountPoints: [{
+ *             sourceVolume: "tmp",
+ *             containerPath: "/tmp",
+ *             readOnly: false,
+ *         }],
+ *         ulimits: [{
+ *             hardLimit: 1024,
+ *             name: "nofile",
+ *             softLimit: 1024,
+ *         }],
+ *     }),
  * });
  * ```
  * ### Fargate Platform Capability
@@ -78,19 +80,28 @@ import * as utilities from "../utilities";
  * const test = new aws.batch.JobDefinition("test", {
  *     type: "container",
  *     platformCapabilities: ["FARGATE"],
- *     containerProperties: pulumi.interpolate`{
- *   "command": ["echo", "test"],
- *   "image": "busybox",
- *   "fargatePlatformConfiguration": {
- *     "platformVersion": "LATEST"
- *   },
- *   "resourceRequirements": [
- *     {"type": "VCPU", "value": "0.25"},
- *     {"type": "MEMORY", "value": "512"}
- *   ],
- *   "executionRoleArn": "${ecsTaskExecutionRole.arn}"
- * }
- * `,
+ *     containerProperties: ecsTaskExecutionRole.arn.apply(arn => JSON.stringify({
+ *         command: [
+ *             "echo",
+ *             "test",
+ *         ],
+ *         image: "busybox",
+ *         jobRoleArn: "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
+ *         fargatePlatformConfiguration: {
+ *             platformVersion: "LATEST",
+ *         },
+ *         resourceRequirements: [
+ *             {
+ *                 type: "VCPU",
+ *                 value: "0.25",
+ *             },
+ *             {
+ *                 type: "MEMORY",
+ *                 value: "512",
+ *             },
+ *         ],
+ *         executionRoleArn: arn,
+ *     })),
  * });
  * ```
  *

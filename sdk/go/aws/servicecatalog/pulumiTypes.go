@@ -21,7 +21,7 @@ type ProductProvisioningArtifactParameters struct {
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
 	TemplateUrl *string `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type *string `pulumi:"type"`
 }
 
@@ -47,7 +47,7 @@ type ProductProvisioningArtifactParametersArgs struct {
 	TemplatePhysicalId pulumi.StringPtrInput `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
 	TemplateUrl pulumi.StringPtrInput `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -153,7 +153,7 @@ func (o ProductProvisioningArtifactParametersOutput) TemplateUrl() pulumi.String
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *string { return v.TemplateUrl }).(pulumi.StringPtrOutput)
 }
 
-// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 func (o ProductProvisioningArtifactParametersOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -232,7 +232,7 @@ func (o ProductProvisioningArtifactParametersPtrOutput) TemplateUrl() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 func (o ProductProvisioningArtifactParametersPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
 		if v == nil {
@@ -1286,6 +1286,157 @@ func (o GetPortfolioConstraintsDetailArrayOutput) Index(i pulumi.IntInput) GetPo
 	}).(GetPortfolioConstraintsDetailOutput)
 }
 
+type GetProvisioningArtifactsProvisioningArtifactDetail struct {
+	// Indicates whether the product version is active.
+	Active bool `pulumi:"active"`
+	// The UTC time stamp of the creation time.
+	CreatedTime string `pulumi:"createdTime"`
+	// The description of the provisioning artifact.
+	Description string `pulumi:"description"`
+	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+	Guidance string `pulumi:"guidance"`
+	// The identifier of the provisioning artifact.
+	Id string `pulumi:"id"`
+	// The name of the provisioning artifact.
+	Name string `pulumi:"name"`
+	// The type of provisioning artifact.
+	Type string `pulumi:"type"`
+}
+
+// GetProvisioningArtifactsProvisioningArtifactDetailInput is an input type that accepts GetProvisioningArtifactsProvisioningArtifactDetailArgs and GetProvisioningArtifactsProvisioningArtifactDetailOutput values.
+// You can construct a concrete instance of `GetProvisioningArtifactsProvisioningArtifactDetailInput` via:
+//
+//	GetProvisioningArtifactsProvisioningArtifactDetailArgs{...}
+type GetProvisioningArtifactsProvisioningArtifactDetailInput interface {
+	pulumi.Input
+
+	ToGetProvisioningArtifactsProvisioningArtifactDetailOutput() GetProvisioningArtifactsProvisioningArtifactDetailOutput
+	ToGetProvisioningArtifactsProvisioningArtifactDetailOutputWithContext(context.Context) GetProvisioningArtifactsProvisioningArtifactDetailOutput
+}
+
+type GetProvisioningArtifactsProvisioningArtifactDetailArgs struct {
+	// Indicates whether the product version is active.
+	Active pulumi.BoolInput `pulumi:"active"`
+	// The UTC time stamp of the creation time.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// The description of the provisioning artifact.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+	Guidance pulumi.StringInput `pulumi:"guidance"`
+	// The identifier of the provisioning artifact.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the provisioning artifact.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of provisioning artifact.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetProvisioningArtifactsProvisioningArtifactDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProvisioningArtifactsProvisioningArtifactDetail)(nil)).Elem()
+}
+
+func (i GetProvisioningArtifactsProvisioningArtifactDetailArgs) ToGetProvisioningArtifactsProvisioningArtifactDetailOutput() GetProvisioningArtifactsProvisioningArtifactDetailOutput {
+	return i.ToGetProvisioningArtifactsProvisioningArtifactDetailOutputWithContext(context.Background())
+}
+
+func (i GetProvisioningArtifactsProvisioningArtifactDetailArgs) ToGetProvisioningArtifactsProvisioningArtifactDetailOutputWithContext(ctx context.Context) GetProvisioningArtifactsProvisioningArtifactDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProvisioningArtifactsProvisioningArtifactDetailOutput)
+}
+
+// GetProvisioningArtifactsProvisioningArtifactDetailArrayInput is an input type that accepts GetProvisioningArtifactsProvisioningArtifactDetailArray and GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput values.
+// You can construct a concrete instance of `GetProvisioningArtifactsProvisioningArtifactDetailArrayInput` via:
+//
+//	GetProvisioningArtifactsProvisioningArtifactDetailArray{ GetProvisioningArtifactsProvisioningArtifactDetailArgs{...} }
+type GetProvisioningArtifactsProvisioningArtifactDetailArrayInput interface {
+	pulumi.Input
+
+	ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutput() GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput
+	ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutputWithContext(context.Context) GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput
+}
+
+type GetProvisioningArtifactsProvisioningArtifactDetailArray []GetProvisioningArtifactsProvisioningArtifactDetailInput
+
+func (GetProvisioningArtifactsProvisioningArtifactDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProvisioningArtifactsProvisioningArtifactDetail)(nil)).Elem()
+}
+
+func (i GetProvisioningArtifactsProvisioningArtifactDetailArray) ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutput() GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput {
+	return i.ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutputWithContext(context.Background())
+}
+
+func (i GetProvisioningArtifactsProvisioningArtifactDetailArray) ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutputWithContext(ctx context.Context) GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput)
+}
+
+type GetProvisioningArtifactsProvisioningArtifactDetailOutput struct{ *pulumi.OutputState }
+
+func (GetProvisioningArtifactsProvisioningArtifactDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProvisioningArtifactsProvisioningArtifactDetail)(nil)).Elem()
+}
+
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) ToGetProvisioningArtifactsProvisioningArtifactDetailOutput() GetProvisioningArtifactsProvisioningArtifactDetailOutput {
+	return o
+}
+
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) ToGetProvisioningArtifactsProvisioningArtifactDetailOutputWithContext(ctx context.Context) GetProvisioningArtifactsProvisioningArtifactDetailOutput {
+	return o
+}
+
+// Indicates whether the product version is active.
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+// The UTC time stamp of the creation time.
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The description of the provisioning artifact.
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Guidance() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Guidance }).(pulumi.StringOutput)
+}
+
+// The identifier of the provisioning artifact.
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the provisioning artifact.
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of provisioning artifact.
+func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsProvisioningArtifactDetail) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProvisioningArtifactsProvisioningArtifactDetail)(nil)).Elem()
+}
+
+func (o GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput) ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutput() GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput {
+	return o
+}
+
+func (o GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput) ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutputWithContext(ctx context.Context) GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput {
+	return o
+}
+
+func (o GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput) Index(i pulumi.IntInput) GetProvisioningArtifactsProvisioningArtifactDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProvisioningArtifactsProvisioningArtifactDetail {
+		return vs[0].([]GetProvisioningArtifactsProvisioningArtifactDetail)[vs[1].(int)]
+	}).(GetProvisioningArtifactsProvisioningArtifactDetailOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductProvisioningArtifactParametersInput)(nil)).Elem(), ProductProvisioningArtifactParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductProvisioningArtifactParametersPtrInput)(nil)).Elem(), ProductProvisioningArtifactParametersArgs{})
@@ -1303,6 +1454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryConstraintSummaryArrayInput)(nil)).Elem(), GetLaunchPathsSummaryConstraintSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPortfolioConstraintsDetailInput)(nil)).Elem(), GetPortfolioConstraintsDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPortfolioConstraintsDetailArrayInput)(nil)).Elem(), GetPortfolioConstraintsDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProvisioningArtifactsProvisioningArtifactDetailInput)(nil)).Elem(), GetProvisioningArtifactsProvisioningArtifactDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProvisioningArtifactsProvisioningArtifactDetailArrayInput)(nil)).Elem(), GetProvisioningArtifactsProvisioningArtifactDetailArray{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersOutput{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersPtrOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductOutputTypeOutput{})
@@ -1319,4 +1472,6 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchPathsSummaryConstraintSummaryArrayOutput{})
 	pulumi.RegisterOutputType(GetPortfolioConstraintsDetailOutput{})
 	pulumi.RegisterOutputType(GetPortfolioConstraintsDetailArrayOutput{})
+	pulumi.RegisterOutputType(GetProvisioningArtifactsProvisioningArtifactDetailOutput{})
+	pulumi.RegisterOutputType(GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput{})
 }

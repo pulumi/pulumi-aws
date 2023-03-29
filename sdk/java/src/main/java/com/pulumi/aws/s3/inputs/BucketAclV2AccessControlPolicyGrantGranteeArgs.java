@@ -16,14 +16,14 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
     public static final BucketAclV2AccessControlPolicyGrantGranteeArgs Empty = new BucketAclV2AccessControlPolicyGrantGranteeArgs();
 
     /**
-     * The display name of the owner.
+     * Display name of the owner.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name of the owner.
+     * @return Display name of the owner.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -46,14 +46,14 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
     }
 
     /**
-     * The canonical user ID of the grantee.
+     * Canonical user ID of the grantee.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The canonical user ID of the grantee.
+     * @return Canonical user ID of the grantee.
      * 
      */
     public Optional<Output<String>> id() {
@@ -119,7 +119,7 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
         }
 
         /**
-         * @param displayName The display name of the owner.
+         * @param displayName Display name of the owner.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
         }
 
         /**
-         * @param displayName The display name of the owner.
+         * @param displayName Display name of the owner.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
         }
 
         /**
-         * @param id The canonical user ID of the grantee.
+         * @param id Canonical user ID of the grantee.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class BucketAclV2AccessControlPolicyGrantGranteeArgs extends com.pu
         }
 
         /**
-         * @param id The canonical user ID of the grantee.
+         * @param id Canonical user ID of the grantee.
          * 
          * @return builder
          * 

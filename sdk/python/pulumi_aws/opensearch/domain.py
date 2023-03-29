@@ -39,7 +39,7 @@ class DomainArgs:
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
+        :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
@@ -148,7 +148,7 @@ class DomainArgs:
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> Optional[pulumi.Input['DomainCognitoOptionsArgs']]:
         """
-        Configuration block for authenticating Kibana with Cognito. Detailed below.
+        Configuration block for authenticating dashboard with Cognito. Detailed below.
         """
         return pulumi.get(self, "cognito_options")
 
@@ -287,6 +287,7 @@ class _DomainState:
                  auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
+                 dashboard_endpoint: Optional[pulumi.Input[str]] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -309,7 +310,8 @@ class _DomainState:
         :param pulumi.Input[str] arn: ARN of the domain.
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
+        :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
+        :param pulumi.Input[str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
@@ -317,7 +319,7 @@ class _DomainState:
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
         :param pulumi.Input[str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
-        :param pulumi.Input[str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
+        :param pulumi.Input[str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -341,6 +343,8 @@ class _DomainState:
             pulumi.set(__self__, "cluster_config", cluster_config)
         if cognito_options is not None:
             pulumi.set(__self__, "cognito_options", cognito_options)
+        if dashboard_endpoint is not None:
+            pulumi.set(__self__, "dashboard_endpoint", dashboard_endpoint)
         if domain_endpoint_options is not None:
             pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
         if domain_id is not None:
@@ -446,13 +450,25 @@ class _DomainState:
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> Optional[pulumi.Input['DomainCognitoOptionsArgs']]:
         """
-        Configuration block for authenticating Kibana with Cognito. Detailed below.
+        Configuration block for authenticating dashboard with Cognito. Detailed below.
         """
         return pulumi.get(self, "cognito_options")
 
     @cognito_options.setter
     def cognito_options(self, value: Optional[pulumi.Input['DomainCognitoOptionsArgs']]):
         pulumi.set(self, "cognito_options", value)
+
+    @property
+    @pulumi.getter(name="dashboardEndpoint")
+    def dashboard_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain-specific endpoint for Dashboard without https scheme.
+        """
+        return pulumi.get(self, "dashboard_endpoint")
+
+    @dashboard_endpoint.setter
+    def dashboard_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dashboard_endpoint", value)
 
     @property
     @pulumi.getter(name="domainEndpointOptions")
@@ -542,7 +558,7 @@ class _DomainState:
     @pulumi.getter(name="kibanaEndpoint")
     def kibana_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Domain-specific endpoint for kibana without https scheme.
+        Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         """
         return pulumi.get(self, "kibana_endpoint")
 
@@ -697,21 +713,21 @@ class Domain(pulumi.CustomResource):
             domain = "tf-test"
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example = aws.opensearch.Domain("example", access_policies=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": "es:*",
-              "Principal": "*",
-              "Effect": "Allow",
-              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
-              "Condition": {{
-                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
-              }}
-            }}
-          ]
-        }}
-        \"\"\")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["es:*"],
+            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="IpAddress",
+                variable="aws:SourceIp",
+                values=["66.193.100.22/32"],
+            )],
+        )])
+        example_domain = aws.opensearch.Domain("exampleDomain", access_policies=example_policy_document.json)
         ```
         ### Log publishing to CloudWatch Logs
 
@@ -720,26 +736,22 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
-            policy_name="example",
-            policy_document=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "es.amazonaws.com"
-              },
-              "Action": [
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["es.amazonaws.com"],
+            )],
+            actions=[
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
-                "logs:CreateLogStream"
-              ],
-              "Resource": "arn:aws:logs:*"
-            }
-          ]
-        }
-        \"\"\")
+                "logs:CreateLogStream",
+            ],
+            resources=["arn:aws:logs:*"],
+        )])
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_name="example",
+            policy_document=example_policy_document.json)
         # .. other configuration ...
         example_domain = aws.opensearch.Domain("exampleDomain", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
             cloudwatch_log_group_arn=example_log_group.arn,
@@ -776,6 +788,15 @@ class Domain(pulumi.CustomResource):
                 cidr_blocks=[example_vpc.cidr_block],
             )])
         example_service_linked_role = aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["es:*"],
+            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+        )])
         example_domain = aws.opensearch.Domain("exampleDomain",
             engine_version="OpenSearch_1.0",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
@@ -792,18 +813,7 @@ class Domain(pulumi.CustomResource):
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
-            access_policies=f\"\"\"{{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{{
-        			"Action": "es:*",
-        			"Principal": "*",
-        			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
-        		}}
-        	]
-        }}
-        \"\"\",
+            access_policies=example_policy_document.json,
             tags={
                 "Domain": "TestDomain",
             },
@@ -900,7 +910,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
+        :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
@@ -968,21 +978,21 @@ class Domain(pulumi.CustomResource):
             domain = "tf-test"
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example = aws.opensearch.Domain("example", access_policies=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": "es:*",
-              "Principal": "*",
-              "Effect": "Allow",
-              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
-              "Condition": {{
-                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
-              }}
-            }}
-          ]
-        }}
-        \"\"\")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["es:*"],
+            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="IpAddress",
+                variable="aws:SourceIp",
+                values=["66.193.100.22/32"],
+            )],
+        )])
+        example_domain = aws.opensearch.Domain("exampleDomain", access_policies=example_policy_document.json)
         ```
         ### Log publishing to CloudWatch Logs
 
@@ -991,26 +1001,22 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
-            policy_name="example",
-            policy_document=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "es.amazonaws.com"
-              },
-              "Action": [
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["es.amazonaws.com"],
+            )],
+            actions=[
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
-                "logs:CreateLogStream"
-              ],
-              "Resource": "arn:aws:logs:*"
-            }
-          ]
-        }
-        \"\"\")
+                "logs:CreateLogStream",
+            ],
+            resources=["arn:aws:logs:*"],
+        )])
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_name="example",
+            policy_document=example_policy_document.json)
         # .. other configuration ...
         example_domain = aws.opensearch.Domain("exampleDomain", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
             cloudwatch_log_group_arn=example_log_group.arn,
@@ -1047,6 +1053,15 @@ class Domain(pulumi.CustomResource):
                 cidr_blocks=[example_vpc.cidr_block],
             )])
         example_service_linked_role = aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["es:*"],
+            resources=[f"arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"],
+        )])
         example_domain = aws.opensearch.Domain("exampleDomain",
             engine_version="OpenSearch_1.0",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
@@ -1063,18 +1078,7 @@ class Domain(pulumi.CustomResource):
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
-            access_policies=f\"\"\"{{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{{
-        			"Action": "es:*",
-        			"Principal": "*",
-        			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
-        		}}
-        	]
-        }}
-        \"\"\",
+            access_policies=example_policy_document.json,
             tags={
                 "Domain": "TestDomain",
             },
@@ -1221,6 +1225,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["arn"] = None
+            __props__.__dict__["dashboard_endpoint"] = None
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["kibana_endpoint"] = None
@@ -1242,6 +1247,7 @@ class Domain(pulumi.CustomResource):
             auto_tune_options: Optional[pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']]] = None,
             cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
             cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
+            dashboard_endpoint: Optional[pulumi.Input[str]] = None,
             domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
             domain_id: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
@@ -1269,7 +1275,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the domain.
         :param pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
+        :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
+        :param pulumi.Input[str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
@@ -1277,7 +1284,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
         :param pulumi.Input[str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
-        :param pulumi.Input[str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
+        :param pulumi.Input[str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -1298,6 +1305,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["auto_tune_options"] = auto_tune_options
         __props__.__dict__["cluster_config"] = cluster_config
         __props__.__dict__["cognito_options"] = cognito_options
+        __props__.__dict__["dashboard_endpoint"] = dashboard_endpoint
         __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
         __props__.__dict__["domain_id"] = domain_id
         __props__.__dict__["domain_name"] = domain_name
@@ -1366,9 +1374,17 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> pulumi.Output[Optional['outputs.DomainCognitoOptions']]:
         """
-        Configuration block for authenticating Kibana with Cognito. Detailed below.
+        Configuration block for authenticating dashboard with Cognito. Detailed below.
         """
         return pulumi.get(self, "cognito_options")
+
+    @property
+    @pulumi.getter(name="dashboardEndpoint")
+    def dashboard_endpoint(self) -> pulumi.Output[str]:
+        """
+        Domain-specific endpoint for Dashboard without https scheme.
+        """
+        return pulumi.get(self, "dashboard_endpoint")
 
     @property
     @pulumi.getter(name="domainEndpointOptions")
@@ -1430,7 +1446,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="kibanaEndpoint")
     def kibana_endpoint(self) -> pulumi.Output[str]:
         """
-        Domain-specific endpoint for kibana without https scheme.
+        Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
         """
         return pulumi.get(self, "kibana_endpoint")
 

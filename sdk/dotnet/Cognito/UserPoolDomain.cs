@@ -65,8 +65,8 @@ namespace Pulumi.Aws.Cognito
     ///             new Aws.Route53.Inputs.RecordAliasArgs
     ///             {
     ///                 EvaluateTargetHealth = false,
-    ///                 Name = main.CloudfrontDistributionArn,
-    ///                 ZoneId = "Z2FDTNDATAQYW2",
+    ///                 Name = main.CloudfrontDistribution,
+    ///                 ZoneId = main.CloudfrontDistributionZoneId,
     ///             },
     ///         },
     ///     });
@@ -98,10 +98,22 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> CertificateArn { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+        /// </summary>
+        [Output("cloudfrontDistribution")]
+        public Output<string> CloudfrontDistribution { get; private set; } = null!;
+
+        /// <summary>
         /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
         [Output("cloudfrontDistributionArn")]
         public Output<string> CloudfrontDistributionArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The Route 53 hosted zone ID of the CloudFront distribution.
+        /// </summary>
+        [Output("cloudfrontDistributionZoneId")]
+        public Output<string> CloudfrontDistributionZoneId { get; private set; } = null!;
 
         /// <summary>
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
@@ -212,10 +224,22 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
+        /// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+        /// </summary>
+        [Input("cloudfrontDistribution")]
+        public Input<string>? CloudfrontDistribution { get; set; }
+
+        /// <summary>
         /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
         [Input("cloudfrontDistributionArn")]
         public Input<string>? CloudfrontDistributionArn { get; set; }
+
+        /// <summary>
+        /// The Route 53 hosted zone ID of the CloudFront distribution.
+        /// </summary>
+        [Input("cloudfrontDistributionZoneId")]
+        public Input<string>? CloudfrontDistributionZoneId { get; set; }
 
         /// <summary>
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.

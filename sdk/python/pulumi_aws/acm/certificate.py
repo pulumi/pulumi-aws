@@ -1165,7 +1165,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Output[Optional['outputs.CertificateOptions']]:
+    def options(self) -> pulumi.Output['outputs.CertificateOptions']:
         """
         Configuration block used to set certificate options. Detailed below.
         """

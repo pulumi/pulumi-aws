@@ -25,7 +25,7 @@ namespace Pulumi.Aws.GameLift
     ///     {
     ///         StorageLocation = new Aws.GameLift.Inputs.ScriptStorageLocationArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Bucket,
+    ///             Bucket = aws_s3_bucket.Example.Id,
     ///             Key = aws_s3_object.Example.Key,
     ///             RoleArn = aws_iam_role.Example.Arn,
     ///         },

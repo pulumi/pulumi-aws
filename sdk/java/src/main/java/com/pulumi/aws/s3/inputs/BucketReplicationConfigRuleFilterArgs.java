@@ -18,14 +18,14 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
     public static final BucketReplicationConfigRuleFilterArgs Empty = new BucketReplicationConfigRuleFilterArgs();
 
     /**
-     * A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+     * Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
      * 
      */
     @Import(name="and")
     private @Nullable Output<BucketReplicationConfigRuleFilterAndArgs> and;
 
     /**
-     * @return A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+     * @return Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleFilterAndArgs>> and() {
@@ -33,14 +33,14 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
     }
 
     /**
-     * An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+     * Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+     * @return Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -48,14 +48,14 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
     }
 
     /**
-     * A configuration block for specifying a tag key and value documented below.
+     * Configuration block for specifying a tag key and value. See below.
      * 
      */
     @Import(name="tag")
     private @Nullable Output<BucketReplicationConfigRuleFilterTagArgs> tag;
 
     /**
-     * @return A configuration block for specifying a tag key and value documented below.
+     * @return Configuration block for specifying a tag key and value. See below.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleFilterTagArgs>> tag() {
@@ -89,7 +89,7 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param and A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+         * @param and Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param and A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+         * @param and Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param prefix An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+         * @param prefix Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param prefix An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+         * @param prefix Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param tag A configuration block for specifying a tag key and value documented below.
+         * @param tag Configuration block for specifying a tag key and value. See below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BucketReplicationConfigRuleFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param tag A configuration block for specifying a tag key and value documented below.
+         * @param tag Configuration block for specifying a tag key and value. See below.
          * 
          * @return builder
          * 

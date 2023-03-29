@@ -25,14 +25,14 @@ class BucketWebsiteConfigurationV2Args:
                  routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] = None):
         """
         The set of arguments for constructing a BucketWebsiteConfigurationV2 resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs'] error_document: The name of the error document for the website detailed below.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs'] index_document: The name of the index document for the website detailed below.
-        :param pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs'] redirect_all_requests_to: The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
-        :param pulumi.Input[str] routing_rule_details: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs'] error_document: Name of the error document for the website. See below.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs'] index_document: Name of the index document for the website. See below.
+        :param pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs'] redirect_all_requests_to: Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        :param pulumi.Input[str] routing_rule_details: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
         pulumi.set(__self__, "bucket", bucket)
         if error_document is not None:
@@ -52,7 +52,7 @@ class BucketWebsiteConfigurationV2Args:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -64,7 +64,7 @@ class BucketWebsiteConfigurationV2Args:
     @pulumi.getter(name="errorDocument")
     def error_document(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']]:
         """
-        The name of the error document for the website detailed below.
+        Name of the error document for the website. See below.
         """
         return pulumi.get(self, "error_document")
 
@@ -76,7 +76,7 @@ class BucketWebsiteConfigurationV2Args:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -88,7 +88,7 @@ class BucketWebsiteConfigurationV2Args:
     @pulumi.getter(name="indexDocument")
     def index_document(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']]:
         """
-        The name of the index document for the website detailed below.
+        Name of the index document for the website. See below.
         """
         return pulumi.get(self, "index_document")
 
@@ -100,7 +100,7 @@ class BucketWebsiteConfigurationV2Args:
     @pulumi.getter(name="redirectAllRequestsTo")
     def redirect_all_requests_to(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]:
         """
-        The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
         """
         return pulumi.get(self, "redirect_all_requests_to")
 
@@ -112,7 +112,7 @@ class BucketWebsiteConfigurationV2Args:
     @pulumi.getter(name="routingRuleDetails")
     def routing_rule_details(self) -> Optional[pulumi.Input[str]]:
         """
-        A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         """
         return pulumi.get(self, "routing_rule_details")
@@ -125,7 +125,7 @@ class BucketWebsiteConfigurationV2Args:
     @pulumi.getter(name="routingRules")
     def routing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]:
         """
-        List of rules that define when a redirect is applied and the redirect behavior detailed below.
+        List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
         return pulumi.get(self, "routing_rules")
 
@@ -148,16 +148,16 @@ class _BucketWebsiteConfigurationV2State:
                  website_endpoint: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketWebsiteConfigurationV2 resources.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs'] error_document: The name of the error document for the website detailed below.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs'] index_document: The name of the index document for the website detailed below.
-        :param pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs'] redirect_all_requests_to: The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
-        :param pulumi.Input[str] routing_rule_details: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs'] error_document: Name of the error document for the website. See below.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs'] index_document: Name of the index document for the website. See below.
+        :param pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs'] redirect_all_requests_to: Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        :param pulumi.Input[str] routing_rule_details: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior detailed below.
-        :param pulumi.Input[str] website_domain: The domain of the website endpoint. This is used to create Route 53 alias records.
-        :param pulumi.Input[str] website_endpoint: The website endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior. See below.
+        :param pulumi.Input[str] website_domain: Domain of the website endpoint. This is used to create Route 53 alias records.
+        :param pulumi.Input[str] website_endpoint: Website endpoint.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -182,7 +182,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -194,7 +194,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter(name="errorDocument")
     def error_document(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']]:
         """
-        The name of the error document for the website detailed below.
+        Name of the error document for the website. See below.
         """
         return pulumi.get(self, "error_document")
 
@@ -206,7 +206,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -218,7 +218,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter(name="indexDocument")
     def index_document(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']]:
         """
-        The name of the index document for the website detailed below.
+        Name of the index document for the website. See below.
         """
         return pulumi.get(self, "index_document")
 
@@ -230,7 +230,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter(name="redirectAllRequestsTo")
     def redirect_all_requests_to(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]:
         """
-        The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
         """
         return pulumi.get(self, "redirect_all_requests_to")
 
@@ -242,7 +242,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter(name="routingRuleDetails")
     def routing_rule_details(self) -> Optional[pulumi.Input[str]]:
         """
-        A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         """
         return pulumi.get(self, "routing_rule_details")
@@ -255,7 +255,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter(name="routingRules")
     def routing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]:
         """
-        List of rules that define when a redirect is applied and the redirect behavior detailed below.
+        List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
         return pulumi.get(self, "routing_rules")
 
@@ -267,7 +267,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter(name="websiteDomain")
     def website_domain(self) -> Optional[pulumi.Input[str]]:
         """
-        The domain of the website endpoint. This is used to create Route 53 alias records.
+        Domain of the website endpoint. This is used to create Route 53 alias records.
         """
         return pulumi.get(self, "website_domain")
 
@@ -279,7 +279,7 @@ class _BucketWebsiteConfigurationV2State:
     @pulumi.getter(name="websiteEndpoint")
     def website_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The website endpoint.
+        Website endpoint.
         """
         return pulumi.get(self, "website_endpoint")
 
@@ -312,7 +312,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["bucket"],
+            bucket=aws_s3_bucket["example"]["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -335,7 +335,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["bucket"],
+            bucket=aws_s3_bucket["example"]["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -369,14 +369,14 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2ErrorDocumentArgs']] error_document: The name of the error document for the website detailed below.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2IndexDocumentArgs']] index_document: The name of the index document for the website detailed below.
-        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] redirect_all_requests_to: The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
-        :param pulumi.Input[str] routing_rule_details: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2ErrorDocumentArgs']] error_document: Name of the error document for the website. See below.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2IndexDocumentArgs']] index_document: Name of the index document for the website. See below.
+        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] redirect_all_requests_to: Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        :param pulumi.Input[str] routing_rule_details: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
         ...
     @overload
@@ -395,7 +395,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["bucket"],
+            bucket=aws_s3_bucket["example"]["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -418,7 +418,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["bucket"],
+            bucket=aws_s3_bucket["example"]["id"],
             index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
                 suffix="index.html",
             ),
@@ -518,16 +518,16 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2ErrorDocumentArgs']] error_document: The name of the error document for the website detailed below.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2IndexDocumentArgs']] index_document: The name of the index document for the website detailed below.
-        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] redirect_all_requests_to: The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
-        :param pulumi.Input[str] routing_rule_details: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2ErrorDocumentArgs']] error_document: Name of the error document for the website. See below.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2IndexDocumentArgs']] index_document: Name of the index document for the website. See below.
+        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] redirect_all_requests_to: Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        :param pulumi.Input[str] routing_rule_details: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior detailed below.
-        :param pulumi.Input[str] website_domain: The domain of the website endpoint. This is used to create Route 53 alias records.
-        :param pulumi.Input[str] website_endpoint: The website endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior. See below.
+        :param pulumi.Input[str] website_domain: Domain of the website endpoint. This is used to create Route 53 alias records.
+        :param pulumi.Input[str] website_endpoint: Website endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -548,7 +548,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -556,7 +556,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="errorDocument")
     def error_document(self) -> pulumi.Output[Optional['outputs.BucketWebsiteConfigurationV2ErrorDocument']]:
         """
-        The name of the error document for the website detailed below.
+        Name of the error document for the website. See below.
         """
         return pulumi.get(self, "error_document")
 
@@ -564,7 +564,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -572,7 +572,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="indexDocument")
     def index_document(self) -> pulumi.Output[Optional['outputs.BucketWebsiteConfigurationV2IndexDocument']]:
         """
-        The name of the index document for the website detailed below.
+        Name of the index document for the website. See below.
         """
         return pulumi.get(self, "index_document")
 
@@ -580,7 +580,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="redirectAllRequestsTo")
     def redirect_all_requests_to(self) -> pulumi.Output[Optional['outputs.BucketWebsiteConfigurationV2RedirectAllRequestsTo']]:
         """
-        The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
         """
         return pulumi.get(self, "redirect_all_requests_to")
 
@@ -588,7 +588,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="routingRuleDetails")
     def routing_rule_details(self) -> pulumi.Output[str]:
         """
-        A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         """
         return pulumi.get(self, "routing_rule_details")
@@ -597,7 +597,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="routingRules")
     def routing_rules(self) -> pulumi.Output[Sequence['outputs.BucketWebsiteConfigurationV2RoutingRule']]:
         """
-        List of rules that define when a redirect is applied and the redirect behavior detailed below.
+        List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
         return pulumi.get(self, "routing_rules")
 
@@ -605,7 +605,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="websiteDomain")
     def website_domain(self) -> pulumi.Output[str]:
         """
-        The domain of the website endpoint. This is used to create Route 53 alias records.
+        Domain of the website endpoint. This is used to create Route 53 alias records.
         """
         return pulumi.get(self, "website_domain")
 
@@ -613,7 +613,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="websiteEndpoint")
     def website_endpoint(self) -> pulumi.Output[str]:
         """
-        The website endpoint.
+        Website endpoint.
         """
         return pulumi.get(self, "website_endpoint")
 

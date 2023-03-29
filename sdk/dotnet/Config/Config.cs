@@ -434,6 +434,7 @@ namespace Pulumi.Aws
                 public string? Cloudwatchevidently { get; set; } = null!;
                 public string? Cloudwatchlog { get; set; } = null!;
                 public string? Cloudwatchlogs { get; set; } = null!;
+                public string? Cloudwatchobservabilityaccessmanager { get; set; } = null!;
                 public string? Cloudwatchrum { get; set; } = null!;
                 public string? Codeartifact { get; set; } = null!;
                 public string? Codebuild { get; set; } = null!;
@@ -630,6 +631,7 @@ namespace Pulumi.Aws
                 public string? Networkmanager { get; set; } = null!;
                 public string? Nimble { get; set; } = null!;
                 public string? Nimblestudio { get; set; } = null!;
+                public string? Oam { get; set; } = null!;
                 public string? Opensearch { get; set; } = null!;
                 public string? Opensearchserverless { get; set; } = null!;
                 public string? Opensearchservice { get; set; } = null!;

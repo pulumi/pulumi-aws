@@ -309,8 +309,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -319,37 +317,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
-//	  {
-//	    "cpu": 10,
-//	    "command": ["sleep", "10"],
-//	    "entryPoint": ["/"],
-//	    "environment": [
-//	      {"name": "VARNAME", "value": "VARVAL"}
-//	    ],
-//	    "essential": true,
-//	    "image": "jenkins",
-//	    "memory": 128,
-//	    "name": "jenkins",
-//	    "portMappings": [
-//	      {
-//	        "containerPort": 80,
-//	        "hostPort": 8080
-//	      }
-//	    ],
-//	        "resourceRequirements":[
-//	            {
-//	                "type":"InferenceAccelerator",
-//	                "value":"device_1"
-//	            }
-//	        ]
-//	  }
-//
-// ]
-//
-// `)),
-//
-//				Family: pulumi.String("test"),
+//				ContainerDefinitions: pulumi.String("[\n  {\n    \"cpu\": 10,\n    \"command\": [\"sleep\", \"10\"],\n    \"entryPoint\": [\"/\"],\n    \"environment\": [\n      {\"name\": \"VARNAME\", \"value\": \"VARVAL\"}\n    ],\n    \"essential\": true,\n    \"image\": \"jenkins\",\n    \"memory\": 128,\n    \"name\": \"jenkins\",\n    \"portMappings\": [\n      {\n        \"containerPort\": 80,\n        \"hostPort\": 8080\n      }\n    ],\n        \"resourceRequirements\":[\n            {\n                \"type\":\"InferenceAccelerator\",\n                \"value\":\"device_1\"\n            }\n        ]\n  }\n]\n\n"),
+//				Family:               pulumi.String("test"),
 //				InferenceAccelerators: ecs.TaskDefinitionInferenceAcceleratorArray{
 //					&ecs.TaskDefinitionInferenceAcceleratorArgs{
 //						DeviceName: pulumi.String("device_1"),
@@ -372,8 +341,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -382,23 +349,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
-//	  {
-//	    "name": "iis",
-//	    "image": "mcr.microsoft.com/windows/servercore/iis",
-//	    "cpu": 1024,
-//	    "memory": 2048,
-//	    "essential": true
-//	  }
-//
-// ]
-//
-// `)),
-//
-//				Cpu:         pulumi.String("1024"),
-//				Family:      pulumi.String("test"),
-//				Memory:      pulumi.String("2048"),
-//				NetworkMode: pulumi.String("awsvpc"),
+//				ContainerDefinitions: pulumi.String("[\n  {\n    \"name\": \"iis\",\n    \"image\": \"mcr.microsoft.com/windows/servercore/iis\",\n    \"cpu\": 1024,\n    \"memory\": 2048,\n    \"essential\": true\n  }\n]\n\n"),
+//				Cpu:                  pulumi.String("1024"),
+//				Family:               pulumi.String("test"),
+//				Memory:               pulumi.String("2048"),
+//				NetworkMode:          pulumi.String("awsvpc"),
 //				RequiresCompatibilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
 //				},
@@ -430,6 +385,8 @@ type TaskDefinition struct {
 
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+	ArnWithoutRevision pulumi.StringOutput `pulumi:"arnWithoutRevision"`
 	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringOutput `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -509,6 +466,8 @@ func GetTaskDefinition(ctx *pulumi.Context,
 type taskDefinitionState struct {
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn *string `pulumi:"arn"`
+	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+	ArnWithoutRevision *string `pulumi:"arnWithoutRevision"`
 	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions *string `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -554,6 +513,8 @@ type taskDefinitionState struct {
 type TaskDefinitionState struct {
 	// Full ARN of the Task Definition (including both `family` and `revision`).
 	Arn pulumi.StringPtrInput
+	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+	ArnWithoutRevision pulumi.StringPtrInput
 	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringPtrInput
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -769,6 +730,11 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Cont
 // Full ARN of the Task Definition (including both `family` and `revision`).
 func (o TaskDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+func (o TaskDefinitionOutput) ArnWithoutRevision() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.ArnWithoutRevision }).(pulumi.StringOutput)
 }
 
 // A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).

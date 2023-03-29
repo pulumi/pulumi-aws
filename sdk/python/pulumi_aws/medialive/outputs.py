@@ -2086,9 +2086,9 @@ class ChannelEncoderSettingsOutputGroupOutput(dict):
         """
         :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs' output_settings: Settings for output. See Output Settings for more details.
         :param Sequence[str] audio_description_names: The names of the audio descriptions used as audio sources for the output.
-        :param Sequence[str] caption_description_names: The names of the caption descriptions used as audio sources for the output.
+        :param Sequence[str] caption_description_names: The names of the caption descriptions used as caption sources for the output.
         :param str output_name: The name used to identify an output.
-        :param str video_description_name: The name of the video description used as audio sources for the output.
+        :param str video_description_name: The name of the video description used as video source for the output.
         """
         pulumi.set(__self__, "output_settings", output_settings)
         if audio_description_names is not None:
@@ -2120,7 +2120,7 @@ class ChannelEncoderSettingsOutputGroupOutput(dict):
     @pulumi.getter(name="captionDescriptionNames")
     def caption_description_names(self) -> Optional[Sequence[str]]:
         """
-        The names of the caption descriptions used as audio sources for the output.
+        The names of the caption descriptions used as caption sources for the output.
         """
         return pulumi.get(self, "caption_description_names")
 
@@ -2136,7 +2136,7 @@ class ChannelEncoderSettingsOutputGroupOutput(dict):
     @pulumi.getter(name="videoDescriptionName")
     def video_description_name(self) -> Optional[str]:
         """
-        The name of the video description used as audio sources for the output.
+        The name of the video description used as video source for the output.
         """
         return pulumi.get(self, "video_description_name")
 
@@ -3744,8 +3744,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
         suggest = None
         if key == "acquisitionPointId":
             suggest = "acquisition_point_id"
-        elif key == "audioOnlyTimecodecControl":
-            suggest = "audio_only_timecodec_control"
+        elif key == "audioOnlyTimecodeControl":
+            suggest = "audio_only_timecode_control"
         elif key == "certificateMode":
             suggest = "certificate_mode"
         elif key == "connectionRetryInterval":
@@ -3793,10 +3793,10 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
     def __init__(__self__, *,
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination',
                  acquisition_point_id: Optional[str] = None,
-                 audio_only_timecodec_control: Optional[str] = None,
+                 audio_only_timecode_control: Optional[str] = None,
                  certificate_mode: Optional[str] = None,
                  connection_retry_interval: Optional[int] = None,
-                 event_id: Optional[int] = None,
+                 event_id: Optional[str] = None,
                  event_id_mode: Optional[str] = None,
                  event_stop_behavior: Optional[str] = None,
                  filecache_duration: Optional[int] = None,
@@ -3821,8 +3821,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
         pulumi.set(__self__, "destination", destination)
         if acquisition_point_id is not None:
             pulumi.set(__self__, "acquisition_point_id", acquisition_point_id)
-        if audio_only_timecodec_control is not None:
-            pulumi.set(__self__, "audio_only_timecodec_control", audio_only_timecodec_control)
+        if audio_only_timecode_control is not None:
+            pulumi.set(__self__, "audio_only_timecode_control", audio_only_timecode_control)
         if certificate_mode is not None:
             pulumi.set(__self__, "certificate_mode", certificate_mode)
         if connection_retry_interval is not None:
@@ -3870,9 +3870,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
         return pulumi.get(self, "acquisition_point_id")
 
     @property
-    @pulumi.getter(name="audioOnlyTimecodecControl")
-    def audio_only_timecodec_control(self) -> Optional[str]:
-        return pulumi.get(self, "audio_only_timecodec_control")
+    @pulumi.getter(name="audioOnlyTimecodeControl")
+    def audio_only_timecode_control(self) -> Optional[str]:
+        return pulumi.get(self, "audio_only_timecode_control")
 
     @property
     @pulumi.getter(name="certificateMode")
@@ -3892,7 +3892,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
 
     @property
     @pulumi.getter(name="eventId")
-    def event_id(self) -> Optional[int]:
+    def event_id(self) -> Optional[str]:
         return pulumi.get(self, "event_id")
 
     @property
@@ -6643,7 +6643,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
                  row_length: Optional[int] = None):
         """
         :param int column_depth: The height of the FEC protection matrix.
-        :param str include_fec: Enables column oly or column and row based FEC.
+        :param str include_fec: Enables column only or column and row based FEC.
         :param int row_length: The width of the FEC protection matrix.
         """
         if column_depth is not None:
@@ -6665,7 +6665,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
     @pulumi.getter(name="includeFec")
     def include_fec(self) -> Optional[str]:
         """
-        Enables column oly or column and row based FEC.
+        Enables column only or column and row based FEC.
         """
         return pulumi.get(self, "include_fec")
 

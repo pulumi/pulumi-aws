@@ -69,46 +69,61 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var testApp = new Aws.Pinpoint.App("testApp");
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "cognito-idp.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var testRole = new Aws.Iam.Role("testRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""cognito-idp.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "mobiletargeting:UpdateEndpoint",
+    ///                     "mobiletargeting:PutItems",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:aws:mobiletargeting:*:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:apps/{testApp.ApplicationId}*",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
     ///     {
     ///         Role = testRole.Id,
-    ///         Policy = Output.Tuple(current, testApp.ApplicationId).Apply(values =&gt;
-    ///         {
-    ///             var current = values.Item1;
-    ///             var applicationId = values.Item2;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Action"": [
-    ///         ""mobiletargeting:UpdateEndpoint"",
-    ///         ""mobiletargeting:PutItems""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""arn:aws:mobiletargeting:*:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:apps/{applicationId}*""
-    ///     }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
+    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new()

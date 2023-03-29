@@ -143,14 +143,29 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the target group. If omitted, this provider will assign a random, unique name.
+     * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+     * 
+     */
+    @Import(name="loadBalancingCrossZoneEnabled")
+    private @Nullable Output<String> loadBalancingCrossZoneEnabled;
+
+    /**
+     * @return Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+     * 
+     */
+    public Optional<Output<String>> loadBalancingCrossZoneEnabled() {
+        return Optional.ofNullable(this.loadBalancingCrossZoneEnabled);
+    }
+
+    /**
+     * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the target group. If omitted, this provider will assign a random, unique name.
+     * @return Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
     public Optional<Output<String>> name() {
@@ -363,6 +378,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         this.ipAddressType = $.ipAddressType;
         this.lambdaMultiValueHeadersEnabled = $.lambdaMultiValueHeadersEnabled;
         this.loadBalancingAlgorithmType = $.loadBalancingAlgorithmType;
+        this.loadBalancingCrossZoneEnabled = $.loadBalancingCrossZoneEnabled;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.port = $.port;
@@ -566,7 +582,28 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the target group. If omitted, this provider will assign a random, unique name.
+         * @param loadBalancingCrossZoneEnabled Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancingCrossZoneEnabled(@Nullable Output<String> loadBalancingCrossZoneEnabled) {
+            $.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
+            return this;
+        }
+
+        /**
+         * @param loadBalancingCrossZoneEnabled Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancingCrossZoneEnabled(String loadBalancingCrossZoneEnabled) {
+            return loadBalancingCrossZoneEnabled(Output.of(loadBalancingCrossZoneEnabled));
+        }
+
+        /**
+         * @param name Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
          * 
          * @return builder
          * 
@@ -577,7 +614,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the target group. If omitted, this provider will assign a random, unique name.
+         * @param name Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
          * 
          * @return builder
          * 

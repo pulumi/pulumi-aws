@@ -12,10 +12,13 @@ import com.pulumi.aws.ecs.inputs.GetServiceArgs;
 import com.pulumi.aws.ecs.inputs.GetServicePlainArgs;
 import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
 import com.pulumi.aws.ecs.inputs.GetTaskDefinitionPlainArgs;
+import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
+import com.pulumi.aws.ecs.inputs.GetTaskExecutionPlainArgs;
 import com.pulumi.aws.ecs.outputs.GetClusterResult;
 import com.pulumi.aws.ecs.outputs.GetContainerDefinitionResult;
 import com.pulumi.aws.ecs.outputs.GetServiceResult;
 import com.pulumi.aws.ecs.outputs.GetTaskDefinitionResult;
+import com.pulumi.aws.ecs.outputs.GetTaskExecutionResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -770,5 +773,49 @@ public final class EcsFunctions {
      */
     public static CompletableFuture<GetTaskDefinitionResult> getTaskDefinitionPlain(GetTaskDefinitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecs/getTaskDefinition:getTaskDefinition", TypeShape.of(GetTaskDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don&#39;t fit a standard resource lifecycle. See the feature request issue for additional context.
+     * 
+     * &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetTaskExecutionResult> getTaskExecution(GetTaskExecutionArgs args) {
+        return getTaskExecution(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don&#39;t fit a standard resource lifecycle. See the feature request issue for additional context.
+     * 
+     * &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetTaskExecutionResult> getTaskExecutionPlain(GetTaskExecutionPlainArgs args) {
+        return getTaskExecutionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don&#39;t fit a standard resource lifecycle. See the feature request issue for additional context.
+     * 
+     * &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetTaskExecutionResult> getTaskExecution(GetTaskExecutionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ecs/getTaskExecution:getTaskExecution", TypeShape.of(GetTaskExecutionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don&#39;t fit a standard resource lifecycle. See the feature request issue for additional context.
+     * 
+     * &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetTaskExecutionResult> getTaskExecutionPlain(GetTaskExecutionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ecs/getTaskExecution:getTaskExecution", TypeShape.of(GetTaskExecutionResult.class), args, Utilities.withVersion(options));
     }
 }

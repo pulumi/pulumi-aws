@@ -311,6 +311,7 @@ class TaskDefinitionArgs:
 class _TaskDefinitionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 arn_without_revision: Optional[pulumi.Input[str]] = None,
                  container_definitions: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
                  ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
@@ -334,6 +335,7 @@ class _TaskDefinitionState:
         """
         Input properties used for looking up and filtering TaskDefinition resources.
         :param pulumi.Input[str] arn: Full ARN of the Task Definition (including both `family` and `revision`).
+        :param pulumi.Input[str] arn_without_revision: ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
@@ -357,6 +359,8 @@ class _TaskDefinitionState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if arn_without_revision is not None:
+            pulumi.set(__self__, "arn_without_revision", arn_without_revision)
         if container_definitions is not None:
             pulumi.set(__self__, "container_definitions", container_definitions)
         if cpu is not None:
@@ -409,6 +413,18 @@ class _TaskDefinitionState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="arnWithoutRevision")
+    def arn_without_revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+        """
+        return pulumi.get(self, "arn_without_revision")
+
+    @arn_without_revision.setter
+    def arn_without_revision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn_without_revision", value)
 
     @property
     @pulumi.getter(name="containerDefinitions")
@@ -1205,6 +1221,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["task_role_arn"] = task_role_arn
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["arn"] = None
+            __props__.__dict__["arn_without_revision"] = None
             __props__.__dict__["revision"] = None
             __props__.__dict__["tags_all"] = None
         super(TaskDefinition, __self__).__init__(
@@ -1218,6 +1235,7 @@ class TaskDefinition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            arn_without_revision: Optional[pulumi.Input[str]] = None,
             container_definitions: Optional[pulumi.Input[str]] = None,
             cpu: Optional[pulumi.Input[str]] = None,
             ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']]] = None,
@@ -1246,6 +1264,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Full ARN of the Task Definition (including both `family` and `revision`).
+        :param pulumi.Input[str] arn_without_revision: ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
@@ -1272,6 +1291,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__ = _TaskDefinitionState.__new__(_TaskDefinitionState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["arn_without_revision"] = arn_without_revision
         __props__.__dict__["container_definitions"] = container_definitions
         __props__.__dict__["cpu"] = cpu
         __props__.__dict__["ephemeral_storage"] = ephemeral_storage
@@ -1301,6 +1321,14 @@ class TaskDefinition(pulumi.CustomResource):
         Full ARN of the Task Definition (including both `family` and `revision`).
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="arnWithoutRevision")
+    def arn_without_revision(self) -> pulumi.Output[str]:
+        """
+        ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+        """
+        return pulumi.get(self, "arn_without_revision")
 
     @property
     @pulumi.getter(name="containerDefinitions")

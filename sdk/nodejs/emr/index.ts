@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BlockPublicAccessConfigurationArgs, BlockPublicAccessConfigurationState } from "./blockPublicAccessConfiguration";
+export type BlockPublicAccessConfiguration = import("./blockPublicAccessConfiguration").BlockPublicAccessConfiguration;
+export const BlockPublicAccessConfiguration: typeof import("./blockPublicAccessConfiguration").BlockPublicAccessConfiguration = null as any;
+utilities.lazyLoad(exports, ["BlockPublicAccessConfiguration"], () => require("./blockPublicAccessConfiguration"));
+
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -50,6 +55,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration":
+                return new BlockPublicAccessConfiguration(name, <any>undefined, { urn })
             case "aws:emr/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:emr/instanceFleet:InstanceFleet":
@@ -69,6 +76,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "emr/blockPublicAccessConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "emr/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "emr/instanceFleet", _module)
 pulumi.runtime.registerResourceModule("aws", "emr/instanceGroup", _module)

@@ -19,8 +19,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,7 +28,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.LookupBot(ctx, &lex.LookupBotArgs{
 //				Name:    "OrderFlowers",
-//				Version: pulumi.StringRef(fmt.Sprintf("$LATEST")),
+//				Version: pulumi.StringRef("$LATEST"),
 //			}, nil)
 //			if err != nil {
 //				return err

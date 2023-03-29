@@ -20,14 +20,14 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
     public static final BucketReplicationConfigRuleDestinationArgs Empty = new BucketReplicationConfigRuleDestinationArgs();
 
     /**
-     * A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+     * Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
      * 
      */
     @Import(name="accessControlTranslation")
     private @Nullable Output<BucketReplicationConfigRuleDestinationAccessControlTranslationArgs> accessControlTranslation;
 
     /**
-     * @return A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+     * @return Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleDestinationAccessControlTranslationArgs>> accessControlTranslation() {
@@ -35,14 +35,14 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
     }
 
     /**
-     * The Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+     * Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
     @Import(name="account")
     private @Nullable Output<String> account;
 
     /**
-     * @return The Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
     public Optional<Output<String>> account() {
@@ -50,14 +50,14 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+     * ARN of the bucket where you want Amazon S3 to store the results.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+     * @return ARN of the bucket where you want Amazon S3 to store the results.
      * 
      */
     public Output<String> bucket() {
@@ -65,14 +65,14 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
     }
 
     /**
-     * A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
+     * Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
+     * @return Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -80,14 +80,14 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
     }
 
     /**
-     * A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
+     * Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
      * 
      */
     @Import(name="metrics")
     private @Nullable Output<BucketReplicationConfigRuleDestinationMetricsArgs> metrics;
 
     /**
-     * @return A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
+     * @return Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleDestinationMetricsArgs>> metrics() {
@@ -95,14 +95,14 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
     }
 
     /**
-     * A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
+     * Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
      * 
      */
     @Import(name="replicationTime")
     private @Nullable Output<BucketReplicationConfigRuleDestinationReplicationTimeArgs> replicationTime;
 
     /**
-     * @return A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
+     * @return Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleDestinationReplicationTimeArgs>> replicationTime() {
@@ -155,7 +155,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param accessControlTranslation A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+         * @param accessControlTranslation Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param accessControlTranslation A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+         * @param accessControlTranslation Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param account The Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+         * @param account Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param account The Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+         * @param account Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param bucket The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+         * @param bucket ARN of the bucket where you want Amazon S3 to store the results.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param bucket The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+         * @param bucket ARN of the bucket where you want Amazon S3 to store the results.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param encryptionConfiguration A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
+         * @param encryptionConfiguration Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param encryptionConfiguration A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
+         * @param encryptionConfiguration Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param metrics A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
+         * @param metrics Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param metrics A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
+         * @param metrics Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param replicationTime A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
+         * @param replicationTime Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class BucketReplicationConfigRuleDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param replicationTime A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
+         * @param replicationTime Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
          * 
          * @return builder
          * 

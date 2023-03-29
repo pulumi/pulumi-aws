@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -196,6 +197,20 @@ public class ListenerPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> policyNames() {
         return Codegen.optional(this.policyNames);
+    }
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger an update.
+     * 
+     */
+    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> triggers;
+
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger an update.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> triggers() {
+        return Codegen.optional(this.triggers);
     }
 
     /**

@@ -17,16 +17,14 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
     public static final DistributionLoggingConfigArgs Empty = new DistributionLoggingConfigArgs();
 
     /**
-     * The Amazon S3 bucket to store the access logs in, for
-     * example, `myawslogbucket.s3.amazonaws.com`.
+     * Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The Amazon S3 bucket to store the access logs in, for
-     * example, `myawslogbucket.s3.amazonaws.com`.
+     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
      * 
      */
     public Output<String> bucket() {
@@ -34,16 +32,14 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies whether you want CloudFront to
-     * include cookies in access logs (default: `false`).
+     * Whether to include cookies in access logs (default: `false`).
      * 
      */
     @Import(name="includeCookies")
     private @Nullable Output<Boolean> includeCookies;
 
     /**
-     * @return Specifies whether you want CloudFront to
-     * include cookies in access logs (default: `false`).
+     * @return Whether to include cookies in access logs (default: `false`).
      * 
      */
     public Optional<Output<Boolean>> includeCookies() {
@@ -51,16 +47,14 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * An optional string that you want CloudFront to prefix
-     * to the access log filenames for this distribution, for example, `myprefix/`.
+     * Prefix to the access log filenames for this distribution, for example, `myprefix/`.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return An optional string that you want CloudFront to prefix
-     * to the access log filenames for this distribution, for example, `myprefix/`.
+     * @return Prefix to the access log filenames for this distribution, for example, `myprefix/`.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -94,8 +88,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param bucket The Amazon S3 bucket to store the access logs in, for
-         * example, `myawslogbucket.s3.amazonaws.com`.
+         * @param bucket Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
          * 
          * @return builder
          * 
@@ -106,8 +99,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param bucket The Amazon S3 bucket to store the access logs in, for
-         * example, `myawslogbucket.s3.amazonaws.com`.
+         * @param bucket Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
          * 
          * @return builder
          * 
@@ -117,8 +109,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param includeCookies Specifies whether you want CloudFront to
-         * include cookies in access logs (default: `false`).
+         * @param includeCookies Whether to include cookies in access logs (default: `false`).
          * 
          * @return builder
          * 
@@ -129,8 +120,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param includeCookies Specifies whether you want CloudFront to
-         * include cookies in access logs (default: `false`).
+         * @param includeCookies Whether to include cookies in access logs (default: `false`).
          * 
          * @return builder
          * 
@@ -140,8 +130,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prefix An optional string that you want CloudFront to prefix
-         * to the access log filenames for this distribution, for example, `myprefix/`.
+         * @param prefix Prefix to the access log filenames for this distribution, for example, `myprefix/`.
          * 
          * @return builder
          * 
@@ -152,8 +141,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prefix An optional string that you want CloudFront to prefix
-         * to the access log filenames for this distribution, for example, `myprefix/`.
+         * @param prefix Prefix to the access log filenames for this distribution, for example, `myprefix/`.
          * 
          * @return builder
          * 

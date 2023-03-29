@@ -29,89 +29,127 @@ namespace Pulumi.Aws.CodeBuild
     ///         Acl = "private",
     ///     });
     /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "codebuild.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""codebuild.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogGroup",
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ec2:CreateNetworkInterface",
+    ///                     "ec2:DescribeDhcpOptions",
+    ///                     "ec2:DescribeNetworkInterfaces",
+    ///                     "ec2:DeleteNetworkInterface",
+    ///                     "ec2:DescribeSubnets",
+    ///                     "ec2:DescribeSecurityGroups",
+    ///                     "ec2:DescribeVpcs",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ec2:CreateNetworkInterfacePermission",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:ec2:us-east-1:123456789012:network-interface/*",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "ec2:Subnet",
+    ///                         Values = new[]
+    ///                         {
+    ///                             aws_subnet.Example1.Arn,
+    ///                             aws_subnet.Example2.Arn,
+    ///                         },
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "ec2:AuthorizedService",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "codebuild.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "s3:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleBucketV2.Arn,
+    ///                     $"{exampleBucketV2.Arn}/*",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
     ///     {
     ///         Role = exampleRole.Name,
-    ///         Policy = Output.Tuple(exampleBucketV2.Arn, exampleBucketV2.Arn).Apply(values =&gt;
-    ///         {
-    ///             var exampleBucketV2Arn = values.Item1;
-    ///             var exampleBucketV2Arn1 = values.Item2;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": [
-    ///         ""*""
-    ///       ],
-    ///       ""Action"": [
-    ///         ""logs:CreateLogGroup"",
-    ///         ""logs:CreateLogStream"",
-    ///         ""logs:PutLogEvents""
-    ///       ]
-    ///     }},
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""ec2:CreateNetworkInterface"",
-    ///         ""ec2:DescribeDhcpOptions"",
-    ///         ""ec2:DescribeNetworkInterfaces"",
-    ///         ""ec2:DeleteNetworkInterface"",
-    ///         ""ec2:DescribeSubnets"",
-    ///         ""ec2:DescribeSecurityGroups"",
-    ///         ""ec2:DescribeVpcs""
-    ///       ],
-    ///       ""Resource"": ""*""
-    ///     }},
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""ec2:CreateNetworkInterfacePermission""
-    ///       ],
-    ///       ""Resource"": [
-    ///         ""arn:aws:ec2:us-east-1:123456789012:network-interface/*""
-    ///       ],
-    ///       ""Condition"": {{
-    ///         ""StringEquals"": {{
-    ///           ""ec2:Subnet"": [
-    ///             ""{aws_subnet.Example1.Arn}"",
-    ///             ""{aws_subnet.Example2.Arn}""
-    ///           ],
-    ///           ""ec2:AuthorizedService"": ""codebuild.amazonaws.com""
-    ///         }}
-    ///       }}
-    ///     }},
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""s3:*""
-    ///       ],
-    ///       ""Resource"": [
-    ///         ""{exampleBucketV2Arn}"",
-    ///         ""{exampleBucketV2Arn1}/*""
-    ///       ]
-    ///     }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleProject = new Aws.CodeBuild.Project("exampleProject", new()

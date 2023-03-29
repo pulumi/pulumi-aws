@@ -356,6 +356,27 @@ class AnomalySubscription(pulumi.CustomResource):
                 address="abc@example.com",
             )])
         ```
+        ### Threshold Expression
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.costexplorer.AnomalySubscription("test",
+            frequency="DAILY",
+            monitor_arn_lists=[aws_ce_anomaly_monitor["test"]["arn"]],
+            subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
+                type="EMAIL",
+                address="abc@example.com",
+            )],
+            threshold_expression=aws.costexplorer.AnomalySubscriptionThresholdExpressionArgs(
+                dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs(
+                    key="ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+                    values=["100.0"],
+                    match_options=["GREATER_THAN_OR_EQUAL"],
+                ),
+            ))
+        ```
         ### SNS Example
 
         ```python
@@ -464,6 +485,27 @@ class AnomalySubscription(pulumi.CustomResource):
                 type="EMAIL",
                 address="abc@example.com",
             )])
+        ```
+        ### Threshold Expression
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.costexplorer.AnomalySubscription("test",
+            frequency="DAILY",
+            monitor_arn_lists=[aws_ce_anomaly_monitor["test"]["arn"]],
+            subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
+                type="EMAIL",
+                address="abc@example.com",
+            )],
+            threshold_expression=aws.costexplorer.AnomalySubscriptionThresholdExpressionArgs(
+                dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs(
+                    key="ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+                    values=["100.0"],
+                    match_options=["GREATER_THAN_OR_EQUAL"],
+                ),
+            ))
         ```
         ### SNS Example
 

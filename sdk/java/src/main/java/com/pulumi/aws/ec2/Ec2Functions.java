@@ -76,6 +76,10 @@ import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
 import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
 import com.pulumi.aws.ec2.inputs.GetPrefixListPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
+import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetRouteArgs;
 import com.pulumi.aws.ec2.inputs.GetRoutePlainArgs;
 import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
@@ -154,6 +158,8 @@ import com.pulumi.aws.ec2.outputs.GetNetworkInsightsPathResult;
 import com.pulumi.aws.ec2.outputs.GetNetworkInterfaceResult;
 import com.pulumi.aws.ec2.outputs.GetNetworkInterfacesResult;
 import com.pulumi.aws.ec2.outputs.GetPrefixListResult;
+import com.pulumi.aws.ec2.outputs.GetPublicIpv4PoolResult;
+import com.pulumi.aws.ec2.outputs.GetPublicIpv4PoolsResult;
 import com.pulumi.aws.ec2.outputs.GetRouteResult;
 import com.pulumi.aws.ec2.outputs.GetRouteTableResult;
 import com.pulumi.aws.ec2.outputs.GetRouteTablesResult;
@@ -1577,7 +1583,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Elastic IPs with the a specific tag value.
+     * The following shows outputting all Elastic IPs with the a specific tag value.
      * ```java
      * package generated_program;
      * 
@@ -1618,7 +1624,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Elastic IPs with the a specific tag value.
+     * The following shows outputting all Elastic IPs with the a specific tag value.
      * ```java
      * package generated_program;
      * 
@@ -1659,7 +1665,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Elastic IPs with the a specific tag value.
+     * The following shows outputting all Elastic IPs with the a specific tag value.
      * ```java
      * package generated_program;
      * 
@@ -1700,7 +1706,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Elastic IPs with the a specific tag value.
+     * The following shows outputting all Elastic IPs with the a specific tag value.
      * ```java
      * package generated_program;
      * 
@@ -1741,7 +1747,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Elastic IPs with the a specific tag value.
+     * The following shows outputting all Elastic IPs with the a specific tag value.
      * ```java
      * package generated_program;
      * 
@@ -1782,7 +1788,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Elastic IPs with the a specific tag value.
+     * The following shows outputting all Elastic IPs with the a specific tag value.
      * ```java
      * package generated_program;
      * 
@@ -5783,7 +5789,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -5821,7 +5827,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -5859,7 +5865,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -5897,7 +5903,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -5935,7 +5941,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -5973,7 +5979,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Local Gateway Route Table Ids.
+     * The following shows outputting all Local Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -7677,7 +7683,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network ACL ids in a vpc.
+     * The following shows outputting all network ACL ids in a vpc.
      * ```java
      * package generated_program;
      * 
@@ -7782,7 +7788,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network ACL ids in a vpc.
+     * The following shows outputting all network ACL ids in a vpc.
      * ```java
      * package generated_program;
      * 
@@ -7887,7 +7893,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network ACL ids in a vpc.
+     * The following shows outputting all network ACL ids in a vpc.
      * ```java
      * package generated_program;
      * 
@@ -7992,7 +7998,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network ACL ids in a vpc.
+     * The following shows outputting all network ACL ids in a vpc.
      * ```java
      * package generated_program;
      * 
@@ -8097,7 +8103,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network ACL ids in a vpc.
+     * The following shows outputting all network ACL ids in a vpc.
      * ```java
      * package generated_program;
      * 
@@ -8202,7 +8208,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network ACL ids in a vpc.
+     * The following shows outputting all network ACL ids in a vpc.
      * ```java
      * package generated_program;
      * 
@@ -8973,7 +8979,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network interface ids in a region.
+     * The following shows outputting all network interface ids in a region.
      * ```java
      * package generated_program;
      * 
@@ -9075,7 +9081,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network interface ids in a region.
+     * The following shows outputting all network interface ids in a region.
      * ```java
      * package generated_program;
      * 
@@ -9177,7 +9183,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network interface ids in a region.
+     * The following shows outputting all network interface ids in a region.
      * ```java
      * package generated_program;
      * 
@@ -9279,7 +9285,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network interface ids in a region.
+     * The following shows outputting all network interface ids in a region.
      * ```java
      * package generated_program;
      * 
@@ -9381,7 +9387,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network interface ids in a region.
+     * The following shows outputting all network interface ids in a region.
      * ```java
      * package generated_program;
      * 
@@ -9483,7 +9489,7 @@ public final class Ec2Functions {
     /**
      * ## Example Usage
      * 
-     * The following shows outputing all network interface ids in a region.
+     * The following shows outputting all network interface ids in a region.
      * ```java
      * package generated_program;
      * 
@@ -10199,6 +10205,566 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetPrefixListResult> getPrefixListPlain(GetPrefixListPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific AWS EC2 Public IPv4 Pool.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
+     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPublicIpv4PoolResult> getPublicIpv4Pool(GetPublicIpv4PoolArgs args) {
+        return getPublicIpv4Pool(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific AWS EC2 Public IPv4 Pool.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
+     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPublicIpv4PoolResult> getPublicIpv4PoolPlain(GetPublicIpv4PoolPlainArgs args) {
+        return getPublicIpv4PoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific AWS EC2 Public IPv4 Pool.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
+     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPublicIpv4PoolResult> getPublicIpv4Pool(GetPublicIpv4PoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", TypeShape.of(GetPublicIpv4PoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific AWS EC2 Public IPv4 Pool.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
+     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPublicIpv4PoolResult> getPublicIpv4PoolPlain(GetPublicIpv4PoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", TypeShape.of(GetPublicIpv4PoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for getting information about AWS EC2 Public IPv4 Pools.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Usage with Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
+     *                 .name(&#34;tag-key&#34;)
+     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPublicIpv4PoolsResult> getPublicIpv4Pools() {
+        return getPublicIpv4Pools(GetPublicIpv4PoolsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting information about AWS EC2 Public IPv4 Pools.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Usage with Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
+     *                 .name(&#34;tag-key&#34;)
+     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPublicIpv4PoolsResult> getPublicIpv4PoolsPlain() {
+        return getPublicIpv4PoolsPlain(GetPublicIpv4PoolsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting information about AWS EC2 Public IPv4 Pools.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Usage with Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
+     *                 .name(&#34;tag-key&#34;)
+     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPublicIpv4PoolsResult> getPublicIpv4Pools(GetPublicIpv4PoolsArgs args) {
+        return getPublicIpv4Pools(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting information about AWS EC2 Public IPv4 Pools.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Usage with Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
+     *                 .name(&#34;tag-key&#34;)
+     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPublicIpv4PoolsResult> getPublicIpv4PoolsPlain(GetPublicIpv4PoolsPlainArgs args) {
+        return getPublicIpv4PoolsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting information about AWS EC2 Public IPv4 Pools.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Usage with Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
+     *                 .name(&#34;tag-key&#34;)
+     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPublicIpv4PoolsResult> getPublicIpv4Pools(GetPublicIpv4PoolsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", TypeShape.of(GetPublicIpv4PoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for getting information about AWS EC2 Public IPv4 Pools.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     * 
+     *     }
+     * }
+     * ```
+     * ### Usage with Filter
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
+     *                 .name(&#34;tag-key&#34;)
+     *                 .values(&#34;ExampleTagKey&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPublicIpv4PoolsResult> getPublicIpv4PoolsPlain(GetPublicIpv4PoolsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", TypeShape.of(GetPublicIpv4PoolsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.ec2.Route` provides details about a specific Route.
@@ -12625,7 +13191,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -12663,7 +13229,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -12701,7 +13267,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -12739,7 +13305,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -12777,7 +13343,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 
@@ -12815,7 +13381,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following shows outputing all Transit Gateway Route Table Ids.
+     * The following shows outputting all Transit Gateway Route Table Ids.
      * ```java
      * package generated_program;
      * 

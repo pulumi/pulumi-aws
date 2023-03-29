@@ -68,8 +68,10 @@ type LookupRepositoryResult struct {
 	ImageScanningConfigurations []GetRepositoryImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
 	// The tag mutability setting for the repository.
 	ImageTagMutability string `pulumi:"imageTagMutability"`
-	Name               string `pulumi:"name"`
-	RegistryId         string `pulumi:"registryId"`
+	// List of image tags associated with the most recently pushed image in the repository.
+	MostRecentImageTags []string `pulumi:"mostRecentImageTags"`
+	Name                string   `pulumi:"name"`
+	RegistryId          string   `pulumi:"registryId"`
 	// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 	// Map of tags assigned to the resource.
@@ -145,6 +147,11 @@ func (o LookupRepositoryResultOutput) ImageScanningConfigurations() GetRepositor
 // The tag mutability setting for the repository.
 func (o LookupRepositoryResultOutput) ImageTagMutability() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.ImageTagMutability }).(pulumi.StringOutput)
+}
+
+// List of image tags associated with the most recently pushed image in the repository.
+func (o LookupRepositoryResultOutput) MostRecentImageTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []string { return v.MostRecentImageTags }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupRepositoryResultOutput) Name() pulumi.StringOutput {

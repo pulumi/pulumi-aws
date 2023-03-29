@@ -24,6 +24,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -36,27 +37,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("Enable IAM User Permissions"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: []string{
+//									fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"kms:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
 //				Description:          pulumi.String("my test kms key"),
 //				DeletionWindowInDays: pulumi.Int(7),
-//				Policy: pulumi.String(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Id": "kms-tf-1",
-//	  "Statement": [
-//	    {
-//	      "Sid": "Enable IAM User Permissions",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "AWS": "arn:aws:iam::%v:root"
-//	      },
-//	      "Action": "kms:*",
-//	      "Resource": "*"
-//	    }
-//	  ]
-//	}
-//
-// `, current.AccountId)),
-//
+//				Policy:               *pulumi.String(examplePolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err

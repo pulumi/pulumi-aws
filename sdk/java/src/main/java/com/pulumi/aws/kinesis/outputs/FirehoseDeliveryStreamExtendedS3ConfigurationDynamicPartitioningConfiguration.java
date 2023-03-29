@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
     /**
-     * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+     * @return Enables or disables dynamic partitioning. Defaults to `false`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -25,7 +25,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartition
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration() {}
     /**
-     * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+     * @return Enables or disables dynamic partitioning. Defaults to `false`.
      * 
      */
     public Optional<Boolean> enabled() {

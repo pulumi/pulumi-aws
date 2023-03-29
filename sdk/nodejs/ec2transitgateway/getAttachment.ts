@@ -67,6 +67,14 @@ export interface GetAttachmentResult {
      * ARN of the attachment.
      */
     readonly arn: string;
+    /**
+     * The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
+     */
+    readonly associationState: string;
+    /**
+     * The ID of the route table for the transit gateway.
+     */
+    readonly associationTransitGatewayRouteTableId: string;
     readonly filters?: outputs.ec2transitgateway.GetAttachmentFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.

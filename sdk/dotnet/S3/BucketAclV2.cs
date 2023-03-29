@@ -115,25 +115,25 @@ namespace Pulumi.Aws.S3
     public partial class BucketAclV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A configuration block that sets the ACL permissions for an object per grantee documented below.
+        /// Configuration block that sets the ACL permissions for an object per grantee. See below.
         /// </summary>
         [Output("accessControlPolicy")]
         public Output<Outputs.BucketAclV2AccessControlPolicy> AccessControlPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The canned ACL to apply to the bucket.
+        /// Canned ACL to apply to the bucket.
         /// </summary>
         [Output("acl")]
         public Output<string?> Acl { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
@@ -185,25 +185,25 @@ namespace Pulumi.Aws.S3
     public sealed class BucketAclV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A configuration block that sets the ACL permissions for an object per grantee documented below.
+        /// Configuration block that sets the ACL permissions for an object per grantee. See below.
         /// </summary>
         [Input("accessControlPolicy")]
         public Input<Inputs.BucketAclV2AccessControlPolicyArgs>? AccessControlPolicy { get; set; }
 
         /// <summary>
-        /// The canned ACL to apply to the bucket.
+        /// Canned ACL to apply to the bucket.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
@@ -217,25 +217,25 @@ namespace Pulumi.Aws.S3
     public sealed class BucketAclV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A configuration block that sets the ACL permissions for an object per grantee documented below.
+        /// Configuration block that sets the ACL permissions for an object per grantee. See below.
         /// </summary>
         [Input("accessControlPolicy")]
         public Input<Inputs.BucketAclV2AccessControlPolicyGetArgs>? AccessControlPolicy { get; set; }
 
         /// <summary>
-        /// The canned ACL to apply to the bucket.
+        /// Canned ACL to apply to the bucket.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The account ID of the expected bucket owner.
+        /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }

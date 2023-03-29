@@ -15,22 +15,19 @@ import {Role} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["ec2.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
  * const role = new aws.iam.Role("role", {
  *     path: "/",
- *     assumeRolePolicy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Action": "sts:AssumeRole",
- *             "Principal": {
- *                "Service": "ec2.amazonaws.com"
- *             },
- *             "Effect": "Allow",
- *             "Sid": ""
- *         }
- *     ]
- * }
- * `,
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
  * const testProfile = new aws.iam.InstanceProfile("testProfile", {role: role.name});
  * ```

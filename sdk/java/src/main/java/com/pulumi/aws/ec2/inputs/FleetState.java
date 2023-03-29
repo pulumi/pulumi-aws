@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2.inputs;
 
+import com.pulumi.aws.ec2.inputs.FleetFleetInstanceSetArgs;
 import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigArgs;
 import com.pulumi.aws.ec2.inputs.FleetOnDemandOptionsArgs;
 import com.pulumi.aws.ec2.inputs.FleetSpotOptionsArgs;
@@ -10,7 +11,9 @@ import com.pulumi.aws.ec2.inputs.FleetTargetCapacitySpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -52,18 +55,78 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      * 
      */
     @Import(name="excessCapacityTerminationPolicy")
     private @Nullable Output<String> excessCapacityTerminationPolicy;
 
     /**
-     * @return Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     * @return Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      * 
      */
     public Optional<Output<String>> excessCapacityTerminationPolicy() {
         return Optional.ofNullable(this.excessCapacityTerminationPolicy);
+    }
+
+    /**
+     * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+     * 
+     */
+    @Import(name="fleetInstanceSets")
+    private @Nullable Output<List<FleetFleetInstanceSetArgs>> fleetInstanceSets;
+
+    /**
+     * @return Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+     * 
+     */
+    public Optional<Output<List<FleetFleetInstanceSetArgs>>> fleetInstanceSets() {
+        return Optional.ofNullable(this.fleetInstanceSets);
+    }
+
+    /**
+     * The state of the EC2 Fleet.
+     * 
+     */
+    @Import(name="fleetState")
+    private @Nullable Output<String> fleetState;
+
+    /**
+     * @return The state of the EC2 Fleet.
+     * 
+     */
+    public Optional<Output<String>> fleetState() {
+        return Optional.ofNullable(this.fleetState);
+    }
+
+    /**
+     * The number of units fulfilled by this request compared to the set target capacity.
+     * 
+     */
+    @Import(name="fulfilledCapacity")
+    private @Nullable Output<Double> fulfilledCapacity;
+
+    /**
+     * @return The number of units fulfilled by this request compared to the set target capacity.
+     * 
+     */
+    public Optional<Output<Double>> fulfilledCapacity() {
+        return Optional.ofNullable(this.fulfilledCapacity);
+    }
+
+    /**
+     * The number of units fulfilled by this request compared to the set target On-Demand capacity.
+     * 
+     */
+    @Import(name="fulfilledOnDemandCapacity")
+    private @Nullable Output<Double> fulfilledOnDemandCapacity;
+
+    /**
+     * @return The number of units fulfilled by this request compared to the set target On-Demand capacity.
+     * 
+     */
+    public Optional<Output<Double>> fulfilledOnDemandCapacity() {
+        return Optional.ofNullable(this.fulfilledOnDemandCapacity);
     }
 
     /**
@@ -97,14 +160,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      * 
      */
     @Import(name="replaceUnhealthyInstances")
     private @Nullable Output<Boolean> replaceUnhealthyInstances;
 
     /**
-     * @return Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     * @return Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      * 
      */
     public Optional<Output<Boolean>> replaceUnhealthyInstances() {
@@ -202,18 +265,48 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     * @return The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      * 
      */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+     * 
+     */
+    @Import(name="validFrom")
+    private @Nullable Output<String> validFrom;
+
+    /**
+     * @return The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+     * 
+     */
+    public Optional<Output<String>> validFrom() {
+        return Optional.ofNullable(this.validFrom);
+    }
+
+    /**
+     * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     * 
+     */
+    @Import(name="validUntil")
+    private @Nullable Output<String> validUntil;
+
+    /**
+     * @return The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     * 
+     */
+    public Optional<Output<String>> validUntil() {
+        return Optional.ofNullable(this.validUntil);
     }
 
     private FleetState() {}
@@ -222,6 +315,10 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.context = $.context;
         this.excessCapacityTerminationPolicy = $.excessCapacityTerminationPolicy;
+        this.fleetInstanceSets = $.fleetInstanceSets;
+        this.fleetState = $.fleetState;
+        this.fulfilledCapacity = $.fulfilledCapacity;
+        this.fulfilledOnDemandCapacity = $.fulfilledOnDemandCapacity;
         this.launchTemplateConfig = $.launchTemplateConfig;
         this.onDemandOptions = $.onDemandOptions;
         this.replaceUnhealthyInstances = $.replaceUnhealthyInstances;
@@ -232,6 +329,8 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         this.terminateInstances = $.terminateInstances;
         this.terminateInstancesWithExpiration = $.terminateInstancesWithExpiration;
         this.type = $.type;
+        this.validFrom = $.validFrom;
+        this.validUntil = $.validUntil;
     }
 
     public static Builder builder() {
@@ -295,7 +394,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excessCapacityTerminationPolicy Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+         * @param excessCapacityTerminationPolicy Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
          * 
          * @return builder
          * 
@@ -306,13 +405,107 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excessCapacityTerminationPolicy Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+         * @param excessCapacityTerminationPolicy Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
          * 
          * @return builder
          * 
          */
         public Builder excessCapacityTerminationPolicy(String excessCapacityTerminationPolicy) {
             return excessCapacityTerminationPolicy(Output.of(excessCapacityTerminationPolicy));
+        }
+
+        /**
+         * @param fleetInstanceSets Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fleetInstanceSets(@Nullable Output<List<FleetFleetInstanceSetArgs>> fleetInstanceSets) {
+            $.fleetInstanceSets = fleetInstanceSets;
+            return this;
+        }
+
+        /**
+         * @param fleetInstanceSets Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fleetInstanceSets(List<FleetFleetInstanceSetArgs> fleetInstanceSets) {
+            return fleetInstanceSets(Output.of(fleetInstanceSets));
+        }
+
+        /**
+         * @param fleetInstanceSets Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fleetInstanceSets(FleetFleetInstanceSetArgs... fleetInstanceSets) {
+            return fleetInstanceSets(List.of(fleetInstanceSets));
+        }
+
+        /**
+         * @param fleetState The state of the EC2 Fleet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fleetState(@Nullable Output<String> fleetState) {
+            $.fleetState = fleetState;
+            return this;
+        }
+
+        /**
+         * @param fleetState The state of the EC2 Fleet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fleetState(String fleetState) {
+            return fleetState(Output.of(fleetState));
+        }
+
+        /**
+         * @param fulfilledCapacity The number of units fulfilled by this request compared to the set target capacity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fulfilledCapacity(@Nullable Output<Double> fulfilledCapacity) {
+            $.fulfilledCapacity = fulfilledCapacity;
+            return this;
+        }
+
+        /**
+         * @param fulfilledCapacity The number of units fulfilled by this request compared to the set target capacity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fulfilledCapacity(Double fulfilledCapacity) {
+            return fulfilledCapacity(Output.of(fulfilledCapacity));
+        }
+
+        /**
+         * @param fulfilledOnDemandCapacity The number of units fulfilled by this request compared to the set target On-Demand capacity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fulfilledOnDemandCapacity(@Nullable Output<Double> fulfilledOnDemandCapacity) {
+            $.fulfilledOnDemandCapacity = fulfilledOnDemandCapacity;
+            return this;
+        }
+
+        /**
+         * @param fulfilledOnDemandCapacity The number of units fulfilled by this request compared to the set target On-Demand capacity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fulfilledOnDemandCapacity(Double fulfilledOnDemandCapacity) {
+            return fulfilledOnDemandCapacity(Output.of(fulfilledOnDemandCapacity));
         }
 
         /**
@@ -358,7 +551,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replaceUnhealthyInstances Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+         * @param replaceUnhealthyInstances Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
          * 
          * @return builder
          * 
@@ -369,7 +562,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replaceUnhealthyInstances Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+         * @param replaceUnhealthyInstances Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
          * 
          * @return builder
          * 
@@ -505,7 +698,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+         * @param type The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
          * 
          * @return builder
          * 
@@ -516,13 +709,55 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+         * @param type The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
          * 
          * @return builder
          * 
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param validFrom The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validFrom(@Nullable Output<String> validFrom) {
+            $.validFrom = validFrom;
+            return this;
+        }
+
+        /**
+         * @param validFrom The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validFrom(String validFrom) {
+            return validFrom(Output.of(validFrom));
+        }
+
+        /**
+         * @param validUntil The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validUntil(@Nullable Output<String> validUntil) {
+            $.validUntil = validUntil;
+            return this;
+        }
+
+        /**
+         * @param validUntil The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validUntil(String validUntil) {
+            return validUntil(Output.of(validUntil));
         }
 
         public FleetState build() {

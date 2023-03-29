@@ -18,8 +18,8 @@ class BucketPolicyArgs:
                  policy: pulumi.Input[str]):
         """
         The set of arguments for constructing a BucketPolicy resource.
-        :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
-        :param pulumi.Input[str] policy: The text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+        :param pulumi.Input[str] bucket: Name of the bucket to which to apply the policy.
+        :param pulumi.Input[str] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "policy", policy)
@@ -28,7 +28,7 @@ class BucketPolicyArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket to which to apply the policy.
+        Name of the bucket to which to apply the policy.
         """
         return pulumi.get(self, "bucket")
 
@@ -40,7 +40,7 @@ class BucketPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
         """
-        The text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+        Text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
         return pulumi.get(self, "policy")
 
@@ -56,8 +56,8 @@ class _BucketPolicyState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketPolicy resources.
-        :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
-        :param pulumi.Input[str] policy: The text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+        :param pulumi.Input[str] bucket: Name of the bucket to which to apply the policy.
+        :param pulumi.Input[str] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -68,7 +68,7 @@ class _BucketPolicyState:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket to which to apply the policy.
+        Name of the bucket to which to apply the policy.
         """
         return pulumi.get(self, "bucket")
 
@@ -80,7 +80,7 @@ class _BucketPolicyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+        Text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
         return pulumi.get(self, "policy")
 
@@ -137,8 +137,8 @@ class BucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
-        :param pulumi.Input[str] policy: The text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+        :param pulumi.Input[str] bucket: Name of the bucket to which to apply the policy.
+        :param pulumi.Input[str] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
         ...
     @overload
@@ -235,8 +235,8 @@ class BucketPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
-        :param pulumi.Input[str] policy: The text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+        :param pulumi.Input[str] bucket: Name of the bucket to which to apply the policy.
+        :param pulumi.Input[str] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -250,7 +250,7 @@ class BucketPolicy(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket to which to apply the policy.
+        Name of the bucket to which to apply the policy.
         """
         return pulumi.get(self, "bucket")
 
@@ -258,7 +258,7 @@ class BucketPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
-        The text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
+        Text of the policy. Although this is a bucket policy rather than an IAM policy, the _iam_get_policy_document_ data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
         return pulumi.get(self, "policy")
 

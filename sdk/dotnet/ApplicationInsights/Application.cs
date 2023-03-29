@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -25,20 +26,24 @@ namespace Pulumi.Aws.ApplicationInsights
     ///     {
     ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
-    ///             Query = @"	{
-    /// 		""ResourceTypeFilters"": [
-    /// 		  ""AWS::EC2::Instance""
-    /// 		],
-    /// 		""TagFilters"": [
-    /// 		  {
-    /// 			""Key"": ""Stage"",
-    /// 			""Values"": [
-    /// 			  ""Test""
-    /// 			]
-    /// 		  }
-    /// 		]
-    /// 	  }
-    /// ",
+    ///             Query = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["ResourceTypeFilters"] = new[]
+    ///                 {
+    ///                     "AWS::EC2::Instance",
+    ///                 },
+    ///                 ["TagFilters"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Key"] = "Stage",
+    ///                         ["Values"] = new[]
+    ///                         {
+    ///                             "Test",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             }),
     ///         },
     ///     });
     /// 

@@ -56,21 +56,23 @@ import * as utilities from "../utilities";
  * const domain = config.get("domain") || "tf-test";
  * const currentRegion = aws.getRegion({});
  * const currentCallerIdentity = aws.getCallerIdentity({});
- * const example = new aws.opensearch.Domain("example", {accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "es:*",
- *       "Principal": "*",
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
- *       "Condition": {
- *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
- *       }
- *     }
- *   ]
- * }
- * `)});
+ * const examplePolicyDocument = Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["es:*"],
+ *         resources: [`arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*`],
+ *         conditions: [{
+ *             test: "IpAddress",
+ *             variable: "aws:SourceIp",
+ *             values: ["66.193.100.22/32"],
+ *         }],
+ *     }],
+ * }));
+ * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {accessPolicies: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
  * ```
  * ### Log publishing to CloudWatch Logs
  *
@@ -79,26 +81,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["es.amazonaws.com"],
+ *         }],
+ *         actions: [
+ *             "logs:PutLogEvents",
+ *             "logs:PutLogEventsBatch",
+ *             "logs:CreateLogStream",
+ *         ],
+ *         resources: ["arn:aws:logs:*"],
+ *     }],
+ * });
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
  *     policyName: "example",
- *     policyDocument: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "es.amazonaws.com"
- *       },
- *       "Action": [
- *         "logs:PutLogEvents",
- *         "logs:PutLogEventsBatch",
- *         "logs:CreateLogStream"
- *       ],
- *       "Resource": "arn:aws:logs:*"
- *     }
- *   ]
- * }
- * `,
+ *     policyDocument: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * // .. other configuration ...
  * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {logPublishingOptions: [{
@@ -139,6 +139,17 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleServiceLinkedRole = new aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", {awsServiceName: "opensearchservice.amazonaws.com"});
+ * const examplePolicyDocument = Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["es:*"],
+ *         resources: [`arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*`],
+ *     }],
+ * }));
  * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
  *     engineVersion: "OpenSearch_1.0",
  *     clusterConfig: {
@@ -155,18 +166,7 @@ import * as utilities from "../utilities";
  *     advancedOptions: {
  *         "rest.action.multi.allow_explicit_index": "true",
  *     },
- *     accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Action": "es:*",
- * 			"Principal": "*",
- * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
- * 		}
- * 	]
- * }
- * `),
+ *     accessPolicies: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  *     tags: {
  *         Domain: "TestDomain",
  *     },
@@ -313,9 +313,13 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly clusterConfig!: pulumi.Output<outputs.opensearch.DomainClusterConfig>;
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
     public readonly cognitoOptions!: pulumi.Output<outputs.opensearch.DomainCognitoOptions | undefined>;
+    /**
+     * Domain-specific endpoint for Dashboard without https scheme.
+     */
+    public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
@@ -345,7 +349,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      */
     public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
     /**
@@ -395,6 +399,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["autoTuneOptions"] = state ? state.autoTuneOptions : undefined;
             resourceInputs["clusterConfig"] = state ? state.clusterConfig : undefined;
             resourceInputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
+            resourceInputs["dashboardEndpoint"] = state ? state.dashboardEndpoint : undefined;
             resourceInputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
@@ -428,6 +433,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dashboardEndpoint"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["kibanaEndpoint"] = undefined /*out*/;
@@ -467,9 +473,13 @@ export interface DomainState {
      */
     clusterConfig?: pulumi.Input<inputs.opensearch.DomainClusterConfig>;
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
     cognitoOptions?: pulumi.Input<inputs.opensearch.DomainCognitoOptions>;
+    /**
+     * Domain-specific endpoint for Dashboard without https scheme.
+     */
+    dashboardEndpoint?: pulumi.Input<string>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
@@ -499,7 +509,7 @@ export interface DomainState {
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      */
     kibanaEndpoint?: pulumi.Input<string>;
     /**
@@ -555,7 +565,7 @@ export interface DomainArgs {
      */
     clusterConfig?: pulumi.Input<inputs.opensearch.DomainClusterConfig>;
     /**
-     * Configuration block for authenticating Kibana with Cognito. Detailed below.
+     * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
     cognitoOptions?: pulumi.Input<inputs.opensearch.DomainCognitoOptions>;
     /**

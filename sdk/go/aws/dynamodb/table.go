@@ -157,11 +157,13 @@ type Table struct {
 	Attributes TableAttributeArrayOutput `pulumi:"attributes"`
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringOutput `pulumi:"hashKey"`
-	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -189,7 +191,9 @@ type Table struct {
 	StreamLabel pulumi.StringOutput `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringOutput `pulumi:"streamViewType"`
-	// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Storage class of the table.
+	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Default value is `STANDARD`.
 	TableClass pulumi.StringPtrOutput `pulumi:"tableClass"`
 	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -236,11 +240,13 @@ type tableState struct {
 	Attributes []TableAttribute `pulumi:"attributes"`
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode *string `pulumi:"billingMode"`
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey *string `pulumi:"hashKey"`
-	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	Name *string `pulumi:"name"`
@@ -268,7 +274,9 @@ type tableState struct {
 	StreamLabel *string `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
-	// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Storage class of the table.
+	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Default value is `STANDARD`.
 	TableClass *string `pulumi:"tableClass"`
 	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -287,11 +295,13 @@ type TableState struct {
 	Attributes TableAttributeArrayInput
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode pulumi.StringPtrInput
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringPtrInput
-	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
 	Name pulumi.StringPtrInput
@@ -319,7 +329,9 @@ type TableState struct {
 	StreamLabel pulumi.StringPtrInput
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
-	// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Storage class of the table.
+	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Default value is `STANDARD`.
 	TableClass pulumi.StringPtrInput
 	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -340,11 +352,13 @@ type tableArgs struct {
 	Attributes []TableAttribute `pulumi:"attributes"`
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode *string `pulumi:"billingMode"`
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey *string `pulumi:"hashKey"`
-	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	Name *string `pulumi:"name"`
@@ -368,7 +382,9 @@ type tableArgs struct {
 	StreamEnabled *bool `pulumi:"streamEnabled"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
-	// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Storage class of the table.
+	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Default value is `STANDARD`.
 	TableClass *string `pulumi:"tableClass"`
 	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -386,11 +402,13 @@ type TableArgs struct {
 	Attributes TableAttributeArrayInput
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode pulumi.StringPtrInput
+	// Enables deletion protection for table. Defaults to `false`.
+	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringPtrInput
-	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
 	Name pulumi.StringPtrInput
@@ -414,7 +432,9 @@ type TableArgs struct {
 	StreamEnabled pulumi.BoolPtrInput
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
-	// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Storage class of the table.
+	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	// Default value is `STANDARD`.
 	TableClass pulumi.StringPtrInput
 	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -528,6 +548,11 @@ func (o TableOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
+// Enables deletion protection for table. Defaults to `false`.
+func (o TableOutput) DeletionProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *Table) TableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
@@ -538,7 +563,7 @@ func (o TableOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.HashKey }).(pulumi.StringOutput)
 }
 
-// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 func (o TableOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *Table) TableLocalSecondaryIndexArrayOutput { return v.LocalSecondaryIndexes }).(TableLocalSecondaryIndexArrayOutput)
 }
@@ -608,7 +633,9 @@ func (o TableOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamViewType }).(pulumi.StringOutput)
 }
 
-// Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+// Storage class of the table.
+// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+// Default value is `STANDARD`.
 func (o TableOutput) TableClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.TableClass }).(pulumi.StringPtrOutput)
 }

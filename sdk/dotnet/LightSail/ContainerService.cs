@@ -91,26 +91,37 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
+    ///     var defaultPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             defaultContainerService.PrivateRegistryAccess.EcrImagePullerRole?.PrincipalArn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "ecr:BatchGetImage",
+    ///                     "ecr:GetDownloadUrlForLayer",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     ///     var defaultRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("defaultRepositoryPolicy", new()
     ///     {
     ///         Repository = aws_ecr_repository.Default.Name,
-    ///         Policy = defaultContainerService.PrivateRegistryAccess.Apply(privateRegistryAccess =&gt; @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Sid"": ""AllowLightsailPull"",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {{
-    ///         ""AWS"": ""{privateRegistryAccess.EcrImagePullerRole?.PrincipalArn}""
-    ///       }},
-    ///       ""Action"": [
-    ///         ""ecr:BatchGetImage"",
-    ///         ""ecr:GetDownloadUrlForLayer""
-    ///       ]
-    ///     }}
-    ///   ]
-    /// }}
-    /// "),
+    ///         Policy = defaultPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

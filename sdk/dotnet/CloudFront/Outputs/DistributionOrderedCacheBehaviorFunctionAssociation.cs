@@ -14,12 +14,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionOrderedCacheBehaviorFunctionAssociation
     {
         /// <summary>
-        /// The specific event to trigger this function.
-        /// Valid values: `viewer-request` or `viewer-response`
+        /// Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
         /// </summary>
         public readonly string EventType;
         /// <summary>
-        /// ARN of the Cloudfront function.
+        /// ARN of the CloudFront function.
         /// </summary>
         public readonly string FunctionArn;
 

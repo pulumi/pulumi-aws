@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
@@ -33,22 +33,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"source": []string{
+//					"aws.autoscaling",
+//				},
+//				"detail-type": []string{
+//					"EC2 Instance Launch Successful",
+//					"EC2 Instance Terminate Successful",
+//					"EC2 Instance Launch Unsuccessful",
+//					"EC2 Instance Terminate Unsuccessful",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
-//				Description: pulumi.String("Capture all EC2 scaling events"),
-//				EventPattern: pulumi.String(fmt.Sprintf(`{
-//	  "source": [
-//	    "aws.autoscaling"
-//	  ],
-//	  "detail-type": [
-//	    "EC2 Instance Launch Successful",
-//	    "EC2 Instance Terminate Successful",
-//	    "EC2 Instance Launch Unsuccessful",
-//	    "EC2 Instance Terminate Unsuccessful"
-//	  ]
-//	}
-//
-// `)),
-//
+//				Description:  pulumi.String("Capture all EC2 scaling events"),
+//				EventPattern: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -92,7 +94,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
@@ -123,28 +125,30 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"schemaVersion": "1.2",
+//				"description":   "Stop an instance",
+//				"parameters":    nil,
+//				"runtimeConfig": map[string]interface{}{
+//					"aws:runShellScript": map[string]interface{}{
+//						"properties": []map[string]interface{}{
+//							map[string]interface{}{
+//								"id": "0.aws:runShellScript",
+//								"runCommand": []string{
+//									"halt",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			stopInstance, err := ssm.NewDocument(ctx, "stopInstance", &ssm.DocumentArgs{
 //				DocumentType: pulumi.String("Command"),
-//				Content: pulumi.String(fmt.Sprintf(`  {
-//	    "schemaVersion": "1.2",
-//	    "description": "Stop an instance",
-//	    "parameters": {
-//
-//	    },
-//	    "runtimeConfig": {
-//	      "aws:runShellScript": {
-//	        "properties": [
-//	          {
-//	            "id": "0.aws:runShellScript",
-//	            "runCommand": ["halt"]
-//	          }
-//	        ]
-//	      }
-//	    }
-//	  }
-//
-// `)),
-//
+//				Content:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -315,7 +319,7 @@ import (
 //				Rule: exampleEventRule.ID(),
 //				HttpTarget: &cloudwatch.EventTargetHttpTargetArgs{
 //					QueryStringParameters: pulumi.StringMap{
-//						"Body": pulumi.String(fmt.Sprintf("$.detail.body")),
+//						"Body": pulumi.String("$.detail.body"),
 //					},
 //					HeaderParameters: pulumi.StringMap{
 //						"Env": pulumi.String("Test"),
@@ -337,8 +341,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -347,22 +349,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"events.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			eventBusInvokeRemoteEventBusRole, err := iam.NewRole(ctx, "eventBusInvokeRemoteEventBusRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "events.amazonaws.com"
-//	      },
-//	      "Effect": "Allow"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -423,8 +432,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -441,10 +448,10 @@ import (
 //				Rule: exampleEventRule.ID(),
 //				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
 //					InputPaths: pulumi.StringMap{
-//						"instance": pulumi.String(fmt.Sprintf("$.detail.instance")),
-//						"status":   pulumi.String(fmt.Sprintf("$.detail.status")),
+//						"instance": pulumi.String("$.detail.instance"),
+//						"status":   pulumi.String("$.detail.status"),
 //					},
-//					InputTemplate: pulumi.String(fmt.Sprintf("{\n  \"instance_id\": <instance>,\n  \"instance_status\": <status>\n}\n")),
+//					InputTemplate: pulumi.String("{\n  \"instance_id\": <instance>,\n  \"instance_status\": <status>\n}\n"),
 //				},
 //			})
 //			if err != nil {
@@ -462,8 +469,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -480,8 +485,8 @@ import (
 //				Rule: exampleEventRule.ID(),
 //				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
 //					InputPaths: pulumi.StringMap{
-//						"instance": pulumi.String(fmt.Sprintf("$.detail.instance")),
-//						"status":   pulumi.String(fmt.Sprintf("$.detail.status")),
+//						"instance": pulumi.String("$.detail.instance"),
+//						"status":   pulumi.String("$.detail.status"),
 //					},
 //					InputTemplate: pulumi.String("\"<instance> is in state <status>\""),
 //				},

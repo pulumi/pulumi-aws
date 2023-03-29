@@ -18,7 +18,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
      */
     private @Nullable Integer columnDepth;
     /**
-     * @return Enables column oly or column and row based FEC.
+     * @return Enables column only or column and row based FEC.
      * 
      */
     private @Nullable String includeFec;
@@ -37,7 +37,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         return Optional.ofNullable(this.columnDepth);
     }
     /**
-     * @return Enables column oly or column and row based FEC.
+     * @return Enables column only or column and row based FEC.
      * 
      */
     public Optional<String> includeFec() {

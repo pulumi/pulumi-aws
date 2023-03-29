@@ -32,7 +32,7 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -60,12 +60,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"foo": "bar",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = autoscaling.NewLifecycleHook(ctx, "foobarLifecycleHook", &autoscaling.LifecycleHookArgs{
 //				AutoscalingGroupName:  foobarGroup.Name,
 //				DefaultResult:         pulumi.String("CONTINUE"),
 //				HeartbeatTimeout:      pulumi.Int(2000),
 //				LifecycleTransition:   pulumi.String("autoscaling:EC2_INSTANCE_LAUNCHING"),
-//				NotificationMetadata:  pulumi.String(fmt.Sprintf("{\n  \"foo\": \"bar\"\n}\n")),
+//				NotificationMetadata:  pulumi.String(json0),
 //				NotificationTargetArn: pulumi.String("arn:aws:sqs:us-east-1:444455556666:queue1*"),
 //				RoleArn:               pulumi.String("arn:aws:iam::123456789012:role/S3Access"),
 //			})

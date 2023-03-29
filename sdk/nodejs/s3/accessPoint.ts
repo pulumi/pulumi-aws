@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
  * ```
  *
- *  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.,
+ *  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
@@ -87,28 +87,28 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * The alias of the S3 Access Point.
+     * Alias of the S3 Access Point.
      */
     public /*out*/ readonly alias!: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Point.
+     * ARN of the S3 Access Point.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * The AWS account ID associated with the S3 bucket associated with this access point.
+     * AWS account ID associated with the S3 bucket associated with this access point.
      */
     public readonly bucketAccountId!: pulumi.Output<string>;
     /**
-     * The DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
+     * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
-     * The VPC endpoints for the S3 Access Point.
+     * VPC endpoints for the S3 Access Point.
      */
     public /*out*/ readonly endpoints!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -195,28 +195,28 @@ export interface AccessPointState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The alias of the S3 Access Point.
+     * Alias of the S3 Access Point.
      */
     alias?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Point.
+     * ARN of the S3 Access Point.
      */
     arn?: pulumi.Input<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The AWS account ID associated with the S3 bucket associated with this access point.
+     * AWS account ID associated with the S3 bucket associated with this access point.
      */
     bucketAccountId?: pulumi.Input<string>;
     /**
-     * The DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
+     * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The VPC endpoints for the S3 Access Point.
+     * VPC endpoints for the S3 Access Point.
      */
     endpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -254,11 +254,11 @@ export interface AccessPointArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     bucket: pulumi.Input<string>;
     /**
-     * The AWS account ID associated with the S3 bucket associated with this access point.
+     * AWS account ID associated with the S3 bucket associated with this access point.
      */
     bucketAccountId?: pulumi.Input<string>;
     /**

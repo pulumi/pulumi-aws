@@ -157,6 +157,8 @@ type ListenerPolicy struct {
 	LoadBalancerPort pulumi.IntOutput `pulumi:"loadBalancerPort"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayOutput `pulumi:"policyNames"`
+	// Map of arbitrary keys and values that, when changed, will trigger an update.
+	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 }
 
 // NewListenerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -206,6 +208,8 @@ type listenerPolicyState struct {
 	LoadBalancerPort *int `pulumi:"loadBalancerPort"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames []string `pulumi:"policyNames"`
+	// Map of arbitrary keys and values that, when changed, will trigger an update.
+	Triggers map[string]string `pulumi:"triggers"`
 }
 
 type ListenerPolicyState struct {
@@ -215,6 +219,8 @@ type ListenerPolicyState struct {
 	LoadBalancerPort pulumi.IntPtrInput
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayInput
+	// Map of arbitrary keys and values that, when changed, will trigger an update.
+	Triggers pulumi.StringMapInput
 }
 
 func (ListenerPolicyState) ElementType() reflect.Type {
@@ -228,6 +234,8 @@ type listenerPolicyArgs struct {
 	LoadBalancerPort int `pulumi:"loadBalancerPort"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames []string `pulumi:"policyNames"`
+	// Map of arbitrary keys and values that, when changed, will trigger an update.
+	Triggers map[string]string `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a ListenerPolicy resource.
@@ -238,6 +246,8 @@ type ListenerPolicyArgs struct {
 	LoadBalancerPort pulumi.IntInput
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayInput
+	// Map of arbitrary keys and values that, when changed, will trigger an update.
+	Triggers pulumi.StringMapInput
 }
 
 func (ListenerPolicyArgs) ElementType() reflect.Type {
@@ -340,6 +350,11 @@ func (o ListenerPolicyOutput) LoadBalancerPort() pulumi.IntOutput {
 // List of Policy Names to apply to the backend server.
 func (o ListenerPolicyOutput) PolicyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerPolicy) pulumi.StringArrayOutput { return v.PolicyNames }).(pulumi.StringArrayOutput)
+}
+
+// Map of arbitrary keys and values that, when changed, will trigger an update.
+func (o ListenerPolicyOutput) Triggers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ListenerPolicy) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }
 
 type ListenerPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -13,6 +13,12 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupInstanceRefreshPreferencesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Automatically rollback if instance refresh fails. Defaults to `false`.
+        /// </summary>
+        [Input("autoRollback")]
+        public Input<bool>? AutoRollback { get; set; }
+
+        /// <summary>
         /// Number of seconds to wait after a checkpoint. Defaults to `3600`.
         /// </summary>
         [Input("checkpointDelay")]

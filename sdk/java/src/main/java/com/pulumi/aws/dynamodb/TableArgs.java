@@ -57,6 +57,21 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables deletion protection for table. Defaults to `false`.
+     * 
+     */
+    @Import(name="deletionProtectionEnabled")
+    private @Nullable Output<Boolean> deletionProtectionEnabled;
+
+    /**
+     * @return Enables deletion protection for table. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> deletionProtectionEnabled() {
+        return Optional.ofNullable(this.deletionProtectionEnabled);
+    }
+
+    /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
@@ -87,14 +102,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      * 
      */
     @Import(name="localSecondaryIndexes")
     private @Nullable Output<List<TableLocalSecondaryIndexArgs>> localSecondaryIndexes;
 
     /**
-     * @return Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+     * @return Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      * 
      */
     public Optional<Output<List<TableLocalSecondaryIndexArgs>>> localSecondaryIndexes() {
@@ -267,14 +282,18 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      * 
      */
     @Import(name="tableClass")
     private @Nullable Output<String> tableClass;
 
     /**
-     * @return Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * @return Storage class of the table.
+     * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Default value is `STANDARD`.
      * 
      */
     public Optional<Output<String>> tableClass() {
@@ -346,6 +365,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     private TableArgs(TableArgs $) {
         this.attributes = $.attributes;
         this.billingMode = $.billingMode;
+        this.deletionProtectionEnabled = $.deletionProtectionEnabled;
         this.globalSecondaryIndexes = $.globalSecondaryIndexes;
         this.hashKey = $.hashKey;
         this.localSecondaryIndexes = $.localSecondaryIndexes;
@@ -438,6 +458,27 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param deletionProtectionEnabled Enables deletion protection for table. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtectionEnabled(@Nullable Output<Boolean> deletionProtectionEnabled) {
+            $.deletionProtectionEnabled = deletionProtectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param deletionProtectionEnabled Enables deletion protection for table. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtectionEnabled(Boolean deletionProtectionEnabled) {
+            return deletionProtectionEnabled(Output.of(deletionProtectionEnabled));
+        }
+
+        /**
          * @param globalSecondaryIndexes Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
          * 
          * @return builder
@@ -490,7 +531,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -501,7 +542,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -511,7 +552,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -762,7 +803,9 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableClass Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * @param tableClass Storage class of the table.
+         * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * Default value is `STANDARD`.
          * 
          * @return builder
          * 
@@ -773,7 +816,9 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableClass Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * @param tableClass Storage class of the table.
+         * Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * Default value is `STANDARD`.
          * 
          * @return builder
          * 

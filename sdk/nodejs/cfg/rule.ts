@@ -21,20 +21,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["config.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
  * const rule = new aws.cfg.Rule("rule", {source: {
  *     owner: "AWS",
@@ -42,20 +39,16 @@ import * as utilities from "../utilities";
  * }}, {
  *     dependsOn: [foo],
  * });
+ * const policyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["config:Put*"],
+ *         resources: ["*"],
+ *     }],
+ * });
  * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
  *     role: role.id,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *   	{
- *   		"Action": "config:Put*",
- *   		"Effect": "Allow",
- *   		"Resource": "*"
- *
- *   	}
- *   ]
- * }
- * `,
+ *     policy: policyDocument.then(policyDocument => policyDocument.json),
  * });
  * ```
  * ### Custom Rules

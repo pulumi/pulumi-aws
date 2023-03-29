@@ -21,9 +21,9 @@ class BucketCorsConfigurationV2Args:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketCorsConfigurationV2 resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "cors_rules", cors_rules)
@@ -34,7 +34,7 @@ class BucketCorsConfigurationV2Args:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -46,7 +46,7 @@ class BucketCorsConfigurationV2Args:
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]]:
         """
-        Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+        Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         """
         return pulumi.get(self, "cors_rules")
 
@@ -58,7 +58,7 @@ class BucketCorsConfigurationV2Args:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -75,9 +75,9 @@ class _BucketCorsConfigurationV2State:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketCorsConfigurationV2 resources.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -90,7 +90,7 @@ class _BucketCorsConfigurationV2State:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -102,7 +102,7 @@ class _BucketCorsConfigurationV2State:
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]]]:
         """
-        Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+        Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         """
         return pulumi.get(self, "cors_rules")
 
@@ -114,7 +114,7 @@ class _BucketCorsConfigurationV2State:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -180,9 +180,9 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         ...
     @overload
@@ -290,9 +290,9 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
+        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -307,7 +307,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        The name of the bucket.
+        Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -315,7 +315,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> pulumi.Output[Sequence['outputs.BucketCorsConfigurationV2CorsRule']]:
         """
-        Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
+        Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         """
         return pulumi.get(self, "cors_rules")
 
@@ -323,7 +323,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
         """
-        The account ID of the expected bucket owner.
+        Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 

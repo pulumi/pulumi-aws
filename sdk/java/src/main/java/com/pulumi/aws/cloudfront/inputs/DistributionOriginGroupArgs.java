@@ -17,14 +17,14 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
     public static final DistributionOriginGroupArgs Empty = new DistributionOriginGroupArgs();
 
     /**
-     * The failover criteria for when to failover to the secondary origin
+     * The failover criteria for when to failover to the secondary origin.
      * 
      */
     @Import(name="failoverCriteria", required=true)
     private Output<DistributionOriginGroupFailoverCriteriaArgs> failoverCriteria;
 
     /**
-     * @return The failover criteria for when to failover to the secondary origin
+     * @return The failover criteria for when to failover to the secondary origin.
      * 
      */
     public Output<DistributionOriginGroupFailoverCriteriaArgs> failoverCriteria() {
@@ -47,14 +47,14 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A unique identifier for the origin.
+     * Unique identifier for the origin.
      * 
      */
     @Import(name="originId", required=true)
     private Output<String> originId;
 
     /**
-     * @return A unique identifier for the origin.
+     * @return Unique identifier for the origin.
      * 
      */
     public Output<String> originId() {
@@ -88,7 +88,7 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param failoverCriteria The failover criteria for when to failover to the secondary origin
+         * @param failoverCriteria The failover criteria for when to failover to the secondary origin.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param failoverCriteria The failover criteria for when to failover to the secondary origin
+         * @param failoverCriteria The failover criteria for when to failover to the secondary origin.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param originId A unique identifier for the origin.
+         * @param originId Unique identifier for the origin.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param originId A unique identifier for the origin.
+         * @param originId Unique identifier for the origin.
          * 
          * @return builder
          * 

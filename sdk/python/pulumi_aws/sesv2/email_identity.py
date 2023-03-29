@@ -259,6 +259,19 @@ class EmailIdentity(pulumi.CustomResource):
             email_identity="example.com",
             configuration_set_name=example_configuration_set.configuration_set_name)
         ```
+        ### DKIM Signing Attributes (BYODKIM)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.EmailIdentity("example",
+            dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArgs(
+                domain_signing_private_key="MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
+                domain_signing_selector="example",
+            ),
+            email_identity="example.com")
+        ```
 
         ## Import
 
@@ -313,6 +326,19 @@ class EmailIdentity(pulumi.CustomResource):
         example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity",
             email_identity="example.com",
             configuration_set_name=example_configuration_set.configuration_set_name)
+        ```
+        ### DKIM Signing Attributes (BYODKIM)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sesv2.EmailIdentity("example",
+            dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArgs(
+                domain_signing_private_key="MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
+                domain_signing_selector="example",
+            ),
+            email_identity="example.com")
         ```
 
         ## Import

@@ -73,13 +73,17 @@ export interface GetDomainResult {
      */
     readonly clusterConfigs: outputs.opensearch.GetDomainClusterConfig[];
     /**
-     * Domain Amazon Cognito Authentication options for Kibana.
+     * Domain Amazon Cognito Authentication options for Dashboard.
      */
     readonly cognitoOptions: outputs.opensearch.GetDomainCognitoOption[];
     /**
      * Status of the creation of the domain.
      */
     readonly created: boolean;
+    /**
+     * Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
+     */
+    readonly dashboardEndpoint: string;
     /**
      * Status of the deletion of the domain.
      */
@@ -110,7 +114,7 @@ export interface GetDomainResult {
      */
     readonly id: string;
     /**
-     * Domain-specific endpoint used to access the Kibana application.
+     * Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
      */
     readonly kibanaEndpoint: string;
     /**

@@ -14,14 +14,14 @@ public final class InventoryDestinationBucketEncryptionSseKmsArgs extends com.pu
     public static final InventoryDestinationBucketEncryptionSseKmsArgs Empty = new InventoryDestinationBucketEncryptionSseKmsArgs();
 
     /**
-     * The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+     * ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
      * 
      */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
     /**
-     * @return The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+     * @return ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
      * 
      */
     public Output<String> keyId() {
@@ -53,7 +53,7 @@ public final class InventoryDestinationBucketEncryptionSseKmsArgs extends com.pu
         }
 
         /**
-         * @param keyId The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+         * @param keyId ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class InventoryDestinationBucketEncryptionSseKmsArgs extends com.pu
         }
 
         /**
-         * @param keyId The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+         * @param keyId ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
          * 
          * @return builder
          * 

@@ -59,7 +59,7 @@ type Namespace struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringOutput `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrOutput `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
@@ -128,7 +128,7 @@ type namespaceState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the first database created in the namespace.
 	DbName *string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles []string `pulumi:"iamRoles"`
@@ -155,7 +155,7 @@ type NamespaceState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayInput
@@ -184,7 +184,7 @@ type namespaceArgs struct {
 	AdminUsername *string `pulumi:"adminUsername"`
 	// The name of the first database created in the namespace.
 	DbName *string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles []string `pulumi:"iamRoles"`
@@ -206,7 +206,7 @@ type NamespaceArgs struct {
 	AdminUsername pulumi.StringPtrInput
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayInput
@@ -327,7 +327,7 @@ func (o NamespaceOutput) DbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DbName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 func (o NamespaceOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.DefaultIamRoleArn }).(pulumi.StringPtrOutput)
 }

@@ -105,6 +105,8 @@ if typing.TYPE_CHECKING:
     codecommit = __codecommit
     import pulumi_aws.codedeploy as __codedeploy
     codedeploy = __codedeploy
+    import pulumi_aws.codegurureviewer as __codegurureviewer
+    codegurureviewer = __codegurureviewer
     import pulumi_aws.codepipeline as __codepipeline
     codepipeline = __codepipeline
     import pulumi_aws.codestarconnections as __codestarconnections
@@ -275,6 +277,8 @@ if typing.TYPE_CHECKING:
     networkfirewall = __networkfirewall
     import pulumi_aws.networkmanager as __networkmanager
     networkmanager = __networkmanager
+    import pulumi_aws.oam as __oam
+    oam = __oam
     import pulumi_aws.opensearch as __opensearch
     opensearch = __opensearch
     import pulumi_aws.opsworks as __opsworks
@@ -424,6 +428,7 @@ else:
     codebuild = _utilities.lazy_import('pulumi_aws.codebuild')
     codecommit = _utilities.lazy_import('pulumi_aws.codecommit')
     codedeploy = _utilities.lazy_import('pulumi_aws.codedeploy')
+    codegurureviewer = _utilities.lazy_import('pulumi_aws.codegurureviewer')
     codepipeline = _utilities.lazy_import('pulumi_aws.codepipeline')
     codestarconnections = _utilities.lazy_import('pulumi_aws.codestarconnections')
     codestarnotifications = _utilities.lazy_import('pulumi_aws.codestarnotifications')
@@ -509,6 +514,7 @@ else:
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
+    oam = _utilities.lazy_import('pulumi_aws.oam')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
     opsworks = _utilities.lazy_import('pulumi_aws.opsworks')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
@@ -2330,6 +2336,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "codegurureviewer/repositoryAssociation",
+  "fqn": "pulumi_aws.codegurureviewer",
+  "classes": {
+   "aws:codegurureviewer/repositoryAssociation:RepositoryAssociation": "RepositoryAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codepipeline/customActionType",
   "fqn": "pulumi_aws.codepipeline",
   "classes": {
@@ -3962,6 +3976,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcIpamResourceDiscovery",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery": "VpcIpamResourceDiscovery"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcIpamResourceDiscoveryAssociation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation": "VpcIpamResourceDiscoveryAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcIpamScope",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -4774,6 +4804,14 @@ _utilities.register(
   "fqn": "pulumi_aws.elb",
   "classes": {
    "aws:elb/sslNegotiationPolicy:SslNegotiationPolicy": "SslNegotiationPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "emr/blockPublicAccessConfiguration",
+  "fqn": "pulumi_aws.emr",
+  "classes": {
+   "aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration": "BlockPublicAccessConfiguration"
   }
  },
  {
@@ -6018,6 +6056,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "kms/keyPolicy",
+  "fqn": "pulumi_aws.kms",
+  "classes": {
+   "aws:kms/keyPolicy:KeyPolicy": "KeyPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kms/replicaExternalKey",
   "fqn": "pulumi_aws.kms",
   "classes": {
@@ -6258,6 +6304,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "licensemanager/licenseGrant",
+  "fqn": "pulumi_aws.licensemanager",
+  "classes": {
+   "aws:licensemanager/licenseGrant:LicenseGrant": "LicenseGrant"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "licensemanager/licenseGrantAccepter",
+  "fqn": "pulumi_aws.licensemanager",
+  "classes": {
+   "aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter": "LicenseGrantAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/bucket",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -6270,6 +6332,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lightsail",
   "classes": {
    "aws:lightsail/bucketAccessKey:BucketAccessKey": "BucketAccessKey"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/bucketResourceAccess",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/bucketResourceAccess:BucketResourceAccess": "BucketResourceAccess"
   }
  },
  {
@@ -6874,6 +6944,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkmanager/connectPeer",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/connectPeer:ConnectPeer": "ConnectPeer"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/connection",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
@@ -6990,6 +7068,22 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/vpcAttachment:VpcAttachment": "VpcAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "oam/sink",
+  "fqn": "pulumi_aws.oam",
+  "classes": {
+   "aws:oam/sink:Sink": "Sink"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "oam/sinkPolicy",
+  "fqn": "pulumi_aws.oam",
+  "classes": {
+   "aws:oam/sinkPolicy:SinkPolicy": "SinkPolicy"
   }
  },
  {
@@ -7590,6 +7684,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/clusterIamRoles:ClusterIamRoles": "ClusterIamRoles"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/clusterSnapshot",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/clusterSnapshot:ClusterSnapshot": "ClusterSnapshot"
   }
  },
  {

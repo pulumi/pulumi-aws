@@ -14,24 +14,24 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
     public static final FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs();
 
     /**
-     * Object specified in the flow destination.
+     * Object path specified in the SAPOData flow destination.
      * 
      */
-    @Import(name="object", required=true)
-    private Output<String> object;
+    @Import(name="objectPath", required=true)
+    private Output<String> objectPath;
 
     /**
-     * @return Object specified in the flow destination.
+     * @return Object path specified in the SAPOData flow destination.
      * 
      */
-    public Output<String> object() {
-        return this.object;
+    public Output<String> objectPath() {
+        return this.objectPath;
     }
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs() {}
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs $) {
-        this.object = $.object;
+        this.objectPath = $.objectPath;
     }
 
     public static Builder builder() {
@@ -53,28 +53,28 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
         }
 
         /**
-         * @param object Object specified in the flow destination.
+         * @param objectPath Object path specified in the SAPOData flow destination.
          * 
          * @return builder
          * 
          */
-        public Builder object(Output<String> object) {
-            $.object = object;
+        public Builder objectPath(Output<String> objectPath) {
+            $.objectPath = objectPath;
             return this;
         }
 
         /**
-         * @param object Object specified in the flow destination.
+         * @param objectPath Object path specified in the SAPOData flow destination.
          * 
          * @return builder
          * 
          */
-        public Builder object(String object) {
-            return object(Output.of(object));
+        public Builder objectPath(String objectPath) {
+            return objectPath(Output.of(objectPath));
         }
 
         public FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs build() {
-            $.object = Objects.requireNonNull($.object, "expected parameter 'object' to be non-null");
+            $.objectPath = Objects.requireNonNull($.objectPath, "expected parameter 'objectPath' to be non-null");
             return $;
         }
     }

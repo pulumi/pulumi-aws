@@ -17,7 +17,7 @@ public final class BucketVersioningV2VersioningConfiguration {
      */
     private @Nullable String mfaDelete;
     /**
-     * @return The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
+     * @return Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
      * 
      */
     private String status;
@@ -31,7 +31,7 @@ public final class BucketVersioningV2VersioningConfiguration {
         return Optional.ofNullable(this.mfaDelete);
     }
     /**
-     * @return The versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
+     * @return Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
      * 
      */
     public String status() {

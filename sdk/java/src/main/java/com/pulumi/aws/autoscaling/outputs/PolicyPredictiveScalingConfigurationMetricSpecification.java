@@ -10,7 +10,7 @@ import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMe
 import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification;
 import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification;
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Integer;
+import java.lang.Double;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -51,7 +51,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
      * @return Target value for the metric.
      * 
      */
-    private Integer targetValue;
+    private Double targetValue;
 
     private PolicyPredictiveScalingConfigurationMetricSpecification() {}
     /**
@@ -100,7 +100,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
      * @return Target value for the metric.
      * 
      */
-    public Integer targetValue() {
+    public Double targetValue() {
         return this.targetValue;
     }
 
@@ -119,7 +119,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
         private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification;
         private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification;
         private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
-        private Integer targetValue;
+        private Double targetValue;
         public Builder() {}
         public Builder(PolicyPredictiveScalingConfigurationMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
@@ -163,7 +163,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
             return this;
         }
         @CustomType.Setter
-        public Builder targetValue(Integer targetValue) {
+        public Builder targetValue(Double targetValue) {
             this.targetValue = Objects.requireNonNull(targetValue);
             return this;
         }

@@ -84,7 +84,8 @@ type RoutingProfile struct {
 	// Specifies the name of the Routing Profile.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs            RoutingProfileQueueConfigArrayOutput            `pulumi:"queueConfigs"`
+	QueueConfigs RoutingProfileQueueConfigArrayOutput `pulumi:"queueConfigs"`
+	// Deprecated: Use the queue_configs instead
 	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayOutput `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
@@ -149,7 +150,8 @@ type routingProfileState struct {
 	// Specifies the name of the Routing Profile.
 	Name *string `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs            []RoutingProfileQueueConfig            `pulumi:"queueConfigs"`
+	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
+	// Deprecated: Use the queue_configs instead
 	QueueConfigsAssociateds []RoutingProfileQueueConfigsAssociated `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
@@ -174,7 +176,8 @@ type RoutingProfileState struct {
 	// Specifies the name of the Routing Profile.
 	Name pulumi.StringPtrInput
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
-	QueueConfigs            RoutingProfileQueueConfigArrayInput
+	QueueConfigs RoutingProfileQueueConfigArrayInput
+	// Deprecated: Use the queue_configs instead
 	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayInput
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringPtrInput
@@ -348,6 +351,7 @@ func (o RoutingProfileOutput) QueueConfigs() RoutingProfileQueueConfigArrayOutpu
 	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigArrayOutput { return v.QueueConfigs }).(RoutingProfileQueueConfigArrayOutput)
 }
 
+// Deprecated: Use the queue_configs instead
 func (o RoutingProfileOutput) QueueConfigsAssociateds() RoutingProfileQueueConfigsAssociatedArrayOutput {
 	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigsAssociatedArrayOutput {
 		return v.QueueConfigsAssociateds

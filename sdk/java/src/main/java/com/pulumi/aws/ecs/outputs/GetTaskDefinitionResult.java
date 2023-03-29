@@ -11,12 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class GetTaskDefinitionResult {
     /**
-     * @return ARN of the task definition
+     * @return ARN of the task definition.
      * 
      */
     private String arn;
     /**
-     * @return Family of this task definition
+     * @return ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+     * 
+     */
+    private String arnWithoutRevision;
+    /**
+     * @return Family of this task definition.
      * 
      */
     private String family;
@@ -31,32 +36,39 @@ public final class GetTaskDefinitionResult {
      */
     private String networkMode;
     /**
-     * @return Revision of this task definition
+     * @return Revision of this task definition.
      * 
      */
     private Integer revision;
     /**
-     * @return Status of this task definition
+     * @return Status of this task definition.
      * 
      */
     private String status;
     private String taskDefinition;
     /**
-     * @return ARN of the IAM role that containers in this task can assume
+     * @return ARN of the IAM role that containers in this task can assume.
      * 
      */
     private String taskRoleArn;
 
     private GetTaskDefinitionResult() {}
     /**
-     * @return ARN of the task definition
+     * @return ARN of the task definition.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Family of this task definition
+     * @return ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+     * 
+     */
+    public String arnWithoutRevision() {
+        return this.arnWithoutRevision;
+    }
+    /**
+     * @return Family of this task definition.
      * 
      */
     public String family() {
@@ -77,14 +89,14 @@ public final class GetTaskDefinitionResult {
         return this.networkMode;
     }
     /**
-     * @return Revision of this task definition
+     * @return Revision of this task definition.
      * 
      */
     public Integer revision() {
         return this.revision;
     }
     /**
-     * @return Status of this task definition
+     * @return Status of this task definition.
      * 
      */
     public String status() {
@@ -94,7 +106,7 @@ public final class GetTaskDefinitionResult {
         return this.taskDefinition;
     }
     /**
-     * @return ARN of the IAM role that containers in this task can assume
+     * @return ARN of the IAM role that containers in this task can assume.
      * 
      */
     public String taskRoleArn() {
@@ -111,6 +123,7 @@ public final class GetTaskDefinitionResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private String arnWithoutRevision;
         private String family;
         private String id;
         private String networkMode;
@@ -122,6 +135,7 @@ public final class GetTaskDefinitionResult {
         public Builder(GetTaskDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.arnWithoutRevision = defaults.arnWithoutRevision;
     	      this.family = defaults.family;
     	      this.id = defaults.id;
     	      this.networkMode = defaults.networkMode;
@@ -134,6 +148,11 @@ public final class GetTaskDefinitionResult {
         @CustomType.Setter
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder arnWithoutRevision(String arnWithoutRevision) {
+            this.arnWithoutRevision = Objects.requireNonNull(arnWithoutRevision);
             return this;
         }
         @CustomType.Setter
@@ -174,6 +193,7 @@ public final class GetTaskDefinitionResult {
         public GetTaskDefinitionResult build() {
             final var o = new GetTaskDefinitionResult();
             o.arn = arn;
+            o.arnWithoutRevision = arnWithoutRevision;
             o.family = family;
             o.id = id;
             o.networkMode = networkMode;

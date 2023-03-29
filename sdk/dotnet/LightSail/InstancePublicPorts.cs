@@ -28,7 +28,7 @@ namespace Pulumi.Aws.LightSail
     ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
     ///     {
     ///         AvailabilityZone = data.Aws_availability_zones.Available.Names[0],
-    ///         BlueprintId = "amazon_linux",
+    ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///     });
     /// 

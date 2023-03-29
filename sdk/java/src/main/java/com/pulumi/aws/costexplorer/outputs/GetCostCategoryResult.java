@@ -15,6 +15,11 @@ import java.util.Objects;
 public final class GetCostCategoryResult {
     private String costCategoryArn;
     /**
+     * @return Default value for the cost category.
+     * 
+     */
+    private String defaultValue;
+    /**
      * @return Effective end data of your Cost Category.
      * 
      */
@@ -54,6 +59,13 @@ public final class GetCostCategoryResult {
     private GetCostCategoryResult() {}
     public String costCategoryArn() {
         return this.costCategoryArn;
+    }
+    /**
+     * @return Default value for the cost category.
+     * 
+     */
+    public String defaultValue() {
+        return this.defaultValue;
     }
     /**
      * @return Effective end data of your Cost Category.
@@ -118,6 +130,7 @@ public final class GetCostCategoryResult {
     @CustomType.Builder
     public static final class Builder {
         private String costCategoryArn;
+        private String defaultValue;
         private String effectiveEnd;
         private String effectiveStart;
         private String id;
@@ -130,6 +143,7 @@ public final class GetCostCategoryResult {
         public Builder(GetCostCategoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.costCategoryArn = defaults.costCategoryArn;
+    	      this.defaultValue = defaults.defaultValue;
     	      this.effectiveEnd = defaults.effectiveEnd;
     	      this.effectiveStart = defaults.effectiveStart;
     	      this.id = defaults.id;
@@ -143,6 +157,11 @@ public final class GetCostCategoryResult {
         @CustomType.Setter
         public Builder costCategoryArn(String costCategoryArn) {
             this.costCategoryArn = Objects.requireNonNull(costCategoryArn);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultValue(String defaultValue) {
+            this.defaultValue = Objects.requireNonNull(defaultValue);
             return this;
         }
         @CustomType.Setter
@@ -194,6 +213,7 @@ public final class GetCostCategoryResult {
         public GetCostCategoryResult build() {
             final var o = new GetCostCategoryResult();
             o.costCategoryArn = costCategoryArn;
+            o.defaultValue = defaultValue;
             o.effectiveEnd = effectiveEnd;
             o.effectiveStart = effectiveStart;
             o.id = id;

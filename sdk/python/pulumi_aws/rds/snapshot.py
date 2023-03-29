@@ -16,15 +16,19 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  db_instance_identifier: pulumi.Input[str],
                  db_snapshot_identifier: pulumi.Input[str],
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
         pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+        if shared_accounts is not None:
+            pulumi.set(__self__, "shared_accounts", shared_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -51,6 +55,18 @@ class SnapshotArgs:
     @db_snapshot_identifier.setter
     def db_snapshot_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "db_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
+
+    @shared_accounts.setter
+    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_accounts", value)
 
     @property
     @pulumi.getter
@@ -81,6 +97,7 @@ class _SnapshotState:
                  license_model: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_type: Optional[pulumi.Input[str]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
@@ -103,6 +120,7 @@ class _SnapshotState:
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[str] option_group_name: Provides the option group name for the DB snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[str] source_db_snapshot_identifier: The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] status: Specifies the status of this DB snapshot.
@@ -137,6 +155,8 @@ class _SnapshotState:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if shared_accounts is not None:
+            pulumi.set(__self__, "shared_accounts", shared_accounts)
         if snapshot_type is not None:
             pulumi.set(__self__, "snapshot_type", snapshot_type)
         if source_db_snapshot_identifier is not None:
@@ -308,6 +328,18 @@ class _SnapshotState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
+
+    @shared_accounts.setter
+    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_accounts", value)
+
+    @property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "snapshot_type")
@@ -408,6 +440,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -447,6 +480,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -505,6 +539,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -521,6 +556,7 @@ class Snapshot(pulumi.CustomResource):
             if db_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_snapshot_identifier'")
             __props__.__dict__["db_snapshot_identifier"] = db_snapshot_identifier
+            __props__.__dict__["shared_accounts"] = shared_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["allocated_storage"] = None
             __props__.__dict__["availability_zone"] = None
@@ -563,6 +599,7 @@ class Snapshot(pulumi.CustomResource):
             license_model: Optional[pulumi.Input[str]] = None,
             option_group_name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
+            shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_type: Optional[pulumi.Input[str]] = None,
             source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             source_region: Optional[pulumi.Input[str]] = None,
@@ -590,6 +627,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[str] option_group_name: Provides the option group name for the DB snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[str] source_db_snapshot_identifier: The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] status: Specifies the status of this DB snapshot.
@@ -615,6 +653,7 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["license_model"] = license_model
         __props__.__dict__["option_group_name"] = option_group_name
         __props__.__dict__["port"] = port
+        __props__.__dict__["shared_accounts"] = shared_accounts
         __props__.__dict__["snapshot_type"] = snapshot_type
         __props__.__dict__["source_db_snapshot_identifier"] = source_db_snapshot_identifier
         __props__.__dict__["source_region"] = source_region
@@ -725,6 +764,14 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[int]:
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        """
+        return pulumi.get(self, "shared_accounts")
 
     @property
     @pulumi.getter(name="snapshotType")

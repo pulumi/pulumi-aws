@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Rds
     public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The hostname of the RDS instance. See also `endpoint` and `port`.
+        /// Specifies the DNS address of the DB instance.
         /// </summary>
         [Output("address")]
         public Output<string> Address { get; private set; } = null!;
@@ -299,8 +299,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The canonical hosted zone ID of the DB instance (to be used
-        /// in a Route 53 Alias record).
+        /// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         /// </summary>
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
@@ -360,6 +359,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("licenseModel")]
         public Output<string> LicenseModel { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+        /// </summary>
+        [Output("listenerEndpoints")]
+        public Output<ImmutableArray<Outputs.InstanceListenerEndpoint>> ListenerEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// The window to perform maintenance in.
@@ -1148,7 +1153,7 @@ namespace Pulumi.Aws.Rds
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The hostname of the RDS instance. See also `endpoint` and `port`.
+        /// Specifies the DNS address of the DB instance.
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
@@ -1350,8 +1355,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The canonical hosted zone ID of the DB instance (to be used
-        /// in a Route 53 Alias record).
+        /// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         /// </summary>
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
@@ -1411,6 +1415,18 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
+
+        [Input("listenerEndpoints")]
+        private InputList<Inputs.InstanceListenerEndpointGetArgs>? _listenerEndpoints;
+
+        /// <summary>
+        /// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
+        /// </summary>
+        public InputList<Inputs.InstanceListenerEndpointGetArgs> ListenerEndpoints
+        {
+            get => _listenerEndpoints ?? (_listenerEndpoints = new InputList<Inputs.InstanceListenerEndpointGetArgs>());
+            set => _listenerEndpoints = value;
+        }
 
         /// <summary>
         /// The window to perform maintenance in.

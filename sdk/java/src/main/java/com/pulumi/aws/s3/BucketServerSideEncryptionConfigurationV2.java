@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *         var mybucket = new BucketV2(&#34;mybucket&#34;);
  * 
  *         var example = new BucketServerSideEncryptionConfigurationV2(&#34;example&#34;, BucketServerSideEncryptionConfigurationV2Args.builder()        
- *             .bucket(mybucket.bucket())
+ *             .bucket(mybucket.id())
  *             .rules(BucketServerSideEncryptionConfigurationV2RuleArgs.builder()
  *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs.builder()
  *                     .kmsMasterKeyId(mykey.arn())
@@ -85,42 +85,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")
 public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the bucket.
+     * ID (name) of the bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket.
+     * @return ID (name) of the bucket.
      * 
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
-     * The account ID of the expected bucket owner.
+     * Account ID of the expected bucket owner.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return The account ID of the expected bucket owner.
+     * @return Account ID of the expected bucket owner.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      * 
      */
     @Export(name="rules", refs={List.class,BucketServerSideEncryptionConfigurationV2Rule.class}, tree="[0,1]")
     private Output<List<BucketServerSideEncryptionConfigurationV2Rule>> rules;
 
     /**
-     * @return Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
+     * @return Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      * 
      */
     public Output<List<BucketServerSideEncryptionConfigurationV2Rule>> rules() {

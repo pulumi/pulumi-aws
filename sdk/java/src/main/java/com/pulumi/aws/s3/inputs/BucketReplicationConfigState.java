@@ -18,14 +18,14 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
     public static final BucketReplicationConfigState Empty = new BucketReplicationConfigState();
 
     /**
-     * The name of the source S3 bucket you want Amazon S3 to monitor.
+     * Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return The name of the source S3 bucket you want Amazon S3 to monitor.
+     * @return Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -33,14 +33,14 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     * @return ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
     public Optional<Output<String>> role() {
@@ -48,14 +48,14 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of configuration blocks describing the rules managing the replication documented below.
+     * List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<BucketReplicationConfigRuleArgs>> rules;
 
     /**
-     * @return List of configuration blocks describing the rules managing the replication documented below.
+     * @return List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     public Optional<Output<List<BucketReplicationConfigRuleArgs>>> rules() {
@@ -63,7 +63,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
     }
 
     /**
-     * A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
+     * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */
@@ -71,7 +71,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
     private @Nullable Output<String> token;
 
     /**
-     * @return A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
+     * @return Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */
@@ -107,7 +107,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bucket The name of the source S3 bucket you want Amazon S3 to monitor.
+         * @param bucket Name of the source S3 bucket you want Amazon S3 to monitor.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bucket The name of the source S3 bucket you want Amazon S3 to monitor.
+         * @param bucket Name of the source S3 bucket you want Amazon S3 to monitor.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param role The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+         * @param role ARN of the IAM role for Amazon S3 to assume when replicating the objects.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param role The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+         * @param role ARN of the IAM role for Amazon S3 to assume when replicating the objects.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
+         * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
+         * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
+         * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param token A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
+         * @param token Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
          * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
          * 
          * @return builder
@@ -192,7 +192,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param token A token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
+         * @param token Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
          * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
          * 
          * @return builder

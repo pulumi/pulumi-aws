@@ -23,10 +23,16 @@ class GetAttachmentResult:
     """
     A collection of values returned by getAttachment.
     """
-    def __init__(__self__, arn=None, filters=None, id=None, resource_id=None, resource_owner_id=None, resource_type=None, state=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, transit_gateway_owner_id=None):
+    def __init__(__self__, arn=None, association_state=None, association_transit_gateway_route_table_id=None, filters=None, id=None, resource_id=None, resource_owner_id=None, resource_type=None, state=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, transit_gateway_owner_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if association_state and not isinstance(association_state, str):
+            raise TypeError("Expected argument 'association_state' to be a str")
+        pulumi.set(__self__, "association_state", association_state)
+        if association_transit_gateway_route_table_id and not isinstance(association_transit_gateway_route_table_id, str):
+            raise TypeError("Expected argument 'association_transit_gateway_route_table_id' to be a str")
+        pulumi.set(__self__, "association_transit_gateway_route_table_id", association_transit_gateway_route_table_id)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -65,6 +71,22 @@ class GetAttachmentResult:
         ARN of the attachment.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="associationState")
+    def association_state(self) -> str:
+        """
+        The state of the association (see [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachmentAssociation.html) for valid values).
+        """
+        return pulumi.get(self, "association_state")
+
+    @property
+    @pulumi.getter(name="associationTransitGatewayRouteTableId")
+    def association_transit_gateway_route_table_id(self) -> str:
+        """
+        The ID of the route table for the transit gateway.
+        """
+        return pulumi.get(self, "association_transit_gateway_route_table_id")
 
     @property
     @pulumi.getter
@@ -148,6 +170,8 @@ class AwaitableGetAttachmentResult(GetAttachmentResult):
             yield self
         return GetAttachmentResult(
             arn=self.arn,
+            association_state=self.association_state,
+            association_transit_gateway_route_table_id=self.association_transit_gateway_route_table_id,
             filters=self.filters,
             id=self.id,
             resource_id=self.resource_id,
@@ -199,6 +223,8 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
 
     return AwaitableGetAttachmentResult(
         arn=__ret__.arn,
+        association_state=__ret__.association_state,
+        association_transit_gateway_route_table_id=__ret__.association_transit_gateway_route_table_id,
         filters=__ret__.filters,
         id=__ret__.id,
         resource_id=__ret__.resource_id,

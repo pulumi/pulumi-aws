@@ -371,16 +371,14 @@ class EventRule(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
             description="Capture each AWS Console Sign In",
-            event_pattern=\"\"\"{
-          "detail-type": [
-            "AWS Console Sign In via CloudTrail"
-          ]
-        }
-        \"\"\")
+            event_pattern=json.dumps({
+                "detail-type": ["AWS Console Sign In via CloudTrail"],
+            }))
         aws_logins = aws.sns.Topic("awsLogins")
         sns = aws.cloudwatch.EventTarget("sns",
             rule=console.name,
@@ -434,16 +432,14 @@ class EventRule(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         console = aws.cloudwatch.EventRule("console",
             description="Capture each AWS Console Sign In",
-            event_pattern=\"\"\"{
-          "detail-type": [
-            "AWS Console Sign In via CloudTrail"
-          ]
-        }
-        \"\"\")
+            event_pattern=json.dumps({
+                "detail-type": ["AWS Console Sign In via CloudTrail"],
+            }))
         aws_logins = aws.sns.Topic("awsLogins")
         sns = aws.cloudwatch.EventTarget("sns",
             rule=console.name,

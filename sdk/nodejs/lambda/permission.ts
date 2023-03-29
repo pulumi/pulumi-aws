@@ -35,7 +35,7 @@ import {Function} from "./index";
  * const testAlias = new aws.lambda.Alias("testAlias", {
  *     description: "a sample description",
  *     functionName: testLambda.name,
- *     functionVersion: `$LATEST`,
+ *     functionVersion: "$LATEST",
  * });
  * const allowCloudwatch = new aws.lambda.Permission("allowCloudwatch", {
  *     action: "lambda:InvokeFunction",
@@ -93,7 +93,7 @@ import {Function} from "./index";
  *     action: "lambda:InvokeFunction",
  *     "function": "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
+ *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*`,
  * });
  * ```
  *
@@ -104,20 +104,17 @@ import {Function} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const defaultLogGroup = new aws.cloudwatch.LogGroup("defaultLogGroup", {});
- * const defaultRole = new aws.iam.Role("defaultRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["lambda.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const defaultRole = new aws.iam.Role("defaultRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const loggingFunction = new aws.lambda.Function("loggingFunction", {
  *     code: new pulumi.asset.FileArchive("lamba_logging.zip"),
  *     handler: "exports.handler",

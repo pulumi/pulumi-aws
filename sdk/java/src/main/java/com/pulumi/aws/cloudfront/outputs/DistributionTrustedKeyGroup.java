@@ -14,8 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionTrustedKeyGroup {
     /**
-     * @return Whether the distribution is enabled to accept end
-     * user requests for content.
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     private @Nullable Boolean enabled;
@@ -27,8 +26,7 @@ public final class DistributionTrustedKeyGroup {
 
     private DistributionTrustedKeyGroup() {}
     /**
-     * @return Whether the distribution is enabled to accept end
-     * user requests for content.
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Optional<Boolean> enabled() {

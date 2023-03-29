@@ -21,9 +21,8 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -31,21 +30,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			topic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
-//				Policy: pulumi.String(fmt.Sprintf(`{
-//	    "Version":"2012-10-17",
-//	    "Statement":[{
-//	        "Effect": "Allow",
-//	        "Principal": {
-//	            "Service": "vpce.amazonaws.com"
-//	        },
-//	        "Action": "SNS:Publish",
-//	        "Resource": "arn:aws:sns:*:*:vpce-notification-topic"
-//	    }]
-//	}
-//
-// `)),
-//
+//			topicPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"vpce.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"SNS:Publish",
+//						},
+//						Resources: []string{
+//							"arn:aws:sns:*:*:vpce-notification-topic",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			topicTopic, err := sns.NewTopic(ctx, "topicTopic", &sns.TopicArgs{
+//				Policy: *pulumi.String(topicPolicyDocument.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -61,7 +71,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcEndpointConnectionNotification(ctx, "fooVpcEndpointConnectionNotification", &ec2.VpcEndpointConnectionNotificationArgs{
 //				VpcEndpointServiceId:      fooVpcEndpointService.ID(),
-//				ConnectionNotificationArn: topic.Arn,
+//				ConnectionNotificationArn: topicTopic.Arn,
 //				ConnectionEvents: pulumi.StringArray{
 //					pulumi.String("Accept"),
 //					pulumi.String("Reject"),

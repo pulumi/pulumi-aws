@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("replacementStrategy")]
         public Input<string>? ReplacementStrategy { get; set; }
 
+        [Input("terminationDelay")]
+        public Input<int>? TerminationDelay { get; set; }
+
         public FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceGetArgs()
         {
         }

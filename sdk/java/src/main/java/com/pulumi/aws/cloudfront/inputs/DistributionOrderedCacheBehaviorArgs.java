@@ -22,16 +22,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     public static final DistributionOrderedCacheBehaviorArgs Empty = new DistributionOrderedCacheBehaviorArgs();
 
     /**
-     * Controls which HTTP methods CloudFront
-     * processes and forwards to your Amazon S3 bucket or your custom origin.
+     * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
     @Import(name="allowedMethods", required=true)
     private Output<List<String>> allowedMethods;
 
     /**
-     * @return Controls which HTTP methods CloudFront
-     * processes and forwards to your Amazon S3 bucket or your custom origin.
+     * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
     public Output<List<String>> allowedMethods() {
@@ -39,16 +37,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The unique identifier of the cache policy that
-     * is attached to the cache behavior.
+     * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
      * 
      */
     @Import(name="cachePolicyId")
     private @Nullable Output<String> cachePolicyId;
 
     /**
-     * @return The unique identifier of the cache policy that
-     * is attached to the cache behavior.
+     * @return Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
      * 
      */
     public Optional<Output<String>> cachePolicyId() {
@@ -56,16 +52,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Controls whether CloudFront caches the
-     * response to requests using the specified HTTP methods.
+     * Controls whether CloudFront caches the response to requests using the specified HTTP methods.
      * 
      */
     @Import(name="cachedMethods", required=true)
     private Output<List<String>> cachedMethods;
 
     /**
-     * @return Controls whether CloudFront caches the
-     * response to requests using the specified HTTP methods.
+     * @return Controls whether CloudFront caches the response to requests using the specified HTTP methods.
      * 
      */
     public Output<List<String>> cachedMethods() {
@@ -73,18 +67,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Whether you want CloudFront to automatically
-     * compress content for web requests that include `Accept-Encoding: gzip` in
-     * the request header (default: `false`).
+     * Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
      * 
      */
     @Import(name="compress")
     private @Nullable Output<Boolean> compress;
 
     /**
-     * @return Whether you want CloudFront to automatically
-     * compress content for web requests that include `Accept-Encoding: gzip` in
-     * the request header (default: `false`).
+     * @return Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
      * 
      */
     public Optional<Output<Boolean>> compress() {
@@ -92,18 +82,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The default amount of time (in seconds) that an
-     * object is in a CloudFront cache before CloudFront forwards another request
-     * in the absence of an `Cache-Control max-age` or `Expires` header.
+     * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
      * 
      */
     @Import(name="defaultTtl")
     private @Nullable Output<Integer> defaultTtl;
 
     /**
-     * @return The default amount of time (in seconds) that an
-     * object is in a CloudFront cache before CloudFront forwards another request
-     * in the absence of an `Cache-Control max-age` or `Expires` header.
+     * @return Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
      * 
      */
     public Optional<Output<Integer>> defaultTtl() {
@@ -111,14 +97,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Field level encryption configuration ID
+     * Field level encryption configuration ID.
      * 
      */
     @Import(name="fieldLevelEncryptionId")
     private @Nullable Output<String> fieldLevelEncryptionId;
 
     /**
-     * @return Field level encryption configuration ID
+     * @return Field level encryption configuration ID.
      * 
      */
     public Optional<Output<String>> fieldLevelEncryptionId() {
@@ -126,16 +112,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The forwarded values configuration that specifies how CloudFront
-     * handles query strings, cookies and headers (maximum one).
+     * The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
      * 
      */
     @Import(name="forwardedValues")
     private @Nullable Output<DistributionOrderedCacheBehaviorForwardedValuesArgs> forwardedValues;
 
     /**
-     * @return The forwarded values configuration that specifies how CloudFront
-     * handles query strings, cookies and headers (maximum one).
+     * @return The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
      * 
      */
     public Optional<Output<DistributionOrderedCacheBehaviorForwardedValuesArgs>> forwardedValues() {
@@ -143,16 +127,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * A config block that triggers a cloudfront
-     * function with specific actions (maximum 2).
+     * A config block that triggers a cloudfront function with specific actions (maximum 2).
      * 
      */
     @Import(name="functionAssociations")
     private @Nullable Output<List<DistributionOrderedCacheBehaviorFunctionAssociationArgs>> functionAssociations;
 
     /**
-     * @return A config block that triggers a cloudfront
-     * function with specific actions (maximum 2).
+     * @return A config block that triggers a cloudfront function with specific actions (maximum 2).
      * 
      */
     public Optional<Output<List<DistributionOrderedCacheBehaviorFunctionAssociationArgs>>> functionAssociations() {
@@ -160,16 +142,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * A config block that triggers a lambda
-     * function with specific actions (maximum 4).
+     * A config block that triggers a lambda function with specific actions (maximum 4).
      * 
      */
     @Import(name="lambdaFunctionAssociations")
     private @Nullable Output<List<DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs>> lambdaFunctionAssociations;
 
     /**
-     * @return A config block that triggers a lambda
-     * function with specific actions (maximum 4).
+     * @return A config block that triggers a lambda function with specific actions (maximum 4).
      * 
      */
     public Optional<Output<List<DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs>>> lambdaFunctionAssociations() {
@@ -177,22 +157,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The maximum amount of time (in seconds) that an
-     * object is in a CloudFront cache before CloudFront forwards another request
-     * to your origin to determine whether the object has been updated. Only
-     * effective in the presence of `Cache-Control max-age`, `Cache-Control
-     * s-maxage`, and `Expires` headers.
+     * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
      * 
      */
     @Import(name="maxTtl")
     private @Nullable Output<Integer> maxTtl;
 
     /**
-     * @return The maximum amount of time (in seconds) that an
-     * object is in a CloudFront cache before CloudFront forwards another request
-     * to your origin to determine whether the object has been updated. Only
-     * effective in the presence of `Cache-Control max-age`, `Cache-Control
-     * s-maxage`, and `Expires` headers.
+     * @return Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
      * 
      */
     public Optional<Output<Integer>> maxTtl() {
@@ -200,18 +172,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The minimum amount of time that you want objects to
-     * stay in CloudFront caches before CloudFront queries your origin to see
-     * whether the object has been updated. Defaults to 0 seconds.
+     * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
      * 
      */
     @Import(name="minTtl")
     private @Nullable Output<Integer> minTtl;
 
     /**
-     * @return The minimum amount of time that you want objects to
-     * stay in CloudFront caches before CloudFront queries your origin to see
-     * whether the object has been updated. Defaults to 0 seconds.
+     * @return Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
      * 
      */
     public Optional<Output<Integer>> minTtl() {
@@ -219,16 +187,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The unique identifier of the origin request policy
-     * that is attached to the behavior.
+     * Unique identifier of the origin request policy that is attached to the behavior.
      * 
      */
     @Import(name="originRequestPolicyId")
     private @Nullable Output<String> originRequestPolicyId;
 
     /**
-     * @return The unique identifier of the origin request policy
-     * that is attached to the behavior.
+     * @return Unique identifier of the origin request policy that is attached to the behavior.
      * 
      */
     public Optional<Output<String>> originRequestPolicyId() {
@@ -236,16 +202,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The pattern (for example, `images/*.jpg`) that
-     * specifies which requests you want this cache behavior to apply to.
+     * Pattern (for example, `images/*.jpg`) that specifies which requests you want this cache behavior to apply to.
      * 
      */
     @Import(name="pathPattern", required=true)
     private Output<String> pathPattern;
 
     /**
-     * @return The pattern (for example, `images/*.jpg`) that
-     * specifies which requests you want this cache behavior to apply to.
+     * @return Pattern (for example, `images/*.jpg`) that specifies which requests you want this cache behavior to apply to.
      * 
      */
     public Output<String> pathPattern() {
@@ -253,16 +217,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The ARN of the real-time log configuration
-     * that is attached to this cache behavior.
+     * ARN of the real-time log configuration that is attached to this cache behavior.
      * 
      */
     @Import(name="realtimeLogConfigArn")
     private @Nullable Output<String> realtimeLogConfigArn;
 
     /**
-     * @return The ARN of the real-time log configuration
-     * that is attached to this cache behavior.
+     * @return ARN of the real-time log configuration that is attached to this cache behavior.
      * 
      */
     public Optional<Output<String>> realtimeLogConfigArn() {
@@ -270,14 +232,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The identifier for a response headers policy.
+     * Identifier for a response headers policy.
      * 
      */
     @Import(name="responseHeadersPolicyId")
     private @Nullable Output<String> responseHeadersPolicyId;
 
     /**
-     * @return The identifier for a response headers policy.
+     * @return Identifier for a response headers policy.
      * 
      */
     public Optional<Output<String>> responseHeadersPolicyId() {
@@ -285,18 +247,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Indicates whether you want to distribute
-     * media files in Microsoft Smooth Streaming format using the origin that is
-     * associated with this cache behavior.
+     * Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
      * 
      */
     @Import(name="smoothStreaming")
     private @Nullable Output<Boolean> smoothStreaming;
 
     /**
-     * @return Indicates whether you want to distribute
-     * media files in Microsoft Smooth Streaming format using the origin that is
-     * associated with this cache behavior.
+     * @return Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
      * 
      */
     public Optional<Output<Boolean>> smoothStreaming() {
@@ -304,18 +262,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * The value of ID for the origin that you want
-     * CloudFront to route requests to when a request matches the path pattern
-     * either for a cache behavior or for the default cache behavior.
+     * Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
      * 
      */
     @Import(name="targetOriginId", required=true)
     private Output<String> targetOriginId;
 
     /**
-     * @return The value of ID for the origin that you want
-     * CloudFront to route requests to when a request matches the path pattern
-     * either for a cache behavior or for the default cache behavior.
+     * @return Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
      * 
      */
     public Output<String> targetOriginId() {
@@ -323,16 +277,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     @Import(name="trustedKeyGroups")
     private @Nullable Output<List<String>> trustedKeyGroups;
 
     /**
-     * @return A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     public Optional<Output<List<String>>> trustedKeyGroups() {
@@ -340,16 +292,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     @Import(name="trustedSigners")
     private @Nullable Output<List<String>> trustedSigners;
 
     /**
-     * @return List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
      * 
      */
     public Optional<Output<List<String>>> trustedSigners() {
@@ -357,20 +307,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Use this element to specify the
-     * protocol that users can use to access the files in the origin specified by
-     * TargetOriginId when a request matches the path pattern in PathPattern. One
-     * of `allow-all`, `https-only`, or `redirect-to-https`.
+     * Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
      * 
      */
     @Import(name="viewerProtocolPolicy", required=true)
     private Output<String> viewerProtocolPolicy;
 
     /**
-     * @return Use this element to specify the
-     * protocol that users can use to access the files in the origin specified by
-     * TargetOriginId when a request matches the path pattern in PathPattern. One
-     * of `allow-all`, `https-only`, or `redirect-to-https`.
+     * @return Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
      * 
      */
     public Output<String> viewerProtocolPolicy() {
@@ -421,8 +365,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param allowedMethods Controls which HTTP methods CloudFront
-         * processes and forwards to your Amazon S3 bucket or your custom origin.
+         * @param allowedMethods Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
          * 
          * @return builder
          * 
@@ -433,8 +376,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param allowedMethods Controls which HTTP methods CloudFront
-         * processes and forwards to your Amazon S3 bucket or your custom origin.
+         * @param allowedMethods Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
          * 
          * @return builder
          * 
@@ -444,8 +386,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param allowedMethods Controls which HTTP methods CloudFront
-         * processes and forwards to your Amazon S3 bucket or your custom origin.
+         * @param allowedMethods Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
          * 
          * @return builder
          * 
@@ -455,8 +396,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param cachePolicyId The unique identifier of the cache policy that
-         * is attached to the cache behavior.
+         * @param cachePolicyId Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
          * 
          * @return builder
          * 
@@ -467,8 +407,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param cachePolicyId The unique identifier of the cache policy that
-         * is attached to the cache behavior.
+         * @param cachePolicyId Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
          * 
          * @return builder
          * 
@@ -478,8 +417,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param cachedMethods Controls whether CloudFront caches the
-         * response to requests using the specified HTTP methods.
+         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
          * 
          * @return builder
          * 
@@ -490,8 +428,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param cachedMethods Controls whether CloudFront caches the
-         * response to requests using the specified HTTP methods.
+         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
          * 
          * @return builder
          * 
@@ -501,8 +438,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param cachedMethods Controls whether CloudFront caches the
-         * response to requests using the specified HTTP methods.
+         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
          * 
          * @return builder
          * 
@@ -512,9 +448,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param compress Whether you want CloudFront to automatically
-         * compress content for web requests that include `Accept-Encoding: gzip` in
-         * the request header (default: `false`).
+         * @param compress Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
          * 
          * @return builder
          * 
@@ -525,9 +459,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param compress Whether you want CloudFront to automatically
-         * compress content for web requests that include `Accept-Encoding: gzip` in
-         * the request header (default: `false`).
+         * @param compress Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
          * 
          * @return builder
          * 
@@ -537,9 +469,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param defaultTtl The default amount of time (in seconds) that an
-         * object is in a CloudFront cache before CloudFront forwards another request
-         * in the absence of an `Cache-Control max-age` or `Expires` header.
+         * @param defaultTtl Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
          * 
          * @return builder
          * 
@@ -550,9 +480,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param defaultTtl The default amount of time (in seconds) that an
-         * object is in a CloudFront cache before CloudFront forwards another request
-         * in the absence of an `Cache-Control max-age` or `Expires` header.
+         * @param defaultTtl Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
          * 
          * @return builder
          * 
@@ -562,7 +490,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param fieldLevelEncryptionId Field level encryption configuration ID
+         * @param fieldLevelEncryptionId Field level encryption configuration ID.
          * 
          * @return builder
          * 
@@ -573,7 +501,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param fieldLevelEncryptionId Field level encryption configuration ID
+         * @param fieldLevelEncryptionId Field level encryption configuration ID.
          * 
          * @return builder
          * 
@@ -583,8 +511,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param forwardedValues The forwarded values configuration that specifies how CloudFront
-         * handles query strings, cookies and headers (maximum one).
+         * @param forwardedValues The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
          * 
          * @return builder
          * 
@@ -595,8 +522,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param forwardedValues The forwarded values configuration that specifies how CloudFront
-         * handles query strings, cookies and headers (maximum one).
+         * @param forwardedValues The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
          * 
          * @return builder
          * 
@@ -606,8 +532,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param functionAssociations A config block that triggers a cloudfront
-         * function with specific actions (maximum 2).
+         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
          * 
          * @return builder
          * 
@@ -618,8 +543,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param functionAssociations A config block that triggers a cloudfront
-         * function with specific actions (maximum 2).
+         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
          * 
          * @return builder
          * 
@@ -629,8 +553,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param functionAssociations A config block that triggers a cloudfront
-         * function with specific actions (maximum 2).
+         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
          * 
          * @return builder
          * 
@@ -640,8 +563,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param lambdaFunctionAssociations A config block that triggers a lambda
-         * function with specific actions (maximum 4).
+         * @param lambdaFunctionAssociations A config block that triggers a lambda function with specific actions (maximum 4).
          * 
          * @return builder
          * 
@@ -652,8 +574,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param lambdaFunctionAssociations A config block that triggers a lambda
-         * function with specific actions (maximum 4).
+         * @param lambdaFunctionAssociations A config block that triggers a lambda function with specific actions (maximum 4).
          * 
          * @return builder
          * 
@@ -663,8 +584,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param lambdaFunctionAssociations A config block that triggers a lambda
-         * function with specific actions (maximum 4).
+         * @param lambdaFunctionAssociations A config block that triggers a lambda function with specific actions (maximum 4).
          * 
          * @return builder
          * 
@@ -674,11 +594,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param maxTtl The maximum amount of time (in seconds) that an
-         * object is in a CloudFront cache before CloudFront forwards another request
-         * to your origin to determine whether the object has been updated. Only
-         * effective in the presence of `Cache-Control max-age`, `Cache-Control
-         * s-maxage`, and `Expires` headers.
+         * @param maxTtl Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
          * 
          * @return builder
          * 
@@ -689,11 +605,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param maxTtl The maximum amount of time (in seconds) that an
-         * object is in a CloudFront cache before CloudFront forwards another request
-         * to your origin to determine whether the object has been updated. Only
-         * effective in the presence of `Cache-Control max-age`, `Cache-Control
-         * s-maxage`, and `Expires` headers.
+         * @param maxTtl Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
          * 
          * @return builder
          * 
@@ -703,9 +615,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param minTtl The minimum amount of time that you want objects to
-         * stay in CloudFront caches before CloudFront queries your origin to see
-         * whether the object has been updated. Defaults to 0 seconds.
+         * @param minTtl Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
          * 
          * @return builder
          * 
@@ -716,9 +626,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param minTtl The minimum amount of time that you want objects to
-         * stay in CloudFront caches before CloudFront queries your origin to see
-         * whether the object has been updated. Defaults to 0 seconds.
+         * @param minTtl Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
          * 
          * @return builder
          * 
@@ -728,8 +636,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param originRequestPolicyId The unique identifier of the origin request policy
-         * that is attached to the behavior.
+         * @param originRequestPolicyId Unique identifier of the origin request policy that is attached to the behavior.
          * 
          * @return builder
          * 
@@ -740,8 +647,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param originRequestPolicyId The unique identifier of the origin request policy
-         * that is attached to the behavior.
+         * @param originRequestPolicyId Unique identifier of the origin request policy that is attached to the behavior.
          * 
          * @return builder
          * 
@@ -751,8 +657,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param pathPattern The pattern (for example, `images/*.jpg`) that
-         * specifies which requests you want this cache behavior to apply to.
+         * @param pathPattern Pattern (for example, `images/*.jpg`) that specifies which requests you want this cache behavior to apply to.
          * 
          * @return builder
          * 
@@ -763,8 +668,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param pathPattern The pattern (for example, `images/*.jpg`) that
-         * specifies which requests you want this cache behavior to apply to.
+         * @param pathPattern Pattern (for example, `images/*.jpg`) that specifies which requests you want this cache behavior to apply to.
          * 
          * @return builder
          * 
@@ -774,8 +678,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param realtimeLogConfigArn The ARN of the real-time log configuration
-         * that is attached to this cache behavior.
+         * @param realtimeLogConfigArn ARN of the real-time log configuration that is attached to this cache behavior.
          * 
          * @return builder
          * 
@@ -786,8 +689,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param realtimeLogConfigArn The ARN of the real-time log configuration
-         * that is attached to this cache behavior.
+         * @param realtimeLogConfigArn ARN of the real-time log configuration that is attached to this cache behavior.
          * 
          * @return builder
          * 
@@ -797,7 +699,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param responseHeadersPolicyId The identifier for a response headers policy.
+         * @param responseHeadersPolicyId Identifier for a response headers policy.
          * 
          * @return builder
          * 
@@ -808,7 +710,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param responseHeadersPolicyId The identifier for a response headers policy.
+         * @param responseHeadersPolicyId Identifier for a response headers policy.
          * 
          * @return builder
          * 
@@ -818,9 +720,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param smoothStreaming Indicates whether you want to distribute
-         * media files in Microsoft Smooth Streaming format using the origin that is
-         * associated with this cache behavior.
+         * @param smoothStreaming Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
          * 
          * @return builder
          * 
@@ -831,9 +731,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param smoothStreaming Indicates whether you want to distribute
-         * media files in Microsoft Smooth Streaming format using the origin that is
-         * associated with this cache behavior.
+         * @param smoothStreaming Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
          * 
          * @return builder
          * 
@@ -843,9 +741,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param targetOriginId The value of ID for the origin that you want
-         * CloudFront to route requests to when a request matches the path pattern
-         * either for a cache behavior or for the default cache behavior.
+         * @param targetOriginId Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
          * 
          * @return builder
          * 
@@ -856,9 +752,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param targetOriginId The value of ID for the origin that you want
-         * CloudFront to route requests to when a request matches the path pattern
-         * either for a cache behavior or for the default cache behavior.
+         * @param targetOriginId Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
          * 
          * @return builder
          * 
@@ -868,8 +762,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedKeyGroups A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -880,8 +773,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedKeyGroups A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -891,8 +783,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedKeyGroups A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -902,8 +793,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -914,8 +804,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -925,8 +814,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          * 
          * @return builder
          * 
@@ -936,10 +824,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param viewerProtocolPolicy Use this element to specify the
-         * protocol that users can use to access the files in the origin specified by
-         * TargetOriginId when a request matches the path pattern in PathPattern. One
-         * of `allow-all`, `https-only`, or `redirect-to-https`.
+         * @param viewerProtocolPolicy Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
          * 
          * @return builder
          * 
@@ -950,10 +835,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param viewerProtocolPolicy Use this element to specify the
-         * protocol that users can use to access the files in the origin specified by
-         * TargetOriginId when a request matches the path pattern in PathPattern. One
-         * of `allow-all`, `https-only`, or `redirect-to-https`.
+         * @param viewerProtocolPolicy Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
          * 
          * @return builder
          * 

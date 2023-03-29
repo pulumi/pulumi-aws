@@ -16,22 +16,28 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleDomain = new aws.cloudsearch.Domain("exampleDomain", {});
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "search_only",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: [
+ *             "cloudsearch:search",
+ *             "cloudsearch:document",
+ *         ],
+ *         conditions: [{
+ *             test: "IpAddress",
+ *             variable: "aws:SourceIp",
+ *             values: ["192.0.2.0/32"],
+ *         }],
+ *     }],
+ * });
  * const exampleDomainServiceAccessPolicy = new aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", {
  *     domainName: exampleDomain.id,
- *     accessPolicy: `{
- *   "Version":"2012-10-17",
- *   "Statement":[{
- *     "Sid":"search_only",
- *     "Effect":"Allow",
- *     "Principal":"*",
- *     "Action":[
- *       "cloudsearch:search",
- *       "cloudsearch:document"
- *     ],
- *     "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
- *   }]
- * }
- * `,
+ *     accessPolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

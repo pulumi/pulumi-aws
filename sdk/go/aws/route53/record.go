@@ -234,6 +234,8 @@ type Record struct {
 	Aliases RecordAliasArrayOutput `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite pulumi.BoolOutput `pulumi:"allowOverwrite"`
+	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+	CidrRoutingPolicy RecordCidrRoutingPolicyPtrOutput `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayOutput `pulumi:"failoverRoutingPolicies"`
 	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -250,7 +252,7 @@ type Record struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records pulumi.StringArrayOutput `pulumi:"records"`
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
 	SetIdentifier pulumi.StringPtrOutput `pulumi:"setIdentifier"`
 	// The TTL of the record.
 	Ttl pulumi.IntPtrOutput `pulumi:"ttl"`
@@ -305,6 +307,8 @@ type recordState struct {
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
+	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies []RecordFailoverRoutingPolicy `pulumi:"failoverRoutingPolicies"`
 	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -321,7 +325,7 @@ type recordState struct {
 	Name *string `pulumi:"name"`
 	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records []string `pulumi:"records"`
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
 	SetIdentifier *string `pulumi:"setIdentifier"`
 	// The TTL of the record.
 	Ttl *int `pulumi:"ttl"`
@@ -339,6 +343,8 @@ type RecordState struct {
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite pulumi.BoolPtrInput
+	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayInput
 	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -355,7 +361,7 @@ type RecordState struct {
 	Name pulumi.StringPtrInput
 	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records pulumi.StringArrayInput
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
 	SetIdentifier pulumi.StringPtrInput
 	// The TTL of the record.
 	Ttl pulumi.IntPtrInput
@@ -377,6 +383,8 @@ type recordArgs struct {
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
+	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies []RecordFailoverRoutingPolicy `pulumi:"failoverRoutingPolicies"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
@@ -391,7 +399,7 @@ type recordArgs struct {
 	Name string `pulumi:"name"`
 	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records []string `pulumi:"records"`
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
 	SetIdentifier *string `pulumi:"setIdentifier"`
 	// The TTL of the record.
 	Ttl *int `pulumi:"ttl"`
@@ -410,6 +418,8 @@ type RecordArgs struct {
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite pulumi.BoolPtrInput
+	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayInput
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
@@ -424,7 +434,7 @@ type RecordArgs struct {
 	Name pulumi.StringInput
 	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
 	Records pulumi.StringArrayInput
-	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
 	SetIdentifier pulumi.StringPtrInput
 	// The TTL of the record.
 	Ttl pulumi.IntPtrInput
@@ -534,6 +544,11 @@ func (o RecordOutput) AllowOverwrite() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Record) pulumi.BoolOutput { return v.AllowOverwrite }).(pulumi.BoolOutput)
 }
 
+// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+func (o RecordOutput) CidrRoutingPolicy() RecordCidrRoutingPolicyPtrOutput {
+	return o.ApplyT(func(v *Record) RecordCidrRoutingPolicyPtrOutput { return v.CidrRoutingPolicy }).(RecordCidrRoutingPolicyPtrOutput)
+}
+
 // A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 func (o RecordOutput) FailoverRoutingPolicies() RecordFailoverRoutingPolicyArrayOutput {
 	return o.ApplyT(func(v *Record) RecordFailoverRoutingPolicyArrayOutput { return v.FailoverRoutingPolicies }).(RecordFailoverRoutingPolicyArrayOutput)
@@ -574,7 +589,7 @@ func (o RecordOutput) Records() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringArrayOutput { return v.Records }).(pulumi.StringArrayOutput)
 }
 
-// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalueAnswer`, or `weighted` routing policies documented below.
+// Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
 func (o RecordOutput) SetIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringPtrOutput { return v.SetIdentifier }).(pulumi.StringPtrOutput)
 }

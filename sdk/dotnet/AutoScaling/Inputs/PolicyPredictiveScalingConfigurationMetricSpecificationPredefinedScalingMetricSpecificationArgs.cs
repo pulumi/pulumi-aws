@@ -21,8 +21,8 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         /// <summary>
         /// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         /// </summary>
-        [Input("resourceLabel", required: true)]
-        public Input<string> ResourceLabel { get; set; } = null!;
+        [Input("resourceLabel")]
+        public Input<string>? ResourceLabel { get; set; }
 
         public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs()
         {

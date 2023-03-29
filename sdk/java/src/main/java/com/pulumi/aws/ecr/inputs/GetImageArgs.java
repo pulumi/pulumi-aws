@@ -5,6 +5,7 @@ package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +17,14 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImageArgs Empty = new GetImageArgs();
 
     /**
-     * Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+     * Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
      * 
      */
     @Import(name="imageDigest")
     private @Nullable Output<String> imageDigest;
 
     /**
-     * @return Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+     * @return Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
      * 
      */
     public Optional<Output<String>> imageDigest() {
@@ -31,18 +32,33 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+     * Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
      * 
      */
     @Import(name="imageTag")
     private @Nullable Output<String> imageTag;
 
     /**
-     * @return Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+     * @return Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
      * 
      */
     public Optional<Output<String>> imageTag() {
         return Optional.ofNullable(this.imageTag);
+    }
+
+    /**
+     * Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+     * 
+     */
+    @Import(name="mostRecent")
+    private @Nullable Output<Boolean> mostRecent;
+
+    /**
+     * @return Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+     * 
+     */
+    public Optional<Output<Boolean>> mostRecent() {
+        return Optional.ofNullable(this.mostRecent);
     }
 
     /**
@@ -80,6 +96,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     private GetImageArgs(GetImageArgs $) {
         this.imageDigest = $.imageDigest;
         this.imageTag = $.imageTag;
+        this.mostRecent = $.mostRecent;
         this.registryId = $.registryId;
         this.repositoryName = $.repositoryName;
     }
@@ -103,7 +120,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageDigest Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+         * @param imageDigest Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
          * 
          * @return builder
          * 
@@ -114,7 +131,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageDigest Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+         * @param imageDigest Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
          * 
          * @return builder
          * 
@@ -124,7 +141,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageTag Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+         * @param imageTag Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
          * 
          * @return builder
          * 
@@ -135,13 +152,34 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param imageTag Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+         * @param imageTag Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
          * 
          * @return builder
          * 
          */
         public Builder imageTag(String imageTag) {
             return imageTag(Output.of(imageTag));
+        }
+
+        /**
+         * @param mostRecent Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mostRecent(@Nullable Output<Boolean> mostRecent) {
+            $.mostRecent = mostRecent;
+            return this;
+        }
+
+        /**
+         * @param mostRecent Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mostRecent(Boolean mostRecent) {
+            return mostRecent(Output.of(mostRecent));
         }
 
         /**

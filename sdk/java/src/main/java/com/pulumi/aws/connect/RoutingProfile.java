@@ -177,6 +177,12 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<RoutingProfileQueueConfig>>> queueConfigs() {
         return Codegen.optional(this.queueConfigs);
     }
+    /**
+     * @deprecated
+     * Use the queue_configs instead
+     * 
+     */
+    @Deprecated /* Use the queue_configs instead */
     @Export(name="queueConfigsAssociateds", refs={List.class,RoutingProfileQueueConfigsAssociated.class}, tree="[0,1]")
     private Output<List<RoutingProfileQueueConfigsAssociated>> queueConfigsAssociateds;
 

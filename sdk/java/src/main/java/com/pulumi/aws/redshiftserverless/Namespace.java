@@ -117,14 +117,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.dbName;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
      * 
      */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
      * 
      */
     public Output<Optional<String>> defaultIamRoleArn() {

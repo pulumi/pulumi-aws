@@ -10,109 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppFlow flow resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSourceBucketV2 = new aws.s3.BucketV2("exampleSourceBucketV2", {});
- * const exampleSourceBucketPolicy = new aws.s3.BucketPolicy("exampleSourceBucketPolicy", {
- *     bucket: exampleSourceBucketV2.id,
- *     policy: `{
- *     "Statement": [
- *         {
- *             "Effect": "Allow",
- *             "Sid": "AllowAppFlowSourceActions",
- *             "Principal": {
- *                 "Service": "appflow.amazonaws.com"
- *             },
- *             "Action": [
- *                 "s3:ListBucket",
- *                 "s3:GetObject"
- *             ],
- *             "Resource": [
- *                 "arn:aws:s3:::example_source",
- *                 "arn:aws:s3:::example_source/*"
- *             ]
- *         }
- *     ],
- * 	"Version": "2012-10-17"
- * }
- * `,
- * });
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
- *     bucket: exampleSourceBucketV2.id,
- *     key: "example_source.csv",
- *     source: new pulumi.asset.FileAsset("example_source.csv"),
- * });
- * const exampleDestinationBucketV2 = new aws.s3.BucketV2("exampleDestinationBucketV2", {});
- * const exampleDestinationBucketPolicy = new aws.s3.BucketPolicy("exampleDestinationBucketPolicy", {
- *     bucket: exampleDestinationBucketV2.id,
- *     policy: `
- * {
- *     "Statement": [
- *         {
- *             "Effect": "Allow",
- *             "Sid": "AllowAppFlowDestinationActions",
- *             "Principal": {
- *                 "Service": "appflow.amazonaws.com"
- *             },
- *             "Action": [
- *                 "s3:PutObject",
- *                 "s3:AbortMultipartUpload",
- *                 "s3:ListMultipartUploadParts",
- *                 "s3:ListBucketMultipartUploads",
- *                 "s3:GetBucketAcl",
- *                 "s3:PutObjectAcl"
- *             ],
- *             "Resource": [
- *                 "arn:aws:s3:::example_destination",
- *                 "arn:aws:s3:::example_destination/*"
- *             ]
- *         }
- *     ],
- * 	"Version": "2012-10-17"
- * }
- * `,
- * });
- * const exampleFlow = new aws.appflow.Flow("exampleFlow", {
- *     sourceFlowConfig: {
- *         connectorType: "S3",
- *         sourceConnectorProperties: {
- *             s3: {
- *                 bucketName: exampleSourceBucketPolicy.bucket,
- *                 bucketPrefix: "example",
- *             },
- *         },
- *     },
- *     destinationFlowConfigs: [{
- *         connectorType: "S3",
- *         destinationConnectorProperties: {
- *             s3: {
- *                 bucketName: exampleDestinationBucketPolicy.bucket,
- *                 s3OutputFormatConfig: {
- *                     prefixConfig: {
- *                         prefixType: "PATH",
- *                     },
- *                 },
- *             },
- *         },
- *     }],
- *     tasks: [{
- *         sourceFields: ["exampleField"],
- *         destinationField: "exampleField",
- *         taskType: "Map",
- *         connectorOperators: [{
- *             s3: "NO_OP",
- *         }],
- *     }],
- *     triggerConfig: {
- *         triggerType: "OnDemand",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * AppFlow flows can be imported using the `arn`, e.g.
@@ -180,7 +77,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      */
@@ -233,10 +130,10 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["tasks"] = args ? args.tasks : undefined;
             resourceInputs["triggerConfig"] = args ? args.triggerConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Flow.__pulumiType, name, resourceInputs, opts);
@@ -317,6 +214,10 @@ export interface FlowArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      */

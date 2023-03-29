@@ -33,38 +33,65 @@ namespace Pulumi.Aws.CloudTrail
         ///         ForceDestroy = true,
         ///     });
         /// 
-        ///     var allowCloudtrailLogging = new Aws.S3.BucketPolicy("allowCloudtrailLogging", new()
+        ///     var allowCloudtrailLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Put bucket policy needed for trails",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{bucket.Arn}/*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Get bucket policy needed for trails",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:GetBucketAcl",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     bucket.Arn,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowCloudtrailLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowCloudtrailLoggingBucketPolicy", new()
         ///     {
         ///         Bucket = bucket.Id,
-        ///         Policy = Output.Tuple(main, main).Apply(values =&gt;
-        ///         {
-        ///             var main = values.Item1;
-        ///             var main1 = values.Item2;
-        ///             return @$"{{
-        ///   ""Version"": ""2008-10-17"",
-        ///   ""Statement"": [
-        ///     {{
-        ///       ""Sid"": ""Put bucket policy needed for trails"",
-        ///       ""Effect"": ""Allow"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
-        ///       }},
-        ///       ""Action"": ""s3:PutObject"",
-        ///       ""Resource"": ""arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*""
-        ///     }},
-        ///     {{
-        ///       ""Sid"": ""Get bucket policy needed for trails"",
-        ///       ""Effect"": ""Allow"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": ""{main1.Arn}""
-        ///       }},
-        ///       ""Action"": ""s3:GetBucketAcl"",
-        ///       ""Resource"": ""arn:aws:s3:::tf-cloudtrail-logging-test-bucket""
-        ///     }}
-        ///   ]
-        /// }}
-        /// ";
-        ///         }),
+        ///         Policy = allowCloudtrailLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });
@@ -97,38 +124,65 @@ namespace Pulumi.Aws.CloudTrail
         ///         ForceDestroy = true,
         ///     });
         /// 
-        ///     var allowCloudtrailLogging = new Aws.S3.BucketPolicy("allowCloudtrailLogging", new()
+        ///     var allowCloudtrailLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Put bucket policy needed for trails",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{bucket.Arn}/*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Get bucket policy needed for trails",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:GetBucketAcl",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     bucket.Arn,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowCloudtrailLoggingBucketPolicy = new Aws.S3.BucketPolicy("allowCloudtrailLoggingBucketPolicy", new()
         ///     {
         ///         Bucket = bucket.Id,
-        ///         Policy = Output.Tuple(main, main).Apply(values =&gt;
-        ///         {
-        ///             var main = values.Item1;
-        ///             var main1 = values.Item2;
-        ///             return @$"{{
-        ///   ""Version"": ""2008-10-17"",
-        ///   ""Statement"": [
-        ///     {{
-        ///       ""Sid"": ""Put bucket policy needed for trails"",
-        ///       ""Effect"": ""Allow"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
-        ///       }},
-        ///       ""Action"": ""s3:PutObject"",
-        ///       ""Resource"": ""arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*""
-        ///     }},
-        ///     {{
-        ///       ""Sid"": ""Get bucket policy needed for trails"",
-        ///       ""Effect"": ""Allow"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": ""{main1.Arn}""
-        ///       }},
-        ///       ""Action"": ""s3:GetBucketAcl"",
-        ///       ""Resource"": ""arn:aws:s3:::tf-cloudtrail-logging-test-bucket""
-        ///     }}
-        ///   ]
-        /// }}
-        /// ";
-        ///         }),
+        ///         Policy = allowCloudtrailLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
         ///     });
         /// 
         /// });

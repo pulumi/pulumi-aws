@@ -84,66 +84,6 @@ import (
 //	}
 //
 // ```
-// ### Private Registry Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultContainerService, err := lightsail.NewContainerService(ctx, "defaultContainerService", &lightsail.ContainerServiceArgs{
-//				PrivateRegistryAccess: &lightsail.ContainerServicePrivateRegistryAccessArgs{
-//					EcrImagePullerRole: &lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{
-//						IsActive: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewRepositoryPolicy(ctx, "defaultRepositoryPolicy", &ecr.RepositoryPolicyArgs{
-//				Repository: pulumi.Any(aws_ecr_repository.Default.Name),
-//				Policy: defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Sid": "AllowLightsailPull",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "AWS": "%v"
-//	      },
-//	      "Action": [
-//	        "ecr:BatchGetImage",
-//	        "ecr:GetDownloadUrlForLayer"
-//	      ]
-//	    }
-//	  ]
-//	}
-//
-// `, privateRegistryAccess.EcrImagePullerRole.PrincipalArn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

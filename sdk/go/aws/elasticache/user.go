@@ -45,6 +45,70 @@ import (
 //
 // ```
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
+//				AccessString: pulumi.String("on ~* +@all"),
+//				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
+//					Type: pulumi.String("iam"),
+//				},
+//				Engine:   pulumi.String("REDIS"),
+//				UserId:   pulumi.String("testUserId"),
+//				UserName: pulumi.String("testUserName"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
+//				AccessString: pulumi.String("on ~* +@all"),
+//				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
+//					Passwords: pulumi.StringArray{
+//						pulumi.String("password1"),
+//						pulumi.String("password2"),
+//					},
+//					Type: pulumi.String("password"),
+//				},
+//				Engine:   pulumi.String("REDIS"),
+//				UserId:   pulumi.String("testUserId"),
+//				UserName: pulumi.String("testUserName"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ElastiCache users can be imported using the `user_id`, e.g.,
@@ -61,6 +125,8 @@ type User struct {
 	AccessString pulumi.StringOutput `pulumi:"accessString"`
 	// The ARN of the created ElastiCache User.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Denotes the user's authentication properties. Detailed below.
+	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
 	// The current supported value is `REDIS`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Indicates a password is not required for this user.
@@ -128,6 +194,8 @@ type userState struct {
 	AccessString *string `pulumi:"accessString"`
 	// The ARN of the created ElastiCache User.
 	Arn *string `pulumi:"arn"`
+	// Denotes the user's authentication properties. Detailed below.
+	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
 	// The current supported value is `REDIS`.
 	Engine *string `pulumi:"engine"`
 	// Indicates a password is not required for this user.
@@ -148,6 +216,8 @@ type UserState struct {
 	AccessString pulumi.StringPtrInput
 	// The ARN of the created ElastiCache User.
 	Arn pulumi.StringPtrInput
+	// Denotes the user's authentication properties. Detailed below.
+	AuthenticationMode UserAuthenticationModePtrInput
 	// The current supported value is `REDIS`.
 	Engine pulumi.StringPtrInput
 	// Indicates a password is not required for this user.
@@ -170,8 +240,8 @@ func (UserState) ElementType() reflect.Type {
 type userArgs struct {
 	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 	AccessString string `pulumi:"accessString"`
-	// The ARN of the created ElastiCache User.
-	Arn *string `pulumi:"arn"`
+	// Denotes the user's authentication properties. Detailed below.
+	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
 	// The current supported value is `REDIS`.
 	Engine string `pulumi:"engine"`
 	// Indicates a password is not required for this user.
@@ -190,8 +260,8 @@ type userArgs struct {
 type UserArgs struct {
 	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 	AccessString pulumi.StringInput
-	// The ARN of the created ElastiCache User.
-	Arn pulumi.StringPtrInput
+	// Denotes the user's authentication properties. Detailed below.
+	AuthenticationMode UserAuthenticationModePtrInput
 	// The current supported value is `REDIS`.
 	Engine pulumi.StringInput
 	// Indicates a password is not required for this user.
@@ -301,6 +371,11 @@ func (o UserOutput) AccessString() pulumi.StringOutput {
 // The ARN of the created ElastiCache User.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Denotes the user's authentication properties. Detailed below.
+func (o UserOutput) AuthenticationMode() UserAuthenticationModeOutput {
+	return o.ApplyT(func(v *User) UserAuthenticationModeOutput { return v.AuthenticationMode }).(UserAuthenticationModeOutput)
 }
 
 // The current supported value is `REDIS`.

@@ -14,16 +14,14 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociationArgs exten
     public static final DistributionOrderedCacheBehaviorFunctionAssociationArgs Empty = new DistributionOrderedCacheBehaviorFunctionAssociationArgs();
 
     /**
-     * The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
+     * Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
      * 
      */
     @Import(name="eventType", required=true)
     private Output<String> eventType;
 
     /**
-     * @return The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
+     * @return Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
      * 
      */
     public Output<String> eventType() {
@@ -31,14 +29,14 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociationArgs exten
     }
 
     /**
-     * ARN of the Cloudfront function.
+     * ARN of the CloudFront function.
      * 
      */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
     /**
-     * @return ARN of the Cloudfront function.
+     * @return ARN of the CloudFront function.
      * 
      */
     public Output<String> functionArn() {
@@ -71,8 +69,7 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociationArgs exten
         }
 
         /**
-         * @param eventType The specific event to trigger this function.
-         * Valid values: `viewer-request` or `viewer-response`
+         * @param eventType Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
          * 
          * @return builder
          * 
@@ -83,8 +80,7 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociationArgs exten
         }
 
         /**
-         * @param eventType The specific event to trigger this function.
-         * Valid values: `viewer-request` or `viewer-response`
+         * @param eventType Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
          * 
          * @return builder
          * 
@@ -94,7 +90,7 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociationArgs exten
         }
 
         /**
-         * @param functionArn ARN of the Cloudfront function.
+         * @param functionArn ARN of the CloudFront function.
          * 
          * @return builder
          * 
@@ -105,7 +101,7 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociationArgs exten
         }
 
         /**
-         * @param functionArn ARN of the Cloudfront function.
+         * @param functionArn ARN of the CloudFront function.
          * 
          * @return builder
          * 

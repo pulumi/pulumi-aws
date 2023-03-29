@@ -43,21 +43,21 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [exampleSecretVersion],
  * });
+ * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         sid: "AWSKafkaResourcePolicy",
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["kafka.amazonaws.com"],
+ *         }],
+ *         actions: ["secretsmanager:getSecretValue"],
+ *         resources: [exampleSecret.arn],
+ *     }],
+ * });
  * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("exampleSecretPolicy", {
  *     secretArn: exampleSecret.arn,
- *     policy: pulumi.interpolate`{
- *   "Version" : "2012-10-17",
- *   "Statement" : [ {
- *     "Sid": "AWSKafkaResourcePolicy",
- *     "Effect" : "Allow",
- *     "Principal" : {
- *       "Service" : "kafka.amazonaws.com"
- *     },
- *     "Action" : "secretsmanager:getSecretValue",
- *     "Resource" : "${exampleSecret.arn}"
- *   } ]
- * }
- * `,
+ *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

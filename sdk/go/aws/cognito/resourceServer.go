@@ -87,7 +87,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
+//	$ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
 //
 // ```
 type ResourceServer struct {

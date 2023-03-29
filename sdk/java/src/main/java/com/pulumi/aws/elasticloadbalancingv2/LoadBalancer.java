@@ -261,6 +261,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableHttp2);
     }
     /**
+     * Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * 
+     */
+    @Export(name="enableTlsVersionAndCipherSuiteHeaders", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableTlsVersionAndCipherSuiteHeaders;
+
+    /**
+     * @return Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * 
+     */
+    public Output<Optional<Boolean>> enableTlsVersionAndCipherSuiteHeaders() {
+        return Codegen.optional(this.enableTlsVersionAndCipherSuiteHeaders);
+    }
+    /**
      * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      * 
      */
@@ -273,6 +287,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enableWafFailOpen() {
         return Codegen.optional(this.enableWafFailOpen);
+    }
+    /**
+     * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+     * 
+     */
+    @Export(name="enableXffClientPort", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableXffClientPort;
+
+    /**
+     * @return Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> enableXffClientPort() {
+        return Codegen.optional(this.enableXffClientPort);
     }
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -455,6 +483,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
 
     public Output<String> vpcId() {
         return this.vpcId;
+    }
+    /**
+     * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+     * 
+     */
+    @Export(name="xffHeaderProcessingMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> xffHeaderProcessingMode;
+
+    /**
+     * @return Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+     * 
+     */
+    public Output<Optional<String>> xffHeaderProcessingMode() {
+        return Codegen.optional(this.xffHeaderProcessingMode);
     }
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).

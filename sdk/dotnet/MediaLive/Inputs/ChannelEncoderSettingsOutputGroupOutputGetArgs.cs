@@ -28,7 +28,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<string>? _captionDescriptionNames;
 
         /// <summary>
-        /// The names of the caption descriptions used as audio sources for the output.
+        /// The names of the caption descriptions used as caption sources for the output.
         /// </summary>
         public InputList<string> CaptionDescriptionNames
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsGetArgs> OutputSettings { get; set; } = null!;
 
         /// <summary>
-        /// The name of the video description used as audio sources for the output.
+        /// The name of the video description used as video source for the output.
         /// </summary>
         [Input("videoDescriptionName")]
         public Input<string>? VideoDescriptionName { get; set; }

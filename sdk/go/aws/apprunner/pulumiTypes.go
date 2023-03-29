@@ -2122,7 +2122,7 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 	Port *string `pulumi:"port"`
 	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 	Runtime string `pulumi:"runtime"`
-	// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+	// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 	RuntimeEnvironmentSecrets map[string]string `pulumi:"runtimeEnvironmentSecrets"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables map[string]string `pulumi:"runtimeEnvironmentVariables"`
@@ -2148,7 +2148,7 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
 	Runtime pulumi.StringInput `pulumi:"runtime"`
-	// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+	// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 	RuntimeEnvironmentSecrets pulumi.StringMapInput `pulumi:"runtimeEnvironmentSecrets"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables pulumi.StringMapInput `pulumi:"runtimeEnvironmentVariables"`
@@ -2254,7 +2254,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringOutput)
 }
 
-// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
 		return v.RuntimeEnvironmentSecrets
@@ -2329,7 +2329,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) map[string]string {
 		if v == nil {
@@ -2699,7 +2699,7 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageRepositoryType(
 type ServiceSourceConfigurationImageRepositoryImageConfiguration struct {
 	// Port that your application listens to in the container. Defaults to `"8080"`.
 	Port *string `pulumi:"port"`
-	// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+	// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 	RuntimeEnvironmentSecrets map[string]string `pulumi:"runtimeEnvironmentSecrets"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables map[string]string `pulumi:"runtimeEnvironmentVariables"`
@@ -2721,7 +2721,7 @@ type ServiceSourceConfigurationImageRepositoryImageConfigurationInput interface 
 type ServiceSourceConfigurationImageRepositoryImageConfigurationArgs struct {
 	// Port that your application listens to in the container. Defaults to `"8080"`.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+	// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 	RuntimeEnvironmentSecrets pulumi.StringMapInput `pulumi:"runtimeEnvironmentSecrets"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables pulumi.StringMapInput `pulumi:"runtimeEnvironmentVariables"`
@@ -2811,7 +2811,7 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) Port(
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
 		return v.RuntimeEnvironmentSecrets
@@ -2864,7 +2864,7 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) Po
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) RuntimeEnvironmentSecrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepositoryImageConfiguration) map[string]string {
 		if v == nil {

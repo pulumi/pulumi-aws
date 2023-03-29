@@ -22,21 +22,28 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pubsub = new Aws.Iot.Policy("pubsub", new()
+    ///     var pubsubPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         PolicyDocument = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "iot:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var pubsubPolicy = new Aws.Iot.Policy("pubsubPolicy", new()
     ///     {
-    ///       ""Action"": [
-    ///         ""iot:*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""*""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
+    ///         PolicyDocument = pubsubPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var cert = new Aws.Iot.Certificate("cert", new()
@@ -47,7 +54,7 @@ namespace Pulumi.Aws.Iot
     /// 
     ///     var att = new Aws.Iot.PolicyAttachment("att", new()
     ///     {
-    ///         Policy = pubsub.Name,
+    ///         Policy = pubsubPolicy.Name,
     ///         Target = cert.Arn,
     ///     });
     /// 

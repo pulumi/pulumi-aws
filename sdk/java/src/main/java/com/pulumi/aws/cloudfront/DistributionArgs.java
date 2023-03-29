@@ -27,16 +27,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     public static final DistributionArgs Empty = new DistributionArgs();
 
     /**
-     * Extra CNAMEs (alternate domain names), if any, for
-     * this distribution.
+     * Extra CNAMEs (alternate domain names), if any, for this distribution.
      * 
      */
     @Import(name="aliases")
     private @Nullable Output<List<String>> aliases;
 
     /**
-     * @return Extra CNAMEs (alternate domain names), if any, for
-     * this distribution.
+     * @return Extra CNAMEs (alternate domain names), if any, for this distribution.
      * 
      */
     public Optional<Output<List<String>>> aliases() {
@@ -44,16 +42,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Any comments you want to include about the
-     * distribution.
+     * Any comments you want to include about the distribution.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Any comments you want to include about the
-     * distribution.
+     * @return Any comments you want to include about the distribution.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -76,16 +72,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default cache behavior for this distribution (maximum
-     * one).
+     * Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
      * 
      */
     @Import(name="defaultCacheBehavior", required=true)
     private Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
 
     /**
-     * @return The default cache behavior for this distribution (maximum
-     * one).
+     * @return Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
      * 
      */
     public Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior() {
@@ -93,16 +87,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The object that you want CloudFront to
-     * return (for example, index.html) when an end user requests the root URL.
+     * Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
      * 
      */
     @Import(name="defaultRootObject")
     private @Nullable Output<String> defaultRootObject;
 
     /**
-     * @return The object that you want CloudFront to
-     * return (for example, index.html) when an end user requests the root URL.
+     * @return Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
      * 
      */
     public Optional<Output<String>> defaultRootObject() {
@@ -110,16 +102,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the distribution is enabled to accept end
-     * user requests for content.
+     * Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether the distribution is enabled to accept end
-     * user requests for content.
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Output<Boolean> enabled() {
@@ -127,18 +117,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-     * `http2`.
+     * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
      * 
      */
     @Import(name="httpVersion")
     private @Nullable Output<String> httpVersion;
 
     /**
-     * @return The maximum HTTP version to support on the
-     * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-     * `http2`.
+     * @return Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
      * 
      */
     public Optional<Output<String>> httpVersion() {
@@ -161,18 +147,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The logging
-     * configuration that controls how logs are written
-     * to your distribution (maximum one).
+     * The logging configuration that controls how logs are written to your distribution (maximum one).
      * 
      */
     @Import(name="loggingConfig")
     private @Nullable Output<DistributionLoggingConfigArgs> loggingConfig;
 
     /**
-     * @return The logging
-     * configuration that controls how logs are written
-     * to your distribution (maximum one).
+     * @return The logging configuration that controls how logs are written to your distribution (maximum one).
      * 
      */
     public Optional<Output<DistributionLoggingConfigArgs>> loggingConfig() {
@@ -180,18 +162,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An ordered list of cache behaviors
-     * resource for this distribution. List from top to bottom
-     * in order of precedence. The topmost cache behavior will have precedence 0.
+     * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      * 
      */
     @Import(name="orderedCacheBehaviors")
     private @Nullable Output<List<DistributionOrderedCacheBehaviorArgs>> orderedCacheBehaviors;
 
     /**
-     * @return An ordered list of cache behaviors
-     * resource for this distribution. List from top to bottom
-     * in order of precedence. The topmost cache behavior will have precedence 0.
+     * @return Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      * 
      */
     public Optional<Output<List<DistributionOrderedCacheBehaviorArgs>>> orderedCacheBehaviors() {
@@ -199,16 +177,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more origin_group for this
-     * distribution (multiples allowed).
+     * One or more origin_group for this distribution (multiples allowed).
      * 
      */
     @Import(name="originGroups")
     private @Nullable Output<List<DistributionOriginGroupArgs>> originGroups;
 
     /**
-     * @return One or more origin_group for this
-     * distribution (multiples allowed).
+     * @return One or more origin_group for this distribution (multiples allowed).
      * 
      */
     public Optional<Output<List<DistributionOriginGroupArgs>>> originGroups() {
@@ -216,16 +192,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more origins for this
-     * distribution (multiples allowed).
+     * One or more origins for this distribution (multiples allowed).
      * 
      */
     @Import(name="origins", required=true)
     private Output<List<DistributionOriginArgs>> origins;
 
     /**
-     * @return One or more origins for this
-     * distribution (multiples allowed).
+     * @return One or more origins for this distribution (multiples allowed).
      * 
      */
     public Output<List<DistributionOriginArgs>> origins() {
@@ -233,16 +207,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The price class for this distribution. One of
-     * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+     * Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
      * 
      */
     @Import(name="priceClass")
     private @Nullable Output<String> priceClass;
 
     /**
-     * @return The price class for this distribution. One of
-     * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+     * @return Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
      * 
      */
     public Optional<Output<String>> priceClass() {
@@ -250,16 +222,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The restriction
-     * configuration for this distribution (maximum one).
+     * The restriction configuration for this distribution (maximum one).
      * 
      */
     @Import(name="restrictions", required=true)
     private Output<DistributionRestrictionsArgs> restrictions;
 
     /**
-     * @return The restriction
-     * configuration for this distribution (maximum one).
+     * @return The restriction configuration for this distribution (maximum one).
      * 
      */
     public Output<DistributionRestrictionsArgs> restrictions() {
@@ -267,18 +237,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Disables the distribution instead of
-     * deleting it when destroying the resource. If this is set,
-     * the distribution needs to be deleted manually afterwards. Default: `false`.
+     * Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
      * 
      */
     @Import(name="retainOnDelete")
     private @Nullable Output<Boolean> retainOnDelete;
 
     /**
-     * @return Disables the distribution instead of
-     * deleting it when destroying the resource. If this is set,
-     * the distribution needs to be deleted manually afterwards. Default: `false`.
+     * @return Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> retainOnDelete() {
@@ -286,14 +252,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -301,18 +267,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SSL
-     * configuration for this distribution (maximum
-     * one).
+     * The SSL configuration for this distribution (maximum one).
      * 
      */
     @Import(name="viewerCertificate", required=true)
     private Output<DistributionViewerCertificateArgs> viewerCertificate;
 
     /**
-     * @return The SSL
-     * configuration for this distribution (maximum
-     * one).
+     * @return The SSL configuration for this distribution (maximum one).
      * 
      */
     public Output<DistributionViewerCertificateArgs> viewerCertificate() {
@@ -320,18 +282,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If enabled, the resource will wait for
-     * the distribution status to change from `InProgress` to `Deployed`. Setting
-     * this to`false` will skip the process. Default: `true`.
+     * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      * 
      */
     @Import(name="waitForDeployment")
     private @Nullable Output<Boolean> waitForDeployment;
 
     /**
-     * @return If enabled, the resource will wait for
-     * the distribution status to change from `InProgress` to `Deployed`. Setting
-     * this to`false` will skip the process. Default: `true`.
+     * @return If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      * 
      */
     public Optional<Output<Boolean>> waitForDeployment() {
@@ -339,26 +297,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A unique identifier that specifies the AWS WAF web ACL,
-     * if any, to associate with this distribution.
-     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
-     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+     * Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      * 
      */
     @Import(name="webAclId")
     private @Nullable Output<String> webAclId;
 
     /**
-     * @return A unique identifier that specifies the AWS WAF web ACL,
-     * if any, to associate with this distribution.
-     * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-     * for example `aws_wafv2_web_acl.example.arn`. To specify a web
-     * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-     * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-     * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+     * @return Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      * 
      */
     public Optional<Output<String>> webAclId() {
@@ -408,8 +354,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for
-         * this distribution.
+         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
          * 
          * @return builder
          * 
@@ -420,8 +365,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for
-         * this distribution.
+         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
          * 
          * @return builder
          * 
@@ -431,8 +375,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliases Extra CNAMEs (alternate domain names), if any, for
-         * this distribution.
+         * @param aliases Extra CNAMEs (alternate domain names), if any, for this distribution.
          * 
          * @return builder
          * 
@@ -442,8 +385,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Any comments you want to include about the
-         * distribution.
+         * @param comment Any comments you want to include about the distribution.
          * 
          * @return builder
          * 
@@ -454,8 +396,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Any comments you want to include about the
-         * distribution.
+         * @param comment Any comments you want to include about the distribution.
          * 
          * @return builder
          * 
@@ -496,8 +437,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior The default cache behavior for this distribution (maximum
-         * one).
+         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
          * 
          * @return builder
          * 
@@ -508,8 +448,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior The default cache behavior for this distribution (maximum
-         * one).
+         * @param defaultCacheBehavior Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
          * 
          * @return builder
          * 
@@ -519,8 +458,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRootObject The object that you want CloudFront to
-         * return (for example, index.html) when an end user requests the root URL.
+         * @param defaultRootObject Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
          * 
          * @return builder
          * 
@@ -531,8 +469,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultRootObject The object that you want CloudFront to
-         * return (for example, index.html) when an end user requests the root URL.
+         * @param defaultRootObject Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
          * 
          * @return builder
          * 
@@ -542,8 +479,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether the distribution is enabled to accept end
-         * user requests for content.
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -554,8 +490,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether the distribution is enabled to accept end
-         * user requests for content.
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -565,9 +500,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpVersion The maximum HTTP version to support on the
-         * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-         * `http2`.
+         * @param httpVersion Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
          * 
          * @return builder
          * 
@@ -578,9 +511,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpVersion The maximum HTTP version to support on the
-         * distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is
-         * `http2`.
+         * @param httpVersion Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
          * 
          * @return builder
          * 
@@ -611,9 +542,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfig The logging
-         * configuration that controls how logs are written
-         * to your distribution (maximum one).
+         * @param loggingConfig The logging configuration that controls how logs are written to your distribution (maximum one).
          * 
          * @return builder
          * 
@@ -624,9 +553,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfig The logging
-         * configuration that controls how logs are written
-         * to your distribution (maximum one).
+         * @param loggingConfig The logging configuration that controls how logs are written to your distribution (maximum one).
          * 
          * @return builder
          * 
@@ -636,9 +563,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedCacheBehaviors An ordered list of cache behaviors
-         * resource for this distribution. List from top to bottom
-         * in order of precedence. The topmost cache behavior will have precedence 0.
+         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
          * 
          * @return builder
          * 
@@ -649,9 +574,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedCacheBehaviors An ordered list of cache behaviors
-         * resource for this distribution. List from top to bottom
-         * in order of precedence. The topmost cache behavior will have precedence 0.
+         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
          * 
          * @return builder
          * 
@@ -661,9 +584,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedCacheBehaviors An ordered list of cache behaviors
-         * resource for this distribution. List from top to bottom
-         * in order of precedence. The topmost cache behavior will have precedence 0.
+         * @param orderedCacheBehaviors Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
          * 
          * @return builder
          * 
@@ -673,8 +594,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this
-         * distribution (multiples allowed).
+         * @param originGroups One or more origin_group for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -685,8 +605,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this
-         * distribution (multiples allowed).
+         * @param originGroups One or more origin_group for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -696,8 +615,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param originGroups One or more origin_group for this
-         * distribution (multiples allowed).
+         * @param originGroups One or more origin_group for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -707,8 +625,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins One or more origins for this
-         * distribution (multiples allowed).
+         * @param origins One or more origins for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -719,8 +636,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins One or more origins for this
-         * distribution (multiples allowed).
+         * @param origins One or more origins for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -730,8 +646,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origins One or more origins for this
-         * distribution (multiples allowed).
+         * @param origins One or more origins for this distribution (multiples allowed).
          * 
          * @return builder
          * 
@@ -741,8 +656,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priceClass The price class for this distribution. One of
-         * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+         * @param priceClass Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
          * 
          * @return builder
          * 
@@ -753,8 +667,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priceClass The price class for this distribution. One of
-         * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+         * @param priceClass Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
          * 
          * @return builder
          * 
@@ -764,8 +677,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restrictions The restriction
-         * configuration for this distribution (maximum one).
+         * @param restrictions The restriction configuration for this distribution (maximum one).
          * 
          * @return builder
          * 
@@ -776,8 +688,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restrictions The restriction
-         * configuration for this distribution (maximum one).
+         * @param restrictions The restriction configuration for this distribution (maximum one).
          * 
          * @return builder
          * 
@@ -787,9 +698,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retainOnDelete Disables the distribution instead of
-         * deleting it when destroying the resource. If this is set,
-         * the distribution needs to be deleted manually afterwards. Default: `false`.
+         * @param retainOnDelete Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
          * 
          * @return builder
          * 
@@ -800,9 +709,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retainOnDelete Disables the distribution instead of
-         * deleting it when destroying the resource. If this is set,
-         * the distribution needs to be deleted manually afterwards. Default: `false`.
+         * @param retainOnDelete Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
          * 
          * @return builder
          * 
@@ -812,7 +719,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -823,7 +730,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -833,9 +740,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param viewerCertificate The SSL
-         * configuration for this distribution (maximum
-         * one).
+         * @param viewerCertificate The SSL configuration for this distribution (maximum one).
          * 
          * @return builder
          * 
@@ -846,9 +751,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param viewerCertificate The SSL
-         * configuration for this distribution (maximum
-         * one).
+         * @param viewerCertificate The SSL configuration for this distribution (maximum one).
          * 
          * @return builder
          * 
@@ -858,9 +761,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForDeployment If enabled, the resource will wait for
-         * the distribution status to change from `InProgress` to `Deployed`. Setting
-         * this to`false` will skip the process. Default: `true`.
+         * @param waitForDeployment If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
          * 
          * @return builder
          * 
@@ -871,9 +772,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForDeployment If enabled, the resource will wait for
-         * the distribution status to change from `InProgress` to `Deployed`. Setting
-         * this to`false` will skip the process. Default: `true`.
+         * @param waitForDeployment If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
          * 
          * @return builder
          * 
@@ -883,13 +782,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webAclId A unique identifier that specifies the AWS WAF web ACL,
-         * if any, to associate with this distribution.
-         * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-         * for example `aws_wafv2_web_acl.example.arn`. To specify a web
-         * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-         * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-         * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+         * @param webAclId Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
          * 
          * @return builder
          * 
@@ -900,13 +793,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webAclId A unique identifier that specifies the AWS WAF web ACL,
-         * if any, to associate with this distribution.
-         * To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN,
-         * for example `aws_wafv2_web_acl.example.arn`. To specify a web
-         * ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`.
-         * The WAF Web ACL must exist in the WAF Global (CloudFront) region and the
-         * credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+         * @param webAclId Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
          * 
          * @return builder
          * 

@@ -160,11 +160,15 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetTaskDefinitionResult
     {
         /// <summary>
-        /// ARN of the task definition
+        /// ARN of the task definition.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Family of this task definition
+        /// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+        /// </summary>
+        public readonly string ArnWithoutRevision;
+        /// <summary>
+        /// Family of this task definition.
         /// </summary>
         public readonly string Family;
         /// <summary>
@@ -176,22 +180,24 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string NetworkMode;
         /// <summary>
-        /// Revision of this task definition
+        /// Revision of this task definition.
         /// </summary>
         public readonly int Revision;
         /// <summary>
-        /// Status of this task definition
+        /// Status of this task definition.
         /// </summary>
         public readonly string Status;
         public readonly string TaskDefinition;
         /// <summary>
-        /// ARN of the IAM role that containers in this task can assume
+        /// ARN of the IAM role that containers in this task can assume.
         /// </summary>
         public readonly string TaskRoleArn;
 
         [OutputConstructor]
         private GetTaskDefinitionResult(
             string arn,
+
+            string arnWithoutRevision,
 
             string family,
 
@@ -208,6 +214,7 @@ namespace Pulumi.Aws.Ecs
             string taskRoleArn)
         {
             Arn = arn;
+            ArnWithoutRevision = arnWithoutRevision;
             Family = family;
             Id = id;
             NetworkMode = networkMode;

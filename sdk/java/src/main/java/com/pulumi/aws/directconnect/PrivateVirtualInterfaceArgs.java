@@ -155,9 +155,17 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Indicates whether to enable or disable SiteLink.
+     * 
+     */
     @Import(name="sitelinkEnabled")
     private @Nullable Output<Boolean> sitelinkEnabled;
 
+    /**
+     * @return Indicates whether to enable or disable SiteLink.
+     * 
+     */
     public Optional<Output<Boolean>> sitelinkEnabled() {
         return Optional.ofNullable(this.sitelinkEnabled);
     }
@@ -434,11 +442,23 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Reso
             return name(Output.of(name));
         }
 
+        /**
+         * @param sitelinkEnabled Indicates whether to enable or disable SiteLink.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sitelinkEnabled(@Nullable Output<Boolean> sitelinkEnabled) {
             $.sitelinkEnabled = sitelinkEnabled;
             return this;
         }
 
+        /**
+         * @param sitelinkEnabled Indicates whether to enable or disable SiteLink.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sitelinkEnabled(Boolean sitelinkEnabled) {
             return sitelinkEnabled(Output.of(sitelinkEnabled));
         }

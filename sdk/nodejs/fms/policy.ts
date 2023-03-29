@@ -89,6 +89,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly deleteUnusedFmManagedResources!: pulumi.Output<boolean | undefined>;
     /**
+     * The description of the AWS Network Firewall firewall policy.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */
     public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyExcludeMap | undefined>;
@@ -153,6 +157,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["deleteAllPolicyResources"] = state ? state.deleteAllPolicyResources : undefined;
             resourceInputs["deleteUnusedFmManagedResources"] = state ? state.deleteUnusedFmManagedResources : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["excludeMap"] = state ? state.excludeMap : undefined;
             resourceInputs["excludeResourceTags"] = state ? state.excludeResourceTags : undefined;
             resourceInputs["includeMap"] = state ? state.includeMap : undefined;
@@ -175,6 +180,7 @@ export class Policy extends pulumi.CustomResource {
             }
             resourceInputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
             resourceInputs["deleteUnusedFmManagedResources"] = args ? args.deleteUnusedFmManagedResources : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["excludeMap"] = args ? args.excludeMap : undefined;
             resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
             resourceInputs["includeMap"] = args ? args.includeMap : undefined;
@@ -207,6 +213,10 @@ export interface PolicyState {
      * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
      */
     deleteUnusedFmManagedResources?: pulumi.Input<boolean>;
+    /**
+     * The description of the AWS Network Firewall firewall policy.
+     */
+    description?: pulumi.Input<string>;
     /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */
@@ -269,6 +279,10 @@ export interface PolicyArgs {
      * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
      */
     deleteUnusedFmManagedResources?: pulumi.Input<boolean>;
+    /**
+     * The description of the AWS Network Firewall firewall policy.
+     */
+    description?: pulumi.Input<string>;
     /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */

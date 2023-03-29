@@ -30,11 +30,17 @@ namespace Pulumi.Aws.Ecs.Inputs
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
+        [Input("services")]
+        private InputList<Inputs.ServiceServiceConnectConfigurationServiceGetArgs>? _services;
+
         /// <summary>
         /// The list of Service Connect service objects. See below.
         /// </summary>
-        [Input("service")]
-        public Input<Inputs.ServiceServiceConnectConfigurationServiceGetArgs>? Service { get; set; }
+        public InputList<Inputs.ServiceServiceConnectConfigurationServiceGetArgs> Services
+        {
+            get => _services ?? (_services = new InputList<Inputs.ServiceServiceConnectConfigurationServiceGetArgs>());
+            set => _services = value;
+        }
 
         public ServiceServiceConnectConfigurationGetArgs()
         {
