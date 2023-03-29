@@ -77,9 +77,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ec2/vpcIpamScope:VpcIpamScope")
 public class VpcIpamScope extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the scope.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the scope.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -146,14 +154,14 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
         return this.isDefault;
     }
     /**
-     * Count of pools under this scope
+     * The number of pools in the scope.
      * 
      */
     @Export(name="poolCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> poolCount;
 
     /**
-     * @return Count of pools under this scope
+     * @return The number of pools in the scope.
      * 
      */
     public Output<Integer> poolCount() {

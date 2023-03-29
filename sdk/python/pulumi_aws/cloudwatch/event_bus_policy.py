@@ -19,7 +19,8 @@ class EventBusPolicyArgs:
         """
         The set of arguments for constructing a EventBusPolicy resource.
         :param pulumi.Input[str] policy: The text of the policy.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
+               If you omit this, the permissions are set on the `default` event bus.
         """
         pulumi.set(__self__, "policy", policy)
         if event_bus_name is not None:
@@ -41,7 +42,8 @@ class EventBusPolicyArgs:
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        The name of the event bus to set the permissions on.
+        If you omit this, the permissions are set on the `default` event bus.
         """
         return pulumi.get(self, "event_bus_name")
 
@@ -57,7 +59,8 @@ class _EventBusPolicyState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventBusPolicy resources.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
+               If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] policy: The text of the policy.
         """
         if event_bus_name is not None:
@@ -69,7 +72,8 @@ class _EventBusPolicyState:
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        The name of the event bus to set the permissions on.
+        If you omit this, the permissions are set on the `default` event bus.
         """
         return pulumi.get(self, "event_bus_name")
 
@@ -215,7 +219,8 @@ class EventBusPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
+               If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] policy: The text of the policy.
         """
         ...
@@ -388,7 +393,8 @@ class EventBusPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
+               If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] policy: The text of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -403,7 +409,8 @@ class EventBusPolicy(pulumi.CustomResource):
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        The name of the event bus to set the permissions on.
+        If you omit this, the permissions are set on the `default` event bus.
         """
         return pulumi.get(self, "event_bus_name")
 

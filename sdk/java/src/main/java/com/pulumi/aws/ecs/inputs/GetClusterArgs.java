@@ -6,7 +6,10 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +31,26 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
         return this.clusterName;
     }
 
+    /**
+     * Key-value map of resource tags
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Key-value map of resource tags
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetClusterArgs() {}
 
     private GetClusterArgs(GetClusterArgs $) {
         this.clusterName = $.clusterName;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -71,6 +90,27 @@ public final class GetClusterArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
+        }
+
+        /**
+         * @param tags Key-value map of resource tags
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Key-value map of resource tags
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public GetClusterArgs build() {

@@ -91,7 +91,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
      * Specifies if the match that was created with this configuration must be accepted by matched players.
      */
-    public readonly acceptanceRequired!: pulumi.Output<boolean>;
+    public readonly acceptanceRequired!: pulumi.Output<boolean | undefined>;
     /**
      * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
      */
@@ -131,7 +131,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
      * A set of custom game session properties.
      */
-    public readonly gameSessionData!: pulumi.Output<string>;
+    public readonly gameSessionData!: pulumi.Output<string | undefined>;
     /**
      * The ARNs of the GameLift game session queue resources.
      */
@@ -196,12 +196,6 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as MatchmakingConfigurationArgs | undefined;
-            if ((!args || args.acceptanceRequired === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'acceptanceRequired'");
-            }
-            if ((!args || args.gameSessionData === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'gameSessionData'");
-            }
             if ((!args || args.requestTimeoutSeconds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'requestTimeoutSeconds'");
             }
@@ -319,7 +313,7 @@ export interface MatchmakingConfigurationArgs {
     /**
      * Specifies if the match that was created with this configuration must be accepted by matched players.
      */
-    acceptanceRequired: pulumi.Input<boolean>;
+    acceptanceRequired?: pulumi.Input<boolean>;
     /**
      * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
      */
@@ -351,7 +345,7 @@ export interface MatchmakingConfigurationArgs {
     /**
      * A set of custom game session properties.
      */
-    gameSessionData: pulumi.Input<string>;
+    gameSessionData?: pulumi.Input<string>;
     /**
      * The ARNs of the GameLift game session queue resources.
      */

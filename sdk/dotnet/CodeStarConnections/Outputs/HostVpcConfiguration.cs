@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeStarConnections.Outputs
     public sealed class HostVpcConfiguration
     {
         /// <summary>
-        /// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        /// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>

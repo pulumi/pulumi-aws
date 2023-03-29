@@ -31,14 +31,14 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
     }
 
     /**
-     * Duration of the reservation in seconds.
+     * Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
      * 
      */
     @Import(name="duration", required=true)
     private Output<Integer> duration;
 
     /**
-     * @return Duration of the reservation in seconds.
+     * @return Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
      * 
      */
     public Output<Integer> duration() {
@@ -61,14 +61,14 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
     }
 
     /**
-     * Offering type of this reserved DB instance.
+     * Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
      * 
      */
     @Import(name="offeringType", required=true)
     private Output<String> offeringType;
 
     /**
-     * @return Offering type of this reserved DB instance.
+     * @return Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
      * 
      */
     public Output<String> offeringType() {
@@ -140,7 +140,7 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param duration Duration of the reservation in seconds.
+         * @param duration Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param duration Duration of the reservation in seconds.
+         * @param duration Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param offeringType Offering type of this reserved DB instance.
+         * @param offeringType Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class GetReservedInstanceOfferingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param offeringType Offering type of this reserved DB instance.
+         * @param offeringType Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
          * 
          * @return builder
          * 

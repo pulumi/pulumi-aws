@@ -16,7 +16,7 @@ public final class VirtualNodeSpecListenerTimeoutHttpPerRequest {
      */
     private String unit;
     /**
-     * @return Number of time units. Minimum value of `0`.
+     * @return The specified value for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     private Integer value;
@@ -30,7 +30,7 @@ public final class VirtualNodeSpecListenerTimeoutHttpPerRequest {
         return this.unit;
     }
     /**
-     * @return Number of time units. Minimum value of `0`.
+     * @return The specified value for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     public Integer value() {

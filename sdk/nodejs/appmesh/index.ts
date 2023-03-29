@@ -15,6 +15,16 @@ export const getMesh: typeof import("./getMesh").getMesh = null as any;
 export const getMeshOutput: typeof import("./getMesh").getMeshOutput = null as any;
 utilities.lazyLoad(exports, ["getMesh","getMeshOutput"], () => require("./getMesh"));
 
+export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
+export const getRoute: typeof import("./getRoute").getRoute = null as any;
+export const getRouteOutput: typeof import("./getRoute").getRouteOutput = null as any;
+utilities.lazyLoad(exports, ["getRoute","getRouteOutput"], () => require("./getRoute"));
+
+export { GetVirtualGatewayArgs, GetVirtualGatewayResult, GetVirtualGatewayOutputArgs } from "./getVirtualGateway";
+export const getVirtualGateway: typeof import("./getVirtualGateway").getVirtualGateway = null as any;
+export const getVirtualGatewayOutput: typeof import("./getVirtualGateway").getVirtualGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualGateway","getVirtualGatewayOutput"], () => require("./getVirtualGateway"));
+
 export { GetVirtualServiceArgs, GetVirtualServiceResult, GetVirtualServiceOutputArgs } from "./getVirtualService";
 export const getVirtualService: typeof import("./getVirtualService").getVirtualService = null as any;
 export const getVirtualServiceOutput: typeof import("./getVirtualService").getVirtualServiceOutput = null as any;

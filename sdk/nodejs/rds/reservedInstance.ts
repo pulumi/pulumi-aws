@@ -78,6 +78,9 @@ export class ReservedInstance extends pulumi.CustomResource {
      * Currency code for the reserved DB instance.
      */
     public /*out*/ readonly currencyCode!: pulumi.Output<string>;
+    /**
+     * DB instance class for the reserved DB instance.
+     */
     public /*out*/ readonly dbInstanceClass!: pulumi.Output<string>;
     /**
      * Duration of the reservation in seconds.
@@ -115,6 +118,9 @@ export class ReservedInstance extends pulumi.CustomResource {
      * Recurring price charged to run this reserved DB instance.
      */
     public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.rds.ReservedInstanceRecurringCharge[]>;
+    /**
+     * Customer-specified identifier to track this reservation.
+     */
     public readonly reservationId!: pulumi.Output<string | undefined>;
     /**
      * Time the reservation started.
@@ -209,6 +215,9 @@ export interface ReservedInstanceState {
      * Currency code for the reserved DB instance.
      */
     currencyCode?: pulumi.Input<string>;
+    /**
+     * DB instance class for the reserved DB instance.
+     */
     dbInstanceClass?: pulumi.Input<string>;
     /**
      * Duration of the reservation in seconds.
@@ -246,6 +255,9 @@ export interface ReservedInstanceState {
      * Recurring price charged to run this reserved DB instance.
      */
     recurringCharges?: pulumi.Input<pulumi.Input<inputs.rds.ReservedInstanceRecurringCharge>[]>;
+    /**
+     * Customer-specified identifier to track this reservation.
+     */
     reservationId?: pulumi.Input<string>;
     /**
      * Time the reservation started.
@@ -281,6 +293,9 @@ export interface ReservedInstanceArgs {
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
      */
     offeringId: pulumi.Input<string>;
+    /**
+     * Customer-specified identifier to track this reservation.
+     */
     reservationId?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -35,9 +35,15 @@ namespace Pulumi.Aws.Ec2
         [Output("cascade")]
         public Output<bool?> Cascade { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPAM's default resource discovery association ID.
+        /// </summary>
         [Output("defaultResourceDiscoveryAssociationId")]
         public Output<string> DefaultResourceDiscoveryAssociationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPAM's default resource discovery ID.
+        /// </summary>
         [Output("defaultResourceDiscoveryId")]
         public Output<string> DefaultResourceDiscoveryId { get; private set; } = null!;
 
@@ -186,9 +192,15 @@ namespace Pulumi.Aws.Ec2
         [Input("cascade")]
         public Input<bool>? Cascade { get; set; }
 
+        /// <summary>
+        /// The IPAM's default resource discovery association ID.
+        /// </summary>
         [Input("defaultResourceDiscoveryAssociationId")]
         public Input<string>? DefaultResourceDiscoveryAssociationId { get; set; }
 
+        /// <summary>
+        /// The IPAM's default resource discovery ID.
+        /// </summary>
         [Input("defaultResourceDiscoveryId")]
         public Input<string>? DefaultResourceDiscoveryId { get; set; }
 

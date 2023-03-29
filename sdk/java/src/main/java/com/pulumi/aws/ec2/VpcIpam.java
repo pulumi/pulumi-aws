@@ -61,15 +61,31 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> cascade() {
         return Codegen.optional(this.cascade);
     }
+    /**
+     * The IPAM&#39;s default resource discovery association ID.
+     * 
+     */
     @Export(name="defaultResourceDiscoveryAssociationId", refs={String.class}, tree="[0]")
     private Output<String> defaultResourceDiscoveryAssociationId;
 
+    /**
+     * @return The IPAM&#39;s default resource discovery association ID.
+     * 
+     */
     public Output<String> defaultResourceDiscoveryAssociationId() {
         return this.defaultResourceDiscoveryAssociationId;
     }
+    /**
+     * The IPAM&#39;s default resource discovery ID.
+     * 
+     */
     @Export(name="defaultResourceDiscoveryId", refs={String.class}, tree="[0]")
     private Output<String> defaultResourceDiscoveryId;
 
+    /**
+     * @return The IPAM&#39;s default resource discovery ID.
+     * 
+     */
     public Output<String> defaultResourceDiscoveryId() {
         return this.defaultResourceDiscoveryId;
     }

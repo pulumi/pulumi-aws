@@ -86,14 +86,14 @@ public class Member extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="email", refs={String.class}, tree="[0]")
-    private Output<String> email;
+    private Output</* @Nullable */ String> email;
 
     /**
      * @return The email of the member AWS account.
      * 
      */
-    public Output<String> email() {
-        return this.email;
+    public Output<Optional<String>> email() {
+        return Codegen.optional(this.email);
     }
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.

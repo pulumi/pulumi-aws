@@ -27,7 +27,8 @@ class EventPermissionArgs:
         :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         :param pulumi.Input['EventPermissionConditionArgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
+               If you omit this, the permissions are set on the `default` event bus.
         """
         pulumi.set(__self__, "principal", principal)
         pulumi.set(__self__, "statement_id", statement_id)
@@ -90,7 +91,8 @@ class EventPermissionArgs:
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        The name of the event bus to set the permissions on.
+        If you omit this, the permissions are set on the `default` event bus.
         """
         return pulumi.get(self, "event_bus_name")
 
@@ -111,7 +113,8 @@ class _EventPermissionState:
         Input properties used for looking up and filtering EventPermission resources.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         :param pulumi.Input['EventPermissionConditionArgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
+               If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
@@ -154,7 +157,8 @@ class _EventPermissionState:
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        The name of the event bus to set the permissions on.
+        If you omit this, the permissions are set on the `default` event bus.
         """
         return pulumi.get(self, "event_bus_name")
 
@@ -244,7 +248,8 @@ class EventPermission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         :param pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
+               If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
@@ -358,7 +363,8 @@ class EventPermission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         :param pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
+               If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
@@ -393,7 +399,8 @@ class EventPermission(pulumi.CustomResource):
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        The name of the event bus to set the permissions on.
+        If you omit this, the permissions are set on the `default` event bus.
         """
         return pulumi.get(self, "event_bus_name")
 

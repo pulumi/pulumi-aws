@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, cluster_name=None, id=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, service_connect_defaults=None, settings=None, status=None):
+    def __init__(__self__, arn=None, cluster_name=None, id=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, service_connect_defaults=None, settings=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetClusterResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -120,6 +123,14 @@ class GetClusterResult:
         """
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
@@ -135,10 +146,12 @@ class AwaitableGetClusterResult(GetClusterResult):
             running_tasks_count=self.running_tasks_count,
             service_connect_defaults=self.service_connect_defaults,
             settings=self.settings,
-            status=self.status)
+            status=self.status,
+            tags=self.tags)
 
 
 def get_cluster(cluster_name: Optional[str] = None,
+                tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     The ECS Cluster data source allows access to details of a specific
@@ -155,9 +168,11 @@ def get_cluster(cluster_name: Optional[str] = None,
 
 
     :param str cluster_name: Name of the ECS Cluster
+    :param Mapping[str, str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecs/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
@@ -170,11 +185,13 @@ def get_cluster(cluster_name: Optional[str] = None,
         running_tasks_count=__ret__.running_tasks_count,
         service_connect_defaults=__ret__.service_connect_defaults,
         settings=__ret__.settings,
-        status=__ret__.status)
+        status=__ret__.status,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     The ECS Cluster data source allows access to details of a specific
@@ -191,5 +208,6 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str cluster_name: Name of the ECS Cluster
+    :param Mapping[str, str] tags: Key-value map of resource tags
     """
     ...

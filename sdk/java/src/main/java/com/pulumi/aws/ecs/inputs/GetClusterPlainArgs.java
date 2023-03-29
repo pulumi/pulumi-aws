@@ -5,7 +5,10 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -27,10 +30,26 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.clusterName;
     }
 
+    /**
+     * Key-value map of resource tags
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return Key-value map of resource tags
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetClusterPlainArgs() {}
 
     private GetClusterPlainArgs(GetClusterPlainArgs $) {
         this.clusterName = $.clusterName;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -59,6 +78,17 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder clusterName(String clusterName) {
             $.clusterName = clusterName;
+            return this;
+        }
+
+        /**
+         * @param tags Key-value map of resource tags
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

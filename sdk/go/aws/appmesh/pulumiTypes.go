@@ -16267,6 +16267,8 @@ func (o VirtualGatewaySpecLoggingAccessLogPtrOutput) File() VirtualGatewaySpecLo
 }
 
 type VirtualGatewaySpecLoggingAccessLogFile struct {
+	// The specified format for the logs.
+	Format *VirtualGatewaySpecLoggingAccessLogFileFormat `pulumi:"format"`
 	// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path string `pulumi:"path"`
 }
@@ -16283,6 +16285,8 @@ type VirtualGatewaySpecLoggingAccessLogFileInput interface {
 }
 
 type VirtualGatewaySpecLoggingAccessLogFileArgs struct {
+	// The specified format for the logs.
+	Format VirtualGatewaySpecLoggingAccessLogFileFormatPtrInput `pulumi:"format"`
 	// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path pulumi.StringInput `pulumi:"path"`
 }
@@ -16364,6 +16368,13 @@ func (o VirtualGatewaySpecLoggingAccessLogFileOutput) ToVirtualGatewaySpecLoggin
 	}).(VirtualGatewaySpecLoggingAccessLogFilePtrOutput)
 }
 
+// The specified format for the logs.
+func (o VirtualGatewaySpecLoggingAccessLogFileOutput) Format() VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFile) *VirtualGatewaySpecLoggingAccessLogFileFormat {
+		return v.Format
+	}).(VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput)
+}
+
 // File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
@@ -16393,6 +16404,16 @@ func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Elem() VirtualGatewaySp
 	}).(VirtualGatewaySpecLoggingAccessLogFileOutput)
 }
 
+// The specified format for the logs.
+func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Format() VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFile) *VirtualGatewaySpecLoggingAccessLogFileFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput)
+}
+
 // File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFile) *string {
@@ -16401,6 +16422,270 @@ func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtr
 		}
 		return &v.Path
 	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormat struct {
+	// The logging format for JSON.
+	Jsons []VirtualGatewaySpecLoggingAccessLogFileFormatJson `pulumi:"jsons"`
+	// The logging format for text. Must be between 1 and 1000 characters in length.
+	Text *string `pulumi:"text"`
+}
+
+// VirtualGatewaySpecLoggingAccessLogFileFormatInput is an input type that accepts VirtualGatewaySpecLoggingAccessLogFileFormatArgs and VirtualGatewaySpecLoggingAccessLogFileFormatOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecLoggingAccessLogFileFormatInput` via:
+//
+//	VirtualGatewaySpecLoggingAccessLogFileFormatArgs{...}
+type VirtualGatewaySpecLoggingAccessLogFileFormatInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecLoggingAccessLogFileFormatOutput() VirtualGatewaySpecLoggingAccessLogFileFormatOutput
+	ToVirtualGatewaySpecLoggingAccessLogFileFormatOutputWithContext(context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatOutput
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormatArgs struct {
+	// The logging format for JSON.
+	Jsons VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput `pulumi:"jsons"`
+	// The logging format for text. Must be between 1 and 1000 characters in length.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+}
+
+func (VirtualGatewaySpecLoggingAccessLogFileFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecLoggingAccessLogFileFormatArgs) ToVirtualGatewaySpecLoggingAccessLogFileFormatOutput() VirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return i.ToVirtualGatewaySpecLoggingAccessLogFileFormatOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecLoggingAccessLogFileFormatArgs) ToVirtualGatewaySpecLoggingAccessLogFileFormatOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecLoggingAccessLogFileFormatOutput)
+}
+
+func (i VirtualGatewaySpecLoggingAccessLogFileFormatArgs) ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput() VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return i.ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecLoggingAccessLogFileFormatArgs) ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecLoggingAccessLogFileFormatOutput).ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecLoggingAccessLogFileFormatPtrInput is an input type that accepts VirtualGatewaySpecLoggingAccessLogFileFormatArgs, VirtualGatewaySpecLoggingAccessLogFileFormatPtr and VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecLoggingAccessLogFileFormatPtrInput` via:
+//
+//	        VirtualGatewaySpecLoggingAccessLogFileFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualGatewaySpecLoggingAccessLogFileFormatPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput() VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput
+	ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput
+}
+
+type virtualGatewaySpecLoggingAccessLogFileFormatPtrType VirtualGatewaySpecLoggingAccessLogFileFormatArgs
+
+func VirtualGatewaySpecLoggingAccessLogFileFormatPtr(v *VirtualGatewaySpecLoggingAccessLogFileFormatArgs) VirtualGatewaySpecLoggingAccessLogFileFormatPtrInput {
+	return (*virtualGatewaySpecLoggingAccessLogFileFormatPtrType)(v)
+}
+
+func (*virtualGatewaySpecLoggingAccessLogFileFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecLoggingAccessLogFileFormatPtrType) ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput() VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return i.ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecLoggingAccessLogFileFormatPtrType) ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput)
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormatOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecLoggingAccessLogFileFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatOutput() VirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput() VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return o.ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecLoggingAccessLogFileFormat) *VirtualGatewaySpecLoggingAccessLogFileFormat {
+		return &v
+	}).(VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput)
+}
+
+// The logging format for JSON.
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatOutput) Jsons() VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFileFormat) []VirtualGatewaySpecLoggingAccessLogFileFormatJson {
+		return v.Jsons
+	}).(VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput)
+}
+
+// The logging format for text. Must be between 1 and 1000 characters in length.
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFileFormat) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput() VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput) Elem() VirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFileFormat) VirtualGatewaySpecLoggingAccessLogFileFormat {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecLoggingAccessLogFileFormat
+		return ret
+	}).(VirtualGatewaySpecLoggingAccessLogFileFormatOutput)
+}
+
+// The logging format for JSON.
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput) Jsons() VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFileFormat) []VirtualGatewaySpecLoggingAccessLogFileFormatJson {
+		if v == nil {
+			return nil
+		}
+		return v.Jsons
+	}).(VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput)
+}
+
+// The logging format for text. Must be between 1 and 1000 characters in length.
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFileFormat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormatJson struct {
+	// The specified key for the JSON. Must be between 1 and 100 characters in length.
+	Key string `pulumi:"key"`
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
+	Value string `pulumi:"value"`
+}
+
+// VirtualGatewaySpecLoggingAccessLogFileFormatJsonInput is an input type that accepts VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs and VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecLoggingAccessLogFileFormatJsonInput` via:
+//
+//	VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs{...}
+type VirtualGatewaySpecLoggingAccessLogFileFormatJsonInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput() VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput
+	ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputWithContext(context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs struct {
+	// The specified key for the JSON. Must be between 1 and 100 characters in length.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs) ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput() VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return i.ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs) ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput)
+}
+
+// VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput is an input type that accepts VirtualGatewaySpecLoggingAccessLogFileFormatJsonArray and VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput` via:
+//
+//	VirtualGatewaySpecLoggingAccessLogFileFormatJsonArray{ VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs{...} }
+type VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput() VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput
+	ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormatJsonArray []VirtualGatewaySpecLoggingAccessLogFileFormatJsonInput
+
+func (VirtualGatewaySpecLoggingAccessLogFileFormatJsonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewaySpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecLoggingAccessLogFileFormatJsonArray) ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput() VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return i.ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecLoggingAccessLogFileFormatJsonArray) ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput)
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput() VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return o
+}
+
+// The specified key for the JSON. Must be between 1 and 100 characters in length.
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFileFormatJson) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFileFormatJson) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewaySpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput() VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) ToVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) Index(i pulumi.IntInput) VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGatewaySpecLoggingAccessLogFileFormatJson {
+		return vs[0].([]VirtualGatewaySpecLoggingAccessLogFileFormatJson)[vs[1].(int)]
+	}).(VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput)
 }
 
 type VirtualNodeSpec struct {
@@ -22178,7 +22463,7 @@ func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Va
 type VirtualNodeSpecListenerOutlierDetectionInterval struct {
 	// Unit of time. Valid values: `ms`, `s`.
 	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
 	Value int `pulumi:"value"`
 }
 
@@ -22196,7 +22481,7 @@ type VirtualNodeSpecListenerOutlierDetectionIntervalInput interface {
 type VirtualNodeSpecListenerOutlierDetectionIntervalArgs struct {
 	// Unit of time. Valid values: `ms`, `s`.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
 	Value pulumi.IntInput `pulumi:"value"`
 }
 
@@ -22282,7 +22567,7 @@ func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) Unit() pulumi.Str
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionInterval) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
 func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionInterval) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -22321,7 +22606,7 @@ func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Unit() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
 func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionInterval) *int {
 		if v == nil {
@@ -22998,7 +23283,7 @@ func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Value() pulumi.IntPtrOu
 type VirtualNodeSpecListenerTimeoutGrpcPerRequest struct {
 	// Unit of time. Valid values: `ms`, `s`.
 	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
 	Value int `pulumi:"value"`
 }
 
@@ -23016,7 +23301,7 @@ type VirtualNodeSpecListenerTimeoutGrpcPerRequestInput interface {
 type VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs struct {
 	// Unit of time. Valid values: `ms`, `s`.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
 	Value pulumi.IntInput `pulumi:"value"`
 }
 
@@ -23102,7 +23387,7 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Unit() pulumi.String
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
 func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -23141,7 +23426,7 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Unit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
 func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcPerRequest) *int {
 		if v == nil {
@@ -23468,7 +23753,7 @@ func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Value() pulumi.IntPtrO
 type VirtualNodeSpecListenerTimeoutHttp2PerRequest struct {
 	// Unit of time. Valid values: `ms`, `s`.
 	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
 	Value int `pulumi:"value"`
 }
 
@@ -23486,7 +23771,7 @@ type VirtualNodeSpecListenerTimeoutHttp2PerRequestInput interface {
 type VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs struct {
 	// Unit of time. Valid values: `ms`, `s`.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
 	Value pulumi.IntInput `pulumi:"value"`
 }
 
@@ -23572,7 +23857,7 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Unit() pulumi.Strin
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2PerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
 func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2PerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -23611,7 +23896,7 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Unit() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
 func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2PerRequest) *int {
 		if v == nil {
@@ -23938,7 +24223,7 @@ func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Value() pulumi.IntPtrOu
 type VirtualNodeSpecListenerTimeoutHttpPerRequest struct {
 	// Unit of time. Valid values: `ms`, `s`.
 	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
 	Value int `pulumi:"value"`
 }
 
@@ -23956,7 +24241,7 @@ type VirtualNodeSpecListenerTimeoutHttpPerRequestInput interface {
 type VirtualNodeSpecListenerTimeoutHttpPerRequestArgs struct {
 	// Unit of time. Valid values: `ms`, `s`.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
 	Value pulumi.IntInput `pulumi:"value"`
 }
 
@@ -24042,7 +24327,7 @@ func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Unit() pulumi.String
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
 func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -24081,7 +24366,7 @@ func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Unit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
 func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpPerRequest) *int {
 		if v == nil {
@@ -26309,6 +26594,8 @@ func (o VirtualNodeSpecLoggingAccessLogPtrOutput) File() VirtualNodeSpecLoggingA
 }
 
 type VirtualNodeSpecLoggingAccessLogFile struct {
+	// The specified format for the logs.
+	Format *VirtualNodeSpecLoggingAccessLogFileFormat `pulumi:"format"`
 	// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path string `pulumi:"path"`
 }
@@ -26325,6 +26612,8 @@ type VirtualNodeSpecLoggingAccessLogFileInput interface {
 }
 
 type VirtualNodeSpecLoggingAccessLogFileArgs struct {
+	// The specified format for the logs.
+	Format VirtualNodeSpecLoggingAccessLogFileFormatPtrInput `pulumi:"format"`
 	// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path pulumi.StringInput `pulumi:"path"`
 }
@@ -26406,6 +26695,13 @@ func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAcces
 	}).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
 
+// The specified format for the logs.
+func (o VirtualNodeSpecLoggingAccessLogFileOutput) Format() VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) *VirtualNodeSpecLoggingAccessLogFileFormat {
+		return v.Format
+	}).(VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput)
+}
+
 // File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
@@ -26435,6 +26731,16 @@ func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Elem() VirtualNodeSpecLogg
 	}).(VirtualNodeSpecLoggingAccessLogFileOutput)
 }
 
+// The specified format for the logs.
+func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Format() VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) *VirtualNodeSpecLoggingAccessLogFileFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput)
+}
+
 // File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) *string {
@@ -26443,6 +26749,270 @@ func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtrOut
 		}
 		return &v.Path
 	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormat struct {
+	// The logging format for JSON.
+	Jsons []VirtualNodeSpecLoggingAccessLogFileFormatJson `pulumi:"jsons"`
+	// The logging format for text. Must be between 1 and 1000 characters in length.
+	Text *string `pulumi:"text"`
+}
+
+// VirtualNodeSpecLoggingAccessLogFileFormatInput is an input type that accepts VirtualNodeSpecLoggingAccessLogFileFormatArgs and VirtualNodeSpecLoggingAccessLogFileFormatOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingAccessLogFileFormatInput` via:
+//
+//	VirtualNodeSpecLoggingAccessLogFileFormatArgs{...}
+type VirtualNodeSpecLoggingAccessLogFileFormatInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecLoggingAccessLogFileFormatOutput() VirtualNodeSpecLoggingAccessLogFileFormatOutput
+	ToVirtualNodeSpecLoggingAccessLogFileFormatOutputWithContext(context.Context) VirtualNodeSpecLoggingAccessLogFileFormatOutput
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormatArgs struct {
+	// The logging format for JSON.
+	Jsons VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayInput `pulumi:"jsons"`
+	// The logging format for text. Must be between 1 and 1000 characters in length.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+}
+
+func (VirtualNodeSpecLoggingAccessLogFileFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecLoggingAccessLogFileFormatArgs) ToVirtualNodeSpecLoggingAccessLogFileFormatOutput() VirtualNodeSpecLoggingAccessLogFileFormatOutput {
+	return i.ToVirtualNodeSpecLoggingAccessLogFileFormatOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecLoggingAccessLogFileFormatArgs) ToVirtualNodeSpecLoggingAccessLogFileFormatOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogFileFormatOutput)
+}
+
+func (i VirtualNodeSpecLoggingAccessLogFileFormatArgs) ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutput() VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return i.ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecLoggingAccessLogFileFormatArgs) ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogFileFormatOutput).ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecLoggingAccessLogFileFormatPtrInput is an input type that accepts VirtualNodeSpecLoggingAccessLogFileFormatArgs, VirtualNodeSpecLoggingAccessLogFileFormatPtr and VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingAccessLogFileFormatPtrInput` via:
+//
+//	        VirtualNodeSpecLoggingAccessLogFileFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualNodeSpecLoggingAccessLogFileFormatPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutput() VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput
+	ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(context.Context) VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput
+}
+
+type virtualNodeSpecLoggingAccessLogFileFormatPtrType VirtualNodeSpecLoggingAccessLogFileFormatArgs
+
+func VirtualNodeSpecLoggingAccessLogFileFormatPtr(v *VirtualNodeSpecLoggingAccessLogFileFormatArgs) VirtualNodeSpecLoggingAccessLogFileFormatPtrInput {
+	return (*virtualNodeSpecLoggingAccessLogFileFormatPtrType)(v)
+}
+
+func (*virtualNodeSpecLoggingAccessLogFileFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecLoggingAccessLogFileFormatPtrType) ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutput() VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return i.ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecLoggingAccessLogFileFormatPtrType) ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput)
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormatOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecLoggingAccessLogFileFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatOutput() VirtualNodeSpecLoggingAccessLogFileFormatOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutput() VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return o.ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecLoggingAccessLogFileFormat) *VirtualNodeSpecLoggingAccessLogFileFormat {
+		return &v
+	}).(VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput)
+}
+
+// The logging format for JSON.
+func (o VirtualNodeSpecLoggingAccessLogFileFormatOutput) Jsons() VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFileFormat) []VirtualNodeSpecLoggingAccessLogFileFormatJson {
+		return v.Jsons
+	}).(VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput)
+}
+
+// The logging format for text. Must be between 1 and 1000 characters in length.
+func (o VirtualNodeSpecLoggingAccessLogFileFormatOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFileFormat) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutput() VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatPtrOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput) Elem() VirtualNodeSpecLoggingAccessLogFileFormatOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFileFormat) VirtualNodeSpecLoggingAccessLogFileFormat {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecLoggingAccessLogFileFormat
+		return ret
+	}).(VirtualNodeSpecLoggingAccessLogFileFormatOutput)
+}
+
+// The logging format for JSON.
+func (o VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput) Jsons() VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFileFormat) []VirtualNodeSpecLoggingAccessLogFileFormatJson {
+		if v == nil {
+			return nil
+		}
+		return v.Jsons
+	}).(VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput)
+}
+
+// The logging format for text. Must be between 1 and 1000 characters in length.
+func (o VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFileFormat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormatJson struct {
+	// The specified key for the JSON. Must be between 1 and 100 characters in length.
+	Key string `pulumi:"key"`
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
+	Value string `pulumi:"value"`
+}
+
+// VirtualNodeSpecLoggingAccessLogFileFormatJsonInput is an input type that accepts VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs and VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingAccessLogFileFormatJsonInput` via:
+//
+//	VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs{...}
+type VirtualNodeSpecLoggingAccessLogFileFormatJsonInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput() VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput
+	ToVirtualNodeSpecLoggingAccessLogFileFormatJsonOutputWithContext(context.Context) VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs struct {
+	// The specified key for the JSON. Must be between 1 and 100 characters in length.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The specified value for the JSON. Must be between 1 and 100 characters in length.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs) ToVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput() VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput {
+	return i.ToVirtualNodeSpecLoggingAccessLogFileFormatJsonOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs) ToVirtualNodeSpecLoggingAccessLogFileFormatJsonOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput)
+}
+
+// VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayInput is an input type that accepts VirtualNodeSpecLoggingAccessLogFileFormatJsonArray and VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayInput` via:
+//
+//	VirtualNodeSpecLoggingAccessLogFileFormatJsonArray{ VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs{...} }
+type VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput() VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput
+	ToVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(context.Context) VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormatJsonArray []VirtualNodeSpecLoggingAccessLogFileFormatJsonInput
+
+func (VirtualNodeSpecLoggingAccessLogFileFormatJsonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecLoggingAccessLogFileFormatJsonArray) ToVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput() VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return i.ToVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecLoggingAccessLogFileFormatJsonArray) ToVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput)
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatJsonOutput() VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatJsonOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput {
+	return o
+}
+
+// The specified key for the JSON. Must be between 1 and 100 characters in length.
+func (o VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFileFormatJson) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The specified value for the JSON. Must be between 1 and 100 characters in length.
+func (o VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFileFormatJson) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput() VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput) ToVirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput) Index(i pulumi.IntInput) VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeSpecLoggingAccessLogFileFormatJson {
+		return vs[0].([]VirtualNodeSpecLoggingAccessLogFileFormatJson)[vs[1].(int)]
+	}).(VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput)
 }
 
 type VirtualNodeSpecServiceDiscovery struct {
@@ -28114,6 +28684,8561 @@ func (o GetMeshSpecEgressFilterArrayOutput) Index(i pulumi.IntInput) GetMeshSpec
 	}).(GetMeshSpecEgressFilterOutput)
 }
 
+type GetRouteSpec struct {
+	// GRPC routing information for the route.
+	GrpcRoutes []GetRouteSpecGrpcRoute `pulumi:"grpcRoutes"`
+	// HTTP/2 routing information for the route.
+	Http2Routes []GetRouteSpecHttp2Route `pulumi:"http2Routes"`
+	// HTTP routing information for the route.
+	HttpRoutes []GetRouteSpecHttpRoute `pulumi:"httpRoutes"`
+	// Priority for the route, between `0` and `1000`.
+	Priority int `pulumi:"priority"`
+	// TCP routing information for the route.
+	TcpRoutes []GetRouteSpecTcpRoute `pulumi:"tcpRoutes"`
+}
+
+// GetRouteSpecInput is an input type that accepts GetRouteSpecArgs and GetRouteSpecOutput values.
+// You can construct a concrete instance of `GetRouteSpecInput` via:
+//
+//	GetRouteSpecArgs{...}
+type GetRouteSpecInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecOutput() GetRouteSpecOutput
+	ToGetRouteSpecOutputWithContext(context.Context) GetRouteSpecOutput
+}
+
+type GetRouteSpecArgs struct {
+	// GRPC routing information for the route.
+	GrpcRoutes GetRouteSpecGrpcRouteArrayInput `pulumi:"grpcRoutes"`
+	// HTTP/2 routing information for the route.
+	Http2Routes GetRouteSpecHttp2RouteArrayInput `pulumi:"http2Routes"`
+	// HTTP routing information for the route.
+	HttpRoutes GetRouteSpecHttpRouteArrayInput `pulumi:"httpRoutes"`
+	// Priority for the route, between `0` and `1000`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// TCP routing information for the route.
+	TcpRoutes GetRouteSpecTcpRouteArrayInput `pulumi:"tcpRoutes"`
+}
+
+func (GetRouteSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpec)(nil)).Elem()
+}
+
+func (i GetRouteSpecArgs) ToGetRouteSpecOutput() GetRouteSpecOutput {
+	return i.ToGetRouteSpecOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecArgs) ToGetRouteSpecOutputWithContext(ctx context.Context) GetRouteSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecOutput)
+}
+
+// GetRouteSpecArrayInput is an input type that accepts GetRouteSpecArray and GetRouteSpecArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecArrayInput` via:
+//
+//	GetRouteSpecArray{ GetRouteSpecArgs{...} }
+type GetRouteSpecArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecArrayOutput() GetRouteSpecArrayOutput
+	ToGetRouteSpecArrayOutputWithContext(context.Context) GetRouteSpecArrayOutput
+}
+
+type GetRouteSpecArray []GetRouteSpecInput
+
+func (GetRouteSpecArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpec)(nil)).Elem()
+}
+
+func (i GetRouteSpecArray) ToGetRouteSpecArrayOutput() GetRouteSpecArrayOutput {
+	return i.ToGetRouteSpecArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecArray) ToGetRouteSpecArrayOutputWithContext(ctx context.Context) GetRouteSpecArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecArrayOutput)
+}
+
+type GetRouteSpecOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpec)(nil)).Elem()
+}
+
+func (o GetRouteSpecOutput) ToGetRouteSpecOutput() GetRouteSpecOutput {
+	return o
+}
+
+func (o GetRouteSpecOutput) ToGetRouteSpecOutputWithContext(ctx context.Context) GetRouteSpecOutput {
+	return o
+}
+
+// GRPC routing information for the route.
+func (o GetRouteSpecOutput) GrpcRoutes() GetRouteSpecGrpcRouteArrayOutput {
+	return o.ApplyT(func(v GetRouteSpec) []GetRouteSpecGrpcRoute { return v.GrpcRoutes }).(GetRouteSpecGrpcRouteArrayOutput)
+}
+
+// HTTP/2 routing information for the route.
+func (o GetRouteSpecOutput) Http2Routes() GetRouteSpecHttp2RouteArrayOutput {
+	return o.ApplyT(func(v GetRouteSpec) []GetRouteSpecHttp2Route { return v.Http2Routes }).(GetRouteSpecHttp2RouteArrayOutput)
+}
+
+// HTTP routing information for the route.
+func (o GetRouteSpecOutput) HttpRoutes() GetRouteSpecHttpRouteArrayOutput {
+	return o.ApplyT(func(v GetRouteSpec) []GetRouteSpecHttpRoute { return v.HttpRoutes }).(GetRouteSpecHttpRouteArrayOutput)
+}
+
+// Priority for the route, between `0` and `1000`.
+func (o GetRouteSpecOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpec) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// TCP routing information for the route.
+func (o GetRouteSpecOutput) TcpRoutes() GetRouteSpecTcpRouteArrayOutput {
+	return o.ApplyT(func(v GetRouteSpec) []GetRouteSpecTcpRoute { return v.TcpRoutes }).(GetRouteSpecTcpRouteArrayOutput)
+}
+
+type GetRouteSpecArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpec)(nil)).Elem()
+}
+
+func (o GetRouteSpecArrayOutput) ToGetRouteSpecArrayOutput() GetRouteSpecArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecArrayOutput) ToGetRouteSpecArrayOutputWithContext(ctx context.Context) GetRouteSpecArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecArrayOutput) Index(i pulumi.IntInput) GetRouteSpecOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpec {
+		return vs[0].([]GetRouteSpec)[vs[1].(int)]
+	}).(GetRouteSpecOutput)
+}
+
+type GetRouteSpecGrpcRoute struct {
+	// Action to take if a match is determined.
+	Actions []GetRouteSpecGrpcRouteAction `pulumi:"actions"`
+	// Criteria for determining an HTTP request match.
+	Matches []GetRouteSpecGrpcRouteMatch `pulumi:"matches"`
+	// Retry policy.
+	RetryPolicies []GetRouteSpecGrpcRouteRetryPolicy `pulumi:"retryPolicies"`
+	// Types of timeouts.
+	Timeouts []GetRouteSpecGrpcRouteTimeout `pulumi:"timeouts"`
+}
+
+// GetRouteSpecGrpcRouteInput is an input type that accepts GetRouteSpecGrpcRouteArgs and GetRouteSpecGrpcRouteOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteInput` via:
+//
+//	GetRouteSpecGrpcRouteArgs{...}
+type GetRouteSpecGrpcRouteInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteOutput() GetRouteSpecGrpcRouteOutput
+	ToGetRouteSpecGrpcRouteOutputWithContext(context.Context) GetRouteSpecGrpcRouteOutput
+}
+
+type GetRouteSpecGrpcRouteArgs struct {
+	// Action to take if a match is determined.
+	Actions GetRouteSpecGrpcRouteActionArrayInput `pulumi:"actions"`
+	// Criteria for determining an HTTP request match.
+	Matches GetRouteSpecGrpcRouteMatchArrayInput `pulumi:"matches"`
+	// Retry policy.
+	RetryPolicies GetRouteSpecGrpcRouteRetryPolicyArrayInput `pulumi:"retryPolicies"`
+	// Types of timeouts.
+	Timeouts GetRouteSpecGrpcRouteTimeoutArrayInput `pulumi:"timeouts"`
+}
+
+func (GetRouteSpecGrpcRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRoute)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteArgs) ToGetRouteSpecGrpcRouteOutput() GetRouteSpecGrpcRouteOutput {
+	return i.ToGetRouteSpecGrpcRouteOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteArgs) ToGetRouteSpecGrpcRouteOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteOutput)
+}
+
+// GetRouteSpecGrpcRouteArrayInput is an input type that accepts GetRouteSpecGrpcRouteArray and GetRouteSpecGrpcRouteArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteArray{ GetRouteSpecGrpcRouteArgs{...} }
+type GetRouteSpecGrpcRouteArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteArrayOutput() GetRouteSpecGrpcRouteArrayOutput
+	ToGetRouteSpecGrpcRouteArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteArrayOutput
+}
+
+type GetRouteSpecGrpcRouteArray []GetRouteSpecGrpcRouteInput
+
+func (GetRouteSpecGrpcRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRoute)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteArray) ToGetRouteSpecGrpcRouteArrayOutput() GetRouteSpecGrpcRouteArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteArray) ToGetRouteSpecGrpcRouteArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRoute)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteOutput) ToGetRouteSpecGrpcRouteOutput() GetRouteSpecGrpcRouteOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteOutput) ToGetRouteSpecGrpcRouteOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteOutput {
+	return o
+}
+
+// Action to take if a match is determined.
+func (o GetRouteSpecGrpcRouteOutput) Actions() GetRouteSpecGrpcRouteActionArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRoute) []GetRouteSpecGrpcRouteAction { return v.Actions }).(GetRouteSpecGrpcRouteActionArrayOutput)
+}
+
+// Criteria for determining an HTTP request match.
+func (o GetRouteSpecGrpcRouteOutput) Matches() GetRouteSpecGrpcRouteMatchArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRoute) []GetRouteSpecGrpcRouteMatch { return v.Matches }).(GetRouteSpecGrpcRouteMatchArrayOutput)
+}
+
+// Retry policy.
+func (o GetRouteSpecGrpcRouteOutput) RetryPolicies() GetRouteSpecGrpcRouteRetryPolicyArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRoute) []GetRouteSpecGrpcRouteRetryPolicy { return v.RetryPolicies }).(GetRouteSpecGrpcRouteRetryPolicyArrayOutput)
+}
+
+// Types of timeouts.
+func (o GetRouteSpecGrpcRouteOutput) Timeouts() GetRouteSpecGrpcRouteTimeoutArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRoute) []GetRouteSpecGrpcRouteTimeout { return v.Timeouts }).(GetRouteSpecGrpcRouteTimeoutArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRoute)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteArrayOutput) ToGetRouteSpecGrpcRouteArrayOutput() GetRouteSpecGrpcRouteArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteArrayOutput) ToGetRouteSpecGrpcRouteArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRoute {
+		return vs[0].([]GetRouteSpecGrpcRoute)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteOutput)
+}
+
+type GetRouteSpecGrpcRouteAction struct {
+	WeightedTargets []GetRouteSpecGrpcRouteActionWeightedTarget `pulumi:"weightedTargets"`
+}
+
+// GetRouteSpecGrpcRouteActionInput is an input type that accepts GetRouteSpecGrpcRouteActionArgs and GetRouteSpecGrpcRouteActionOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteActionInput` via:
+//
+//	GetRouteSpecGrpcRouteActionArgs{...}
+type GetRouteSpecGrpcRouteActionInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteActionOutput() GetRouteSpecGrpcRouteActionOutput
+	ToGetRouteSpecGrpcRouteActionOutputWithContext(context.Context) GetRouteSpecGrpcRouteActionOutput
+}
+
+type GetRouteSpecGrpcRouteActionArgs struct {
+	WeightedTargets GetRouteSpecGrpcRouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
+}
+
+func (GetRouteSpecGrpcRouteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteAction)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteActionArgs) ToGetRouteSpecGrpcRouteActionOutput() GetRouteSpecGrpcRouteActionOutput {
+	return i.ToGetRouteSpecGrpcRouteActionOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteActionArgs) ToGetRouteSpecGrpcRouteActionOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteActionOutput)
+}
+
+// GetRouteSpecGrpcRouteActionArrayInput is an input type that accepts GetRouteSpecGrpcRouteActionArray and GetRouteSpecGrpcRouteActionArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteActionArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteActionArray{ GetRouteSpecGrpcRouteActionArgs{...} }
+type GetRouteSpecGrpcRouteActionArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteActionArrayOutput() GetRouteSpecGrpcRouteActionArrayOutput
+	ToGetRouteSpecGrpcRouteActionArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteActionArrayOutput
+}
+
+type GetRouteSpecGrpcRouteActionArray []GetRouteSpecGrpcRouteActionInput
+
+func (GetRouteSpecGrpcRouteActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteAction)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteActionArray) ToGetRouteSpecGrpcRouteActionArrayOutput() GetRouteSpecGrpcRouteActionArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteActionArray) ToGetRouteSpecGrpcRouteActionArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteActionArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteActionOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteAction)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteActionOutput) ToGetRouteSpecGrpcRouteActionOutput() GetRouteSpecGrpcRouteActionOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteActionOutput) ToGetRouteSpecGrpcRouteActionOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteActionOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteActionOutput) WeightedTargets() GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteAction) []GetRouteSpecGrpcRouteActionWeightedTarget {
+		return v.WeightedTargets
+	}).(GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteAction)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteActionArrayOutput) ToGetRouteSpecGrpcRouteActionArrayOutput() GetRouteSpecGrpcRouteActionArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteActionArrayOutput) ToGetRouteSpecGrpcRouteActionArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteActionArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteActionArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteAction {
+		return vs[0].([]GetRouteSpecGrpcRouteAction)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteActionOutput)
+}
+
+type GetRouteSpecGrpcRouteActionWeightedTarget struct {
+	Port        int    `pulumi:"port"`
+	VirtualNode string `pulumi:"virtualNode"`
+	Weight      int    `pulumi:"weight"`
+}
+
+// GetRouteSpecGrpcRouteActionWeightedTargetInput is an input type that accepts GetRouteSpecGrpcRouteActionWeightedTargetArgs and GetRouteSpecGrpcRouteActionWeightedTargetOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteActionWeightedTargetInput` via:
+//
+//	GetRouteSpecGrpcRouteActionWeightedTargetArgs{...}
+type GetRouteSpecGrpcRouteActionWeightedTargetInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteActionWeightedTargetOutput() GetRouteSpecGrpcRouteActionWeightedTargetOutput
+	ToGetRouteSpecGrpcRouteActionWeightedTargetOutputWithContext(context.Context) GetRouteSpecGrpcRouteActionWeightedTargetOutput
+}
+
+type GetRouteSpecGrpcRouteActionWeightedTargetArgs struct {
+	Port        pulumi.IntInput    `pulumi:"port"`
+	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
+	Weight      pulumi.IntInput    `pulumi:"weight"`
+}
+
+func (GetRouteSpecGrpcRouteActionWeightedTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteActionWeightedTargetArgs) ToGetRouteSpecGrpcRouteActionWeightedTargetOutput() GetRouteSpecGrpcRouteActionWeightedTargetOutput {
+	return i.ToGetRouteSpecGrpcRouteActionWeightedTargetOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteActionWeightedTargetArgs) ToGetRouteSpecGrpcRouteActionWeightedTargetOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteActionWeightedTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteActionWeightedTargetOutput)
+}
+
+// GetRouteSpecGrpcRouteActionWeightedTargetArrayInput is an input type that accepts GetRouteSpecGrpcRouteActionWeightedTargetArray and GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteActionWeightedTargetArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteActionWeightedTargetArray{ GetRouteSpecGrpcRouteActionWeightedTargetArgs{...} }
+type GetRouteSpecGrpcRouteActionWeightedTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteActionWeightedTargetArrayOutput() GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput
+	ToGetRouteSpecGrpcRouteActionWeightedTargetArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput
+}
+
+type GetRouteSpecGrpcRouteActionWeightedTargetArray []GetRouteSpecGrpcRouteActionWeightedTargetInput
+
+func (GetRouteSpecGrpcRouteActionWeightedTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteActionWeightedTargetArray) ToGetRouteSpecGrpcRouteActionWeightedTargetArrayOutput() GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteActionWeightedTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteActionWeightedTargetArray) ToGetRouteSpecGrpcRouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteActionWeightedTargetOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteActionWeightedTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) ToGetRouteSpecGrpcRouteActionWeightedTargetOutput() GetRouteSpecGrpcRouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) ToGetRouteSpecGrpcRouteActionWeightedTargetOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput) ToGetRouteSpecGrpcRouteActionWeightedTargetArrayOutput() GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput) ToGetRouteSpecGrpcRouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteActionWeightedTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteActionWeightedTarget {
+		return vs[0].([]GetRouteSpecGrpcRouteActionWeightedTarget)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteActionWeightedTargetOutput)
+}
+
+type GetRouteSpecGrpcRouteMatch struct {
+	Metadatas   []GetRouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
+	MethodName  string                               `pulumi:"methodName"`
+	Port        int                                  `pulumi:"port"`
+	Prefix      string                               `pulumi:"prefix"`
+	ServiceName string                               `pulumi:"serviceName"`
+}
+
+// GetRouteSpecGrpcRouteMatchInput is an input type that accepts GetRouteSpecGrpcRouteMatchArgs and GetRouteSpecGrpcRouteMatchOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteMatchInput` via:
+//
+//	GetRouteSpecGrpcRouteMatchArgs{...}
+type GetRouteSpecGrpcRouteMatchInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteMatchOutput() GetRouteSpecGrpcRouteMatchOutput
+	ToGetRouteSpecGrpcRouteMatchOutputWithContext(context.Context) GetRouteSpecGrpcRouteMatchOutput
+}
+
+type GetRouteSpecGrpcRouteMatchArgs struct {
+	Metadatas   GetRouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
+	MethodName  pulumi.StringInput                           `pulumi:"methodName"`
+	Port        pulumi.IntInput                              `pulumi:"port"`
+	Prefix      pulumi.StringInput                           `pulumi:"prefix"`
+	ServiceName pulumi.StringInput                           `pulumi:"serviceName"`
+}
+
+func (GetRouteSpecGrpcRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteMatchArgs) ToGetRouteSpecGrpcRouteMatchOutput() GetRouteSpecGrpcRouteMatchOutput {
+	return i.ToGetRouteSpecGrpcRouteMatchOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteMatchArgs) ToGetRouteSpecGrpcRouteMatchOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteMatchOutput)
+}
+
+// GetRouteSpecGrpcRouteMatchArrayInput is an input type that accepts GetRouteSpecGrpcRouteMatchArray and GetRouteSpecGrpcRouteMatchArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteMatchArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteMatchArray{ GetRouteSpecGrpcRouteMatchArgs{...} }
+type GetRouteSpecGrpcRouteMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteMatchArrayOutput() GetRouteSpecGrpcRouteMatchArrayOutput
+	ToGetRouteSpecGrpcRouteMatchArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteMatchArrayOutput
+}
+
+type GetRouteSpecGrpcRouteMatchArray []GetRouteSpecGrpcRouteMatchInput
+
+func (GetRouteSpecGrpcRouteMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteMatchArray) ToGetRouteSpecGrpcRouteMatchArrayOutput() GetRouteSpecGrpcRouteMatchArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteMatchArray) ToGetRouteSpecGrpcRouteMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteMatchArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteMatchOutput) ToGetRouteSpecGrpcRouteMatchOutput() GetRouteSpecGrpcRouteMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchOutput) ToGetRouteSpecGrpcRouteMatchOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchOutput) Metadatas() GetRouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) []GetRouteSpecGrpcRouteMatchMetadata { return v.Metadatas }).(GetRouteSpecGrpcRouteMatchMetadataArrayOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) string { return v.MethodName }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatch) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteMatchArrayOutput) ToGetRouteSpecGrpcRouteMatchArrayOutput() GetRouteSpecGrpcRouteMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchArrayOutput) ToGetRouteSpecGrpcRouteMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteMatch {
+		return vs[0].([]GetRouteSpecGrpcRouteMatch)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteMatchOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadata struct {
+	Invert bool `pulumi:"invert"`
+	// Criteria for determining an HTTP request match.
+	Matches []GetRouteSpecGrpcRouteMatchMetadataMatch `pulumi:"matches"`
+	// Name of the route.
+	Name string `pulumi:"name"`
+}
+
+// GetRouteSpecGrpcRouteMatchMetadataInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataArgs and GetRouteSpecGrpcRouteMatchMetadataOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteMatchMetadataInput` via:
+//
+//	GetRouteSpecGrpcRouteMatchMetadataArgs{...}
+type GetRouteSpecGrpcRouteMatchMetadataInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteMatchMetadataOutput() GetRouteSpecGrpcRouteMatchMetadataOutput
+	ToGetRouteSpecGrpcRouteMatchMetadataOutputWithContext(context.Context) GetRouteSpecGrpcRouteMatchMetadataOutput
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataArgs struct {
+	Invert pulumi.BoolInput `pulumi:"invert"`
+	// Criteria for determining an HTTP request match.
+	Matches GetRouteSpecGrpcRouteMatchMetadataMatchArrayInput `pulumi:"matches"`
+	// Name of the route.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRouteSpecGrpcRouteMatchMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadata)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataArgs) ToGetRouteSpecGrpcRouteMatchMetadataOutput() GetRouteSpecGrpcRouteMatchMetadataOutput {
+	return i.ToGetRouteSpecGrpcRouteMatchMetadataOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataArgs) ToGetRouteSpecGrpcRouteMatchMetadataOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteMatchMetadataOutput)
+}
+
+// GetRouteSpecGrpcRouteMatchMetadataArrayInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataArray and GetRouteSpecGrpcRouteMatchMetadataArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteMatchMetadataArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteMatchMetadataArray{ GetRouteSpecGrpcRouteMatchMetadataArgs{...} }
+type GetRouteSpecGrpcRouteMatchMetadataArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteMatchMetadataArrayOutput() GetRouteSpecGrpcRouteMatchMetadataArrayOutput
+	ToGetRouteSpecGrpcRouteMatchMetadataArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteMatchMetadataArrayOutput
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataArray []GetRouteSpecGrpcRouteMatchMetadataInput
+
+func (GetRouteSpecGrpcRouteMatchMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteMatchMetadata)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataArray) ToGetRouteSpecGrpcRouteMatchMetadataArrayOutput() GetRouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteMatchMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataArray) ToGetRouteSpecGrpcRouteMatchMetadataArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteMatchMetadataArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteMatchMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadata)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataOutput) ToGetRouteSpecGrpcRouteMatchMetadataOutput() GetRouteSpecGrpcRouteMatchMetadataOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataOutput) ToGetRouteSpecGrpcRouteMatchMetadataOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Invert() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadata) bool { return v.Invert }).(pulumi.BoolOutput)
+}
+
+// Criteria for determining an HTTP request match.
+func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Matches() GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadata) []GetRouteSpecGrpcRouteMatchMetadataMatch { return v.Matches }).(GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput)
+}
+
+// Name of the route.
+func (o GetRouteSpecGrpcRouteMatchMetadataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadata) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteMatchMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteMatchMetadata)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataArrayOutput) ToGetRouteSpecGrpcRouteMatchMetadataArrayOutput() GetRouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataArrayOutput) ToGetRouteSpecGrpcRouteMatchMetadataArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteMatchMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteMatchMetadata {
+		return vs[0].([]GetRouteSpecGrpcRouteMatchMetadata)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteMatchMetadataOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatch struct {
+	Exact  string                                         `pulumi:"exact"`
+	Prefix string                                         `pulumi:"prefix"`
+	Ranges []GetRouteSpecGrpcRouteMatchMetadataMatchRange `pulumi:"ranges"`
+	Regex  string                                         `pulumi:"regex"`
+	Suffix string                                         `pulumi:"suffix"`
+}
+
+// GetRouteSpecGrpcRouteMatchMetadataMatchInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataMatchArgs and GetRouteSpecGrpcRouteMatchMetadataMatchOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteMatchMetadataMatchInput` via:
+//
+//	GetRouteSpecGrpcRouteMatchMetadataMatchArgs{...}
+type GetRouteSpecGrpcRouteMatchMetadataMatchInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteMatchMetadataMatchOutput() GetRouteSpecGrpcRouteMatchMetadataMatchOutput
+	ToGetRouteSpecGrpcRouteMatchMetadataMatchOutputWithContext(context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchOutput
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchArgs struct {
+	Exact  pulumi.StringInput                                     `pulumi:"exact"`
+	Prefix pulumi.StringInput                                     `pulumi:"prefix"`
+	Ranges GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayInput `pulumi:"ranges"`
+	Regex  pulumi.StringInput                                     `pulumi:"regex"`
+	Suffix pulumi.StringInput                                     `pulumi:"suffix"`
+}
+
+func (GetRouteSpecGrpcRouteMatchMetadataMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataMatchArgs) ToGetRouteSpecGrpcRouteMatchMetadataMatchOutput() GetRouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return i.ToGetRouteSpecGrpcRouteMatchMetadataMatchOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataMatchArgs) ToGetRouteSpecGrpcRouteMatchMetadataMatchOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteMatchMetadataMatchOutput)
+}
+
+// GetRouteSpecGrpcRouteMatchMetadataMatchArrayInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataMatchArray and GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteMatchMetadataMatchArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteMatchMetadataMatchArray{ GetRouteSpecGrpcRouteMatchMetadataMatchArgs{...} }
+type GetRouteSpecGrpcRouteMatchMetadataMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput() GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput
+	ToGetRouteSpecGrpcRouteMatchMetadataMatchArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchArray []GetRouteSpecGrpcRouteMatchMetadataMatchInput
+
+func (GetRouteSpecGrpcRouteMatchMetadataMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteMatchMetadataMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataMatchArray) ToGetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput() GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteMatchMetadataMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataMatchArray) ToGetRouteSpecGrpcRouteMatchMetadataMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteMatchMetadataMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) ToGetRouteSpecGrpcRouteMatchMetadataMatchOutput() GetRouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) ToGetRouteSpecGrpcRouteMatchMetadataMatchOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) string { return v.Exact }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Ranges() GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) []GetRouteSpecGrpcRouteMatchMetadataMatchRange {
+		return v.Ranges
+	}).(GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatch) string { return v.Suffix }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteMatchMetadataMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput) ToGetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput() GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput) ToGetRouteSpecGrpcRouteMatchMetadataMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteMatchMetadataMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteMatchMetadataMatch {
+		return vs[0].([]GetRouteSpecGrpcRouteMatchMetadataMatch)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteMatchMetadataMatchOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchRange struct {
+	End   int `pulumi:"end"`
+	Start int `pulumi:"start"`
+}
+
+// GetRouteSpecGrpcRouteMatchMetadataMatchRangeInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs and GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteMatchMetadataMatchRangeInput` via:
+//
+//	GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs{...}
+type GetRouteSpecGrpcRouteMatchMetadataMatchRangeInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput() GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput
+	ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeOutputWithContext(context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs struct {
+	End   pulumi.IntInput `pulumi:"end"`
+	Start pulumi.IntInput `pulumi:"start"`
+}
+
+func (GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataMatchRange)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput() GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return i.ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs) ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput)
+}
+
+// GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayInput is an input type that accepts GetRouteSpecGrpcRouteMatchMetadataMatchRangeArray and GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteMatchMetadataMatchRangeArray{ GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs{...} }
+type GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput() GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput
+	ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchRangeArray []GetRouteSpecGrpcRouteMatchMetadataMatchRangeInput
+
+func (GetRouteSpecGrpcRouteMatchMetadataMatchRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteMatchMetadataMatchRange)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataMatchRangeArray) ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput() GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteMatchMetadataMatchRangeArray) ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataMatchRange)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput() GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatchRange) int { return v.End }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteMatchMetadataMatchRange) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteMatchMetadataMatchRange)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput) ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput() GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput) ToGetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteMatchMetadataMatchRange {
+		return vs[0].([]GetRouteSpecGrpcRouteMatchMetadataMatchRange)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput)
+}
+
+type GetRouteSpecGrpcRouteRetryPolicy struct {
+	GrpcRetryEvents  []string                                          `pulumi:"grpcRetryEvents"`
+	HttpRetryEvents  []string                                          `pulumi:"httpRetryEvents"`
+	MaxRetries       int                                               `pulumi:"maxRetries"`
+	PerRetryTimeouts []GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeouts"`
+	TcpRetryEvents   []string                                          `pulumi:"tcpRetryEvents"`
+}
+
+// GetRouteSpecGrpcRouteRetryPolicyInput is an input type that accepts GetRouteSpecGrpcRouteRetryPolicyArgs and GetRouteSpecGrpcRouteRetryPolicyOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteRetryPolicyInput` via:
+//
+//	GetRouteSpecGrpcRouteRetryPolicyArgs{...}
+type GetRouteSpecGrpcRouteRetryPolicyInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteRetryPolicyOutput() GetRouteSpecGrpcRouteRetryPolicyOutput
+	ToGetRouteSpecGrpcRouteRetryPolicyOutputWithContext(context.Context) GetRouteSpecGrpcRouteRetryPolicyOutput
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyArgs struct {
+	GrpcRetryEvents  pulumi.StringArrayInput                                   `pulumi:"grpcRetryEvents"`
+	HttpRetryEvents  pulumi.StringArrayInput                                   `pulumi:"httpRetryEvents"`
+	MaxRetries       pulumi.IntInput                                           `pulumi:"maxRetries"`
+	PerRetryTimeouts GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayInput `pulumi:"perRetryTimeouts"`
+	TcpRetryEvents   pulumi.StringArrayInput                                   `pulumi:"tcpRetryEvents"`
+}
+
+func (GetRouteSpecGrpcRouteRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteRetryPolicy)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteRetryPolicyArgs) ToGetRouteSpecGrpcRouteRetryPolicyOutput() GetRouteSpecGrpcRouteRetryPolicyOutput {
+	return i.ToGetRouteSpecGrpcRouteRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteRetryPolicyArgs) ToGetRouteSpecGrpcRouteRetryPolicyOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteRetryPolicyOutput)
+}
+
+// GetRouteSpecGrpcRouteRetryPolicyArrayInput is an input type that accepts GetRouteSpecGrpcRouteRetryPolicyArray and GetRouteSpecGrpcRouteRetryPolicyArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteRetryPolicyArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteRetryPolicyArray{ GetRouteSpecGrpcRouteRetryPolicyArgs{...} }
+type GetRouteSpecGrpcRouteRetryPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteRetryPolicyArrayOutput() GetRouteSpecGrpcRouteRetryPolicyArrayOutput
+	ToGetRouteSpecGrpcRouteRetryPolicyArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteRetryPolicyArrayOutput
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyArray []GetRouteSpecGrpcRouteRetryPolicyInput
+
+func (GetRouteSpecGrpcRouteRetryPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteRetryPolicy)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteRetryPolicyArray) ToGetRouteSpecGrpcRouteRetryPolicyArrayOutput() GetRouteSpecGrpcRouteRetryPolicyArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteRetryPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteRetryPolicyArray) ToGetRouteSpecGrpcRouteRetryPolicyArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteRetryPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteRetryPolicyArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteRetryPolicy)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyOutput) ToGetRouteSpecGrpcRouteRetryPolicyOutput() GetRouteSpecGrpcRouteRetryPolicyOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyOutput) ToGetRouteSpecGrpcRouteRetryPolicyOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteRetryPolicyOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyOutput) GrpcRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicy) []string { return v.GrpcRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyOutput) PerRetryTimeouts() GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicy) []GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
+		return v.PerRetryTimeouts
+	}).(GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput)
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteRetryPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteRetryPolicy)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyArrayOutput) ToGetRouteSpecGrpcRouteRetryPolicyArrayOutput() GetRouteSpecGrpcRouteRetryPolicyArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyArrayOutput) ToGetRouteSpecGrpcRouteRetryPolicyArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteRetryPolicyArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteRetryPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteRetryPolicy {
+		return vs[0].([]GetRouteSpecGrpcRouteRetryPolicy)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteRetryPolicyOutput)
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput is an input type that accepts GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs and GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput` via:
+//
+//	GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs{...}
+type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput
+	ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Context) GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return i.ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayInput is an input type that accepts GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArray and GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArray{ GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs{...} }
+type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput
+	ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArray []GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput
+
+func (GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArray) ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArray) ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput) ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput) ToGetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
+		return vs[0].([]GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeout struct {
+	Idles       []GetRouteSpecGrpcRouteTimeoutIdle       `pulumi:"idles"`
+	PerRequests []GetRouteSpecGrpcRouteTimeoutPerRequest `pulumi:"perRequests"`
+}
+
+// GetRouteSpecGrpcRouteTimeoutInput is an input type that accepts GetRouteSpecGrpcRouteTimeoutArgs and GetRouteSpecGrpcRouteTimeoutOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteTimeoutInput` via:
+//
+//	GetRouteSpecGrpcRouteTimeoutArgs{...}
+type GetRouteSpecGrpcRouteTimeoutInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteTimeoutOutput() GetRouteSpecGrpcRouteTimeoutOutput
+	ToGetRouteSpecGrpcRouteTimeoutOutputWithContext(context.Context) GetRouteSpecGrpcRouteTimeoutOutput
+}
+
+type GetRouteSpecGrpcRouteTimeoutArgs struct {
+	Idles       GetRouteSpecGrpcRouteTimeoutIdleArrayInput       `pulumi:"idles"`
+	PerRequests GetRouteSpecGrpcRouteTimeoutPerRequestArrayInput `pulumi:"perRequests"`
+}
+
+func (GetRouteSpecGrpcRouteTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutArgs) ToGetRouteSpecGrpcRouteTimeoutOutput() GetRouteSpecGrpcRouteTimeoutOutput {
+	return i.ToGetRouteSpecGrpcRouteTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutArgs) ToGetRouteSpecGrpcRouteTimeoutOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteTimeoutOutput)
+}
+
+// GetRouteSpecGrpcRouteTimeoutArrayInput is an input type that accepts GetRouteSpecGrpcRouteTimeoutArray and GetRouteSpecGrpcRouteTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteTimeoutArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteTimeoutArray{ GetRouteSpecGrpcRouteTimeoutArgs{...} }
+type GetRouteSpecGrpcRouteTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteTimeoutArrayOutput() GetRouteSpecGrpcRouteTimeoutArrayOutput
+	ToGetRouteSpecGrpcRouteTimeoutArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteTimeoutArrayOutput
+}
+
+type GetRouteSpecGrpcRouteTimeoutArray []GetRouteSpecGrpcRouteTimeoutInput
+
+func (GetRouteSpecGrpcRouteTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutArray) ToGetRouteSpecGrpcRouteTimeoutArrayOutput() GetRouteSpecGrpcRouteTimeoutArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutArray) ToGetRouteSpecGrpcRouteTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteTimeoutArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutOutput) ToGetRouteSpecGrpcRouteTimeoutOutput() GetRouteSpecGrpcRouteTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutOutput) ToGetRouteSpecGrpcRouteTimeoutOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutOutput) Idles() GetRouteSpecGrpcRouteTimeoutIdleArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeout) []GetRouteSpecGrpcRouteTimeoutIdle { return v.Idles }).(GetRouteSpecGrpcRouteTimeoutIdleArrayOutput)
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutOutput) PerRequests() GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeout) []GetRouteSpecGrpcRouteTimeoutPerRequest { return v.PerRequests }).(GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutArrayOutput) ToGetRouteSpecGrpcRouteTimeoutArrayOutput() GetRouteSpecGrpcRouteTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutArrayOutput) ToGetRouteSpecGrpcRouteTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteTimeout {
+		return vs[0].([]GetRouteSpecGrpcRouteTimeout)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteTimeoutOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeoutIdle struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecGrpcRouteTimeoutIdleInput is an input type that accepts GetRouteSpecGrpcRouteTimeoutIdleArgs and GetRouteSpecGrpcRouteTimeoutIdleOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteTimeoutIdleInput` via:
+//
+//	GetRouteSpecGrpcRouteTimeoutIdleArgs{...}
+type GetRouteSpecGrpcRouteTimeoutIdleInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteTimeoutIdleOutput() GetRouteSpecGrpcRouteTimeoutIdleOutput
+	ToGetRouteSpecGrpcRouteTimeoutIdleOutputWithContext(context.Context) GetRouteSpecGrpcRouteTimeoutIdleOutput
+}
+
+type GetRouteSpecGrpcRouteTimeoutIdleArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecGrpcRouteTimeoutIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutIdleArgs) ToGetRouteSpecGrpcRouteTimeoutIdleOutput() GetRouteSpecGrpcRouteTimeoutIdleOutput {
+	return i.ToGetRouteSpecGrpcRouteTimeoutIdleOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutIdleArgs) ToGetRouteSpecGrpcRouteTimeoutIdleOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteTimeoutIdleOutput)
+}
+
+// GetRouteSpecGrpcRouteTimeoutIdleArrayInput is an input type that accepts GetRouteSpecGrpcRouteTimeoutIdleArray and GetRouteSpecGrpcRouteTimeoutIdleArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteTimeoutIdleArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteTimeoutIdleArray{ GetRouteSpecGrpcRouteTimeoutIdleArgs{...} }
+type GetRouteSpecGrpcRouteTimeoutIdleArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteTimeoutIdleArrayOutput() GetRouteSpecGrpcRouteTimeoutIdleArrayOutput
+	ToGetRouteSpecGrpcRouteTimeoutIdleArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteTimeoutIdleArrayOutput
+}
+
+type GetRouteSpecGrpcRouteTimeoutIdleArray []GetRouteSpecGrpcRouteTimeoutIdleInput
+
+func (GetRouteSpecGrpcRouteTimeoutIdleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutIdleArray) ToGetRouteSpecGrpcRouteTimeoutIdleArrayOutput() GetRouteSpecGrpcRouteTimeoutIdleArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteTimeoutIdleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutIdleArray) ToGetRouteSpecGrpcRouteTimeoutIdleArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutIdleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteTimeoutIdleArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeoutIdleOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteTimeoutIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) ToGetRouteSpecGrpcRouteTimeoutIdleOutput() GetRouteSpecGrpcRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) ToGetRouteSpecGrpcRouteTimeoutIdleOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeoutIdleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteTimeoutIdleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutIdleArrayOutput) ToGetRouteSpecGrpcRouteTimeoutIdleArrayOutput() GetRouteSpecGrpcRouteTimeoutIdleArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutIdleArrayOutput) ToGetRouteSpecGrpcRouteTimeoutIdleArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutIdleArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutIdleArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteTimeoutIdleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteTimeoutIdle {
+		return vs[0].([]GetRouteSpecGrpcRouteTimeoutIdle)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteTimeoutIdleOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeoutPerRequest struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecGrpcRouteTimeoutPerRequestInput is an input type that accepts GetRouteSpecGrpcRouteTimeoutPerRequestArgs and GetRouteSpecGrpcRouteTimeoutPerRequestOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteTimeoutPerRequestInput` via:
+//
+//	GetRouteSpecGrpcRouteTimeoutPerRequestArgs{...}
+type GetRouteSpecGrpcRouteTimeoutPerRequestInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteTimeoutPerRequestOutput() GetRouteSpecGrpcRouteTimeoutPerRequestOutput
+	ToGetRouteSpecGrpcRouteTimeoutPerRequestOutputWithContext(context.Context) GetRouteSpecGrpcRouteTimeoutPerRequestOutput
+}
+
+type GetRouteSpecGrpcRouteTimeoutPerRequestArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecGrpcRouteTimeoutPerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutPerRequestArgs) ToGetRouteSpecGrpcRouteTimeoutPerRequestOutput() GetRouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return i.ToGetRouteSpecGrpcRouteTimeoutPerRequestOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutPerRequestArgs) ToGetRouteSpecGrpcRouteTimeoutPerRequestOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteTimeoutPerRequestOutput)
+}
+
+// GetRouteSpecGrpcRouteTimeoutPerRequestArrayInput is an input type that accepts GetRouteSpecGrpcRouteTimeoutPerRequestArray and GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecGrpcRouteTimeoutPerRequestArrayInput` via:
+//
+//	GetRouteSpecGrpcRouteTimeoutPerRequestArray{ GetRouteSpecGrpcRouteTimeoutPerRequestArgs{...} }
+type GetRouteSpecGrpcRouteTimeoutPerRequestArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput() GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput
+	ToGetRouteSpecGrpcRouteTimeoutPerRequestArrayOutputWithContext(context.Context) GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput
+}
+
+type GetRouteSpecGrpcRouteTimeoutPerRequestArray []GetRouteSpecGrpcRouteTimeoutPerRequestInput
+
+func (GetRouteSpecGrpcRouteTimeoutPerRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutPerRequestArray) ToGetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput() GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput {
+	return i.ToGetRouteSpecGrpcRouteTimeoutPerRequestArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecGrpcRouteTimeoutPerRequestArray) ToGetRouteSpecGrpcRouteTimeoutPerRequestArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeoutPerRequestOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteTimeoutPerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) ToGetRouteSpecGrpcRouteTimeoutPerRequestOutput() GetRouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) ToGetRouteSpecGrpcRouteTimeoutPerRequestOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecGrpcRouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecGrpcRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput) ToGetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput() GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput) ToGetRouteSpecGrpcRouteTimeoutPerRequestArrayOutputWithContext(ctx context.Context) GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput) Index(i pulumi.IntInput) GetRouteSpecGrpcRouteTimeoutPerRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecGrpcRouteTimeoutPerRequest {
+		return vs[0].([]GetRouteSpecGrpcRouteTimeoutPerRequest)[vs[1].(int)]
+	}).(GetRouteSpecGrpcRouteTimeoutPerRequestOutput)
+}
+
+type GetRouteSpecHttp2Route struct {
+	// Action to take if a match is determined.
+	Actions []GetRouteSpecHttp2RouteAction `pulumi:"actions"`
+	// Criteria for determining an HTTP request match.
+	Matches []GetRouteSpecHttp2RouteMatch `pulumi:"matches"`
+	// Retry policy.
+	RetryPolicies []GetRouteSpecHttp2RouteRetryPolicy `pulumi:"retryPolicies"`
+	// Types of timeouts.
+	Timeouts []GetRouteSpecHttp2RouteTimeout `pulumi:"timeouts"`
+}
+
+// GetRouteSpecHttp2RouteInput is an input type that accepts GetRouteSpecHttp2RouteArgs and GetRouteSpecHttp2RouteOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteInput` via:
+//
+//	GetRouteSpecHttp2RouteArgs{...}
+type GetRouteSpecHttp2RouteInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteOutput() GetRouteSpecHttp2RouteOutput
+	ToGetRouteSpecHttp2RouteOutputWithContext(context.Context) GetRouteSpecHttp2RouteOutput
+}
+
+type GetRouteSpecHttp2RouteArgs struct {
+	// Action to take if a match is determined.
+	Actions GetRouteSpecHttp2RouteActionArrayInput `pulumi:"actions"`
+	// Criteria for determining an HTTP request match.
+	Matches GetRouteSpecHttp2RouteMatchArrayInput `pulumi:"matches"`
+	// Retry policy.
+	RetryPolicies GetRouteSpecHttp2RouteRetryPolicyArrayInput `pulumi:"retryPolicies"`
+	// Types of timeouts.
+	Timeouts GetRouteSpecHttp2RouteTimeoutArrayInput `pulumi:"timeouts"`
+}
+
+func (GetRouteSpecHttp2RouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2Route)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteArgs) ToGetRouteSpecHttp2RouteOutput() GetRouteSpecHttp2RouteOutput {
+	return i.ToGetRouteSpecHttp2RouteOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteArgs) ToGetRouteSpecHttp2RouteOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteOutput)
+}
+
+// GetRouteSpecHttp2RouteArrayInput is an input type that accepts GetRouteSpecHttp2RouteArray and GetRouteSpecHttp2RouteArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteArray{ GetRouteSpecHttp2RouteArgs{...} }
+type GetRouteSpecHttp2RouteArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteArrayOutput() GetRouteSpecHttp2RouteArrayOutput
+	ToGetRouteSpecHttp2RouteArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteArrayOutput
+}
+
+type GetRouteSpecHttp2RouteArray []GetRouteSpecHttp2RouteInput
+
+func (GetRouteSpecHttp2RouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2Route)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteArray) ToGetRouteSpecHttp2RouteArrayOutput() GetRouteSpecHttp2RouteArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteArray) ToGetRouteSpecHttp2RouteArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2Route)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteOutput) ToGetRouteSpecHttp2RouteOutput() GetRouteSpecHttp2RouteOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteOutput) ToGetRouteSpecHttp2RouteOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteOutput {
+	return o
+}
+
+// Action to take if a match is determined.
+func (o GetRouteSpecHttp2RouteOutput) Actions() GetRouteSpecHttp2RouteActionArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2Route) []GetRouteSpecHttp2RouteAction { return v.Actions }).(GetRouteSpecHttp2RouteActionArrayOutput)
+}
+
+// Criteria for determining an HTTP request match.
+func (o GetRouteSpecHttp2RouteOutput) Matches() GetRouteSpecHttp2RouteMatchArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2Route) []GetRouteSpecHttp2RouteMatch { return v.Matches }).(GetRouteSpecHttp2RouteMatchArrayOutput)
+}
+
+// Retry policy.
+func (o GetRouteSpecHttp2RouteOutput) RetryPolicies() GetRouteSpecHttp2RouteRetryPolicyArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2Route) []GetRouteSpecHttp2RouteRetryPolicy { return v.RetryPolicies }).(GetRouteSpecHttp2RouteRetryPolicyArrayOutput)
+}
+
+// Types of timeouts.
+func (o GetRouteSpecHttp2RouteOutput) Timeouts() GetRouteSpecHttp2RouteTimeoutArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2Route) []GetRouteSpecHttp2RouteTimeout { return v.Timeouts }).(GetRouteSpecHttp2RouteTimeoutArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2Route)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteArrayOutput) ToGetRouteSpecHttp2RouteArrayOutput() GetRouteSpecHttp2RouteArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteArrayOutput) ToGetRouteSpecHttp2RouteArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2Route {
+		return vs[0].([]GetRouteSpecHttp2Route)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteOutput)
+}
+
+type GetRouteSpecHttp2RouteAction struct {
+	WeightedTargets []GetRouteSpecHttp2RouteActionWeightedTarget `pulumi:"weightedTargets"`
+}
+
+// GetRouteSpecHttp2RouteActionInput is an input type that accepts GetRouteSpecHttp2RouteActionArgs and GetRouteSpecHttp2RouteActionOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteActionInput` via:
+//
+//	GetRouteSpecHttp2RouteActionArgs{...}
+type GetRouteSpecHttp2RouteActionInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteActionOutput() GetRouteSpecHttp2RouteActionOutput
+	ToGetRouteSpecHttp2RouteActionOutputWithContext(context.Context) GetRouteSpecHttp2RouteActionOutput
+}
+
+type GetRouteSpecHttp2RouteActionArgs struct {
+	WeightedTargets GetRouteSpecHttp2RouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
+}
+
+func (GetRouteSpecHttp2RouteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteAction)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteActionArgs) ToGetRouteSpecHttp2RouteActionOutput() GetRouteSpecHttp2RouteActionOutput {
+	return i.ToGetRouteSpecHttp2RouteActionOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteActionArgs) ToGetRouteSpecHttp2RouteActionOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteActionOutput)
+}
+
+// GetRouteSpecHttp2RouteActionArrayInput is an input type that accepts GetRouteSpecHttp2RouteActionArray and GetRouteSpecHttp2RouteActionArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteActionArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteActionArray{ GetRouteSpecHttp2RouteActionArgs{...} }
+type GetRouteSpecHttp2RouteActionArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteActionArrayOutput() GetRouteSpecHttp2RouteActionArrayOutput
+	ToGetRouteSpecHttp2RouteActionArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteActionArrayOutput
+}
+
+type GetRouteSpecHttp2RouteActionArray []GetRouteSpecHttp2RouteActionInput
+
+func (GetRouteSpecHttp2RouteActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteAction)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteActionArray) ToGetRouteSpecHttp2RouteActionArrayOutput() GetRouteSpecHttp2RouteActionArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteActionArray) ToGetRouteSpecHttp2RouteActionArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteActionArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteActionOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteAction)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteActionOutput) ToGetRouteSpecHttp2RouteActionOutput() GetRouteSpecHttp2RouteActionOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteActionOutput) ToGetRouteSpecHttp2RouteActionOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteActionOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteActionOutput) WeightedTargets() GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteAction) []GetRouteSpecHttp2RouteActionWeightedTarget {
+		return v.WeightedTargets
+	}).(GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteAction)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteActionArrayOutput) ToGetRouteSpecHttp2RouteActionArrayOutput() GetRouteSpecHttp2RouteActionArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteActionArrayOutput) ToGetRouteSpecHttp2RouteActionArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteActionArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteActionArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteAction {
+		return vs[0].([]GetRouteSpecHttp2RouteAction)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteActionOutput)
+}
+
+type GetRouteSpecHttp2RouteActionWeightedTarget struct {
+	Port        int    `pulumi:"port"`
+	VirtualNode string `pulumi:"virtualNode"`
+	Weight      int    `pulumi:"weight"`
+}
+
+// GetRouteSpecHttp2RouteActionWeightedTargetInput is an input type that accepts GetRouteSpecHttp2RouteActionWeightedTargetArgs and GetRouteSpecHttp2RouteActionWeightedTargetOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteActionWeightedTargetInput` via:
+//
+//	GetRouteSpecHttp2RouteActionWeightedTargetArgs{...}
+type GetRouteSpecHttp2RouteActionWeightedTargetInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteActionWeightedTargetOutput() GetRouteSpecHttp2RouteActionWeightedTargetOutput
+	ToGetRouteSpecHttp2RouteActionWeightedTargetOutputWithContext(context.Context) GetRouteSpecHttp2RouteActionWeightedTargetOutput
+}
+
+type GetRouteSpecHttp2RouteActionWeightedTargetArgs struct {
+	Port        pulumi.IntInput    `pulumi:"port"`
+	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
+	Weight      pulumi.IntInput    `pulumi:"weight"`
+}
+
+func (GetRouteSpecHttp2RouteActionWeightedTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteActionWeightedTargetArgs) ToGetRouteSpecHttp2RouteActionWeightedTargetOutput() GetRouteSpecHttp2RouteActionWeightedTargetOutput {
+	return i.ToGetRouteSpecHttp2RouteActionWeightedTargetOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteActionWeightedTargetArgs) ToGetRouteSpecHttp2RouteActionWeightedTargetOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteActionWeightedTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteActionWeightedTargetOutput)
+}
+
+// GetRouteSpecHttp2RouteActionWeightedTargetArrayInput is an input type that accepts GetRouteSpecHttp2RouteActionWeightedTargetArray and GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteActionWeightedTargetArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteActionWeightedTargetArray{ GetRouteSpecHttp2RouteActionWeightedTargetArgs{...} }
+type GetRouteSpecHttp2RouteActionWeightedTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteActionWeightedTargetArrayOutput() GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput
+	ToGetRouteSpecHttp2RouteActionWeightedTargetArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput
+}
+
+type GetRouteSpecHttp2RouteActionWeightedTargetArray []GetRouteSpecHttp2RouteActionWeightedTargetInput
+
+func (GetRouteSpecHttp2RouteActionWeightedTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteActionWeightedTargetArray) ToGetRouteSpecHttp2RouteActionWeightedTargetArrayOutput() GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteActionWeightedTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteActionWeightedTargetArray) ToGetRouteSpecHttp2RouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteActionWeightedTargetOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteActionWeightedTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) ToGetRouteSpecHttp2RouteActionWeightedTargetOutput() GetRouteSpecHttp2RouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) ToGetRouteSpecHttp2RouteActionWeightedTargetOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput) ToGetRouteSpecHttp2RouteActionWeightedTargetArrayOutput() GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput) ToGetRouteSpecHttp2RouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteActionWeightedTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteActionWeightedTarget {
+		return vs[0].([]GetRouteSpecHttp2RouteActionWeightedTarget)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteActionWeightedTargetOutput)
+}
+
+type GetRouteSpecHttp2RouteMatch struct {
+	Headers []GetRouteSpecHttp2RouteMatchHeader `pulumi:"headers"`
+	Method  string                              `pulumi:"method"`
+	Port    int                                 `pulumi:"port"`
+	Prefix  string                              `pulumi:"prefix"`
+	Scheme  string                              `pulumi:"scheme"`
+}
+
+// GetRouteSpecHttp2RouteMatchInput is an input type that accepts GetRouteSpecHttp2RouteMatchArgs and GetRouteSpecHttp2RouteMatchOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteMatchInput` via:
+//
+//	GetRouteSpecHttp2RouteMatchArgs{...}
+type GetRouteSpecHttp2RouteMatchInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteMatchOutput() GetRouteSpecHttp2RouteMatchOutput
+	ToGetRouteSpecHttp2RouteMatchOutputWithContext(context.Context) GetRouteSpecHttp2RouteMatchOutput
+}
+
+type GetRouteSpecHttp2RouteMatchArgs struct {
+	Headers GetRouteSpecHttp2RouteMatchHeaderArrayInput `pulumi:"headers"`
+	Method  pulumi.StringInput                          `pulumi:"method"`
+	Port    pulumi.IntInput                             `pulumi:"port"`
+	Prefix  pulumi.StringInput                          `pulumi:"prefix"`
+	Scheme  pulumi.StringInput                          `pulumi:"scheme"`
+}
+
+func (GetRouteSpecHttp2RouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteMatchArgs) ToGetRouteSpecHttp2RouteMatchOutput() GetRouteSpecHttp2RouteMatchOutput {
+	return i.ToGetRouteSpecHttp2RouteMatchOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteMatchArgs) ToGetRouteSpecHttp2RouteMatchOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteMatchOutput)
+}
+
+// GetRouteSpecHttp2RouteMatchArrayInput is an input type that accepts GetRouteSpecHttp2RouteMatchArray and GetRouteSpecHttp2RouteMatchArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteMatchArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteMatchArray{ GetRouteSpecHttp2RouteMatchArgs{...} }
+type GetRouteSpecHttp2RouteMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteMatchArrayOutput() GetRouteSpecHttp2RouteMatchArrayOutput
+	ToGetRouteSpecHttp2RouteMatchArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteMatchArrayOutput
+}
+
+type GetRouteSpecHttp2RouteMatchArray []GetRouteSpecHttp2RouteMatchInput
+
+func (GetRouteSpecHttp2RouteMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteMatchArray) ToGetRouteSpecHttp2RouteMatchArrayOutput() GetRouteSpecHttp2RouteMatchArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteMatchArray) ToGetRouteSpecHttp2RouteMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteMatchArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteMatchOutput) ToGetRouteSpecHttp2RouteMatchOutput() GetRouteSpecHttp2RouteMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchOutput) ToGetRouteSpecHttp2RouteMatchOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchOutput) Headers() GetRouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) []GetRouteSpecHttp2RouteMatchHeader { return v.Headers }).(GetRouteSpecHttp2RouteMatchHeaderArrayOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) string { return v.Method }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatch) string { return v.Scheme }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteMatchArrayOutput) ToGetRouteSpecHttp2RouteMatchArrayOutput() GetRouteSpecHttp2RouteMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchArrayOutput) ToGetRouteSpecHttp2RouteMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteMatch {
+		return vs[0].([]GetRouteSpecHttp2RouteMatch)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteMatchOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeader struct {
+	Invert bool `pulumi:"invert"`
+	// Criteria for determining an HTTP request match.
+	Matches []GetRouteSpecHttp2RouteMatchHeaderMatch `pulumi:"matches"`
+	// Name of the route.
+	Name string `pulumi:"name"`
+}
+
+// GetRouteSpecHttp2RouteMatchHeaderInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderArgs and GetRouteSpecHttp2RouteMatchHeaderOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteMatchHeaderInput` via:
+//
+//	GetRouteSpecHttp2RouteMatchHeaderArgs{...}
+type GetRouteSpecHttp2RouteMatchHeaderInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteMatchHeaderOutput() GetRouteSpecHttp2RouteMatchHeaderOutput
+	ToGetRouteSpecHttp2RouteMatchHeaderOutputWithContext(context.Context) GetRouteSpecHttp2RouteMatchHeaderOutput
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderArgs struct {
+	Invert pulumi.BoolInput `pulumi:"invert"`
+	// Criteria for determining an HTTP request match.
+	Matches GetRouteSpecHttp2RouteMatchHeaderMatchArrayInput `pulumi:"matches"`
+	// Name of the route.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRouteSpecHttp2RouteMatchHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeader)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderArgs) ToGetRouteSpecHttp2RouteMatchHeaderOutput() GetRouteSpecHttp2RouteMatchHeaderOutput {
+	return i.ToGetRouteSpecHttp2RouteMatchHeaderOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderArgs) ToGetRouteSpecHttp2RouteMatchHeaderOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteMatchHeaderOutput)
+}
+
+// GetRouteSpecHttp2RouteMatchHeaderArrayInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderArray and GetRouteSpecHttp2RouteMatchHeaderArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteMatchHeaderArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteMatchHeaderArray{ GetRouteSpecHttp2RouteMatchHeaderArgs{...} }
+type GetRouteSpecHttp2RouteMatchHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteMatchHeaderArrayOutput() GetRouteSpecHttp2RouteMatchHeaderArrayOutput
+	ToGetRouteSpecHttp2RouteMatchHeaderArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteMatchHeaderArrayOutput
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderArray []GetRouteSpecHttp2RouteMatchHeaderInput
+
+func (GetRouteSpecHttp2RouteMatchHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteMatchHeader)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderArray) ToGetRouteSpecHttp2RouteMatchHeaderArrayOutput() GetRouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteMatchHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderArray) ToGetRouteSpecHttp2RouteMatchHeaderArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteMatchHeaderArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteMatchHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeader)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderOutput) ToGetRouteSpecHttp2RouteMatchHeaderOutput() GetRouteSpecHttp2RouteMatchHeaderOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderOutput) ToGetRouteSpecHttp2RouteMatchHeaderOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Invert() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeader) bool { return v.Invert }).(pulumi.BoolOutput)
+}
+
+// Criteria for determining an HTTP request match.
+func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Matches() GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeader) []GetRouteSpecHttp2RouteMatchHeaderMatch { return v.Matches }).(GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput)
+}
+
+// Name of the route.
+func (o GetRouteSpecHttp2RouteMatchHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteMatchHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteMatchHeader)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderArrayOutput) ToGetRouteSpecHttp2RouteMatchHeaderArrayOutput() GetRouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderArrayOutput) ToGetRouteSpecHttp2RouteMatchHeaderArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteMatchHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteMatchHeader {
+		return vs[0].([]GetRouteSpecHttp2RouteMatchHeader)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteMatchHeaderOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatch struct {
+	Exact  string                                        `pulumi:"exact"`
+	Prefix string                                        `pulumi:"prefix"`
+	Ranges []GetRouteSpecHttp2RouteMatchHeaderMatchRange `pulumi:"ranges"`
+	Regex  string                                        `pulumi:"regex"`
+	Suffix string                                        `pulumi:"suffix"`
+}
+
+// GetRouteSpecHttp2RouteMatchHeaderMatchInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderMatchArgs and GetRouteSpecHttp2RouteMatchHeaderMatchOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteMatchHeaderMatchInput` via:
+//
+//	GetRouteSpecHttp2RouteMatchHeaderMatchArgs{...}
+type GetRouteSpecHttp2RouteMatchHeaderMatchInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteMatchHeaderMatchOutput() GetRouteSpecHttp2RouteMatchHeaderMatchOutput
+	ToGetRouteSpecHttp2RouteMatchHeaderMatchOutputWithContext(context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchOutput
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchArgs struct {
+	Exact  pulumi.StringInput                                    `pulumi:"exact"`
+	Prefix pulumi.StringInput                                    `pulumi:"prefix"`
+	Ranges GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayInput `pulumi:"ranges"`
+	Regex  pulumi.StringInput                                    `pulumi:"regex"`
+	Suffix pulumi.StringInput                                    `pulumi:"suffix"`
+}
+
+func (GetRouteSpecHttp2RouteMatchHeaderMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderMatchArgs) ToGetRouteSpecHttp2RouteMatchHeaderMatchOutput() GetRouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return i.ToGetRouteSpecHttp2RouteMatchHeaderMatchOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderMatchArgs) ToGetRouteSpecHttp2RouteMatchHeaderMatchOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteMatchHeaderMatchOutput)
+}
+
+// GetRouteSpecHttp2RouteMatchHeaderMatchArrayInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderMatchArray and GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteMatchHeaderMatchArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteMatchHeaderMatchArray{ GetRouteSpecHttp2RouteMatchHeaderMatchArgs{...} }
+type GetRouteSpecHttp2RouteMatchHeaderMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput() GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput
+	ToGetRouteSpecHttp2RouteMatchHeaderMatchArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchArray []GetRouteSpecHttp2RouteMatchHeaderMatchInput
+
+func (GetRouteSpecHttp2RouteMatchHeaderMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderMatchArray) ToGetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput() GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteMatchHeaderMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderMatchArray) ToGetRouteSpecHttp2RouteMatchHeaderMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteMatchHeaderMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) ToGetRouteSpecHttp2RouteMatchHeaderMatchOutput() GetRouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) ToGetRouteSpecHttp2RouteMatchHeaderMatchOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Exact }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Ranges() GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) []GetRouteSpecHttp2RouteMatchHeaderMatchRange {
+		return v.Ranges
+	}).(GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatch) string { return v.Suffix }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput) ToGetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput() GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput) ToGetRouteSpecHttp2RouteMatchHeaderMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteMatchHeaderMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteMatchHeaderMatch {
+		return vs[0].([]GetRouteSpecHttp2RouteMatchHeaderMatch)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteMatchHeaderMatchOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchRange struct {
+	End   int `pulumi:"end"`
+	Start int `pulumi:"start"`
+}
+
+// GetRouteSpecHttp2RouteMatchHeaderMatchRangeInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs and GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteMatchHeaderMatchRangeInput` via:
+//
+//	GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs{...}
+type GetRouteSpecHttp2RouteMatchHeaderMatchRangeInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput() GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput
+	ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeOutputWithContext(context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs struct {
+	End   pulumi.IntInput `pulumi:"end"`
+	Start pulumi.IntInput `pulumi:"start"`
+}
+
+func (GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput() GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return i.ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs) ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput)
+}
+
+// GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayInput is an input type that accepts GetRouteSpecHttp2RouteMatchHeaderMatchRangeArray and GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteMatchHeaderMatchRangeArray{ GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs{...} }
+type GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput() GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput
+	ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchRangeArray []GetRouteSpecHttp2RouteMatchHeaderMatchRangeInput
+
+func (GetRouteSpecHttp2RouteMatchHeaderMatchRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderMatchRangeArray) ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput() GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteMatchHeaderMatchRangeArray) ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput() GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput) ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput() GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput) ToGetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteMatchHeaderMatchRange {
+		return vs[0].([]GetRouteSpecHttp2RouteMatchHeaderMatchRange)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput)
+}
+
+type GetRouteSpecHttp2RouteRetryPolicy struct {
+	HttpRetryEvents  []string                                           `pulumi:"httpRetryEvents"`
+	MaxRetries       int                                                `pulumi:"maxRetries"`
+	PerRetryTimeouts []GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeouts"`
+	TcpRetryEvents   []string                                           `pulumi:"tcpRetryEvents"`
+}
+
+// GetRouteSpecHttp2RouteRetryPolicyInput is an input type that accepts GetRouteSpecHttp2RouteRetryPolicyArgs and GetRouteSpecHttp2RouteRetryPolicyOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteRetryPolicyInput` via:
+//
+//	GetRouteSpecHttp2RouteRetryPolicyArgs{...}
+type GetRouteSpecHttp2RouteRetryPolicyInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteRetryPolicyOutput() GetRouteSpecHttp2RouteRetryPolicyOutput
+	ToGetRouteSpecHttp2RouteRetryPolicyOutputWithContext(context.Context) GetRouteSpecHttp2RouteRetryPolicyOutput
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyArgs struct {
+	HttpRetryEvents  pulumi.StringArrayInput                                    `pulumi:"httpRetryEvents"`
+	MaxRetries       pulumi.IntInput                                            `pulumi:"maxRetries"`
+	PerRetryTimeouts GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayInput `pulumi:"perRetryTimeouts"`
+	TcpRetryEvents   pulumi.StringArrayInput                                    `pulumi:"tcpRetryEvents"`
+}
+
+func (GetRouteSpecHttp2RouteRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteRetryPolicy)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteRetryPolicyArgs) ToGetRouteSpecHttp2RouteRetryPolicyOutput() GetRouteSpecHttp2RouteRetryPolicyOutput {
+	return i.ToGetRouteSpecHttp2RouteRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteRetryPolicyArgs) ToGetRouteSpecHttp2RouteRetryPolicyOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteRetryPolicyOutput)
+}
+
+// GetRouteSpecHttp2RouteRetryPolicyArrayInput is an input type that accepts GetRouteSpecHttp2RouteRetryPolicyArray and GetRouteSpecHttp2RouteRetryPolicyArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteRetryPolicyArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteRetryPolicyArray{ GetRouteSpecHttp2RouteRetryPolicyArgs{...} }
+type GetRouteSpecHttp2RouteRetryPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteRetryPolicyArrayOutput() GetRouteSpecHttp2RouteRetryPolicyArrayOutput
+	ToGetRouteSpecHttp2RouteRetryPolicyArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteRetryPolicyArrayOutput
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyArray []GetRouteSpecHttp2RouteRetryPolicyInput
+
+func (GetRouteSpecHttp2RouteRetryPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteRetryPolicy)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteRetryPolicyArray) ToGetRouteSpecHttp2RouteRetryPolicyArrayOutput() GetRouteSpecHttp2RouteRetryPolicyArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteRetryPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteRetryPolicyArray) ToGetRouteSpecHttp2RouteRetryPolicyArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteRetryPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteRetryPolicyArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteRetryPolicy)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyOutput) ToGetRouteSpecHttp2RouteRetryPolicyOutput() GetRouteSpecHttp2RouteRetryPolicyOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyOutput) ToGetRouteSpecHttp2RouteRetryPolicyOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteRetryPolicyOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyOutput) PerRetryTimeouts() GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicy) []GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
+		return v.PerRetryTimeouts
+	}).(GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput)
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteRetryPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteRetryPolicy)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyArrayOutput) ToGetRouteSpecHttp2RouteRetryPolicyArrayOutput() GetRouteSpecHttp2RouteRetryPolicyArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyArrayOutput) ToGetRouteSpecHttp2RouteRetryPolicyArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteRetryPolicyArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteRetryPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteRetryPolicy {
+		return vs[0].([]GetRouteSpecHttp2RouteRetryPolicy)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteRetryPolicyOutput)
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput is an input type that accepts GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs and GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput` via:
+//
+//	GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs{...}
+type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput
+	ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Context) GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return i.ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayInput is an input type that accepts GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArray and GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArray{ GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs{...} }
+type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput
+	ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArray []GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput
+
+func (GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArray) ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArray) ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput) ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput) ToGetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
+		return vs[0].([]GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeout)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeout struct {
+	Idles       []GetRouteSpecHttp2RouteTimeoutIdle       `pulumi:"idles"`
+	PerRequests []GetRouteSpecHttp2RouteTimeoutPerRequest `pulumi:"perRequests"`
+}
+
+// GetRouteSpecHttp2RouteTimeoutInput is an input type that accepts GetRouteSpecHttp2RouteTimeoutArgs and GetRouteSpecHttp2RouteTimeoutOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteTimeoutInput` via:
+//
+//	GetRouteSpecHttp2RouteTimeoutArgs{...}
+type GetRouteSpecHttp2RouteTimeoutInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteTimeoutOutput() GetRouteSpecHttp2RouteTimeoutOutput
+	ToGetRouteSpecHttp2RouteTimeoutOutputWithContext(context.Context) GetRouteSpecHttp2RouteTimeoutOutput
+}
+
+type GetRouteSpecHttp2RouteTimeoutArgs struct {
+	Idles       GetRouteSpecHttp2RouteTimeoutIdleArrayInput       `pulumi:"idles"`
+	PerRequests GetRouteSpecHttp2RouteTimeoutPerRequestArrayInput `pulumi:"perRequests"`
+}
+
+func (GetRouteSpecHttp2RouteTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutArgs) ToGetRouteSpecHttp2RouteTimeoutOutput() GetRouteSpecHttp2RouteTimeoutOutput {
+	return i.ToGetRouteSpecHttp2RouteTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutArgs) ToGetRouteSpecHttp2RouteTimeoutOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteTimeoutOutput)
+}
+
+// GetRouteSpecHttp2RouteTimeoutArrayInput is an input type that accepts GetRouteSpecHttp2RouteTimeoutArray and GetRouteSpecHttp2RouteTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteTimeoutArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteTimeoutArray{ GetRouteSpecHttp2RouteTimeoutArgs{...} }
+type GetRouteSpecHttp2RouteTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteTimeoutArrayOutput() GetRouteSpecHttp2RouteTimeoutArrayOutput
+	ToGetRouteSpecHttp2RouteTimeoutArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteTimeoutArrayOutput
+}
+
+type GetRouteSpecHttp2RouteTimeoutArray []GetRouteSpecHttp2RouteTimeoutInput
+
+func (GetRouteSpecHttp2RouteTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutArray) ToGetRouteSpecHttp2RouteTimeoutArrayOutput() GetRouteSpecHttp2RouteTimeoutArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutArray) ToGetRouteSpecHttp2RouteTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteTimeoutArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutOutput) ToGetRouteSpecHttp2RouteTimeoutOutput() GetRouteSpecHttp2RouteTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutOutput) ToGetRouteSpecHttp2RouteTimeoutOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutOutput) Idles() GetRouteSpecHttp2RouteTimeoutIdleArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeout) []GetRouteSpecHttp2RouteTimeoutIdle { return v.Idles }).(GetRouteSpecHttp2RouteTimeoutIdleArrayOutput)
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutOutput) PerRequests() GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeout) []GetRouteSpecHttp2RouteTimeoutPerRequest { return v.PerRequests }).(GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutArrayOutput) ToGetRouteSpecHttp2RouteTimeoutArrayOutput() GetRouteSpecHttp2RouteTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutArrayOutput) ToGetRouteSpecHttp2RouteTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteTimeout {
+		return vs[0].([]GetRouteSpecHttp2RouteTimeout)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteTimeoutOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeoutIdle struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecHttp2RouteTimeoutIdleInput is an input type that accepts GetRouteSpecHttp2RouteTimeoutIdleArgs and GetRouteSpecHttp2RouteTimeoutIdleOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteTimeoutIdleInput` via:
+//
+//	GetRouteSpecHttp2RouteTimeoutIdleArgs{...}
+type GetRouteSpecHttp2RouteTimeoutIdleInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteTimeoutIdleOutput() GetRouteSpecHttp2RouteTimeoutIdleOutput
+	ToGetRouteSpecHttp2RouteTimeoutIdleOutputWithContext(context.Context) GetRouteSpecHttp2RouteTimeoutIdleOutput
+}
+
+type GetRouteSpecHttp2RouteTimeoutIdleArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecHttp2RouteTimeoutIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutIdleArgs) ToGetRouteSpecHttp2RouteTimeoutIdleOutput() GetRouteSpecHttp2RouteTimeoutIdleOutput {
+	return i.ToGetRouteSpecHttp2RouteTimeoutIdleOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutIdleArgs) ToGetRouteSpecHttp2RouteTimeoutIdleOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteTimeoutIdleOutput)
+}
+
+// GetRouteSpecHttp2RouteTimeoutIdleArrayInput is an input type that accepts GetRouteSpecHttp2RouteTimeoutIdleArray and GetRouteSpecHttp2RouteTimeoutIdleArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteTimeoutIdleArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteTimeoutIdleArray{ GetRouteSpecHttp2RouteTimeoutIdleArgs{...} }
+type GetRouteSpecHttp2RouteTimeoutIdleArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteTimeoutIdleArrayOutput() GetRouteSpecHttp2RouteTimeoutIdleArrayOutput
+	ToGetRouteSpecHttp2RouteTimeoutIdleArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteTimeoutIdleArrayOutput
+}
+
+type GetRouteSpecHttp2RouteTimeoutIdleArray []GetRouteSpecHttp2RouteTimeoutIdleInput
+
+func (GetRouteSpecHttp2RouteTimeoutIdleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutIdleArray) ToGetRouteSpecHttp2RouteTimeoutIdleArrayOutput() GetRouteSpecHttp2RouteTimeoutIdleArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteTimeoutIdleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutIdleArray) ToGetRouteSpecHttp2RouteTimeoutIdleArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutIdleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteTimeoutIdleArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeoutIdleOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteTimeoutIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) ToGetRouteSpecHttp2RouteTimeoutIdleOutput() GetRouteSpecHttp2RouteTimeoutIdleOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) ToGetRouteSpecHttp2RouteTimeoutIdleOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutIdleOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeoutIdleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteTimeoutIdleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutIdleArrayOutput) ToGetRouteSpecHttp2RouteTimeoutIdleArrayOutput() GetRouteSpecHttp2RouteTimeoutIdleArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutIdleArrayOutput) ToGetRouteSpecHttp2RouteTimeoutIdleArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutIdleArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutIdleArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteTimeoutIdleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteTimeoutIdle {
+		return vs[0].([]GetRouteSpecHttp2RouteTimeoutIdle)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteTimeoutIdleOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeoutPerRequest struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecHttp2RouteTimeoutPerRequestInput is an input type that accepts GetRouteSpecHttp2RouteTimeoutPerRequestArgs and GetRouteSpecHttp2RouteTimeoutPerRequestOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteTimeoutPerRequestInput` via:
+//
+//	GetRouteSpecHttp2RouteTimeoutPerRequestArgs{...}
+type GetRouteSpecHttp2RouteTimeoutPerRequestInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteTimeoutPerRequestOutput() GetRouteSpecHttp2RouteTimeoutPerRequestOutput
+	ToGetRouteSpecHttp2RouteTimeoutPerRequestOutputWithContext(context.Context) GetRouteSpecHttp2RouteTimeoutPerRequestOutput
+}
+
+type GetRouteSpecHttp2RouteTimeoutPerRequestArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecHttp2RouteTimeoutPerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutPerRequestArgs) ToGetRouteSpecHttp2RouteTimeoutPerRequestOutput() GetRouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return i.ToGetRouteSpecHttp2RouteTimeoutPerRequestOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutPerRequestArgs) ToGetRouteSpecHttp2RouteTimeoutPerRequestOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteTimeoutPerRequestOutput)
+}
+
+// GetRouteSpecHttp2RouteTimeoutPerRequestArrayInput is an input type that accepts GetRouteSpecHttp2RouteTimeoutPerRequestArray and GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttp2RouteTimeoutPerRequestArrayInput` via:
+//
+//	GetRouteSpecHttp2RouteTimeoutPerRequestArray{ GetRouteSpecHttp2RouteTimeoutPerRequestArgs{...} }
+type GetRouteSpecHttp2RouteTimeoutPerRequestArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput() GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput
+	ToGetRouteSpecHttp2RouteTimeoutPerRequestArrayOutputWithContext(context.Context) GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput
+}
+
+type GetRouteSpecHttp2RouteTimeoutPerRequestArray []GetRouteSpecHttp2RouteTimeoutPerRequestInput
+
+func (GetRouteSpecHttp2RouteTimeoutPerRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutPerRequestArray) ToGetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput() GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput {
+	return i.ToGetRouteSpecHttp2RouteTimeoutPerRequestArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttp2RouteTimeoutPerRequestArray) ToGetRouteSpecHttp2RouteTimeoutPerRequestArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeoutPerRequestOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteTimeoutPerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) ToGetRouteSpecHttp2RouteTimeoutPerRequestOutput() GetRouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) ToGetRouteSpecHttp2RouteTimeoutPerRequestOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttp2RouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttp2RouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput) ToGetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput() GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput) ToGetRouteSpecHttp2RouteTimeoutPerRequestArrayOutputWithContext(ctx context.Context) GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttp2RouteTimeoutPerRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttp2RouteTimeoutPerRequest {
+		return vs[0].([]GetRouteSpecHttp2RouteTimeoutPerRequest)[vs[1].(int)]
+	}).(GetRouteSpecHttp2RouteTimeoutPerRequestOutput)
+}
+
+type GetRouteSpecHttpRoute struct {
+	// Action to take if a match is determined.
+	Actions []GetRouteSpecHttpRouteAction `pulumi:"actions"`
+	// Criteria for determining an HTTP request match.
+	Matches []GetRouteSpecHttpRouteMatch `pulumi:"matches"`
+	// Retry policy.
+	RetryPolicies []GetRouteSpecHttpRouteRetryPolicy `pulumi:"retryPolicies"`
+	// Types of timeouts.
+	Timeouts []GetRouteSpecHttpRouteTimeout `pulumi:"timeouts"`
+}
+
+// GetRouteSpecHttpRouteInput is an input type that accepts GetRouteSpecHttpRouteArgs and GetRouteSpecHttpRouteOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteInput` via:
+//
+//	GetRouteSpecHttpRouteArgs{...}
+type GetRouteSpecHttpRouteInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteOutput() GetRouteSpecHttpRouteOutput
+	ToGetRouteSpecHttpRouteOutputWithContext(context.Context) GetRouteSpecHttpRouteOutput
+}
+
+type GetRouteSpecHttpRouteArgs struct {
+	// Action to take if a match is determined.
+	Actions GetRouteSpecHttpRouteActionArrayInput `pulumi:"actions"`
+	// Criteria for determining an HTTP request match.
+	Matches GetRouteSpecHttpRouteMatchArrayInput `pulumi:"matches"`
+	// Retry policy.
+	RetryPolicies GetRouteSpecHttpRouteRetryPolicyArrayInput `pulumi:"retryPolicies"`
+	// Types of timeouts.
+	Timeouts GetRouteSpecHttpRouteTimeoutArrayInput `pulumi:"timeouts"`
+}
+
+func (GetRouteSpecHttpRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRoute)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteArgs) ToGetRouteSpecHttpRouteOutput() GetRouteSpecHttpRouteOutput {
+	return i.ToGetRouteSpecHttpRouteOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteArgs) ToGetRouteSpecHttpRouteOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteOutput)
+}
+
+// GetRouteSpecHttpRouteArrayInput is an input type that accepts GetRouteSpecHttpRouteArray and GetRouteSpecHttpRouteArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteArrayInput` via:
+//
+//	GetRouteSpecHttpRouteArray{ GetRouteSpecHttpRouteArgs{...} }
+type GetRouteSpecHttpRouteArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteArrayOutput() GetRouteSpecHttpRouteArrayOutput
+	ToGetRouteSpecHttpRouteArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteArrayOutput
+}
+
+type GetRouteSpecHttpRouteArray []GetRouteSpecHttpRouteInput
+
+func (GetRouteSpecHttpRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRoute)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteArray) ToGetRouteSpecHttpRouteArrayOutput() GetRouteSpecHttpRouteArrayOutput {
+	return i.ToGetRouteSpecHttpRouteArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteArray) ToGetRouteSpecHttpRouteArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteArrayOutput)
+}
+
+type GetRouteSpecHttpRouteOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRoute)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteOutput) ToGetRouteSpecHttpRouteOutput() GetRouteSpecHttpRouteOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteOutput) ToGetRouteSpecHttpRouteOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteOutput {
+	return o
+}
+
+// Action to take if a match is determined.
+func (o GetRouteSpecHttpRouteOutput) Actions() GetRouteSpecHttpRouteActionArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRoute) []GetRouteSpecHttpRouteAction { return v.Actions }).(GetRouteSpecHttpRouteActionArrayOutput)
+}
+
+// Criteria for determining an HTTP request match.
+func (o GetRouteSpecHttpRouteOutput) Matches() GetRouteSpecHttpRouteMatchArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRoute) []GetRouteSpecHttpRouteMatch { return v.Matches }).(GetRouteSpecHttpRouteMatchArrayOutput)
+}
+
+// Retry policy.
+func (o GetRouteSpecHttpRouteOutput) RetryPolicies() GetRouteSpecHttpRouteRetryPolicyArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRoute) []GetRouteSpecHttpRouteRetryPolicy { return v.RetryPolicies }).(GetRouteSpecHttpRouteRetryPolicyArrayOutput)
+}
+
+// Types of timeouts.
+func (o GetRouteSpecHttpRouteOutput) Timeouts() GetRouteSpecHttpRouteTimeoutArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRoute) []GetRouteSpecHttpRouteTimeout { return v.Timeouts }).(GetRouteSpecHttpRouteTimeoutArrayOutput)
+}
+
+type GetRouteSpecHttpRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRoute)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteArrayOutput) ToGetRouteSpecHttpRouteArrayOutput() GetRouteSpecHttpRouteArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteArrayOutput) ToGetRouteSpecHttpRouteArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRoute {
+		return vs[0].([]GetRouteSpecHttpRoute)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteOutput)
+}
+
+type GetRouteSpecHttpRouteAction struct {
+	WeightedTargets []GetRouteSpecHttpRouteActionWeightedTarget `pulumi:"weightedTargets"`
+}
+
+// GetRouteSpecHttpRouteActionInput is an input type that accepts GetRouteSpecHttpRouteActionArgs and GetRouteSpecHttpRouteActionOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteActionInput` via:
+//
+//	GetRouteSpecHttpRouteActionArgs{...}
+type GetRouteSpecHttpRouteActionInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteActionOutput() GetRouteSpecHttpRouteActionOutput
+	ToGetRouteSpecHttpRouteActionOutputWithContext(context.Context) GetRouteSpecHttpRouteActionOutput
+}
+
+type GetRouteSpecHttpRouteActionArgs struct {
+	WeightedTargets GetRouteSpecHttpRouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
+}
+
+func (GetRouteSpecHttpRouteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteAction)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteActionArgs) ToGetRouteSpecHttpRouteActionOutput() GetRouteSpecHttpRouteActionOutput {
+	return i.ToGetRouteSpecHttpRouteActionOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteActionArgs) ToGetRouteSpecHttpRouteActionOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteActionOutput)
+}
+
+// GetRouteSpecHttpRouteActionArrayInput is an input type that accepts GetRouteSpecHttpRouteActionArray and GetRouteSpecHttpRouteActionArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteActionArrayInput` via:
+//
+//	GetRouteSpecHttpRouteActionArray{ GetRouteSpecHttpRouteActionArgs{...} }
+type GetRouteSpecHttpRouteActionArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteActionArrayOutput() GetRouteSpecHttpRouteActionArrayOutput
+	ToGetRouteSpecHttpRouteActionArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteActionArrayOutput
+}
+
+type GetRouteSpecHttpRouteActionArray []GetRouteSpecHttpRouteActionInput
+
+func (GetRouteSpecHttpRouteActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteAction)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteActionArray) ToGetRouteSpecHttpRouteActionArrayOutput() GetRouteSpecHttpRouteActionArrayOutput {
+	return i.ToGetRouteSpecHttpRouteActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteActionArray) ToGetRouteSpecHttpRouteActionArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteActionArrayOutput)
+}
+
+type GetRouteSpecHttpRouteActionOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteAction)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteActionOutput) ToGetRouteSpecHttpRouteActionOutput() GetRouteSpecHttpRouteActionOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteActionOutput) ToGetRouteSpecHttpRouteActionOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteActionOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteActionOutput) WeightedTargets() GetRouteSpecHttpRouteActionWeightedTargetArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteAction) []GetRouteSpecHttpRouteActionWeightedTarget {
+		return v.WeightedTargets
+	}).(GetRouteSpecHttpRouteActionWeightedTargetArrayOutput)
+}
+
+type GetRouteSpecHttpRouteActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteAction)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteActionArrayOutput) ToGetRouteSpecHttpRouteActionArrayOutput() GetRouteSpecHttpRouteActionArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteActionArrayOutput) ToGetRouteSpecHttpRouteActionArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteActionArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteActionArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteAction {
+		return vs[0].([]GetRouteSpecHttpRouteAction)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteActionOutput)
+}
+
+type GetRouteSpecHttpRouteActionWeightedTarget struct {
+	Port        int    `pulumi:"port"`
+	VirtualNode string `pulumi:"virtualNode"`
+	Weight      int    `pulumi:"weight"`
+}
+
+// GetRouteSpecHttpRouteActionWeightedTargetInput is an input type that accepts GetRouteSpecHttpRouteActionWeightedTargetArgs and GetRouteSpecHttpRouteActionWeightedTargetOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteActionWeightedTargetInput` via:
+//
+//	GetRouteSpecHttpRouteActionWeightedTargetArgs{...}
+type GetRouteSpecHttpRouteActionWeightedTargetInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteActionWeightedTargetOutput() GetRouteSpecHttpRouteActionWeightedTargetOutput
+	ToGetRouteSpecHttpRouteActionWeightedTargetOutputWithContext(context.Context) GetRouteSpecHttpRouteActionWeightedTargetOutput
+}
+
+type GetRouteSpecHttpRouteActionWeightedTargetArgs struct {
+	Port        pulumi.IntInput    `pulumi:"port"`
+	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
+	Weight      pulumi.IntInput    `pulumi:"weight"`
+}
+
+func (GetRouteSpecHttpRouteActionWeightedTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteActionWeightedTargetArgs) ToGetRouteSpecHttpRouteActionWeightedTargetOutput() GetRouteSpecHttpRouteActionWeightedTargetOutput {
+	return i.ToGetRouteSpecHttpRouteActionWeightedTargetOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteActionWeightedTargetArgs) ToGetRouteSpecHttpRouteActionWeightedTargetOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteActionWeightedTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteActionWeightedTargetOutput)
+}
+
+// GetRouteSpecHttpRouteActionWeightedTargetArrayInput is an input type that accepts GetRouteSpecHttpRouteActionWeightedTargetArray and GetRouteSpecHttpRouteActionWeightedTargetArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteActionWeightedTargetArrayInput` via:
+//
+//	GetRouteSpecHttpRouteActionWeightedTargetArray{ GetRouteSpecHttpRouteActionWeightedTargetArgs{...} }
+type GetRouteSpecHttpRouteActionWeightedTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteActionWeightedTargetArrayOutput() GetRouteSpecHttpRouteActionWeightedTargetArrayOutput
+	ToGetRouteSpecHttpRouteActionWeightedTargetArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteActionWeightedTargetArrayOutput
+}
+
+type GetRouteSpecHttpRouteActionWeightedTargetArray []GetRouteSpecHttpRouteActionWeightedTargetInput
+
+func (GetRouteSpecHttpRouteActionWeightedTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteActionWeightedTargetArray) ToGetRouteSpecHttpRouteActionWeightedTargetArrayOutput() GetRouteSpecHttpRouteActionWeightedTargetArrayOutput {
+	return i.ToGetRouteSpecHttpRouteActionWeightedTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteActionWeightedTargetArray) ToGetRouteSpecHttpRouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteActionWeightedTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteActionWeightedTargetArrayOutput)
+}
+
+type GetRouteSpecHttpRouteActionWeightedTargetOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteActionWeightedTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) ToGetRouteSpecHttpRouteActionWeightedTargetOutput() GetRouteSpecHttpRouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) ToGetRouteSpecHttpRouteActionWeightedTargetOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttpRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteActionWeightedTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteActionWeightedTargetArrayOutput) ToGetRouteSpecHttpRouteActionWeightedTargetArrayOutput() GetRouteSpecHttpRouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteActionWeightedTargetArrayOutput) ToGetRouteSpecHttpRouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteActionWeightedTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteActionWeightedTarget {
+		return vs[0].([]GetRouteSpecHttpRouteActionWeightedTarget)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteActionWeightedTargetOutput)
+}
+
+type GetRouteSpecHttpRouteMatch struct {
+	Headers []GetRouteSpecHttpRouteMatchHeader `pulumi:"headers"`
+	Method  string                             `pulumi:"method"`
+	Port    int                                `pulumi:"port"`
+	Prefix  string                             `pulumi:"prefix"`
+	Scheme  string                             `pulumi:"scheme"`
+}
+
+// GetRouteSpecHttpRouteMatchInput is an input type that accepts GetRouteSpecHttpRouteMatchArgs and GetRouteSpecHttpRouteMatchOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteMatchInput` via:
+//
+//	GetRouteSpecHttpRouteMatchArgs{...}
+type GetRouteSpecHttpRouteMatchInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteMatchOutput() GetRouteSpecHttpRouteMatchOutput
+	ToGetRouteSpecHttpRouteMatchOutputWithContext(context.Context) GetRouteSpecHttpRouteMatchOutput
+}
+
+type GetRouteSpecHttpRouteMatchArgs struct {
+	Headers GetRouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
+	Method  pulumi.StringInput                         `pulumi:"method"`
+	Port    pulumi.IntInput                            `pulumi:"port"`
+	Prefix  pulumi.StringInput                         `pulumi:"prefix"`
+	Scheme  pulumi.StringInput                         `pulumi:"scheme"`
+}
+
+func (GetRouteSpecHttpRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteMatchArgs) ToGetRouteSpecHttpRouteMatchOutput() GetRouteSpecHttpRouteMatchOutput {
+	return i.ToGetRouteSpecHttpRouteMatchOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteMatchArgs) ToGetRouteSpecHttpRouteMatchOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteMatchOutput)
+}
+
+// GetRouteSpecHttpRouteMatchArrayInput is an input type that accepts GetRouteSpecHttpRouteMatchArray and GetRouteSpecHttpRouteMatchArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteMatchArrayInput` via:
+//
+//	GetRouteSpecHttpRouteMatchArray{ GetRouteSpecHttpRouteMatchArgs{...} }
+type GetRouteSpecHttpRouteMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteMatchArrayOutput() GetRouteSpecHttpRouteMatchArrayOutput
+	ToGetRouteSpecHttpRouteMatchArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteMatchArrayOutput
+}
+
+type GetRouteSpecHttpRouteMatchArray []GetRouteSpecHttpRouteMatchInput
+
+func (GetRouteSpecHttpRouteMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteMatchArray) ToGetRouteSpecHttpRouteMatchArrayOutput() GetRouteSpecHttpRouteMatchArrayOutput {
+	return i.ToGetRouteSpecHttpRouteMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteMatchArray) ToGetRouteSpecHttpRouteMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteMatchArrayOutput)
+}
+
+type GetRouteSpecHttpRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteMatchOutput) ToGetRouteSpecHttpRouteMatchOutput() GetRouteSpecHttpRouteMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchOutput) ToGetRouteSpecHttpRouteMatchOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchOutput) Headers() GetRouteSpecHttpRouteMatchHeaderArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) []GetRouteSpecHttpRouteMatchHeader { return v.Headers }).(GetRouteSpecHttpRouteMatchHeaderArrayOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) string { return v.Method }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatch) string { return v.Scheme }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecHttpRouteMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteMatchArrayOutput) ToGetRouteSpecHttpRouteMatchArrayOutput() GetRouteSpecHttpRouteMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchArrayOutput) ToGetRouteSpecHttpRouteMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteMatch {
+		return vs[0].([]GetRouteSpecHttpRouteMatch)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteMatchOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeader struct {
+	Invert bool `pulumi:"invert"`
+	// Criteria for determining an HTTP request match.
+	Matches []GetRouteSpecHttpRouteMatchHeaderMatch `pulumi:"matches"`
+	// Name of the route.
+	Name string `pulumi:"name"`
+}
+
+// GetRouteSpecHttpRouteMatchHeaderInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderArgs and GetRouteSpecHttpRouteMatchHeaderOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteMatchHeaderInput` via:
+//
+//	GetRouteSpecHttpRouteMatchHeaderArgs{...}
+type GetRouteSpecHttpRouteMatchHeaderInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteMatchHeaderOutput() GetRouteSpecHttpRouteMatchHeaderOutput
+	ToGetRouteSpecHttpRouteMatchHeaderOutputWithContext(context.Context) GetRouteSpecHttpRouteMatchHeaderOutput
+}
+
+type GetRouteSpecHttpRouteMatchHeaderArgs struct {
+	Invert pulumi.BoolInput `pulumi:"invert"`
+	// Criteria for determining an HTTP request match.
+	Matches GetRouteSpecHttpRouteMatchHeaderMatchArrayInput `pulumi:"matches"`
+	// Name of the route.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetRouteSpecHttpRouteMatchHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeader)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderArgs) ToGetRouteSpecHttpRouteMatchHeaderOutput() GetRouteSpecHttpRouteMatchHeaderOutput {
+	return i.ToGetRouteSpecHttpRouteMatchHeaderOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderArgs) ToGetRouteSpecHttpRouteMatchHeaderOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteMatchHeaderOutput)
+}
+
+// GetRouteSpecHttpRouteMatchHeaderArrayInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderArray and GetRouteSpecHttpRouteMatchHeaderArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteMatchHeaderArrayInput` via:
+//
+//	GetRouteSpecHttpRouteMatchHeaderArray{ GetRouteSpecHttpRouteMatchHeaderArgs{...} }
+type GetRouteSpecHttpRouteMatchHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteMatchHeaderArrayOutput() GetRouteSpecHttpRouteMatchHeaderArrayOutput
+	ToGetRouteSpecHttpRouteMatchHeaderArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteMatchHeaderArrayOutput
+}
+
+type GetRouteSpecHttpRouteMatchHeaderArray []GetRouteSpecHttpRouteMatchHeaderInput
+
+func (GetRouteSpecHttpRouteMatchHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteMatchHeader)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderArray) ToGetRouteSpecHttpRouteMatchHeaderArrayOutput() GetRouteSpecHttpRouteMatchHeaderArrayOutput {
+	return i.ToGetRouteSpecHttpRouteMatchHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderArray) ToGetRouteSpecHttpRouteMatchHeaderArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteMatchHeaderArrayOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteMatchHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeader)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderOutput) ToGetRouteSpecHttpRouteMatchHeaderOutput() GetRouteSpecHttpRouteMatchHeaderOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderOutput) ToGetRouteSpecHttpRouteMatchHeaderOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderOutput) Invert() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeader) bool { return v.Invert }).(pulumi.BoolOutput)
+}
+
+// Criteria for determining an HTTP request match.
+func (o GetRouteSpecHttpRouteMatchHeaderOutput) Matches() GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeader) []GetRouteSpecHttpRouteMatchHeaderMatch { return v.Matches }).(GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput)
+}
+
+// Name of the route.
+func (o GetRouteSpecHttpRouteMatchHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteMatchHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteMatchHeader)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderArrayOutput) ToGetRouteSpecHttpRouteMatchHeaderArrayOutput() GetRouteSpecHttpRouteMatchHeaderArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderArrayOutput) ToGetRouteSpecHttpRouteMatchHeaderArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteMatchHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteMatchHeader {
+		return vs[0].([]GetRouteSpecHttpRouteMatchHeader)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteMatchHeaderOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatch struct {
+	Exact  string                                       `pulumi:"exact"`
+	Prefix string                                       `pulumi:"prefix"`
+	Ranges []GetRouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"ranges"`
+	Regex  string                                       `pulumi:"regex"`
+	Suffix string                                       `pulumi:"suffix"`
+}
+
+// GetRouteSpecHttpRouteMatchHeaderMatchInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderMatchArgs and GetRouteSpecHttpRouteMatchHeaderMatchOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteMatchHeaderMatchInput` via:
+//
+//	GetRouteSpecHttpRouteMatchHeaderMatchArgs{...}
+type GetRouteSpecHttpRouteMatchHeaderMatchInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteMatchHeaderMatchOutput() GetRouteSpecHttpRouteMatchHeaderMatchOutput
+	ToGetRouteSpecHttpRouteMatchHeaderMatchOutputWithContext(context.Context) GetRouteSpecHttpRouteMatchHeaderMatchOutput
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchArgs struct {
+	Exact  pulumi.StringInput                                   `pulumi:"exact"`
+	Prefix pulumi.StringInput                                   `pulumi:"prefix"`
+	Ranges GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayInput `pulumi:"ranges"`
+	Regex  pulumi.StringInput                                   `pulumi:"regex"`
+	Suffix pulumi.StringInput                                   `pulumi:"suffix"`
+}
+
+func (GetRouteSpecHttpRouteMatchHeaderMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderMatchArgs) ToGetRouteSpecHttpRouteMatchHeaderMatchOutput() GetRouteSpecHttpRouteMatchHeaderMatchOutput {
+	return i.ToGetRouteSpecHttpRouteMatchHeaderMatchOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderMatchArgs) ToGetRouteSpecHttpRouteMatchHeaderMatchOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteMatchHeaderMatchOutput)
+}
+
+// GetRouteSpecHttpRouteMatchHeaderMatchArrayInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderMatchArray and GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteMatchHeaderMatchArrayInput` via:
+//
+//	GetRouteSpecHttpRouteMatchHeaderMatchArray{ GetRouteSpecHttpRouteMatchHeaderMatchArgs{...} }
+type GetRouteSpecHttpRouteMatchHeaderMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteMatchHeaderMatchArrayOutput() GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput
+	ToGetRouteSpecHttpRouteMatchHeaderMatchArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchArray []GetRouteSpecHttpRouteMatchHeaderMatchInput
+
+func (GetRouteSpecHttpRouteMatchHeaderMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderMatchArray) ToGetRouteSpecHttpRouteMatchHeaderMatchArrayOutput() GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput {
+	return i.ToGetRouteSpecHttpRouteMatchHeaderMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderMatchArray) ToGetRouteSpecHttpRouteMatchHeaderMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteMatchHeaderMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) ToGetRouteSpecHttpRouteMatchHeaderMatchOutput() GetRouteSpecHttpRouteMatchHeaderMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) ToGetRouteSpecHttpRouteMatchHeaderMatchOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) string { return v.Exact }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Ranges() GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) []GetRouteSpecHttpRouteMatchHeaderMatchRange {
+		return v.Ranges
+	}).(GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatch) string { return v.Suffix }).(pulumi.StringOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput) ToGetRouteSpecHttpRouteMatchHeaderMatchArrayOutput() GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput) ToGetRouteSpecHttpRouteMatchHeaderMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteMatchHeaderMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteMatchHeaderMatch {
+		return vs[0].([]GetRouteSpecHttpRouteMatchHeaderMatch)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteMatchHeaderMatchOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchRange struct {
+	End   int `pulumi:"end"`
+	Start int `pulumi:"start"`
+}
+
+// GetRouteSpecHttpRouteMatchHeaderMatchRangeInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs and GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteMatchHeaderMatchRangeInput` via:
+//
+//	GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs{...}
+type GetRouteSpecHttpRouteMatchHeaderMatchRangeInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteMatchHeaderMatchRangeOutput() GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput
+	ToGetRouteSpecHttpRouteMatchHeaderMatchRangeOutputWithContext(context.Context) GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs struct {
+	End   pulumi.IntInput `pulumi:"end"`
+	Start pulumi.IntInput `pulumi:"start"`
+}
+
+func (GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs) ToGetRouteSpecHttpRouteMatchHeaderMatchRangeOutput() GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return i.ToGetRouteSpecHttpRouteMatchHeaderMatchRangeOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs) ToGetRouteSpecHttpRouteMatchHeaderMatchRangeOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput)
+}
+
+// GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayInput is an input type that accepts GetRouteSpecHttpRouteMatchHeaderMatchRangeArray and GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayInput` via:
+//
+//	GetRouteSpecHttpRouteMatchHeaderMatchRangeArray{ GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs{...} }
+type GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput() GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput
+	ToGetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchRangeArray []GetRouteSpecHttpRouteMatchHeaderMatchRangeInput
+
+func (GetRouteSpecHttpRouteMatchHeaderMatchRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderMatchRangeArray) ToGetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput() GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput {
+	return i.ToGetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteMatchHeaderMatchRangeArray) ToGetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToGetRouteSpecHttpRouteMatchHeaderMatchRangeOutput() GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToGetRouteSpecHttpRouteMatchHeaderMatchRangeOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput) ToGetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput() GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput) ToGetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteMatchHeaderMatchRange {
+		return vs[0].([]GetRouteSpecHttpRouteMatchHeaderMatchRange)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput)
+}
+
+type GetRouteSpecHttpRouteRetryPolicy struct {
+	HttpRetryEvents  []string                                          `pulumi:"httpRetryEvents"`
+	MaxRetries       int                                               `pulumi:"maxRetries"`
+	PerRetryTimeouts []GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeouts"`
+	TcpRetryEvents   []string                                          `pulumi:"tcpRetryEvents"`
+}
+
+// GetRouteSpecHttpRouteRetryPolicyInput is an input type that accepts GetRouteSpecHttpRouteRetryPolicyArgs and GetRouteSpecHttpRouteRetryPolicyOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteRetryPolicyInput` via:
+//
+//	GetRouteSpecHttpRouteRetryPolicyArgs{...}
+type GetRouteSpecHttpRouteRetryPolicyInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteRetryPolicyOutput() GetRouteSpecHttpRouteRetryPolicyOutput
+	ToGetRouteSpecHttpRouteRetryPolicyOutputWithContext(context.Context) GetRouteSpecHttpRouteRetryPolicyOutput
+}
+
+type GetRouteSpecHttpRouteRetryPolicyArgs struct {
+	HttpRetryEvents  pulumi.StringArrayInput                                   `pulumi:"httpRetryEvents"`
+	MaxRetries       pulumi.IntInput                                           `pulumi:"maxRetries"`
+	PerRetryTimeouts GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayInput `pulumi:"perRetryTimeouts"`
+	TcpRetryEvents   pulumi.StringArrayInput                                   `pulumi:"tcpRetryEvents"`
+}
+
+func (GetRouteSpecHttpRouteRetryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteRetryPolicy)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteRetryPolicyArgs) ToGetRouteSpecHttpRouteRetryPolicyOutput() GetRouteSpecHttpRouteRetryPolicyOutput {
+	return i.ToGetRouteSpecHttpRouteRetryPolicyOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteRetryPolicyArgs) ToGetRouteSpecHttpRouteRetryPolicyOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteRetryPolicyOutput)
+}
+
+// GetRouteSpecHttpRouteRetryPolicyArrayInput is an input type that accepts GetRouteSpecHttpRouteRetryPolicyArray and GetRouteSpecHttpRouteRetryPolicyArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteRetryPolicyArrayInput` via:
+//
+//	GetRouteSpecHttpRouteRetryPolicyArray{ GetRouteSpecHttpRouteRetryPolicyArgs{...} }
+type GetRouteSpecHttpRouteRetryPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteRetryPolicyArrayOutput() GetRouteSpecHttpRouteRetryPolicyArrayOutput
+	ToGetRouteSpecHttpRouteRetryPolicyArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteRetryPolicyArrayOutput
+}
+
+type GetRouteSpecHttpRouteRetryPolicyArray []GetRouteSpecHttpRouteRetryPolicyInput
+
+func (GetRouteSpecHttpRouteRetryPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteRetryPolicy)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteRetryPolicyArray) ToGetRouteSpecHttpRouteRetryPolicyArrayOutput() GetRouteSpecHttpRouteRetryPolicyArrayOutput {
+	return i.ToGetRouteSpecHttpRouteRetryPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteRetryPolicyArray) ToGetRouteSpecHttpRouteRetryPolicyArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteRetryPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteRetryPolicyArrayOutput)
+}
+
+type GetRouteSpecHttpRouteRetryPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteRetryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteRetryPolicy)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyOutput) ToGetRouteSpecHttpRouteRetryPolicyOutput() GetRouteSpecHttpRouteRetryPolicyOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyOutput) ToGetRouteSpecHttpRouteRetryPolicyOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteRetryPolicyOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyOutput) PerRetryTimeouts() GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicy) []GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout {
+		return v.PerRetryTimeouts
+	}).(GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput)
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
+}
+
+type GetRouteSpecHttpRouteRetryPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteRetryPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteRetryPolicy)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyArrayOutput) ToGetRouteSpecHttpRouteRetryPolicyArrayOutput() GetRouteSpecHttpRouteRetryPolicyArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyArrayOutput) ToGetRouteSpecHttpRouteRetryPolicyArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteRetryPolicyArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteRetryPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteRetryPolicy {
+		return vs[0].([]GetRouteSpecHttpRouteRetryPolicy)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteRetryPolicyOutput)
+}
+
+type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput is an input type that accepts GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs and GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput` via:
+//
+//	GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{...}
+type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput
+	ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Context) GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput
+}
+
+type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return i.ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+// GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayInput is an input type that accepts GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArray and GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayInput` via:
+//
+//	GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArray{ GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{...} }
+type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput
+	ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput
+}
+
+type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArray []GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput
+
+func (GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArray) ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return i.ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArray) ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput)
+}
+
+type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput() GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput) ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput() GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput) ToGetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout {
+		return vs[0].([]GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput)
+}
+
+type GetRouteSpecHttpRouteTimeout struct {
+	Idles       []GetRouteSpecHttpRouteTimeoutIdle       `pulumi:"idles"`
+	PerRequests []GetRouteSpecHttpRouteTimeoutPerRequest `pulumi:"perRequests"`
+}
+
+// GetRouteSpecHttpRouteTimeoutInput is an input type that accepts GetRouteSpecHttpRouteTimeoutArgs and GetRouteSpecHttpRouteTimeoutOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteTimeoutInput` via:
+//
+//	GetRouteSpecHttpRouteTimeoutArgs{...}
+type GetRouteSpecHttpRouteTimeoutInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteTimeoutOutput() GetRouteSpecHttpRouteTimeoutOutput
+	ToGetRouteSpecHttpRouteTimeoutOutputWithContext(context.Context) GetRouteSpecHttpRouteTimeoutOutput
+}
+
+type GetRouteSpecHttpRouteTimeoutArgs struct {
+	Idles       GetRouteSpecHttpRouteTimeoutIdleArrayInput       `pulumi:"idles"`
+	PerRequests GetRouteSpecHttpRouteTimeoutPerRequestArrayInput `pulumi:"perRequests"`
+}
+
+func (GetRouteSpecHttpRouteTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteTimeoutArgs) ToGetRouteSpecHttpRouteTimeoutOutput() GetRouteSpecHttpRouteTimeoutOutput {
+	return i.ToGetRouteSpecHttpRouteTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteTimeoutArgs) ToGetRouteSpecHttpRouteTimeoutOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteTimeoutOutput)
+}
+
+// GetRouteSpecHttpRouteTimeoutArrayInput is an input type that accepts GetRouteSpecHttpRouteTimeoutArray and GetRouteSpecHttpRouteTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteTimeoutArrayInput` via:
+//
+//	GetRouteSpecHttpRouteTimeoutArray{ GetRouteSpecHttpRouteTimeoutArgs{...} }
+type GetRouteSpecHttpRouteTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteTimeoutArrayOutput() GetRouteSpecHttpRouteTimeoutArrayOutput
+	ToGetRouteSpecHttpRouteTimeoutArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteTimeoutArrayOutput
+}
+
+type GetRouteSpecHttpRouteTimeoutArray []GetRouteSpecHttpRouteTimeoutInput
+
+func (GetRouteSpecHttpRouteTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteTimeoutArray) ToGetRouteSpecHttpRouteTimeoutArrayOutput() GetRouteSpecHttpRouteTimeoutArrayOutput {
+	return i.ToGetRouteSpecHttpRouteTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteTimeoutArray) ToGetRouteSpecHttpRouteTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteTimeoutArrayOutput)
+}
+
+type GetRouteSpecHttpRouteTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteTimeoutOutput) ToGetRouteSpecHttpRouteTimeoutOutput() GetRouteSpecHttpRouteTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutOutput) ToGetRouteSpecHttpRouteTimeoutOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutOutput) Idles() GetRouteSpecHttpRouteTimeoutIdleArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeout) []GetRouteSpecHttpRouteTimeoutIdle { return v.Idles }).(GetRouteSpecHttpRouteTimeoutIdleArrayOutput)
+}
+
+func (o GetRouteSpecHttpRouteTimeoutOutput) PerRequests() GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeout) []GetRouteSpecHttpRouteTimeoutPerRequest { return v.PerRequests }).(GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput)
+}
+
+type GetRouteSpecHttpRouteTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteTimeoutArrayOutput) ToGetRouteSpecHttpRouteTimeoutArrayOutput() GetRouteSpecHttpRouteTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutArrayOutput) ToGetRouteSpecHttpRouteTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteTimeout {
+		return vs[0].([]GetRouteSpecHttpRouteTimeout)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteTimeoutOutput)
+}
+
+type GetRouteSpecHttpRouteTimeoutIdle struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecHttpRouteTimeoutIdleInput is an input type that accepts GetRouteSpecHttpRouteTimeoutIdleArgs and GetRouteSpecHttpRouteTimeoutIdleOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteTimeoutIdleInput` via:
+//
+//	GetRouteSpecHttpRouteTimeoutIdleArgs{...}
+type GetRouteSpecHttpRouteTimeoutIdleInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteTimeoutIdleOutput() GetRouteSpecHttpRouteTimeoutIdleOutput
+	ToGetRouteSpecHttpRouteTimeoutIdleOutputWithContext(context.Context) GetRouteSpecHttpRouteTimeoutIdleOutput
+}
+
+type GetRouteSpecHttpRouteTimeoutIdleArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecHttpRouteTimeoutIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteTimeoutIdleArgs) ToGetRouteSpecHttpRouteTimeoutIdleOutput() GetRouteSpecHttpRouteTimeoutIdleOutput {
+	return i.ToGetRouteSpecHttpRouteTimeoutIdleOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteTimeoutIdleArgs) ToGetRouteSpecHttpRouteTimeoutIdleOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteTimeoutIdleOutput)
+}
+
+// GetRouteSpecHttpRouteTimeoutIdleArrayInput is an input type that accepts GetRouteSpecHttpRouteTimeoutIdleArray and GetRouteSpecHttpRouteTimeoutIdleArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteTimeoutIdleArrayInput` via:
+//
+//	GetRouteSpecHttpRouteTimeoutIdleArray{ GetRouteSpecHttpRouteTimeoutIdleArgs{...} }
+type GetRouteSpecHttpRouteTimeoutIdleArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteTimeoutIdleArrayOutput() GetRouteSpecHttpRouteTimeoutIdleArrayOutput
+	ToGetRouteSpecHttpRouteTimeoutIdleArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteTimeoutIdleArrayOutput
+}
+
+type GetRouteSpecHttpRouteTimeoutIdleArray []GetRouteSpecHttpRouteTimeoutIdleInput
+
+func (GetRouteSpecHttpRouteTimeoutIdleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteTimeoutIdleArray) ToGetRouteSpecHttpRouteTimeoutIdleArrayOutput() GetRouteSpecHttpRouteTimeoutIdleArrayOutput {
+	return i.ToGetRouteSpecHttpRouteTimeoutIdleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteTimeoutIdleArray) ToGetRouteSpecHttpRouteTimeoutIdleArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutIdleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteTimeoutIdleArrayOutput)
+}
+
+type GetRouteSpecHttpRouteTimeoutIdleOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteTimeoutIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteTimeoutIdleOutput) ToGetRouteSpecHttpRouteTimeoutIdleOutput() GetRouteSpecHttpRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutIdleOutput) ToGetRouteSpecHttpRouteTimeoutIdleOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttpRouteTimeoutIdleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteTimeoutIdleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteTimeoutIdleArrayOutput) ToGetRouteSpecHttpRouteTimeoutIdleArrayOutput() GetRouteSpecHttpRouteTimeoutIdleArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutIdleArrayOutput) ToGetRouteSpecHttpRouteTimeoutIdleArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutIdleArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutIdleArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteTimeoutIdleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteTimeoutIdle {
+		return vs[0].([]GetRouteSpecHttpRouteTimeoutIdle)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteTimeoutIdleOutput)
+}
+
+type GetRouteSpecHttpRouteTimeoutPerRequest struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecHttpRouteTimeoutPerRequestInput is an input type that accepts GetRouteSpecHttpRouteTimeoutPerRequestArgs and GetRouteSpecHttpRouteTimeoutPerRequestOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteTimeoutPerRequestInput` via:
+//
+//	GetRouteSpecHttpRouteTimeoutPerRequestArgs{...}
+type GetRouteSpecHttpRouteTimeoutPerRequestInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteTimeoutPerRequestOutput() GetRouteSpecHttpRouteTimeoutPerRequestOutput
+	ToGetRouteSpecHttpRouteTimeoutPerRequestOutputWithContext(context.Context) GetRouteSpecHttpRouteTimeoutPerRequestOutput
+}
+
+type GetRouteSpecHttpRouteTimeoutPerRequestArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecHttpRouteTimeoutPerRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteTimeoutPerRequestArgs) ToGetRouteSpecHttpRouteTimeoutPerRequestOutput() GetRouteSpecHttpRouteTimeoutPerRequestOutput {
+	return i.ToGetRouteSpecHttpRouteTimeoutPerRequestOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteTimeoutPerRequestArgs) ToGetRouteSpecHttpRouteTimeoutPerRequestOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutPerRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteTimeoutPerRequestOutput)
+}
+
+// GetRouteSpecHttpRouteTimeoutPerRequestArrayInput is an input type that accepts GetRouteSpecHttpRouteTimeoutPerRequestArray and GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecHttpRouteTimeoutPerRequestArrayInput` via:
+//
+//	GetRouteSpecHttpRouteTimeoutPerRequestArray{ GetRouteSpecHttpRouteTimeoutPerRequestArgs{...} }
+type GetRouteSpecHttpRouteTimeoutPerRequestArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecHttpRouteTimeoutPerRequestArrayOutput() GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput
+	ToGetRouteSpecHttpRouteTimeoutPerRequestArrayOutputWithContext(context.Context) GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput
+}
+
+type GetRouteSpecHttpRouteTimeoutPerRequestArray []GetRouteSpecHttpRouteTimeoutPerRequestInput
+
+func (GetRouteSpecHttpRouteTimeoutPerRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (i GetRouteSpecHttpRouteTimeoutPerRequestArray) ToGetRouteSpecHttpRouteTimeoutPerRequestArrayOutput() GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput {
+	return i.ToGetRouteSpecHttpRouteTimeoutPerRequestArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecHttpRouteTimeoutPerRequestArray) ToGetRouteSpecHttpRouteTimeoutPerRequestArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput)
+}
+
+type GetRouteSpecHttpRouteTimeoutPerRequestOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteTimeoutPerRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) ToGetRouteSpecHttpRouteTimeoutPerRequestOutput() GetRouteSpecHttpRouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) ToGetRouteSpecHttpRouteTimeoutPerRequestOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutPerRequestOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecHttpRouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecHttpRouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecHttpRouteTimeoutPerRequest)(nil)).Elem()
+}
+
+func (o GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput) ToGetRouteSpecHttpRouteTimeoutPerRequestArrayOutput() GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput) ToGetRouteSpecHttpRouteTimeoutPerRequestArrayOutputWithContext(ctx context.Context) GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput) Index(i pulumi.IntInput) GetRouteSpecHttpRouteTimeoutPerRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecHttpRouteTimeoutPerRequest {
+		return vs[0].([]GetRouteSpecHttpRouteTimeoutPerRequest)[vs[1].(int)]
+	}).(GetRouteSpecHttpRouteTimeoutPerRequestOutput)
+}
+
+type GetRouteSpecTcpRoute struct {
+	// Action to take if a match is determined.
+	Actions []GetRouteSpecTcpRouteAction `pulumi:"actions"`
+	// Criteria for determining an HTTP request match.
+	Matches []GetRouteSpecTcpRouteMatch `pulumi:"matches"`
+	// Types of timeouts.
+	Timeouts []GetRouteSpecTcpRouteTimeout `pulumi:"timeouts"`
+}
+
+// GetRouteSpecTcpRouteInput is an input type that accepts GetRouteSpecTcpRouteArgs and GetRouteSpecTcpRouteOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteInput` via:
+//
+//	GetRouteSpecTcpRouteArgs{...}
+type GetRouteSpecTcpRouteInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteOutput() GetRouteSpecTcpRouteOutput
+	ToGetRouteSpecTcpRouteOutputWithContext(context.Context) GetRouteSpecTcpRouteOutput
+}
+
+type GetRouteSpecTcpRouteArgs struct {
+	// Action to take if a match is determined.
+	Actions GetRouteSpecTcpRouteActionArrayInput `pulumi:"actions"`
+	// Criteria for determining an HTTP request match.
+	Matches GetRouteSpecTcpRouteMatchArrayInput `pulumi:"matches"`
+	// Types of timeouts.
+	Timeouts GetRouteSpecTcpRouteTimeoutArrayInput `pulumi:"timeouts"`
+}
+
+func (GetRouteSpecTcpRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRoute)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteArgs) ToGetRouteSpecTcpRouteOutput() GetRouteSpecTcpRouteOutput {
+	return i.ToGetRouteSpecTcpRouteOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteArgs) ToGetRouteSpecTcpRouteOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteOutput)
+}
+
+// GetRouteSpecTcpRouteArrayInput is an input type that accepts GetRouteSpecTcpRouteArray and GetRouteSpecTcpRouteArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteArrayInput` via:
+//
+//	GetRouteSpecTcpRouteArray{ GetRouteSpecTcpRouteArgs{...} }
+type GetRouteSpecTcpRouteArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteArrayOutput() GetRouteSpecTcpRouteArrayOutput
+	ToGetRouteSpecTcpRouteArrayOutputWithContext(context.Context) GetRouteSpecTcpRouteArrayOutput
+}
+
+type GetRouteSpecTcpRouteArray []GetRouteSpecTcpRouteInput
+
+func (GetRouteSpecTcpRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRoute)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteArray) ToGetRouteSpecTcpRouteArrayOutput() GetRouteSpecTcpRouteArrayOutput {
+	return i.ToGetRouteSpecTcpRouteArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteArray) ToGetRouteSpecTcpRouteArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteArrayOutput)
+}
+
+type GetRouteSpecTcpRouteOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRoute)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteOutput) ToGetRouteSpecTcpRouteOutput() GetRouteSpecTcpRouteOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteOutput) ToGetRouteSpecTcpRouteOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteOutput {
+	return o
+}
+
+// Action to take if a match is determined.
+func (o GetRouteSpecTcpRouteOutput) Actions() GetRouteSpecTcpRouteActionArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRoute) []GetRouteSpecTcpRouteAction { return v.Actions }).(GetRouteSpecTcpRouteActionArrayOutput)
+}
+
+// Criteria for determining an HTTP request match.
+func (o GetRouteSpecTcpRouteOutput) Matches() GetRouteSpecTcpRouteMatchArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRoute) []GetRouteSpecTcpRouteMatch { return v.Matches }).(GetRouteSpecTcpRouteMatchArrayOutput)
+}
+
+// Types of timeouts.
+func (o GetRouteSpecTcpRouteOutput) Timeouts() GetRouteSpecTcpRouteTimeoutArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRoute) []GetRouteSpecTcpRouteTimeout { return v.Timeouts }).(GetRouteSpecTcpRouteTimeoutArrayOutput)
+}
+
+type GetRouteSpecTcpRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRoute)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteArrayOutput) ToGetRouteSpecTcpRouteArrayOutput() GetRouteSpecTcpRouteArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteArrayOutput) ToGetRouteSpecTcpRouteArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteArrayOutput) Index(i pulumi.IntInput) GetRouteSpecTcpRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecTcpRoute {
+		return vs[0].([]GetRouteSpecTcpRoute)[vs[1].(int)]
+	}).(GetRouteSpecTcpRouteOutput)
+}
+
+type GetRouteSpecTcpRouteAction struct {
+	WeightedTargets []GetRouteSpecTcpRouteActionWeightedTarget `pulumi:"weightedTargets"`
+}
+
+// GetRouteSpecTcpRouteActionInput is an input type that accepts GetRouteSpecTcpRouteActionArgs and GetRouteSpecTcpRouteActionOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteActionInput` via:
+//
+//	GetRouteSpecTcpRouteActionArgs{...}
+type GetRouteSpecTcpRouteActionInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteActionOutput() GetRouteSpecTcpRouteActionOutput
+	ToGetRouteSpecTcpRouteActionOutputWithContext(context.Context) GetRouteSpecTcpRouteActionOutput
+}
+
+type GetRouteSpecTcpRouteActionArgs struct {
+	WeightedTargets GetRouteSpecTcpRouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
+}
+
+func (GetRouteSpecTcpRouteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteAction)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteActionArgs) ToGetRouteSpecTcpRouteActionOutput() GetRouteSpecTcpRouteActionOutput {
+	return i.ToGetRouteSpecTcpRouteActionOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteActionArgs) ToGetRouteSpecTcpRouteActionOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteActionOutput)
+}
+
+// GetRouteSpecTcpRouteActionArrayInput is an input type that accepts GetRouteSpecTcpRouteActionArray and GetRouteSpecTcpRouteActionArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteActionArrayInput` via:
+//
+//	GetRouteSpecTcpRouteActionArray{ GetRouteSpecTcpRouteActionArgs{...} }
+type GetRouteSpecTcpRouteActionArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteActionArrayOutput() GetRouteSpecTcpRouteActionArrayOutput
+	ToGetRouteSpecTcpRouteActionArrayOutputWithContext(context.Context) GetRouteSpecTcpRouteActionArrayOutput
+}
+
+type GetRouteSpecTcpRouteActionArray []GetRouteSpecTcpRouteActionInput
+
+func (GetRouteSpecTcpRouteActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteAction)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteActionArray) ToGetRouteSpecTcpRouteActionArrayOutput() GetRouteSpecTcpRouteActionArrayOutput {
+	return i.ToGetRouteSpecTcpRouteActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteActionArray) ToGetRouteSpecTcpRouteActionArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteActionArrayOutput)
+}
+
+type GetRouteSpecTcpRouteActionOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteAction)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteActionOutput) ToGetRouteSpecTcpRouteActionOutput() GetRouteSpecTcpRouteActionOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteActionOutput) ToGetRouteSpecTcpRouteActionOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteActionOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteActionOutput) WeightedTargets() GetRouteSpecTcpRouteActionWeightedTargetArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteAction) []GetRouteSpecTcpRouteActionWeightedTarget {
+		return v.WeightedTargets
+	}).(GetRouteSpecTcpRouteActionWeightedTargetArrayOutput)
+}
+
+type GetRouteSpecTcpRouteActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteAction)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteActionArrayOutput) ToGetRouteSpecTcpRouteActionArrayOutput() GetRouteSpecTcpRouteActionArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteActionArrayOutput) ToGetRouteSpecTcpRouteActionArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteActionArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteActionArrayOutput) Index(i pulumi.IntInput) GetRouteSpecTcpRouteActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecTcpRouteAction {
+		return vs[0].([]GetRouteSpecTcpRouteAction)[vs[1].(int)]
+	}).(GetRouteSpecTcpRouteActionOutput)
+}
+
+type GetRouteSpecTcpRouteActionWeightedTarget struct {
+	Port        int    `pulumi:"port"`
+	VirtualNode string `pulumi:"virtualNode"`
+	Weight      int    `pulumi:"weight"`
+}
+
+// GetRouteSpecTcpRouteActionWeightedTargetInput is an input type that accepts GetRouteSpecTcpRouteActionWeightedTargetArgs and GetRouteSpecTcpRouteActionWeightedTargetOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteActionWeightedTargetInput` via:
+//
+//	GetRouteSpecTcpRouteActionWeightedTargetArgs{...}
+type GetRouteSpecTcpRouteActionWeightedTargetInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteActionWeightedTargetOutput() GetRouteSpecTcpRouteActionWeightedTargetOutput
+	ToGetRouteSpecTcpRouteActionWeightedTargetOutputWithContext(context.Context) GetRouteSpecTcpRouteActionWeightedTargetOutput
+}
+
+type GetRouteSpecTcpRouteActionWeightedTargetArgs struct {
+	Port        pulumi.IntInput    `pulumi:"port"`
+	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
+	Weight      pulumi.IntInput    `pulumi:"weight"`
+}
+
+func (GetRouteSpecTcpRouteActionWeightedTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteActionWeightedTargetArgs) ToGetRouteSpecTcpRouteActionWeightedTargetOutput() GetRouteSpecTcpRouteActionWeightedTargetOutput {
+	return i.ToGetRouteSpecTcpRouteActionWeightedTargetOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteActionWeightedTargetArgs) ToGetRouteSpecTcpRouteActionWeightedTargetOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteActionWeightedTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteActionWeightedTargetOutput)
+}
+
+// GetRouteSpecTcpRouteActionWeightedTargetArrayInput is an input type that accepts GetRouteSpecTcpRouteActionWeightedTargetArray and GetRouteSpecTcpRouteActionWeightedTargetArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteActionWeightedTargetArrayInput` via:
+//
+//	GetRouteSpecTcpRouteActionWeightedTargetArray{ GetRouteSpecTcpRouteActionWeightedTargetArgs{...} }
+type GetRouteSpecTcpRouteActionWeightedTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteActionWeightedTargetArrayOutput() GetRouteSpecTcpRouteActionWeightedTargetArrayOutput
+	ToGetRouteSpecTcpRouteActionWeightedTargetArrayOutputWithContext(context.Context) GetRouteSpecTcpRouteActionWeightedTargetArrayOutput
+}
+
+type GetRouteSpecTcpRouteActionWeightedTargetArray []GetRouteSpecTcpRouteActionWeightedTargetInput
+
+func (GetRouteSpecTcpRouteActionWeightedTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteActionWeightedTargetArray) ToGetRouteSpecTcpRouteActionWeightedTargetArrayOutput() GetRouteSpecTcpRouteActionWeightedTargetArrayOutput {
+	return i.ToGetRouteSpecTcpRouteActionWeightedTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteActionWeightedTargetArray) ToGetRouteSpecTcpRouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteActionWeightedTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteActionWeightedTargetArrayOutput)
+}
+
+type GetRouteSpecTcpRouteActionWeightedTargetOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteActionWeightedTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) ToGetRouteSpecTcpRouteActionWeightedTargetOutput() GetRouteSpecTcpRouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) ToGetRouteSpecTcpRouteActionWeightedTargetOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteActionWeightedTargetOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecTcpRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecTcpRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteActionWeightedTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteActionWeightedTarget)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteActionWeightedTargetArrayOutput) ToGetRouteSpecTcpRouteActionWeightedTargetArrayOutput() GetRouteSpecTcpRouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteActionWeightedTargetArrayOutput) ToGetRouteSpecTcpRouteActionWeightedTargetArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteActionWeightedTargetArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInput) GetRouteSpecTcpRouteActionWeightedTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecTcpRouteActionWeightedTarget {
+		return vs[0].([]GetRouteSpecTcpRouteActionWeightedTarget)[vs[1].(int)]
+	}).(GetRouteSpecTcpRouteActionWeightedTargetOutput)
+}
+
+type GetRouteSpecTcpRouteMatch struct {
+	Port int `pulumi:"port"`
+}
+
+// GetRouteSpecTcpRouteMatchInput is an input type that accepts GetRouteSpecTcpRouteMatchArgs and GetRouteSpecTcpRouteMatchOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteMatchInput` via:
+//
+//	GetRouteSpecTcpRouteMatchArgs{...}
+type GetRouteSpecTcpRouteMatchInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteMatchOutput() GetRouteSpecTcpRouteMatchOutput
+	ToGetRouteSpecTcpRouteMatchOutputWithContext(context.Context) GetRouteSpecTcpRouteMatchOutput
+}
+
+type GetRouteSpecTcpRouteMatchArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetRouteSpecTcpRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteMatchArgs) ToGetRouteSpecTcpRouteMatchOutput() GetRouteSpecTcpRouteMatchOutput {
+	return i.ToGetRouteSpecTcpRouteMatchOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteMatchArgs) ToGetRouteSpecTcpRouteMatchOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteMatchOutput)
+}
+
+// GetRouteSpecTcpRouteMatchArrayInput is an input type that accepts GetRouteSpecTcpRouteMatchArray and GetRouteSpecTcpRouteMatchArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteMatchArrayInput` via:
+//
+//	GetRouteSpecTcpRouteMatchArray{ GetRouteSpecTcpRouteMatchArgs{...} }
+type GetRouteSpecTcpRouteMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteMatchArrayOutput() GetRouteSpecTcpRouteMatchArrayOutput
+	ToGetRouteSpecTcpRouteMatchArrayOutputWithContext(context.Context) GetRouteSpecTcpRouteMatchArrayOutput
+}
+
+type GetRouteSpecTcpRouteMatchArray []GetRouteSpecTcpRouteMatchInput
+
+func (GetRouteSpecTcpRouteMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteMatchArray) ToGetRouteSpecTcpRouteMatchArrayOutput() GetRouteSpecTcpRouteMatchArrayOutput {
+	return i.ToGetRouteSpecTcpRouteMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteMatchArray) ToGetRouteSpecTcpRouteMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteMatchArrayOutput)
+}
+
+type GetRouteSpecTcpRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteMatchOutput) ToGetRouteSpecTcpRouteMatchOutput() GetRouteSpecTcpRouteMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteMatchOutput) ToGetRouteSpecTcpRouteMatchOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteMatchOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteMatchOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteMatch) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecTcpRouteMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteMatchArrayOutput) ToGetRouteSpecTcpRouteMatchArrayOutput() GetRouteSpecTcpRouteMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteMatchArrayOutput) ToGetRouteSpecTcpRouteMatchArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteMatchArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteMatchArrayOutput) Index(i pulumi.IntInput) GetRouteSpecTcpRouteMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecTcpRouteMatch {
+		return vs[0].([]GetRouteSpecTcpRouteMatch)[vs[1].(int)]
+	}).(GetRouteSpecTcpRouteMatchOutput)
+}
+
+type GetRouteSpecTcpRouteTimeout struct {
+	Idles []GetRouteSpecTcpRouteTimeoutIdle `pulumi:"idles"`
+}
+
+// GetRouteSpecTcpRouteTimeoutInput is an input type that accepts GetRouteSpecTcpRouteTimeoutArgs and GetRouteSpecTcpRouteTimeoutOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteTimeoutInput` via:
+//
+//	GetRouteSpecTcpRouteTimeoutArgs{...}
+type GetRouteSpecTcpRouteTimeoutInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteTimeoutOutput() GetRouteSpecTcpRouteTimeoutOutput
+	ToGetRouteSpecTcpRouteTimeoutOutputWithContext(context.Context) GetRouteSpecTcpRouteTimeoutOutput
+}
+
+type GetRouteSpecTcpRouteTimeoutArgs struct {
+	Idles GetRouteSpecTcpRouteTimeoutIdleArrayInput `pulumi:"idles"`
+}
+
+func (GetRouteSpecTcpRouteTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteTimeoutArgs) ToGetRouteSpecTcpRouteTimeoutOutput() GetRouteSpecTcpRouteTimeoutOutput {
+	return i.ToGetRouteSpecTcpRouteTimeoutOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteTimeoutArgs) ToGetRouteSpecTcpRouteTimeoutOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteTimeoutOutput)
+}
+
+// GetRouteSpecTcpRouteTimeoutArrayInput is an input type that accepts GetRouteSpecTcpRouteTimeoutArray and GetRouteSpecTcpRouteTimeoutArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteTimeoutArrayInput` via:
+//
+//	GetRouteSpecTcpRouteTimeoutArray{ GetRouteSpecTcpRouteTimeoutArgs{...} }
+type GetRouteSpecTcpRouteTimeoutArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteTimeoutArrayOutput() GetRouteSpecTcpRouteTimeoutArrayOutput
+	ToGetRouteSpecTcpRouteTimeoutArrayOutputWithContext(context.Context) GetRouteSpecTcpRouteTimeoutArrayOutput
+}
+
+type GetRouteSpecTcpRouteTimeoutArray []GetRouteSpecTcpRouteTimeoutInput
+
+func (GetRouteSpecTcpRouteTimeoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteTimeout)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteTimeoutArray) ToGetRouteSpecTcpRouteTimeoutArrayOutput() GetRouteSpecTcpRouteTimeoutArrayOutput {
+	return i.ToGetRouteSpecTcpRouteTimeoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteTimeoutArray) ToGetRouteSpecTcpRouteTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteTimeoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteTimeoutArrayOutput)
+}
+
+type GetRouteSpecTcpRouteTimeoutOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteTimeoutOutput) ToGetRouteSpecTcpRouteTimeoutOutput() GetRouteSpecTcpRouteTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteTimeoutOutput) ToGetRouteSpecTcpRouteTimeoutOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteTimeoutOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteTimeoutOutput) Idles() GetRouteSpecTcpRouteTimeoutIdleArrayOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteTimeout) []GetRouteSpecTcpRouteTimeoutIdle { return v.Idles }).(GetRouteSpecTcpRouteTimeoutIdleArrayOutput)
+}
+
+type GetRouteSpecTcpRouteTimeoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteTimeoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteTimeout)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteTimeoutArrayOutput) ToGetRouteSpecTcpRouteTimeoutArrayOutput() GetRouteSpecTcpRouteTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteTimeoutArrayOutput) ToGetRouteSpecTcpRouteTimeoutArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteTimeoutArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteTimeoutArrayOutput) Index(i pulumi.IntInput) GetRouteSpecTcpRouteTimeoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecTcpRouteTimeout {
+		return vs[0].([]GetRouteSpecTcpRouteTimeout)[vs[1].(int)]
+	}).(GetRouteSpecTcpRouteTimeoutOutput)
+}
+
+type GetRouteSpecTcpRouteTimeoutIdle struct {
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
+}
+
+// GetRouteSpecTcpRouteTimeoutIdleInput is an input type that accepts GetRouteSpecTcpRouteTimeoutIdleArgs and GetRouteSpecTcpRouteTimeoutIdleOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteTimeoutIdleInput` via:
+//
+//	GetRouteSpecTcpRouteTimeoutIdleArgs{...}
+type GetRouteSpecTcpRouteTimeoutIdleInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteTimeoutIdleOutput() GetRouteSpecTcpRouteTimeoutIdleOutput
+	ToGetRouteSpecTcpRouteTimeoutIdleOutputWithContext(context.Context) GetRouteSpecTcpRouteTimeoutIdleOutput
+}
+
+type GetRouteSpecTcpRouteTimeoutIdleArgs struct {
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (GetRouteSpecTcpRouteTimeoutIdleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteTimeoutIdleArgs) ToGetRouteSpecTcpRouteTimeoutIdleOutput() GetRouteSpecTcpRouteTimeoutIdleOutput {
+	return i.ToGetRouteSpecTcpRouteTimeoutIdleOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteTimeoutIdleArgs) ToGetRouteSpecTcpRouteTimeoutIdleOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteTimeoutIdleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteTimeoutIdleOutput)
+}
+
+// GetRouteSpecTcpRouteTimeoutIdleArrayInput is an input type that accepts GetRouteSpecTcpRouteTimeoutIdleArray and GetRouteSpecTcpRouteTimeoutIdleArrayOutput values.
+// You can construct a concrete instance of `GetRouteSpecTcpRouteTimeoutIdleArrayInput` via:
+//
+//	GetRouteSpecTcpRouteTimeoutIdleArray{ GetRouteSpecTcpRouteTimeoutIdleArgs{...} }
+type GetRouteSpecTcpRouteTimeoutIdleArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteSpecTcpRouteTimeoutIdleArrayOutput() GetRouteSpecTcpRouteTimeoutIdleArrayOutput
+	ToGetRouteSpecTcpRouteTimeoutIdleArrayOutputWithContext(context.Context) GetRouteSpecTcpRouteTimeoutIdleArrayOutput
+}
+
+type GetRouteSpecTcpRouteTimeoutIdleArray []GetRouteSpecTcpRouteTimeoutIdleInput
+
+func (GetRouteSpecTcpRouteTimeoutIdleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (i GetRouteSpecTcpRouteTimeoutIdleArray) ToGetRouteSpecTcpRouteTimeoutIdleArrayOutput() GetRouteSpecTcpRouteTimeoutIdleArrayOutput {
+	return i.ToGetRouteSpecTcpRouteTimeoutIdleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteSpecTcpRouteTimeoutIdleArray) ToGetRouteSpecTcpRouteTimeoutIdleArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteTimeoutIdleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteSpecTcpRouteTimeoutIdleArrayOutput)
+}
+
+type GetRouteSpecTcpRouteTimeoutIdleOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteTimeoutIdleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteSpecTcpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteTimeoutIdleOutput) ToGetRouteSpecTcpRouteTimeoutIdleOutput() GetRouteSpecTcpRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteTimeoutIdleOutput) ToGetRouteSpecTcpRouteTimeoutIdleOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteTimeoutIdleOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+func (o GetRouteSpecTcpRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRouteSpecTcpRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetRouteSpecTcpRouteTimeoutIdleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteSpecTcpRouteTimeoutIdleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteSpecTcpRouteTimeoutIdle)(nil)).Elem()
+}
+
+func (o GetRouteSpecTcpRouteTimeoutIdleArrayOutput) ToGetRouteSpecTcpRouteTimeoutIdleArrayOutput() GetRouteSpecTcpRouteTimeoutIdleArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteTimeoutIdleArrayOutput) ToGetRouteSpecTcpRouteTimeoutIdleArrayOutputWithContext(ctx context.Context) GetRouteSpecTcpRouteTimeoutIdleArrayOutput {
+	return o
+}
+
+func (o GetRouteSpecTcpRouteTimeoutIdleArrayOutput) Index(i pulumi.IntInput) GetRouteSpecTcpRouteTimeoutIdleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteSpecTcpRouteTimeoutIdle {
+		return vs[0].([]GetRouteSpecTcpRouteTimeoutIdle)[vs[1].(int)]
+	}).(GetRouteSpecTcpRouteTimeoutIdleOutput)
+}
+
+type GetVirtualGatewaySpec struct {
+	// Defaults for backends.
+	BackendDefaults []GetVirtualGatewaySpecBackendDefault `pulumi:"backendDefaults"`
+	// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+	Listeners []GetVirtualGatewaySpecListener `pulumi:"listeners"`
+	// Inbound and outbound access logging information for the virtual gateway.
+	Loggings []GetVirtualGatewaySpecLogging `pulumi:"loggings"`
+}
+
+// GetVirtualGatewaySpecInput is an input type that accepts GetVirtualGatewaySpecArgs and GetVirtualGatewaySpecOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecInput` via:
+//
+//	GetVirtualGatewaySpecArgs{...}
+type GetVirtualGatewaySpecInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecOutput() GetVirtualGatewaySpecOutput
+	ToGetVirtualGatewaySpecOutputWithContext(context.Context) GetVirtualGatewaySpecOutput
+}
+
+type GetVirtualGatewaySpecArgs struct {
+	// Defaults for backends.
+	BackendDefaults GetVirtualGatewaySpecBackendDefaultArrayInput `pulumi:"backendDefaults"`
+	// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+	Listeners GetVirtualGatewaySpecListenerArrayInput `pulumi:"listeners"`
+	// Inbound and outbound access logging information for the virtual gateway.
+	Loggings GetVirtualGatewaySpecLoggingArrayInput `pulumi:"loggings"`
+}
+
+func (GetVirtualGatewaySpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpec)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecArgs) ToGetVirtualGatewaySpecOutput() GetVirtualGatewaySpecOutput {
+	return i.ToGetVirtualGatewaySpecOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecArgs) ToGetVirtualGatewaySpecOutputWithContext(ctx context.Context) GetVirtualGatewaySpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecOutput)
+}
+
+// GetVirtualGatewaySpecArrayInput is an input type that accepts GetVirtualGatewaySpecArray and GetVirtualGatewaySpecArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecArrayInput` via:
+//
+//	GetVirtualGatewaySpecArray{ GetVirtualGatewaySpecArgs{...} }
+type GetVirtualGatewaySpecArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecArrayOutput() GetVirtualGatewaySpecArrayOutput
+	ToGetVirtualGatewaySpecArrayOutputWithContext(context.Context) GetVirtualGatewaySpecArrayOutput
+}
+
+type GetVirtualGatewaySpecArray []GetVirtualGatewaySpecInput
+
+func (GetVirtualGatewaySpecArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpec)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecArray) ToGetVirtualGatewaySpecArrayOutput() GetVirtualGatewaySpecArrayOutput {
+	return i.ToGetVirtualGatewaySpecArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecArray) ToGetVirtualGatewaySpecArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecArrayOutput)
+}
+
+type GetVirtualGatewaySpecOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpec)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecOutput) ToGetVirtualGatewaySpecOutput() GetVirtualGatewaySpecOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecOutput) ToGetVirtualGatewaySpecOutputWithContext(ctx context.Context) GetVirtualGatewaySpecOutput {
+	return o
+}
+
+// Defaults for backends.
+func (o GetVirtualGatewaySpecOutput) BackendDefaults() GetVirtualGatewaySpecBackendDefaultArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpec) []GetVirtualGatewaySpecBackendDefault { return v.BackendDefaults }).(GetVirtualGatewaySpecBackendDefaultArrayOutput)
+}
+
+// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+func (o GetVirtualGatewaySpecOutput) Listeners() GetVirtualGatewaySpecListenerArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpec) []GetVirtualGatewaySpecListener { return v.Listeners }).(GetVirtualGatewaySpecListenerArrayOutput)
+}
+
+// Inbound and outbound access logging information for the virtual gateway.
+func (o GetVirtualGatewaySpecOutput) Loggings() GetVirtualGatewaySpecLoggingArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpec) []GetVirtualGatewaySpecLogging { return v.Loggings }).(GetVirtualGatewaySpecLoggingArrayOutput)
+}
+
+type GetVirtualGatewaySpecArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpec)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecArrayOutput) ToGetVirtualGatewaySpecArrayOutput() GetVirtualGatewaySpecArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecArrayOutput) ToGetVirtualGatewaySpecArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpec {
+		return vs[0].([]GetVirtualGatewaySpec)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefault struct {
+	// Default client policy for virtual gateway backends.
+	ClientPolicies []GetVirtualGatewaySpecBackendDefaultClientPolicy `pulumi:"clientPolicies"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultArgs and GetVirtualGatewaySpecBackendDefaultOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultArgs{...}
+type GetVirtualGatewaySpecBackendDefaultInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultOutput() GetVirtualGatewaySpecBackendDefaultOutput
+	ToGetVirtualGatewaySpecBackendDefaultOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultArgs struct {
+	// Default client policy for virtual gateway backends.
+	ClientPolicies GetVirtualGatewaySpecBackendDefaultClientPolicyArrayInput `pulumi:"clientPolicies"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefault)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultArgs) ToGetVirtualGatewaySpecBackendDefaultOutput() GetVirtualGatewaySpecBackendDefaultOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultArgs) ToGetVirtualGatewaySpecBackendDefaultOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultArray and GetVirtualGatewaySpecBackendDefaultArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultArray{ GetVirtualGatewaySpecBackendDefaultArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultArrayOutput() GetVirtualGatewaySpecBackendDefaultArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultArray []GetVirtualGatewaySpecBackendDefaultInput
+
+func (GetVirtualGatewaySpecBackendDefaultArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefault)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultArray) ToGetVirtualGatewaySpecBackendDefaultArrayOutput() GetVirtualGatewaySpecBackendDefaultArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultArray) ToGetVirtualGatewaySpecBackendDefaultArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefault)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultOutput) ToGetVirtualGatewaySpecBackendDefaultOutput() GetVirtualGatewaySpecBackendDefaultOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultOutput) ToGetVirtualGatewaySpecBackendDefaultOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultOutput {
+	return o
+}
+
+// Default client policy for virtual gateway backends.
+func (o GetVirtualGatewaySpecBackendDefaultOutput) ClientPolicies() GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefault) []GetVirtualGatewaySpecBackendDefaultClientPolicy {
+		return v.ClientPolicies
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefault)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultArrayOutput) ToGetVirtualGatewaySpecBackendDefaultArrayOutput() GetVirtualGatewaySpecBackendDefaultArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultArrayOutput) ToGetVirtualGatewaySpecBackendDefaultArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefault {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefault)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicy struct {
+	// Transport Layer Security (TLS) properties for the listener
+	Tls []GetVirtualGatewaySpecBackendDefaultClientPolicyTl `pulumi:"tls"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyArgs struct {
+	// Transport Layer Security (TLS) properties for the listener
+	Tls GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayInput `pulumi:"tls"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicy)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyArray and GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyArray []GetVirtualGatewaySpecBackendDefaultClientPolicyInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicy)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicy)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyOutput {
+	return o
+}
+
+// Transport Layer Security (TLS) properties for the listener
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyOutput) Tls() GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicy) []GetVirtualGatewaySpecBackendDefaultClientPolicyTl {
+		return v.Tls
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicy)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicy {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicy)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTl struct {
+	// Listener's TLS certificate.
+	Certificates []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate `pulumi:"certificates"`
+	// Whether the policy is enforced. Default is `true`.
+	Enforce bool `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports []int `pulumi:"ports"`
+	// Listener's Transport Layer Security (TLS) validation context.
+	Validations []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation `pulumi:"validations"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs struct {
+	// Listener's TLS certificate.
+	Certificates GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayInput `pulumi:"certificates"`
+	// Whether the policy is enforced. Default is `true`.
+	Enforce pulumi.BoolInput `pulumi:"enforce"`
+	// One or more ports that the policy is enforced for.
+	Ports pulumi.IntArrayInput `pulumi:"ports"`
+	// Listener's Transport Layer Security (TLS) validation context.
+	Validations GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayInput `pulumi:"validations"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTl)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTl)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTl)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput {
+	return o
+}
+
+// Listener's TLS certificate.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) Certificates() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTl) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate {
+		return v.Certificates
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput)
+}
+
+// Whether the policy is enforced. Default is `true`.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) Enforce() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTl) bool { return v.Enforce }).(pulumi.BoolOutput)
+}
+
+// One or more ports that the policy is enforced for.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTl) []int { return v.Ports }).(pulumi.IntArrayOutput)
+}
+
+// Listener's Transport Layer Security (TLS) validation context.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput) Validations() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTl) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation {
+		return v.Validations
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTl)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTl {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTl)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate struct {
+	// TLS validation context trust for a local file certificate.
+	Files []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile `pulumi:"files"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd `pulumi:"sds"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs struct {
+	// TLS validation context trust for a local file certificate.
+	Files GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayInput `pulumi:"files"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayInput `pulumi:"sds"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput {
+	return o
+}
+
+// TLS validation context trust for a local file certificate.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput) Files() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile {
+		return v.Files
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput)
+}
+
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput) Sds() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd {
+		return v.Sds
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+	// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey string `pulumi:"privateKey"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput {
+	return o
+}
+
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile) string {
+		return v.CertificateChain
+	}).(pulumi.StringOutput)
+}
+
+// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd struct {
+	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs struct {
+	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput {
+	return o
+}
+
+// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation struct {
+	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	SubjectAlternativeNames []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName `pulumi:"subjectAlternativeNames"`
+	// TLS validation context trust.
+	Trusts []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust `pulumi:"trusts"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs struct {
+	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	SubjectAlternativeNames GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayInput `pulumi:"subjectAlternativeNames"`
+	// TLS validation context trust.
+	Trusts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayInput `pulumi:"trusts"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput {
+	return o
+}
+
+// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput) SubjectAlternativeNames() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName {
+		return v.SubjectAlternativeNames
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput)
+}
+
+// TLS validation context trust.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput) Trusts() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust {
+		return v.Trusts
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName struct {
+	// Criteria for determining a SAN's match.
+	Matches []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch `pulumi:"matches"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs struct {
+	// Criteria for determining a SAN's match.
+	Matches GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayInput `pulumi:"matches"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput {
+	return o
+}
+
+// Criteria for determining a SAN's match.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput) Matches() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch {
+		return v.Matches
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch struct {
+	// Values sent must match the specified values exactly.
+	Exacts []string `pulumi:"exacts"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs struct {
+	// Values sent must match the specified values exactly.
+	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput {
+	return o
+}
+
+// Values sent must match the specified values exactly.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch) []string {
+		return v.Exacts
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust struct {
+	// An AWS Certificate Manager (ACM) certificate.
+	Acms []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm `pulumi:"acms"`
+	// TLS validation context trust for a local file certificate.
+	Files []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile `pulumi:"files"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd `pulumi:"sds"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs struct {
+	// An AWS Certificate Manager (ACM) certificate.
+	Acms GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayInput `pulumi:"acms"`
+	// TLS validation context trust for a local file certificate.
+	Files GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayInput `pulumi:"files"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayInput `pulumi:"sds"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput {
+	return o
+}
+
+// An AWS Certificate Manager (ACM) certificate.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput) Acms() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm {
+		return v.Acms
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput)
+}
+
+// TLS validation context trust for a local file certificate.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput) Files() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile {
+		return v.Files
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput)
+}
+
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput) Sds() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust) []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd {
+		return v.Sds
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm struct {
+	// One or more ACM ARNs.
+	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs struct {
+	// One or more ACM ARNs.
+	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput {
+	return o
+}
+
+// One or more ACM ARNs.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm) []string {
+		return v.CertificateAuthorityArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput {
+	return o
+}
+
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile) string {
+		return v.CertificateChain
+	}).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd struct {
+	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs{...}
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs struct {
+	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput)
+}
+
+// GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayInput is an input type that accepts GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArray and GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayInput` via:
+//
+//	GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArray{ GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs{...} }
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput
+	ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutputWithContext(context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArray []GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdInput
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput {
+	return i.ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArray) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput {
+	return o
+}
+
+// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput() GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput) ToGetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd {
+		return vs[0].([]GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput)
+}
+
+type GetVirtualGatewaySpecListener struct {
+	// Connection pool information for the listener.
+	ConnectionPools []GetVirtualGatewaySpecListenerConnectionPool `pulumi:"connectionPools"`
+	// Health check information for the listener.
+	HealthChecks []GetVirtualGatewaySpecListenerHealthCheck `pulumi:"healthChecks"`
+	// Port mapping information for the listener.
+	PortMappings []GetVirtualGatewaySpecListenerPortMapping `pulumi:"portMappings"`
+	// Transport Layer Security (TLS) properties for the listener
+	Tls []GetVirtualGatewaySpecListenerTl `pulumi:"tls"`
+}
+
+// GetVirtualGatewaySpecListenerInput is an input type that accepts GetVirtualGatewaySpecListenerArgs and GetVirtualGatewaySpecListenerOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerInput` via:
+//
+//	GetVirtualGatewaySpecListenerArgs{...}
+type GetVirtualGatewaySpecListenerInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerOutput() GetVirtualGatewaySpecListenerOutput
+	ToGetVirtualGatewaySpecListenerOutputWithContext(context.Context) GetVirtualGatewaySpecListenerOutput
+}
+
+type GetVirtualGatewaySpecListenerArgs struct {
+	// Connection pool information for the listener.
+	ConnectionPools GetVirtualGatewaySpecListenerConnectionPoolArrayInput `pulumi:"connectionPools"`
+	// Health check information for the listener.
+	HealthChecks GetVirtualGatewaySpecListenerHealthCheckArrayInput `pulumi:"healthChecks"`
+	// Port mapping information for the listener.
+	PortMappings GetVirtualGatewaySpecListenerPortMappingArrayInput `pulumi:"portMappings"`
+	// Transport Layer Security (TLS) properties for the listener
+	Tls GetVirtualGatewaySpecListenerTlArrayInput `pulumi:"tls"`
+}
+
+func (GetVirtualGatewaySpecListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListener)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerArgs) ToGetVirtualGatewaySpecListenerOutput() GetVirtualGatewaySpecListenerOutput {
+	return i.ToGetVirtualGatewaySpecListenerOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerArgs) ToGetVirtualGatewaySpecListenerOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerOutput)
+}
+
+// GetVirtualGatewaySpecListenerArrayInput is an input type that accepts GetVirtualGatewaySpecListenerArray and GetVirtualGatewaySpecListenerArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerArray{ GetVirtualGatewaySpecListenerArgs{...} }
+type GetVirtualGatewaySpecListenerArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerArrayOutput() GetVirtualGatewaySpecListenerArrayOutput
+	ToGetVirtualGatewaySpecListenerArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerArray []GetVirtualGatewaySpecListenerInput
+
+func (GetVirtualGatewaySpecListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListener)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerArray) ToGetVirtualGatewaySpecListenerArrayOutput() GetVirtualGatewaySpecListenerArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerArray) ToGetVirtualGatewaySpecListenerArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListener)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerOutput) ToGetVirtualGatewaySpecListenerOutput() GetVirtualGatewaySpecListenerOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerOutput) ToGetVirtualGatewaySpecListenerOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerOutput {
+	return o
+}
+
+// Connection pool information for the listener.
+func (o GetVirtualGatewaySpecListenerOutput) ConnectionPools() GetVirtualGatewaySpecListenerConnectionPoolArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListener) []GetVirtualGatewaySpecListenerConnectionPool {
+		return v.ConnectionPools
+	}).(GetVirtualGatewaySpecListenerConnectionPoolArrayOutput)
+}
+
+// Health check information for the listener.
+func (o GetVirtualGatewaySpecListenerOutput) HealthChecks() GetVirtualGatewaySpecListenerHealthCheckArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListener) []GetVirtualGatewaySpecListenerHealthCheck {
+		return v.HealthChecks
+	}).(GetVirtualGatewaySpecListenerHealthCheckArrayOutput)
+}
+
+// Port mapping information for the listener.
+func (o GetVirtualGatewaySpecListenerOutput) PortMappings() GetVirtualGatewaySpecListenerPortMappingArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListener) []GetVirtualGatewaySpecListenerPortMapping {
+		return v.PortMappings
+	}).(GetVirtualGatewaySpecListenerPortMappingArrayOutput)
+}
+
+// Transport Layer Security (TLS) properties for the listener
+func (o GetVirtualGatewaySpecListenerOutput) Tls() GetVirtualGatewaySpecListenerTlArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListener) []GetVirtualGatewaySpecListenerTl { return v.Tls }).(GetVirtualGatewaySpecListenerTlArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListener)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerArrayOutput) ToGetVirtualGatewaySpecListenerArrayOutput() GetVirtualGatewaySpecListenerArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerArrayOutput) ToGetVirtualGatewaySpecListenerArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListener {
+		return vs[0].([]GetVirtualGatewaySpecListener)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPool struct {
+	// Connection pool information for gRPC listeners.
+	Grpcs []GetVirtualGatewaySpecListenerConnectionPoolGrpc `pulumi:"grpcs"`
+	// Connection pool information for HTTP2 listeners.
+	Http2s []GetVirtualGatewaySpecListenerConnectionPoolHttp2 `pulumi:"http2s"`
+	// Connection pool information for HTTP listeners.
+	Https []GetVirtualGatewaySpecListenerConnectionPoolHttp `pulumi:"https"`
+}
+
+// GetVirtualGatewaySpecListenerConnectionPoolInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolArgs and GetVirtualGatewaySpecListenerConnectionPoolOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerConnectionPoolInput` via:
+//
+//	GetVirtualGatewaySpecListenerConnectionPoolArgs{...}
+type GetVirtualGatewaySpecListenerConnectionPoolInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerConnectionPoolOutput() GetVirtualGatewaySpecListenerConnectionPoolOutput
+	ToGetVirtualGatewaySpecListenerConnectionPoolOutputWithContext(context.Context) GetVirtualGatewaySpecListenerConnectionPoolOutput
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolArgs struct {
+	// Connection pool information for gRPC listeners.
+	Grpcs GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayInput `pulumi:"grpcs"`
+	// Connection pool information for HTTP2 listeners.
+	Http2s GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayInput `pulumi:"http2s"`
+	// Connection pool information for HTTP listeners.
+	Https GetVirtualGatewaySpecListenerConnectionPoolHttpArrayInput `pulumi:"https"`
+}
+
+func (GetVirtualGatewaySpecListenerConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolArgs) ToGetVirtualGatewaySpecListenerConnectionPoolOutput() GetVirtualGatewaySpecListenerConnectionPoolOutput {
+	return i.ToGetVirtualGatewaySpecListenerConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolArgs) ToGetVirtualGatewaySpecListenerConnectionPoolOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerConnectionPoolOutput)
+}
+
+// GetVirtualGatewaySpecListenerConnectionPoolArrayInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolArray and GetVirtualGatewaySpecListenerConnectionPoolArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerConnectionPoolArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerConnectionPoolArray{ GetVirtualGatewaySpecListenerConnectionPoolArgs{...} }
+type GetVirtualGatewaySpecListenerConnectionPoolArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerConnectionPoolArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolArrayOutput
+	ToGetVirtualGatewaySpecListenerConnectionPoolArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerConnectionPoolArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolArray []GetVirtualGatewaySpecListenerConnectionPoolInput
+
+func (GetVirtualGatewaySpecListenerConnectionPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolArray) ToGetVirtualGatewaySpecListenerConnectionPoolArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerConnectionPoolArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolArray) ToGetVirtualGatewaySpecListenerConnectionPoolArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerConnectionPoolArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolOutput) ToGetVirtualGatewaySpecListenerConnectionPoolOutput() GetVirtualGatewaySpecListenerConnectionPoolOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolOutput) ToGetVirtualGatewaySpecListenerConnectionPoolOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolOutput {
+	return o
+}
+
+// Connection pool information for gRPC listeners.
+func (o GetVirtualGatewaySpecListenerConnectionPoolOutput) Grpcs() GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPool) []GetVirtualGatewaySpecListenerConnectionPoolGrpc {
+		return v.Grpcs
+	}).(GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput)
+}
+
+// Connection pool information for HTTP2 listeners.
+func (o GetVirtualGatewaySpecListenerConnectionPoolOutput) Http2s() GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPool) []GetVirtualGatewaySpecListenerConnectionPoolHttp2 {
+		return v.Http2s
+	}).(GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput)
+}
+
+// Connection pool information for HTTP listeners.
+func (o GetVirtualGatewaySpecListenerConnectionPoolOutput) Https() GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPool) []GetVirtualGatewaySpecListenerConnectionPoolHttp {
+		return v.Https
+	}).(GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerConnectionPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerConnectionPool)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolArrayOutput) ToGetVirtualGatewaySpecListenerConnectionPoolArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolArrayOutput) ToGetVirtualGatewaySpecListenerConnectionPoolArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerConnectionPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerConnectionPool {
+		return vs[0].([]GetVirtualGatewaySpecListenerConnectionPool)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerConnectionPoolOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolGrpc struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// GetVirtualGatewaySpecListenerConnectionPoolGrpcInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs and GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerConnectionPoolGrpcInput` via:
+//
+//	GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs{...}
+type GetVirtualGatewaySpecListenerConnectionPoolGrpcInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerConnectionPoolGrpcOutput() GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput
+	ToGetVirtualGatewaySpecListenerConnectionPoolGrpcOutputWithContext(context.Context) GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs) ToGetVirtualGatewaySpecListenerConnectionPoolGrpcOutput() GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return i.ToGetVirtualGatewaySpecListenerConnectionPoolGrpcOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs) ToGetVirtualGatewaySpecListenerConnectionPoolGrpcOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput)
+}
+
+// GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolGrpcArray and GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerConnectionPoolGrpcArray{ GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs{...} }
+type GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput
+	ToGetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolGrpcArray []GetVirtualGatewaySpecListenerConnectionPoolGrpcInput
+
+func (GetVirtualGatewaySpecListenerConnectionPoolGrpcArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolGrpcArray) ToGetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolGrpcArray) ToGetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToGetVirtualGatewaySpecListenerConnectionPoolGrpcOutput() GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToGetVirtualGatewaySpecListenerConnectionPoolGrpcOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return o
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolGrpc) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerConnectionPoolGrpc)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput) ToGetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput) ToGetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerConnectionPoolGrpc {
+		return vs[0].([]GetVirtualGatewaySpecListenerConnectionPoolGrpc)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttp2 struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// GetVirtualGatewaySpecListenerConnectionPoolHttp2Input is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolHttp2Args and GetVirtualGatewaySpecListenerConnectionPoolHttp2Output values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerConnectionPoolHttp2Input` via:
+//
+//	GetVirtualGatewaySpecListenerConnectionPoolHttp2Args{...}
+type GetVirtualGatewaySpecListenerConnectionPoolHttp2Input interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerConnectionPoolHttp2Output() GetVirtualGatewaySpecListenerConnectionPoolHttp2Output
+	ToGetVirtualGatewaySpecListenerConnectionPoolHttp2OutputWithContext(context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttp2Output
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttp2Args struct {
+	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (GetVirtualGatewaySpecListenerConnectionPoolHttp2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolHttp2Args) ToGetVirtualGatewaySpecListenerConnectionPoolHttp2Output() GetVirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return i.ToGetVirtualGatewaySpecListenerConnectionPoolHttp2OutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolHttp2Args) ToGetVirtualGatewaySpecListenerConnectionPoolHttp2OutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerConnectionPoolHttp2Output)
+}
+
+// GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolHttp2Array and GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerConnectionPoolHttp2Array{ GetVirtualGatewaySpecListenerConnectionPoolHttp2Args{...} }
+type GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput
+	ToGetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttp2Array []GetVirtualGatewaySpecListenerConnectionPoolHttp2Input
+
+func (GetVirtualGatewaySpecListenerConnectionPoolHttp2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolHttp2Array) ToGetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolHttp2Array) ToGetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttp2Output struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerConnectionPoolHttp2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2Output) ToGetVirtualGatewaySpecListenerConnectionPoolHttp2Output() GetVirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2Output) ToGetVirtualGatewaySpecListenerConnectionPoolHttp2OutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return o
+}
+
+// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerConnectionPoolHttp2)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput) ToGetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput) ToGetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerConnectionPoolHttp2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerConnectionPoolHttp2 {
+		return vs[0].([]GetVirtualGatewaySpecListenerConnectionPoolHttp2)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerConnectionPoolHttp2Output)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttp struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+	MaxConnections int `pulumi:"maxConnections"`
+	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxPendingRequests int `pulumi:"maxPendingRequests"`
+}
+
+// GetVirtualGatewaySpecListenerConnectionPoolHttpInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolHttpArgs and GetVirtualGatewaySpecListenerConnectionPoolHttpOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerConnectionPoolHttpInput` via:
+//
+//	GetVirtualGatewaySpecListenerConnectionPoolHttpArgs{...}
+type GetVirtualGatewaySpecListenerConnectionPoolHttpInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerConnectionPoolHttpOutput() GetVirtualGatewaySpecListenerConnectionPoolHttpOutput
+	ToGetVirtualGatewaySpecListenerConnectionPoolHttpOutputWithContext(context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttpOutput
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttpArgs struct {
+	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
+	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxPendingRequests pulumi.IntInput `pulumi:"maxPendingRequests"`
+}
+
+func (GetVirtualGatewaySpecListenerConnectionPoolHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolHttpArgs) ToGetVirtualGatewaySpecListenerConnectionPoolHttpOutput() GetVirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return i.ToGetVirtualGatewaySpecListenerConnectionPoolHttpOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolHttpArgs) ToGetVirtualGatewaySpecListenerConnectionPoolHttpOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerConnectionPoolHttpOutput)
+}
+
+// GetVirtualGatewaySpecListenerConnectionPoolHttpArrayInput is an input type that accepts GetVirtualGatewaySpecListenerConnectionPoolHttpArray and GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerConnectionPoolHttpArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerConnectionPoolHttpArray{ GetVirtualGatewaySpecListenerConnectionPoolHttpArgs{...} }
+type GetVirtualGatewaySpecListenerConnectionPoolHttpArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput
+	ToGetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttpArray []GetVirtualGatewaySpecListenerConnectionPoolHttpInput
+
+func (GetVirtualGatewaySpecListenerConnectionPoolHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolHttpArray) ToGetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerConnectionPoolHttpArray) ToGetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttpOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) ToGetVirtualGatewaySpecListenerConnectionPoolHttpOutput() GetVirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) ToGetVirtualGatewaySpecListenerConnectionPoolHttpOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return o
+}
+
+// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerConnectionPoolHttp) int { return v.MaxPendingRequests }).(pulumi.IntOutput)
+}
+
+type GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerConnectionPoolHttp)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput) ToGetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput() GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput) ToGetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerConnectionPoolHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerConnectionPoolHttp {
+		return vs[0].([]GetVirtualGatewaySpecListenerConnectionPoolHttp)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerConnectionPoolHttpOutput)
+}
+
+type GetVirtualGatewaySpecListenerHealthCheck struct {
+	// Number of consecutive successful health checks that must occur before declaring listener healthy.
+	HealthyThreshold int `pulumi:"healthyThreshold"`
+	// Time period in milliseconds between each health check execution.
+	IntervalMillis int `pulumi:"intervalMillis"`
+	// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+	Path string `pulumi:"path"`
+	// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	Port int `pulumi:"port"`
+	// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+	Protocol string `pulumi:"protocol"`
+	// Amount of time to wait when receiving a response from the health check, in milliseconds.
+	TimeoutMillis int `pulumi:"timeoutMillis"`
+	// Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+}
+
+// GetVirtualGatewaySpecListenerHealthCheckInput is an input type that accepts GetVirtualGatewaySpecListenerHealthCheckArgs and GetVirtualGatewaySpecListenerHealthCheckOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerHealthCheckInput` via:
+//
+//	GetVirtualGatewaySpecListenerHealthCheckArgs{...}
+type GetVirtualGatewaySpecListenerHealthCheckInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerHealthCheckOutput() GetVirtualGatewaySpecListenerHealthCheckOutput
+	ToGetVirtualGatewaySpecListenerHealthCheckOutputWithContext(context.Context) GetVirtualGatewaySpecListenerHealthCheckOutput
+}
+
+type GetVirtualGatewaySpecListenerHealthCheckArgs struct {
+	// Number of consecutive successful health checks that must occur before declaring listener healthy.
+	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
+	// Time period in milliseconds between each health check execution.
+	IntervalMillis pulumi.IntInput `pulumi:"intervalMillis"`
+	// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Amount of time to wait when receiving a response from the health check, in milliseconds.
+	TimeoutMillis pulumi.IntInput `pulumi:"timeoutMillis"`
+	// Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
+}
+
+func (GetVirtualGatewaySpecListenerHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerHealthCheck)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerHealthCheckArgs) ToGetVirtualGatewaySpecListenerHealthCheckOutput() GetVirtualGatewaySpecListenerHealthCheckOutput {
+	return i.ToGetVirtualGatewaySpecListenerHealthCheckOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerHealthCheckArgs) ToGetVirtualGatewaySpecListenerHealthCheckOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerHealthCheckOutput)
+}
+
+// GetVirtualGatewaySpecListenerHealthCheckArrayInput is an input type that accepts GetVirtualGatewaySpecListenerHealthCheckArray and GetVirtualGatewaySpecListenerHealthCheckArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerHealthCheckArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerHealthCheckArray{ GetVirtualGatewaySpecListenerHealthCheckArgs{...} }
+type GetVirtualGatewaySpecListenerHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerHealthCheckArrayOutput() GetVirtualGatewaySpecListenerHealthCheckArrayOutput
+	ToGetVirtualGatewaySpecListenerHealthCheckArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerHealthCheckArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerHealthCheckArray []GetVirtualGatewaySpecListenerHealthCheckInput
+
+func (GetVirtualGatewaySpecListenerHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerHealthCheck)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerHealthCheckArray) ToGetVirtualGatewaySpecListenerHealthCheckArrayOutput() GetVirtualGatewaySpecListenerHealthCheckArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerHealthCheckArray) ToGetVirtualGatewaySpecListenerHealthCheckArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerHealthCheckArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerHealthCheck)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) ToGetVirtualGatewaySpecListenerHealthCheckOutput() GetVirtualGatewaySpecListenerHealthCheckOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) ToGetVirtualGatewaySpecListenerHealthCheckOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerHealthCheckOutput {
+	return o
+}
+
+// Number of consecutive successful health checks that must occur before declaring listener healthy.
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+}
+
+// Time period in milliseconds between each health check execution.
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
+}
+
+// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Amount of time to wait when receiving a response from the health check, in milliseconds.
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
+}
+
+// Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+func (o GetVirtualGatewaySpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+}
+
+type GetVirtualGatewaySpecListenerHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerHealthCheck)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerHealthCheckArrayOutput) ToGetVirtualGatewaySpecListenerHealthCheckArrayOutput() GetVirtualGatewaySpecListenerHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerHealthCheckArrayOutput) ToGetVirtualGatewaySpecListenerHealthCheckArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerHealthCheckArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerHealthCheck {
+		return vs[0].([]GetVirtualGatewaySpecListenerHealthCheck)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerHealthCheckOutput)
+}
+
+type GetVirtualGatewaySpecListenerPortMapping struct {
+	// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	Port int `pulumi:"port"`
+	// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetVirtualGatewaySpecListenerPortMappingInput is an input type that accepts GetVirtualGatewaySpecListenerPortMappingArgs and GetVirtualGatewaySpecListenerPortMappingOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerPortMappingInput` via:
+//
+//	GetVirtualGatewaySpecListenerPortMappingArgs{...}
+type GetVirtualGatewaySpecListenerPortMappingInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerPortMappingOutput() GetVirtualGatewaySpecListenerPortMappingOutput
+	ToGetVirtualGatewaySpecListenerPortMappingOutputWithContext(context.Context) GetVirtualGatewaySpecListenerPortMappingOutput
+}
+
+type GetVirtualGatewaySpecListenerPortMappingArgs struct {
+	// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetVirtualGatewaySpecListenerPortMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerPortMapping)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerPortMappingArgs) ToGetVirtualGatewaySpecListenerPortMappingOutput() GetVirtualGatewaySpecListenerPortMappingOutput {
+	return i.ToGetVirtualGatewaySpecListenerPortMappingOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerPortMappingArgs) ToGetVirtualGatewaySpecListenerPortMappingOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerPortMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerPortMappingOutput)
+}
+
+// GetVirtualGatewaySpecListenerPortMappingArrayInput is an input type that accepts GetVirtualGatewaySpecListenerPortMappingArray and GetVirtualGatewaySpecListenerPortMappingArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerPortMappingArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerPortMappingArray{ GetVirtualGatewaySpecListenerPortMappingArgs{...} }
+type GetVirtualGatewaySpecListenerPortMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerPortMappingArrayOutput() GetVirtualGatewaySpecListenerPortMappingArrayOutput
+	ToGetVirtualGatewaySpecListenerPortMappingArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerPortMappingArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerPortMappingArray []GetVirtualGatewaySpecListenerPortMappingInput
+
+func (GetVirtualGatewaySpecListenerPortMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerPortMapping)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerPortMappingArray) ToGetVirtualGatewaySpecListenerPortMappingArrayOutput() GetVirtualGatewaySpecListenerPortMappingArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerPortMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerPortMappingArray) ToGetVirtualGatewaySpecListenerPortMappingArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerPortMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerPortMappingArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerPortMappingOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerPortMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerPortMapping)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerPortMappingOutput) ToGetVirtualGatewaySpecListenerPortMappingOutput() GetVirtualGatewaySpecListenerPortMappingOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerPortMappingOutput) ToGetVirtualGatewaySpecListenerPortMappingOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerPortMappingOutput {
+	return o
+}
+
+// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+func (o GetVirtualGatewaySpecListenerPortMappingOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+func (o GetVirtualGatewaySpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecListenerPortMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerPortMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerPortMapping)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerPortMappingArrayOutput) ToGetVirtualGatewaySpecListenerPortMappingArrayOutput() GetVirtualGatewaySpecListenerPortMappingArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerPortMappingArrayOutput) ToGetVirtualGatewaySpecListenerPortMappingArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerPortMappingArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerPortMappingArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerPortMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerPortMapping {
+		return vs[0].([]GetVirtualGatewaySpecListenerPortMapping)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerPortMappingOutput)
+}
+
+type GetVirtualGatewaySpecListenerTl struct {
+	// Listener's TLS certificate.
+	Certificates []GetVirtualGatewaySpecListenerTlCertificate `pulumi:"certificates"`
+	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+	Mode string `pulumi:"mode"`
+	// Listener's Transport Layer Security (TLS) validation context.
+	Validations []GetVirtualGatewaySpecListenerTlValidation `pulumi:"validations"`
+}
+
+// GetVirtualGatewaySpecListenerTlInput is an input type that accepts GetVirtualGatewaySpecListenerTlArgs and GetVirtualGatewaySpecListenerTlOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlArgs{...}
+type GetVirtualGatewaySpecListenerTlInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlOutput() GetVirtualGatewaySpecListenerTlOutput
+	ToGetVirtualGatewaySpecListenerTlOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlOutput
+}
+
+type GetVirtualGatewaySpecListenerTlArgs struct {
+	// Listener's TLS certificate.
+	Certificates GetVirtualGatewaySpecListenerTlCertificateArrayInput `pulumi:"certificates"`
+	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Listener's Transport Layer Security (TLS) validation context.
+	Validations GetVirtualGatewaySpecListenerTlValidationArrayInput `pulumi:"validations"`
+}
+
+func (GetVirtualGatewaySpecListenerTlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTl)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlArgs) ToGetVirtualGatewaySpecListenerTlOutput() GetVirtualGatewaySpecListenerTlOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlArgs) ToGetVirtualGatewaySpecListenerTlOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlArray and GetVirtualGatewaySpecListenerTlArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlArray{ GetVirtualGatewaySpecListenerTlArgs{...} }
+type GetVirtualGatewaySpecListenerTlArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlArrayOutput() GetVirtualGatewaySpecListenerTlArrayOutput
+	ToGetVirtualGatewaySpecListenerTlArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlArray []GetVirtualGatewaySpecListenerTlInput
+
+func (GetVirtualGatewaySpecListenerTlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTl)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlArray) ToGetVirtualGatewaySpecListenerTlArrayOutput() GetVirtualGatewaySpecListenerTlArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlArray) ToGetVirtualGatewaySpecListenerTlArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTl)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlOutput) ToGetVirtualGatewaySpecListenerTlOutput() GetVirtualGatewaySpecListenerTlOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlOutput) ToGetVirtualGatewaySpecListenerTlOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlOutput {
+	return o
+}
+
+// Listener's TLS certificate.
+func (o GetVirtualGatewaySpecListenerTlOutput) Certificates() GetVirtualGatewaySpecListenerTlCertificateArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTl) []GetVirtualGatewaySpecListenerTlCertificate {
+		return v.Certificates
+	}).(GetVirtualGatewaySpecListenerTlCertificateArrayOutput)
+}
+
+// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+func (o GetVirtualGatewaySpecListenerTlOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTl) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Listener's Transport Layer Security (TLS) validation context.
+func (o GetVirtualGatewaySpecListenerTlOutput) Validations() GetVirtualGatewaySpecListenerTlValidationArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTl) []GetVirtualGatewaySpecListenerTlValidation {
+		return v.Validations
+	}).(GetVirtualGatewaySpecListenerTlValidationArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTl)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlArrayOutput) ToGetVirtualGatewaySpecListenerTlArrayOutput() GetVirtualGatewaySpecListenerTlArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlArrayOutput) ToGetVirtualGatewaySpecListenerTlArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTl {
+		return vs[0].([]GetVirtualGatewaySpecListenerTl)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificate struct {
+	// An AWS Certificate Manager (ACM) certificate.
+	Acms []GetVirtualGatewaySpecListenerTlCertificateAcm `pulumi:"acms"`
+	// TLS validation context trust for a local file certificate.
+	Files []GetVirtualGatewaySpecListenerTlCertificateFile `pulumi:"files"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds []GetVirtualGatewaySpecListenerTlCertificateSd `pulumi:"sds"`
+}
+
+// GetVirtualGatewaySpecListenerTlCertificateInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateArgs and GetVirtualGatewaySpecListenerTlCertificateOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlCertificateInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlCertificateArgs{...}
+type GetVirtualGatewaySpecListenerTlCertificateInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlCertificateOutput() GetVirtualGatewaySpecListenerTlCertificateOutput
+	ToGetVirtualGatewaySpecListenerTlCertificateOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlCertificateOutput
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateArgs struct {
+	// An AWS Certificate Manager (ACM) certificate.
+	Acms GetVirtualGatewaySpecListenerTlCertificateAcmArrayInput `pulumi:"acms"`
+	// TLS validation context trust for a local file certificate.
+	Files GetVirtualGatewaySpecListenerTlCertificateFileArrayInput `pulumi:"files"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds GetVirtualGatewaySpecListenerTlCertificateSdArrayInput `pulumi:"sds"`
+}
+
+func (GetVirtualGatewaySpecListenerTlCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificate)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateArgs) ToGetVirtualGatewaySpecListenerTlCertificateOutput() GetVirtualGatewaySpecListenerTlCertificateOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlCertificateOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateArgs) ToGetVirtualGatewaySpecListenerTlCertificateOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlCertificateOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlCertificateArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateArray and GetVirtualGatewaySpecListenerTlCertificateArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlCertificateArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlCertificateArray{ GetVirtualGatewaySpecListenerTlCertificateArgs{...} }
+type GetVirtualGatewaySpecListenerTlCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlCertificateArrayOutput() GetVirtualGatewaySpecListenerTlCertificateArrayOutput
+	ToGetVirtualGatewaySpecListenerTlCertificateArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlCertificateArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateArray []GetVirtualGatewaySpecListenerTlCertificateInput
+
+func (GetVirtualGatewaySpecListenerTlCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlCertificate)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateArray) ToGetVirtualGatewaySpecListenerTlCertificateArrayOutput() GetVirtualGatewaySpecListenerTlCertificateArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateArray) ToGetVirtualGatewaySpecListenerTlCertificateArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlCertificateArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificate)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateOutput) ToGetVirtualGatewaySpecListenerTlCertificateOutput() GetVirtualGatewaySpecListenerTlCertificateOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateOutput) ToGetVirtualGatewaySpecListenerTlCertificateOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateOutput {
+	return o
+}
+
+// An AWS Certificate Manager (ACM) certificate.
+func (o GetVirtualGatewaySpecListenerTlCertificateOutput) Acms() GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificate) []GetVirtualGatewaySpecListenerTlCertificateAcm {
+		return v.Acms
+	}).(GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput)
+}
+
+// TLS validation context trust for a local file certificate.
+func (o GetVirtualGatewaySpecListenerTlCertificateOutput) Files() GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificate) []GetVirtualGatewaySpecListenerTlCertificateFile {
+		return v.Files
+	}).(GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput)
+}
+
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o GetVirtualGatewaySpecListenerTlCertificateOutput) Sds() GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificate) []GetVirtualGatewaySpecListenerTlCertificateSd {
+		return v.Sds
+	}).(GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlCertificate)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateArrayOutput) ToGetVirtualGatewaySpecListenerTlCertificateArrayOutput() GetVirtualGatewaySpecListenerTlCertificateArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateArrayOutput) ToGetVirtualGatewaySpecListenerTlCertificateArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlCertificate {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlCertificate)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlCertificateOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateAcm struct {
+	// ARN for the certificate.
+	CertificateArn string `pulumi:"certificateArn"`
+}
+
+// GetVirtualGatewaySpecListenerTlCertificateAcmInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateAcmArgs and GetVirtualGatewaySpecListenerTlCertificateAcmOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlCertificateAcmInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlCertificateAcmArgs{...}
+type GetVirtualGatewaySpecListenerTlCertificateAcmInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlCertificateAcmOutput() GetVirtualGatewaySpecListenerTlCertificateAcmOutput
+	ToGetVirtualGatewaySpecListenerTlCertificateAcmOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlCertificateAcmOutput
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateAcmArgs struct {
+	// ARN for the certificate.
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
+}
+
+func (GetVirtualGatewaySpecListenerTlCertificateAcmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateAcm)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateAcmArgs) ToGetVirtualGatewaySpecListenerTlCertificateAcmOutput() GetVirtualGatewaySpecListenerTlCertificateAcmOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlCertificateAcmOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateAcmArgs) ToGetVirtualGatewaySpecListenerTlCertificateAcmOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateAcmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlCertificateAcmOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlCertificateAcmArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateAcmArray and GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlCertificateAcmArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlCertificateAcmArray{ GetVirtualGatewaySpecListenerTlCertificateAcmArgs{...} }
+type GetVirtualGatewaySpecListenerTlCertificateAcmArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput() GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput
+	ToGetVirtualGatewaySpecListenerTlCertificateAcmArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateAcmArray []GetVirtualGatewaySpecListenerTlCertificateAcmInput
+
+func (GetVirtualGatewaySpecListenerTlCertificateAcmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlCertificateAcm)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateAcmArray) ToGetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput() GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlCertificateAcmArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateAcmArray) ToGetVirtualGatewaySpecListenerTlCertificateAcmArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateAcmOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlCertificateAcmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateAcm)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateAcmOutput) ToGetVirtualGatewaySpecListenerTlCertificateAcmOutput() GetVirtualGatewaySpecListenerTlCertificateAcmOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateAcmOutput) ToGetVirtualGatewaySpecListenerTlCertificateAcmOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateAcmOutput {
+	return o
+}
+
+// ARN for the certificate.
+func (o GetVirtualGatewaySpecListenerTlCertificateAcmOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateAcm) string { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlCertificateAcm)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput) ToGetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput() GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput) ToGetVirtualGatewaySpecListenerTlCertificateAcmArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlCertificateAcmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlCertificateAcm {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlCertificateAcm)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlCertificateAcmOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+	// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey string `pulumi:"privateKey"`
+}
+
+// GetVirtualGatewaySpecListenerTlCertificateFileInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateFileArgs and GetVirtualGatewaySpecListenerTlCertificateFileOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlCertificateFileInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlCertificateFileArgs{...}
+type GetVirtualGatewaySpecListenerTlCertificateFileInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlCertificateFileOutput() GetVirtualGatewaySpecListenerTlCertificateFileOutput
+	ToGetVirtualGatewaySpecListenerTlCertificateFileOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlCertificateFileOutput
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (GetVirtualGatewaySpecListenerTlCertificateFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateFileArgs) ToGetVirtualGatewaySpecListenerTlCertificateFileOutput() GetVirtualGatewaySpecListenerTlCertificateFileOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlCertificateFileOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateFileArgs) ToGetVirtualGatewaySpecListenerTlCertificateFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlCertificateFileOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlCertificateFileArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateFileArray and GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlCertificateFileArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlCertificateFileArray{ GetVirtualGatewaySpecListenerTlCertificateFileArgs{...} }
+type GetVirtualGatewaySpecListenerTlCertificateFileArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlCertificateFileArrayOutput() GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput
+	ToGetVirtualGatewaySpecListenerTlCertificateFileArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateFileArray []GetVirtualGatewaySpecListenerTlCertificateFileInput
+
+func (GetVirtualGatewaySpecListenerTlCertificateFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlCertificateFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateFileArray) ToGetVirtualGatewaySpecListenerTlCertificateFileArrayOutput() GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlCertificateFileArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateFileArray) ToGetVirtualGatewaySpecListenerTlCertificateFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateFileOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlCertificateFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) ToGetVirtualGatewaySpecListenerTlCertificateFileOutput() GetVirtualGatewaySpecListenerTlCertificateFileOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) ToGetVirtualGatewaySpecListenerTlCertificateFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateFileOutput {
+	return o
+}
+
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o GetVirtualGatewaySpecListenerTlCertificateFileOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlCertificateFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput) ToGetVirtualGatewaySpecListenerTlCertificateFileArrayOutput() GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput) ToGetVirtualGatewaySpecListenerTlCertificateFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlCertificateFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlCertificateFile {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlCertificateFile)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlCertificateFileOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateSd struct {
+	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// GetVirtualGatewaySpecListenerTlCertificateSdInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateSdArgs and GetVirtualGatewaySpecListenerTlCertificateSdOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlCertificateSdInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlCertificateSdArgs{...}
+type GetVirtualGatewaySpecListenerTlCertificateSdInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlCertificateSdOutput() GetVirtualGatewaySpecListenerTlCertificateSdOutput
+	ToGetVirtualGatewaySpecListenerTlCertificateSdOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlCertificateSdOutput
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateSdArgs struct {
+	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (GetVirtualGatewaySpecListenerTlCertificateSdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateSd)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateSdArgs) ToGetVirtualGatewaySpecListenerTlCertificateSdOutput() GetVirtualGatewaySpecListenerTlCertificateSdOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlCertificateSdOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateSdArgs) ToGetVirtualGatewaySpecListenerTlCertificateSdOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateSdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlCertificateSdOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlCertificateSdArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlCertificateSdArray and GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlCertificateSdArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlCertificateSdArray{ GetVirtualGatewaySpecListenerTlCertificateSdArgs{...} }
+type GetVirtualGatewaySpecListenerTlCertificateSdArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlCertificateSdArrayOutput() GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput
+	ToGetVirtualGatewaySpecListenerTlCertificateSdArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateSdArray []GetVirtualGatewaySpecListenerTlCertificateSdInput
+
+func (GetVirtualGatewaySpecListenerTlCertificateSdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlCertificateSd)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateSdArray) ToGetVirtualGatewaySpecListenerTlCertificateSdArrayOutput() GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlCertificateSdArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlCertificateSdArray) ToGetVirtualGatewaySpecListenerTlCertificateSdArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateSdOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlCertificateSdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateSd)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateSdOutput) ToGetVirtualGatewaySpecListenerTlCertificateSdOutput() GetVirtualGatewaySpecListenerTlCertificateSdOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateSdOutput) ToGetVirtualGatewaySpecListenerTlCertificateSdOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateSdOutput {
+	return o
+}
+
+// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o GetVirtualGatewaySpecListenerTlCertificateSdOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlCertificateSd)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput) ToGetVirtualGatewaySpecListenerTlCertificateSdArrayOutput() GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput) ToGetVirtualGatewaySpecListenerTlCertificateSdArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlCertificateSdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlCertificateSd {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlCertificateSd)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlCertificateSdOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidation struct {
+	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	SubjectAlternativeNames []GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName `pulumi:"subjectAlternativeNames"`
+	// TLS validation context trust.
+	Trusts []GetVirtualGatewaySpecListenerTlValidationTrust `pulumi:"trusts"`
+}
+
+// GetVirtualGatewaySpecListenerTlValidationInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationArgs and GetVirtualGatewaySpecListenerTlValidationOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationArgs{...}
+type GetVirtualGatewaySpecListenerTlValidationInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationOutput() GetVirtualGatewaySpecListenerTlValidationOutput
+	ToGetVirtualGatewaySpecListenerTlValidationOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationArgs struct {
+	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	SubjectAlternativeNames GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayInput `pulumi:"subjectAlternativeNames"`
+	// TLS validation context trust.
+	Trusts GetVirtualGatewaySpecListenerTlValidationTrustArrayInput `pulumi:"trusts"`
+}
+
+func (GetVirtualGatewaySpecListenerTlValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidation)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationArgs) ToGetVirtualGatewaySpecListenerTlValidationOutput() GetVirtualGatewaySpecListenerTlValidationOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationArgs) ToGetVirtualGatewaySpecListenerTlValidationOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlValidationArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationArray and GetVirtualGatewaySpecListenerTlValidationArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationArray{ GetVirtualGatewaySpecListenerTlValidationArgs{...} }
+type GetVirtualGatewaySpecListenerTlValidationArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationArrayOutput() GetVirtualGatewaySpecListenerTlValidationArrayOutput
+	ToGetVirtualGatewaySpecListenerTlValidationArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationArray []GetVirtualGatewaySpecListenerTlValidationInput
+
+func (GetVirtualGatewaySpecListenerTlValidationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidation)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationArray) ToGetVirtualGatewaySpecListenerTlValidationArrayOutput() GetVirtualGatewaySpecListenerTlValidationArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationArray) ToGetVirtualGatewaySpecListenerTlValidationArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidation)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationOutput) ToGetVirtualGatewaySpecListenerTlValidationOutput() GetVirtualGatewaySpecListenerTlValidationOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationOutput) ToGetVirtualGatewaySpecListenerTlValidationOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationOutput {
+	return o
+}
+
+// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+func (o GetVirtualGatewaySpecListenerTlValidationOutput) SubjectAlternativeNames() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidation) []GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName {
+		return v.SubjectAlternativeNames
+	}).(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput)
+}
+
+// TLS validation context trust.
+func (o GetVirtualGatewaySpecListenerTlValidationOutput) Trusts() GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidation) []GetVirtualGatewaySpecListenerTlValidationTrust {
+		return v.Trusts
+	}).(GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidation)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationArrayOutput() GetVirtualGatewaySpecListenerTlValidationArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlValidationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlValidation {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlValidation)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlValidationOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName struct {
+	// Criteria for determining a SAN's match.
+	Matches []GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch `pulumi:"matches"`
+}
+
+// GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs and GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs{...}
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput
+	ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs struct {
+	// Criteria for determining a SAN's match.
+	Matches GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayInput `pulumi:"matches"`
+}
+
+func (GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArray and GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArray{ GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs{...} }
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput
+	ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArray []GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameInput
+
+func (GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArray) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArray) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput {
+	return o
+}
+
+// Criteria for determining a SAN's match.
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput) Matches() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName) []GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch {
+		return v.Matches
+	}).(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch struct {
+	// Values sent must match the specified values exactly.
+	Exacts []string `pulumi:"exacts"`
+}
+
+// GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs and GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs{...}
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput
+	ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs struct {
+	// Values sent must match the specified values exactly.
+	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
+}
+
+func (GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArray and GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArray{ GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs{...} }
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput
+	ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArray []GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchInput
+
+func (GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArray) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArray) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput {
+	return o
+}
+
+// Values sent must match the specified values exactly.
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput) Exacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch) []string { return v.Exacts }).(pulumi.StringArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput() GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrust struct {
+	// TLS validation context trust for a local file certificate.
+	Files []GetVirtualGatewaySpecListenerTlValidationTrustFile `pulumi:"files"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds []GetVirtualGatewaySpecListenerTlValidationTrustSd `pulumi:"sds"`
+}
+
+// GetVirtualGatewaySpecListenerTlValidationTrustInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationTrustArgs and GetVirtualGatewaySpecListenerTlValidationTrustOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationTrustInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationTrustArgs{...}
+type GetVirtualGatewaySpecListenerTlValidationTrustInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationTrustOutput() GetVirtualGatewaySpecListenerTlValidationTrustOutput
+	ToGetVirtualGatewaySpecListenerTlValidationTrustOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationTrustOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustArgs struct {
+	// TLS validation context trust for a local file certificate.
+	Files GetVirtualGatewaySpecListenerTlValidationTrustFileArrayInput `pulumi:"files"`
+	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+	Sds GetVirtualGatewaySpecListenerTlValidationTrustSdArrayInput `pulumi:"sds"`
+}
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrust)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustArgs) ToGetVirtualGatewaySpecListenerTlValidationTrustOutput() GetVirtualGatewaySpecListenerTlValidationTrustOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationTrustOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustArgs) ToGetVirtualGatewaySpecListenerTlValidationTrustOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationTrustOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlValidationTrustArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationTrustArray and GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationTrustArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationTrustArray{ GetVirtualGatewaySpecListenerTlValidationTrustArgs{...} }
+type GetVirtualGatewaySpecListenerTlValidationTrustArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationTrustArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput
+	ToGetVirtualGatewaySpecListenerTlValidationTrustArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustArray []GetVirtualGatewaySpecListenerTlValidationTrustInput
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationTrust)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustArray) ToGetVirtualGatewaySpecListenerTlValidationTrustArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationTrustArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustArray) ToGetVirtualGatewaySpecListenerTlValidationTrustArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrust)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustOutput() GetVirtualGatewaySpecListenerTlValidationTrustOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustOutput {
+	return o
+}
+
+// TLS validation context trust for a local file certificate.
+func (o GetVirtualGatewaySpecListenerTlValidationTrustOutput) Files() GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationTrust) []GetVirtualGatewaySpecListenerTlValidationTrustFile {
+		return v.Files
+	}).(GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput)
+}
+
+// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+func (o GetVirtualGatewaySpecListenerTlValidationTrustOutput) Sds() GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationTrust) []GetVirtualGatewaySpecListenerTlValidationTrustSd {
+		return v.Sds
+	}).(GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationTrust)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlValidationTrustOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlValidationTrust {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlValidationTrust)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlValidationTrustOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustFile struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain string `pulumi:"certificateChain"`
+}
+
+// GetVirtualGatewaySpecListenerTlValidationTrustFileInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationTrustFileArgs and GetVirtualGatewaySpecListenerTlValidationTrustFileOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationTrustFileInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationTrustFileArgs{...}
+type GetVirtualGatewaySpecListenerTlValidationTrustFileInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationTrustFileOutput() GetVirtualGatewaySpecListenerTlValidationTrustFileOutput
+	ToGetVirtualGatewaySpecListenerTlValidationTrustFileOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationTrustFileOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustFileArgs struct {
+	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+}
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustFileArgs) ToGetVirtualGatewaySpecListenerTlValidationTrustFileOutput() GetVirtualGatewaySpecListenerTlValidationTrustFileOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationTrustFileOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustFileArgs) ToGetVirtualGatewaySpecListenerTlValidationTrustFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationTrustFileOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlValidationTrustFileArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationTrustFileArray and GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationTrustFileArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationTrustFileArray{ GetVirtualGatewaySpecListenerTlValidationTrustFileArgs{...} }
+type GetVirtualGatewaySpecListenerTlValidationTrustFileArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput
+	ToGetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustFileArray []GetVirtualGatewaySpecListenerTlValidationTrustFileInput
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationTrustFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustFileArray) ToGetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustFileArray) ToGetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustFileOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustFileOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustFileOutput() GetVirtualGatewaySpecListenerTlValidationTrustFileOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustFileOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustFileOutput {
+	return o
+}
+
+// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+func (o GetVirtualGatewaySpecListenerTlValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationTrustFile) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationTrustFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlValidationTrustFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlValidationTrustFile {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlValidationTrustFile)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlValidationTrustFileOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustSd struct {
+	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName string `pulumi:"secretName"`
+}
+
+// GetVirtualGatewaySpecListenerTlValidationTrustSdInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationTrustSdArgs and GetVirtualGatewaySpecListenerTlValidationTrustSdOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationTrustSdInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationTrustSdArgs{...}
+type GetVirtualGatewaySpecListenerTlValidationTrustSdInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationTrustSdOutput() GetVirtualGatewaySpecListenerTlValidationTrustSdOutput
+	ToGetVirtualGatewaySpecListenerTlValidationTrustSdOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationTrustSdOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustSdArgs struct {
+	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustSdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustSd)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustSdArgs) ToGetVirtualGatewaySpecListenerTlValidationTrustSdOutput() GetVirtualGatewaySpecListenerTlValidationTrustSdOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationTrustSdOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustSdArgs) ToGetVirtualGatewaySpecListenerTlValidationTrustSdOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustSdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationTrustSdOutput)
+}
+
+// GetVirtualGatewaySpecListenerTlValidationTrustSdArrayInput is an input type that accepts GetVirtualGatewaySpecListenerTlValidationTrustSdArray and GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecListenerTlValidationTrustSdArrayInput` via:
+//
+//	GetVirtualGatewaySpecListenerTlValidationTrustSdArray{ GetVirtualGatewaySpecListenerTlValidationTrustSdArgs{...} }
+type GetVirtualGatewaySpecListenerTlValidationTrustSdArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput
+	ToGetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutputWithContext(context.Context) GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustSdArray []GetVirtualGatewaySpecListenerTlValidationTrustSdInput
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustSdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationTrustSd)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustSdArray) ToGetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput {
+	return i.ToGetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecListenerTlValidationTrustSdArray) ToGetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustSdOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustSdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustSd)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustSdOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustSdOutput() GetVirtualGatewaySpecListenerTlValidationTrustSdOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustSdOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustSdOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustSdOutput {
+	return o
+}
+
+// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+func (o GetVirtualGatewaySpecListenerTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecListenerTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecListenerTlValidationTrustSd)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput() GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput) ToGetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecListenerTlValidationTrustSdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecListenerTlValidationTrustSd {
+		return vs[0].([]GetVirtualGatewaySpecListenerTlValidationTrustSd)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecListenerTlValidationTrustSdOutput)
+}
+
+type GetVirtualGatewaySpecLogging struct {
+	// Access log configuration for a virtual gateway.
+	AccessLogs []GetVirtualGatewaySpecLoggingAccessLog `pulumi:"accessLogs"`
+}
+
+// GetVirtualGatewaySpecLoggingInput is an input type that accepts GetVirtualGatewaySpecLoggingArgs and GetVirtualGatewaySpecLoggingOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingInput` via:
+//
+//	GetVirtualGatewaySpecLoggingArgs{...}
+type GetVirtualGatewaySpecLoggingInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingOutput() GetVirtualGatewaySpecLoggingOutput
+	ToGetVirtualGatewaySpecLoggingOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingOutput
+}
+
+type GetVirtualGatewaySpecLoggingArgs struct {
+	// Access log configuration for a virtual gateway.
+	AccessLogs GetVirtualGatewaySpecLoggingAccessLogArrayInput `pulumi:"accessLogs"`
+}
+
+func (GetVirtualGatewaySpecLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLogging)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingArgs) ToGetVirtualGatewaySpecLoggingOutput() GetVirtualGatewaySpecLoggingOutput {
+	return i.ToGetVirtualGatewaySpecLoggingOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingArgs) ToGetVirtualGatewaySpecLoggingOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingOutput)
+}
+
+// GetVirtualGatewaySpecLoggingArrayInput is an input type that accepts GetVirtualGatewaySpecLoggingArray and GetVirtualGatewaySpecLoggingArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingArrayInput` via:
+//
+//	GetVirtualGatewaySpecLoggingArray{ GetVirtualGatewaySpecLoggingArgs{...} }
+type GetVirtualGatewaySpecLoggingArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingArrayOutput() GetVirtualGatewaySpecLoggingArrayOutput
+	ToGetVirtualGatewaySpecLoggingArrayOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingArrayOutput
+}
+
+type GetVirtualGatewaySpecLoggingArray []GetVirtualGatewaySpecLoggingInput
+
+func (GetVirtualGatewaySpecLoggingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLogging)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingArray) ToGetVirtualGatewaySpecLoggingArrayOutput() GetVirtualGatewaySpecLoggingArrayOutput {
+	return i.ToGetVirtualGatewaySpecLoggingArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingArray) ToGetVirtualGatewaySpecLoggingArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingArrayOutput)
+}
+
+type GetVirtualGatewaySpecLoggingOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLogging)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingOutput) ToGetVirtualGatewaySpecLoggingOutput() GetVirtualGatewaySpecLoggingOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingOutput) ToGetVirtualGatewaySpecLoggingOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingOutput {
+	return o
+}
+
+// Access log configuration for a virtual gateway.
+func (o GetVirtualGatewaySpecLoggingOutput) AccessLogs() GetVirtualGatewaySpecLoggingAccessLogArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLogging) []GetVirtualGatewaySpecLoggingAccessLog { return v.AccessLogs }).(GetVirtualGatewaySpecLoggingAccessLogArrayOutput)
+}
+
+type GetVirtualGatewaySpecLoggingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLogging)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingArrayOutput) ToGetVirtualGatewaySpecLoggingArrayOutput() GetVirtualGatewaySpecLoggingArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingArrayOutput) ToGetVirtualGatewaySpecLoggingArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecLoggingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecLogging {
+		return vs[0].([]GetVirtualGatewaySpecLogging)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecLoggingOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLog struct {
+	// TLS validation context trust for a local file certificate.
+	Files []GetVirtualGatewaySpecLoggingAccessLogFile `pulumi:"files"`
+}
+
+// GetVirtualGatewaySpecLoggingAccessLogInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogArgs and GetVirtualGatewaySpecLoggingAccessLogOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingAccessLogInput` via:
+//
+//	GetVirtualGatewaySpecLoggingAccessLogArgs{...}
+type GetVirtualGatewaySpecLoggingAccessLogInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingAccessLogOutput() GetVirtualGatewaySpecLoggingAccessLogOutput
+	ToGetVirtualGatewaySpecLoggingAccessLogOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingAccessLogOutput
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogArgs struct {
+	// TLS validation context trust for a local file certificate.
+	Files GetVirtualGatewaySpecLoggingAccessLogFileArrayInput `pulumi:"files"`
+}
+
+func (GetVirtualGatewaySpecLoggingAccessLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLog)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogArgs) ToGetVirtualGatewaySpecLoggingAccessLogOutput() GetVirtualGatewaySpecLoggingAccessLogOutput {
+	return i.ToGetVirtualGatewaySpecLoggingAccessLogOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogArgs) ToGetVirtualGatewaySpecLoggingAccessLogOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingAccessLogOutput)
+}
+
+// GetVirtualGatewaySpecLoggingAccessLogArrayInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogArray and GetVirtualGatewaySpecLoggingAccessLogArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingAccessLogArrayInput` via:
+//
+//	GetVirtualGatewaySpecLoggingAccessLogArray{ GetVirtualGatewaySpecLoggingAccessLogArgs{...} }
+type GetVirtualGatewaySpecLoggingAccessLogArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingAccessLogArrayOutput() GetVirtualGatewaySpecLoggingAccessLogArrayOutput
+	ToGetVirtualGatewaySpecLoggingAccessLogArrayOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingAccessLogArrayOutput
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogArray []GetVirtualGatewaySpecLoggingAccessLogInput
+
+func (GetVirtualGatewaySpecLoggingAccessLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLoggingAccessLog)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogArray) ToGetVirtualGatewaySpecLoggingAccessLogArrayOutput() GetVirtualGatewaySpecLoggingAccessLogArrayOutput {
+	return i.ToGetVirtualGatewaySpecLoggingAccessLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogArray) ToGetVirtualGatewaySpecLoggingAccessLogArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingAccessLogArrayOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingAccessLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLog)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogOutput) ToGetVirtualGatewaySpecLoggingAccessLogOutput() GetVirtualGatewaySpecLoggingAccessLogOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogOutput) ToGetVirtualGatewaySpecLoggingAccessLogOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogOutput {
+	return o
+}
+
+// TLS validation context trust for a local file certificate.
+func (o GetVirtualGatewaySpecLoggingAccessLogOutput) Files() GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLog) []GetVirtualGatewaySpecLoggingAccessLogFile {
+		return v.Files
+	}).(GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingAccessLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLoggingAccessLog)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogArrayOutput) ToGetVirtualGatewaySpecLoggingAccessLogArrayOutput() GetVirtualGatewaySpecLoggingAccessLogArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogArrayOutput) ToGetVirtualGatewaySpecLoggingAccessLogArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecLoggingAccessLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecLoggingAccessLog {
+		return vs[0].([]GetVirtualGatewaySpecLoggingAccessLog)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecLoggingAccessLogOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFile struct {
+	Formats []GetVirtualGatewaySpecLoggingAccessLogFileFormat `pulumi:"formats"`
+	// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+	Path string `pulumi:"path"`
+}
+
+// GetVirtualGatewaySpecLoggingAccessLogFileInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileArgs and GetVirtualGatewaySpecLoggingAccessLogFileOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingAccessLogFileInput` via:
+//
+//	GetVirtualGatewaySpecLoggingAccessLogFileArgs{...}
+type GetVirtualGatewaySpecLoggingAccessLogFileInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingAccessLogFileOutput() GetVirtualGatewaySpecLoggingAccessLogFileOutput
+	ToGetVirtualGatewaySpecLoggingAccessLogFileOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingAccessLogFileOutput
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileArgs struct {
+	Formats GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayInput `pulumi:"formats"`
+	// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileArgs) ToGetVirtualGatewaySpecLoggingAccessLogFileOutput() GetVirtualGatewaySpecLoggingAccessLogFileOutput {
+	return i.ToGetVirtualGatewaySpecLoggingAccessLogFileOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileArgs) ToGetVirtualGatewaySpecLoggingAccessLogFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingAccessLogFileOutput)
+}
+
+// GetVirtualGatewaySpecLoggingAccessLogFileArrayInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileArray and GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingAccessLogFileArrayInput` via:
+//
+//	GetVirtualGatewaySpecLoggingAccessLogFileArray{ GetVirtualGatewaySpecLoggingAccessLogFileArgs{...} }
+type GetVirtualGatewaySpecLoggingAccessLogFileArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingAccessLogFileArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput
+	ToGetVirtualGatewaySpecLoggingAccessLogFileArrayOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileArray []GetVirtualGatewaySpecLoggingAccessLogFileInput
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLoggingAccessLogFile)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileArray) ToGetVirtualGatewaySpecLoggingAccessLogFileArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput {
+	return i.ToGetVirtualGatewaySpecLoggingAccessLogFileArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileArray) ToGetVirtualGatewaySpecLoggingAccessLogFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileOutput() GetVirtualGatewaySpecLoggingAccessLogFileOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileOutput) Formats() GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFile) []GetVirtualGatewaySpecLoggingAccessLogFileFormat {
+		return v.Formats
+	}).(GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput)
+}
+
+// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+func (o GetVirtualGatewaySpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLoggingAccessLogFile)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecLoggingAccessLogFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecLoggingAccessLogFile {
+		return vs[0].([]GetVirtualGatewaySpecLoggingAccessLogFile)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecLoggingAccessLogFileOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormat struct {
+	Jsons []GetVirtualGatewaySpecLoggingAccessLogFileFormatJson `pulumi:"jsons"`
+	Text  string                                                `pulumi:"text"`
+}
+
+// GetVirtualGatewaySpecLoggingAccessLogFileFormatInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs and GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingAccessLogFileFormatInput` via:
+//
+//	GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs{...}
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingAccessLogFileFormatOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput
+	ToGetVirtualGatewaySpecLoggingAccessLogFileFormatOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs struct {
+	Jsons GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput `pulumi:"jsons"`
+	Text  pulumi.StringInput                                            `pulumi:"text"`
+}
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return i.ToGetVirtualGatewaySpecLoggingAccessLogFileFormatOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput)
+}
+
+// GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileFormatArray and GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayInput` via:
+//
+//	GetVirtualGatewaySpecLoggingAccessLogFileFormatArray{ GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs{...} }
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput
+	ToGetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatArray []GetVirtualGatewaySpecLoggingAccessLogFileFormatInput
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileFormatArray) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput {
+	return i.ToGetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileFormatArray) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput) Jsons() GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormat) []GetVirtualGatewaySpecLoggingAccessLogFileFormatJson {
+		return v.Jsons
+	}).(GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput)
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormat) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLoggingAccessLogFileFormat)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecLoggingAccessLogFileFormat {
+		return vs[0].([]GetVirtualGatewaySpecLoggingAccessLogFileFormat)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatJson struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs and GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonInput` via:
+//
+//	GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs{...}
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput
+	ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return i.ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput)
+}
+
+// GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput is an input type that accepts GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArray and GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput values.
+// You can construct a concrete instance of `GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput` via:
+//
+//	GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArray{ GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs{...} }
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput
+	ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArray []GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonInput
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArray) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return i.ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArray) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormatJson) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualGatewaySpecLoggingAccessLogFileFormatJson) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualGatewaySpecLoggingAccessLogFileFormatJson)(nil)).Elem()
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput() GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) ToGetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutputWithContext(ctx context.Context) GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput {
+	return o
+}
+
+func (o GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput) Index(i pulumi.IntInput) GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualGatewaySpecLoggingAccessLogFileFormatJson {
+		return vs[0].([]GetVirtualGatewaySpecLoggingAccessLogFileFormatJson)[vs[1].(int)]
+	}).(GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput)
+}
+
 type GetVirtualServiceSpec struct {
 	// App Mesh object that is acting as the provider for a virtual service.
 	Providers []GetVirtualServiceSpecProvider `pulumi:"providers"`
@@ -28724,6 +37849,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogPtrInput)(nil)).Elem(), VirtualGatewaySpecLoggingAccessLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileInput)(nil)).Elem(), VirtualGatewaySpecLoggingAccessLogFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFilePtrInput)(nil)).Elem(), VirtualGatewaySpecLoggingAccessLogFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileFormatInput)(nil)).Elem(), VirtualGatewaySpecLoggingAccessLogFileFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileFormatPtrInput)(nil)).Elem(), VirtualGatewaySpecLoggingAccessLogFileFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileFormatJsonInput)(nil)).Elem(), VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput)(nil)).Elem(), VirtualGatewaySpecLoggingAccessLogFileFormatJsonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecInput)(nil)).Elem(), VirtualNodeSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecPtrInput)(nil)).Elem(), VirtualNodeSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecBackendInput)(nil)).Elem(), VirtualNodeSpecBackendArgs{})
@@ -28853,6 +37982,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogPtrInput)(nil)).Elem(), VirtualNodeSpecLoggingAccessLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileInput)(nil)).Elem(), VirtualNodeSpecLoggingAccessLogFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFilePtrInput)(nil)).Elem(), VirtualNodeSpecLoggingAccessLogFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileFormatInput)(nil)).Elem(), VirtualNodeSpecLoggingAccessLogFileFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileFormatPtrInput)(nil)).Elem(), VirtualNodeSpecLoggingAccessLogFileFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileFormatJsonInput)(nil)).Elem(), VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayInput)(nil)).Elem(), VirtualNodeSpecLoggingAccessLogFileFormatJsonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecServiceDiscoveryInput)(nil)).Elem(), VirtualNodeSpecServiceDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecServiceDiscoveryPtrInput)(nil)).Elem(), VirtualNodeSpecServiceDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecServiceDiscoveryAwsCloudMapInput)(nil)).Elem(), VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs{})
@@ -28877,6 +38010,166 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMeshSpecArrayInput)(nil)).Elem(), GetMeshSpecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMeshSpecEgressFilterInput)(nil)).Elem(), GetMeshSpecEgressFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMeshSpecEgressFilterArrayInput)(nil)).Elem(), GetMeshSpecEgressFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecInput)(nil)).Elem(), GetRouteSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecArrayInput)(nil)).Elem(), GetRouteSpecArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteInput)(nil)).Elem(), GetRouteSpecGrpcRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteActionInput)(nil)).Elem(), GetRouteSpecGrpcRouteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteActionArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteActionWeightedTargetInput)(nil)).Elem(), GetRouteSpecGrpcRouteActionWeightedTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteActionWeightedTargetArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteActionWeightedTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteMatchInput)(nil)).Elem(), GetRouteSpecGrpcRouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteMatchArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataInput)(nil)).Elem(), GetRouteSpecGrpcRouteMatchMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteMatchMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataMatchInput)(nil)).Elem(), GetRouteSpecGrpcRouteMatchMetadataMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataMatchArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteMatchMetadataMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataMatchRangeInput)(nil)).Elem(), GetRouteSpecGrpcRouteMatchMetadataMatchRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteMatchMetadataMatchRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteRetryPolicyInput)(nil)).Elem(), GetRouteSpecGrpcRouteRetryPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteRetryPolicyArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteRetryPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput)(nil)).Elem(), GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutInput)(nil)).Elem(), GetRouteSpecGrpcRouteTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteTimeoutArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutIdleInput)(nil)).Elem(), GetRouteSpecGrpcRouteTimeoutIdleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutIdleArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteTimeoutIdleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutPerRequestInput)(nil)).Elem(), GetRouteSpecGrpcRouteTimeoutPerRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecGrpcRouteTimeoutPerRequestArrayInput)(nil)).Elem(), GetRouteSpecGrpcRouteTimeoutPerRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteInput)(nil)).Elem(), GetRouteSpecHttp2RouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteActionInput)(nil)).Elem(), GetRouteSpecHttp2RouteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteActionArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteActionWeightedTargetInput)(nil)).Elem(), GetRouteSpecHttp2RouteActionWeightedTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteActionWeightedTargetArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteActionWeightedTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteMatchInput)(nil)).Elem(), GetRouteSpecHttp2RouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteMatchArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderInput)(nil)).Elem(), GetRouteSpecHttp2RouteMatchHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteMatchHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderMatchInput)(nil)).Elem(), GetRouteSpecHttp2RouteMatchHeaderMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderMatchArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteMatchHeaderMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderMatchRangeInput)(nil)).Elem(), GetRouteSpecHttp2RouteMatchHeaderMatchRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteMatchHeaderMatchRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteRetryPolicyInput)(nil)).Elem(), GetRouteSpecHttp2RouteRetryPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteRetryPolicyArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteRetryPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput)(nil)).Elem(), GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutInput)(nil)).Elem(), GetRouteSpecHttp2RouteTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteTimeoutArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutIdleInput)(nil)).Elem(), GetRouteSpecHttp2RouteTimeoutIdleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutIdleArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteTimeoutIdleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutPerRequestInput)(nil)).Elem(), GetRouteSpecHttp2RouteTimeoutPerRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttp2RouteTimeoutPerRequestArrayInput)(nil)).Elem(), GetRouteSpecHttp2RouteTimeoutPerRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteInput)(nil)).Elem(), GetRouteSpecHttpRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteActionInput)(nil)).Elem(), GetRouteSpecHttpRouteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteActionArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteActionWeightedTargetInput)(nil)).Elem(), GetRouteSpecHttpRouteActionWeightedTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteActionWeightedTargetArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteActionWeightedTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteMatchInput)(nil)).Elem(), GetRouteSpecHttpRouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteMatchArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderInput)(nil)).Elem(), GetRouteSpecHttpRouteMatchHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteMatchHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderMatchInput)(nil)).Elem(), GetRouteSpecHttpRouteMatchHeaderMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderMatchArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteMatchHeaderMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderMatchRangeInput)(nil)).Elem(), GetRouteSpecHttpRouteMatchHeaderMatchRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteMatchHeaderMatchRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteRetryPolicyInput)(nil)).Elem(), GetRouteSpecHttpRouteRetryPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteRetryPolicyArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteRetryPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput)(nil)).Elem(), GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutInput)(nil)).Elem(), GetRouteSpecHttpRouteTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteTimeoutArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutIdleInput)(nil)).Elem(), GetRouteSpecHttpRouteTimeoutIdleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutIdleArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteTimeoutIdleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutPerRequestInput)(nil)).Elem(), GetRouteSpecHttpRouteTimeoutPerRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecHttpRouteTimeoutPerRequestArrayInput)(nil)).Elem(), GetRouteSpecHttpRouteTimeoutPerRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteInput)(nil)).Elem(), GetRouteSpecTcpRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteArrayInput)(nil)).Elem(), GetRouteSpecTcpRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteActionInput)(nil)).Elem(), GetRouteSpecTcpRouteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteActionArrayInput)(nil)).Elem(), GetRouteSpecTcpRouteActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteActionWeightedTargetInput)(nil)).Elem(), GetRouteSpecTcpRouteActionWeightedTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteActionWeightedTargetArrayInput)(nil)).Elem(), GetRouteSpecTcpRouteActionWeightedTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteMatchInput)(nil)).Elem(), GetRouteSpecTcpRouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteMatchArrayInput)(nil)).Elem(), GetRouteSpecTcpRouteMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteTimeoutInput)(nil)).Elem(), GetRouteSpecTcpRouteTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteTimeoutArrayInput)(nil)).Elem(), GetRouteSpecTcpRouteTimeoutArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteTimeoutIdleInput)(nil)).Elem(), GetRouteSpecTcpRouteTimeoutIdleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteSpecTcpRouteTimeoutIdleArrayInput)(nil)).Elem(), GetRouteSpecTcpRouteTimeoutIdleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecInput)(nil)).Elem(), GetVirtualGatewaySpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecArrayInput)(nil)).Elem(), GetVirtualGatewaySpecArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayInput)(nil)).Elem(), GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerInput)(nil)).Elem(), GetVirtualGatewaySpecListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolInput)(nil)).Elem(), GetVirtualGatewaySpecListenerConnectionPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerConnectionPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolGrpcInput)(nil)).Elem(), GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerConnectionPoolGrpcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolHttp2Input)(nil)).Elem(), GetVirtualGatewaySpecListenerConnectionPoolHttp2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerConnectionPoolHttp2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolHttpInput)(nil)).Elem(), GetVirtualGatewaySpecListenerConnectionPoolHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerConnectionPoolHttpArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerConnectionPoolHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerHealthCheckInput)(nil)).Elem(), GetVirtualGatewaySpecListenerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerHealthCheckArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerHealthCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerPortMappingInput)(nil)).Elem(), GetVirtualGatewaySpecListenerPortMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerPortMappingArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerPortMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateAcmInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlCertificateAcmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateAcmArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlCertificateAcmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateFileInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlCertificateFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateFileArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlCertificateFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateSdInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlCertificateSdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlCertificateSdArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlCertificateSdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationTrustArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationTrustArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustFileInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationTrustFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustFileArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationTrustFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustSdInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationTrustSdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecListenerTlValidationTrustSdArrayInput)(nil)).Elem(), GetVirtualGatewaySpecListenerTlValidationTrustSdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingArrayInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingAccessLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogArrayInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingAccessLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingAccessLogFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileArrayInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingAccessLogFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileFormatInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingAccessLogFileFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingAccessLogFileFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayInput)(nil)).Elem(), GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualServiceSpecInput)(nil)).Elem(), GetVirtualServiceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualServiceSpecArrayInput)(nil)).Elem(), GetVirtualServiceSpecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualServiceSpecProviderInput)(nil)).Elem(), GetVirtualServiceSpecProviderArgs{})
@@ -29093,6 +38386,10 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingAccessLogPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingAccessLogFileOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingAccessLogFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingAccessLogFileFormatOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingAccessLogFileFormatPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendOutput{})
@@ -29222,6 +38519,10 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogFileOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogFilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogFileFormatOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogFileFormatPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogFileFormatJsonOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogFileFormatJsonArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecServiceDiscoveryOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecServiceDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput{})
@@ -29246,6 +38547,166 @@ func init() {
 	pulumi.RegisterOutputType(GetMeshSpecArrayOutput{})
 	pulumi.RegisterOutputType(GetMeshSpecEgressFilterOutput{})
 	pulumi.RegisterOutputType(GetMeshSpecEgressFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteActionOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteActionArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteActionWeightedTargetOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteMatchOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteMatchMetadataOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteMatchMetadataArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteMatchMetadataMatchOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteMatchMetadataMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteMatchMetadataMatchRangeOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteMatchMetadataMatchRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteRetryPolicyOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteRetryPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteTimeoutOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteTimeoutArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteTimeoutIdleOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteTimeoutIdleArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteTimeoutPerRequestOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecGrpcRouteTimeoutPerRequestArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteActionOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteActionArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteActionWeightedTargetOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteMatchOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteMatchHeaderOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteMatchHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteMatchHeaderMatchOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteMatchHeaderMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteMatchHeaderMatchRangeOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteMatchHeaderMatchRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteRetryPolicyOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteRetryPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteTimeoutOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteTimeoutArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteTimeoutIdleOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteTimeoutIdleArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteTimeoutPerRequestOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttp2RouteTimeoutPerRequestArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteActionOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteActionArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteActionWeightedTargetOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteMatchOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteMatchHeaderOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteMatchHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteMatchHeaderMatchOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteMatchHeaderMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteMatchHeaderMatchRangeOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteMatchHeaderMatchRangeArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteRetryPolicyOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteRetryPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteTimeoutOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteTimeoutArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteTimeoutIdleOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteTimeoutIdleArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteTimeoutPerRequestOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecHttpRouteTimeoutPerRequestArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteActionOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteActionArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteActionWeightedTargetOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteMatchOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteTimeoutOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteTimeoutArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteTimeoutIdleOutput{})
+	pulumi.RegisterOutputType(GetRouteSpecTcpRouteTimeoutIdleArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerConnectionPoolOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerConnectionPoolArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerConnectionPoolGrpcOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerConnectionPoolGrpcArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerConnectionPoolHttp2Output{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerConnectionPoolHttp2ArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerConnectionPoolHttpOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerConnectionPoolHttpArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerHealthCheckOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerHealthCheckArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerPortMappingOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerPortMappingArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlCertificateOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlCertificateAcmOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlCertificateAcmArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlCertificateFileOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlCertificateFileArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlCertificateSdOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlCertificateSdArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationTrustOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationTrustArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationTrustFileOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationTrustFileArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationTrustSdOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecListenerTlValidationTrustSdArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingAccessLogOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingAccessLogArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingAccessLogFileOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingAccessLogFileArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingAccessLogFileFormatOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingAccessLogFileFormatArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonOutput{})
+	pulumi.RegisterOutputType(GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualServiceSpecOutput{})
 	pulumi.RegisterOutputType(GetVirtualServiceSpecArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualServiceSpecProviderOutput{})

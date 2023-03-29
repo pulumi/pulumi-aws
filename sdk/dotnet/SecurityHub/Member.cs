@@ -60,7 +60,7 @@ namespace Pulumi.Aws.SecurityHub
         /// The email of the member AWS account.
         /// </summary>
         [Output("email")]
-        public Output<string> Email { get; private set; } = null!;
+        public Output<string?> Email { get; private set; } = null!;
 
         /// <summary>
         /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
@@ -135,8 +135,8 @@ namespace Pulumi.Aws.SecurityHub
         /// <summary>
         /// The email of the member AWS account.
         /// </summary>
-        [Input("email", required: true)]
-        public Input<string> Email { get; set; } = null!;
+        [Input("email")]
+        public Input<string>? Email { get; set; }
 
         /// <summary>
         /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.

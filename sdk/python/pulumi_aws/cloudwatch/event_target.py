@@ -40,7 +40,8 @@ class EventTargetArgs:
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with the rule.
+               If you omit this, the `default` event bus is used.
         :param pulumi.Input['EventTargetHttpTargetArgs'] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
@@ -150,7 +151,8 @@ class EventTargetArgs:
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        The name or ARN of the event bus to associate with the rule.
+        If you omit this, the `default` event bus is used.
         """
         return pulumi.get(self, "event_bus_name")
 
@@ -317,7 +319,8 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with the rule.
+               If you omit this, the `default` event bus is used.
         :param pulumi.Input['EventTargetHttpTargetArgs'] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
@@ -418,7 +421,8 @@ class _EventTargetState:
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        The name or ARN of the event bus to associate with the rule.
+        If you omit this, the `default` event bus is used.
         """
         return pulumi.get(self, "event_bus_name")
 
@@ -878,7 +882,8 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with the rule.
+               If you omit this, the `default` event bus is used.
         :param pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
@@ -1276,7 +1281,8 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with the rule.
+               If you omit this, the `default` event bus is used.
         :param pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
@@ -1349,7 +1355,8 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        The name or ARN of the event bus to associate with the rule.
+        If you omit this, the `default` event bus is used.
         """
         return pulumi.get(self, "event_bus_name")
 

@@ -37,7 +37,7 @@ class InstanceArgs:
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        :param pulumi.Input[str] user_data: Single lined launch script as a string to configure server with additional user data
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "blueprint_id", blueprint_id)
@@ -157,7 +157,7 @@ class InstanceArgs:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        launch script to configure server with additional user data
+        Single lined launch script as a string to configure server with additional user data
         """
         return pulumi.get(self, "user_data")
 
@@ -211,7 +211,7 @@ class _InstanceState:
         :param pulumi.Input[float] ram_size: The amount of RAM in GB on the instance (e.g., 1.0).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        :param pulumi.Input[str] user_data: Single lined launch script as a string to configure server with additional user data
         :param pulumi.Input[str] username: The user name for connecting to the instance (e.g., ec2-user).
         """
         if add_on is not None:
@@ -480,7 +480,7 @@ class _InstanceState:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        launch script to configure server with additional user data
+        Single lined launch script as a string to configure server with additional user data
         """
         return pulumi.get(self, "user_data")
 
@@ -539,6 +539,20 @@ class Instance(pulumi.CustomResource):
             tags={
                 "foo": "bar",
             })
+        ```
+        ### Example With User Data
+
+        Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        custom = aws.lightsail.Instance("custom",
+            availability_zone="us-east-1b",
+            blueprint_id="amazon_linux_2",
+            bundle_id="nano_1_0",
+            user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
         ```
         ### Enable Auto Snapshots
 
@@ -631,7 +645,7 @@ class Instance(pulumi.CustomResource):
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        :param pulumi.Input[str] user_data: Single lined launch script as a string to configure server with additional user data
         """
         ...
     @overload
@@ -662,6 +676,20 @@ class Instance(pulumi.CustomResource):
             tags={
                 "foo": "bar",
             })
+        ```
+        ### Example With User Data
+
+        Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        custom = aws.lightsail.Instance("custom",
+            availability_zone="us-east-1b",
+            blueprint_id="amazon_linux_2",
+            bundle_id="nano_1_0",
+            user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
         ```
         ### Enable Auto Snapshots
 
@@ -858,7 +886,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[float] ram_size: The amount of RAM in GB on the instance (e.g., 1.0).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        :param pulumi.Input[str] user_data: Single lined launch script as a string to configure server with additional user data
         :param pulumi.Input[str] username: The user name for connecting to the instance (e.g., ec2-user).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1037,7 +1065,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[str]]:
         """
-        launch script to configure server with additional user data
+        Single lined launch script as a string to configure server with additional user data
         """
         return pulumi.get(self, "user_data")
 

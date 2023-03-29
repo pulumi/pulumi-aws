@@ -83,7 +83,8 @@ import (
 type EventBusPolicy struct {
 	pulumi.CustomResourceState
 
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// The text of the policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
@@ -121,14 +122,16 @@ func GetEventBusPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventBusPolicy resources.
 type eventBusPolicyState struct {
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
 	// The text of the policy.
 	Policy *string `pulumi:"policy"`
 }
 
 type EventBusPolicyState struct {
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
 	// The text of the policy.
 	Policy pulumi.StringPtrInput
@@ -139,7 +142,8 @@ func (EventBusPolicyState) ElementType() reflect.Type {
 }
 
 type eventBusPolicyArgs struct {
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
 	// The text of the policy.
 	Policy string `pulumi:"policy"`
@@ -147,7 +151,8 @@ type eventBusPolicyArgs struct {
 
 // The set of arguments for constructing a EventBusPolicy resource.
 type EventBusPolicyArgs struct {
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
 	// The text of the policy.
 	Policy pulumi.StringInput
@@ -240,7 +245,8 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+// The name of the event bus to set the permissions on.
+// If you omit this, the permissions are set on the `default` event bus.
 func (o EventBusPolicyOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }

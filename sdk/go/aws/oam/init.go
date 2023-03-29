@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:oam/link:Link":
+		r = &Link{}
 	case "aws:oam/sink:Sink":
 		r = &Sink{}
 	case "aws:oam/sinkPolicy:SinkPolicy":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"oam/link",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"oam/sink",

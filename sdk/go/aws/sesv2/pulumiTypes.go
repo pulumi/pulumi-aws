@@ -2099,6 +2099,130 @@ func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) OptimizedSharedDeliv
 	}).(pulumi.StringPtrOutput)
 }
 
+type ContactListTopic struct {
+	// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+	DefaultSubscriptionStatus string `pulumi:"defaultSubscriptionStatus"`
+	// A description of what the topic is about, which the contact will see.
+	Description *string `pulumi:"description"`
+	// The name of the topic the contact will see.
+	DisplayName string `pulumi:"displayName"`
+	// The name of the topic.
+	TopicName string `pulumi:"topicName"`
+}
+
+// ContactListTopicInput is an input type that accepts ContactListTopicArgs and ContactListTopicOutput values.
+// You can construct a concrete instance of `ContactListTopicInput` via:
+//
+//	ContactListTopicArgs{...}
+type ContactListTopicInput interface {
+	pulumi.Input
+
+	ToContactListTopicOutput() ContactListTopicOutput
+	ToContactListTopicOutputWithContext(context.Context) ContactListTopicOutput
+}
+
+type ContactListTopicArgs struct {
+	// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+	DefaultSubscriptionStatus pulumi.StringInput `pulumi:"defaultSubscriptionStatus"`
+	// A description of what the topic is about, which the contact will see.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the topic the contact will see.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The name of the topic.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (ContactListTopicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactListTopic)(nil)).Elem()
+}
+
+func (i ContactListTopicArgs) ToContactListTopicOutput() ContactListTopicOutput {
+	return i.ToContactListTopicOutputWithContext(context.Background())
+}
+
+func (i ContactListTopicArgs) ToContactListTopicOutputWithContext(ctx context.Context) ContactListTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactListTopicOutput)
+}
+
+// ContactListTopicArrayInput is an input type that accepts ContactListTopicArray and ContactListTopicArrayOutput values.
+// You can construct a concrete instance of `ContactListTopicArrayInput` via:
+//
+//	ContactListTopicArray{ ContactListTopicArgs{...} }
+type ContactListTopicArrayInput interface {
+	pulumi.Input
+
+	ToContactListTopicArrayOutput() ContactListTopicArrayOutput
+	ToContactListTopicArrayOutputWithContext(context.Context) ContactListTopicArrayOutput
+}
+
+type ContactListTopicArray []ContactListTopicInput
+
+func (ContactListTopicArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactListTopic)(nil)).Elem()
+}
+
+func (i ContactListTopicArray) ToContactListTopicArrayOutput() ContactListTopicArrayOutput {
+	return i.ToContactListTopicArrayOutputWithContext(context.Background())
+}
+
+func (i ContactListTopicArray) ToContactListTopicArrayOutputWithContext(ctx context.Context) ContactListTopicArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactListTopicArrayOutput)
+}
+
+type ContactListTopicOutput struct{ *pulumi.OutputState }
+
+func (ContactListTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactListTopic)(nil)).Elem()
+}
+
+func (o ContactListTopicOutput) ToContactListTopicOutput() ContactListTopicOutput {
+	return o
+}
+
+func (o ContactListTopicOutput) ToContactListTopicOutputWithContext(ctx context.Context) ContactListTopicOutput {
+	return o
+}
+
+// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+func (o ContactListTopicOutput) DefaultSubscriptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactListTopic) string { return v.DefaultSubscriptionStatus }).(pulumi.StringOutput)
+}
+
+// A description of what the topic is about, which the contact will see.
+func (o ContactListTopicOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactListTopic) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the topic the contact will see.
+func (o ContactListTopicOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactListTopic) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The name of the topic.
+func (o ContactListTopicOutput) TopicName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactListTopic) string { return v.TopicName }).(pulumi.StringOutput)
+}
+
+type ContactListTopicArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactListTopicArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactListTopic)(nil)).Elem()
+}
+
+func (o ContactListTopicArrayOutput) ToContactListTopicArrayOutput() ContactListTopicArrayOutput {
+	return o
+}
+
+func (o ContactListTopicArrayOutput) ToContactListTopicArrayOutputWithContext(ctx context.Context) ContactListTopicArrayOutput {
+	return o
+}
+
+func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactListTopic {
+		return vs[0].([]ContactListTopic)[vs[1].(int)]
+	}).(ContactListTopicOutput)
+}
+
 type EmailIdentityDkimSigningAttributes struct {
 	// [Easy DKIM] The key length of the DKIM key pair in use.
 	CurrentSigningKeyLength *string `pulumi:"currentSigningKeyLength"`
@@ -2513,6 +2637,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsDashboardOptionsPtrInput)(nil)).Elem(), ConfigurationSetVdmOptionsDashboardOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsGuardianOptionsInput)(nil)).Elem(), ConfigurationSetVdmOptionsGuardianOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsGuardianOptionsPtrInput)(nil)).Elem(), ConfigurationSetVdmOptionsGuardianOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicInput)(nil)).Elem(), ContactListTopicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicArrayInput)(nil)).Elem(), ContactListTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesPtrInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArgs{})
@@ -2545,6 +2671,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsGuardianOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ContactListTopicOutput{})
+	pulumi.RegisterOutputType(ContactListTopicArrayOutput{})
 	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesOutput{})
 	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesPtrOutput{})
 	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpOutput{})

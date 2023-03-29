@@ -17,14 +17,14 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
     public static final HostVpcConfigurationArgs Empty = new HostVpcConfigurationArgs();
 
     /**
-     * he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+     * ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
      */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+     * @return ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -104,7 +104,7 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupIds he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+         * @param securityGroupIds ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupIds he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+         * @param securityGroupIds ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupIds he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+         * @param securityGroupIds ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
          * 
          * @return builder
          * 

@@ -40,6 +40,13 @@ namespace Pulumi.Aws.SecurityHub
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        /// </summary>
+        [Output("enableDefaultStandards")]
+        public Output<bool?> EnableDefaultStandards { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Account resource with the given unique name, arguments, and options.
         /// </summary>
         ///
@@ -84,6 +91,12 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        /// </summary>
+        [Input("enableDefaultStandards")]
+        public Input<bool>? EnableDefaultStandards { get; set; }
+
         public AccountArgs()
         {
         }
@@ -92,6 +105,12 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        /// </summary>
+        [Input("enableDefaultStandards")]
+        public Input<bool>? EnableDefaultStandards { get; set; }
+
         public AccountState()
         {
         }

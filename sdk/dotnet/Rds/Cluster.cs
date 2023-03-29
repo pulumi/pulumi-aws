@@ -207,6 +207,38 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// ### Global Cluster Restored From Snapshot
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleClusterSnapshot = Aws.Rds.GetClusterSnapshot.Invoke(new()
+    ///     {
+    ///         DbClusterIdentifier = "example-original-cluster",
+    ///         MostRecent = true,
+    ///     });
+    /// 
+    ///     var exampleCluster = new Aws.Rds.Cluster("exampleCluster", new()
+    ///     {
+    ///         Engine = "aurora",
+    ///         EngineVersion = "5.6.mysql_aurora.1.22.4",
+    ///         ClusterIdentifier = "example",
+    ///         SnapshotIdentifier = exampleClusterSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
+    ///     });
+    /// 
+    ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("exampleGlobalCluster", new()
+    ///     {
+    ///         GlobalClusterIdentifier = "example",
+    ///         SourceDbClusterIdentifier = exampleCluster.Arn,
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -494,7 +526,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         /// </summary>
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
@@ -857,7 +889,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
@@ -1221,7 +1253,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }

@@ -3,15 +3,44 @@
 
 package com.pulumi.aws.securityhub.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountState Empty = new AccountState();
 
+    /**
+     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     * 
+     */
+    @Import(name="enableDefaultStandards")
+    private @Nullable Output<Boolean> enableDefaultStandards;
+
+    /**
+     * @return Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> enableDefaultStandards() {
+        return Optional.ofNullable(this.enableDefaultStandards);
+    }
+
+    private AccountState() {}
+
+    private AccountState(AccountState $) {
+        this.enableDefaultStandards = $.enableDefaultStandards;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(AccountState defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,6 +49,32 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         public Builder() {
             $ = new AccountState();
         }
+
+        public Builder(AccountState defaults) {
+            $ = new AccountState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enableDefaultStandards Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableDefaultStandards(@Nullable Output<Boolean> enableDefaultStandards) {
+            $.enableDefaultStandards = enableDefaultStandards;
+            return this;
+        }
+
+        /**
+         * @param enableDefaultStandards Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableDefaultStandards(Boolean enableDefaultStandards) {
+            return enableDefaultStandards(Output.of(enableDefaultStandards));
+        }
+
         public AccountState build() {
             return $;
         }

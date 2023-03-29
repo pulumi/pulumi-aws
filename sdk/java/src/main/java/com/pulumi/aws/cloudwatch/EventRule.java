@@ -127,14 +127,16 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with this rule.
+     * If you omit this, the `default` event bus is used.
      * 
      */
     @Export(name="eventBusName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventBusName;
 
     /**
-     * @return The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+     * @return The name or ARN of the event bus to associate with this rule.
+     * If you omit this, the `default` event bus is used.
      * 
      */
     public Output<Optional<String>> eventBusName() {

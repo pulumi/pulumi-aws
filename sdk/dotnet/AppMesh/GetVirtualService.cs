@@ -217,7 +217,7 @@ namespace Pulumi.Aws.AppMesh
         /// <summary>
         /// Map of tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetVirtualServiceResult(
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.AppMesh
 
             ImmutableArray<Outputs.GetVirtualServiceSpecResult> specs,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             CreatedDate = createdDate;

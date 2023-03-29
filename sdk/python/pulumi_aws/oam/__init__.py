@@ -5,5 +5,6 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .link import *
 from .sink import *
 from .sink_policy import *

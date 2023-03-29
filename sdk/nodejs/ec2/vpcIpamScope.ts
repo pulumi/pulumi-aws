@@ -61,6 +61,9 @@ export class VpcIpamScope extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcIpamScope.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the scope.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A description for the scope you're creating.
@@ -80,7 +83,7 @@ export class VpcIpamScope extends pulumi.CustomResource {
      */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
-     * Count of pools under this scope
+     * The number of pools in the scope.
      */
     public /*out*/ readonly poolCount!: pulumi.Output<number>;
     /**
@@ -135,6 +138,9 @@ export class VpcIpamScope extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcIpamScope resources.
  */
 export interface VpcIpamScopeState {
+    /**
+     * The Amazon Resource Name (ARN) of the scope.
+     */
     arn?: pulumi.Input<string>;
     /**
      * A description for the scope you're creating.
@@ -154,7 +160,7 @@ export interface VpcIpamScopeState {
      */
     isDefault?: pulumi.Input<boolean>;
     /**
-     * Count of pools under this scope
+     * The number of pools in the scope.
      */
     poolCount?: pulumi.Input<number>;
     /**

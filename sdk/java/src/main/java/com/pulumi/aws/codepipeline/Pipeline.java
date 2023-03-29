@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
  * Provides a CodePipeline.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -167,7 +166,7 @@ import javax.annotation.Nullable;
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect(&#34;Allow&#34;)
  *                     .actions(&#34;codestar-connections:UseConnection&#34;)
- *                     .resource(example.arn())
+ *                     .resources(example.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect(&#34;Allow&#34;)

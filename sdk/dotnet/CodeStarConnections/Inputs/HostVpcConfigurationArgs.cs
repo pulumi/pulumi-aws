@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CodeStarConnections.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        /// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {

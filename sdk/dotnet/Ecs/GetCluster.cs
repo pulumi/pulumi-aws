@@ -77,6 +77,18 @@ namespace Pulumi.Aws.Ecs
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetClusterArgs()
         {
         }
@@ -90,6 +102,18 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetClusterInvokeArgs()
         {
@@ -134,6 +158,10 @@ namespace Pulumi.Aws.Ecs
         /// Status of the ECS Cluster
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -153,7 +181,9 @@ namespace Pulumi.Aws.Ecs
 
             ImmutableArray<Outputs.GetClusterSettingResult> settings,
 
-            string status)
+            string status,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             ClusterName = clusterName;
@@ -164,6 +194,7 @@ namespace Pulumi.Aws.Ecs
             ServiceConnectDefaults = serviceConnectDefaults;
             Settings = settings;
             Status = status;
+            Tags = tags;
         }
     }
 }

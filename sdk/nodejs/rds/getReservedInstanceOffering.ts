@@ -43,7 +43,7 @@ export interface GetReservedInstanceOfferingArgs {
      */
     dbInstanceClass: string;
     /**
-     * Duration of the reservation in seconds.
+     * Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
      */
     duration: number;
     /**
@@ -51,7 +51,7 @@ export interface GetReservedInstanceOfferingArgs {
      */
     multiAz: boolean;
     /**
-     * Offering type of this reserved DB instance.
+     * Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
      */
     offeringType: string;
     /**
@@ -117,7 +117,7 @@ export interface GetReservedInstanceOfferingOutputArgs {
      */
     dbInstanceClass: pulumi.Input<string>;
     /**
-     * Duration of the reservation in seconds.
+     * Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
      */
     duration: pulumi.Input<number>;
     /**
@@ -125,7 +125,7 @@ export interface GetReservedInstanceOfferingOutputArgs {
      */
     multiAz: pulumi.Input<boolean>;
     /**
-     * Offering type of this reserved DB instance.
+     * Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
      */
     offeringType: pulumi.Input<string>;
     /**

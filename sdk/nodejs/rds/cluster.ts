@@ -162,6 +162,28 @@ import * as utilities from "../utilities";
  *     engineVersion: exampleCluster.engineVersion,
  * });
  * ```
+ * ### Global Cluster Restored From Snapshot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleClusterSnapshot = aws.rds.getClusterSnapshot({
+ *     dbClusterIdentifier: "example-original-cluster",
+ *     mostRecent: true,
+ * });
+ * const exampleCluster = new aws.rds.Cluster("exampleCluster", {
+ *     engine: "aurora",
+ *     engineVersion: "5.6.mysql_aurora.1.22.4",
+ *     clusterIdentifier: "example",
+ *     snapshotIdentifier: exampleClusterSnapshot.then(exampleClusterSnapshot => exampleClusterSnapshot.id),
+ * });
+ * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
+ *     globalClusterIdentifier: "example",
+ *     sourceDbClusterIdentifier: exampleCluster.arn,
+ *     forceDestroy: true,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -382,7 +404,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      */
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -726,7 +748,7 @@ export interface ClusterState {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -917,7 +939,7 @@ export interface ClusterArgs {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**

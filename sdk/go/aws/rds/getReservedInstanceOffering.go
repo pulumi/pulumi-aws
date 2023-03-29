@@ -54,11 +54,11 @@ func GetReservedInstanceOffering(ctx *pulumi.Context, args *GetReservedInstanceO
 type GetReservedInstanceOfferingArgs struct {
 	// DB instance class for the reserved DB instance.
 	DbInstanceClass string `pulumi:"dbInstanceClass"`
-	// Duration of the reservation in seconds.
+	// Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
 	Duration int `pulumi:"duration"`
 	// Whether the reservation applies to Multi-AZ deployments.
 	MultiAz bool `pulumi:"multiAz"`
-	// Offering type of this reserved DB instance.
+	// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
 	OfferingType string `pulumi:"offeringType"`
 	// Description of the reserved DB instance.
 	ProductDescription string `pulumi:"productDescription"`
@@ -98,11 +98,11 @@ func GetReservedInstanceOfferingOutput(ctx *pulumi.Context, args GetReservedInst
 type GetReservedInstanceOfferingOutputArgs struct {
 	// DB instance class for the reserved DB instance.
 	DbInstanceClass pulumi.StringInput `pulumi:"dbInstanceClass"`
-	// Duration of the reservation in seconds.
+	// Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
 	Duration pulumi.IntInput `pulumi:"duration"`
 	// Whether the reservation applies to Multi-AZ deployments.
 	MultiAz pulumi.BoolInput `pulumi:"multiAz"`
-	// Offering type of this reserved DB instance.
+	// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
 	OfferingType pulumi.StringInput `pulumi:"offeringType"`
 	// Description of the reserved DB instance.
 	ProductDescription pulumi.StringInput `pulumi:"productDescription"`

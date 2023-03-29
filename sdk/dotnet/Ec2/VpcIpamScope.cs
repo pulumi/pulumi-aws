@@ -56,6 +56,9 @@ namespace Pulumi.Aws.Ec2
     [AwsResourceType("aws:ec2/vpcIpamScope:VpcIpamScope")]
     public partial class VpcIpamScope : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the scope.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -87,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> IsDefault { get; private set; } = null!;
 
         /// <summary>
-        /// Count of pools under this scope
+        /// The number of pools in the scope.
         /// </summary>
         [Output("poolCount")]
         public Output<int> PoolCount { get; private set; } = null!;
@@ -179,6 +182,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamScopeState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the scope.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -210,7 +216,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? IsDefault { get; set; }
 
         /// <summary>
-        /// Count of pools under this scope
+        /// The number of pools in the scope.
         /// </summary>
         [Input("poolCount")]
         public Input<int>? PoolCount { get; set; }

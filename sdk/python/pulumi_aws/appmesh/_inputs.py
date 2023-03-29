@@ -114,6 +114,8 @@ __all__ = [
     'VirtualGatewaySpecLoggingArgs',
     'VirtualGatewaySpecLoggingAccessLogArgs',
     'VirtualGatewaySpecLoggingAccessLogFileArgs',
+    'VirtualGatewaySpecLoggingAccessLogFileFormatArgs',
+    'VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs',
     'VirtualNodeSpecArgs',
     'VirtualNodeSpecBackendArgs',
     'VirtualNodeSpecBackendDefaultsArgs',
@@ -179,6 +181,8 @@ __all__ = [
     'VirtualNodeSpecLoggingArgs',
     'VirtualNodeSpecLoggingAccessLogArgs',
     'VirtualNodeSpecLoggingAccessLogFileArgs',
+    'VirtualNodeSpecLoggingAccessLogFileFormatArgs',
+    'VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs',
     'VirtualNodeSpecServiceDiscoveryArgs',
     'VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs',
     'VirtualNodeSpecServiceDiscoveryDnsArgs',
@@ -4527,11 +4531,15 @@ class VirtualGatewaySpecLoggingAccessLogArgs:
 @pulumi.input_type
 class VirtualGatewaySpecLoggingAccessLogFileArgs:
     def __init__(__self__, *,
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 format: Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatArgs']] = None):
         """
         :param pulumi.Input[str] path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+        :param pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatArgs'] format: The specified format for the logs.
         """
         pulumi.set(__self__, "path", path)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
@@ -4544,6 +4552,94 @@ class VirtualGatewaySpecLoggingAccessLogFileArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatArgs']]:
+        """
+        The specified format for the logs.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatArgs']]):
+        pulumi.set(self, "format", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecLoggingAccessLogFileFormatArgs:
+    def __init__(__self__, *,
+                 jsons: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs']]]] = None,
+                 text: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs']]] jsons: The logging format for JSON.
+        :param pulumi.Input[str] text: The logging format for text. Must be between 1 and 1000 characters in length.
+        """
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def jsons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs']]]]:
+        """
+        The logging format for JSON.
+        """
+        return pulumi.get(self, "jsons")
+
+    @jsons.setter
+    def jsons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs']]]]):
+        pulumi.set(self, "jsons", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The logging format for text. Must be between 1 and 1000 characters in length.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The specified key for the JSON. Must be between 1 and 100 characters in length.
+        :param pulumi.Input[str] value: The specified value for the JSON. Must be between 1 and 100 characters in length.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The specified key for the JSON. Must be between 1 and 100 characters in length.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -6008,7 +6104,7 @@ class VirtualNodeSpecListenerOutlierDetectionIntervalArgs:
                  value: pulumi.Input[int]):
         """
         :param pulumi.Input[str] unit: Unit of time. Valid values: `ms`, `s`.
-        :param pulumi.Input[int] value: Number of time units. Minimum value of `0`.
+        :param pulumi.Input[int] value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -6029,7 +6125,7 @@ class VirtualNodeSpecListenerOutlierDetectionIntervalArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
         """
-        Number of time units. Minimum value of `0`.
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -6229,7 +6325,7 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs:
                  value: pulumi.Input[int]):
         """
         :param pulumi.Input[str] unit: Unit of time. Valid values: `ms`, `s`.
-        :param pulumi.Input[int] value: Number of time units. Minimum value of `0`.
+        :param pulumi.Input[int] value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -6250,7 +6346,7 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
         """
-        Number of time units. Minimum value of `0`.
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -6342,7 +6438,7 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs:
                  value: pulumi.Input[int]):
         """
         :param pulumi.Input[str] unit: Unit of time. Valid values: `ms`, `s`.
-        :param pulumi.Input[int] value: Number of time units. Minimum value of `0`.
+        :param pulumi.Input[int] value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -6363,7 +6459,7 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
         """
-        Number of time units. Minimum value of `0`.
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -6455,7 +6551,7 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequestArgs:
                  value: pulumi.Input[int]):
         """
         :param pulumi.Input[str] unit: Unit of time. Valid values: `ms`, `s`.
-        :param pulumi.Input[int] value: Number of time units. Minimum value of `0`.
+        :param pulumi.Input[int] value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -6476,7 +6572,7 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequestArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
         """
-        Number of time units. Minimum value of `0`.
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -6948,11 +7044,15 @@ class VirtualNodeSpecLoggingAccessLogArgs:
 @pulumi.input_type
 class VirtualNodeSpecLoggingAccessLogFileArgs:
     def __init__(__self__, *,
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 format: Optional[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatArgs']] = None):
         """
         :param pulumi.Input[str] path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+        :param pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatArgs'] format: The specified format for the logs.
         """
         pulumi.set(__self__, "path", path)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
@@ -6965,6 +7065,94 @@ class VirtualNodeSpecLoggingAccessLogFileArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatArgs']]:
+        """
+        The specified format for the logs.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatArgs']]):
+        pulumi.set(self, "format", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecLoggingAccessLogFileFormatArgs:
+    def __init__(__self__, *,
+                 jsons: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs']]]] = None,
+                 text: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs']]] jsons: The logging format for JSON.
+        :param pulumi.Input[str] text: The logging format for text. Must be between 1 and 1000 characters in length.
+        """
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def jsons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs']]]]:
+        """
+        The logging format for JSON.
+        """
+        return pulumi.get(self, "jsons")
+
+    @jsons.setter
+    def jsons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs']]]]):
+        pulumi.set(self, "jsons", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The logging format for text. Must be between 1 and 1000 characters in length.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The specified key for the JSON. Must be between 1 and 100 characters in length.
+        :param pulumi.Input[str] value: The specified value for the JSON. Must be between 1 and 100 characters in length.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The specified key for the JSON. Must be between 1 and 100 characters in length.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

@@ -7072,6 +7072,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "oam/link",
+  "fqn": "pulumi_aws.oam",
+  "classes": {
+   "aws:oam/link:Link": "Link"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "oam/sink",
   "fqn": "pulumi_aws.oam",
   "classes": {
@@ -9108,6 +9116,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sesv2",
   "classes": {
    "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination": "ConfigurationSetEventDestination"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/contactList",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/contactList:ContactList": "ContactList"
   }
  },
  {

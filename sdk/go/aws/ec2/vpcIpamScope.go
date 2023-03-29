@@ -69,6 +69,7 @@ import (
 type VpcIpamScope struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the scope.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description for the scope you're creating.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -79,7 +80,7 @@ type VpcIpamScope struct {
 	IpamScopeType pulumi.StringOutput `pulumi:"ipamScopeType"`
 	// Defines if the scope is the default scope or not.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
-	// Count of pools under this scope
+	// The number of pools in the scope.
 	PoolCount pulumi.IntOutput `pulumi:"poolCount"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -118,6 +119,7 @@ func GetVpcIpamScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamScope resources.
 type vpcIpamScopeState struct {
+	// The Amazon Resource Name (ARN) of the scope.
 	Arn *string `pulumi:"arn"`
 	// A description for the scope you're creating.
 	Description *string `pulumi:"description"`
@@ -128,7 +130,7 @@ type vpcIpamScopeState struct {
 	IpamScopeType *string `pulumi:"ipamScopeType"`
 	// Defines if the scope is the default scope or not.
 	IsDefault *bool `pulumi:"isDefault"`
-	// Count of pools under this scope
+	// The number of pools in the scope.
 	PoolCount *int `pulumi:"poolCount"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -136,6 +138,7 @@ type vpcIpamScopeState struct {
 }
 
 type VpcIpamScopeState struct {
+	// The Amazon Resource Name (ARN) of the scope.
 	Arn pulumi.StringPtrInput
 	// A description for the scope you're creating.
 	Description pulumi.StringPtrInput
@@ -146,7 +149,7 @@ type VpcIpamScopeState struct {
 	IpamScopeType pulumi.StringPtrInput
 	// Defines if the scope is the default scope or not.
 	IsDefault pulumi.BoolPtrInput
-	// Count of pools under this scope
+	// The number of pools in the scope.
 	PoolCount pulumi.IntPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -263,6 +266,7 @@ func (o VpcIpamScopeOutput) ToVpcIpamScopeOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the scope.
 func (o VpcIpamScopeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -291,7 +295,7 @@ func (o VpcIpamScopeOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// Count of pools under this scope
+// The number of pools in the scope.
 func (o VpcIpamScopeOutput) PoolCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.IntOutput { return v.PoolCount }).(pulumi.IntOutput)
 }

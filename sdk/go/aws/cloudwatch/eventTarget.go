@@ -635,7 +635,8 @@ type EventTarget struct {
 	DeadLetterConfig EventTargetDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrOutput `pulumi:"ecsTarget"`
-	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with the rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget EventTargetHttpTargetPtrOutput `pulumi:"httpTarget"`
@@ -706,7 +707,8 @@ type eventTargetState struct {
 	DeadLetterConfig *EventTargetDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
-	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with the rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget *EventTargetHttpTarget `pulumi:"httpTarget"`
@@ -743,7 +745,8 @@ type EventTargetState struct {
 	DeadLetterConfig EventTargetDeadLetterConfigPtrInput
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrInput
-	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with the rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget EventTargetHttpTargetPtrInput
@@ -784,7 +787,8 @@ type eventTargetArgs struct {
 	DeadLetterConfig *EventTargetDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget *EventTargetEcsTarget `pulumi:"ecsTarget"`
-	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with the rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget *EventTargetHttpTarget `pulumi:"httpTarget"`
@@ -822,7 +826,8 @@ type EventTargetArgs struct {
 	DeadLetterConfig EventTargetDeadLetterConfigPtrInput
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
 	EcsTarget EventTargetEcsTargetPtrInput
-	// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with the rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
 	HttpTarget EventTargetHttpTargetPtrInput
@@ -957,7 +962,8 @@ func (o EventTargetOutput) EcsTarget() EventTargetEcsTargetPtrOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetEcsTargetPtrOutput { return v.EcsTarget }).(EventTargetEcsTargetPtrOutput)
 }
 
-// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+// The name or ARN of the event bus to associate with the rule.
+// If you omit this, the `default` event bus is used.
 func (o EventTargetOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTarget) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }

@@ -61,6 +61,40 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Example With User Data
+ * 
+ * Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lightsail.Instance;
+ * import com.pulumi.aws.lightsail.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var custom = new Instance(&#34;custom&#34;, InstanceArgs.builder()        
+ *             .availabilityZone(&#34;us-east-1b&#34;)
+ *             .blueprintId(&#34;amazon_linux_2&#34;)
+ *             .bundleId(&#34;nano_1_0&#34;)
+ *             .userData(&#34;sudo yum install -y httpd &amp;&amp; sudo systemctl start httpd &amp;&amp; sudo systemctl enable httpd &amp;&amp; echo &#39;&lt;h1&gt;Deployed via Pulumi&lt;/h1&gt;&#39; | sudo tee /var/www/html/index.html&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Enable Auto Snapshots
  * ```java
  * package generated_program;
@@ -423,14 +457,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * launch script to configure server with additional user data
+     * Single lined launch script as a string to configure server with additional user data
      * 
      */
     @Export(name="userData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userData;
 
     /**
-     * @return launch script to configure server with additional user data
+     * @return Single lined launch script as a string to configure server with additional user data
      * 
      */
     public Output<Optional<String>> userData() {

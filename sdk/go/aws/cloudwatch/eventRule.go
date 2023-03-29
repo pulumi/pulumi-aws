@@ -30,7 +30,8 @@ type EventRule struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with this rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
@@ -83,7 +84,8 @@ type eventRuleState struct {
 	Arn *string `pulumi:"arn"`
 	// The description of the rule.
 	Description *string `pulumi:"description"`
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with this rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern *string `pulumi:"eventPattern"`
@@ -108,7 +110,8 @@ type EventRuleState struct {
 	Arn pulumi.StringPtrInput
 	// The description of the rule.
 	Description pulumi.StringPtrInput
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with this rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern pulumi.StringPtrInput
@@ -135,7 +138,8 @@ func (EventRuleState) ElementType() reflect.Type {
 type eventRuleArgs struct {
 	// The description of the rule.
 	Description *string `pulumi:"description"`
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with this rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern *string `pulumi:"eventPattern"`
@@ -157,7 +161,8 @@ type eventRuleArgs struct {
 type EventRuleArgs struct {
 	// The description of the rule.
 	Description pulumi.StringPtrInput
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+	// The name or ARN of the event bus to associate with this rule.
+	// If you omit this, the `default` event bus is used.
 	EventBusName pulumi.StringPtrInput
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 	EventPattern pulumi.StringPtrInput
@@ -272,7 +277,8 @@ func (o EventRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+// The name or ARN of the event bus to associate with this rule.
+// If you omit this, the `default` event bus is used.
 func (o EventRuleOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }

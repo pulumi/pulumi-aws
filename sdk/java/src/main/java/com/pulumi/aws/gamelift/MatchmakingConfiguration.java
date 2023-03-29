@@ -107,14 +107,14 @@ public class MatchmakingConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="acceptanceRequired", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> acceptanceRequired;
+    private Output</* @Nullable */ Boolean> acceptanceRequired;
 
     /**
      * @return Specifies if the match that was created with this configuration must be accepted by matched players.
      * 
      */
-    public Output<Boolean> acceptanceRequired() {
-        return this.acceptanceRequired;
+    public Output<Optional<Boolean>> acceptanceRequired() {
+        return Codegen.optional(this.acceptanceRequired);
     }
     /**
      * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
@@ -247,14 +247,14 @@ public class MatchmakingConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="gameSessionData", refs={String.class}, tree="[0]")
-    private Output<String> gameSessionData;
+    private Output</* @Nullable */ String> gameSessionData;
 
     /**
      * @return A set of custom game session properties.
      * 
      */
-    public Output<String> gameSessionData() {
-        return this.gameSessionData;
+    public Output<Optional<String>> gameSessionData() {
+        return Codegen.optional(this.gameSessionData);
     }
     /**
      * The ARNs of the GameLift game session queue resources.

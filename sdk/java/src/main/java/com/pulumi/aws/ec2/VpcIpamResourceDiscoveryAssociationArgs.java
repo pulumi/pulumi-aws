@@ -17,30 +17,46 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
     public static final VpcIpamResourceDiscoveryAssociationArgs Empty = new VpcIpamResourceDiscoveryAssociationArgs();
 
     /**
-     * Id of the IPAM to associate
+     * The ID of the IPAM to associate.
      * 
      */
     @Import(name="ipamId", required=true)
     private Output<String> ipamId;
 
     /**
-     * @return Id of the IPAM to associate
+     * @return The ID of the IPAM to associate.
      * 
      */
     public Output<String> ipamId() {
         return this.ipamId;
     }
 
+    /**
+     * The ID of the Resource Discovery to associate.
+     * 
+     */
     @Import(name="ipamResourceDiscoveryId", required=true)
     private Output<String> ipamResourceDiscoveryId;
 
+    /**
+     * @return The ID of the Resource Discovery to associate.
+     * 
+     */
     public Output<String> ipamResourceDiscoveryId() {
         return this.ipamResourceDiscoveryId;
     }
 
+    /**
+     * A map of tags to add to the IPAM resource discovery association resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to add to the IPAM resource discovery association resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,7 +88,7 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
         }
 
         /**
-         * @param ipamId Id of the IPAM to associate
+         * @param ipamId The ID of the IPAM to associate.
          * 
          * @return builder
          * 
@@ -83,7 +99,7 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
         }
 
         /**
-         * @param ipamId Id of the IPAM to associate
+         * @param ipamId The ID of the IPAM to associate.
          * 
          * @return builder
          * 
@@ -92,20 +108,44 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
             return ipamId(Output.of(ipamId));
         }
 
+        /**
+         * @param ipamResourceDiscoveryId The ID of the Resource Discovery to associate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamResourceDiscoveryId(Output<String> ipamResourceDiscoveryId) {
             $.ipamResourceDiscoveryId = ipamResourceDiscoveryId;
             return this;
         }
 
+        /**
+         * @param ipamResourceDiscoveryId The ID of the Resource Discovery to associate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamResourceDiscoveryId(String ipamResourceDiscoveryId) {
             return ipamResourceDiscoveryId(Output.of(ipamResourceDiscoveryId));
         }
 
+        /**
+         * @param tags A map of tags to add to the IPAM resource discovery association resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to add to the IPAM resource discovery association resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

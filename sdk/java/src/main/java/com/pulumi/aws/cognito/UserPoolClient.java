@@ -22,6 +22,9 @@ import javax.annotation.Nullable;
 /**
  * Provides a Cognito User Pool Client resource.
  * 
+ * To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
+ * use the `aws_cognito_managed_user_pool_client` resource instead.
+ * 
  * ## Example Usage
  * ### Create a basic user pool client
  * ```java
@@ -96,18 +99,18 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.pinpoint.App;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.cognito.UserPoolClient;
  * import com.pulumi.aws.cognito.UserPoolClientArgs;
  * import com.pulumi.aws.cognito.inputs.UserPoolClientAnalyticsConfigurationArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -121,8 +124,6 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
  *         var testUserPool = new UserPool(&#34;testUserPool&#34;);
  * 
  *         var testApp = new App(&#34;testApp&#34;);
@@ -142,21 +143,6 @@ import javax.annotation.Nullable;
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(                
- *                     &#34;mobiletargeting:UpdateEndpoint&#34;,
- *                     &#34;mobiletargeting:PutItems&#34;)
- *                 .resources(testApp.applicationId().applyValue(applicationId -&gt; String.format(&#34;arn:aws:mobiletargeting:*:%s:apps/%s*&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),applicationId)))
- *                 .build())
- *             .build());
- * 
- *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(testRole.id())
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
  *         var testUserPoolClient = new UserPoolClient(&#34;testUserPoolClient&#34;, UserPoolClientArgs.builder()        
  *             .userPoolId(testUserPool.id())
  *             .analyticsConfiguration(UserPoolClientAnalyticsConfigurationArgs.builder()
@@ -165,6 +151,23 @@ import javax.annotation.Nullable;
  *                 .roleArn(testRole.arn())
  *                 .userDataShared(true)
  *                 .build())
+ *             .build());
+ * 
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(                
+ *                     &#34;mobiletargeting:UpdateEndpoint&#34;,
+ *                     &#34;mobiletargeting:PutEvents&#34;)
+ *                 .resources(testApp.applicationId().applyValue(applicationId -&gt; String.format(&#34;arn:aws:mobiletargeting:*:%s:apps/%s*&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),applicationId)))
+ *                 .build())
+ *             .build());
+ * 
+ *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(testRole.id())
+ *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

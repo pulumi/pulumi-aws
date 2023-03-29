@@ -24,6 +24,7 @@ __all__ = [
     'ConfigurationSetVdmOptionsArgs',
     'ConfigurationSetVdmOptionsDashboardOptionsArgs',
     'ConfigurationSetVdmOptionsGuardianOptionsArgs',
+    'ContactListTopicArgs',
     'EmailIdentityDkimSigningAttributesArgs',
 ]
 
@@ -505,6 +506,74 @@ class ConfigurationSetVdmOptionsGuardianOptionsArgs:
     @optimized_shared_delivery.setter
     def optimized_shared_delivery(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "optimized_shared_delivery", value)
+
+
+@pulumi.input_type
+class ContactListTopicArgs:
+    def __init__(__self__, *,
+                 default_subscription_status: pulumi.Input[str],
+                 display_name: pulumi.Input[str],
+                 topic_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] default_subscription_status: The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        :param pulumi.Input[str] display_name: The name of the topic the contact will see.
+        :param pulumi.Input[str] topic_name: The name of the topic.
+        :param pulumi.Input[str] description: A description of what the topic is about, which the contact will see.
+        """
+        pulumi.set(__self__, "default_subscription_status", default_subscription_status)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "topic_name", topic_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="defaultSubscriptionStatus")
+    def default_subscription_status(self) -> pulumi.Input[str]:
+        """
+        The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        """
+        return pulumi.get(self, "default_subscription_status")
+
+    @default_subscription_status.setter
+    def default_subscription_status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_subscription_status", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the topic the contact will see.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[str]:
+        """
+        The name of the topic.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of what the topic is about, which the contact will see.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

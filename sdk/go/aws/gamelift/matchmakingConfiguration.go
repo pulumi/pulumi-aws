@@ -102,7 +102,7 @@ type MatchmakingConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Specifies if the match that was created with this configuration must be accepted by matched players.
-	AcceptanceRequired pulumi.BoolOutput `pulumi:"acceptanceRequired"`
+	AcceptanceRequired pulumi.BoolPtrOutput `pulumi:"acceptanceRequired"`
 	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 	AcceptanceTimeoutSeconds pulumi.IntPtrOutput `pulumi:"acceptanceTimeoutSeconds"`
 	// The number of player slots in a match to keep open for future players.
@@ -122,7 +122,7 @@ type MatchmakingConfiguration struct {
 	// One or more custom game properties. See below.
 	GameProperties MatchmakingConfigurationGamePropertyArrayOutput `pulumi:"gameProperties"`
 	// A set of custom game session properties.
-	GameSessionData pulumi.StringOutput `pulumi:"gameSessionData"`
+	GameSessionData pulumi.StringPtrOutput `pulumi:"gameSessionData"`
 	// The ARNs of the GameLift game session queue resources.
 	GameSessionQueueArns pulumi.StringArrayOutput `pulumi:"gameSessionQueueArns"`
 	// Name of the matchmaking configuration
@@ -147,12 +147,6 @@ func NewMatchmakingConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AcceptanceRequired == nil {
-		return nil, errors.New("invalid value for required argument 'AcceptanceRequired'")
-	}
-	if args.GameSessionData == nil {
-		return nil, errors.New("invalid value for required argument 'GameSessionData'")
-	}
 	if args.RequestTimeoutSeconds == nil {
 		return nil, errors.New("invalid value for required argument 'RequestTimeoutSeconds'")
 	}
@@ -266,7 +260,7 @@ func (MatchmakingConfigurationState) ElementType() reflect.Type {
 
 type matchmakingConfigurationArgs struct {
 	// Specifies if the match that was created with this configuration must be accepted by matched players.
-	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
+	AcceptanceRequired *bool `pulumi:"acceptanceRequired"`
 	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 	AcceptanceTimeoutSeconds *int `pulumi:"acceptanceTimeoutSeconds"`
 	// The number of player slots in a match to keep open for future players.
@@ -282,7 +276,7 @@ type matchmakingConfigurationArgs struct {
 	// One or more custom game properties. See below.
 	GameProperties []MatchmakingConfigurationGameProperty `pulumi:"gameProperties"`
 	// A set of custom game session properties.
-	GameSessionData string `pulumi:"gameSessionData"`
+	GameSessionData *string `pulumi:"gameSessionData"`
 	// The ARNs of the GameLift game session queue resources.
 	GameSessionQueueArns []string `pulumi:"gameSessionQueueArns"`
 	// Name of the matchmaking configuration
@@ -300,7 +294,7 @@ type matchmakingConfigurationArgs struct {
 // The set of arguments for constructing a MatchmakingConfiguration resource.
 type MatchmakingConfigurationArgs struct {
 	// Specifies if the match that was created with this configuration must be accepted by matched players.
-	AcceptanceRequired pulumi.BoolInput
+	AcceptanceRequired pulumi.BoolPtrInput
 	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 	AcceptanceTimeoutSeconds pulumi.IntPtrInput
 	// The number of player slots in a match to keep open for future players.
@@ -316,7 +310,7 @@ type MatchmakingConfigurationArgs struct {
 	// One or more custom game properties. See below.
 	GameProperties MatchmakingConfigurationGamePropertyArrayInput
 	// A set of custom game session properties.
-	GameSessionData pulumi.StringInput
+	GameSessionData pulumi.StringPtrInput
 	// The ARNs of the GameLift game session queue resources.
 	GameSessionQueueArns pulumi.StringArrayInput
 	// Name of the matchmaking configuration
@@ -419,8 +413,8 @@ func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutputWithCont
 }
 
 // Specifies if the match that was created with this configuration must be accepted by matched players.
-func (o MatchmakingConfigurationOutput) AcceptanceRequired() pulumi.BoolOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.BoolOutput { return v.AcceptanceRequired }).(pulumi.BoolOutput)
+func (o MatchmakingConfigurationOutput) AcceptanceRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.BoolPtrOutput { return v.AcceptanceRequired }).(pulumi.BoolPtrOutput)
 }
 
 // The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
@@ -471,8 +465,8 @@ func (o MatchmakingConfigurationOutput) GameProperties() MatchmakingConfiguratio
 }
 
 // A set of custom game session properties.
-func (o MatchmakingConfigurationOutput) GameSessionData() pulumi.StringOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.GameSessionData }).(pulumi.StringOutput)
+func (o MatchmakingConfigurationOutput) GameSessionData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.GameSessionData }).(pulumi.StringPtrOutput)
 }
 
 // The ARNs of the GameLift game session queue resources.

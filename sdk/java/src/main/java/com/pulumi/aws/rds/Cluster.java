@@ -291,6 +291,53 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Global Cluster Restored From Snapshot
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.RdsFunctions;
+ * import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.GlobalCluster;
+ * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var exampleClusterSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
+ *             .dbClusterIdentifier(&#34;example-original-cluster&#34;)
+ *             .mostRecent(true)
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .engine(&#34;aurora&#34;)
+ *             .engineVersion(&#34;5.6.mysql_aurora.1.22.4&#34;)
+ *             .clusterIdentifier(&#34;example&#34;)
+ *             .snapshotIdentifier(exampleClusterSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+ *             .build());
+ * 
+ *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier(&#34;example&#34;)
+ *             .sourceDbClusterIdentifier(exampleCluster.arn())
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -942,14 +989,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalSnapshot);
     }
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      * 
      */
     @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotIdentifier;
 
     /**
-     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      * 
      */
     public Output<Optional<String>> snapshotIdentifier() {

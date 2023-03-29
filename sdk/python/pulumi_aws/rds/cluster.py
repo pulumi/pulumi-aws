@@ -104,7 +104,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs'] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
@@ -685,7 +685,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -858,7 +858,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs'] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
@@ -1527,7 +1527,7 @@ class _ClusterState:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -1808,6 +1808,24 @@ class Cluster(pulumi.CustomResource):
             engine=example_cluster.engine,
             engine_version=example_cluster.engine_version)
         ```
+        ### Global Cluster Restored From Snapshot
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
+            most_recent=True)
+        example_cluster = aws.rds.Cluster("exampleCluster",
+            engine="aurora",
+            engine_version="5.6.mysql_aurora.1.22.4",
+            cluster_identifier="example",
+            snapshot_identifier=example_cluster_snapshot.id)
+        example_global_cluster = aws.rds.GlobalCluster("exampleGlobalCluster",
+            global_cluster_identifier="example",
+            source_db_cluster_identifier=example_cluster.arn,
+            force_destroy=True)
+        ```
 
         ## Import
 
@@ -1858,7 +1876,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
@@ -2018,6 +2036,24 @@ class Cluster(pulumi.CustomResource):
             instance_class="db.serverless",
             engine=example_cluster.engine,
             engine_version=example_cluster.engine_version)
+        ```
+        ### Global Cluster Restored From Snapshot
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
+            most_recent=True)
+        example_cluster = aws.rds.Cluster("exampleCluster",
+            engine="aurora",
+            engine_version="5.6.mysql_aurora.1.22.4",
+            cluster_identifier="example",
+            snapshot_identifier=example_cluster_snapshot.id)
+        example_global_cluster = aws.rds.GlobalCluster("exampleGlobalCluster",
+            global_cluster_identifier="example",
+            source_db_cluster_identifier=example_cluster.arn,
+            force_destroy=True)
         ```
 
         ## Import
@@ -2269,7 +2305,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB cluster. (This setting is required to create a Multi-AZ DB cluster). Valid values: `io1`, Default: `io1`.
@@ -2706,7 +2742,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         """
         return pulumi.get(self, "snapshot_identifier")
 

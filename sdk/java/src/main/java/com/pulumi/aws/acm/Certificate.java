@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *         var exampleSelfSignedCert = new SelfSignedCert(&#34;exampleSelfSignedCert&#34;, SelfSignedCertArgs.builder()        
  *             .keyAlgorithm(&#34;RSA&#34;)
  *             .privateKeyPem(examplePrivateKey.privateKeyPem())
- *             .subjects(SelfSignedCertSubjectArgs.builder()
+ *             .subject(SelfSignedCertSubjectArgs.builder()
  *                 .commonName(&#34;example.com&#34;)
  *                 .organization(&#34;ACME Examples, Inc&#34;)
  *                 .build())

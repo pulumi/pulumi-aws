@@ -13,6 +13,9 @@ import (
 
 // Provides a Cognito User Pool Client resource.
 //
+// To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
+// use the `awsCognitoManagedUserPoolClient` resource instead.
+//
 // ## Example Usage
 // ### Create a basic user pool client
 //
@@ -95,10 +98,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
 //			testUserPool, err := cognito.NewUserPool(ctx, "testUserPool", nil)
 //			if err != nil {
 //				return err
@@ -134,13 +133,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = cognito.NewUserPoolClient(ctx, "testUserPoolClient", &cognito.UserPoolClientArgs{
+//				UserPoolId: testUserPool.ID(),
+//				AnalyticsConfiguration: &cognito.UserPoolClientAnalyticsConfigurationArgs{
+//					ApplicationId:  testApp.ApplicationId,
+//					ExternalId:     pulumi.String("some_id"),
+//					RoleArn:        testRole.Arn,
+//					UserDataShared: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
 //			testPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("mobiletargeting:UpdateEndpoint"),
-//							pulumi.String("mobiletargeting:PutItems"),
+//							pulumi.String("mobiletargeting:PutEvents"),
 //						},
 //						Resources: pulumi.StringArray{
 //							testApp.ApplicationId.ApplyT(func(applicationId string) (string, error) {
@@ -155,18 +170,6 @@ import (
 //				Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
 //					return &testPolicyDocument.Json, nil
 //				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUserPoolClient(ctx, "testUserPoolClient", &cognito.UserPoolClientArgs{
-//				UserPoolId: testUserPool.ID(),
-//				AnalyticsConfiguration: &cognito.UserPoolClientAnalyticsConfigurationArgs{
-//					ApplicationId:  testApp.ApplicationId,
-//					ExternalId:     pulumi.String("some_id"),
-//					RoleArn:        testRole.Arn,
-//					UserDataShared: pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err

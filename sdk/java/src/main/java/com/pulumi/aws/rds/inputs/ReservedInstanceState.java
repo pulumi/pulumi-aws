@@ -51,9 +51,17 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.currencyCode);
     }
 
+    /**
+     * DB instance class for the reserved DB instance.
+     * 
+     */
     @Import(name="dbInstanceClass")
     private @Nullable Output<String> dbInstanceClass;
 
+    /**
+     * @return DB instance class for the reserved DB instance.
+     * 
+     */
     public Optional<Output<String>> dbInstanceClass() {
         return Optional.ofNullable(this.dbInstanceClass);
     }
@@ -193,9 +201,17 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.recurringCharges);
     }
 
+    /**
+     * Customer-specified identifier to track this reservation.
+     * 
+     */
     @Import(name="reservationId")
     private @Nullable Output<String> reservationId;
 
+    /**
+     * @return Customer-specified identifier to track this reservation.
+     * 
+     */
     public Optional<Output<String>> reservationId() {
         return Optional.ofNullable(this.reservationId);
     }
@@ -358,11 +374,23 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
             return currencyCode(Output.of(currencyCode));
         }
 
+        /**
+         * @param dbInstanceClass DB instance class for the reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbInstanceClass(@Nullable Output<String> dbInstanceClass) {
             $.dbInstanceClass = dbInstanceClass;
             return this;
         }
 
+        /**
+         * @param dbInstanceClass DB instance class for the reserved DB instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbInstanceClass(String dbInstanceClass) {
             return dbInstanceClass(Output.of(dbInstanceClass));
         }
@@ -566,11 +594,23 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
             return recurringCharges(List.of(recurringCharges));
         }
 
+        /**
+         * @param reservationId Customer-specified identifier to track this reservation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reservationId(@Nullable Output<String> reservationId) {
             $.reservationId = reservationId;
             return this;
         }
 
+        /**
+         * @param reservationId Customer-specified identifier to track this reservation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reservationId(String reservationId) {
             return reservationId(Output.of(reservationId));
         }

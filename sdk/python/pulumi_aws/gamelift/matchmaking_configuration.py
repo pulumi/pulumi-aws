@@ -16,10 +16,9 @@ __all__ = ['MatchmakingConfigurationArgs', 'MatchmakingConfiguration']
 @pulumi.input_type
 class MatchmakingConfigurationArgs:
     def __init__(__self__, *,
-                 acceptance_required: pulumi.Input[bool],
-                 game_session_data: pulumi.Input[str],
                  request_timeout_seconds: pulumi.Input[int],
                  rule_set_name: pulumi.Input[str],
+                 acceptance_required: Optional[pulumi.Input[bool]] = None,
                  acceptance_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  additional_player_count: Optional[pulumi.Input[int]] = None,
                  backfill_mode: Optional[pulumi.Input[str]] = None,
@@ -27,16 +26,16 @@ class MatchmakingConfigurationArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  flex_match_mode: Optional[pulumi.Input[str]] = None,
                  game_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]] = None,
+                 game_session_data: Optional[pulumi.Input[str]] = None,
                  game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MatchmakingConfiguration resource.
-        :param pulumi.Input[bool] acceptance_required: Specifies if the match that was created with this configuration must be accepted by matched players.
-        :param pulumi.Input[str] game_session_data: A set of custom game session properties.
         :param pulumi.Input[int] request_timeout_seconds: The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
         :param pulumi.Input[str] rule_set_name: A rule set names for the matchmaking rule set to use with this configuration.
+        :param pulumi.Input[bool] acceptance_required: Specifies if the match that was created with this configuration must be accepted by matched players.
         :param pulumi.Input[int] acceptance_timeout_seconds: The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
         :param pulumi.Input[int] additional_player_count: The number of player slots in a match to keep open for future players.
         :param pulumi.Input[str] backfill_mode: The method used to backfill game sessions that are created with this matchmaking configuration.
@@ -44,15 +43,16 @@ class MatchmakingConfigurationArgs:
         :param pulumi.Input[str] description: A human-readable description of the matchmaking configuration.
         :param pulumi.Input[str] flex_match_mode: Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
         :param pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]] game_properties: One or more custom game properties. See below.
+        :param pulumi.Input[str] game_session_data: A set of custom game session properties.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] game_session_queue_arns: The ARNs of the GameLift game session queue resources.
         :param pulumi.Input[str] name: Name of the matchmaking configuration
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive matchmaking notifications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "acceptance_required", acceptance_required)
-        pulumi.set(__self__, "game_session_data", game_session_data)
         pulumi.set(__self__, "request_timeout_seconds", request_timeout_seconds)
         pulumi.set(__self__, "rule_set_name", rule_set_name)
+        if acceptance_required is not None:
+            pulumi.set(__self__, "acceptance_required", acceptance_required)
         if acceptance_timeout_seconds is not None:
             pulumi.set(__self__, "acceptance_timeout_seconds", acceptance_timeout_seconds)
         if additional_player_count is not None:
@@ -67,6 +67,8 @@ class MatchmakingConfigurationArgs:
             pulumi.set(__self__, "flex_match_mode", flex_match_mode)
         if game_properties is not None:
             pulumi.set(__self__, "game_properties", game_properties)
+        if game_session_data is not None:
+            pulumi.set(__self__, "game_session_data", game_session_data)
         if game_session_queue_arns is not None:
             pulumi.set(__self__, "game_session_queue_arns", game_session_queue_arns)
         if name is not None:
@@ -75,30 +77,6 @@ class MatchmakingConfigurationArgs:
             pulumi.set(__self__, "notification_target", notification_target)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="acceptanceRequired")
-    def acceptance_required(self) -> pulumi.Input[bool]:
-        """
-        Specifies if the match that was created with this configuration must be accepted by matched players.
-        """
-        return pulumi.get(self, "acceptance_required")
-
-    @acceptance_required.setter
-    def acceptance_required(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "acceptance_required", value)
-
-    @property
-    @pulumi.getter(name="gameSessionData")
-    def game_session_data(self) -> pulumi.Input[str]:
-        """
-        A set of custom game session properties.
-        """
-        return pulumi.get(self, "game_session_data")
-
-    @game_session_data.setter
-    def game_session_data(self, value: pulumi.Input[str]):
-        pulumi.set(self, "game_session_data", value)
 
     @property
     @pulumi.getter(name="requestTimeoutSeconds")
@@ -123,6 +101,18 @@ class MatchmakingConfigurationArgs:
     @rule_set_name.setter
     def rule_set_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_set_name", value)
+
+    @property
+    @pulumi.getter(name="acceptanceRequired")
+    def acceptance_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the match that was created with this configuration must be accepted by matched players.
+        """
+        return pulumi.get(self, "acceptance_required")
+
+    @acceptance_required.setter
+    def acceptance_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "acceptance_required", value)
 
     @property
     @pulumi.getter(name="acceptanceTimeoutSeconds")
@@ -207,6 +197,18 @@ class MatchmakingConfigurationArgs:
     @game_properties.setter
     def game_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]]):
         pulumi.set(self, "game_properties", value)
+
+    @property
+    @pulumi.getter(name="gameSessionData")
+    def game_session_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        A set of custom game session properties.
+        """
+        return pulumi.get(self, "game_session_data")
+
+    @game_session_data.setter
+    def game_session_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "game_session_data", value)
 
     @property
     @pulumi.getter(name="gameSessionQueueArns")
@@ -753,8 +755,6 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MatchmakingConfigurationArgs.__new__(MatchmakingConfigurationArgs)
 
-            if acceptance_required is None and not opts.urn:
-                raise TypeError("Missing required property 'acceptance_required'")
             __props__.__dict__["acceptance_required"] = acceptance_required
             __props__.__dict__["acceptance_timeout_seconds"] = acceptance_timeout_seconds
             __props__.__dict__["additional_player_count"] = additional_player_count
@@ -763,8 +763,6 @@ class MatchmakingConfiguration(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["flex_match_mode"] = flex_match_mode
             __props__.__dict__["game_properties"] = game_properties
-            if game_session_data is None and not opts.urn:
-                raise TypeError("Missing required property 'game_session_data'")
             __props__.__dict__["game_session_data"] = game_session_data
             __props__.__dict__["game_session_queue_arns"] = game_session_queue_arns
             __props__.__dict__["name"] = name
@@ -862,7 +860,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acceptanceRequired")
-    def acceptance_required(self) -> pulumi.Output[bool]:
+    def acceptance_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the match that was created with this configuration must be accepted by matched players.
         """
@@ -942,7 +940,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gameSessionData")
-    def game_session_data(self) -> pulumi.Output[str]:
+    def game_session_data(self) -> pulumi.Output[Optional[str]]:
         """
         A set of custom game session properties.
         """
