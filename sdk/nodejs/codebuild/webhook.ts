@@ -40,6 +40,30 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### GitHub Enterprise
+ *
+ * When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `githubRepositoryWebhook` resource).
+ *
+ * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as github from "@pulumi/github";
+ *
+ * const exampleWebhook = new aws.codebuild.Webhook("exampleWebhook", {projectName: aws_codebuild_project.example.name});
+ * const exampleRepositoryWebhook = new github.RepositoryWebhook("exampleRepositoryWebhook", {
+ *     active: true,
+ *     events: ["push"],
+ *     repository: github_repository.example.name,
+ *     configuration: {
+ *         url: exampleWebhook.payloadUrl,
+ *         secret: exampleWebhook.secret,
+ *         contentType: "json",
+ *         insecureSsl: false,
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

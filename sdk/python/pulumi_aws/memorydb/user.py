@@ -217,6 +217,23 @@ class User(pulumi.CustomResource):
 
         More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_random as random
+
+        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
+        example_user = aws.memorydb.User("exampleUser",
+            user_name="my-user",
+            access_string="on ~* &* +@all",
+            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
+                type="password",
+                passwords=[example_random_password.result],
+            ))
+        ```
+
         ## Import
 
         Use the `user_name` to import a user. For example
@@ -244,6 +261,23 @@ class User(pulumi.CustomResource):
         Provides a MemoryDB User.
 
         More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_random as random
+
+        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
+        example_user = aws.memorydb.User("exampleUser",
+            user_name="my-user",
+            access_string="on ~* &* +@all",
+            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
+                type="password",
+                passwords=[example_random_password.result],
+            ))
+        ```
 
         ## Import
 
