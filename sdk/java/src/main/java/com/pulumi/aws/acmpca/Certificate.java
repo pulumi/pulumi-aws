@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *         var csr = new CertRequest(&#34;csr&#34;, CertRequestArgs.builder()        
  *             .keyAlgorithm(&#34;RSA&#34;)
  *             .privateKeyPem(key.privateKeyPem())
- *             .subject(CertRequestSubjectArgs.builder()
+ *             .subjects(CertRequestSubjectArgs.builder()
  *                 .commonName(&#34;example&#34;)
  *                 .build())
  *             .build());

@@ -72,7 +72,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
