@@ -8,7 +8,7 @@ VERSION=$1
 RELEASE_ARTIFACT="schema-tools-${VERSION}-${OS}-${ARCH}.tar.gz"
 ARTIFACT_URL="https://github.com/${ACCOUNT}/schema-tools/releases/download/${VERSION}/${RELEASE_ARTIFACT}"
 
-CURRENT_VERSION=$(schema-tools version 2>/dev/null)
+CURRENT_VERSION=$(./bin/schema-tools version 2>/dev/null)
 echo "Downloading schema-tools ${VERSION} for ${OS} ${ARCH}..."
 
 if [ CURRENT_VERSION == VERSION ]; then
@@ -16,10 +16,7 @@ if [ CURRENT_VERSION == VERSION ]; then
     exit 0
 else
     echo "schema-tools ${CURRENT_VERSION} is installed. Installing ${VERSION}..."
-    curl -L -o /tmp/${RELEASE_ARTIFACT} ${ARTIFACT_URL}
-    tar -xzf /tmp/${RELEASE_ARTIFACT} -C /tmp
-    rm /tmp/${RELEASE_ARTIFACT}
-
-    echo "Moving schema-tools to /usr/local/bin - please enter your password if prompted."
-    sudo mv /tmp/schema-tools /usr/local/bin
+    curl -L -o ./bin/${RELEASE_ARTIFACT} ${ARTIFACT_URL}
+    tar -xzf ./bin/${RELEASE_ARTIFACT} -C ./bin
+    rm ./bin/${RELEASE_ARTIFACT}
 fi
