@@ -22,13 +22,13 @@ class PlacementGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
-        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `cluster`, `partition` or `spread`.
         :param pulumi.Input[str] name: The name of the placement group.
         :param pulumi.Input[int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
-               `"partition"`.  Valid values are 1 - 7 (default is `2`).
+               `partition`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[str] spread_level: Determines how placement groups spread instances. Can only be used
-               when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+               when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "strategy", strategy)
@@ -45,7 +45,7 @@ class PlacementGroupArgs:
     @pulumi.getter
     def strategy(self) -> pulumi.Input[Union[str, 'PlacementStrategy']]:
         """
-        The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        The placement strategy. Can be `cluster`, `partition` or `spread`.
         """
         return pulumi.get(self, "strategy")
 
@@ -71,7 +71,7 @@ class PlacementGroupArgs:
         """
         The number of partitions to create in the
         placement group.  Can only be specified when the `strategy` is set to
-        `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        `partition`.  Valid values are 1 - 7 (default is `2`).
         """
         return pulumi.get(self, "partition_count")
 
@@ -84,7 +84,7 @@ class PlacementGroupArgs:
     def spread_level(self) -> Optional[pulumi.Input[str]]:
         """
         Determines how placement groups spread instances. Can only be used
-        when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         """
         return pulumi.get(self, "spread_level")
 
@@ -122,11 +122,11 @@ class _PlacementGroupState:
         :param pulumi.Input[str] name: The name of the placement group.
         :param pulumi.Input[int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
-               `"partition"`.  Valid values are 1 - 7 (default is `2`).
+               `partition`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[str] placement_group_id: The ID of the placement group.
         :param pulumi.Input[str] spread_level: Determines how placement groups spread instances. Can only be used
-               when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
-        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+               when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `cluster`, `partition` or `spread`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -177,7 +177,7 @@ class _PlacementGroupState:
         """
         The number of partitions to create in the
         placement group.  Can only be specified when the `strategy` is set to
-        `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        `partition`.  Valid values are 1 - 7 (default is `2`).
         """
         return pulumi.get(self, "partition_count")
 
@@ -202,7 +202,7 @@ class _PlacementGroupState:
     def spread_level(self) -> Optional[pulumi.Input[str]]:
         """
         Determines how placement groups spread instances. Can only be used
-        when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         """
         return pulumi.get(self, "spread_level")
 
@@ -214,7 +214,7 @@ class _PlacementGroupState:
     @pulumi.getter
     def strategy(self) -> Optional[pulumi.Input[Union[str, 'PlacementStrategy']]]:
         """
-        The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        The placement strategy. Can be `cluster`, `partition` or `spread`.
         """
         return pulumi.get(self, "strategy")
 
@@ -284,10 +284,10 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the placement group.
         :param pulumi.Input[int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
-               `"partition"`.  Valid values are 1 - 7 (default is `2`).
+               `partition`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[str] spread_level: Determines how placement groups spread instances. Can only be used
-               when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
-        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+               when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `cluster`, `partition` or `spread`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -385,11 +385,11 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the placement group.
         :param pulumi.Input[int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
-               `"partition"`.  Valid values are 1 - 7 (default is `2`).
+               `partition`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[str] placement_group_id: The ID of the placement group.
         :param pulumi.Input[str] spread_level: Determines how placement groups spread instances. Can only be used
-               when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
-        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+               when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+        :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `cluster`, `partition` or `spread`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -429,7 +429,7 @@ class PlacementGroup(pulumi.CustomResource):
         """
         The number of partitions to create in the
         placement group.  Can only be specified when the `strategy` is set to
-        `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        `partition`.  Valid values are 1 - 7 (default is `2`).
         """
         return pulumi.get(self, "partition_count")
 
@@ -443,10 +443,10 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spreadLevel")
-    def spread_level(self) -> pulumi.Output[Optional[str]]:
+    def spread_level(self) -> pulumi.Output[str]:
         """
         Determines how placement groups spread instances. Can only be used
-        when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         """
         return pulumi.get(self, "spread_level")
 
@@ -454,7 +454,7 @@ class PlacementGroup(pulumi.CustomResource):
     @pulumi.getter
     def strategy(self) -> pulumi.Output[str]:
         """
-        The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        The placement strategy. Can be `cluster`, `partition` or `spread`.
         """
         return pulumi.get(self, "strategy")
 

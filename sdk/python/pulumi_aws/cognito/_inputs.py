@@ -792,8 +792,12 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
                  blocked_ip_range_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skipped_ip_range_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_range_lists: Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] skipped_ip_range_lists: Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_range_lists: Overrides the risk decision to always block the pre-authentication requests.
+               The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+               Can contain a maximum of 200 items.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skipped_ip_range_lists: Risk detection isn't performed on the IP addresses in this range list.
+               The IP range is in CIDR notation.
+               Can contain a maximum of 200 items.
         """
         if blocked_ip_range_lists is not None:
             pulumi.set(__self__, "blocked_ip_range_lists", blocked_ip_range_lists)
@@ -804,7 +808,9 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
     @pulumi.getter(name="blockedIpRangeLists")
     def blocked_ip_range_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        Overrides the risk decision to always block the pre-authentication requests.
+        The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        Can contain a maximum of 200 items.
         """
         return pulumi.get(self, "blocked_ip_range_lists")
 
@@ -816,7 +822,9 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
     @pulumi.getter(name="skippedIpRangeLists")
     def skipped_ip_range_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        Risk detection isn't performed on the IP addresses in this range list.
+        The IP range is in CIDR notation.
+        Can contain a maximum of 200 items.
         """
         return pulumi.get(self, "skipped_ip_range_lists")
 

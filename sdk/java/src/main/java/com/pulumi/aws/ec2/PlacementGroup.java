@@ -92,7 +92,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `&#34;partition&#34;`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Valid values are 1 - 7 (default is `2`).
      * 
      */
     @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
@@ -101,7 +101,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `&#34;partition&#34;`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Valid values are 1 - 7 (default is `2`).
      * 
      */
     public Output<Integer> partitionCount() {
@@ -123,29 +123,29 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
     @Export(name="spreadLevel", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> spreadLevel;
+    private Output<String> spreadLevel;
 
     /**
      * @return Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
-    public Output<Optional<String>> spreadLevel() {
-        return Codegen.optional(this.spreadLevel);
+    public Output<String> spreadLevel() {
+        return this.spreadLevel;
     }
     /**
-     * The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+     * The placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
     @Export(name="strategy", refs={String.class}, tree="[0]")
     private Output<String> strategy;
 
     /**
-     * @return The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+     * @return The placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
     public Output<String> strategy() {

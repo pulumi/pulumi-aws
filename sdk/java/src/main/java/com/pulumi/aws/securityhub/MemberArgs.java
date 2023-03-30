@@ -35,15 +35,15 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
      * The email of the member AWS account.
      * 
      */
-    @Import(name="email", required=true)
-    private Output<String> email;
+    @Import(name="email")
+    private @Nullable Output<String> email;
 
     /**
      * @return The email of the member AWS account.
      * 
      */
-    public Output<String> email() {
-        return this.email;
+    public Optional<Output<String>> email() {
+        return Optional.ofNullable(this.email);
     }
 
     /**
@@ -114,7 +114,7 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder email(Output<String> email) {
+        public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
@@ -152,7 +152,6 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
 
         public MemberArgs build() {
             $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
             return $;
         }
     }

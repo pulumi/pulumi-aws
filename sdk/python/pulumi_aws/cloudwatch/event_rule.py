@@ -26,7 +26,8 @@ class EventRuleArgs:
         """
         The set of arguments for constructing a EventRule resource.
         :param pulumi.Input[str] description: The description of the rule.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
+               If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -70,7 +71,8 @@ class EventRuleArgs:
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        The name or ARN of the event bus to associate with this rule.
+        If you omit this, the `default` event bus is used.
         """
         return pulumi.get(self, "event_bus_name")
 
@@ -181,7 +183,8 @@ class _EventRuleState:
         Input properties used for looking up and filtering EventRule resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the rule.
         :param pulumi.Input[str] description: The description of the rule.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
+               If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -242,7 +245,8 @@ class _EventRuleState:
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        The name or ARN of the event bus to associate with this rule.
+        If you omit this, the `default` event bus is used.
         """
         return pulumi.get(self, "event_bus_name")
 
@@ -408,7 +412,8 @@ class EventRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the rule.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
+               If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -540,7 +545,8 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the rule.
         :param pulumi.Input[str] description: The description of the rule.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
+               If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled (defaults to `true`).
         :param pulumi.Input[str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -587,7 +593,8 @@ class EventRule(pulumi.CustomResource):
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+        The name or ARN of the event bus to associate with this rule.
+        If you omit this, the `default` event bus is used.
         """
         return pulumi.get(self, "event_bus_name")
 

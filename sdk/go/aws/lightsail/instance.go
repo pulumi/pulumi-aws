@@ -49,6 +49,36 @@ import (
 //	}
 //
 // ```
+// ### Example With User Data
+//
+// Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewInstance(ctx, "custom", &lightsail.InstanceArgs{
+//				AvailabilityZone: pulumi.String("us-east-1b"),
+//				BlueprintId:      pulumi.String("amazon_linux_2"),
+//				BundleId:         pulumi.String("nano_1_0"),
+//				UserData:         pulumi.String("sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Enable Auto Snapshots
 //
 // ```go
@@ -188,7 +218,7 @@ type Instance struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// launch script to configure server with additional user data
+	// Single lined launch script as a string to configure server with additional user data
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// The user name for connecting to the instance (e.g., ec2-user).
 	Username pulumi.StringOutput `pulumi:"username"`
@@ -272,7 +302,7 @@ type instanceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// launch script to configure server with additional user data
+	// Single lined launch script as a string to configure server with additional user data
 	UserData *string `pulumi:"userData"`
 	// The user name for connecting to the instance (e.g., ec2-user).
 	Username *string `pulumi:"username"`
@@ -319,7 +349,7 @@ type InstanceState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// launch script to configure server with additional user data
+	// Single lined launch script as a string to configure server with additional user data
 	UserData pulumi.StringPtrInput
 	// The user name for connecting to the instance (e.g., ec2-user).
 	Username pulumi.StringPtrInput
@@ -348,7 +378,7 @@ type instanceArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// launch script to configure server with additional user data
+	// Single lined launch script as a string to configure server with additional user data
 	UserData *string `pulumi:"userData"`
 }
 
@@ -372,7 +402,7 @@ type InstanceArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// launch script to configure server with additional user data
+	// Single lined launch script as a string to configure server with additional user data
 	UserData pulumi.StringPtrInput
 }
 
@@ -557,7 +587,7 @@ func (o InstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// launch script to configure server with additional user data
+// Single lined launch script as a string to configure server with additional user data
 func (o InstanceOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
 }

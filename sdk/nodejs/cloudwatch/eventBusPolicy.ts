@@ -157,7 +157,8 @@ export class EventBusPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * The name of the event bus to set the permissions on.
+     * If you omit this, the permissions are set on the `default` event bus.
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     /**
@@ -198,7 +199,8 @@ export class EventBusPolicy extends pulumi.CustomResource {
  */
 export interface EventBusPolicyState {
     /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * The name of the event bus to set the permissions on.
+     * If you omit this, the permissions are set on the `default` event bus.
      */
     eventBusName?: pulumi.Input<string>;
     /**
@@ -212,7 +214,8 @@ export interface EventBusPolicyState {
  */
 export interface EventBusPolicyArgs {
     /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * The name of the event bus to set the permissions on.
+     * If you omit this, the permissions are set on the `default` event bus.
      */
     eventBusName?: pulumi.Input<string>;
     /**

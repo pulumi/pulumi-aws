@@ -9,7 +9,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVirtualServiceResult {
@@ -50,7 +49,7 @@ public final class GetVirtualServiceResult {
      * @return Map of tags.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
 
     private GetVirtualServiceResult() {}
     /**
@@ -109,7 +108,7 @@ public final class GetVirtualServiceResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
 
     public static Builder builder() {
@@ -130,7 +129,7 @@ public final class GetVirtualServiceResult {
         private String name;
         private String resourceOwner;
         private List<GetVirtualServiceSpec> specs;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetVirtualServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -195,8 +194,8 @@ public final class GetVirtualServiceResult {
             return specs(List.of(specs));
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-            this.tags = tags;
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
             return this;
         }
         public GetVirtualServiceResult build() {

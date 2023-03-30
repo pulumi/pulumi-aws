@@ -29,6 +29,10 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         IpamId = aws_vpc_ipam.Test.Id,
     ///         IpamResourceDiscoveryId = aws_vpc_ipam_resource_discovery.Test.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "test" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -46,34 +50,37 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpamResourceDiscoveryAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+        /// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The arn of the IPAM
+        /// The Amazon Resource Name (ARN) of the IPAM.
         /// </summary>
         [Output("ipamArn")]
         public Output<string> IpamArn { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the IPAM to associate
+        /// The ID of the IPAM to associate.
         /// </summary>
         [Output("ipamId")]
         public Output<string> IpamId { get; private set; } = null!;
 
         /// <summary>
-        /// The home region of the IPAM
+        /// The home region of the IPAM.
         /// </summary>
         [Output("ipamRegion")]
         public Output<string> IpamRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Resource Discovery to associate.
+        /// </summary>
         [Output("ipamResourceDiscoveryId")]
         public Output<string> IpamResourceDiscoveryId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
+        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery.
         /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
@@ -84,9 +91,15 @@ namespace Pulumi.Aws.Ec2
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The lifecycle state of the association when you associate or disassociate a resource discovery.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to add to the IPAM resource discovery association resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -143,16 +156,23 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamResourceDiscoveryAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of the IPAM to associate
+        /// The ID of the IPAM to associate.
         /// </summary>
         [Input("ipamId", required: true)]
         public Input<string> IpamId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Resource Discovery to associate.
+        /// </summary>
         [Input("ipamResourceDiscoveryId", required: true)]
         public Input<string> IpamResourceDiscoveryId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to add to the IPAM resource discovery association resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -168,34 +188,37 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamResourceDiscoveryAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+        /// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The arn of the IPAM
+        /// The Amazon Resource Name (ARN) of the IPAM.
         /// </summary>
         [Input("ipamArn")]
         public Input<string>? IpamArn { get; set; }
 
         /// <summary>
-        /// Id of the IPAM to associate
+        /// The ID of the IPAM to associate.
         /// </summary>
         [Input("ipamId")]
         public Input<string>? IpamId { get; set; }
 
         /// <summary>
-        /// The home region of the IPAM
+        /// The home region of the IPAM.
         /// </summary>
         [Input("ipamRegion")]
         public Input<string>? IpamRegion { get; set; }
 
+        /// <summary>
+        /// The ID of the Resource Discovery to associate.
+        /// </summary>
         [Input("ipamResourceDiscoveryId")]
         public Input<string>? IpamResourceDiscoveryId { get; set; }
 
         /// <summary>
-        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
+        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -206,11 +229,18 @@ namespace Pulumi.Aws.Ec2
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        /// <summary>
+        /// The lifecycle state of the association when you associate or disassociate a resource discovery.
+        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to add to the IPAM resource discovery association resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

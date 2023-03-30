@@ -41,6 +41,27 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// ### Example With User Data
+    /// 
+    /// Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var custom = new Aws.LightSail.Instance("custom", new()
+    ///     {
+    ///         AvailabilityZone = "us-east-1b",
+    ///         BlueprintId = "amazon_linux_2",
+    ///         BundleId = "nano_1_0",
+    ///         UserData = "sudo yum install -y httpd &amp;&amp; sudo systemctl start httpd &amp;&amp; sudo systemctl enable httpd &amp;&amp; echo '&lt;h1&gt;Deployed via Pulumi&lt;/h1&gt;' | sudo tee /var/www/html/index.html",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Enable Auto Snapshots
     /// 
     /// ```csharp
@@ -243,7 +264,7 @@ namespace Pulumi.Aws.LightSail
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// launch script to configure server with additional user data
+        /// Single lined launch script as a string to configure server with additional user data
         /// </summary>
         [Output("userData")]
         public Output<string?> UserData { get; private set; } = null!;
@@ -357,7 +378,7 @@ namespace Pulumi.Aws.LightSail
         }
 
         /// <summary>
-        /// launch script to configure server with additional user data
+        /// Single lined launch script as a string to configure server with additional user data
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
@@ -499,7 +520,7 @@ namespace Pulumi.Aws.LightSail
         }
 
         /// <summary>
-        /// launch script to configure server with additional user data
+        /// Single lined launch script as a string to configure server with additional user data
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }

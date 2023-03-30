@@ -67,7 +67,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `"partition"`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Valid values are 1 - 7 (default is `2`).
      */
     public readonly partitionCount!: pulumi.Output<number>;
     /**
@@ -76,11 +76,11 @@ export class PlacementGroup extends pulumi.CustomResource {
     public /*out*/ readonly placementGroupId!: pulumi.Output<string>;
     /**
      * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
-    public readonly spreadLevel!: pulumi.Output<string | undefined>;
+    public readonly spreadLevel!: pulumi.Output<string>;
     /**
-     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+     * The placement strategy. Can be `cluster`, `partition` or `spread`.
      */
     public readonly strategy!: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export interface PlacementGroupState {
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `"partition"`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Valid values are 1 - 7 (default is `2`).
      */
     partitionCount?: pulumi.Input<number>;
     /**
@@ -156,11 +156,11 @@ export interface PlacementGroupState {
     placementGroupId?: pulumi.Input<string>;
     /**
      * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
     spreadLevel?: pulumi.Input<string>;
     /**
-     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+     * The placement strategy. Can be `cluster`, `partition` or `spread`.
      */
     strategy?: pulumi.Input<string | enums.ec2.PlacementStrategy>;
     /**
@@ -184,16 +184,16 @@ export interface PlacementGroupArgs {
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `"partition"`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Valid values are 1 - 7 (default is `2`).
      */
     partitionCount?: pulumi.Input<number>;
     /**
      * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      */
     spreadLevel?: pulumi.Input<string>;
     /**
-     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+     * The placement strategy. Can be `cluster`, `partition` or `spread`.
      */
     strategy: pulumi.Input<string | enums.ec2.PlacementStrategy>;
     /**

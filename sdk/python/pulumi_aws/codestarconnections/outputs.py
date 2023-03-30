@@ -44,7 +44,7 @@ class HostVpcConfiguration(dict):
                  vpc_id: str,
                  tls_certificate: Optional[str] = None):
         """
-        :param Sequence[str] security_group_ids: he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        :param Sequence[str] security_group_ids: ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
         :param Sequence[str] subnet_ids: The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
         :param str vpc_id: The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
         :param str tls_certificate: The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
@@ -59,7 +59,7 @@ class HostVpcConfiguration(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
         """
         return pulumi.get(self, "security_group_ids")
 

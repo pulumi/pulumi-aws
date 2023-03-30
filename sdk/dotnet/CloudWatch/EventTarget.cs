@@ -600,7 +600,8 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetEcsTarget?> EcsTarget { get; private set; } = null!;
 
         /// <summary>
-        /// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        /// The name or ARN of the event bus to associate with the rule.
+        /// If you omit this, the `default` event bus is used.
         /// </summary>
         [Output("eventBusName")]
         public Output<string?> EventBusName { get; private set; } = null!;
@@ -748,7 +749,8 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetEcsTargetArgs>? EcsTarget { get; set; }
 
         /// <summary>
-        /// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        /// The name or ARN of the event bus to associate with the rule.
+        /// If you omit this, the `default` event bus is used.
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
@@ -864,7 +866,8 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetEcsTargetGetArgs>? EcsTarget { get; set; }
 
         /// <summary>
-        /// The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+        /// The name or ARN of the event bus to associate with the rule.
+        /// If you omit this, the `default` event bus is used.
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }

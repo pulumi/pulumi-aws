@@ -92,7 +92,8 @@ type EventPermission struct {
 	Action pulumi.StringPtrOutput `pulumi:"action"`
 	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
 	Condition EventPermissionConditionPtrOutput `pulumi:"condition"`
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -139,7 +140,8 @@ type eventPermissionState struct {
 	Action *string `pulumi:"action"`
 	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
 	Condition *EventPermissionCondition `pulumi:"condition"`
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal *string `pulumi:"principal"`
@@ -152,7 +154,8 @@ type EventPermissionState struct {
 	Action pulumi.StringPtrInput
 	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
 	Condition EventPermissionConditionPtrInput
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal pulumi.StringPtrInput
@@ -169,7 +172,8 @@ type eventPermissionArgs struct {
 	Action *string `pulumi:"action"`
 	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
 	Condition *EventPermissionCondition `pulumi:"condition"`
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal string `pulumi:"principal"`
@@ -183,7 +187,8 @@ type EventPermissionArgs struct {
 	Action pulumi.StringPtrInput
 	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
 	Condition EventPermissionConditionPtrInput
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+	// The name of the event bus to set the permissions on.
+	// If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
 	Principal pulumi.StringInput
@@ -288,7 +293,8 @@ func (o EventPermissionOutput) Condition() EventPermissionConditionPtrOutput {
 	return o.ApplyT(func(v *EventPermission) EventPermissionConditionPtrOutput { return v.Condition }).(EventPermissionConditionPtrOutput)
 }
 
-// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+// The name of the event bus to set the permissions on.
+// If you omit this, the permissions are set on the `default` event bus.
 func (o EventPermissionOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventPermission) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }

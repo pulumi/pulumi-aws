@@ -119,7 +119,7 @@ class GetVirtualServiceResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
         """
         Map of tags.
         """

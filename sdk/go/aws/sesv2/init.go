@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfigurationSet{}
 	case "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination":
 		r = &ConfigurationSetEventDestination{}
+	case "aws:sesv2/contactList:ContactList":
+		r = &ContactList{}
 	case "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment":
 		r = &DedicatedIpAssignment{}
 	case "aws:sesv2/dedicatedIpPool:DedicatedIpPool":
@@ -56,6 +58,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sesv2/configurationSetEventDestination",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sesv2/contactList",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

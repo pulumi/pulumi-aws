@@ -70,7 +70,8 @@ type ReservedInstance struct {
 	// ARN for the reserved DB instance.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Currency code for the reserved DB instance.
-	CurrencyCode    pulumi.StringOutput `pulumi:"currencyCode"`
+	CurrencyCode pulumi.StringOutput `pulumi:"currencyCode"`
+	// DB instance class for the reserved DB instance.
 	DbInstanceClass pulumi.StringOutput `pulumi:"dbInstanceClass"`
 	// Duration of the reservation in seconds.
 	Duration pulumi.IntOutput `pulumi:"duration"`
@@ -90,7 +91,8 @@ type ReservedInstance struct {
 	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges ReservedInstanceRecurringChargeArrayOutput `pulumi:"recurringCharges"`
-	ReservationId    pulumi.StringPtrOutput                     `pulumi:"reservationId"`
+	// Customer-specified identifier to track this reservation.
+	ReservationId pulumi.StringPtrOutput `pulumi:"reservationId"`
 	// Time the reservation started.
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// State of the reserved DB instance.
@@ -138,7 +140,8 @@ type reservedInstanceState struct {
 	// ARN for the reserved DB instance.
 	Arn *string `pulumi:"arn"`
 	// Currency code for the reserved DB instance.
-	CurrencyCode    *string `pulumi:"currencyCode"`
+	CurrencyCode *string `pulumi:"currencyCode"`
+	// DB instance class for the reserved DB instance.
 	DbInstanceClass *string `pulumi:"dbInstanceClass"`
 	// Duration of the reservation in seconds.
 	Duration *int `pulumi:"duration"`
@@ -158,7 +161,8 @@ type reservedInstanceState struct {
 	ProductDescription *string `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges []ReservedInstanceRecurringCharge `pulumi:"recurringCharges"`
-	ReservationId    *string                           `pulumi:"reservationId"`
+	// Customer-specified identifier to track this reservation.
+	ReservationId *string `pulumi:"reservationId"`
 	// Time the reservation started.
 	StartTime *string `pulumi:"startTime"`
 	// State of the reserved DB instance.
@@ -175,7 +179,8 @@ type ReservedInstanceState struct {
 	// ARN for the reserved DB instance.
 	Arn pulumi.StringPtrInput
 	// Currency code for the reserved DB instance.
-	CurrencyCode    pulumi.StringPtrInput
+	CurrencyCode pulumi.StringPtrInput
+	// DB instance class for the reserved DB instance.
 	DbInstanceClass pulumi.StringPtrInput
 	// Duration of the reservation in seconds.
 	Duration pulumi.IntPtrInput
@@ -195,7 +200,8 @@ type ReservedInstanceState struct {
 	ProductDescription pulumi.StringPtrInput
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges ReservedInstanceRecurringChargeArrayInput
-	ReservationId    pulumi.StringPtrInput
+	// Customer-specified identifier to track this reservation.
+	ReservationId pulumi.StringPtrInput
 	// Time the reservation started.
 	StartTime pulumi.StringPtrInput
 	// State of the reserved DB instance.
@@ -216,7 +222,8 @@ type reservedInstanceArgs struct {
 	// Number of instances to reserve. Default value is `1`.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
-	OfferingId    string  `pulumi:"offeringId"`
+	OfferingId string `pulumi:"offeringId"`
+	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -227,7 +234,8 @@ type ReservedInstanceArgs struct {
 	// Number of instances to reserve. Default value is `1`.
 	InstanceCount pulumi.IntPtrInput
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
-	OfferingId    pulumi.StringInput
+	OfferingId pulumi.StringInput
+	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -330,6 +338,7 @@ func (o ReservedInstanceOutput) CurrencyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.CurrencyCode }).(pulumi.StringOutput)
 }
 
+// DB instance class for the reserved DB instance.
 func (o ReservedInstanceOutput) DbInstanceClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.DbInstanceClass }).(pulumi.StringOutput)
 }
@@ -379,6 +388,7 @@ func (o ReservedInstanceOutput) RecurringCharges() ReservedInstanceRecurringChar
 	return o.ApplyT(func(v *ReservedInstance) ReservedInstanceRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedInstanceRecurringChargeArrayOutput)
 }
 
+// Customer-specified identifier to track this reservation.
 func (o ReservedInstanceOutput) ReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringPtrOutput { return v.ReservationId }).(pulumi.StringPtrOutput)
 }

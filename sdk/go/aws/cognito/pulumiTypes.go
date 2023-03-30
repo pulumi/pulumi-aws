@@ -2361,9 +2361,13 @@ func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput
 }
 
 type RiskConfigurationRiskExceptionConfiguration struct {
-	// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+	// Overrides the risk decision to always block the pre-authentication requests.
+	// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+	// Can contain a maximum of 200 items.
 	BlockedIpRangeLists []string `pulumi:"blockedIpRangeLists"`
-	// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+	// Risk detection isn't performed on the IP addresses in this range list.
+	// The IP range is in CIDR notation.
+	// Can contain a maximum of 200 items.
 	SkippedIpRangeLists []string `pulumi:"skippedIpRangeLists"`
 }
 
@@ -2379,9 +2383,13 @@ type RiskConfigurationRiskExceptionConfigurationInput interface {
 }
 
 type RiskConfigurationRiskExceptionConfigurationArgs struct {
-	// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+	// Overrides the risk decision to always block the pre-authentication requests.
+	// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+	// Can contain a maximum of 200 items.
 	BlockedIpRangeLists pulumi.StringArrayInput `pulumi:"blockedIpRangeLists"`
-	// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+	// Risk detection isn't performed on the IP addresses in this range list.
+	// The IP range is in CIDR notation.
+	// Can contain a maximum of 200 items.
 	SkippedIpRangeLists pulumi.StringArrayInput `pulumi:"skippedIpRangeLists"`
 }
 
@@ -2462,12 +2470,16 @@ func (o RiskConfigurationRiskExceptionConfigurationOutput) ToRiskConfigurationRi
 	}).(RiskConfigurationRiskExceptionConfigurationPtrOutput)
 }
 
-// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+// Overrides the risk decision to always block the pre-authentication requests.
+// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+// Can contain a maximum of 200 items.
 func (o RiskConfigurationRiskExceptionConfigurationOutput) BlockedIpRangeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RiskConfigurationRiskExceptionConfiguration) []string { return v.BlockedIpRangeLists }).(pulumi.StringArrayOutput)
 }
 
-// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+// Risk detection isn't performed on the IP addresses in this range list.
+// The IP range is in CIDR notation.
+// Can contain a maximum of 200 items.
 func (o RiskConfigurationRiskExceptionConfigurationOutput) SkippedIpRangeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RiskConfigurationRiskExceptionConfiguration) []string { return v.SkippedIpRangeLists }).(pulumi.StringArrayOutput)
 }
@@ -2496,7 +2508,9 @@ func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) Elem() RiskConfigu
 	}).(RiskConfigurationRiskExceptionConfigurationOutput)
 }
 
-// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+// Overrides the risk decision to always block the pre-authentication requests.
+// The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+// Can contain a maximum of 200 items.
 func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) BlockedIpRangeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RiskConfigurationRiskExceptionConfiguration) []string {
 		if v == nil {
@@ -2506,7 +2520,9 @@ func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) BlockedIpRangeList
 	}).(pulumi.StringArrayOutput)
 }
 
-// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+// Risk detection isn't performed on the IP addresses in this range list.
+// The IP range is in CIDR notation.
+// Can contain a maximum of 200 items.
 func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) SkippedIpRangeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RiskConfigurationRiskExceptionConfiguration) []string {
 		if v == nil {

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class HostVpcConfiguration {
     /**
-     * @return he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+     * @return ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
      */
     private List<String> securityGroupIds;
@@ -35,7 +35,7 @@ public final class HostVpcConfiguration {
 
     private HostVpcConfiguration() {}
     /**
-     * @return he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+     * @return ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
      */
     public List<String> securityGroupIds() {

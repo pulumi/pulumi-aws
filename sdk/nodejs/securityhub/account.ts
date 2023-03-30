@@ -54,6 +54,10 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
+    /**
+     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     */
+    public readonly enableDefaultStandards!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -68,8 +72,10 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
+            resourceInputs["enableDefaultStandards"] = state ? state.enableDefaultStandards : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
+            resourceInputs["enableDefaultStandards"] = args ? args.enableDefaultStandards : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Account.__pulumiType, name, resourceInputs, opts);
@@ -80,10 +86,18 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
+    /**
+     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     */
+    enableDefaultStandards?: pulumi.Input<boolean>;
 }
 
 /**
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     */
+    enableDefaultStandards?: pulumi.Input<boolean>;
 }

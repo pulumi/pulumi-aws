@@ -88,7 +88,8 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with this rule.
+     * If you omit this, the `default` event bus is used.
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     /**
@@ -180,7 +181,8 @@ export interface EventRuleState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with this rule.
+     * If you omit this, the `default` event bus is used.
      */
     eventBusName?: pulumi.Input<string>;
     /**
@@ -226,7 +228,8 @@ export interface EventRuleArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The event bus to associate with this rule. If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with this rule.
+     * If you omit this, the `default` event bus is used.
      */
     eventBusName?: pulumi.Input<string>;
     /**

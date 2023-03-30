@@ -49,6 +49,9 @@ import (
 // ```
 type Account struct {
 	pulumi.CustomResourceState
+
+	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+	EnableDefaultStandards pulumi.BoolPtrOutput `pulumi:"enableDefaultStandards"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -80,9 +83,13 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+	EnableDefaultStandards *bool `pulumi:"enableDefaultStandards"`
 }
 
 type AccountState struct {
+	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+	EnableDefaultStandards pulumi.BoolPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -90,10 +97,14 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+	EnableDefaultStandards *bool `pulumi:"enableDefaultStandards"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+	EnableDefaultStandards pulumi.BoolPtrInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -181,6 +192,11 @@ func (o AccountOutput) ToAccountOutput() AccountOutput {
 
 func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
 	return o
+}
+
+// Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+func (o AccountOutput) EnableDefaultStandards() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableDefaultStandards }).(pulumi.BoolPtrOutput)
 }
 
 type AccountArrayOutput struct{ *pulumi.OutputState }

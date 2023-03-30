@@ -54,7 +54,13 @@ export class VpcIpam extends pulumi.CustomResource {
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      */
     public readonly cascade!: pulumi.Output<boolean | undefined>;
+    /**
+     * The IPAM's default resource discovery association ID.
+     */
     public /*out*/ readonly defaultResourceDiscoveryAssociationId!: pulumi.Output<string>;
+    /**
+     * The IPAM's default resource discovery ID.
+     */
     public /*out*/ readonly defaultResourceDiscoveryId!: pulumi.Output<string>;
     /**
      * A description for the IPAM.
@@ -144,7 +150,13 @@ export interface VpcIpamState {
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      */
     cascade?: pulumi.Input<boolean>;
+    /**
+     * The IPAM's default resource discovery association ID.
+     */
     defaultResourceDiscoveryAssociationId?: pulumi.Input<string>;
+    /**
+     * The IPAM's default resource discovery ID.
+     */
     defaultResourceDiscoveryId?: pulumi.Input<string>;
     /**
      * A description for the IPAM.

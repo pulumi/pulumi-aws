@@ -88,7 +88,8 @@ export class EventPermission extends pulumi.CustomResource {
      */
     public readonly condition!: pulumi.Output<outputs.cloudwatch.EventPermissionCondition | undefined>;
     /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * The name of the event bus to set the permissions on.
+     * If you omit this, the permissions are set on the `default` event bus.
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     /**
@@ -150,7 +151,8 @@ export interface EventPermissionState {
      */
     condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
     /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * The name of the event bus to set the permissions on.
+     * If you omit this, the permissions are set on the `default` event bus.
      */
     eventBusName?: pulumi.Input<string>;
     /**
@@ -176,7 +178,8 @@ export interface EventPermissionArgs {
      */
     condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
     /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * The name of the event bus to set the permissions on.
+     * If you omit this, the permissions are set on the `default` event bus.
      */
     eventBusName?: pulumi.Input<string>;
     /**

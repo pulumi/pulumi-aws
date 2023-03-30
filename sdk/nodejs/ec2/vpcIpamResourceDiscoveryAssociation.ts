@@ -20,6 +20,9 @@ import * as utilities from "../utilities";
  * const test = new aws.ec2.VpcIpamResourceDiscoveryAssociation("test", {
  *     ipamId: aws_vpc_ipam.test.id,
  *     ipamResourceDiscoveryId: aws_vpc_ipam_resource_discovery.test.id,
+ *     tags: {
+ *         Name: "test",
+ *     },
  * });
  * ```
  *
@@ -60,31 +63,40 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+     * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The arn of the IPAM
+     * The Amazon Resource Name (ARN) of the IPAM.
      */
     public /*out*/ readonly ipamArn!: pulumi.Output<string>;
     /**
-     * Id of the IPAM to associate
+     * The ID of the IPAM to associate.
      */
     public readonly ipamId!: pulumi.Output<string>;
     /**
-     * The home region of the IPAM
+     * The home region of the IPAM.
      */
     public /*out*/ readonly ipamRegion!: pulumi.Output<string>;
+    /**
+     * The ID of the Resource Discovery to associate.
+     */
     public readonly ipamResourceDiscoveryId!: pulumi.Output<string>;
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
      * The account ID for the account that manages the Resource Discovery
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * The lifecycle state of the association when you associate or disassociate a resource discovery.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * A map of tags to add to the IPAM resource discovery association resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -143,31 +155,40 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
  */
 export interface VpcIpamResourceDiscoveryAssociationState {
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+     * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The arn of the IPAM
+     * The Amazon Resource Name (ARN) of the IPAM.
      */
     ipamArn?: pulumi.Input<string>;
     /**
-     * Id of the IPAM to associate
+     * The ID of the IPAM to associate.
      */
     ipamId?: pulumi.Input<string>;
     /**
-     * The home region of the IPAM
+     * The home region of the IPAM.
      */
     ipamRegion?: pulumi.Input<string>;
+    /**
+     * The ID of the Resource Discovery to associate.
+     */
     ipamResourceDiscoveryId?: pulumi.Input<string>;
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      */
     isDefault?: pulumi.Input<boolean>;
     /**
      * The account ID for the account that manages the Resource Discovery
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * The lifecycle state of the association when you associate or disassociate a resource discovery.
+     */
     state?: pulumi.Input<string>;
+    /**
+     * A map of tags to add to the IPAM resource discovery association resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -180,9 +201,15 @@ export interface VpcIpamResourceDiscoveryAssociationState {
  */
 export interface VpcIpamResourceDiscoveryAssociationArgs {
     /**
-     * Id of the IPAM to associate
+     * The ID of the IPAM to associate.
      */
     ipamId: pulumi.Input<string>;
+    /**
+     * The ID of the Resource Discovery to associate.
+     */
     ipamResourceDiscoveryId: pulumi.Input<string>;
+    /**
+     * A map of tags to add to the IPAM resource discovery association resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

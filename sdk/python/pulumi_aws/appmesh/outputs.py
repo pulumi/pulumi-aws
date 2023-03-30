@@ -115,6 +115,8 @@ __all__ = [
     'VirtualGatewaySpecLogging',
     'VirtualGatewaySpecLoggingAccessLog',
     'VirtualGatewaySpecLoggingAccessLogFile',
+    'VirtualGatewaySpecLoggingAccessLogFileFormat',
+    'VirtualGatewaySpecLoggingAccessLogFileFormatJson',
     'VirtualNodeSpec',
     'VirtualNodeSpecBackend',
     'VirtualNodeSpecBackendDefaults',
@@ -180,6 +182,8 @@ __all__ = [
     'VirtualNodeSpecLogging',
     'VirtualNodeSpecLoggingAccessLog',
     'VirtualNodeSpecLoggingAccessLogFile',
+    'VirtualNodeSpecLoggingAccessLogFileFormat',
+    'VirtualNodeSpecLoggingAccessLogFileFormatJson',
     'VirtualNodeSpecServiceDiscovery',
     'VirtualNodeSpecServiceDiscoveryAwsCloudMap',
     'VirtualNodeSpecServiceDiscoveryDns',
@@ -192,6 +196,86 @@ __all__ = [
     'VirtualServiceSpecProviderVirtualRouter',
     'GetMeshSpecResult',
     'GetMeshSpecEgressFilterResult',
+    'GetRouteSpecResult',
+    'GetRouteSpecGrpcRouteResult',
+    'GetRouteSpecGrpcRouteActionResult',
+    'GetRouteSpecGrpcRouteActionWeightedTargetResult',
+    'GetRouteSpecGrpcRouteMatchResult',
+    'GetRouteSpecGrpcRouteMatchMetadataResult',
+    'GetRouteSpecGrpcRouteMatchMetadataMatchResult',
+    'GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult',
+    'GetRouteSpecGrpcRouteRetryPolicyResult',
+    'GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult',
+    'GetRouteSpecGrpcRouteTimeoutResult',
+    'GetRouteSpecGrpcRouteTimeoutIdleResult',
+    'GetRouteSpecGrpcRouteTimeoutPerRequestResult',
+    'GetRouteSpecHttp2RouteResult',
+    'GetRouteSpecHttp2RouteActionResult',
+    'GetRouteSpecHttp2RouteActionWeightedTargetResult',
+    'GetRouteSpecHttp2RouteMatchResult',
+    'GetRouteSpecHttp2RouteMatchHeaderResult',
+    'GetRouteSpecHttp2RouteMatchHeaderMatchResult',
+    'GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult',
+    'GetRouteSpecHttp2RouteRetryPolicyResult',
+    'GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult',
+    'GetRouteSpecHttp2RouteTimeoutResult',
+    'GetRouteSpecHttp2RouteTimeoutIdleResult',
+    'GetRouteSpecHttp2RouteTimeoutPerRequestResult',
+    'GetRouteSpecHttpRouteResult',
+    'GetRouteSpecHttpRouteActionResult',
+    'GetRouteSpecHttpRouteActionWeightedTargetResult',
+    'GetRouteSpecHttpRouteMatchResult',
+    'GetRouteSpecHttpRouteMatchHeaderResult',
+    'GetRouteSpecHttpRouteMatchHeaderMatchResult',
+    'GetRouteSpecHttpRouteMatchHeaderMatchRangeResult',
+    'GetRouteSpecHttpRouteRetryPolicyResult',
+    'GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult',
+    'GetRouteSpecHttpRouteTimeoutResult',
+    'GetRouteSpecHttpRouteTimeoutIdleResult',
+    'GetRouteSpecHttpRouteTimeoutPerRequestResult',
+    'GetRouteSpecTcpRouteResult',
+    'GetRouteSpecTcpRouteActionResult',
+    'GetRouteSpecTcpRouteActionWeightedTargetResult',
+    'GetRouteSpecTcpRouteMatchResult',
+    'GetRouteSpecTcpRouteTimeoutResult',
+    'GetRouteSpecTcpRouteTimeoutIdleResult',
+    'GetVirtualGatewaySpecResult',
+    'GetVirtualGatewaySpecBackendDefaultResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult',
+    'GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult',
+    'GetVirtualGatewaySpecListenerResult',
+    'GetVirtualGatewaySpecListenerConnectionPoolResult',
+    'GetVirtualGatewaySpecListenerConnectionPoolGrpcResult',
+    'GetVirtualGatewaySpecListenerConnectionPoolHttp2Result',
+    'GetVirtualGatewaySpecListenerConnectionPoolHttpResult',
+    'GetVirtualGatewaySpecListenerHealthCheckResult',
+    'GetVirtualGatewaySpecListenerPortMappingResult',
+    'GetVirtualGatewaySpecListenerTlResult',
+    'GetVirtualGatewaySpecListenerTlCertificateResult',
+    'GetVirtualGatewaySpecListenerTlCertificateAcmResult',
+    'GetVirtualGatewaySpecListenerTlCertificateFileResult',
+    'GetVirtualGatewaySpecListenerTlCertificateSdResult',
+    'GetVirtualGatewaySpecListenerTlValidationResult',
+    'GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult',
+    'GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult',
+    'GetVirtualGatewaySpecListenerTlValidationTrustResult',
+    'GetVirtualGatewaySpecListenerTlValidationTrustFileResult',
+    'GetVirtualGatewaySpecListenerTlValidationTrustSdResult',
+    'GetVirtualGatewaySpecLoggingResult',
+    'GetVirtualGatewaySpecLoggingAccessLogResult',
+    'GetVirtualGatewaySpecLoggingAccessLogFileResult',
+    'GetVirtualGatewaySpecLoggingAccessLogFileFormatResult',
+    'GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult',
     'GetVirtualServiceSpecResult',
     'GetVirtualServiceSpecProviderResult',
     'GetVirtualServiceSpecProviderVirtualNodeResult',
@@ -4546,11 +4630,15 @@ class VirtualGatewaySpecLoggingAccessLog(dict):
 @pulumi.output_type
 class VirtualGatewaySpecLoggingAccessLogFile(dict):
     def __init__(__self__, *,
-                 path: str):
+                 path: str,
+                 format: Optional['outputs.VirtualGatewaySpecLoggingAccessLogFileFormat'] = None):
         """
         :param str path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+        :param 'VirtualGatewaySpecLoggingAccessLogFileFormatArgs' format: The specified format for the logs.
         """
         pulumi.set(__self__, "path", path)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
@@ -4559,6 +4647,74 @@ class VirtualGatewaySpecLoggingAccessLogFile(dict):
         File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['outputs.VirtualGatewaySpecLoggingAccessLogFileFormat']:
+        """
+        The specified format for the logs.
+        """
+        return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class VirtualGatewaySpecLoggingAccessLogFileFormat(dict):
+    def __init__(__self__, *,
+                 jsons: Optional[Sequence['outputs.VirtualGatewaySpecLoggingAccessLogFileFormatJson']] = None,
+                 text: Optional[str] = None):
+        """
+        :param Sequence['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs'] jsons: The logging format for JSON.
+        :param str text: The logging format for text. Must be between 1 and 1000 characters in length.
+        """
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def jsons(self) -> Optional[Sequence['outputs.VirtualGatewaySpecLoggingAccessLogFileFormatJson']]:
+        """
+        The logging format for JSON.
+        """
+        return pulumi.get(self, "jsons")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[str]:
+        """
+        The logging format for text. Must be between 1 and 1000 characters in length.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class VirtualGatewaySpecLoggingAccessLogFileFormatJson(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The specified key for the JSON. Must be between 1 and 100 characters in length.
+        :param str value: The specified value for the JSON. Must be between 1 and 100 characters in length.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The specified key for the JSON. Must be between 1 and 100 characters in length.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -6132,7 +6288,7 @@ class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
                  value: int):
         """
         :param str unit: Unit of time. Valid values: `ms`, `s`.
-        :param int value: Number of time units. Minimum value of `0`.
+        :param int value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -6149,7 +6305,7 @@ class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        Number of time units. Minimum value of `0`.
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -6322,7 +6478,7 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
                  value: int):
         """
         :param str unit: Unit of time. Valid values: `ms`, `s`.
-        :param int value: Number of time units. Minimum value of `0`.
+        :param int value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -6339,7 +6495,7 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        Number of time units. Minimum value of `0`.
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -6428,7 +6584,7 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
                  value: int):
         """
         :param str unit: Unit of time. Valid values: `ms`, `s`.
-        :param int value: Number of time units. Minimum value of `0`.
+        :param int value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -6445,7 +6601,7 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        Number of time units. Minimum value of `0`.
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -6534,7 +6690,7 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
                  value: int):
         """
         :param str unit: Unit of time. Valid values: `ms`, `s`.
-        :param int value: Number of time units. Minimum value of `0`.
+        :param int value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -6551,7 +6707,7 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        Number of time units. Minimum value of `0`.
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -7048,11 +7204,15 @@ class VirtualNodeSpecLoggingAccessLog(dict):
 @pulumi.output_type
 class VirtualNodeSpecLoggingAccessLogFile(dict):
     def __init__(__self__, *,
-                 path: str):
+                 path: str,
+                 format: Optional['outputs.VirtualNodeSpecLoggingAccessLogFileFormat'] = None):
         """
         :param str path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+        :param 'VirtualNodeSpecLoggingAccessLogFileFormatArgs' format: The specified format for the logs.
         """
         pulumi.set(__self__, "path", path)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
@@ -7061,6 +7221,74 @@ class VirtualNodeSpecLoggingAccessLogFile(dict):
         File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['outputs.VirtualNodeSpecLoggingAccessLogFileFormat']:
+        """
+        The specified format for the logs.
+        """
+        return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class VirtualNodeSpecLoggingAccessLogFileFormat(dict):
+    def __init__(__self__, *,
+                 jsons: Optional[Sequence['outputs.VirtualNodeSpecLoggingAccessLogFileFormatJson']] = None,
+                 text: Optional[str] = None):
+        """
+        :param Sequence['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs'] jsons: The logging format for JSON.
+        :param str text: The logging format for text. Must be between 1 and 1000 characters in length.
+        """
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def jsons(self) -> Optional[Sequence['outputs.VirtualNodeSpecLoggingAccessLogFileFormatJson']]:
+        """
+        The logging format for JSON.
+        """
+        return pulumi.get(self, "jsons")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[str]:
+        """
+        The logging format for text. Must be between 1 and 1000 characters in length.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class VirtualNodeSpecLoggingAccessLogFileFormatJson(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The specified key for the JSON. Must be between 1 and 100 characters in length.
+        :param str value: The specified value for the JSON. Must be between 1 and 100 characters in length.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The specified key for the JSON. Must be between 1 and 100 characters in length.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The specified value for the JSON. Must be between 1 and 100 characters in length.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -7448,6 +7676,2200 @@ class GetMeshSpecEgressFilterResult(dict):
         Egress filter type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetRouteSpecResult(dict):
+    def __init__(__self__, *,
+                 grpc_routes: Sequence['outputs.GetRouteSpecGrpcRouteResult'],
+                 http2_routes: Sequence['outputs.GetRouteSpecHttp2RouteResult'],
+                 http_routes: Sequence['outputs.GetRouteSpecHttpRouteResult'],
+                 priority: int,
+                 tcp_routes: Sequence['outputs.GetRouteSpecTcpRouteResult']):
+        """
+        :param Sequence['GetRouteSpecGrpcRouteArgs'] grpc_routes: GRPC routing information for the route.
+        :param Sequence['GetRouteSpecHttp2RouteArgs'] http2_routes: HTTP/2 routing information for the route.
+        :param Sequence['GetRouteSpecHttpRouteArgs'] http_routes: HTTP routing information for the route.
+        :param int priority: Priority for the route, between `0` and `1000`.
+        :param Sequence['GetRouteSpecTcpRouteArgs'] tcp_routes: TCP routing information for the route.
+        """
+        pulumi.set(__self__, "grpc_routes", grpc_routes)
+        pulumi.set(__self__, "http2_routes", http2_routes)
+        pulumi.set(__self__, "http_routes", http_routes)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "tcp_routes", tcp_routes)
+
+    @property
+    @pulumi.getter(name="grpcRoutes")
+    def grpc_routes(self) -> Sequence['outputs.GetRouteSpecGrpcRouteResult']:
+        """
+        GRPC routing information for the route.
+        """
+        return pulumi.get(self, "grpc_routes")
+
+    @property
+    @pulumi.getter(name="http2Routes")
+    def http2_routes(self) -> Sequence['outputs.GetRouteSpecHttp2RouteResult']:
+        """
+        HTTP/2 routing information for the route.
+        """
+        return pulumi.get(self, "http2_routes")
+
+    @property
+    @pulumi.getter(name="httpRoutes")
+    def http_routes(self) -> Sequence['outputs.GetRouteSpecHttpRouteResult']:
+        """
+        HTTP routing information for the route.
+        """
+        return pulumi.get(self, "http_routes")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority for the route, between `0` and `1000`.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="tcpRoutes")
+    def tcp_routes(self) -> Sequence['outputs.GetRouteSpecTcpRouteResult']:
+        """
+        TCP routing information for the route.
+        """
+        return pulumi.get(self, "tcp_routes")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.GetRouteSpecGrpcRouteActionResult'],
+                 matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchResult'],
+                 retry_policies: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult'],
+                 timeouts: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']):
+        """
+        :param Sequence['GetRouteSpecGrpcRouteActionArgs'] actions: Action to take if a match is determined.
+        :param Sequence['GetRouteSpecGrpcRouteMatchArgs'] matches: Criteria for determining an HTTP request match.
+        :param Sequence['GetRouteSpecGrpcRouteRetryPolicyArgs'] retry_policies: Retry policy.
+        :param Sequence['GetRouteSpecGrpcRouteTimeoutArgs'] timeouts: Types of timeouts.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "retry_policies", retry_policies)
+        pulumi.set(__self__, "timeouts", timeouts)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.GetRouteSpecGrpcRouteActionResult']:
+        """
+        Action to take if a match is determined.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetRouteSpecGrpcRouteMatchResult']:
+        """
+        Criteria for determining an HTTP request match.
+        """
+        return pulumi.get(self, "matches")
+
+    @property
+    @pulumi.getter(name="retryPolicies")
+    def retry_policies(self) -> Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult']:
+        """
+        Retry policy.
+        """
+        return pulumi.get(self, "retry_policies")
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']:
+        """
+        Types of timeouts.
+        """
+        return pulumi.get(self, "timeouts")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteActionResult(dict):
+    def __init__(__self__, *,
+                 weighted_targets: Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']):
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
+
+    @property
+    @pulumi.getter(name="weightedTargets")
+    def weighted_targets(self) -> Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']:
+        return pulumi.get(self, "weighted_targets")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteActionWeightedTargetResult(dict):
+    def __init__(__self__, *,
+                 port: int,
+                 virtual_node: str,
+                 weight: int):
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="virtualNode")
+    def virtual_node(self) -> str:
+        return pulumi.get(self, "virtual_node")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteMatchResult(dict):
+    def __init__(__self__, *,
+                 metadatas: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult'],
+                 method_name: str,
+                 port: int,
+                 prefix: str,
+                 service_name: str):
+        pulumi.set(__self__, "metadatas", metadatas)
+        pulumi.set(__self__, "method_name", method_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "service_name", service_name)
+
+    @property
+    @pulumi.getter
+    def metadatas(self) -> Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult']:
+        return pulumi.get(self, "metadatas")
+
+    @property
+    @pulumi.getter(name="methodName")
+    def method_name(self) -> str:
+        return pulumi.get(self, "method_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> str:
+        return pulumi.get(self, "service_name")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteMatchMetadataResult(dict):
+    def __init__(__self__, *,
+                 invert: bool,
+                 matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult'],
+                 name: str):
+        """
+        :param Sequence['GetRouteSpecGrpcRouteMatchMetadataMatchArgs'] matches: Criteria for determining an HTTP request match.
+        :param str name: Name of the route.
+        """
+        pulumi.set(__self__, "invert", invert)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def invert(self) -> bool:
+        return pulumi.get(self, "invert")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult']:
+        """
+        Criteria for determining an HTTP request match.
+        """
+        return pulumi.get(self, "matches")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the route.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteMatchMetadataMatchResult(dict):
+    def __init__(__self__, *,
+                 exact: str,
+                 prefix: str,
+                 ranges: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult'],
+                 regex: str,
+                 suffix: str):
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> str:
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def ranges(self) -> Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult']:
+        return pulumi.get(self, "ranges")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> str:
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> str:
+        return pulumi.get(self, "suffix")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult(dict):
+    def __init__(__self__, *,
+                 end: int,
+                 start: int):
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> int:
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> int:
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteRetryPolicyResult(dict):
+    def __init__(__self__, *,
+                 grpc_retry_events: Sequence[str],
+                 http_retry_events: Sequence[str],
+                 max_retries: int,
+                 per_retry_timeouts: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult'],
+                 tcp_retry_events: Sequence[str]):
+        pulumi.set(__self__, "grpc_retry_events", grpc_retry_events)
+        pulumi.set(__self__, "http_retry_events", http_retry_events)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+
+    @property
+    @pulumi.getter(name="grpcRetryEvents")
+    def grpc_retry_events(self) -> Sequence[str]:
+        return pulumi.get(self, "grpc_retry_events")
+
+    @property
+    @pulumi.getter(name="httpRetryEvents")
+    def http_retry_events(self) -> Sequence[str]:
+        return pulumi.get(self, "http_retry_events")
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> int:
+        return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="perRetryTimeouts")
+    def per_retry_timeouts(self) -> Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult']:
+        return pulumi.get(self, "per_retry_timeouts")
+
+    @property
+    @pulumi.getter(name="tcpRetryEvents")
+    def tcp_retry_events(self) -> Sequence[str]:
+        return pulumi.get(self, "tcp_retry_events")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteTimeoutResult(dict):
+    def __init__(__self__, *,
+                 idles: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult'],
+                 per_requests: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']):
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
+
+    @property
+    @pulumi.getter
+    def idles(self) -> Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult']:
+        return pulumi.get(self, "idles")
+
+    @property
+    @pulumi.getter(name="perRequests")
+    def per_requests(self) -> Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']:
+        return pulumi.get(self, "per_requests")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteTimeoutIdleResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecGrpcRouteTimeoutPerRequestResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.GetRouteSpecHttp2RouteActionResult'],
+                 matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchResult'],
+                 retry_policies: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult'],
+                 timeouts: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']):
+        """
+        :param Sequence['GetRouteSpecHttp2RouteActionArgs'] actions: Action to take if a match is determined.
+        :param Sequence['GetRouteSpecHttp2RouteMatchArgs'] matches: Criteria for determining an HTTP request match.
+        :param Sequence['GetRouteSpecHttp2RouteRetryPolicyArgs'] retry_policies: Retry policy.
+        :param Sequence['GetRouteSpecHttp2RouteTimeoutArgs'] timeouts: Types of timeouts.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "retry_policies", retry_policies)
+        pulumi.set(__self__, "timeouts", timeouts)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.GetRouteSpecHttp2RouteActionResult']:
+        """
+        Action to take if a match is determined.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchResult']:
+        """
+        Criteria for determining an HTTP request match.
+        """
+        return pulumi.get(self, "matches")
+
+    @property
+    @pulumi.getter(name="retryPolicies")
+    def retry_policies(self) -> Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult']:
+        """
+        Retry policy.
+        """
+        return pulumi.get(self, "retry_policies")
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']:
+        """
+        Types of timeouts.
+        """
+        return pulumi.get(self, "timeouts")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteActionResult(dict):
+    def __init__(__self__, *,
+                 weighted_targets: Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']):
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
+
+    @property
+    @pulumi.getter(name="weightedTargets")
+    def weighted_targets(self) -> Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']:
+        return pulumi.get(self, "weighted_targets")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteActionWeightedTargetResult(dict):
+    def __init__(__self__, *,
+                 port: int,
+                 virtual_node: str,
+                 weight: int):
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="virtualNode")
+    def virtual_node(self) -> str:
+        return pulumi.get(self, "virtual_node")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteMatchResult(dict):
+    def __init__(__self__, *,
+                 headers: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult'],
+                 method: str,
+                 port: int,
+                 prefix: str,
+                 scheme: str):
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult']:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> str:
+        return pulumi.get(self, "scheme")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteMatchHeaderResult(dict):
+    def __init__(__self__, *,
+                 invert: bool,
+                 matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult'],
+                 name: str):
+        """
+        :param Sequence['GetRouteSpecHttp2RouteMatchHeaderMatchArgs'] matches: Criteria for determining an HTTP request match.
+        :param str name: Name of the route.
+        """
+        pulumi.set(__self__, "invert", invert)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def invert(self) -> bool:
+        return pulumi.get(self, "invert")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult']:
+        """
+        Criteria for determining an HTTP request match.
+        """
+        return pulumi.get(self, "matches")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the route.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
+    def __init__(__self__, *,
+                 exact: str,
+                 prefix: str,
+                 ranges: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
+                 regex: str,
+                 suffix: str):
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> str:
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def ranges(self) -> Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult']:
+        return pulumi.get(self, "ranges")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> str:
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> str:
+        return pulumi.get(self, "suffix")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
+    def __init__(__self__, *,
+                 end: int,
+                 start: int):
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> int:
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> int:
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteRetryPolicyResult(dict):
+    def __init__(__self__, *,
+                 http_retry_events: Sequence[str],
+                 max_retries: int,
+                 per_retry_timeouts: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult'],
+                 tcp_retry_events: Sequence[str]):
+        pulumi.set(__self__, "http_retry_events", http_retry_events)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+
+    @property
+    @pulumi.getter(name="httpRetryEvents")
+    def http_retry_events(self) -> Sequence[str]:
+        return pulumi.get(self, "http_retry_events")
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> int:
+        return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="perRetryTimeouts")
+    def per_retry_timeouts(self) -> Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult']:
+        return pulumi.get(self, "per_retry_timeouts")
+
+    @property
+    @pulumi.getter(name="tcpRetryEvents")
+    def tcp_retry_events(self) -> Sequence[str]:
+        return pulumi.get(self, "tcp_retry_events")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteTimeoutResult(dict):
+    def __init__(__self__, *,
+                 idles: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult'],
+                 per_requests: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']):
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
+
+    @property
+    @pulumi.getter
+    def idles(self) -> Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult']:
+        return pulumi.get(self, "idles")
+
+    @property
+    @pulumi.getter(name="perRequests")
+    def per_requests(self) -> Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']:
+        return pulumi.get(self, "per_requests")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteTimeoutIdleResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecHttp2RouteTimeoutPerRequestResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.GetRouteSpecHttpRouteActionResult'],
+                 matches: Sequence['outputs.GetRouteSpecHttpRouteMatchResult'],
+                 retry_policies: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult'],
+                 timeouts: Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']):
+        """
+        :param Sequence['GetRouteSpecHttpRouteActionArgs'] actions: Action to take if a match is determined.
+        :param Sequence['GetRouteSpecHttpRouteMatchArgs'] matches: Criteria for determining an HTTP request match.
+        :param Sequence['GetRouteSpecHttpRouteRetryPolicyArgs'] retry_policies: Retry policy.
+        :param Sequence['GetRouteSpecHttpRouteTimeoutArgs'] timeouts: Types of timeouts.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "retry_policies", retry_policies)
+        pulumi.set(__self__, "timeouts", timeouts)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.GetRouteSpecHttpRouteActionResult']:
+        """
+        Action to take if a match is determined.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchResult']:
+        """
+        Criteria for determining an HTTP request match.
+        """
+        return pulumi.get(self, "matches")
+
+    @property
+    @pulumi.getter(name="retryPolicies")
+    def retry_policies(self) -> Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult']:
+        """
+        Retry policy.
+        """
+        return pulumi.get(self, "retry_policies")
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']:
+        """
+        Types of timeouts.
+        """
+        return pulumi.get(self, "timeouts")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteActionResult(dict):
+    def __init__(__self__, *,
+                 weighted_targets: Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']):
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
+
+    @property
+    @pulumi.getter(name="weightedTargets")
+    def weighted_targets(self) -> Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']:
+        return pulumi.get(self, "weighted_targets")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteActionWeightedTargetResult(dict):
+    def __init__(__self__, *,
+                 port: int,
+                 virtual_node: str,
+                 weight: int):
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="virtualNode")
+    def virtual_node(self) -> str:
+        return pulumi.get(self, "virtual_node")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteMatchResult(dict):
+    def __init__(__self__, *,
+                 headers: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult'],
+                 method: str,
+                 port: int,
+                 prefix: str,
+                 scheme: str):
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult']:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> str:
+        return pulumi.get(self, "scheme")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteMatchHeaderResult(dict):
+    def __init__(__self__, *,
+                 invert: bool,
+                 matches: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult'],
+                 name: str):
+        """
+        :param Sequence['GetRouteSpecHttpRouteMatchHeaderMatchArgs'] matches: Criteria for determining an HTTP request match.
+        :param str name: Name of the route.
+        """
+        pulumi.set(__self__, "invert", invert)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def invert(self) -> bool:
+        return pulumi.get(self, "invert")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult']:
+        """
+        Criteria for determining an HTTP request match.
+        """
+        return pulumi.get(self, "matches")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the route.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteMatchHeaderMatchResult(dict):
+    def __init__(__self__, *,
+                 exact: str,
+                 prefix: str,
+                 ranges: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
+                 regex: str,
+                 suffix: str):
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> str:
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def ranges(self) -> Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult']:
+        return pulumi.get(self, "ranges")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> str:
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> str:
+        return pulumi.get(self, "suffix")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
+    def __init__(__self__, *,
+                 end: int,
+                 start: int):
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> int:
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> int:
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteRetryPolicyResult(dict):
+    def __init__(__self__, *,
+                 http_retry_events: Sequence[str],
+                 max_retries: int,
+                 per_retry_timeouts: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult'],
+                 tcp_retry_events: Sequence[str]):
+        pulumi.set(__self__, "http_retry_events", http_retry_events)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+
+    @property
+    @pulumi.getter(name="httpRetryEvents")
+    def http_retry_events(self) -> Sequence[str]:
+        return pulumi.get(self, "http_retry_events")
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> int:
+        return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="perRetryTimeouts")
+    def per_retry_timeouts(self) -> Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult']:
+        return pulumi.get(self, "per_retry_timeouts")
+
+    @property
+    @pulumi.getter(name="tcpRetryEvents")
+    def tcp_retry_events(self) -> Sequence[str]:
+        return pulumi.get(self, "tcp_retry_events")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteTimeoutResult(dict):
+    def __init__(__self__, *,
+                 idles: Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult'],
+                 per_requests: Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']):
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
+
+    @property
+    @pulumi.getter
+    def idles(self) -> Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult']:
+        return pulumi.get(self, "idles")
+
+    @property
+    @pulumi.getter(name="perRequests")
+    def per_requests(self) -> Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']:
+        return pulumi.get(self, "per_requests")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteTimeoutIdleResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecHttpRouteTimeoutPerRequestResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetRouteSpecTcpRouteResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.GetRouteSpecTcpRouteActionResult'],
+                 matches: Sequence['outputs.GetRouteSpecTcpRouteMatchResult'],
+                 timeouts: Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']):
+        """
+        :param Sequence['GetRouteSpecTcpRouteActionArgs'] actions: Action to take if a match is determined.
+        :param Sequence['GetRouteSpecTcpRouteMatchArgs'] matches: Criteria for determining an HTTP request match.
+        :param Sequence['GetRouteSpecTcpRouteTimeoutArgs'] timeouts: Types of timeouts.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "timeouts", timeouts)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.GetRouteSpecTcpRouteActionResult']:
+        """
+        Action to take if a match is determined.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetRouteSpecTcpRouteMatchResult']:
+        """
+        Criteria for determining an HTTP request match.
+        """
+        return pulumi.get(self, "matches")
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']:
+        """
+        Types of timeouts.
+        """
+        return pulumi.get(self, "timeouts")
+
+
+@pulumi.output_type
+class GetRouteSpecTcpRouteActionResult(dict):
+    def __init__(__self__, *,
+                 weighted_targets: Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']):
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
+
+    @property
+    @pulumi.getter(name="weightedTargets")
+    def weighted_targets(self) -> Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']:
+        return pulumi.get(self, "weighted_targets")
+
+
+@pulumi.output_type
+class GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
+    def __init__(__self__, *,
+                 port: int,
+                 virtual_node: str,
+                 weight: int):
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="virtualNode")
+    def virtual_node(self) -> str:
+        return pulumi.get(self, "virtual_node")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetRouteSpecTcpRouteMatchResult(dict):
+    def __init__(__self__, *,
+                 port: int):
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetRouteSpecTcpRouteTimeoutResult(dict):
+    def __init__(__self__, *,
+                 idles: Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']):
+        pulumi.set(__self__, "idles", idles)
+
+    @property
+    @pulumi.getter
+    def idles(self) -> Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']:
+        return pulumi.get(self, "idles")
+
+
+@pulumi.output_type
+class GetRouteSpecTcpRouteTimeoutIdleResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecResult(dict):
+    def __init__(__self__, *,
+                 backend_defaults: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult'],
+                 listeners: Sequence['outputs.GetVirtualGatewaySpecListenerResult'],
+                 loggings: Sequence['outputs.GetVirtualGatewaySpecLoggingResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultArgs'] backend_defaults: Defaults for backends.
+        :param Sequence['GetVirtualGatewaySpecListenerArgs'] listeners: Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        :param Sequence['GetVirtualGatewaySpecLoggingArgs'] loggings: Inbound and outbound access logging information for the virtual gateway.
+        """
+        pulumi.set(__self__, "backend_defaults", backend_defaults)
+        pulumi.set(__self__, "listeners", listeners)
+        pulumi.set(__self__, "loggings", loggings)
+
+    @property
+    @pulumi.getter(name="backendDefaults")
+    def backend_defaults(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult']:
+        """
+        Defaults for backends.
+        """
+        return pulumi.get(self, "backend_defaults")
+
+    @property
+    @pulumi.getter
+    def listeners(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerResult']:
+        """
+        Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        """
+        return pulumi.get(self, "listeners")
+
+    @property
+    @pulumi.getter
+    def loggings(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingResult']:
+        """
+        Inbound and outbound access logging information for the virtual gateway.
+        """
+        return pulumi.get(self, "loggings")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultResult(dict):
+    def __init__(__self__, *,
+                 client_policies: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyArgs'] client_policies: Default client policy for virtual gateway backends.
+        """
+        pulumi.set(__self__, "client_policies", client_policies)
+
+    @property
+    @pulumi.getter(name="clientPolicies")
+    def client_policies(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']:
+        """
+        Default client policy for virtual gateway backends.
+        """
+        return pulumi.get(self, "client_policies")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyResult(dict):
+    def __init__(__self__, *,
+                 tls: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlArgs'] tls: Transport Layer Security (TLS) properties for the listener
+        """
+        pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']:
+        """
+        Transport Layer Security (TLS) properties for the listener
+        """
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult(dict):
+    def __init__(__self__, *,
+                 certificates: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult'],
+                 enforce: bool,
+                 ports: Sequence[int],
+                 validations: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateArgs'] certificates: Listener's TLS certificate.
+        :param bool enforce: Whether the policy is enforced. Default is `true`.
+        :param Sequence[int] ports: One or more ports that the policy is enforced for.
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationArgs'] validations: Listener's Transport Layer Security (TLS) validation context.
+        """
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "enforce", enforce)
+        pulumi.set(__self__, "ports", ports)
+        pulumi.set(__self__, "validations", validations)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult']:
+        """
+        Listener's TLS certificate.
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter
+    def enforce(self) -> bool:
+        """
+        Whether the policy is enforced. Default is `true`.
+        """
+        return pulumi.get(self, "enforce")
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Sequence[int]:
+        """
+        One or more ports that the policy is enforced for.
+        """
+        return pulumi.get(self, "ports")
+
+    @property
+    @pulumi.getter
+    def validations(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']:
+        """
+        Listener's Transport Layer Security (TLS) validation context.
+        """
+        return pulumi.get(self, "validations")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult(dict):
+    def __init__(__self__, *,
+                 files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult'],
+                 sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileArgs'] files: TLS validation context trust for a local file certificate.
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult']:
+        """
+        TLS validation context trust for a local file certificate.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str,
+                 private_key: str):
+        """
+        :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        :param str private_key: Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "private_key")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
+    def __init__(__self__, *,
+                 subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
+                 trusts: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameArgs'] subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustArgs'] trusts: TLS validation context trust.
+        """
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        pulumi.set(__self__, "trusts", trusts)
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']:
+        """
+        SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    @property
+    @pulumi.getter
+    def trusts(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']:
+        """
+        TLS validation context trust.
+        """
+        return pulumi.get(self, "trusts")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
+    def __init__(__self__, *,
+                 matches: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchArgs'] matches: Criteria for determining a SAN's match.
+        """
+        pulumi.set(__self__, "matches", matches)
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']:
+        """
+        Criteria for determining a SAN's match.
+        """
+        return pulumi.get(self, "matches")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
+    def __init__(__self__, *,
+                 exacts: Sequence[str]):
+        """
+        :param Sequence[str] exacts: Values sent must match the specified values exactly.
+        """
+        pulumi.set(__self__, "exacts", exacts)
+
+    @property
+    @pulumi.getter
+    def exacts(self) -> Sequence[str]:
+        """
+        Values sent must match the specified values exactly.
+        """
+        return pulumi.get(self, "exacts")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
+    def __init__(__self__, *,
+                 acms: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
+                 files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
+                 sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmArgs'] acms: An AWS Certificate Manager (ACM) certificate.
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileArgs'] files: TLS validation context trust for a local file certificate.
+        :param Sequence['GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        pulumi.set(__self__, "acms", acms)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def acms(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult']:
+        """
+        An AWS Certificate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acms")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult']:
+        """
+        TLS validation context trust for a local file certificate.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
+    def __init__(__self__, *,
+                 certificate_authority_arns: Sequence[str]):
+        """
+        :param Sequence[str] certificate_authority_arns: One or more ACM ARNs.
+        """
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArns")
+    def certificate_authority_arns(self) -> Sequence[str]:
+        """
+        One or more ACM ARNs.
+        """
+        return pulumi.get(self, "certificate_authority_arns")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str):
+        """
+        :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerResult(dict):
+    def __init__(__self__, *,
+                 connection_pools: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult'],
+                 health_checks: Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult'],
+                 port_mappings: Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult'],
+                 tls: Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecListenerConnectionPoolArgs'] connection_pools: Connection pool information for the listener.
+        :param Sequence['GetVirtualGatewaySpecListenerHealthCheckArgs'] health_checks: Health check information for the listener.
+        :param Sequence['GetVirtualGatewaySpecListenerPortMappingArgs'] port_mappings: Port mapping information for the listener.
+        :param Sequence['GetVirtualGatewaySpecListenerTlArgs'] tls: Transport Layer Security (TLS) properties for the listener
+        """
+        pulumi.set(__self__, "connection_pools", connection_pools)
+        pulumi.set(__self__, "health_checks", health_checks)
+        pulumi.set(__self__, "port_mappings", port_mappings)
+        pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter(name="connectionPools")
+    def connection_pools(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult']:
+        """
+        Connection pool information for the listener.
+        """
+        return pulumi.get(self, "connection_pools")
+
+    @property
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult']:
+        """
+        Health check information for the listener.
+        """
+        return pulumi.get(self, "health_checks")
+
+    @property
+    @pulumi.getter(name="portMappings")
+    def port_mappings(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult']:
+        """
+        Port mapping information for the listener.
+        """
+        return pulumi.get(self, "port_mappings")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']:
+        """
+        Transport Layer Security (TLS) properties for the listener
+        """
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
+    def __init__(__self__, *,
+                 grpcs: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult'],
+                 http2s: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result'],
+                 https: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecListenerConnectionPoolGrpcArgs'] grpcs: Connection pool information for gRPC listeners.
+        :param Sequence['GetVirtualGatewaySpecListenerConnectionPoolHttp2Args'] http2s: Connection pool information for HTTP2 listeners.
+        :param Sequence['GetVirtualGatewaySpecListenerConnectionPoolHttpArgs'] https: Connection pool information for HTTP listeners.
+        """
+        pulumi.set(__self__, "grpcs", grpcs)
+        pulumi.set(__self__, "http2s", http2s)
+        pulumi.set(__self__, "https", https)
+
+    @property
+    @pulumi.getter
+    def grpcs(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult']:
+        """
+        Connection pool information for gRPC listeners.
+        """
+        return pulumi.get(self, "grpcs")
+
+    @property
+    @pulumi.getter
+    def http2s(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result']:
+        """
+        Connection pool information for HTTP2 listeners.
+        """
+        return pulumi.get(self, "http2s")
+
+    @property
+    @pulumi.getter
+    def https(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']:
+        """
+        Connection pool information for HTTP listeners.
+        """
+        return pulumi.get(self, "https")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
+    def __init__(__self__, *,
+                 max_requests: int):
+        """
+        :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> int:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(dict):
+    def __init__(__self__, *,
+                 max_requests: int):
+        """
+        :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> int:
+        """
+        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_requests")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerConnectionPoolHttpResult(dict):
+    def __init__(__self__, *,
+                 max_connections: int,
+                 max_pending_requests: int):
+        """
+        :param int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        :param int max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        pulumi.set(__self__, "max_connections", max_connections)
+        pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> int:
+        """
+        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_connections")
+
+    @property
+    @pulumi.getter(name="maxPendingRequests")
+    def max_pending_requests(self) -> int:
+        """
+        Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+        """
+        return pulumi.get(self, "max_pending_requests")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerHealthCheckResult(dict):
+    def __init__(__self__, *,
+                 healthy_threshold: int,
+                 interval_millis: int,
+                 path: str,
+                 port: int,
+                 protocol: str,
+                 timeout_millis: int,
+                 unhealthy_threshold: int):
+        """
+        :param int healthy_threshold: Number of consecutive successful health checks that must occur before declaring listener healthy.
+        :param int interval_millis: Time period in milliseconds between each health check execution.
+        :param str path: Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        :param int port: Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        :param str protocol: Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        :param int timeout_millis: Amount of time to wait when receiving a response from the health check, in milliseconds.
+        :param int unhealthy_threshold: Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+        """
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "interval_millis", interval_millis)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "timeout_millis", timeout_millis)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+
+    @property
+    @pulumi.getter(name="healthyThreshold")
+    def healthy_threshold(self) -> int:
+        """
+        Number of consecutive successful health checks that must occur before declaring listener healthy.
+        """
+        return pulumi.get(self, "healthy_threshold")
+
+    @property
+    @pulumi.getter(name="intervalMillis")
+    def interval_millis(self) -> int:
+        """
+        Time period in milliseconds between each health check execution.
+        """
+        return pulumi.get(self, "interval_millis")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="timeoutMillis")
+    def timeout_millis(self) -> int:
+        """
+        Amount of time to wait when receiving a response from the health check, in milliseconds.
+        """
+        return pulumi.get(self, "timeout_millis")
+
+    @property
+    @pulumi.getter(name="unhealthyThreshold")
+    def unhealthy_threshold(self) -> int:
+        """
+        Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+        """
+        return pulumi.get(self, "unhealthy_threshold")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerPortMappingResult(dict):
+    def __init__(__self__, *,
+                 port: int,
+                 protocol: str):
+        """
+        :param int port: Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        :param str protocol: Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlResult(dict):
+    def __init__(__self__, *,
+                 certificates: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult'],
+                 mode: str,
+                 validations: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecListenerTlCertificateArgs'] certificates: Listener's TLS certificate.
+        :param str mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        :param Sequence['GetVirtualGatewaySpecListenerTlValidationArgs'] validations: Listener's Transport Layer Security (TLS) validation context.
+        """
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "validations", validations)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult']:
+        """
+        Listener's TLS certificate.
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def validations(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']:
+        """
+        Listener's Transport Layer Security (TLS) validation context.
+        """
+        return pulumi.get(self, "validations")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlCertificateResult(dict):
+    def __init__(__self__, *,
+                 acms: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult'],
+                 files: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult'],
+                 sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecListenerTlCertificateAcmArgs'] acms: An AWS Certificate Manager (ACM) certificate.
+        :param Sequence['GetVirtualGatewaySpecListenerTlCertificateFileArgs'] files: TLS validation context trust for a local file certificate.
+        :param Sequence['GetVirtualGatewaySpecListenerTlCertificateSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        pulumi.set(__self__, "acms", acms)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def acms(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult']:
+        """
+        An AWS Certificate Manager (ACM) certificate.
+        """
+        return pulumi.get(self, "acms")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult']:
+        """
+        TLS validation context trust for a local file certificate.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlCertificateAcmResult(dict):
+    def __init__(__self__, *,
+                 certificate_arn: str):
+        """
+        :param str certificate_arn: ARN for the certificate.
+        """
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> str:
+        """
+        ARN for the certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str,
+                 private_key: str):
+        """
+        :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        :param str private_key: Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "private_key")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlCertificateSdResult(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlValidationResult(dict):
+    def __init__(__self__, *,
+                 subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult'],
+                 trusts: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameArgs'] subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        :param Sequence['GetVirtualGatewaySpecListenerTlValidationTrustArgs'] trusts: TLS validation context trust.
+        """
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        pulumi.set(__self__, "trusts", trusts)
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult']:
+        """
+        SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    @property
+    @pulumi.getter
+    def trusts(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']:
+        """
+        TLS validation context trust.
+        """
+        return pulumi.get(self, "trusts")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict):
+    def __init__(__self__, *,
+                 matches: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchArgs'] matches: Criteria for determining a SAN's match.
+        """
+        pulumi.set(__self__, "matches", matches)
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']:
+        """
+        Criteria for determining a SAN's match.
+        """
+        return pulumi.get(self, "matches")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
+    def __init__(__self__, *,
+                 exacts: Sequence[str]):
+        """
+        :param Sequence[str] exacts: Values sent must match the specified values exactly.
+        """
+        pulumi.set(__self__, "exacts", exacts)
+
+    @property
+    @pulumi.getter
+    def exacts(self) -> Sequence[str]:
+        """
+        Values sent must match the specified values exactly.
+        """
+        return pulumi.get(self, "exacts")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
+    def __init__(__self__, *,
+                 files: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult'],
+                 sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecListenerTlValidationTrustFileArgs'] files: TLS validation context trust for a local file certificate.
+        :param Sequence['GetVirtualGatewaySpecListenerTlValidationTrustSdArgs'] sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
+
+    @property
+    @pulumi.getter
+    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult']:
+        """
+        TLS validation context trust for a local file certificate.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter
+    def sds(self) -> Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']:
+        """
+        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        """
+        return pulumi.get(self, "sds")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
+    def __init__(__self__, *,
+                 certificate_chain: str):
+        """
+        :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
+    def __init__(__self__, *,
+                 secret_name: str):
+        """
+        :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecLoggingResult(dict):
+    def __init__(__self__, *,
+                 access_logs: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecLoggingAccessLogArgs'] access_logs: Access log configuration for a virtual gateway.
+        """
+        pulumi.set(__self__, "access_logs", access_logs)
+
+    @property
+    @pulumi.getter(name="accessLogs")
+    def access_logs(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']:
+        """
+        Access log configuration for a virtual gateway.
+        """
+        return pulumi.get(self, "access_logs")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecLoggingAccessLogResult(dict):
+    def __init__(__self__, *,
+                 files: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']):
+        """
+        :param Sequence['GetVirtualGatewaySpecLoggingAccessLogFileArgs'] files: TLS validation context trust for a local file certificate.
+        """
+        pulumi.set(__self__, "files", files)
+
+    @property
+    @pulumi.getter
+    def files(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']:
+        """
+        TLS validation context trust for a local file certificate.
+        """
+        return pulumi.get(self, "files")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecLoggingAccessLogFileResult(dict):
+    def __init__(__self__, *,
+                 formats: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult'],
+                 path: str):
+        """
+        :param str path: Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        """
+        pulumi.set(__self__, "formats", formats)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def formats(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult']:
+        return pulumi.get(self, "formats")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecLoggingAccessLogFileFormatResult(dict):
+    def __init__(__self__, *,
+                 jsons: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult'],
+                 text: str):
+        pulumi.set(__self__, "jsons", jsons)
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def jsons(self) -> Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult']:
+        return pulumi.get(self, "jsons")
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

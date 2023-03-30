@@ -3,12 +3,20 @@
 
 package com.pulumi.aws.appmesh.outputs;
 
+import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecLoggingAccessLogFileFormat;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecLoggingAccessLogFile {
+    /**
+     * @return The specified format for the logs.
+     * 
+     */
+    private @Nullable VirtualGatewaySpecLoggingAccessLogFileFormat format;
     /**
      * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
@@ -16,6 +24,13 @@ public final class VirtualGatewaySpecLoggingAccessLogFile {
     private String path;
 
     private VirtualGatewaySpecLoggingAccessLogFile() {}
+    /**
+     * @return The specified format for the logs.
+     * 
+     */
+    public Optional<VirtualGatewaySpecLoggingAccessLogFileFormat> format() {
+        return Optional.ofNullable(this.format);
+    }
     /**
      * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
@@ -33,13 +48,20 @@ public final class VirtualGatewaySpecLoggingAccessLogFile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable VirtualGatewaySpecLoggingAccessLogFileFormat format;
         private String path;
         public Builder() {}
         public Builder(VirtualGatewaySpecLoggingAccessLogFile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.format = defaults.format;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
+        public Builder format(@Nullable VirtualGatewaySpecLoggingAccessLogFileFormat format) {
+            this.format = format;
+            return this;
+        }
         @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
@@ -47,6 +69,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFile {
         }
         public VirtualGatewaySpecLoggingAccessLogFile build() {
             final var o = new VirtualGatewaySpecLoggingAccessLogFile();
+            o.format = format;
             o.path = path;
             return o;
         }

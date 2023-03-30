@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string Unit;
         /// <summary>
-        /// Number of time units. Minimum value of `0`.
+        /// The specified value for the JSON. Must be between 1 and 100 characters in length.
         /// </summary>
         public readonly int Value;
 

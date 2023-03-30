@@ -24,15 +24,15 @@ public final class MatchmakingConfigurationArgs extends com.pulumi.resources.Res
      * Specifies if the match that was created with this configuration must be accepted by matched players.
      * 
      */
-    @Import(name="acceptanceRequired", required=true)
-    private Output<Boolean> acceptanceRequired;
+    @Import(name="acceptanceRequired")
+    private @Nullable Output<Boolean> acceptanceRequired;
 
     /**
      * @return Specifies if the match that was created with this configuration must be accepted by matched players.
      * 
      */
-    public Output<Boolean> acceptanceRequired() {
-        return this.acceptanceRequired;
+    public Optional<Output<Boolean>> acceptanceRequired() {
+        return Optional.ofNullable(this.acceptanceRequired);
     }
 
     /**
@@ -144,15 +144,15 @@ public final class MatchmakingConfigurationArgs extends com.pulumi.resources.Res
      * A set of custom game session properties.
      * 
      */
-    @Import(name="gameSessionData", required=true)
-    private Output<String> gameSessionData;
+    @Import(name="gameSessionData")
+    private @Nullable Output<String> gameSessionData;
 
     /**
      * @return A set of custom game session properties.
      * 
      */
-    public Output<String> gameSessionData() {
-        return this.gameSessionData;
+    public Optional<Output<String>> gameSessionData() {
+        return Optional.ofNullable(this.gameSessionData);
     }
 
     /**
@@ -289,7 +289,7 @@ public final class MatchmakingConfigurationArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder acceptanceRequired(Output<Boolean> acceptanceRequired) {
+        public Builder acceptanceRequired(@Nullable Output<Boolean> acceptanceRequired) {
             $.acceptanceRequired = acceptanceRequired;
             return this;
         }
@@ -467,7 +467,7 @@ public final class MatchmakingConfigurationArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder gameSessionData(Output<String> gameSessionData) {
+        public Builder gameSessionData(@Nullable Output<String> gameSessionData) {
             $.gameSessionData = gameSessionData;
             return this;
         }
@@ -619,8 +619,6 @@ public final class MatchmakingConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public MatchmakingConfigurationArgs build() {
-            $.acceptanceRequired = Objects.requireNonNull($.acceptanceRequired, "expected parameter 'acceptanceRequired' to be non-null");
-            $.gameSessionData = Objects.requireNonNull($.gameSessionData, "expected parameter 'gameSessionData' to be non-null");
             $.requestTimeoutSeconds = Objects.requireNonNull($.requestTimeoutSeconds, "expected parameter 'requestTimeoutSeconds' to be non-null");
             $.ruleSetName = Objects.requireNonNull($.ruleSetName, "expected parameter 'ruleSetName' to be non-null");
             return $;

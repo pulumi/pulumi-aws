@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *         var test = new VpcIpamResourceDiscoveryAssociation(&#34;test&#34;, VpcIpamResourceDiscoveryAssociationArgs.builder()        
  *             .ipamId(aws_vpc_ipam.test().id())
  *             .ipamResourceDiscoveryId(aws_vpc_ipam_resource_discovery.test().id())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
  *             .build());
  * 
  *     }
@@ -66,76 +67,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation")
 public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+     * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+     * @return The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The arn of the IPAM
+     * The Amazon Resource Name (ARN) of the IPAM.
      * 
      */
     @Export(name="ipamArn", refs={String.class}, tree="[0]")
     private Output<String> ipamArn;
 
     /**
-     * @return The arn of the IPAM
+     * @return The Amazon Resource Name (ARN) of the IPAM.
      * 
      */
     public Output<String> ipamArn() {
         return this.ipamArn;
     }
     /**
-     * Id of the IPAM to associate
+     * The ID of the IPAM to associate.
      * 
      */
     @Export(name="ipamId", refs={String.class}, tree="[0]")
     private Output<String> ipamId;
 
     /**
-     * @return Id of the IPAM to associate
+     * @return The ID of the IPAM to associate.
      * 
      */
     public Output<String> ipamId() {
         return this.ipamId;
     }
     /**
-     * The home region of the IPAM
+     * The home region of the IPAM.
      * 
      */
     @Export(name="ipamRegion", refs={String.class}, tree="[0]")
     private Output<String> ipamRegion;
 
     /**
-     * @return The home region of the IPAM
+     * @return The home region of the IPAM.
      * 
      */
     public Output<String> ipamRegion() {
         return this.ipamRegion;
     }
+    /**
+     * The ID of the Resource Discovery to associate.
+     * 
+     */
     @Export(name="ipamResourceDiscoveryId", refs={String.class}, tree="[0]")
     private Output<String> ipamResourceDiscoveryId;
 
+    /**
+     * @return The ID of the Resource Discovery to associate.
+     * 
+     */
     public Output<String> ipamResourceDiscoveryId() {
         return this.ipamResourceDiscoveryId;
     }
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
-     * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
     public Output<Boolean> isDefault() {
@@ -155,15 +164,31 @@ public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.Cu
     public Output<String> ownerId() {
         return this.ownerId;
     }
+    /**
+     * The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * 
+     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
+    /**
+     * @return The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * 
+     */
     public Output<String> state() {
         return this.state;
     }
+    /**
+     * A map of tags to add to the IPAM resource discovery association resource.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to add to the IPAM resource discovery association resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

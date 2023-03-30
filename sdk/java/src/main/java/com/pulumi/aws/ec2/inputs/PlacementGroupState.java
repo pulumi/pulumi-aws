@@ -52,7 +52,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `&#34;partition&#34;`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Valid values are 1 - 7 (default is `2`).
      * 
      */
     @Import(name="partitionCount")
@@ -61,7 +61,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `&#34;partition&#34;`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Valid values are 1 - 7 (default is `2`).
      * 
      */
     public Optional<Output<Integer>> partitionCount() {
@@ -85,7 +85,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
     @Import(name="spreadLevel")
@@ -93,7 +93,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
     public Optional<Output<String>> spreadLevel() {
@@ -101,14 +101,14 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+     * The placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
     @Import(name="strategy")
     private @Nullable Output<Either<String,PlacementStrategy>> strategy;
 
     /**
-     * @return The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+     * @return The placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
     public Optional<Output<Either<String,PlacementStrategy>>> strategy() {
@@ -221,7 +221,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         /**
          * @param partitionCount The number of partitions to create in the
          * placement group.  Can only be specified when the `strategy` is set to
-         * `&#34;partition&#34;`.  Valid values are 1 - 7 (default is `2`).
+         * `partition`.  Valid values are 1 - 7 (default is `2`).
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         /**
          * @param partitionCount The number of partitions to create in the
          * placement group.  Can only be specified when the `strategy` is set to
-         * `&#34;partition&#34;`.  Valid values are 1 - 7 (default is `2`).
+         * `partition`.  Valid values are 1 - 7 (default is `2`).
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param spreadLevel Determines how placement groups spread instances. Can only be used
-         * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+         * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param spreadLevel Determines how placement groups spread instances. Can only be used
-         * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+         * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param strategy The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+         * @param strategy The placement strategy. Can be `cluster`, `partition` or `spread`.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param strategy The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+         * @param strategy The placement strategy. Can be `cluster`, `partition` or `spread`.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param strategy The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+         * @param strategy The placement strategy. Can be `cluster`, `partition` or `spread`.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param strategy The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
+         * @param strategy The placement strategy. Can be `cluster`, `partition` or `spread`.
          * 
          * @return builder
          * 

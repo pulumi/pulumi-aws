@@ -80,11 +80,12 @@ class _VpcIpamScopeState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering VpcIpamScope resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the scope.
         :param pulumi.Input[str] description: A description for the scope you're creating.
         :param pulumi.Input[str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
         :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
         :param pulumi.Input[bool] is_default: Defines if the scope is the default scope or not.
-        :param pulumi.Input[int] pool_count: Count of pools under this scope
+        :param pulumi.Input[int] pool_count: The number of pools in the scope.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
@@ -109,6 +110,9 @@ class _VpcIpamScopeState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the scope.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -176,7 +180,7 @@ class _VpcIpamScopeState:
     @pulumi.getter(name="poolCount")
     def pool_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Count of pools under this scope
+        The number of pools in the scope.
         """
         return pulumi.get(self, "pool_count")
 
@@ -347,11 +351,12 @@ class VpcIpamScope(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the scope.
         :param pulumi.Input[str] description: A description for the scope you're creating.
         :param pulumi.Input[str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
         :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
         :param pulumi.Input[bool] is_default: Defines if the scope is the default scope or not.
-        :param pulumi.Input[int] pool_count: Count of pools under this scope
+        :param pulumi.Input[int] pool_count: The number of pools in the scope.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -372,6 +377,9 @@ class VpcIpamScope(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the scope.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -415,7 +423,7 @@ class VpcIpamScope(pulumi.CustomResource):
     @pulumi.getter(name="poolCount")
     def pool_count(self) -> pulumi.Output[int]:
         """
-        Count of pools under this scope
+        The number of pools in the scope.
         """
         return pulumi.get(self, "pool_count")
 

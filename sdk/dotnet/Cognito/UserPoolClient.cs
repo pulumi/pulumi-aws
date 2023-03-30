@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Pool Client resource.
     /// 
+    /// To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
+    /// use the `aws_cognito_managed_user_pool_client` resource instead.
+    /// 
     /// ## Example Usage
     /// ### Create a basic user pool client
     /// 
@@ -63,8 +66,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
     ///     var testUserPool = new Aws.Cognito.UserPool("testUserPool");
     /// 
     ///     var testApp = new Aws.Pinpoint.App("testApp");
@@ -100,6 +101,20 @@ namespace Pulumi.Aws.Cognito
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
+    ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new()
+    ///     {
+    ///         UserPoolId = testUserPool.Id,
+    ///         AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
+    ///         {
+    ///             ApplicationId = testApp.ApplicationId,
+    ///             ExternalId = "some_id",
+    ///             RoleArn = testRole.Arn,
+    ///             UserDataShared = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
     ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -110,7 +125,7 @@ namespace Pulumi.Aws.Cognito
     ///                 Actions = new[]
     ///                 {
     ///                     "mobiletargeting:UpdateEndpoint",
-    ///                     "mobiletargeting:PutItems",
+    ///                     "mobiletargeting:PutEvents",
     ///                 },
     ///                 Resources = new[]
     ///                 {
@@ -124,18 +139,6 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         Role = testRole.Id,
     ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new()
-    ///     {
-    ///         UserPoolId = testUserPool.Id,
-    ///         AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
-    ///         {
-    ///             ApplicationId = testApp.ApplicationId,
-    ///             ExternalId = "some_id",
-    ///             RoleArn = testRole.Arn,
-    ///             UserDataShared = true,
-    ///         },
     ///     });
     /// 
     /// });

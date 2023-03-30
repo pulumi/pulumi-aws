@@ -18,9 +18,17 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
 
     public static final VpcIpamScopeState Empty = new VpcIpamScopeState();
 
+    /**
+     * The Amazon Resource Name (ARN) of the scope.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the scope.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -93,14 +101,14 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Count of pools under this scope
+     * The number of pools in the scope.
      * 
      */
     @Import(name="poolCount")
     private @Nullable Output<Integer> poolCount;
 
     /**
-     * @return Count of pools under this scope
+     * @return The number of pools in the scope.
      * 
      */
     public Optional<Output<Integer>> poolCount() {
@@ -161,11 +169,23 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
             $ = new VpcIpamScopeState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the scope.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -264,7 +284,7 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolCount Count of pools under this scope
+         * @param poolCount The number of pools in the scope.
          * 
          * @return builder
          * 
@@ -275,7 +295,7 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolCount Count of pools under this scope
+         * @param poolCount The number of pools in the scope.
          * 
          * @return builder
          * 

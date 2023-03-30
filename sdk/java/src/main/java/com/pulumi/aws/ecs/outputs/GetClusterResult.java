@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -54,6 +55,11 @@ public final class GetClusterResult {
      * 
      */
     private String status;
+    /**
+     * @return Key-value map of resource tags
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetClusterResult() {}
     /**
@@ -115,6 +121,13 @@ public final class GetClusterResult {
     public String status() {
         return this.status;
     }
+    /**
+     * @return Key-value map of resource tags
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -134,6 +147,7 @@ public final class GetClusterResult {
         private List<GetClusterServiceConnectDefault> serviceConnectDefaults;
         private List<GetClusterSetting> settings;
         private String status;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -146,6 +160,7 @@ public final class GetClusterResult {
     	      this.serviceConnectDefaults = defaults.serviceConnectDefaults;
     	      this.settings = defaults.settings;
     	      this.status = defaults.status;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -199,6 +214,11 @@ public final class GetClusterResult {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
+        }
         public GetClusterResult build() {
             final var o = new GetClusterResult();
             o.arn = arn;
@@ -210,6 +230,7 @@ public final class GetClusterResult {
             o.serviceConnectDefaults = serviceConnectDefaults;
             o.settings = settings;
             o.status = status;
+            o.tags = tags;
             return o;
         }
     }

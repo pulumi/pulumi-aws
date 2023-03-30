@@ -24,6 +24,7 @@ class ReservedInstanceArgs:
         The set of arguments for constructing a ReservedInstance resource.
         :param pulumi.Input[str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the _rds_get_reserved_instance_offering_ data source.
         :param pulumi.Input[int] instance_count: Number of instances to reserve. Default value is `1`.
+        :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "offering_id", offering_id)
@@ -61,6 +62,9 @@ class ReservedInstanceArgs:
     @property
     @pulumi.getter(name="reservationId")
     def reservation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer-specified identifier to track this reservation.
+        """
         return pulumi.get(self, "reservation_id")
 
     @reservation_id.setter
@@ -105,6 +109,7 @@ class _ReservedInstanceState:
         Input properties used for looking up and filtering ReservedInstance resources.
         :param pulumi.Input[str] arn: ARN for the reserved DB instance.
         :param pulumi.Input[str] currency_code: Currency code for the reserved DB instance.
+        :param pulumi.Input[str] db_instance_class: DB instance class for the reserved DB instance.
         :param pulumi.Input[int] duration: Duration of the reservation in seconds.
         :param pulumi.Input[float] fixed_price: Fixed price charged for this reserved DB instance.
         :param pulumi.Input[int] instance_count: Number of instances to reserve. Default value is `1`.
@@ -114,6 +119,7 @@ class _ReservedInstanceState:
         :param pulumi.Input[str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[str] product_description: Description of the reserved DB instance.
         :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[str] start_time: Time the reservation started.
         :param pulumi.Input[str] state: State of the reserved DB instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -184,6 +190,9 @@ class _ReservedInstanceState:
     @property
     @pulumi.getter(name="dbInstanceClass")
     def db_instance_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        DB instance class for the reserved DB instance.
+        """
         return pulumi.get(self, "db_instance_class")
 
     @db_instance_class.setter
@@ -301,6 +310,9 @@ class _ReservedInstanceState:
     @property
     @pulumi.getter(name="reservationId")
     def reservation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer-specified identifier to track this reservation.
+        """
         return pulumi.get(self, "reservation_id")
 
     @reservation_id.setter
@@ -414,6 +426,7 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] instance_count: Number of instances to reserve. Default value is `1`.
         :param pulumi.Input[str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the _rds_get_reserved_instance_offering_ data source.
+        :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -539,6 +552,7 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN for the reserved DB instance.
         :param pulumi.Input[str] currency_code: Currency code for the reserved DB instance.
+        :param pulumi.Input[str] db_instance_class: DB instance class for the reserved DB instance.
         :param pulumi.Input[int] duration: Duration of the reservation in seconds.
         :param pulumi.Input[float] fixed_price: Fixed price charged for this reserved DB instance.
         :param pulumi.Input[int] instance_count: Number of instances to reserve. Default value is `1`.
@@ -548,6 +562,7 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[str] product_description: Description of the reserved DB instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArgs']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[str] start_time: Time the reservation started.
         :param pulumi.Input[str] state: State of the reserved DB instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -597,6 +612,9 @@ class ReservedInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dbInstanceClass")
     def db_instance_class(self) -> pulumi.Output[str]:
+        """
+        DB instance class for the reserved DB instance.
+        """
         return pulumi.get(self, "db_instance_class")
 
     @property
@@ -674,6 +692,9 @@ class ReservedInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="reservationId")
     def reservation_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Customer-specified identifier to track this reservation.
+        """
         return pulumi.get(self, "reservation_id")
 
     @property

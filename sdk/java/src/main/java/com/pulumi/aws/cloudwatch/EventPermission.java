@@ -130,14 +130,16 @@ public class EventPermission extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.condition);
     }
     /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * The name of the event bus to set the permissions on.
+     * If you omit this, the permissions are set on the `default` event bus.
      * 
      */
     @Export(name="eventBusName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventBusName;
 
     /**
-     * @return The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+     * @return The name of the event bus to set the permissions on.
+     * If you omit this, the permissions are set on the `default` event bus.
      * 
      */
     public Output<Optional<String>> eventBusName() {

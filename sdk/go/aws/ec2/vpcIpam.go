@@ -28,9 +28,11 @@ type VpcIpam struct {
 	// Amazon Resource Name (ARN) of IPAM
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
-	Cascade                               pulumi.BoolPtrOutput `pulumi:"cascade"`
-	DefaultResourceDiscoveryAssociationId pulumi.StringOutput  `pulumi:"defaultResourceDiscoveryAssociationId"`
-	DefaultResourceDiscoveryId            pulumi.StringOutput  `pulumi:"defaultResourceDiscoveryId"`
+	Cascade pulumi.BoolPtrOutput `pulumi:"cascade"`
+	// The IPAM's default resource discovery association ID.
+	DefaultResourceDiscoveryAssociationId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryAssociationId"`
+	// The IPAM's default resource discovery ID.
+	DefaultResourceDiscoveryId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryId"`
 	// A description for the IPAM.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
@@ -83,9 +85,11 @@ type vpcIpamState struct {
 	// Amazon Resource Name (ARN) of IPAM
 	Arn *string `pulumi:"arn"`
 	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
-	Cascade                               *bool   `pulumi:"cascade"`
+	Cascade *bool `pulumi:"cascade"`
+	// The IPAM's default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId *string `pulumi:"defaultResourceDiscoveryAssociationId"`
-	DefaultResourceDiscoveryId            *string `pulumi:"defaultResourceDiscoveryId"`
+	// The IPAM's default resource discovery ID.
+	DefaultResourceDiscoveryId *string `pulumi:"defaultResourceDiscoveryId"`
 	// A description for the IPAM.
 	Description *string `pulumi:"description"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
@@ -107,9 +111,11 @@ type VpcIpamState struct {
 	// Amazon Resource Name (ARN) of IPAM
 	Arn pulumi.StringPtrInput
 	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
-	Cascade                               pulumi.BoolPtrInput
+	Cascade pulumi.BoolPtrInput
+	// The IPAM's default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId pulumi.StringPtrInput
-	DefaultResourceDiscoveryId            pulumi.StringPtrInput
+	// The IPAM's default resource discovery ID.
+	DefaultResourceDiscoveryId pulumi.StringPtrInput
 	// A description for the IPAM.
 	Description pulumi.StringPtrInput
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
@@ -251,10 +257,12 @@ func (o VpcIpamOutput) Cascade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.BoolPtrOutput { return v.Cascade }).(pulumi.BoolPtrOutput)
 }
 
+// The IPAM's default resource discovery association ID.
 func (o VpcIpamOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
 }
 
+// The IPAM's default resource discovery ID.
 func (o VpcIpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
 }

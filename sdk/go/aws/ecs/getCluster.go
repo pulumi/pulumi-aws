@@ -51,6 +51,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Name of the ECS Cluster
 	ClusterName string `pulumi:"clusterName"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -72,6 +74,8 @@ type LookupClusterResult struct {
 	Settings []GetClusterSetting `pulumi:"settings"`
 	// Status of the ECS Cluster
 	Status string `pulumi:"status"`
+	// Key-value map of resource tags
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -91,6 +95,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	// Name of the ECS Cluster
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {
@@ -154,6 +160,11 @@ func (o LookupClusterResultOutput) Settings() GetClusterSettingArrayOutput {
 // Status of the ECS Cluster
 func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags
+func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

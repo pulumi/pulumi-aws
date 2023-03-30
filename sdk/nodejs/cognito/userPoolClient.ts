@@ -10,6 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Provides a Cognito User Pool Client resource.
  *
+ * To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
+ * use the `awsCognitoManagedUserPoolClient` resource instead.
+ *
  * ## Example Usage
  * ### Create a basic user pool client
  *
@@ -39,7 +42,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = aws.getCallerIdentity({});
  * const testUserPool = new aws.cognito.UserPool("testUserPool", {});
  * const testApp = new aws.pinpoint.App("testApp", {});
  * const assumeRole = aws.iam.getPolicyDocument({
@@ -53,20 +55,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "mobiletargeting:UpdateEndpoint",
- *             "mobiletargeting:PutItems",
- *         ],
- *         resources: [pulumi.all([current, testApp.applicationId]).apply(([current, applicationId]) => `arn:aws:mobiletargeting:*:${current.accountId}:apps/${applicationId}*`)],
- *     }],
- * });
- * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
- *     role: testRole.id,
- *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
- * });
  * const testUserPoolClient = new aws.cognito.UserPoolClient("testUserPoolClient", {
  *     userPoolId: testUserPool.id,
  *     analyticsConfiguration: {
@@ -75,6 +63,21 @@ import * as utilities from "../utilities";
  *         roleArn: testRole.arn,
  *         userDataShared: true,
  *     },
+ * });
+ * const current = aws.getCallerIdentity({});
+ * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: [
+ *             "mobiletargeting:UpdateEndpoint",
+ *             "mobiletargeting:PutEvents",
+ *         ],
+ *         resources: [pulumi.all([current, testApp.applicationId]).apply(([current, applicationId]) => `arn:aws:mobiletargeting:*:${current.accountId}:apps/${applicationId}*`)],
+ *     }],
+ * });
+ * const testRolePolicy = new aws.iam.RolePolicy("testRolePolicy", {
+ *     role: testRole.id,
+ *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
  * });
  * ```
  * ### Create a user pool client with Cognito as the identity provider

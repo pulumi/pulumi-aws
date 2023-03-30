@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The number of partitions to create in the
         /// placement group.  Can only be specified when the `strategy` is set to
-        /// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        /// `partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Output("partitionCount")]
         public Output<int> PartitionCount { get; private set; } = null!;
@@ -69,13 +69,13 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
-        /// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         /// </summary>
         [Output("spreadLevel")]
-        public Output<string?> SpreadLevel { get; private set; } = null!;
+        public Output<string> SpreadLevel { get; private set; } = null!;
 
         /// <summary>
-        /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        /// The placement strategy. Can be `cluster`, `partition` or `spread`.
         /// </summary>
         [Output("strategy")]
         public Output<string> Strategy { get; private set; } = null!;
@@ -147,20 +147,20 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The number of partitions to create in the
         /// placement group.  Can only be specified when the `strategy` is set to
-        /// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        /// `partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
-        /// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         /// </summary>
         [Input("spreadLevel")]
         public Input<string>? SpreadLevel { get; set; }
 
         /// <summary>
-        /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        /// The placement strategy. Can be `cluster`, `partition` or `spread`.
         /// </summary>
         [Input("strategy", required: true)]
         public InputUnion<string, Pulumi.Aws.Ec2.PlacementStrategy> Strategy { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The number of partitions to create in the
         /// placement group.  Can only be specified when the `strategy` is set to
-        /// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        /// `partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
@@ -213,13 +213,13 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
-        /// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         /// </summary>
         [Input("spreadLevel")]
         public Input<string>? SpreadLevel { get; set; }
 
         /// <summary>
-        /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
+        /// The placement strategy. Can be `cluster`, `partition` or `spread`.
         /// </summary>
         [Input("strategy")]
         public InputUnion<string, Pulumi.Aws.Ec2.PlacementStrategy>? Strategy { get; set; }

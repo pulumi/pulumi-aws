@@ -62,7 +62,7 @@ type Member struct {
 	// The ID of the member AWS account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The email of the member AWS account.
-	Email pulumi.StringOutput `pulumi:"email"`
+	Email pulumi.StringPtrOutput `pulumi:"email"`
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
 	// The ID of the master Security Hub AWS account.
@@ -80,9 +80,6 @@ func NewMember(ctx *pulumi.Context,
 
 	if args.AccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AccountId'")
-	}
-	if args.Email == nil {
-		return nil, errors.New("invalid value for required argument 'Email'")
 	}
 	var resource Member
 	err := ctx.RegisterResource("aws:securityhub/member:Member", name, args, &resource, opts...)
@@ -139,7 +136,7 @@ type memberArgs struct {
 	// The ID of the member AWS account.
 	AccountId string `pulumi:"accountId"`
 	// The email of the member AWS account.
-	Email string `pulumi:"email"`
+	Email *string `pulumi:"email"`
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite *bool `pulumi:"invite"`
 }
@@ -149,7 +146,7 @@ type MemberArgs struct {
 	// The ID of the member AWS account.
 	AccountId pulumi.StringInput
 	// The email of the member AWS account.
-	Email pulumi.StringInput
+	Email pulumi.StringPtrInput
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite pulumi.BoolPtrInput
 }
@@ -247,8 +244,8 @@ func (o MemberOutput) AccountId() pulumi.StringOutput {
 }
 
 // The email of the member AWS account.
-func (o MemberOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+func (o MemberOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 // Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.

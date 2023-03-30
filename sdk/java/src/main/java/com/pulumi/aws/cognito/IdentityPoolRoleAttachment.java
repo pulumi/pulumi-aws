@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .assumeRolePolicy(authenticatedPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(authenticatedPolicyDocument -&gt; authenticatedPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         final var authenticatedRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var authenticatedRolePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .effect(&#34;Allow&#34;)
  *             .actions(            
  *                 &#34;mobileanalytics:PutEvents&#34;,
@@ -93,9 +93,9 @@ import javax.annotation.Nullable;
  *             .resources(&#34;*&#34;)
  *             .build());
  * 
- *         var authenticatedIam_rolePolicyRolePolicy = new RolePolicy(&#34;authenticatedIam/rolePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *         var authenticatedRolePolicy = new RolePolicy(&#34;authenticatedRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(authenticatedRole.id())
- *             .policy(authenticatedRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(authenticatedRolePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var mainIdentityPoolRoleAttachment = new IdentityPoolRoleAttachment(&#34;mainIdentityPoolRoleAttachment&#34;, IdentityPoolRoleAttachmentArgs.builder()        

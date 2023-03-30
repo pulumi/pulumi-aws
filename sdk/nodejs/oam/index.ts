@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { LinkArgs, LinkState } from "./link";
+export type Link = import("./link").Link;
+export const Link: typeof import("./link").Link = null as any;
+utilities.lazyLoad(exports, ["Link"], () => require("./link"));
+
 export { SinkArgs, SinkState } from "./sink";
 export type Sink = import("./sink").Sink;
 export const Sink: typeof import("./sink").Sink = null as any;
@@ -20,6 +25,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:oam/link:Link":
+                return new Link(name, <any>undefined, { urn })
             case "aws:oam/sink:Sink":
                 return new Sink(name, <any>undefined, { urn })
             case "aws:oam/sinkPolicy:SinkPolicy":
@@ -29,5 +36,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "oam/link", _module)
 pulumi.runtime.registerResourceModule("aws", "oam/sink", _module)
 pulumi.runtime.registerResourceModule("aws", "oam/sinkPolicy", _module)

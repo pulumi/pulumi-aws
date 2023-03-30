@@ -87,14 +87,16 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with the rule.
+     * If you omit this, the `default` event bus is used.
      * 
      */
     @Import(name="eventBusName")
     private @Nullable Output<String> eventBusName;
 
     /**
-     * @return The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+     * @return The name or ARN of the event bus to associate with the rule.
+     * If you omit this, the `default` event bus is used.
      * 
      */
     public Optional<Output<String>> eventBusName() {
@@ -406,7 +408,8 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBusName The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+         * @param eventBusName The name or ARN of the event bus to associate with the rule.
+         * If you omit this, the `default` event bus is used.
          * 
          * @return builder
          * 
@@ -417,7 +420,8 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBusName The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+         * @param eventBusName The name or ARN of the event bus to associate with the rule.
+         * If you omit this, the `default` event bus is used.
          * 
          * @return builder
          * 

@@ -94,7 +94,7 @@ namespace Pulumi.Aws.GameLift
         /// Specifies if the match that was created with this configuration must be accepted by matched players.
         /// </summary>
         [Output("acceptanceRequired")]
-        public Output<bool> AcceptanceRequired { get; private set; } = null!;
+        public Output<bool?> AcceptanceRequired { get; private set; } = null!;
 
         /// <summary>
         /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.GameLift
         /// A set of custom game session properties.
         /// </summary>
         [Output("gameSessionData")]
-        public Output<string> GameSessionData { get; private set; } = null!;
+        public Output<string?> GameSessionData { get; private set; } = null!;
 
         /// <summary>
         /// The ARNs of the GameLift game session queue resources.
@@ -250,8 +250,8 @@ namespace Pulumi.Aws.GameLift
         /// <summary>
         /// Specifies if the match that was created with this configuration must be accepted by matched players.
         /// </summary>
-        [Input("acceptanceRequired", required: true)]
-        public Input<bool> AcceptanceRequired { get; set; } = null!;
+        [Input("acceptanceRequired")]
+        public Input<bool>? AcceptanceRequired { get; set; }
 
         /// <summary>
         /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
@@ -304,8 +304,8 @@ namespace Pulumi.Aws.GameLift
         /// <summary>
         /// A set of custom game session properties.
         /// </summary>
-        [Input("gameSessionData", required: true)]
-        public Input<string> GameSessionData { get; set; } = null!;
+        [Input("gameSessionData")]
+        public Input<string>? GameSessionData { get; set; }
 
         [Input("gameSessionQueueArns")]
         private InputList<string>? _gameSessionQueueArns;

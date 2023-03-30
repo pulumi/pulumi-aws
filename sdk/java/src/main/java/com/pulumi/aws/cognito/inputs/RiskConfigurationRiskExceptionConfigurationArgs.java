@@ -17,14 +17,18 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
     public static final RiskConfigurationRiskExceptionConfigurationArgs Empty = new RiskConfigurationRiskExceptionConfigurationArgs();
 
     /**
-     * Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+     * Overrides the risk decision to always block the pre-authentication requests.
+     * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+     * Can contain a maximum of 200 items.
      * 
      */
     @Import(name="blockedIpRangeLists")
     private @Nullable Output<List<String>> blockedIpRangeLists;
 
     /**
-     * @return Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+     * @return Overrides the risk decision to always block the pre-authentication requests.
+     * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+     * Can contain a maximum of 200 items.
      * 
      */
     public Optional<Output<List<String>>> blockedIpRangeLists() {
@@ -32,14 +36,18 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
     }
 
     /**
-     * Risk detection isn&#39;t performed on the IP addresses in this range list. The IP range is in CIDR notation.
+     * Risk detection isn&#39;t performed on the IP addresses in this range list.
+     * The IP range is in CIDR notation.
+     * Can contain a maximum of 200 items.
      * 
      */
     @Import(name="skippedIpRangeLists")
     private @Nullable Output<List<String>> skippedIpRangeLists;
 
     /**
-     * @return Risk detection isn&#39;t performed on the IP addresses in this range list. The IP range is in CIDR notation.
+     * @return Risk detection isn&#39;t performed on the IP addresses in this range list.
+     * The IP range is in CIDR notation.
+     * Can contain a maximum of 200 items.
      * 
      */
     public Optional<Output<List<String>>> skippedIpRangeLists() {
@@ -72,7 +80,9 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
         }
 
         /**
-         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests.
+         * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+         * Can contain a maximum of 200 items.
          * 
          * @return builder
          * 
@@ -83,7 +93,9 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
         }
 
         /**
-         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests.
+         * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+         * Can contain a maximum of 200 items.
          * 
          * @return builder
          * 
@@ -93,7 +105,9 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
         }
 
         /**
-         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+         * @param blockedIpRangeLists Overrides the risk decision to always block the pre-authentication requests.
+         * The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+         * Can contain a maximum of 200 items.
          * 
          * @return builder
          * 
@@ -103,7 +117,9 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
         }
 
         /**
-         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list. The IP range is in CIDR notation.
+         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list.
+         * The IP range is in CIDR notation.
+         * Can contain a maximum of 200 items.
          * 
          * @return builder
          * 
@@ -114,7 +130,9 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
         }
 
         /**
-         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list. The IP range is in CIDR notation.
+         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list.
+         * The IP range is in CIDR notation.
+         * Can contain a maximum of 200 items.
          * 
          * @return builder
          * 
@@ -124,7 +142,9 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs extends com.p
         }
 
         /**
-         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list. The IP range is in CIDR notation.
+         * @param skippedIpRangeLists Risk detection isn&#39;t performed on the IP addresses in this range list.
+         * The IP range is in CIDR notation.
+         * Can contain a maximum of 200 items.
          * 
          * @return builder
          * 

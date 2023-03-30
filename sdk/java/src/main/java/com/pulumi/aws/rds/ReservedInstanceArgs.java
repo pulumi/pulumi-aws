@@ -47,9 +47,17 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         return this.offeringId;
     }
 
+    /**
+     * Customer-specified identifier to track this reservation.
+     * 
+     */
     @Import(name="reservationId")
     private @Nullable Output<String> reservationId;
 
+    /**
+     * @return Customer-specified identifier to track this reservation.
+     * 
+     */
     public Optional<Output<String>> reservationId() {
         return Optional.ofNullable(this.reservationId);
     }
@@ -138,11 +146,23 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
             return offeringId(Output.of(offeringId));
         }
 
+        /**
+         * @param reservationId Customer-specified identifier to track this reservation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reservationId(@Nullable Output<String> reservationId) {
             $.reservationId = reservationId;
             return this;
         }
 
+        /**
+         * @param reservationId Customer-specified identifier to track this reservation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder reservationId(String reservationId) {
             return reservationId(Output.of(reservationId));
         }

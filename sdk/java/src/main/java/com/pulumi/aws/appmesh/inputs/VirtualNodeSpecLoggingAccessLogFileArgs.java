@@ -3,15 +3,33 @@
 
 package com.pulumi.aws.appmesh.inputs;
 
+import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogFileFormatArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VirtualNodeSpecLoggingAccessLogFileArgs Empty = new VirtualNodeSpecLoggingAccessLogFileArgs();
+
+    /**
+     * The specified format for the logs.
+     * 
+     */
+    @Import(name="format")
+    private @Nullable Output<VirtualNodeSpecLoggingAccessLogFileFormatArgs> format;
+
+    /**
+     * @return The specified format for the logs.
+     * 
+     */
+    public Optional<Output<VirtualNodeSpecLoggingAccessLogFileFormatArgs>> format() {
+        return Optional.ofNullable(this.format);
+    }
 
     /**
      * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
@@ -31,6 +49,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.re
     private VirtualNodeSpecLoggingAccessLogFileArgs() {}
 
     private VirtualNodeSpecLoggingAccessLogFileArgs(VirtualNodeSpecLoggingAccessLogFileArgs $) {
+        this.format = $.format;
         this.path = $.path;
     }
 
@@ -50,6 +69,27 @@ public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.re
 
         public Builder(VirtualNodeSpecLoggingAccessLogFileArgs defaults) {
             $ = new VirtualNodeSpecLoggingAccessLogFileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param format The specified format for the logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder format(@Nullable Output<VirtualNodeSpecLoggingAccessLogFileFormatArgs> format) {
+            $.format = format;
+            return this;
+        }
+
+        /**
+         * @param format The specified format for the logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder format(VirtualNodeSpecLoggingAccessLogFileFormatArgs format) {
+            return format(Output.of(format));
         }
 
         /**

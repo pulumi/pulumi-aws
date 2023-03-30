@@ -230,7 +230,8 @@ namespace Pulumi.Aws.CloudWatch
     public partial class EventBusPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        /// The name of the event bus to set the permissions on.
+        /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
         [Output("eventBusName")]
         public Output<string?> EventBusName { get; private set; } = null!;
@@ -288,7 +289,8 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventBusPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        /// The name of the event bus to set the permissions on.
+        /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
@@ -308,7 +310,8 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventBusPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
+        /// The name of the event bus to set the permissions on.
+        /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }

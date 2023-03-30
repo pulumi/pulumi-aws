@@ -355,7 +355,8 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly ecsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetEcsTarget | undefined>;
     /**
-     * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with the rule.
+     * If you omit this, the `default` event bus is used.
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     /**
@@ -489,7 +490,8 @@ export interface EventTargetState {
      */
     ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
     /**
-     * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with the rule.
+     * If you omit this, the `default` event bus is used.
      */
     eventBusName?: pulumi.Input<string>;
     /**
@@ -563,7 +565,8 @@ export interface EventTargetArgs {
      */
     ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
     /**
-     * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with the rule.
+     * If you omit this, the `default` event bus is used.
      */
     eventBusName?: pulumi.Input<string>;
     /**

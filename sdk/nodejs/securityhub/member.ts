@@ -66,7 +66,7 @@ export class Member extends pulumi.CustomResource {
     /**
      * The email of the member AWS account.
      */
-    public readonly email!: pulumi.Output<string>;
+    public readonly email!: pulumi.Output<string | undefined>;
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      */
@@ -102,9 +102,6 @@ export class Member extends pulumi.CustomResource {
             const args = argsOrState as MemberArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
-            }
-            if ((!args || args.email === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'email'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
@@ -154,7 +151,7 @@ export interface MemberArgs {
     /**
      * The email of the member AWS account.
      */
-    email: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      */

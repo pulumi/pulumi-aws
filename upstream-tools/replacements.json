@@ -23,6 +23,16 @@
       "new": "    Data source for managing an AWS AppConfig Environments."
     }
   ],
+  "website/docs/d/appmesh_virtual_gateway.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS App Mesh Virtual Gateway.",
+      "new": "  Data source for managing an AWS App Mesh Virtual Gateway."
+    },
+    {
+      "old": "Terraform data source for managing an AWS App Mesh Virtual Gateway.",
+      "new": "Data source for managing an AWS App Mesh Virtual Gateway."
+    }
+  ],
   "website/docs/d/auditmanager_control.html.markdown": [
     {
       "old": "Terraform data source for managing an AWS Audit Manager Control.",
@@ -87,10 +97,6 @@
     }
   ],
   "website/docs/d/ec2_public_ipv4_pools.html.markdown": [
-    {
-      "old": "Terraform data source for getting information about AWS EC2 Public IPv4 Pools.",
-      "new": "Data source for getting information about AWS EC2 Public IPv4 Pools."
-    },
     {
       "old": "Terraform data source for getting information about AWS EC2 Public IPv4 Pools.",
       "new": "Data source for getting information about AWS EC2 Public IPv4 Pools."
@@ -693,10 +699,6 @@
     {
       "old": "Terraform resource for managing an AWS CodeGuru Reviewer Repository Association.",
       "new": "Resource for managing an AWS CodeGuru Reviewer Repository Association."
-    },
-    {
-      "old": "Terraform resource for managing an AWS CodeGuru Reviewer Repository Association.",
-      "new": "Resource for managing an AWS CodeGuru Reviewer Repository Association."
     }
   ],
   "website/docs/r/codepipeline_custom_action_type.html.markdown": [
@@ -1138,12 +1140,12 @@
   ],
   "website/docs/r/emr_block_public_access_configuration.html.markdown": [
     {
-      "old": "Terraform resource for managing an AWS EMR Block Public Access Configuration.",
-      "new": "Resource for managing an AWS EMR Block Public Access Configuration."
-    },
-    {
       "old": "By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this Terraform resource.",
       "new": "By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource."
+    },
+    {
+      "old": "Terraform resource for managing an AWS EMR Block Public Access Configuration.",
+      "new": "Resource for managing an AWS EMR Block Public Access Configuration."
     },
     {
       "old": "Terraform resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.",
@@ -1723,6 +1725,12 @@
       "new": "~> **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile."
     }
   ],
+  "website/docs/r/lightsail_instance.html.markdown": [
+    {
+      "old": "  user_data         = \"sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Terraform</h1>' | sudo tee /var/www/html/index.html\"",
+      "new": "  user_data         = \"sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html\""
+    }
+  ],
   "website/docs/r/load_balancer_listener_policy.html.markdown": [
     {
       "old": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger an update. To force an update without changing these keys/values, use the `terraform taint` command.",
@@ -2017,21 +2025,23 @@
       "new": "Resource for managing an AWS NetworkManager VpcAttachment."
     }
   ],
-  "website/docs/r/oam_sink.html.markdown": [
+  "website/docs/r/oam_link.html.markdown": [
     {
-      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink.",
-      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink."
+      "old": "  Terraform resource for managing an AWS CloudWatch Observability Access Manager Link.",
+      "new": "  Resource for managing an AWS CloudWatch Observability Access Manager Link."
     },
+    {
+      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Link.",
+      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Link."
+    }
+  ],
+  "website/docs/r/oam_sink.html.markdown": [
     {
       "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink.",
       "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink."
     }
   ],
   "website/docs/r/oam_sink_policy.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.",
-      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy."
-    },
     {
       "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.",
       "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy."
@@ -2644,8 +2654,28 @@
       "new": "* `revoke_rules_on_delete` - (Optional) Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`."
     },
     {
-      "old": "You must invert the default behavior of Terraform. That is, first the new Security Group resource must be created, then associated to possible Network Interface resources and finally the old Security Group can be detached and deleted. To force this behavior, you must set the create_before_destroy property:",
-      "new": "You must invert the default behavior of the provider. That is, first the new Security Group resource must be created, then associated to possible Network Interface resources and finally the old Security Group can be detached and deleted. To force this behavior, you must set the create_before_destroy property:"
+      "old": "**DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard Terraform configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to AWS CLI and Terraform changes outside the AWS Provider.",
+      "new": "**DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider."
+    },
+    {
+      "old": "A simple security group `name` change \"forces new\" the security group--Terraform destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.",
+      "new": "A simple security group `name` change \"forces new\" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used."
+    },
+    {
+      "old": "If destroying a security group takes a long time, it may be because Terraform cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:",
+      "new": "If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:"
+    },
+    {
+      "old": "Normally, Terraform first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `create_before_destroy` meta argument:",
+      "new": "Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `create_before_destroy` meta argument:"
+    },
+    {
+      "old": "Security groups are generally associated with other resources--**more than 100** AWS Provider resources reference security groups. Referencing a resource from another resource creates a one-way dependency. For example, if you create an EC2 `aws_instance` that has a `vpc_security_group_ids` argument that refers to an `aws_security_group` resource, the `aws_security_group` is a dependent of the `aws_instance`. Because of this, Terraform will create the security group first so that it can then be associated with the EC2 instance.",
+      "new": "Security groups are generally associated with other resources--**more than 100** AWS Provider resources reference security groups. Referencing a resource from another resource creates a one-way dependency. For example, if you create an EC2 `aws_instance` that has a `vpc_security_group_ids` argument that refers to an `aws_security_group` resource, the `aws_security_group` is a dependent of the `aws_instance`. Because of this, the provider will create the security group first so that it can then be associated with the EC2 instance."
+    },
+    {
+      "old": "Terraform does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `aws_security_group` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within Terraform, the associated resource (_e.g._, `aws_instance`) does not receive an error when the `aws_security_group` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).",
+      "new": "The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `aws_security_group` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `aws_instance`) does not receive an error when the `aws_security_group` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association)."
     }
   ],
   "website/docs/r/securityhub_standards_control.markdown": [
@@ -2682,6 +2712,16 @@
     {
       "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.",
       "new": "Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination."
+    }
+  ],
+  "website/docs/r/sesv2_contact_list.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS SESv2 (Simple Email V2) Contact List.",
+      "new": "  Resource for managing an AWS SESv2 (Simple Email V2) Contact List."
+    },
+    {
+      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Contact List.",
+      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Contact List."
     }
   ],
   "website/docs/r/sesv2_dedicated_ip_assignment.html.markdown": [

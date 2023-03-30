@@ -7,8 +7,11 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.securityhub.AccountArgs;
 import com.pulumi.aws.securityhub.inputs.AccountState;
 import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -54,6 +57,21 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:securityhub/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     * 
+     */
+    @Export(name="enableDefaultStandards", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableDefaultStandards;
+
+    /**
+     * @return Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> enableDefaultStandards() {
+        return Codegen.optional(this.enableDefaultStandards);
+    }
+
     /**
      *
      * @param name The _unique_ name of the resulting resource.

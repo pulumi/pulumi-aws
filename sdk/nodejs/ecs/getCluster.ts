@@ -27,6 +27,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getCluster:getCluster", {
         "clusterName": args.clusterName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetClusterArgs {
      * Name of the ECS Cluster
      */
     clusterName: string;
+    /**
+     * Key-value map of resource tags
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -77,6 +82,10 @@ export interface GetClusterResult {
      * Status of the ECS Cluster
      */
     readonly status: string;
+    /**
+     * Key-value map of resource tags
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * The ECS Cluster data source allows access to details of a specific
@@ -105,4 +114,8 @@ export interface GetClusterOutputArgs {
      * Name of the ECS Cluster
      */
     clusterName: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

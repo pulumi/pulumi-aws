@@ -67,6 +67,9 @@ namespace Pulumi.Aws.Rds
         [Output("currencyCode")]
         public Output<string> CurrencyCode { get; private set; } = null!;
 
+        /// <summary>
+        /// DB instance class for the reserved DB instance.
+        /// </summary>
         [Output("dbInstanceClass")]
         public Output<string> DbInstanceClass { get; private set; } = null!;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.Rds
         [Output("recurringCharges")]
         public Output<ImmutableArray<Outputs.ReservedInstanceRecurringCharge>> RecurringCharges { get; private set; } = null!;
 
+        /// <summary>
+        /// Customer-specified identifier to track this reservation.
+        /// </summary>
         [Output("reservationId")]
         public Output<string?> ReservationId { get; private set; } = null!;
 
@@ -215,6 +221,9 @@ namespace Pulumi.Aws.Rds
         [Input("offeringId", required: true)]
         public Input<string> OfferingId { get; set; } = null!;
 
+        /// <summary>
+        /// Customer-specified identifier to track this reservation.
+        /// </summary>
         [Input("reservationId")]
         public Input<string>? ReservationId { get; set; }
 
@@ -250,6 +259,9 @@ namespace Pulumi.Aws.Rds
         [Input("currencyCode")]
         public Input<string>? CurrencyCode { get; set; }
 
+        /// <summary>
+        /// DB instance class for the reserved DB instance.
+        /// </summary>
         [Input("dbInstanceClass")]
         public Input<string>? DbInstanceClass { get; set; }
 
@@ -313,6 +325,9 @@ namespace Pulumi.Aws.Rds
             set => _recurringCharges = value;
         }
 
+        /// <summary>
+        /// Customer-specified identifier to track this reservation.
+        /// </summary>
         [Input("reservationId")]
         public Input<string>? ReservationId { get; set; }
 

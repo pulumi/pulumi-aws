@@ -108,9 +108,17 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
     public Output<String> currencyCode() {
         return this.currencyCode;
     }
+    /**
+     * DB instance class for the reserved DB instance.
+     * 
+     */
     @Export(name="dbInstanceClass", refs={String.class}, tree="[0]")
     private Output<String> dbInstanceClass;
 
+    /**
+     * @return DB instance class for the reserved DB instance.
+     * 
+     */
     public Output<String> dbInstanceClass() {
         return this.dbInstanceClass;
     }
@@ -240,9 +248,17 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
     public Output<List<ReservedInstanceRecurringCharge>> recurringCharges() {
         return this.recurringCharges;
     }
+    /**
+     * Customer-specified identifier to track this reservation.
+     * 
+     */
     @Export(name="reservationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> reservationId;
 
+    /**
+     * @return Customer-specified identifier to track this reservation.
+     * 
+     */
     public Output<Optional<String>> reservationId() {
         return Codegen.optional(this.reservationId);
     }

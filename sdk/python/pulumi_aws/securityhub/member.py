@@ -15,7 +15,7 @@ __all__ = ['MemberArgs', 'Member']
 class MemberArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
-                 email: pulumi.Input[str],
+                 email: Optional[pulumi.Input[str]] = None,
                  invite: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Member resource.
@@ -24,7 +24,8 @@ class MemberArgs:
         :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         """
         pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "email", email)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
         if invite is not None:
             pulumi.set(__self__, "invite", invite)
 
@@ -42,14 +43,14 @@ class MemberArgs:
 
     @property
     @pulumi.getter
-    def email(self) -> pulumi.Input[str]:
+    def email(self) -> Optional[pulumi.Input[str]]:
         """
         The email of the member AWS account.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: pulumi.Input[str]):
+    def email(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "email", value)
 
     @property
@@ -254,8 +255,6 @@ class Member(pulumi.CustomResource):
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
-            if email is None and not opts.urn:
-                raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
             __props__.__dict__["invite"] = invite
             __props__.__dict__["master_id"] = None
@@ -309,7 +308,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> pulumi.Output[str]:
+    def email(self) -> pulumi.Output[Optional[str]]:
         """
         The email of the member AWS account.
         """

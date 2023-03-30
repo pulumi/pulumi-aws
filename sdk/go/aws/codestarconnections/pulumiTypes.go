@@ -11,7 +11,7 @@ import (
 )
 
 type HostVpcConfiguration struct {
-	// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+	// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -33,7 +33,7 @@ type HostVpcConfigurationInput interface {
 }
 
 type HostVpcConfigurationArgs struct {
-	// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+	// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
@@ -120,7 +120,7 @@ func (o HostVpcConfigurationOutput) ToHostVpcConfigurationPtrOutputWithContext(c
 	}).(HostVpcConfigurationPtrOutput)
 }
 
-// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HostVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -164,7 +164,7 @@ func (o HostVpcConfigurationPtrOutput) Elem() HostVpcConfigurationOutput {
 	}).(HostVpcConfigurationOutput)
 }
 
-// he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HostVpcConfiguration) []string {
 		if v == nil {

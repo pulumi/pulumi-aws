@@ -142,14 +142,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * launch script to configure server with additional user data
+     * Single lined launch script as a string to configure server with additional user data
      * 
      */
     @Import(name="userData")
     private @Nullable Output<String> userData;
 
     /**
-     * @return launch script to configure server with additional user data
+     * @return Single lined launch script as a string to configure server with additional user data
      * 
      */
     public Optional<Output<String>> userData() {
@@ -361,7 +361,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userData launch script to configure server with additional user data
+         * @param userData Single lined launch script as a string to configure server with additional user data
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userData launch script to configure server with additional user data
+         * @param userData Single lined launch script as a string to configure server with additional user data
          * 
          * @return builder
          * 

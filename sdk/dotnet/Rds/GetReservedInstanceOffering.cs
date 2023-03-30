@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Rds
         public string DbInstanceClass { get; set; } = null!;
 
         /// <summary>
-        /// Duration of the reservation in seconds.
+        /// Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
         /// </summary>
         [Input("duration", required: true)]
         public int Duration { get; set; }
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Rds
         public bool MultiAz { get; set; }
 
         /// <summary>
-        /// Offering type of this reserved DB instance.
+        /// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
         /// </summary>
         [Input("offeringType", required: true)]
         public string OfferingType { get; set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> DbInstanceClass { get; set; } = null!;
 
         /// <summary>
-        /// Duration of the reservation in seconds.
+        /// Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
         /// </summary>
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool> MultiAz { get; set; } = null!;
 
         /// <summary>
-        /// Offering type of this reserved DB instance.
+        /// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
         /// </summary>
         [Input("offeringType", required: true)]
         public Input<string> OfferingType { get; set; } = null!;

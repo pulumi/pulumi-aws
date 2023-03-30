@@ -18,14 +18,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     public static final VpcIpamResourceDiscoveryAssociationState Empty = new VpcIpamResourceDiscoveryAssociationState();
 
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+     * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+     * @return The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * The arn of the IPAM
+     * The Amazon Resource Name (ARN) of the IPAM.
      * 
      */
     @Import(name="ipamArn")
     private @Nullable Output<String> ipamArn;
 
     /**
-     * @return The arn of the IPAM
+     * @return The Amazon Resource Name (ARN) of the IPAM.
      * 
      */
     public Optional<Output<String>> ipamArn() {
@@ -48,14 +48,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * Id of the IPAM to associate
+     * The ID of the IPAM to associate.
      * 
      */
     @Import(name="ipamId")
     private @Nullable Output<String> ipamId;
 
     /**
-     * @return Id of the IPAM to associate
+     * @return The ID of the IPAM to associate.
      * 
      */
     public Optional<Output<String>> ipamId() {
@@ -63,36 +63,44 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * The home region of the IPAM
+     * The home region of the IPAM.
      * 
      */
     @Import(name="ipamRegion")
     private @Nullable Output<String> ipamRegion;
 
     /**
-     * @return The home region of the IPAM
+     * @return The home region of the IPAM.
      * 
      */
     public Optional<Output<String>> ipamRegion() {
         return Optional.ofNullable(this.ipamRegion);
     }
 
+    /**
+     * The ID of the Resource Discovery to associate.
+     * 
+     */
     @Import(name="ipamResourceDiscoveryId")
     private @Nullable Output<String> ipamResourceDiscoveryId;
 
+    /**
+     * @return The ID of the Resource Discovery to associate.
+     * 
+     */
     public Optional<Output<String>> ipamResourceDiscoveryId() {
         return Optional.ofNullable(this.ipamResourceDiscoveryId);
     }
 
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
     /**
-     * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -114,16 +122,32 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         return Optional.ofNullable(this.ownerId);
     }
 
+    /**
+     * The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * 
+     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
+    /**
+     * @return The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * 
+     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
+    /**
+     * A map of tags to add to the IPAM resource discovery association resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to add to the IPAM resource discovery association resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -177,7 +201,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+         * @param arn The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
          * 
          * @return builder
          * 
@@ -188,7 +212,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of IPAM Resource Discovery Association
+         * @param arn The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
          * 
          * @return builder
          * 
@@ -198,7 +222,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamArn The arn of the IPAM
+         * @param ipamArn The Amazon Resource Name (ARN) of the IPAM.
          * 
          * @return builder
          * 
@@ -209,7 +233,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamArn The arn of the IPAM
+         * @param ipamArn The Amazon Resource Name (ARN) of the IPAM.
          * 
          * @return builder
          * 
@@ -219,7 +243,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamId Id of the IPAM to associate
+         * @param ipamId The ID of the IPAM to associate.
          * 
          * @return builder
          * 
@@ -230,7 +254,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamId Id of the IPAM to associate
+         * @param ipamId The ID of the IPAM to associate.
          * 
          * @return builder
          * 
@@ -240,7 +264,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamRegion The home region of the IPAM
+         * @param ipamRegion The home region of the IPAM.
          * 
          * @return builder
          * 
@@ -251,7 +275,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamRegion The home region of the IPAM
+         * @param ipamRegion The home region of the IPAM.
          * 
          * @return builder
          * 
@@ -260,17 +284,29 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
             return ipamRegion(Output.of(ipamRegion));
         }
 
+        /**
+         * @param ipamResourceDiscoveryId The ID of the Resource Discovery to associate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamResourceDiscoveryId(@Nullable Output<String> ipamResourceDiscoveryId) {
             $.ipamResourceDiscoveryId = ipamResourceDiscoveryId;
             return this;
         }
 
+        /**
+         * @param ipamResourceDiscoveryId The ID of the Resource Discovery to associate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamResourceDiscoveryId(String ipamResourceDiscoveryId) {
             return ipamResourceDiscoveryId(Output.of(ipamResourceDiscoveryId));
         }
 
         /**
-         * @param isDefault A boolean to identify if the Resource Discovery is the accounts default resource discovery
+         * @param isDefault A boolean to identify if the Resource Discovery is the accounts default resource discovery.
          * 
          * @return builder
          * 
@@ -281,7 +317,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param isDefault A boolean to identify if the Resource Discovery is the accounts default resource discovery
+         * @param isDefault A boolean to identify if the Resource Discovery is the accounts default resource discovery.
          * 
          * @return builder
          * 
@@ -311,20 +347,44 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
             return ownerId(Output.of(ownerId));
         }
 
+        /**
+         * @param state The lifecycle state of the association when you associate or disassociate a resource discovery.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
+        /**
+         * @param state The lifecycle state of the association when you associate or disassociate a resource discovery.
+         * 
+         * @return builder
+         * 
+         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
+        /**
+         * @param tags A map of tags to add to the IPAM resource discovery association resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to add to the IPAM resource discovery association resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

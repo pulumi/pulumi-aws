@@ -101,7 +101,7 @@ export interface GetVirtualServiceResult {
     /**
      * Map of tags.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
 }
 /**
  * The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.

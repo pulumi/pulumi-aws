@@ -149,9 +149,9 @@ def get_reserved_instance_offering(db_instance_class: Optional[str] = None,
 
 
     :param str db_instance_class: DB instance class for the reserved DB instance.
-    :param int duration: Duration of the reservation in seconds.
+    :param int duration: Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
     :param bool multi_az: Whether the reservation applies to Multi-AZ deployments.
-    :param str offering_type: Offering type of this reserved DB instance.
+    :param str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
     :param str product_description: Description of the reserved DB instance.
     """
     __args__ = dict()
@@ -200,9 +200,9 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
 
 
     :param str db_instance_class: DB instance class for the reserved DB instance.
-    :param int duration: Duration of the reservation in seconds.
+    :param int duration: Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
     :param bool multi_az: Whether the reservation applies to Multi-AZ deployments.
-    :param str offering_type: Offering type of this reserved DB instance.
+    :param str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
     :param str product_description: Description of the reserved DB instance.
     """
     ...

@@ -50,16 +50,32 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.cascade);
     }
 
+    /**
+     * The IPAM&#39;s default resource discovery association ID.
+     * 
+     */
     @Import(name="defaultResourceDiscoveryAssociationId")
     private @Nullable Output<String> defaultResourceDiscoveryAssociationId;
 
+    /**
+     * @return The IPAM&#39;s default resource discovery association ID.
+     * 
+     */
     public Optional<Output<String>> defaultResourceDiscoveryAssociationId() {
         return Optional.ofNullable(this.defaultResourceDiscoveryAssociationId);
     }
 
+    /**
+     * The IPAM&#39;s default resource discovery ID.
+     * 
+     */
     @Import(name="defaultResourceDiscoveryId")
     private @Nullable Output<String> defaultResourceDiscoveryId;
 
+    /**
+     * @return The IPAM&#39;s default resource discovery ID.
+     * 
+     */
     public Optional<Output<String>> defaultResourceDiscoveryId() {
         return Optional.ofNullable(this.defaultResourceDiscoveryId);
     }
@@ -247,20 +263,44 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
             return cascade(Output.of(cascade));
         }
 
+        /**
+         * @param defaultResourceDiscoveryAssociationId The IPAM&#39;s default resource discovery association ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultResourceDiscoveryAssociationId(@Nullable Output<String> defaultResourceDiscoveryAssociationId) {
             $.defaultResourceDiscoveryAssociationId = defaultResourceDiscoveryAssociationId;
             return this;
         }
 
+        /**
+         * @param defaultResourceDiscoveryAssociationId The IPAM&#39;s default resource discovery association ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultResourceDiscoveryAssociationId(String defaultResourceDiscoveryAssociationId) {
             return defaultResourceDiscoveryAssociationId(Output.of(defaultResourceDiscoveryAssociationId));
         }
 
+        /**
+         * @param defaultResourceDiscoveryId The IPAM&#39;s default resource discovery ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultResourceDiscoveryId(@Nullable Output<String> defaultResourceDiscoveryId) {
             $.defaultResourceDiscoveryId = defaultResourceDiscoveryId;
             return this;
         }
 
+        /**
+         * @param defaultResourceDiscoveryId The IPAM&#39;s default resource discovery ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultResourceDiscoveryId(String defaultResourceDiscoveryId) {
             return defaultResourceDiscoveryId(Output.of(defaultResourceDiscoveryId));
         }

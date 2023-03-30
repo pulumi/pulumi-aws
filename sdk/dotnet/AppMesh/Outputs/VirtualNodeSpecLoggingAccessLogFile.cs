@@ -14,13 +14,21 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecLoggingAccessLogFile
     {
         /// <summary>
+        /// The specified format for the logs.
+        /// </summary>
+        public readonly Outputs.VirtualNodeSpecLoggingAccessLogFileFormat? Format;
+        /// <summary>
         /// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string Path;
 
         [OutputConstructor]
-        private VirtualNodeSpecLoggingAccessLogFile(string path)
+        private VirtualNodeSpecLoggingAccessLogFile(
+            Outputs.VirtualNodeSpecLoggingAccessLogFileFormat? format,
+
+            string path)
         {
+            Format = format;
             Path = path;
         }
     }
