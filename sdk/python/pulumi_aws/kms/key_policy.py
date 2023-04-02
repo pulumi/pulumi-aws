@@ -20,7 +20,7 @@ class KeyPolicyArgs:
         """
         The set of arguments for constructing a KeyPolicy resource.
         :param pulumi.Input[str] key_id: The ID of the KMS Key to attach the policy.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
                For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
@@ -46,7 +46,7 @@ class KeyPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -81,7 +81,7 @@ class _KeyPolicyState:
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
                For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         :param pulumi.Input[str] key_id: The ID of the KMS Key to attach the policy.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         """
         if bypass_policy_lockout_safety_check is not None:
             pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
@@ -120,7 +120,7 @@ class _KeyPolicyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -180,7 +180,7 @@ class KeyPolicy(pulumi.CustomResource):
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
                For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         :param pulumi.Input[str] key_id: The ID of the KMS Key to attach the policy.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         """
         ...
     @overload
@@ -282,7 +282,7 @@ class KeyPolicy(pulumi.CustomResource):
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
                For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         :param pulumi.Input[str] key_id: The ID of the KMS Key to attach the policy.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,7 +315,7 @@ class KeyPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 

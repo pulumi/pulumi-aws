@@ -466,7 +466,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             security_group_id="sg-123456")
         ```
 
-        You can also find a specific Prefix List using the _ec2_get_prefix_list_
+        You can also find a specific Prefix List using the `ec2_get_prefix_list`
         or `ec2_managed_prefix_list` data sources:
 
         ```python
@@ -604,7 +604,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             security_group_id="sg-123456")
         ```
 
-        You can also find a specific Prefix List using the _ec2_get_prefix_list_
+        You can also find a specific Prefix List using the `ec2_get_prefix_list`
         or `ec2_managed_prefix_list` data sources:
 
         ```python

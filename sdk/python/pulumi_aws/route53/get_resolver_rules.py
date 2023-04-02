@@ -108,7 +108,7 @@ def get_resolver_rules(name_regex: Optional[str] = None,
                        share_status: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverRulesResult:
     """
-    _route53_get_resolver_rules_ provides details about a set of Route53 Resolver rules.
+    `route53_get_resolver_rules` provides details about a set of Route53 Resolver rules.
 
     ## Example Usage
     ### Retrieving the default resolver rule
@@ -177,7 +177,7 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
                               share_status: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRulesResult]:
     """
-    _route53_get_resolver_rules_ provides details about a set of Route53 Resolver rules.
+    `route53_get_resolver_rules` provides details about a set of Route53 Resolver rules.
 
     ## Example Usage
     ### Retrieving the default resolver rule

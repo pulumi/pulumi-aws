@@ -159,7 +159,7 @@ func NewZone(ctx *pulumi.Context,
 		args = &ZoneArgs{}
 	}
 
-	if isZero(args.Comment) {
+	if args.Comment == nil {
 		args.Comment = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource Zone

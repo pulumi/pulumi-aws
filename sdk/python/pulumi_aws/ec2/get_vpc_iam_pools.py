@@ -70,7 +70,7 @@ class AwaitableGetVpcIamPoolsResult(GetVpcIamPoolsResult):
 def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolsResult:
     """
-    _ec2_get_vpc_iam_pools_ provides details about IPAM pools.
+    `ec2_get_vpc_iam_pools` provides details about IPAM pools.
 
     This resource can prove useful when IPAM pools are created in another root
     module and you need the pool ids as input variables. For example, pools
@@ -112,7 +112,7 @@ def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPool
 def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolsResult]:
     """
-    _ec2_get_vpc_iam_pools_ provides details about IPAM pools.
+    `ec2_get_vpc_iam_pools` provides details about IPAM pools.
 
     This resource can prove useful when IPAM pools are created in another root
     module and you need the pool ids as input variables. For example, pools

@@ -88,8 +88,6 @@ namespace Pulumi.Aws.Acm
     /// });
     /// 
     /// ```
-    /// 
-    /// {{% //examples %}}
     /// </summary>
     [AwsResourceType("aws:acm/certificateValidation:CertificateValidation")]
     public partial class CertificateValidation : global::Pulumi.CustomResource

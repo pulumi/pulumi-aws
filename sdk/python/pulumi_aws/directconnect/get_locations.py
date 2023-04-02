@@ -60,7 +60,7 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
     Retrieve information about the AWS Direct Connect locations in the current AWS Region.
     These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
 
-    > **Note:** This data source is different from the _directconnect_get_location_ data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+    > **Note:** This data source is different from the `directconnect_get_location` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
 
     ## Example Usage
 

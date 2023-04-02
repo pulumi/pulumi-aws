@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -124,7 +124,7 @@ func NewOptionGroup(ctx *pulumi.Context,
 	if args.MajorEngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'MajorEngineVersion'")
 	}
-	if isZero(args.OptionGroupDescription) {
+	if args.OptionGroupDescription == nil {
 		args.OptionGroupDescription = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource OptionGroup

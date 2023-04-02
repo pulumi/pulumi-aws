@@ -156,7 +156,7 @@ def get_bucket_objects(bucket: Optional[str] = None,
                        start_after: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketObjectsResult:
     """
-    > **NOTE:** The _s3_get_bucket_objects_ data source is DEPRECATED and will be removed in a future version! Use _s3_get_objects_ instead, where new features and fixes will be added.
+    > **NOTE:** The `s3_get_bucket_objects` data source is DEPRECATED and will be removed in a future version! Use `s3_get_objects` instead, where new features and fixes will be added.
 
     > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
 
@@ -206,7 +206,7 @@ def get_bucket_objects_output(bucket: Optional[pulumi.Input[str]] = None,
                               start_after: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketObjectsResult]:
     """
-    > **NOTE:** The _s3_get_bucket_objects_ data source is DEPRECATED and will be removed in a future version! Use _s3_get_objects_ instead, where new features and fixes will be added.
+    > **NOTE:** The `s3_get_bucket_objects` data source is DEPRECATED and will be removed in a future version! Use `s3_get_objects` instead, where new features and fixes will be added.
 
     > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
 
