@@ -428,7 +428,7 @@ class SecurityGroup(pulumi.CustomResource):
         )])
         ```
 
-        You can also find a specific Prefix List using the _ec2_get_prefix_list_ data source.
+        You can also find a specific Prefix List using the `ec2_get_prefix_list` data source.
         ### Recreating a Security Group
 
         A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -583,7 +583,7 @@ class SecurityGroup(pulumi.CustomResource):
         )])
         ```
 
-        You can also find a specific Prefix List using the _ec2_get_prefix_list_ data source.
+        You can also find a specific Prefix List using the `ec2_get_prefix_list` data source.
         ### Recreating a Security Group
 
         A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.

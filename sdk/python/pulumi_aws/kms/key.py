@@ -43,7 +43,7 @@ class KeyArgs:
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if bypass_policy_lockout_safety_check is not None:
@@ -188,7 +188,7 @@ class KeyArgs:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
         """
         return pulumi.get(self, "policy")
 
@@ -246,7 +246,7 @@ class _KeyState:
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -422,7 +422,7 @@ class _KeyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
         """
         return pulumi.get(self, "policy")
 
@@ -515,7 +515,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -647,7 +647,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[bool] multi_region: Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -770,7 +770,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an _iam_get_policy_document_, in the form that designates a principal, can be used.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
         """
         return pulumi.get(self, "policy")
 

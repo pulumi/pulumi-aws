@@ -54,16 +54,16 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if isZero(args.Region) {
+	if args.Region == nil {
 		args.Region = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string))
 	}
-	if isZero(args.SkipCredentialsValidation) {
+	if args.SkipCredentialsValidation == nil {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(false)
 	}
-	if isZero(args.SkipMetadataApiCheck) {
+	if args.SkipMetadataApiCheck == nil {
 		args.SkipMetadataApiCheck = pulumi.BoolPtr(true)
 	}
-	if isZero(args.SkipRegionValidation) {
+	if args.SkipRegionValidation == nil {
 		args.SkipRegionValidation = pulumi.BoolPtr(true)
 	}
 	var resource Provider

@@ -66,7 +66,7 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
                               name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscribedRuleGroupResult:
     """
-    _wafregional_get_subscribed_rule_group_ retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
+    `wafregional_get_subscribed_rule_group` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
 
     ## Example Usage
 
@@ -112,7 +112,7 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
                                      name: Optional[pulumi.Input[Optional[str]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscribedRuleGroupResult]:
     """
-    _wafregional_get_subscribed_rule_group_ retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
+    `wafregional_get_subscribed_rule_group` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
 
     ## Example Usage
 

@@ -145,8 +145,6 @@ class CertificateValidation(pulumi.CustomResource):
                                                                        certificate_arn=example_certificate.arn)
         ```
 
-        {{% //examples %}}
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
@@ -204,8 +202,6 @@ class CertificateValidation(pulumi.CustomResource):
         example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation",
                                                                        certificate_arn=example_certificate.arn)
         ```
-
-        {{% //examples %}}
 
         :param str resource_name: The name of the resource.
         :param CertificateValidationArgs args: The arguments to use to populate this resource's properties.

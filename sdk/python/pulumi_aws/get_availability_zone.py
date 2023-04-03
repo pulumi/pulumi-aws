@@ -196,7 +196,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
                           zone_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZoneResult:
     """
-    _get_availability_zone_ provides details about a specific availability zone (AZ)
+    `get_availability_zone` provides details about a specific availability zone (AZ)
     in the current region.
 
     This can be used both to validate an availability zone given in a variable
@@ -205,7 +205,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.
 
-    This is different from the _get_availability_zones_ (plural) data source,
+    This is different from the `get_availability_zones` (plural) data source,
     which provides a list of the available zones.
 
 
@@ -249,7 +249,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
                                  zone_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
     """
-    _get_availability_zone_ provides details about a specific availability zone (AZ)
+    `get_availability_zone` provides details about a specific availability zone (AZ)
     in the current region.
 
     This can be used both to validate an availability zone given in a variable
@@ -258,7 +258,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.
 
-    This is different from the _get_availability_zones_ (plural) data source,
+    This is different from the `get_availability_zones` (plural) data source,
     which provides a list of the available zones.
 
 

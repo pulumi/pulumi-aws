@@ -36,7 +36,7 @@ class ProvisionedProductArgs:
         :param pulumi.Input[bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use _servicecatalog_get_launch_paths_. When required, you must provide `path_id` or `path_name`, but not both.
+        :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         :param pulumi.Input[str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
@@ -128,7 +128,7 @@ class ProvisionedProductArgs:
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use _servicecatalog_get_launch_paths_. When required, you must provide `path_id` or `path_name`, but not both.
+        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         """
         return pulumi.get(self, "path_id")
 
@@ -288,7 +288,7 @@ class _ProvisionedProductState:
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]] outputs: The set of outputs for the product created.
-        :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use _servicecatalog_get_launch_paths_. When required, you must provide `path_id` or `path_name`, but not both.
+        :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         :param pulumi.Input[str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
@@ -504,7 +504,7 @@ class _ProvisionedProductState:
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use _servicecatalog_get_launch_paths_. When required, you must provide `path_id` or `path_name`, but not both.
+        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         """
         return pulumi.get(self, "path_id")
 
@@ -733,7 +733,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use _servicecatalog_get_launch_paths_. When required, you must provide `path_id` or `path_name`, but not both.
+        :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         :param pulumi.Input[str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
@@ -907,7 +907,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[str] name: User-friendly name of the provisioned product.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductOutputArgs']]]] outputs: The set of outputs for the product created.
-        :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use _servicecatalog_get_launch_paths_. When required, you must provide `path_id` or `path_name`, but not both.
+        :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         :param pulumi.Input[str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
@@ -1054,7 +1054,7 @@ class ProvisionedProduct(pulumi.CustomResource):
     @pulumi.getter(name="pathId")
     def path_id(self) -> pulumi.Output[str]:
         """
-        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use _servicecatalog_get_launch_paths_. When required, you must provide `path_id` or `path_name`, but not both.
+        Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         """
         return pulumi.get(self, "path_id")
 

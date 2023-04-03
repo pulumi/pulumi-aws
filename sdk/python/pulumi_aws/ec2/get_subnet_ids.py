@@ -90,11 +90,11 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
                    vpc_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetIdsResult:
     """
-    _ec2_get_subnet_ids_ provides a set of ids for a vpc_id
+    `ec2_get_subnet_ids` provides a set of ids for a vpc_id
 
     This resource can be useful for getting back a set of subnet ids for a vpc.
 
-    > **NOTE:** The _ec2_get_subnet_ids_ data source has been deprecated and will be removed in a future version. Use the _ec2_get_subnets_ data source instead.
+    > **NOTE:** The `ec2_get_subnet_ids` data source has been deprecated and will be removed in a future version. Use the `ec2_get_subnets` data source instead.
 
 
     :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
@@ -123,11 +123,11 @@ def get_subnet_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
                           vpc_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetIdsResult]:
     """
-    _ec2_get_subnet_ids_ provides a set of ids for a vpc_id
+    `ec2_get_subnet_ids` provides a set of ids for a vpc_id
 
     This resource can be useful for getting back a set of subnet ids for a vpc.
 
-    > **NOTE:** The _ec2_get_subnet_ids_ data source has been deprecated and will be removed in a future version. Use the _ec2_get_subnets_ data source instead.
+    > **NOTE:** The `ec2_get_subnet_ids` data source has been deprecated and will be removed in a future version. Use the `ec2_get_subnets` data source instead.
 
 
     :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.

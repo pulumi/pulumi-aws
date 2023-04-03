@@ -58,8 +58,6 @@ import * as utilities from "../utilities";
  *     certificateArn: exampleCertificate.arn,
  * });
  * ```
- *
- * {{% //examples %}}
  */
 export class CertificateValidation extends pulumi.CustomResource {
     /**

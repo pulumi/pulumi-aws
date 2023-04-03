@@ -81,7 +81,7 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEbsVolumesResult:
     """
-    _ebs_get_ebs_volumes_ provides identifying information for EBS volumes matching given criteria.
+    `ebs_get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
 
     This data source can be useful for getting a list of volume IDs with (for example) matching tags.
 
@@ -108,7 +108,7 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEbsVolumesResult]:
     """
-    _ebs_get_ebs_volumes_ provides identifying information for EBS volumes matching given criteria.
+    `ebs_get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
 
     This data source can be useful for getting a list of volume IDs with (for example) matching tags.
 

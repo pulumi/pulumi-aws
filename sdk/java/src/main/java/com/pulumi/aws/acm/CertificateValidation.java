@@ -27,8 +27,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * {{% //examples %}}
- * 
  */
 @ResourceType(type="aws:acm/certificateValidation:CertificateValidation")
 public class CertificateValidation extends com.pulumi.resources.CustomResource {

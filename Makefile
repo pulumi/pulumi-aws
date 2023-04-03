@@ -111,7 +111,7 @@ install_nodejs_sdk:
 
 install_plugins: 
 	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource tls 4.1.0
+	pulumi plugin install resource tls 4.10.0
 	pulumi plugin install resource github 4.10.0
 	pulumi plugin install resource kubernetes 3.17.0
 	pulumi plugin install resource random 4.8.2
