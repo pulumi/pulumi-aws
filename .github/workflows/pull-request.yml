@@ -2,6 +2,9 @@
 
 env:
   AWS_REGION: us-west-2
+  DOTNETVERSION: |
+    6.0.x
+    3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
