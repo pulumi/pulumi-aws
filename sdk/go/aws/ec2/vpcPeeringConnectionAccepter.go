@@ -35,7 +35,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "peer", &aws.ProviderArgs{
+//			awsPeer, err := aws.NewProvider(ctx, "peer", &aws.ProviderArgs{
 //				Region: pulumi.String("us-west-2"),
 //			})
 //			if err != nil {
@@ -49,7 +49,7 @@ import (
 //			}
 //			peerVpc, err := ec2.NewVpc(ctx, "peerVpc", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			}, pulumi.Provider(aws.Peer))
+//			}, pulumi.Provider(awsPeer))
 //			if err != nil {
 //				return err
 //			}
@@ -76,7 +76,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},
-//			}, pulumi.Provider(aws.Peer))
+//			}, pulumi.Provider(awsPeer))
 //			if err != nil {
 //				return err
 //			}
