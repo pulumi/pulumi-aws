@@ -19,20 +19,22 @@ package main
 import (
 	"context"
 	_ "embed"
+	"log"
 
 	aws "github.com/pulumi/pulumi-aws/provider/v5"
 	pf "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 
 //go:embed schema-embed.json
 var pulumiSchema []byte
 
 func main() {
-	pf.MainWithMuxer(context.Background(), "aws", pf.ProviderMetadata{
+	ctx := context.Background()
+	parts, err := aws.MuxedProvider(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	pf.MainWithMuxer(ctx, "aws", pf.ProviderMetadata{
 		PackageSchema: pulumiSchema,
-	},
-		pf.Muxed{SDK: aws.Provider()},
-		pf.Muxed{PF: aws.PFProvider()},
-	)
+	}, parts...)
 }

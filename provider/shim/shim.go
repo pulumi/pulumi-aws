@@ -9,18 +9,19 @@ import (
 	"github.com/hashicorp/terraform-provider-aws/internal/provider/fwprovider"
 )
 
-func NewProvider() *schema.Provider {
-	prov, err := provider.New(context.Background())
-	if err != nil {
-		panic(err)
-	}
-	return prov
+type UpstreamProvider struct {
+	SDKV2Provider           *schema.Provider
+	PluginFrameworkProvider pfprovider.Provider
 }
 
-func NewPFProvider() pfprovider.Provider {
-	primary, err := provider.New(context.Background())
+func NewUpstreamProvider(ctx context.Context) (UpstreamProvider, error) {
+	primary, err := provider.New(ctx)
 	if err != nil {
-		panic(err)
+		return UpstreamProvider{}, err
 	}
-	return fwprovider.New(primary)
+	pf := fwprovider.New(primary)
+	return UpstreamProvider{
+		SDKV2Provider:           primary,
+		PluginFrameworkProvider: pf,
+	}, nil
 }

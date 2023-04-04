@@ -13,6 +13,7 @@ VERSION := $(shell pulumictl get version)
 JAVA_GEN := pulumi-java-gen
 JAVA_GEN_VERSION := v0.7.1
 TESTPARALLELISM := 10
+BUILDPARALLELISM := 1
 WORKING_DIR := $(shell pwd)
 SCHEMA_TOOLS_VERSION := $(shell cat .schema-tools.version)
 
@@ -39,11 +40,11 @@ build: install_plugins provider build_sdks install_sdks
 
 build_sdks: build_nodejs build_python build_go build_dotnet build_java
 
-install_go_sdk: 
+install_go_sdk:
 
-install_java_sdk: 
+install_java_sdk:
 
-install_python_sdk: 
+install_python_sdk:
 
 install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_java_sdk
 
@@ -90,26 +91,26 @@ build_python: patch_upstream
 		rm ./bin/setup.py.bak && rm ./bin/go.mod && \
 		cd ./bin && python3 setup.py build sdist
 
-clean: 
+clean:
 	rm -rf sdk/{dotnet,nodejs,go,python}
 
-cleanup: 
+cleanup:
 	rm -r $(WORKING_DIR)/bin
 	rm -f provider/cmd/$(PROVIDER)/schema.go
 
-help: 
+help:
 	@grep '^[^.#]\+:\s\+.*#' Makefile | \
 	sed "s/\(.\+\):\s*\(.*\) #\s*\(.*\)/`printf "\033[93m"`\1`printf "\033[0m"`	\3 [\2]/" | \
 	expand -t20
 
-install_dotnet_sdk: 
+install_dotnet_sdk:
 	mkdir -p $(WORKING_DIR)/nuget
 	find . -name '*.nupkg' -print -exec cp -p {} $(WORKING_DIR)/nuget \;
 
-install_nodejs_sdk: 
+install_nodejs_sdk:
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
-install_plugins: 
+install_plugins:
 	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
 	pulumi plugin install resource tls 4.10.0
 	pulumi plugin install resource github 4.10.0
@@ -120,18 +121,18 @@ lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
 
 provider: tfgen install_plugins
-	(cd provider && go build -p 1 -o $(WORKING_DIR)/bin/$(PROVIDER) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER))
+	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER))
 
 test:
 	cd provider/shim && go test -v .
 	cd examples && go test -v -tags=all -parallel $(TESTPARALLELISM) -timeout 2h
 
 tfgen: install_plugins patch_upstream
-	(cd provider && go build -p 1 -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
-	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
+	(cd provider && go build -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
+	$(WORKING_DIR)/bin/$(TFGEN) schema --skip-docs --skip-examples --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
-bin/pulumi-java-gen: 
+bin/pulumi-java-gen:
 	pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java
 
 init_upstream:

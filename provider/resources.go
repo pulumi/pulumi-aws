@@ -26,6 +26,7 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
+	"github.com/hashicorp/terraform-plugin-framework/provider"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
@@ -430,8 +431,8 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 var metadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
-func Provider() *tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(awsShim.NewProvider())
+func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
+	p := shimv2.NewProvider(upstream.SDKV2Provider)
 
 	prov := tfbridge.ProviderInfo{
 		P:            p,
@@ -6737,10 +6738,11 @@ func Provider() *tfbridge.ProviderInfo {
 	return &prov
 }
 
-func PFProvider() *pfbridge.ProviderInfo {
+func PFProvider(upstream awsShim.UpstreamProvider) *pfbridge.ProviderInfo {
 	info := tfbridge.ProviderInfo{
-		Name:    "aws",
-		Version: version.Version,
+		Name:         "aws",
+		Version:      version.Version,
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"aws_auditmanager_account_registration": {
 				Tok: awsResource(auditmanagerMod, "AccountRegistration"),
@@ -6809,6 +6811,19 @@ func PFProvider() *pfbridge.ProviderInfo {
 
 	return &pfbridge.ProviderInfo{
 		ProviderInfo: info,
-		NewProvider:  awsShim.NewPFProvider,
+		NewProvider: func() provider.Provider {
+			return upstream.PluginFrameworkProvider
+		},
 	}
+}
+
+func MuxedProvider(ctx context.Context) ([]pfbridge.Muxed, error) {
+	upstream, err := awsShim.NewUpstreamProvider(ctx)
+	if err != nil {
+		return nil, err
+	}
+	return []pfbridge.Muxed{
+		pfbridge.Muxed{SDK: Provider(upstream)},
+		pfbridge.Muxed{PF: PFProvider(upstream)},
+	}, nil
 }
