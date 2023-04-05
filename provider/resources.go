@@ -173,6 +173,7 @@ const (
 	qldbMod                     = "Qldb"                     // QLDB
 	quicksightMod               = "Quicksight"               // Quicksight
 	ramMod                      = "Ram"                      // Resource Access Manager
+	rbinMod                     = "Rbin"                     // Recycle Bin
 	rdsMod                      = "Rds"                      // Relational Database Service (RDS)
 	redshiftMod                 = "RedShift"                 // RedShift
 	redshiftDataMod             = "RedshiftData"             // RedshiftData
@@ -197,6 +198,7 @@ const (
 	s3ControlMod                = "S3Control"                // S3 Control
 	s3OutpostsMod               = "S3Outposts"               // S3 Outposts
 	ssmMod                      = "Ssm"                      // System Manager
+	ssmIncidentsMod             = "SsmIncidents"             // Systems Manager Incident Manager
 	secretsmanagerMod           = "SecretsManager"           // Secrets Manager
 	servicecatalogMod           = "ServiceCatalog"           // Service Catalog
 	servicediscoveryMod         = "ServiceDiscovery"         // Service Discovery
@@ -3319,6 +3321,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_ssm_resource_data_sync": {Tok: awsResource(ssmMod, "ResourceDataSync")},
 			"aws_ssm_service_setting":    {Tok: awsResource(ssmMod, "ServiceSetting")},
+
+			// SSM Incidents
+			"aws_ssmincidents_replication_set": {Tok: awsResource(ssmIncidentsMod, "ReplicationSet")},
+
 			// SimpleDB
 			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
 			// Simple Queuing Service (SQS)
@@ -3425,6 +3431,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_sns_topic_data_protection_policy": {Tok: awsResource(snsMod, "DataProtectionPolicy")},
 			// Step Functions (SFN)
 			"aws_sfn_activity":      {Tok: awsResource(sfnMod, "Activity")},
 			"aws_sfn_state_machine": {Tok: awsResource(sfnMod, "StateMachine")},
@@ -3767,6 +3774,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// controlTower
 			"aws_controltower_control": {Tok: awsResource(controlTowerMod, "ControlTowerControl")},
+
+			// rbin
+			"aws_rbin_rule": {Tok: awsResource(rbinMod, "Rule")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -5717,6 +5727,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appmesh_virtual_service": {Tok: awsDataSource(appmeshMod, "getVirtualService")},
 			"aws_appmesh_route":           {Tok: awsDataSource(appmeshMod, "getRoute")},
 			"aws_appmesh_virtual_gateway": {Tok: awsDataSource(appmeshMod, "getVirtualGateway")},
+			"aws_appmesh_gateway_route":   {Tok: awsDataSource(appmeshMod, "getGatewayRoute")},
+			"aws_appmesh_virtual_node":    {Tok: awsDataSource(appmeshMod, "getVirtualNode")},
+			"aws_appmesh_virtual_router":  {Tok: awsDataSource(appmeshMod, "getVirtualRouter")},
 			// API Gateway
 			"aws_api_gateway_api_key":     {Tok: awsDataSource(apigatewayMod, "getKey")},
 			"aws_api_gateway_resource":    {Tok: awsDataSource(apigatewayMod, "getResource")},
@@ -6131,6 +6144,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_proxy":                       {Tok: awsDataSource(rdsMod, "getProxy")},
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
+			// OAM
+			"aws_oam_sink":  {Tok: awsDataSource(oamMod, "getSink")},
+			"aws_oam_sinks": {Tok: awsDataSource(oamMod, "getSinks")},
 			// RedShift
 			"aws_redshift_cluster":             {Tok: awsDataSource(redshiftMod, "getCluster")},
 			"aws_redshift_service_account":     {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
@@ -6180,6 +6196,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssm_parameters_by_path":  {Tok: awsDataSource(ssmMod, "getParametersByPath")},
 			"aws_ssm_instances":           {Tok: awsDataSource(ssmMod, "getInstances")},
 			"aws_ssm_maintenance_windows": {Tok: awsDataSource(ssmMod, "getMaintenanceWindows")},
+			// SSM Incidents
+			"aws_ssmincidents_replication_set": {Tok: awsDataSource(ssmIncidentsMod, "getReplicationSet")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
 			// Transfer
