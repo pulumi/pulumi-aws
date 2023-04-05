@@ -6,6 +6,7 @@ package com.pulumi.aws.rds;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.rds.ClusterArgs;
 import com.pulumi.aws.rds.inputs.ClusterState;
+import com.pulumi.aws.rds.outputs.ClusterMasterUserSecret;
 import com.pulumi.aws.rds.outputs.ClusterRestoreToPointInTime;
 import com.pulumi.aws.rds.outputs.ClusterS3Import;
 import com.pulumi.aws.rds.outputs.ClusterScalingConfiguration;
@@ -286,6 +287,85 @@ import javax.annotation.Nullable;
  *             .instanceClass(&#34;db.serverless&#34;)
  *             .engine(exampleCluster.engine())
  *             .engineVersion(exampleCluster.engineVersion())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
+ * 
+ * &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+ * 
+ * You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
+ *             .clusterIdentifier(&#34;example&#34;)
+ *             .databaseName(&#34;test&#34;)
+ *             .manageMasterUserPassword(true)
+ *             .masterUsername(&#34;test&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
+ * 
+ * &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+ * 
+ * You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
+ *             .description(&#34;Example KMS Key&#34;)
+ *             .build());
+ * 
+ *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
+ *             .clusterIdentifier(&#34;example&#34;)
+ *             .databaseName(&#34;test&#34;)
+ *             .manageMasterUserPassword(true)
+ *             .masterUsername(&#34;test&#34;)
+ *             .masterUserSecretKmsKeyId(example.keyId())
  *             .build());
  * 
  *     }
@@ -813,18 +893,60 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+     * 
+     */
+    @Export(name="manageMasterUserPassword", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> manageMasterUserPassword;
+
+    /**
+     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+     * 
+     */
+    public Output<Optional<Boolean>> manageMasterUserPassword() {
+        return Codegen.optional(this.manageMasterUserPassword);
+    }
+    /**
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> masterPassword;
 
     /**
-     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     public Output<Optional<String>> masterPassword() {
         return Codegen.optional(this.masterPassword);
+    }
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * 
+     */
+    @Export(name="masterUserSecretKmsKeyId", refs={String.class}, tree="[0]")
+    private Output<String> masterUserSecretKmsKeyId;
+
+    /**
+     * @return The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * 
+     */
+    public Output<String> masterUserSecretKmsKeyId() {
+        return this.masterUserSecretKmsKeyId;
+    }
+    /**
+     * A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    @Export(name="masterUserSecrets", refs={List.class,ClusterMasterUserSecret.class}, tree="[0,1]")
+    private Output<List<ClusterMasterUserSecret>> masterUserSecrets;
+
+    /**
+     * @return A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    public Output<List<ClusterMasterUserSecret>> masterUserSecrets() {
+        return this.masterUserSecrets;
     }
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.

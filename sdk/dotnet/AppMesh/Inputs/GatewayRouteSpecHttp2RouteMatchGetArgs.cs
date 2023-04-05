@@ -12,6 +12,18 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecHttp2RouteMatchGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("headers")]
+        private InputList<Inputs.GatewayRouteSpecHttp2RouteMatchHeaderGetArgs>? _headers;
+
+        /// <summary>
+        /// Client request headers to match on.
+        /// </summary>
+        public InputList<Inputs.GatewayRouteSpecHttp2RouteMatchHeaderGetArgs> Headers
+        {
+            get => _headers ?? (_headers = new InputList<Inputs.GatewayRouteSpecHttp2RouteMatchHeaderGetArgs>());
+            set => _headers = value;
+        }
+
         /// <summary>
         /// Host name to rewrite.
         /// </summary>
@@ -19,7 +31,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.GatewayRouteSpecHttp2RouteMatchHostnameGetArgs>? Hostname { get; set; }
 
         /// <summary>
-        /// The port number to match from the request.
+        /// Client request path to match on.
+        /// </summary>
+        [Input("path")]
+        public Input<Inputs.GatewayRouteSpecHttp2RouteMatchPathGetArgs>? Path { get; set; }
+
+        /// <summary>
+        /// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -29,6 +47,18 @@ namespace Pulumi.Aws.AppMesh.Inputs
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
+
+        [Input("queryParameters")]
+        private InputList<Inputs.GatewayRouteSpecHttp2RouteMatchQueryParameterGetArgs>? _queryParameters;
+
+        /// <summary>
+        /// Client request query parameters to match on.
+        /// </summary>
+        public InputList<Inputs.GatewayRouteSpecHttp2RouteMatchQueryParameterGetArgs> QueryParameters
+        {
+            get => _queryParameters ?? (_queryParameters = new InputList<Inputs.GatewayRouteSpecHttp2RouteMatchQueryParameterGetArgs>());
+            set => _queryParameters = value;
+        }
 
         public GatewayRouteSpecHttp2RouteMatchGetArgs()
         {

@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ClusterMasterUserSecret',
     'ClusterParameterGroupParameter',
     'ClusterRestoreToPointInTime',
     'ClusterS3Import',
@@ -20,6 +21,7 @@ __all__ = [
     'GlobalClusterGlobalClusterMember',
     'InstanceBlueGreenUpdate',
     'InstanceListenerEndpoint',
+    'InstanceMasterUserSecret',
     'InstanceRestoreToPointInTime',
     'InstanceS3Import',
     'OptionGroupOption',
@@ -29,11 +31,77 @@ __all__ = [
     'ProxyDefaultTargetGroupConnectionPoolConfig',
     'ReservedInstanceRecurringCharge',
     'SecurityGroupIngress',
+    'GetClusterMasterUserSecretResult',
     'GetClustersFilterResult',
     'GetEngineVersionFilterResult',
+    'GetInstanceMasterUserSecretResult',
     'GetInstancesFilterResult',
     'GetProxyAuthResult',
 ]
+
+@pulumi.output_type
+class ClusterMasterUserSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "secretStatus":
+            suggest = "secret_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterUserSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterUserSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[str] = None,
+                 secret_arn: Optional[str] = None,
+                 secret_status: Optional[str] = None):
+        """
+        :param str kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
+        :param str secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_status is not None:
+            pulumi.set(__self__, "secret_status", secret_status)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> Optional[str]:
+        """
+        The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        return pulumi.get(self, "secret_status")
+
 
 @pulumi.output_type
 class ClusterParameterGroupParameter(dict):
@@ -533,6 +601,72 @@ class InstanceListenerEndpoint(dict):
         The port on which the DB accepts connections.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class InstanceMasterUserSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "secretStatus":
+            suggest = "secret_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceMasterUserSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceMasterUserSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[str] = None,
+                 secret_arn: Optional[str] = None,
+                 secret_status: Optional[str] = None):
+        """
+        :param str kms_key_id: The ARN for the KMS encryption key. If creating an
+               encrypted replica, set this to the destination KMS ARN.
+        :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
+        :param str secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_status is not None:
+            pulumi.set(__self__, "secret_status", secret_status)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The ARN for the KMS encryption key. If creating an
+        encrypted replica, set this to the destination KMS ARN.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> Optional[str]:
+        """
+        The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        return pulumi.get(self, "secret_status")
 
 
 @pulumi.output_type
@@ -1220,6 +1354,32 @@ class SecurityGroupIngress(dict):
 
 
 @pulumi.output_type
+class GetClusterMasterUserSecretResult(dict):
+    def __init__(__self__, *,
+                 kms_key_id: str,
+                 secret_arn: str,
+                 secret_status: str):
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "secret_status", secret_status)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> str:
+        return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> str:
+        return pulumi.get(self, "secret_status")
+
+
+@pulumi.output_type
 class GetClustersFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -1265,6 +1425,46 @@ class GetEngineVersionFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetInstanceMasterUserSecretResult(dict):
+    def __init__(__self__, *,
+                 kms_key_id: str,
+                 secret_arn: str,
+                 secret_status: str):
+        """
+        :param str kms_key_id: The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+        :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
+        :param str secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "secret_status", secret_status)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        """
+        The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> str:
+        """
+        The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        return pulumi.get(self, "secret_status")
 
 
 @pulumi.output_type

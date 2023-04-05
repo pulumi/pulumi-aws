@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteArgs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,12 +63,28 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.httpRoute);
     }
 
+    /**
+     * Priority for the gateway route, between `0` and `1000`.
+     * 
+     */
+    @Import(name="priority")
+    private @Nullable Output<Integer> priority;
+
+    /**
+     * @return Priority for the gateway route, between `0` and `1000`.
+     * 
+     */
+    public Optional<Output<Integer>> priority() {
+        return Optional.ofNullable(this.priority);
+    }
+
     private GatewayRouteSpecArgs() {}
 
     private GatewayRouteSpecArgs(GatewayRouteSpecArgs $) {
         this.grpcRoute = $.grpcRoute;
         this.http2Route = $.http2Route;
         this.httpRoute = $.httpRoute;
+        this.priority = $.priority;
     }
 
     public static Builder builder() {
@@ -149,6 +166,27 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder httpRoute(GatewayRouteSpecHttpRouteArgs httpRoute) {
             return httpRoute(Output.of(httpRoute));
+        }
+
+        /**
+         * @param priority Priority for the gateway route, between `0` and `1000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(@Nullable Output<Integer> priority) {
+            $.priority = priority;
+            return this;
+        }
+
+        /**
+         * @param priority Priority for the gateway route, between `0` and `1000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(Integer priority) {
+            return priority(Output.of(priority));
         }
 
         public GatewayRouteSpecArgs build() {

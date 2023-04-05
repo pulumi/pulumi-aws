@@ -4,6 +4,8 @@
 package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteMatchHeaderArgs;
+import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteMatchPathArgs;
+import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteMatchQueryParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -49,6 +51,21 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Client request path to match on.
+     * 
+     */
+    @Import(name="path")
+    private @Nullable Output<RouteSpecHttpRouteMatchPathArgs> path;
+
+    /**
+     * @return Client request path to match on.
+     * 
+     */
+    public Optional<Output<RouteSpecHttpRouteMatchPathArgs>> path() {
+        return Optional.ofNullable(this.path);
+    }
+
+    /**
      * The port number to match from the request.
      * 
      */
@@ -68,16 +85,31 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
-    @Import(name="prefix", required=true)
-    private Output<String> prefix;
+    @Import(name="prefix")
+    private @Nullable Output<String> prefix;
 
     /**
      * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
-    public Output<String> prefix() {
-        return this.prefix;
+    public Optional<Output<String>> prefix() {
+        return Optional.ofNullable(this.prefix);
+    }
+
+    /**
+     * Client request query parameters to match on.
+     * 
+     */
+    @Import(name="queryParameters")
+    private @Nullable Output<List<RouteSpecHttpRouteMatchQueryParameterArgs>> queryParameters;
+
+    /**
+     * @return Client request query parameters to match on.
+     * 
+     */
+    public Optional<Output<List<RouteSpecHttpRouteMatchQueryParameterArgs>>> queryParameters() {
+        return Optional.ofNullable(this.queryParameters);
     }
 
     /**
@@ -100,8 +132,10 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
     private RouteSpecHttpRouteMatchArgs(RouteSpecHttpRouteMatchArgs $) {
         this.headers = $.headers;
         this.method = $.method;
+        this.path = $.path;
         this.port = $.port;
         this.prefix = $.prefix;
+        this.queryParameters = $.queryParameters;
         this.scheme = $.scheme;
     }
 
@@ -176,6 +210,27 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param path Client request path to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(@Nullable Output<RouteSpecHttpRouteMatchPathArgs> path) {
+            $.path = path;
+            return this;
+        }
+
+        /**
+         * @param path Client request path to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(RouteSpecHttpRouteMatchPathArgs path) {
+            return path(Output.of(path));
+        }
+
+        /**
          * @param port The port number to match from the request.
          * 
          * @return builder
@@ -203,7 +258,7 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder prefix(Output<String> prefix) {
+        public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
@@ -217,6 +272,37 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
+        }
+
+        /**
+         * @param queryParameters Client request query parameters to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryParameters(@Nullable Output<List<RouteSpecHttpRouteMatchQueryParameterArgs>> queryParameters) {
+            $.queryParameters = queryParameters;
+            return this;
+        }
+
+        /**
+         * @param queryParameters Client request query parameters to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryParameters(List<RouteSpecHttpRouteMatchQueryParameterArgs> queryParameters) {
+            return queryParameters(Output.of(queryParameters));
+        }
+
+        /**
+         * @param queryParameters Client request query parameters to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryParameters(RouteSpecHttpRouteMatchQueryParameterArgs... queryParameters) {
+            return queryParameters(List.of(queryParameters));
         }
 
         /**
@@ -241,7 +327,6 @@ public final class RouteSpecHttpRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         public RouteSpecHttpRouteMatchArgs build() {
-            $.prefix = Objects.requireNonNull($.prefix, "expected parameter 'prefix' to be non-null");
             return $;
         }
     }

@@ -14,13 +14,21 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttp2RouteActionTarget
     {
         /// <summary>
+        /// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
         /// Virtual service gateway route target.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService VirtualService;
 
         [OutputConstructor]
-        private GatewayRouteSpecHttp2RouteActionTarget(Outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService)
+        private GatewayRouteSpecHttp2RouteActionTarget(
+            int? port,
+
+            Outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService)
         {
+            Port = port;
             VirtualService = virtualService;
         }
     }

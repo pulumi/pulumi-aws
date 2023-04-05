@@ -12,20 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetVirtualGatewaySpecLoggingAccessLogFile {
     private List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats;
-    /**
-     * @return Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-     * 
-     */
     private String path;
 
     private GetVirtualGatewaySpecLoggingAccessLogFile() {}
     public List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats() {
         return this.formats;
     }
-    /**
-     * @return Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-     * 
-     */
     public String path() {
         return this.path;
     }

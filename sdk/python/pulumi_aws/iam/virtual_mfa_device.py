@@ -16,18 +16,22 @@ class VirtualMfaDeviceArgs:
     def __init__(__self__, *,
                  virtual_mfa_device_name: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualMfaDevice resource.
         :param pulumi.Input[str] virtual_mfa_device_name: The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         :param pulumi.Input[str] path: The path for the virtual MFA device.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "virtual_mfa_device_name", virtual_mfa_device_name)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="virtualMfaDeviceName")
@@ -64,6 +68,18 @@ class VirtualMfaDeviceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -193,6 +209,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -221,6 +238,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] path: The path for the virtual MFA device.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] virtual_mfa_device_name: The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
         ...
@@ -268,6 +286,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -280,13 +299,13 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
             __props__.__dict__["path"] = path
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if virtual_mfa_device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_mfa_device_name'")
             __props__.__dict__["virtual_mfa_device_name"] = virtual_mfa_device_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["base32_string_seed"] = None
             __props__.__dict__["qr_code_png"] = None
-            __props__.__dict__["tags_all"] = None
         super(VirtualMfaDevice, __self__).__init__(
             'aws:iam/virtualMfaDevice:VirtualMfaDevice',
             resource_name,

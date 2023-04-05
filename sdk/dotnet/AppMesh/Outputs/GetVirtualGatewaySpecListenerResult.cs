@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecListenerResult
     {
-        /// <summary>
-        /// Connection pool information for the listener.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerConnectionPoolResult> ConnectionPools;
-        /// <summary>
-        /// Health check information for the listener.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerHealthCheckResult> HealthChecks;
-        /// <summary>
-        /// Port mapping information for the listener.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerPortMappingResult> PortMappings;
-        /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlResult> Tls;
 
         [OutputConstructor]

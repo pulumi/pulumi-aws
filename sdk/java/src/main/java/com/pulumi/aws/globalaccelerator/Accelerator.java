@@ -100,6 +100,20 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * 
+     */
+    @Export(name="dualStackDnsName", refs={String.class}, tree="[0]")
+    private Output<String> dualStackDnsName;
+
+    /**
+     * @return The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * 
+     */
+    public Output<String> dualStackDnsName() {
+        return this.dualStackDnsName;
+    }
+    /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */

@@ -14,9 +14,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetRouteSpecHttpRouteMatchHeaderResult
     {
         public readonly bool Invert;
-        /// <summary>
-        /// Criteria for determining an HTTP request match.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult> Matches;
         /// <summary>
         /// Name of the route.

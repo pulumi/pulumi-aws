@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecLoggingAccessLog {
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecLoggingAccessLogFile> files;
 
     private GetVirtualGatewaySpecLoggingAccessLog() {}
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecLoggingAccessLogFile> files() {
         return this.files;
     }

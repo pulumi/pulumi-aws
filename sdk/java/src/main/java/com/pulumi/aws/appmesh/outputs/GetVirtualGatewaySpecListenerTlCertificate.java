@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlCertificate {
-    /**
-     * @return An AWS Certificate Manager (ACM) certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms;
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTlCertificateFile> files;
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTlCertificateSd> sds;
 
     private GetVirtualGatewaySpecListenerTlCertificate() {}
-    /**
-     * @return An AWS Certificate Manager (ACM) certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTlCertificateAcm> acms() {
         return this.acms;
     }
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTlCertificateFile> files() {
         return this.files;
     }
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTlCertificateSd> sds() {
         return this.sds;
     }

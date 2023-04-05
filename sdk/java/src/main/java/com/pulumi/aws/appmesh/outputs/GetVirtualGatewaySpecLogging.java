@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecLogging {
-    /**
-     * @return Access log configuration for a virtual gateway.
-     * 
-     */
     private List<GetVirtualGatewaySpecLoggingAccessLog> accessLogs;
 
     private GetVirtualGatewaySpecLogging() {}
-    /**
-     * @return Access log configuration for a virtual gateway.
-     * 
-     */
     public List<GetVirtualGatewaySpecLoggingAccessLog> accessLogs() {
         return this.accessLogs;
     }

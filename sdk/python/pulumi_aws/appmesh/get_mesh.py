@@ -105,7 +105,7 @@ class GetMeshResult:
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetMeshSpecResult']:
         """
-        Service mesh specification.
+        Service mesh specification. See the `appmesh.Mesh` resource for details.
         """
         return pulumi.get(self, "specs")
 

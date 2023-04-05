@@ -713,14 +713,14 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bucketPrefix", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> bucketPrefix;
+    private Output<String> bucketPrefix;
 
     /**
      * @return Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
-    public Output<Optional<String>> bucketPrefix() {
-        return Codegen.optional(this.bucketPrefix);
+    public Output<String> bucketPrefix() {
+        return this.bucketPrefix;
     }
     /**
      * Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.

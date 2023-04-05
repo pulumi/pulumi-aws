@@ -13,10 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetRouteSpecHttpRouteMatchHeader {
     private Boolean invert;
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     private List<GetRouteSpecHttpRouteMatchHeaderMatch> matches;
     /**
      * @return Name of the route.
@@ -28,10 +24,6 @@ public final class GetRouteSpecHttpRouteMatchHeader {
     public Boolean invert() {
         return this.invert;
     }
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     public List<GetRouteSpecHttpRouteMatchHeaderMatch> matches() {
         return this.matches;
     }

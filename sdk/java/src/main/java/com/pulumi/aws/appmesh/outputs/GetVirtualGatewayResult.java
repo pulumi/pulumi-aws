@@ -41,7 +41,7 @@ public final class GetVirtualGatewayResult {
      */
     private String resourceOwner;
     /**
-     * @return Virtual gateway specification
+     * @return Virtual gateway specification. See the `aws.appmesh.VirtualGateway` resource for details.
      * 
      */
     private List<GetVirtualGatewaySpec> specs;
@@ -97,7 +97,7 @@ public final class GetVirtualGatewayResult {
         return this.resourceOwner;
     }
     /**
-     * @return Virtual gateway specification
+     * @return Virtual gateway specification. See the `aws.appmesh.VirtualGateway` resource for details.
      * 
      */
     public List<GetVirtualGatewaySpec> specs() {

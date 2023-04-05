@@ -14,9 +14,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetVirtualGatewaySpecLoggingAccessLogFileResult
     {
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult> Formats;
-        /// <summary>
-        /// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]

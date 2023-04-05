@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .data_protection_policy import *
 from .get_topic import *
 from .platform_application import *
 from .sms_preferences import *

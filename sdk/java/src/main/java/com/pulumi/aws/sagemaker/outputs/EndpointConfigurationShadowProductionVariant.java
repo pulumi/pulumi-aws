@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariantServerlessConfig;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -30,6 +31,11 @@ public final class EndpointConfigurationShadowProductionVariant {
      * 
      */
     private @Nullable EndpointConfigurationShadowProductionVariantCoreDumpConfig coreDumpConfig;
+    /**
+     * @return You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+     * 
+     */
+    private @Nullable Boolean enableSsmAccess;
     /**
      * @return Initial number of instances used for auto-scaling.
      * 
@@ -92,6 +98,13 @@ public final class EndpointConfigurationShadowProductionVariant {
      */
     public Optional<EndpointConfigurationShadowProductionVariantCoreDumpConfig> coreDumpConfig() {
         return Optional.ofNullable(this.coreDumpConfig);
+    }
+    /**
+     * @return You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+     * 
+     */
+    public Optional<Boolean> enableSsmAccess() {
+        return Optional.ofNullable(this.enableSsmAccess);
     }
     /**
      * @return Initial number of instances used for auto-scaling.
@@ -162,6 +175,7 @@ public final class EndpointConfigurationShadowProductionVariant {
         private @Nullable String acceleratorType;
         private @Nullable Integer containerStartupHealthCheckTimeoutInSeconds;
         private @Nullable EndpointConfigurationShadowProductionVariantCoreDumpConfig coreDumpConfig;
+        private @Nullable Boolean enableSsmAccess;
         private @Nullable Integer initialInstanceCount;
         private @Nullable Double initialVariantWeight;
         private @Nullable String instanceType;
@@ -176,6 +190,7 @@ public final class EndpointConfigurationShadowProductionVariant {
     	      this.acceleratorType = defaults.acceleratorType;
     	      this.containerStartupHealthCheckTimeoutInSeconds = defaults.containerStartupHealthCheckTimeoutInSeconds;
     	      this.coreDumpConfig = defaults.coreDumpConfig;
+    	      this.enableSsmAccess = defaults.enableSsmAccess;
     	      this.initialInstanceCount = defaults.initialInstanceCount;
     	      this.initialVariantWeight = defaults.initialVariantWeight;
     	      this.instanceType = defaults.instanceType;
@@ -199,6 +214,11 @@ public final class EndpointConfigurationShadowProductionVariant {
         @CustomType.Setter
         public Builder coreDumpConfig(@Nullable EndpointConfigurationShadowProductionVariantCoreDumpConfig coreDumpConfig) {
             this.coreDumpConfig = coreDumpConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableSsmAccess(@Nullable Boolean enableSsmAccess) {
+            this.enableSsmAccess = enableSsmAccess;
             return this;
         }
         @CustomType.Setter
@@ -246,6 +266,7 @@ public final class EndpointConfigurationShadowProductionVariant {
             o.acceleratorType = acceleratorType;
             o.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             o.coreDumpConfig = coreDumpConfig;
+            o.enableSsmAccess = enableSsmAccess;
             o.initialInstanceCount = initialInstanceCount;
             o.initialVariantWeight = initialVariantWeight;
             o.instanceType = instanceType;

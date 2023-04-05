@@ -5,10 +5,18 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteActionTarget {
+    /**
+     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * 
+     */
+    private @Nullable Integer port;
     /**
      * @return Virtual service gateway route target.
      * 
@@ -16,6 +24,13 @@ public final class GatewayRouteSpecHttpRouteActionTarget {
     private GatewayRouteSpecHttpRouteActionTargetVirtualService virtualService;
 
     private GatewayRouteSpecHttpRouteActionTarget() {}
+    /**
+     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * 
+     */
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
+    }
     /**
      * @return Virtual service gateway route target.
      * 
@@ -33,13 +48,20 @@ public final class GatewayRouteSpecHttpRouteActionTarget {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer port;
         private GatewayRouteSpecHttpRouteActionTargetVirtualService virtualService;
         public Builder() {}
         public Builder(GatewayRouteSpecHttpRouteActionTarget defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.port = defaults.port;
     	      this.virtualService = defaults.virtualService;
         }
 
+        @CustomType.Setter
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
+            return this;
+        }
         @CustomType.Setter
         public Builder virtualService(GatewayRouteSpecHttpRouteActionTargetVirtualService virtualService) {
             this.virtualService = Objects.requireNonNull(virtualService);
@@ -47,6 +69,7 @@ public final class GatewayRouteSpecHttpRouteActionTarget {
         }
         public GatewayRouteSpecHttpRouteActionTarget build() {
             final var o = new GatewayRouteSpecHttpRouteActionTarget();
+            o.port = port;
             o.virtualService = virtualService;
             return o;
         }

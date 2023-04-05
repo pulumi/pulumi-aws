@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlValidation {
-    /**
-     * @return SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames;
-    /**
-     * @return TLS validation context trust.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts;
 
     private GetVirtualGatewaySpecListenerTlValidation() {}
-    /**
-     * @return SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames() {
         return this.subjectAlternativeNames;
     }
-    /**
-     * @return TLS validation context trust.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts() {
         return this.trusts;
     }

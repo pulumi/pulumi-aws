@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName {
-    /**
-     * @return Criteria for determining a SAN&#39;s match.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches;
 
     private GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName() {}
-    /**
-     * @return Criteria for determining a SAN&#39;s match.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches() {
         return this.matches;
     }

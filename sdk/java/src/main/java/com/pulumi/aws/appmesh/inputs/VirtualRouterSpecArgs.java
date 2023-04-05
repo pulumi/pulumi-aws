@@ -7,6 +7,8 @@ import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecListenerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,16 +20,16 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
      * Currently only one listener is supported per virtual router.
      * 
      */
-    @Import(name="listener", required=true)
-    private Output<VirtualRouterSpecListenerArgs> listener;
+    @Import(name="listener")
+    private @Nullable Output<VirtualRouterSpecListenerArgs> listener;
 
     /**
      * @return Listeners that the virtual router is expected to receive inbound traffic from.
      * Currently only one listener is supported per virtual router.
      * 
      */
-    public Output<VirtualRouterSpecListenerArgs> listener() {
-        return this.listener;
+    public Optional<Output<VirtualRouterSpecListenerArgs>> listener() {
+        return Optional.ofNullable(this.listener);
     }
 
     private VirtualRouterSpecArgs() {}
@@ -61,7 +63,7 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder listener(Output<VirtualRouterSpecListenerArgs> listener) {
+        public Builder listener(@Nullable Output<VirtualRouterSpecListenerArgs> listener) {
             $.listener = listener;
             return this;
         }
@@ -78,7 +80,6 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
         }
 
         public VirtualRouterSpecArgs build() {
-            $.listener = Objects.requireNonNull($.listener, "expected parameter 'listener' to be non-null");
             return $;
         }
     }

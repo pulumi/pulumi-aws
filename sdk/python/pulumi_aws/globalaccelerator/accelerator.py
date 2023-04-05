@@ -122,6 +122,7 @@ class _AcceleratorState:
     def __init__(__self__, *,
                  attributes: Optional[pulumi.Input['AcceleratorAttributesArgs']] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
+                 dual_stack_dns_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -134,6 +135,7 @@ class _AcceleratorState:
         Input properties used for looking up and filtering Accelerator resources.
         :param pulumi.Input['AcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        :param pulumi.Input[str] dual_stack_dns_name: The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
                route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
@@ -149,6 +151,8 @@ class _AcceleratorState:
             pulumi.set(__self__, "attributes", attributes)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
+        if dual_stack_dns_name is not None:
+            pulumi.set(__self__, "dual_stack_dns_name", dual_stack_dns_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if hosted_zone_id is not None:
@@ -189,6 +193,18 @@ class _AcceleratorState:
     @dns_name.setter
     def dns_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="dualStackDnsName")
+    def dual_stack_dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        """
+        return pulumi.get(self, "dual_stack_dns_name")
+
+    @dual_stack_dns_name.setter
+    def dual_stack_dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dual_stack_dns_name", value)
 
     @property
     @pulumi.getter
@@ -409,6 +425,7 @@ class Accelerator(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["dual_stack_dns_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["ip_sets"] = None
             __props__.__dict__["tags_all"] = None
@@ -424,6 +441,7 @@ class Accelerator(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             attributes: Optional[pulumi.Input[pulumi.InputType['AcceleratorAttributesArgs']]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
+            dual_stack_dns_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             hosted_zone_id: Optional[pulumi.Input[str]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -441,6 +459,7 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AcceleratorAttributesArgs']] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        :param pulumi.Input[str] dual_stack_dns_name: The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
                route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
@@ -458,6 +477,7 @@ class Accelerator(pulumi.CustomResource):
 
         __props__.__dict__["attributes"] = attributes
         __props__.__dict__["dns_name"] = dns_name
+        __props__.__dict__["dual_stack_dns_name"] = dual_stack_dns_name
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["hosted_zone_id"] = hosted_zone_id
         __props__.__dict__["ip_address_type"] = ip_address_type
@@ -483,6 +503,14 @@ class Accelerator(pulumi.CustomResource):
         The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="dualStackDnsName")
+    def dual_stack_dns_name(self) -> pulumi.Output[str]:
+        """
+        The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        """
+        return pulumi.get(self, "dual_stack_dns_name")
 
     @property
     @pulumi.getter

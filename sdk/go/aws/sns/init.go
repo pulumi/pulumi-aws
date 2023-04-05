@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:sns/dataProtectionPolicy:DataProtectionPolicy":
+		r = &DataProtectionPolicy{}
 	case "aws:sns/platformApplication:PlatformApplication":
 		r = &PlatformApplication{}
 	case "aws:sns/smsPreferences:SmsPreferences":
@@ -44,6 +46,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sns/dataProtectionPolicy",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sns/platformApplication",

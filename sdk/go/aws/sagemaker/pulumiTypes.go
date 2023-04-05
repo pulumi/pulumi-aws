@@ -6354,6 +6354,8 @@ type EndpointConfigurationProductionVariant struct {
 	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
 	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
 	CoreDumpConfig *EndpointConfigurationProductionVariantCoreDumpConfig `pulumi:"coreDumpConfig"`
+	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+	EnableSsmAccess *bool `pulumi:"enableSsmAccess"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
@@ -6390,6 +6392,8 @@ type EndpointConfigurationProductionVariantArgs struct {
 	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
 	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
 	CoreDumpConfig EndpointConfigurationProductionVariantCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
+	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+	EnableSsmAccess pulumi.BoolPtrInput `pulumi:"enableSsmAccess"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
@@ -6476,6 +6480,11 @@ func (o EndpointConfigurationProductionVariantOutput) CoreDumpConfig() EndpointC
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *EndpointConfigurationProductionVariantCoreDumpConfig {
 		return v.CoreDumpConfig
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput)
+}
+
+// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+func (o EndpointConfigurationProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
 }
 
 // Initial number of instances used for auto-scaling.
@@ -6859,6 +6868,8 @@ type EndpointConfigurationShadowProductionVariant struct {
 	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
 	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
 	CoreDumpConfig *EndpointConfigurationShadowProductionVariantCoreDumpConfig `pulumi:"coreDumpConfig"`
+	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+	EnableSsmAccess *bool `pulumi:"enableSsmAccess"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
@@ -6895,6 +6906,8 @@ type EndpointConfigurationShadowProductionVariantArgs struct {
 	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
 	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
 	CoreDumpConfig EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
+	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+	EnableSsmAccess pulumi.BoolPtrInput `pulumi:"enableSsmAccess"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
@@ -6981,6 +6994,11 @@ func (o EndpointConfigurationShadowProductionVariantOutput) CoreDumpConfig() End
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *EndpointConfigurationShadowProductionVariantCoreDumpConfig {
 		return v.CoreDumpConfig
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput)
+}
+
+// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+func (o EndpointConfigurationShadowProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
 }
 
 // Initial number of instances used for auto-scaling.

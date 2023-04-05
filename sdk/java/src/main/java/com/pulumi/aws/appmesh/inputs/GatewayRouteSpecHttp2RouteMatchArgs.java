@@ -3,11 +3,15 @@
 
 package com.pulumi.aws.appmesh.inputs;
 
+import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteMatchHeaderArgs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteMatchHostnameArgs;
+import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteMatchPathArgs;
+import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteMatchQueryParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +20,21 @@ import javax.annotation.Nullable;
 public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GatewayRouteSpecHttp2RouteMatchArgs Empty = new GatewayRouteSpecHttp2RouteMatchArgs();
+
+    /**
+     * Client request headers to match on.
+     * 
+     */
+    @Import(name="headers")
+    private @Nullable Output<List<GatewayRouteSpecHttp2RouteMatchHeaderArgs>> headers;
+
+    /**
+     * @return Client request headers to match on.
+     * 
+     */
+    public Optional<Output<List<GatewayRouteSpecHttp2RouteMatchHeaderArgs>>> headers() {
+        return Optional.ofNullable(this.headers);
+    }
 
     /**
      * Host name to rewrite.
@@ -33,14 +52,29 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
     }
 
     /**
-     * The port number to match from the request.
+     * Client request path to match on.
+     * 
+     */
+    @Import(name="path")
+    private @Nullable Output<GatewayRouteSpecHttp2RouteMatchPathArgs> path;
+
+    /**
+     * @return Client request path to match on.
+     * 
+     */
+    public Optional<Output<GatewayRouteSpecHttp2RouteMatchPathArgs>> path() {
+        return Optional.ofNullable(this.path);
+    }
+
+    /**
+     * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number to match from the request.
+     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -62,12 +96,30 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         return Optional.ofNullable(this.prefix);
     }
 
+    /**
+     * Client request query parameters to match on.
+     * 
+     */
+    @Import(name="queryParameters")
+    private @Nullable Output<List<GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>> queryParameters;
+
+    /**
+     * @return Client request query parameters to match on.
+     * 
+     */
+    public Optional<Output<List<GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>>> queryParameters() {
+        return Optional.ofNullable(this.queryParameters);
+    }
+
     private GatewayRouteSpecHttp2RouteMatchArgs() {}
 
     private GatewayRouteSpecHttp2RouteMatchArgs(GatewayRouteSpecHttp2RouteMatchArgs $) {
+        this.headers = $.headers;
         this.hostname = $.hostname;
+        this.path = $.path;
         this.port = $.port;
         this.prefix = $.prefix;
+        this.queryParameters = $.queryParameters;
     }
 
     public static Builder builder() {
@@ -86,6 +138,37 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
 
         public Builder(GatewayRouteSpecHttp2RouteMatchArgs defaults) {
             $ = new GatewayRouteSpecHttp2RouteMatchArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param headers Client request headers to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(@Nullable Output<List<GatewayRouteSpecHttp2RouteMatchHeaderArgs>> headers) {
+            $.headers = headers;
+            return this;
+        }
+
+        /**
+         * @param headers Client request headers to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(List<GatewayRouteSpecHttp2RouteMatchHeaderArgs> headers) {
+            return headers(Output.of(headers));
+        }
+
+        /**
+         * @param headers Client request headers to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(GatewayRouteSpecHttp2RouteMatchHeaderArgs... headers) {
+            return headers(List.of(headers));
         }
 
         /**
@@ -110,7 +193,28 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param path Client request path to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(@Nullable Output<GatewayRouteSpecHttp2RouteMatchPathArgs> path) {
+            $.path = path;
+            return this;
+        }
+
+        /**
+         * @param path Client request path to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(GatewayRouteSpecHttp2RouteMatchPathArgs path) {
+            return path(Output.of(path));
+        }
+
+        /**
+         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
          * 
          * @return builder
          * 
@@ -121,7 +225,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
          * 
          * @return builder
          * 
@@ -149,6 +253,37 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
+        }
+
+        /**
+         * @param queryParameters Client request query parameters to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryParameters(@Nullable Output<List<GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>> queryParameters) {
+            $.queryParameters = queryParameters;
+            return this;
+        }
+
+        /**
+         * @param queryParameters Client request query parameters to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryParameters(List<GatewayRouteSpecHttp2RouteMatchQueryParameterArgs> queryParameters) {
+            return queryParameters(Output.of(queryParameters));
+        }
+
+        /**
+         * @param queryParameters Client request query parameters to match on.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryParameters(GatewayRouteSpecHttp2RouteMatchQueryParameterArgs... queryParameters) {
+            return queryParameters(List.of(queryParameters));
         }
 
         public GatewayRouteSpecHttp2RouteMatchArgs build() {

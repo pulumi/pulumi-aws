@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecListenerPortMappingResult
     {
-        /// <summary>
-        /// Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
-        /// </summary>
         public readonly int Port;
-        /// <summary>
-        /// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
-        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]

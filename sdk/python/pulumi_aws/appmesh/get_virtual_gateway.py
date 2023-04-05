@@ -113,7 +113,7 @@ class GetVirtualGatewayResult:
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetVirtualGatewaySpecResult']:
         """
-        Virtual gateway specification
+        Virtual gateway specification. See the `appmesh.VirtualGateway` resource for details.
         """
         return pulumi.get(self, "specs")
 

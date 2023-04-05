@@ -30,6 +30,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("httpRoute")]
         public Input<Inputs.GatewayRouteSpecHttpRouteGetArgs>? HttpRoute { get; set; }
 
+        /// <summary>
+        /// Priority for the gateway route, between `0` and `1000`.
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
         public GatewayRouteSpecGetArgs()
         {
         }

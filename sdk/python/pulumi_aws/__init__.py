@@ -297,6 +297,8 @@ if typing.TYPE_CHECKING:
     quicksight = __quicksight
     import pulumi_aws.ram as __ram
     ram = __ram
+    import pulumi_aws.rbin as __rbin
+    rbin = __rbin
     import pulumi_aws.rds as __rds
     rds = __rds
     import pulumi_aws.redshift as __redshift
@@ -363,6 +365,8 @@ if typing.TYPE_CHECKING:
     sqs = __sqs
     import pulumi_aws.ssm as __ssm
     ssm = __ssm
+    import pulumi_aws.ssmincidents as __ssmincidents
+    ssmincidents = __ssmincidents
     import pulumi_aws.ssoadmin as __ssoadmin
     ssoadmin = __ssoadmin
     import pulumi_aws.storagegateway as __storagegateway
@@ -524,6 +528,7 @@ else:
     qldb = _utilities.lazy_import('pulumi_aws.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws.quicksight')
     ram = _utilities.lazy_import('pulumi_aws.ram')
+    rbin = _utilities.lazy_import('pulumi_aws.rbin')
     rds = _utilities.lazy_import('pulumi_aws.rds')
     redshift = _utilities.lazy_import('pulumi_aws.redshift')
     redshiftdata = _utilities.lazy_import('pulumi_aws.redshiftdata')
@@ -557,6 +562,7 @@ else:
     sns = _utilities.lazy_import('pulumi_aws.sns')
     sqs = _utilities.lazy_import('pulumi_aws.sqs')
     ssm = _utilities.lazy_import('pulumi_aws.ssm')
+    ssmincidents = _utilities.lazy_import('pulumi_aws.ssmincidents')
     ssoadmin = _utilities.lazy_import('pulumi_aws.ssoadmin')
     storagegateway = _utilities.lazy_import('pulumi_aws.storagegateway')
     swf = _utilities.lazy_import('pulumi_aws.swf')
@@ -7488,6 +7494,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rbin/rule",
+  "fqn": "pulumi_aws.rbin",
+  "classes": {
+   "aws:rbin/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "rds/cluster",
   "fqn": "pulumi_aws.rds",
   "classes": {
@@ -9240,6 +9254,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sns/dataProtectionPolicy",
+  "fqn": "pulumi_aws.sns",
+  "classes": {
+   "aws:sns/dataProtectionPolicy:DataProtectionPolicy": "DataProtectionPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sns/platformApplication",
   "fqn": "pulumi_aws.sns",
   "classes": {
@@ -9404,6 +9426,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssm",
   "classes": {
    "aws:ssm/serviceSetting:ServiceSetting": "ServiceSetting"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssmincidents/replicationSet",
+  "fqn": "pulumi_aws.ssmincidents",
+  "classes": {
+   "aws:ssmincidents/replicationSet:ReplicationSet": "ReplicationSet"
   }
  },
  {

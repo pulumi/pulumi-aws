@@ -76,6 +76,50 @@ import * as utilities from "../utilities";
  *     maxAllocatedStorage: 100,
  * });
  * ```
+ * ### Managed Master Passwords via Secrets Manager, default KMS Key
+ *
+ * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+ *
+ * You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `password` attribute (removal is required).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const _default = new aws.rds.Instance("default", {
+ *     allocatedStorage: 10,
+ *     dbName: "mydb",
+ *     engine: "mysql",
+ *     engineVersion: "5.7",
+ *     instanceClass: "db.t3.micro",
+ *     manageMasterUserPassword: true,
+ *     parameterGroupName: "default.mysql5.7",
+ *     username: "foo",
+ * });
+ * ```
+ * ### Managed Master Passwords via Secrets Manager, specific KMS Key
+ *
+ * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+ *
+ * You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kms.Key("example", {description: "Example KMS Key"});
+ * const _default = new aws.rds.Instance("default", {
+ *     allocatedStorage: 10,
+ *     dbName: "mydb",
+ *     engine: "mysql",
+ *     engineVersion: "5.7",
+ *     instanceClass: "db.t3.micro",
+ *     manageMasterUserPassword: true,
+ *     masterUserSecretKmsKeyId: example.keyId,
+ *     username: "foo",
+ *     parameterGroupName: "default.mysql5.7",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -312,6 +356,18 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow!: pulumi.Output<string>;
     /**
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     */
+    public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     */
+    public readonly masterUserSecretKmsKeyId!: pulumi.Output<string>;
+    /**
+     * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+     */
+    public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.rds.InstanceMasterUserSecret[]>;
+    /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
     public readonly maxAllocatedStorage!: pulumi.Output<number | undefined>;
@@ -357,9 +413,9 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
-     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
+     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
+     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -535,6 +591,9 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
             resourceInputs["listenerEndpoints"] = state ? state.listenerEndpoints : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["manageMasterUserPassword"] = state ? state.manageMasterUserPassword : undefined;
+            resourceInputs["masterUserSecretKmsKeyId"] = state ? state.masterUserSecretKmsKeyId : undefined;
+            resourceInputs["masterUserSecrets"] = state ? state.masterUserSecrets : undefined;
             resourceInputs["maxAllocatedStorage"] = state ? state.maxAllocatedStorage : undefined;
             resourceInputs["monitoringInterval"] = state ? state.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
@@ -604,6 +663,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["manageMasterUserPassword"] = args ? args.manageMasterUserPassword : undefined;
+            resourceInputs["masterUserSecretKmsKeyId"] = args ? args.masterUserSecretKmsKeyId : undefined;
             resourceInputs["maxAllocatedStorage"] = args ? args.maxAllocatedStorage : undefined;
             resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
@@ -640,6 +701,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["latestRestorableTime"] = undefined /*out*/;
             resourceInputs["listenerEndpoints"] = undefined /*out*/;
+            resourceInputs["masterUserSecrets"] = undefined /*out*/;
             resourceInputs["replicas"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -855,6 +917,18 @@ export interface InstanceState {
      */
     maintenanceWindow?: pulumi.Input<string>;
     /**
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     */
+    manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     */
+    masterUserSecretKmsKeyId?: pulumi.Input<string>;
+    /**
+     * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+     */
+    masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.rds.InstanceMasterUserSecret>[]>;
+    /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
     maxAllocatedStorage?: pulumi.Input<number>;
@@ -900,9 +974,9 @@ export interface InstanceState {
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
+     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
+     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
     /**
@@ -1203,6 +1277,14 @@ export interface InstanceArgs {
      */
     maintenanceWindow?: pulumi.Input<string>;
     /**
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     */
+    manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     */
+    masterUserSecretKmsKeyId?: pulumi.Input<string>;
+    /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
     maxAllocatedStorage?: pulumi.Input<number>;
@@ -1248,9 +1330,9 @@ export interface InstanceArgs {
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
+     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
+     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
     /**

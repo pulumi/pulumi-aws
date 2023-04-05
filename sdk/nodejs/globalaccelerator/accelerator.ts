@@ -73,6 +73,10 @@ export class Accelerator extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     */
+    public /*out*/ readonly dualStackDnsName!: pulumi.Output<string>;
+    /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
@@ -122,6 +126,7 @@ export class Accelerator extends pulumi.CustomResource {
             const state = argsOrState as AcceleratorState | undefined;
             resourceInputs["attributes"] = state ? state.attributes : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["dualStackDnsName"] = state ? state.dualStackDnsName : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
@@ -139,6 +144,7 @@ export class Accelerator extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["dualStackDnsName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["ipSets"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -160,6 +166,10 @@ export interface AcceleratorState {
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      */
     dnsName?: pulumi.Input<string>;
+    /**
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     */
+    dualStackDnsName?: pulumi.Input<string>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */

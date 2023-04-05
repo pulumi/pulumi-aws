@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetRouteSpecGrpcRouteResult
     {
-        /// <summary>
-        /// Action to take if a match is determined.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRouteSpecGrpcRouteActionResult> Actions;
-        /// <summary>
-        /// Criteria for determining an HTTP request match.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRouteSpecGrpcRouteMatchResult> Matches;
-        /// <summary>
-        /// Retry policy.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRouteSpecGrpcRouteRetryPolicyResult> RetryPolicies;
-        /// <summary>
-        /// Types of timeouts.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRouteSpecGrpcRouteTimeoutResult> Timeouts;
 
         [OutputConstructor]

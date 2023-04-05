@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerPortMapping {
-    /**
-     * @return Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
-     * 
-     */
     private Integer port;
-    /**
-     * @return Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
-     * 
-     */
     private String protocol;
 
     private GetVirtualGatewaySpecListenerPortMapping() {}
-    /**
-     * @return Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }

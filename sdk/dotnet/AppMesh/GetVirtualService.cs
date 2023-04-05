@@ -211,7 +211,7 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string ResourceOwner;
         /// <summary>
-        /// Virtual service specification
+        /// Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualServiceSpecResult> Specs;
         /// <summary>

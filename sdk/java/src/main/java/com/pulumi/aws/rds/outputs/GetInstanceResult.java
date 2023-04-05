@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.rds.outputs;
 
+import com.pulumi.aws.rds.outputs.GetInstanceMasterUserSecret;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -120,7 +121,7 @@ public final class GetInstanceResult {
      */
     private Integer iops;
     /**
-     * @return If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
+     * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
     private String kmsKeyId;
@@ -129,6 +130,11 @@ public final class GetInstanceResult {
      * 
      */
     private String licenseModel;
+    /**
+     * @return Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    private List<GetInstanceMasterUserSecret> masterUserSecrets;
     /**
      * @return Contains the master username for the DB instance.
      * 
@@ -368,7 +374,7 @@ public final class GetInstanceResult {
         return this.iops;
     }
     /**
-     * @return If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
+     * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
     public String kmsKeyId() {
@@ -380,6 +386,13 @@ public final class GetInstanceResult {
      */
     public String licenseModel() {
         return this.licenseModel;
+    }
+    /**
+     * @return Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    public List<GetInstanceMasterUserSecret> masterUserSecrets() {
+        return this.masterUserSecrets;
     }
     /**
      * @return Contains the master username for the DB instance.
@@ -537,6 +550,7 @@ public final class GetInstanceResult {
         private Integer iops;
         private String kmsKeyId;
         private String licenseModel;
+        private List<GetInstanceMasterUserSecret> masterUserSecrets;
         private String masterUsername;
         private Integer monitoringInterval;
         private String monitoringRoleArn;
@@ -582,6 +596,7 @@ public final class GetInstanceResult {
     	      this.iops = defaults.iops;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.licenseModel = defaults.licenseModel;
+    	      this.masterUserSecrets = defaults.masterUserSecrets;
     	      this.masterUsername = defaults.masterUsername;
     	      this.monitoringInterval = defaults.monitoringInterval;
     	      this.monitoringRoleArn = defaults.monitoringRoleArn;
@@ -732,6 +747,14 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder masterUserSecrets(List<GetInstanceMasterUserSecret> masterUserSecrets) {
+            this.masterUserSecrets = Objects.requireNonNull(masterUserSecrets);
+            return this;
+        }
+        public Builder masterUserSecrets(GetInstanceMasterUserSecret... masterUserSecrets) {
+            return masterUserSecrets(List.of(masterUserSecrets));
+        }
+        @CustomType.Setter
         public Builder masterUsername(String masterUsername) {
             this.masterUsername = Objects.requireNonNull(masterUsername);
             return this;
@@ -853,6 +876,7 @@ public final class GetInstanceResult {
             o.iops = iops;
             o.kmsKeyId = kmsKeyId;
             o.licenseModel = licenseModel;
+            o.masterUserSecrets = masterUserSecrets;
             o.masterUsername = masterUsername;
             o.monitoringInterval = monitoringInterval;
             o.monitoringRoleArn = monitoringRoleArn;

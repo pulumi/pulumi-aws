@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate {
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files;
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate() {}
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files() {
         return this.files;
     }
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds() {
         return this.sds;
     }

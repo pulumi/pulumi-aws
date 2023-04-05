@@ -105,7 +105,7 @@ type LookupVirtualServiceResult struct {
 	Name            string `pulumi:"name"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// Virtual service specification
+	// Virtual service specification. See the `appmesh.VirtualService` resource for details.
 	Specs []GetVirtualServiceSpec `pulumi:"specs"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -192,7 +192,7 @@ func (o LookupVirtualServiceResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual service specification
+// Virtual service specification. See the `appmesh.VirtualService` resource for details.
 func (o LookupVirtualServiceResultOutput) Specs() GetVirtualServiceSpecArrayOutput {
 	return o.ApplyT(func(v LookupVirtualServiceResult) []GetVirtualServiceSpec { return v.Specs }).(GetVirtualServiceSpecArrayOutput)
 }

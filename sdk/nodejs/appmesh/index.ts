@@ -10,6 +10,11 @@ export type GatewayRoute = import("./gatewayRoute").GatewayRoute;
 export const GatewayRoute: typeof import("./gatewayRoute").GatewayRoute = null as any;
 utilities.lazyLoad(exports, ["GatewayRoute"], () => require("./gatewayRoute"));
 
+export { GetGatewayRouteArgs, GetGatewayRouteResult, GetGatewayRouteOutputArgs } from "./getGatewayRoute";
+export const getGatewayRoute: typeof import("./getGatewayRoute").getGatewayRoute = null as any;
+export const getGatewayRouteOutput: typeof import("./getGatewayRoute").getGatewayRouteOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayRoute","getGatewayRouteOutput"], () => require("./getGatewayRoute"));
+
 export { GetMeshArgs, GetMeshResult, GetMeshOutputArgs } from "./getMesh";
 export const getMesh: typeof import("./getMesh").getMesh = null as any;
 export const getMeshOutput: typeof import("./getMesh").getMeshOutput = null as any;
@@ -24,6 +29,16 @@ export { GetVirtualGatewayArgs, GetVirtualGatewayResult, GetVirtualGatewayOutput
 export const getVirtualGateway: typeof import("./getVirtualGateway").getVirtualGateway = null as any;
 export const getVirtualGatewayOutput: typeof import("./getVirtualGateway").getVirtualGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualGateway","getVirtualGatewayOutput"], () => require("./getVirtualGateway"));
+
+export { GetVirtualNodeArgs, GetVirtualNodeResult, GetVirtualNodeOutputArgs } from "./getVirtualNode";
+export const getVirtualNode: typeof import("./getVirtualNode").getVirtualNode = null as any;
+export const getVirtualNodeOutput: typeof import("./getVirtualNode").getVirtualNodeOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNode","getVirtualNodeOutput"], () => require("./getVirtualNode"));
+
+export { GetVirtualRouterArgs, GetVirtualRouterResult, GetVirtualRouterOutputArgs } from "./getVirtualRouter";
+export const getVirtualRouter: typeof import("./getVirtualRouter").getVirtualRouter = null as any;
+export const getVirtualRouterOutput: typeof import("./getVirtualRouter").getVirtualRouterOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualRouter","getVirtualRouterOutput"], () => require("./getVirtualRouter"));
 
 export { GetVirtualServiceArgs, GetVirtualServiceResult, GetVirtualServiceOutputArgs } from "./getVirtualService";
 export const getVirtualService: typeof import("./getVirtualService").getVirtualService = null as any;

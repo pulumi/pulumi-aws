@@ -18,6 +18,18 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("hostname", required: true)]
         public Input<string> Hostname { get; set; } = null!;
 
+        /// <summary>
+        /// The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+        /// </summary>
+        [Input("ipPreference")]
+        public Input<string>? IpPreference { get; set; }
+
+        /// <summary>
+        /// The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+        /// </summary>
+        [Input("responseType")]
+        public Input<string>? ResponseType { get; set; }
+
         public VirtualNodeSpecServiceDiscoveryDnsGetArgs()
         {
         }

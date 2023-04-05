@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecListenerTlResult
     {
-        /// <summary>
-        /// Listener's TLS certificate.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlCertificateResult> Certificates;
-        /// <summary>
-        /// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-        /// </summary>
         public readonly string Mode;
-        /// <summary>
-        /// Listener's Transport Layer Security (TLS) validation context.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlValidationResult> Validations;
 
         [OutputConstructor]

@@ -41,7 +41,7 @@ public final class GetRouteResult {
      */
     private String resourceOwner;
     /**
-     * @return Route specification
+     * @return Route specification. See the `aws.appmesh.Route` resource for details.
      * 
      */
     private List<GetRouteSpec> specs;
@@ -98,7 +98,7 @@ public final class GetRouteResult {
         return this.resourceOwner;
     }
     /**
-     * @return Route specification
+     * @return Route specification. See the `aws.appmesh.Route` resource for details.
      * 
      */
     public List<GetRouteSpec> specs() {
