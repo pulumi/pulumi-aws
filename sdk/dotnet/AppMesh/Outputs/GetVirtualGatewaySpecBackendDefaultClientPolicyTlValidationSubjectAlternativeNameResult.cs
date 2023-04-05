@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult
     {
-        /// <summary>
-        /// Criteria for determining a SAN's match.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult> Matches;
 
         [OutputConstructor]

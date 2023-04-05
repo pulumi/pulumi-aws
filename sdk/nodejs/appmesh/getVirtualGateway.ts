@@ -68,7 +68,7 @@ export interface GetVirtualGatewayResult {
      */
     readonly resourceOwner: string;
     /**
-     * Virtual gateway specification
+     * Virtual gateway specification. See the `aws.appmesh.VirtualGateway` resource for details.
      */
     readonly specs: outputs.appmesh.GetVirtualGatewaySpec[];
     /**

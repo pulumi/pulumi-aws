@@ -141,7 +141,7 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string ResourceOwner;
         /// <summary>
-        /// Route specification
+        /// Route specification. See the `aws.appmesh.Route` resource for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRouteSpecResult> Specs;
         /// <summary>

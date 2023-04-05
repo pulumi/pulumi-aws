@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecGrpcRouteMatchMetadataMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        /// The exact path to match on.
         /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.RouteSpecGrpcRouteMatchMetadataMatchRangeGetArgs>? Range { get; set; }
 
         /// <summary>
-        /// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        /// The regex used to match the path.
         /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }

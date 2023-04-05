@@ -6,6 +6,8 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNodeSpecServiceDiscoveryDns {
@@ -14,6 +16,16 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
      * 
      */
     private String hostname;
+    /**
+     * @return The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+     * 
+     */
+    private @Nullable String ipPreference;
+    /**
+     * @return The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+     * 
+     */
+    private @Nullable String responseType;
 
     private VirtualNodeSpecServiceDiscoveryDns() {}
     /**
@@ -22,6 +34,20 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
      */
     public String hostname() {
         return this.hostname;
+    }
+    /**
+     * @return The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+     * 
+     */
+    public Optional<String> ipPreference() {
+        return Optional.ofNullable(this.ipPreference);
+    }
+    /**
+     * @return The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+     * 
+     */
+    public Optional<String> responseType() {
+        return Optional.ofNullable(this.responseType);
     }
 
     public static Builder builder() {
@@ -34,10 +60,14 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
     @CustomType.Builder
     public static final class Builder {
         private String hostname;
+        private @Nullable String ipPreference;
+        private @Nullable String responseType;
         public Builder() {}
         public Builder(VirtualNodeSpecServiceDiscoveryDns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
+    	      this.ipPreference = defaults.ipPreference;
+    	      this.responseType = defaults.responseType;
         }
 
         @CustomType.Setter
@@ -45,9 +75,21 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
             this.hostname = Objects.requireNonNull(hostname);
             return this;
         }
+        @CustomType.Setter
+        public Builder ipPreference(@Nullable String ipPreference) {
+            this.ipPreference = ipPreference;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder responseType(@Nullable String responseType) {
+            this.responseType = responseType;
+            return this;
+        }
         public VirtualNodeSpecServiceDiscoveryDns build() {
             final var o = new VirtualNodeSpecServiceDiscoveryDns();
             o.hostname = hostname;
+            o.ipPreference = ipPreference;
+            o.responseType = responseType;
             return o;
         }
     }

@@ -628,7 +628,7 @@ namespace Pulumi.Aws.S3
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
         [Output("bucketPrefix")]
-        public Output<string?> BucketPrefix { get; private set; } = null!;
+        public Output<string> BucketPrefix { get; private set; } = null!;
 
         /// <summary>
         /// Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
@@ -970,6 +970,18 @@ namespace Pulumi.Aws.S3
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         [Input("versionings")]

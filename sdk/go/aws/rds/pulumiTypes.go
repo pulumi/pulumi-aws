@@ -10,6 +10,121 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ClusterMasterUserSecret struct {
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn *string `pulumi:"secretArn"`
+	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	SecretStatus *string `pulumi:"secretStatus"`
+}
+
+// ClusterMasterUserSecretInput is an input type that accepts ClusterMasterUserSecretArgs and ClusterMasterUserSecretOutput values.
+// You can construct a concrete instance of `ClusterMasterUserSecretInput` via:
+//
+//	ClusterMasterUserSecretArgs{...}
+type ClusterMasterUserSecretInput interface {
+	pulumi.Input
+
+	ToClusterMasterUserSecretOutput() ClusterMasterUserSecretOutput
+	ToClusterMasterUserSecretOutputWithContext(context.Context) ClusterMasterUserSecretOutput
+}
+
+type ClusterMasterUserSecretArgs struct {
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
+}
+
+func (ClusterMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (i ClusterMasterUserSecretArgs) ToClusterMasterUserSecretOutput() ClusterMasterUserSecretOutput {
+	return i.ToClusterMasterUserSecretOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterUserSecretArgs) ToClusterMasterUserSecretOutputWithContext(ctx context.Context) ClusterMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterUserSecretOutput)
+}
+
+// ClusterMasterUserSecretArrayInput is an input type that accepts ClusterMasterUserSecretArray and ClusterMasterUserSecretArrayOutput values.
+// You can construct a concrete instance of `ClusterMasterUserSecretArrayInput` via:
+//
+//	ClusterMasterUserSecretArray{ ClusterMasterUserSecretArgs{...} }
+type ClusterMasterUserSecretArrayInput interface {
+	pulumi.Input
+
+	ToClusterMasterUserSecretArrayOutput() ClusterMasterUserSecretArrayOutput
+	ToClusterMasterUserSecretArrayOutputWithContext(context.Context) ClusterMasterUserSecretArrayOutput
+}
+
+type ClusterMasterUserSecretArray []ClusterMasterUserSecretInput
+
+func (ClusterMasterUserSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (i ClusterMasterUserSecretArray) ToClusterMasterUserSecretArrayOutput() ClusterMasterUserSecretArrayOutput {
+	return i.ToClusterMasterUserSecretArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterUserSecretArray) ToClusterMasterUserSecretArrayOutputWithContext(ctx context.Context) ClusterMasterUserSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterUserSecretArrayOutput)
+}
+
+type ClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (o ClusterMasterUserSecretOutput) ToClusterMasterUserSecretOutput() ClusterMasterUserSecretOutput {
+	return o
+}
+
+func (o ClusterMasterUserSecretOutput) ToClusterMasterUserSecretOutputWithContext(ctx context.Context) ClusterMasterUserSecretOutput {
+	return o
+}
+
+// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+func (o ClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o ClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+func (o ClusterMasterUserSecretOutput) SecretStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretStatus }).(pulumi.StringPtrOutput)
+}
+
+type ClusterMasterUserSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterUserSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (o ClusterMasterUserSecretArrayOutput) ToClusterMasterUserSecretArrayOutput() ClusterMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o ClusterMasterUserSecretArrayOutput) ToClusterMasterUserSecretArrayOutputWithContext(ctx context.Context) ClusterMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o ClusterMasterUserSecretArrayOutput) Index(i pulumi.IntInput) ClusterMasterUserSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterUserSecret {
+		return vs[0].([]ClusterMasterUserSecret)[vs[1].(int)]
+	}).(ClusterMasterUserSecretOutput)
+}
+
 type ClusterParameterGroupParameter struct {
 	// "immediate" (default), or "pending-reboot". Some
 	// engines can't apply some parameters without a reboot, and you will need to
@@ -1271,6 +1386,124 @@ func (o InstanceListenerEndpointArrayOutput) Index(i pulumi.IntInput) InstanceLi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceListenerEndpoint {
 		return vs[0].([]InstanceListenerEndpoint)[vs[1].(int)]
 	}).(InstanceListenerEndpointOutput)
+}
+
+type InstanceMasterUserSecret struct {
+	// The ARN for the KMS encryption key. If creating an
+	// encrypted replica, set this to the destination KMS ARN.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn *string `pulumi:"secretArn"`
+	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	SecretStatus *string `pulumi:"secretStatus"`
+}
+
+// InstanceMasterUserSecretInput is an input type that accepts InstanceMasterUserSecretArgs and InstanceMasterUserSecretOutput values.
+// You can construct a concrete instance of `InstanceMasterUserSecretInput` via:
+//
+//	InstanceMasterUserSecretArgs{...}
+type InstanceMasterUserSecretInput interface {
+	pulumi.Input
+
+	ToInstanceMasterUserSecretOutput() InstanceMasterUserSecretOutput
+	ToInstanceMasterUserSecretOutputWithContext(context.Context) InstanceMasterUserSecretOutput
+}
+
+type InstanceMasterUserSecretArgs struct {
+	// The ARN for the KMS encryption key. If creating an
+	// encrypted replica, set this to the destination KMS ARN.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
+}
+
+func (InstanceMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (i InstanceMasterUserSecretArgs) ToInstanceMasterUserSecretOutput() InstanceMasterUserSecretOutput {
+	return i.ToInstanceMasterUserSecretOutputWithContext(context.Background())
+}
+
+func (i InstanceMasterUserSecretArgs) ToInstanceMasterUserSecretOutputWithContext(ctx context.Context) InstanceMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMasterUserSecretOutput)
+}
+
+// InstanceMasterUserSecretArrayInput is an input type that accepts InstanceMasterUserSecretArray and InstanceMasterUserSecretArrayOutput values.
+// You can construct a concrete instance of `InstanceMasterUserSecretArrayInput` via:
+//
+//	InstanceMasterUserSecretArray{ InstanceMasterUserSecretArgs{...} }
+type InstanceMasterUserSecretArrayInput interface {
+	pulumi.Input
+
+	ToInstanceMasterUserSecretArrayOutput() InstanceMasterUserSecretArrayOutput
+	ToInstanceMasterUserSecretArrayOutputWithContext(context.Context) InstanceMasterUserSecretArrayOutput
+}
+
+type InstanceMasterUserSecretArray []InstanceMasterUserSecretInput
+
+func (InstanceMasterUserSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (i InstanceMasterUserSecretArray) ToInstanceMasterUserSecretArrayOutput() InstanceMasterUserSecretArrayOutput {
+	return i.ToInstanceMasterUserSecretArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceMasterUserSecretArray) ToInstanceMasterUserSecretArrayOutputWithContext(ctx context.Context) InstanceMasterUserSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMasterUserSecretArrayOutput)
+}
+
+type InstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
+
+func (InstanceMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (o InstanceMasterUserSecretOutput) ToInstanceMasterUserSecretOutput() InstanceMasterUserSecretOutput {
+	return o
+}
+
+func (o InstanceMasterUserSecretOutput) ToInstanceMasterUserSecretOutputWithContext(ctx context.Context) InstanceMasterUserSecretOutput {
+	return o
+}
+
+// The ARN for the KMS encryption key. If creating an
+// encrypted replica, set this to the destination KMS ARN.
+func (o InstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o InstanceMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+func (o InstanceMasterUserSecretOutput) SecretStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMasterUserSecret) *string { return v.SecretStatus }).(pulumi.StringPtrOutput)
+}
+
+type InstanceMasterUserSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceMasterUserSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (o InstanceMasterUserSecretArrayOutput) ToInstanceMasterUserSecretArrayOutput() InstanceMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o InstanceMasterUserSecretArrayOutput) ToInstanceMasterUserSecretArrayOutputWithContext(ctx context.Context) InstanceMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o InstanceMasterUserSecretArrayOutput) Index(i pulumi.IntInput) InstanceMasterUserSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceMasterUserSecret {
+		return vs[0].([]InstanceMasterUserSecret)[vs[1].(int)]
+	}).(InstanceMasterUserSecretOutput)
 }
 
 type InstanceRestoreToPointInTime struct {
@@ -2650,6 +2883,112 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 	}).(SecurityGroupIngressOutput)
 }
 
+type GetClusterMasterUserSecret struct {
+	KmsKeyId     string `pulumi:"kmsKeyId"`
+	SecretArn    string `pulumi:"secretArn"`
+	SecretStatus string `pulumi:"secretStatus"`
+}
+
+// GetClusterMasterUserSecretInput is an input type that accepts GetClusterMasterUserSecretArgs and GetClusterMasterUserSecretOutput values.
+// You can construct a concrete instance of `GetClusterMasterUserSecretInput` via:
+//
+//	GetClusterMasterUserSecretArgs{...}
+type GetClusterMasterUserSecretInput interface {
+	pulumi.Input
+
+	ToGetClusterMasterUserSecretOutput() GetClusterMasterUserSecretOutput
+	ToGetClusterMasterUserSecretOutputWithContext(context.Context) GetClusterMasterUserSecretOutput
+}
+
+type GetClusterMasterUserSecretArgs struct {
+	KmsKeyId     pulumi.StringInput `pulumi:"kmsKeyId"`
+	SecretArn    pulumi.StringInput `pulumi:"secretArn"`
+	SecretStatus pulumi.StringInput `pulumi:"secretStatus"`
+}
+
+func (GetClusterMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (i GetClusterMasterUserSecretArgs) ToGetClusterMasterUserSecretOutput() GetClusterMasterUserSecretOutput {
+	return i.ToGetClusterMasterUserSecretOutputWithContext(context.Background())
+}
+
+func (i GetClusterMasterUserSecretArgs) ToGetClusterMasterUserSecretOutputWithContext(ctx context.Context) GetClusterMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterMasterUserSecretOutput)
+}
+
+// GetClusterMasterUserSecretArrayInput is an input type that accepts GetClusterMasterUserSecretArray and GetClusterMasterUserSecretArrayOutput values.
+// You can construct a concrete instance of `GetClusterMasterUserSecretArrayInput` via:
+//
+//	GetClusterMasterUserSecretArray{ GetClusterMasterUserSecretArgs{...} }
+type GetClusterMasterUserSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterMasterUserSecretArrayOutput() GetClusterMasterUserSecretArrayOutput
+	ToGetClusterMasterUserSecretArrayOutputWithContext(context.Context) GetClusterMasterUserSecretArrayOutput
+}
+
+type GetClusterMasterUserSecretArray []GetClusterMasterUserSecretInput
+
+func (GetClusterMasterUserSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (i GetClusterMasterUserSecretArray) ToGetClusterMasterUserSecretArrayOutput() GetClusterMasterUserSecretArrayOutput {
+	return i.ToGetClusterMasterUserSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterMasterUserSecretArray) ToGetClusterMasterUserSecretArrayOutputWithContext(ctx context.Context) GetClusterMasterUserSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterMasterUserSecretArrayOutput)
+}
+
+type GetClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
+
+func (GetClusterMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (o GetClusterMasterUserSecretOutput) ToGetClusterMasterUserSecretOutput() GetClusterMasterUserSecretOutput {
+	return o
+}
+
+func (o GetClusterMasterUserSecretOutput) ToGetClusterMasterUserSecretOutputWithContext(ctx context.Context) GetClusterMasterUserSecretOutput {
+	return o
+}
+
+func (o GetClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o GetClusterMasterUserSecretOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+func (o GetClusterMasterUserSecretOutput) SecretStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.SecretStatus }).(pulumi.StringOutput)
+}
+
+type GetClusterMasterUserSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterMasterUserSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (o GetClusterMasterUserSecretArrayOutput) ToGetClusterMasterUserSecretArrayOutput() GetClusterMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o GetClusterMasterUserSecretArrayOutput) ToGetClusterMasterUserSecretArrayOutputWithContext(ctx context.Context) GetClusterMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o GetClusterMasterUserSecretArrayOutput) Index(i pulumi.IntInput) GetClusterMasterUserSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterMasterUserSecret {
+		return vs[0].([]GetClusterMasterUserSecret)[vs[1].(int)]
+	}).(GetClusterMasterUserSecretOutput)
+}
+
 type GetClustersFilter struct {
 	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
 	Name string `pulumi:"name"`
@@ -2854,6 +3193,121 @@ func (o GetEngineVersionFilterArrayOutput) Index(i pulumi.IntInput) GetEngineVer
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEngineVersionFilter {
 		return vs[0].([]GetEngineVersionFilter)[vs[1].(int)]
 	}).(GetEngineVersionFilterOutput)
+}
+
+type GetInstanceMasterUserSecret struct {
+	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn string `pulumi:"secretArn"`
+	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	SecretStatus string `pulumi:"secretStatus"`
+}
+
+// GetInstanceMasterUserSecretInput is an input type that accepts GetInstanceMasterUserSecretArgs and GetInstanceMasterUserSecretOutput values.
+// You can construct a concrete instance of `GetInstanceMasterUserSecretInput` via:
+//
+//	GetInstanceMasterUserSecretArgs{...}
+type GetInstanceMasterUserSecretInput interface {
+	pulumi.Input
+
+	ToGetInstanceMasterUserSecretOutput() GetInstanceMasterUserSecretOutput
+	ToGetInstanceMasterUserSecretOutputWithContext(context.Context) GetInstanceMasterUserSecretOutput
+}
+
+type GetInstanceMasterUserSecretArgs struct {
+	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	SecretStatus pulumi.StringInput `pulumi:"secretStatus"`
+}
+
+func (GetInstanceMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (i GetInstanceMasterUserSecretArgs) ToGetInstanceMasterUserSecretOutput() GetInstanceMasterUserSecretOutput {
+	return i.ToGetInstanceMasterUserSecretOutputWithContext(context.Background())
+}
+
+func (i GetInstanceMasterUserSecretArgs) ToGetInstanceMasterUserSecretOutputWithContext(ctx context.Context) GetInstanceMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMasterUserSecretOutput)
+}
+
+// GetInstanceMasterUserSecretArrayInput is an input type that accepts GetInstanceMasterUserSecretArray and GetInstanceMasterUserSecretArrayOutput values.
+// You can construct a concrete instance of `GetInstanceMasterUserSecretArrayInput` via:
+//
+//	GetInstanceMasterUserSecretArray{ GetInstanceMasterUserSecretArgs{...} }
+type GetInstanceMasterUserSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceMasterUserSecretArrayOutput() GetInstanceMasterUserSecretArrayOutput
+	ToGetInstanceMasterUserSecretArrayOutputWithContext(context.Context) GetInstanceMasterUserSecretArrayOutput
+}
+
+type GetInstanceMasterUserSecretArray []GetInstanceMasterUserSecretInput
+
+func (GetInstanceMasterUserSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (i GetInstanceMasterUserSecretArray) ToGetInstanceMasterUserSecretArrayOutput() GetInstanceMasterUserSecretArrayOutput {
+	return i.ToGetInstanceMasterUserSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceMasterUserSecretArray) ToGetInstanceMasterUserSecretArrayOutputWithContext(ctx context.Context) GetInstanceMasterUserSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMasterUserSecretArrayOutput)
+}
+
+type GetInstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (o GetInstanceMasterUserSecretOutput) ToGetInstanceMasterUserSecretOutput() GetInstanceMasterUserSecretOutput {
+	return o
+}
+
+func (o GetInstanceMasterUserSecretOutput) ToGetInstanceMasterUserSecretOutputWithContext(ctx context.Context) GetInstanceMasterUserSecretOutput {
+	return o
+}
+
+// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+func (o GetInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o GetInstanceMasterUserSecretOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+func (o GetInstanceMasterUserSecretOutput) SecretStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.SecretStatus }).(pulumi.StringOutput)
+}
+
+type GetInstanceMasterUserSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceMasterUserSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (o GetInstanceMasterUserSecretArrayOutput) ToGetInstanceMasterUserSecretArrayOutput() GetInstanceMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o GetInstanceMasterUserSecretArrayOutput) ToGetInstanceMasterUserSecretArrayOutputWithContext(ctx context.Context) GetInstanceMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o GetInstanceMasterUserSecretArrayOutput) Index(i pulumi.IntInput) GetInstanceMasterUserSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceMasterUserSecret {
+		return vs[0].([]GetInstanceMasterUserSecret)[vs[1].(int)]
+	}).(GetInstanceMasterUserSecretOutput)
 }
 
 type GetInstancesFilter struct {
@@ -3081,6 +3535,8 @@ func (o GetProxyAuthArrayOutput) Index(i pulumi.IntInput) GetProxyAuthOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterUserSecretInput)(nil)).Elem(), ClusterMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterUserSecretArrayInput)(nil)).Elem(), ClusterMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterInput)(nil)).Elem(), ClusterParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterArrayInput)(nil)).Elem(), ClusterParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestoreToPointInTimeInput)(nil)).Elem(), ClusterRestoreToPointInTimeArgs{})
@@ -3097,6 +3553,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdatePtrInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceListenerEndpointInput)(nil)).Elem(), InstanceListenerEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceListenerEndpointArrayInput)(nil)).Elem(), InstanceListenerEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMasterUserSecretInput)(nil)).Elem(), InstanceMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMasterUserSecretArrayInput)(nil)).Elem(), InstanceMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimeInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimePtrInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceS3ImportInput)(nil)).Elem(), InstanceS3ImportArgs{})
@@ -3115,14 +3573,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeArrayInput)(nil)).Elem(), ReservedInstanceRecurringChargeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretInput)(nil)).Elem(), GetClusterMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretArrayInput)(nil)).Elem(), GetClusterMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterInput)(nil)).Elem(), GetClustersFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterArrayInput)(nil)).Elem(), GetClustersFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterInput)(nil)).Elem(), GetEngineVersionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterArrayInput)(nil)).Elem(), GetEngineVersionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMasterUserSecretInput)(nil)).Elem(), GetInstanceMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMasterUserSecretArrayInput)(nil)).Elem(), GetInstanceMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterInput)(nil)).Elem(), GetInstancesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterArrayInput)(nil)).Elem(), GetInstancesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthInput)(nil)).Elem(), GetProxyAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthArrayInput)(nil)).Elem(), GetProxyAuthArray{})
+	pulumi.RegisterOutputType(ClusterMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(ClusterMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ClusterRestoreToPointInTimeOutput{})
@@ -3139,6 +3603,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceBlueGreenUpdatePtrOutput{})
 	pulumi.RegisterOutputType(InstanceListenerEndpointOutput{})
 	pulumi.RegisterOutputType(InstanceListenerEndpointArrayOutput{})
+	pulumi.RegisterOutputType(InstanceMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(InstanceMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimeOutput{})
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportOutput{})
@@ -3157,10 +3623,14 @@ func init() {
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(GetClusterMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetClustersFilterOutput{})
 	pulumi.RegisterOutputType(GetClustersFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(GetInstanceMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetProxyAuthOutput{})

@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerConnectionPool {
-    /**
-     * @return Connection pool information for gRPC listeners.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs;
-    /**
-     * @return Connection pool information for HTTP2 listeners.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s;
-    /**
-     * @return Connection pool information for HTTP listeners.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https;
 
     private GetVirtualGatewaySpecListenerConnectionPool() {}
-    /**
-     * @return Connection pool information for gRPC listeners.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerConnectionPoolGrpc> grpcs() {
         return this.grpcs;
     }
-    /**
-     * @return Connection pool information for HTTP2 listeners.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerConnectionPoolHttp2> http2s() {
         return this.http2s;
     }
-    /**
-     * @return Connection pool information for HTTP listeners.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerConnectionPoolHttp> https() {
         return this.https;
     }

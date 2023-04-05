@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantCor
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantServerlessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -62,6 +63,21 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
      */
     public Optional<Output<EndpointConfigurationProductionVariantCoreDumpConfigArgs>> coreDumpConfig() {
         return Optional.ofNullable(this.coreDumpConfig);
+    }
+
+    /**
+     * You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+     * 
+     */
+    @Import(name="enableSsmAccess")
+    private @Nullable Output<Boolean> enableSsmAccess;
+
+    /**
+     * @return You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+     * 
+     */
+    public Optional<Output<Boolean>> enableSsmAccess() {
+        return Optional.ofNullable(this.enableSsmAccess);
     }
 
     /**
@@ -190,6 +206,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         this.acceleratorType = $.acceleratorType;
         this.containerStartupHealthCheckTimeoutInSeconds = $.containerStartupHealthCheckTimeoutInSeconds;
         this.coreDumpConfig = $.coreDumpConfig;
+        this.enableSsmAccess = $.enableSsmAccess;
         this.initialInstanceCount = $.initialInstanceCount;
         this.initialVariantWeight = $.initialVariantWeight;
         this.instanceType = $.instanceType;
@@ -279,6 +296,27 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
          */
         public Builder coreDumpConfig(EndpointConfigurationProductionVariantCoreDumpConfigArgs coreDumpConfig) {
             return coreDumpConfig(Output.of(coreDumpConfig));
+        }
+
+        /**
+         * @param enableSsmAccess You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSsmAccess(@Nullable Output<Boolean> enableSsmAccess) {
+            $.enableSsmAccess = enableSsmAccess;
+            return this;
+        }
+
+        /**
+         * @param enableSsmAccess You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSsmAccess(Boolean enableSsmAccess) {
+            return enableSsmAccess(Output.of(enableSsmAccess));
         }
 
         /**

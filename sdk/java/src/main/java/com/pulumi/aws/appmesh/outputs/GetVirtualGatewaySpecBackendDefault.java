@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefault {
-    /**
-     * @return Default client policy for virtual gateway backends.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies;
 
     private GetVirtualGatewaySpecBackendDefault() {}
-    /**
-     * @return Default client policy for virtual gateway backends.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicy> clientPolicies() {
         return this.clientPolicies;
     }

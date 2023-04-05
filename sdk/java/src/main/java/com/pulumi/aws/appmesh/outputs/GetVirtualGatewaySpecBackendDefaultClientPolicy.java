@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicy {
-    /**
-     * @return Transport Layer Security (TLS) properties for the listener
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTl> tls;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicy() {}
-    /**
-     * @return Transport Layer Security (TLS) properties for the listener
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTl> tls() {
         return this.tls;
     }

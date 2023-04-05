@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteSpecTcpRoute {
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     private List<GetRouteSpecTcpRouteAction> actions;
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     private List<GetRouteSpecTcpRouteMatch> matches;
-    /**
-     * @return Types of timeouts.
-     * 
-     */
     private List<GetRouteSpecTcpRouteTimeout> timeouts;
 
     private GetRouteSpecTcpRoute() {}
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     public List<GetRouteSpecTcpRouteAction> actions() {
         return this.actions;
     }
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     public List<GetRouteSpecTcpRouteMatch> matches() {
         return this.matches;
     }
-    /**
-     * @return Types of timeouts.
-     * 
-     */
     public List<GetRouteSpecTcpRouteTimeout> timeouts() {
         return this.timeouts;
     }

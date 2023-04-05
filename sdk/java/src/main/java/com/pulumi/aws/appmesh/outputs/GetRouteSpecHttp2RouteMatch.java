@@ -4,6 +4,8 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteMatchHeader;
+import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteMatchPath;
+import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteMatchQueryParameter;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -14,8 +16,10 @@ import java.util.Objects;
 public final class GetRouteSpecHttp2RouteMatch {
     private List<GetRouteSpecHttp2RouteMatchHeader> headers;
     private String method;
+    private List<GetRouteSpecHttp2RouteMatchPath> paths;
     private Integer port;
     private String prefix;
+    private List<GetRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
     private String scheme;
 
     private GetRouteSpecHttp2RouteMatch() {}
@@ -25,11 +29,17 @@ public final class GetRouteSpecHttp2RouteMatch {
     public String method() {
         return this.method;
     }
+    public List<GetRouteSpecHttp2RouteMatchPath> paths() {
+        return this.paths;
+    }
     public Integer port() {
         return this.port;
     }
     public String prefix() {
         return this.prefix;
+    }
+    public List<GetRouteSpecHttp2RouteMatchQueryParameter> queryParameters() {
+        return this.queryParameters;
     }
     public String scheme() {
         return this.scheme;
@@ -46,16 +56,20 @@ public final class GetRouteSpecHttp2RouteMatch {
     public static final class Builder {
         private List<GetRouteSpecHttp2RouteMatchHeader> headers;
         private String method;
+        private List<GetRouteSpecHttp2RouteMatchPath> paths;
         private Integer port;
         private String prefix;
+        private List<GetRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
         private String scheme;
         public Builder() {}
         public Builder(GetRouteSpecHttp2RouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headers = defaults.headers;
     	      this.method = defaults.method;
+    	      this.paths = defaults.paths;
     	      this.port = defaults.port;
     	      this.prefix = defaults.prefix;
+    	      this.queryParameters = defaults.queryParameters;
     	      this.scheme = defaults.scheme;
         }
 
@@ -73,6 +87,14 @@ public final class GetRouteSpecHttp2RouteMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder paths(List<GetRouteSpecHttp2RouteMatchPath> paths) {
+            this.paths = Objects.requireNonNull(paths);
+            return this;
+        }
+        public Builder paths(GetRouteSpecHttp2RouteMatchPath... paths) {
+            return paths(List.of(paths));
+        }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
@@ -83,6 +105,14 @@ public final class GetRouteSpecHttp2RouteMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder queryParameters(List<GetRouteSpecHttp2RouteMatchQueryParameter> queryParameters) {
+            this.queryParameters = Objects.requireNonNull(queryParameters);
+            return this;
+        }
+        public Builder queryParameters(GetRouteSpecHttp2RouteMatchQueryParameter... queryParameters) {
+            return queryParameters(List.of(queryParameters));
+        }
+        @CustomType.Setter
         public Builder scheme(String scheme) {
             this.scheme = Objects.requireNonNull(scheme);
             return this;
@@ -91,8 +121,10 @@ public final class GetRouteSpecHttp2RouteMatch {
             final var o = new GetRouteSpecHttp2RouteMatch();
             o.headers = headers;
             o.method = method;
+            o.paths = paths;
             o.port = port;
             o.prefix = prefix;
+            o.queryParameters = queryParameters;
             o.scheme = scheme;
             return o;
         }

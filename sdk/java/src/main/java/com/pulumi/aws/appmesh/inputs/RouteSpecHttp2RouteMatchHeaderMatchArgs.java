@@ -17,14 +17,14 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
     public static final RouteSpecHttp2RouteMatchHeaderMatchArgs Empty = new RouteSpecHttp2RouteMatchHeaderMatchArgs();
 
     /**
-     * Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * The exact path to match on.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return The exact path to match on.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -64,14 +64,14 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
     }
 
     /**
-     * Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * The regex used to match the path.
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return The regex used to match the path.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -122,7 +122,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * @param exact The exact path to match on.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * @param exact The exact path to match on.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * @param regex The regex used to match the path.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * @param regex The regex used to match the path.
          * 
          * @return builder
          * 

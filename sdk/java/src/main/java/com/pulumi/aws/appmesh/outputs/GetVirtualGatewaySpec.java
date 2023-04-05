@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpec {
-    /**
-     * @return Defaults for backends.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefault> backendDefaults;
-    /**
-     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-     * 
-     */
     private List<GetVirtualGatewaySpecListener> listeners;
-    /**
-     * @return Inbound and outbound access logging information for the virtual gateway.
-     * 
-     */
     private List<GetVirtualGatewaySpecLogging> loggings;
 
     private GetVirtualGatewaySpec() {}
-    /**
-     * @return Defaults for backends.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefault> backendDefaults() {
         return this.backendDefaults;
     }
-    /**
-     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-     * 
-     */
     public List<GetVirtualGatewaySpecListener> listeners() {
         return this.listeners;
     }
-    /**
-     * @return Inbound and outbound access logging information for the virtual gateway.
-     * 
-     */
     public List<GetVirtualGatewaySpecLogging> loggings() {
         return this.loggings;
     }

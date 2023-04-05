@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerConnectionPoolHttp {
-    /**
-     * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-     * 
-     */
     private Integer maxConnections;
-    /**
-     * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-     * 
-     */
     private Integer maxPendingRequests;
 
     private GetVirtualGatewaySpecListenerConnectionPoolHttp() {}
-    /**
-     * @return Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-     * 
-     */
     public Integer maxConnections() {
         return this.maxConnections;
     }
-    /**
-     * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-     * 
-     */
     public Integer maxPendingRequests() {
         return this.maxPendingRequests;
     }

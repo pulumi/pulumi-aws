@@ -194,7 +194,7 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string ResourceOwner;
         /// <summary>
-        /// Service mesh specification.
+        /// Service mesh specification. See the `aws.appmesh.Mesh` resource for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMeshSpecResult> Specs;
         /// <summary>

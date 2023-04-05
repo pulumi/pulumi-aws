@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteSpecHttp2Route {
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     private List<GetRouteSpecHttp2RouteAction> actions;
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     private List<GetRouteSpecHttp2RouteMatch> matches;
-    /**
-     * @return Retry policy.
-     * 
-     */
     private List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies;
-    /**
-     * @return Types of timeouts.
-     * 
-     */
     private List<GetRouteSpecHttp2RouteTimeout> timeouts;
 
     private GetRouteSpecHttp2Route() {}
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     public List<GetRouteSpecHttp2RouteAction> actions() {
         return this.actions;
     }
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     public List<GetRouteSpecHttp2RouteMatch> matches() {
         return this.matches;
     }
-    /**
-     * @return Retry policy.
-     * 
-     */
     public List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies() {
         return this.retryPolicies;
     }
-    /**
-     * @return Types of timeouts.
-     * 
-     */
     public List<GetRouteSpecHttp2RouteTimeout> timeouts() {
         return this.timeouts;
     }

@@ -25,6 +25,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// Specification of an HTTP gateway route.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRoute? HttpRoute;
+        /// <summary>
+        /// Priority for the gateway route, between `0` and `1000`.
+        /// </summary>
+        public readonly int? Priority;
 
         [OutputConstructor]
         private GatewayRouteSpec(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             Outputs.GatewayRouteSpecHttp2Route? http2Route,
 
-            Outputs.GatewayRouteSpecHttpRoute? httpRoute)
+            Outputs.GatewayRouteSpecHttpRoute? httpRoute,
+
+            int? priority)
         {
             GrpcRoute = grpcRoute;
             Http2Route = http2Route;
             HttpRoute = httpRoute;
+            Priority = priority;
         }
     }
 }

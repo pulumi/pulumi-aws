@@ -116,7 +116,7 @@ class GetRouteResult:
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetRouteSpecResult']:
         """
-        Route specification
+        Route specification. See the `appmesh.Route` resource for details.
         """
         return pulumi.get(self, "specs")
 

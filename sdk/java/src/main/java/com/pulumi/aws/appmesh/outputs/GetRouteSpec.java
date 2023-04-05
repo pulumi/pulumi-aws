@@ -14,65 +14,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteSpec {
-    /**
-     * @return GRPC routing information for the route.
-     * 
-     */
     private List<GetRouteSpecGrpcRoute> grpcRoutes;
-    /**
-     * @return HTTP/2 routing information for the route.
-     * 
-     */
     private List<GetRouteSpecHttp2Route> http2Routes;
-    /**
-     * @return HTTP routing information for the route.
-     * 
-     */
     private List<GetRouteSpecHttpRoute> httpRoutes;
-    /**
-     * @return Priority for the route, between `0` and `1000`.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return TCP routing information for the route.
-     * 
-     */
     private List<GetRouteSpecTcpRoute> tcpRoutes;
 
     private GetRouteSpec() {}
-    /**
-     * @return GRPC routing information for the route.
-     * 
-     */
     public List<GetRouteSpecGrpcRoute> grpcRoutes() {
         return this.grpcRoutes;
     }
-    /**
-     * @return HTTP/2 routing information for the route.
-     * 
-     */
     public List<GetRouteSpecHttp2Route> http2Routes() {
         return this.http2Routes;
     }
-    /**
-     * @return HTTP routing information for the route.
-     * 
-     */
     public List<GetRouteSpecHttpRoute> httpRoutes() {
         return this.httpRoutes;
     }
-    /**
-     * @return Priority for the route, between `0` and `1000`.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return TCP routing information for the route.
-     * 
-     */
     public List<GetRouteSpecTcpRoute> tcpRoutes() {
         return this.tcpRoutes;
     }

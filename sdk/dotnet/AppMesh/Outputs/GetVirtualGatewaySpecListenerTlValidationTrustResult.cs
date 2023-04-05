@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecListenerTlValidationTrustResult
     {
-        /// <summary>
-        /// TLS validation context trust for a local file certificate.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult> Files;
-        /// <summary>
-        /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult> Sds;
 
         [OutputConstructor]

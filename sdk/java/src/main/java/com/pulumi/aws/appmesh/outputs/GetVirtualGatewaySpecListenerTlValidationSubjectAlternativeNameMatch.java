@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch {
-    /**
-     * @return Values sent must match the specified values exactly.
-     * 
-     */
     private List<String> exacts;
 
     private GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch() {}
-    /**
-     * @return Values sent must match the specified values exactly.
-     * 
-     */
     public List<String> exacts() {
         return this.exacts;
     }

@@ -100,7 +100,7 @@ type LookupMeshResult struct {
 	Name            string `pulumi:"name"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// Service mesh specification.
+	// Service mesh specification. See the `appmesh.Mesh` resource for details.
 	Specs []GetMeshSpec `pulumi:"specs"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -181,7 +181,7 @@ func (o LookupMeshResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMeshResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Service mesh specification.
+// Service mesh specification. See the `appmesh.Mesh` resource for details.
 func (o LookupMeshResultOutput) Specs() GetMeshSpecArrayOutput {
 	return o.ApplyT(func(v LookupMeshResult) []GetMeshSpec { return v.Specs }).(GetMeshSpecArrayOutput)
 }

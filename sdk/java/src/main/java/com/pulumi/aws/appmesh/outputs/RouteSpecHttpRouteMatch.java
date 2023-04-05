@@ -4,6 +4,8 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.RouteSpecHttpRouteMatchHeader;
+import com.pulumi.aws.appmesh.outputs.RouteSpecHttpRouteMatchPath;
+import com.pulumi.aws.appmesh.outputs.RouteSpecHttpRouteMatchQueryParameter;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -25,6 +27,11 @@ public final class RouteSpecHttpRouteMatch {
      */
     private @Nullable String method;
     /**
+     * @return Client request path to match on.
+     * 
+     */
+    private @Nullable RouteSpecHttpRouteMatchPath path;
+    /**
      * @return The port number to match from the request.
      * 
      */
@@ -34,7 +41,12 @@ public final class RouteSpecHttpRouteMatch {
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
-    private String prefix;
+    private @Nullable String prefix;
+    /**
+     * @return Client request query parameters to match on.
+     * 
+     */
+    private @Nullable List<RouteSpecHttpRouteMatchQueryParameter> queryParameters;
     /**
      * @return Client request header scheme to match on. Valid values: `http`, `https`.
      * 
@@ -57,6 +69,13 @@ public final class RouteSpecHttpRouteMatch {
         return Optional.ofNullable(this.method);
     }
     /**
+     * @return Client request path to match on.
+     * 
+     */
+    public Optional<RouteSpecHttpRouteMatchPath> path() {
+        return Optional.ofNullable(this.path);
+    }
+    /**
      * @return The port number to match from the request.
      * 
      */
@@ -68,8 +87,15 @@ public final class RouteSpecHttpRouteMatch {
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
-    public String prefix() {
-        return this.prefix;
+    public Optional<String> prefix() {
+        return Optional.ofNullable(this.prefix);
+    }
+    /**
+     * @return Client request query parameters to match on.
+     * 
+     */
+    public List<RouteSpecHttpRouteMatchQueryParameter> queryParameters() {
+        return this.queryParameters == null ? List.of() : this.queryParameters;
     }
     /**
      * @return Client request header scheme to match on. Valid values: `http`, `https`.
@@ -90,16 +116,20 @@ public final class RouteSpecHttpRouteMatch {
     public static final class Builder {
         private @Nullable List<RouteSpecHttpRouteMatchHeader> headers;
         private @Nullable String method;
+        private @Nullable RouteSpecHttpRouteMatchPath path;
         private @Nullable Integer port;
-        private String prefix;
+        private @Nullable String prefix;
+        private @Nullable List<RouteSpecHttpRouteMatchQueryParameter> queryParameters;
         private @Nullable String scheme;
         public Builder() {}
         public Builder(RouteSpecHttpRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headers = defaults.headers;
     	      this.method = defaults.method;
+    	      this.path = defaults.path;
     	      this.port = defaults.port;
     	      this.prefix = defaults.prefix;
+    	      this.queryParameters = defaults.queryParameters;
     	      this.scheme = defaults.scheme;
         }
 
@@ -117,14 +147,27 @@ public final class RouteSpecHttpRouteMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder path(@Nullable RouteSpecHttpRouteMatchPath path) {
+            this.path = path;
+            return this;
+        }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
         @CustomType.Setter
-        public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+        public Builder prefix(@Nullable String prefix) {
+            this.prefix = prefix;
             return this;
+        }
+        @CustomType.Setter
+        public Builder queryParameters(@Nullable List<RouteSpecHttpRouteMatchQueryParameter> queryParameters) {
+            this.queryParameters = queryParameters;
+            return this;
+        }
+        public Builder queryParameters(RouteSpecHttpRouteMatchQueryParameter... queryParameters) {
+            return queryParameters(List.of(queryParameters));
         }
         @CustomType.Setter
         public Builder scheme(@Nullable String scheme) {
@@ -135,8 +178,10 @@ public final class RouteSpecHttpRouteMatch {
             final var o = new RouteSpecHttpRouteMatch();
             o.headers = headers;
             o.method = method;
+            o.path = path;
             o.port = port;
             o.prefix = prefix;
+            o.queryParameters = queryParameters;
             o.scheme = scheme;
             return o;
         }

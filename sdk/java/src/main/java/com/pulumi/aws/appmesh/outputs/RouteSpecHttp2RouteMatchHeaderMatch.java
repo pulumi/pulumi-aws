@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttp2RouteMatchHeaderMatch {
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return The exact path to match on.
      * 
      */
     private @Nullable String exact;
@@ -29,7 +29,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
      */
     private @Nullable RouteSpecHttp2RouteMatchHeaderMatchRange range;
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return The regex used to match the path.
      * 
      */
     private @Nullable String regex;
@@ -41,7 +41,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
 
     private RouteSpecHttp2RouteMatchHeaderMatch() {}
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return The exact path to match on.
      * 
      */
     public Optional<String> exact() {
@@ -63,7 +63,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
         return Optional.ofNullable(this.range);
     }
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return The regex used to match the path.
      * 
      */
     public Optional<String> regex() {

@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualServiceSpecProviderVirtualRouter {
-    /**
-     * @return Name of the virtual router that is acting as a service provider.
-     * 
-     */
     private String virtualRouterName;
 
     private GetVirtualServiceSpecProviderVirtualRouter() {}
-    /**
-     * @return Name of the virtual router that is acting as a service provider.
-     * 
-     */
     public String virtualRouterName() {
         return this.virtualRouterName;
     }

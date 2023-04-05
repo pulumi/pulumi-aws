@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecGrpcRouteMatchMetadataMatch
     {
         /// <summary>
-        /// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        /// The exact path to match on.
         /// </summary>
         public readonly string? Exact;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRouteMatchMetadataMatchRange? Range;
         /// <summary>
-        /// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        /// The regex used to match the path.
         /// </summary>
         public readonly string? Regex;
         /// <summary>

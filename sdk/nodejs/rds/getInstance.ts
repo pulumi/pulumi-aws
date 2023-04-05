@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -128,13 +131,17 @@ export interface GetInstanceResult {
      */
     readonly iops: number;
     /**
-     * If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
+     * The Amazon Web Services KMS key identifier that is used to encrypt the secret.
      */
     readonly kmsKeyId: string;
     /**
      * License model information for this DB instance.
      */
     readonly licenseModel: string;
+    /**
+     * Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+     */
+    readonly masterUserSecrets: outputs.rds.GetInstanceMasterUserSecret[];
     /**
      * Contains the master username for the DB instance.
      */

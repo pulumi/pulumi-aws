@@ -3,10 +3,14 @@
 
 package com.pulumi.aws.appmesh.outputs;
 
+import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteMatchHeader;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteMatchHostname;
+import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteMatchPath;
+import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteMatchQueryParameter;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,12 +18,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteMatch {
     /**
+     * @return Client request headers to match on.
+     * 
+     */
+    private @Nullable List<GatewayRouteSpecHttp2RouteMatchHeader> headers;
+    /**
      * @return Host name to rewrite.
      * 
      */
     private @Nullable GatewayRouteSpecHttp2RouteMatchHostname hostname;
     /**
-     * @return The port number to match from the request.
+     * @return Client request path to match on.
+     * 
+     */
+    private @Nullable GatewayRouteSpecHttp2RouteMatchPath path;
+    /**
+     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
      * 
      */
     private @Nullable Integer port;
@@ -28,8 +42,20 @@ public final class GatewayRouteSpecHttp2RouteMatch {
      * 
      */
     private @Nullable String prefix;
+    /**
+     * @return Client request query parameters to match on.
+     * 
+     */
+    private @Nullable List<GatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
 
     private GatewayRouteSpecHttp2RouteMatch() {}
+    /**
+     * @return Client request headers to match on.
+     * 
+     */
+    public List<GatewayRouteSpecHttp2RouteMatchHeader> headers() {
+        return this.headers == null ? List.of() : this.headers;
+    }
     /**
      * @return Host name to rewrite.
      * 
@@ -38,7 +64,14 @@ public final class GatewayRouteSpecHttp2RouteMatch {
         return Optional.ofNullable(this.hostname);
     }
     /**
-     * @return The port number to match from the request.
+     * @return Client request path to match on.
+     * 
+     */
+    public Optional<GatewayRouteSpecHttp2RouteMatchPath> path() {
+        return Optional.ofNullable(this.path);
+    }
+    /**
+     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
      * 
      */
     public Optional<Integer> port() {
@@ -51,6 +84,13 @@ public final class GatewayRouteSpecHttp2RouteMatch {
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
+    /**
+     * @return Client request query parameters to match on.
+     * 
+     */
+    public List<GatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters() {
+        return this.queryParameters == null ? List.of() : this.queryParameters;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,20 +101,39 @@ public final class GatewayRouteSpecHttp2RouteMatch {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<GatewayRouteSpecHttp2RouteMatchHeader> headers;
         private @Nullable GatewayRouteSpecHttp2RouteMatchHostname hostname;
+        private @Nullable GatewayRouteSpecHttp2RouteMatchPath path;
         private @Nullable Integer port;
         private @Nullable String prefix;
+        private @Nullable List<GatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
         public Builder() {}
         public Builder(GatewayRouteSpecHttp2RouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.headers = defaults.headers;
     	      this.hostname = defaults.hostname;
+    	      this.path = defaults.path;
     	      this.port = defaults.port;
     	      this.prefix = defaults.prefix;
+    	      this.queryParameters = defaults.queryParameters;
         }
 
         @CustomType.Setter
+        public Builder headers(@Nullable List<GatewayRouteSpecHttp2RouteMatchHeader> headers) {
+            this.headers = headers;
+            return this;
+        }
+        public Builder headers(GatewayRouteSpecHttp2RouteMatchHeader... headers) {
+            return headers(List.of(headers));
+        }
+        @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttp2RouteMatchHostname hostname) {
             this.hostname = hostname;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder path(@Nullable GatewayRouteSpecHttp2RouteMatchPath path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
@@ -87,11 +146,22 @@ public final class GatewayRouteSpecHttp2RouteMatch {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
+        public Builder queryParameters(@Nullable List<GatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters) {
+            this.queryParameters = queryParameters;
+            return this;
+        }
+        public Builder queryParameters(GatewayRouteSpecHttp2RouteMatchQueryParameter... queryParameters) {
+            return queryParameters(List.of(queryParameters));
+        }
         public GatewayRouteSpecHttp2RouteMatch build() {
             final var o = new GatewayRouteSpecHttp2RouteMatch();
+            o.headers = headers;
             o.hostname = hostname;
+            o.path = path;
             o.port = port;
             o.prefix = prefix;
+            o.queryParameters = queryParameters;
             return o;
         }
     }

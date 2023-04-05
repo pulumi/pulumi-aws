@@ -98,10 +98,12 @@ type LookupInstanceResult struct {
 	Id string `pulumi:"id"`
 	// Provisioned IOPS (I/O operations per second) value.
 	Iops int `pulumi:"iops"`
-	// If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
+	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// License model information for this DB instance.
 	LicenseModel string `pulumi:"licenseModel"`
+	// Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+	MasterUserSecrets []GetInstanceMasterUserSecret `pulumi:"masterUserSecrets"`
 	// Contains the master username for the DB instance.
 	MasterUsername string `pulumi:"masterUsername"`
 	// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
@@ -287,7 +289,7 @@ func (o LookupInstanceResultOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.Iops }).(pulumi.IntOutput)
 }
 
-// If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
+// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
 func (o LookupInstanceResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -295,6 +297,11 @@ func (o LookupInstanceResultOutput) KmsKeyId() pulumi.StringOutput {
 // License model information for this DB instance.
 func (o LookupInstanceResultOutput) LicenseModel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.LicenseModel }).(pulumi.StringOutput)
+}
+
+// Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+func (o LookupInstanceResultOutput) MasterUserSecrets() GetInstanceMasterUserSecretArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []GetInstanceMasterUserSecret { return v.MasterUserSecrets }).(GetInstanceMasterUserSecretArrayOutput)
 }
 
 // Contains the master username for the DB instance.

@@ -7,6 +7,7 @@ import com.pulumi.aws.rds.enums.InstanceType;
 import com.pulumi.aws.rds.enums.StorageType;
 import com.pulumi.aws.rds.inputs.InstanceBlueGreenUpdateArgs;
 import com.pulumi.aws.rds.inputs.InstanceListenerEndpointArgs;
+import com.pulumi.aws.rds.inputs.InstanceMasterUserSecretArgs;
 import com.pulumi.aws.rds.inputs.InstanceRestoreToPointInTimeArgs;
 import com.pulumi.aws.rds.inputs.InstanceS3ImportArgs;
 import com.pulumi.core.Either;
@@ -689,6 +690,51 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * 
+     */
+    @Import(name="manageMasterUserPassword")
+    private @Nullable Output<Boolean> manageMasterUserPassword;
+
+    /**
+     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * 
+     */
+    public Optional<Output<Boolean>> manageMasterUserPassword() {
+        return Optional.ofNullable(this.manageMasterUserPassword);
+    }
+
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * 
+     */
+    @Import(name="masterUserSecretKmsKeyId")
+    private @Nullable Output<String> masterUserSecretKmsKeyId;
+
+    /**
+     * @return The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * 
+     */
+    public Optional<Output<String>> masterUserSecretKmsKeyId() {
+        return Optional.ofNullable(this.masterUserSecretKmsKeyId);
+    }
+
+    /**
+     * A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    @Import(name="masterUserSecrets")
+    private @Nullable Output<List<InstanceMasterUserSecretArgs>> masterUserSecrets;
+
+    /**
+     * @return A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    public Optional<Output<List<InstanceMasterUserSecretArgs>>> masterUserSecrets() {
+        return Optional.ofNullable(this.masterUserSecrets);
+    }
+
+    /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
      * 
      */
@@ -842,18 +888,18 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
+     * (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
+     * @return (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     public Optional<Output<String>> password() {
@@ -1306,6 +1352,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.licenseModel = $.licenseModel;
         this.listenerEndpoints = $.listenerEndpoints;
         this.maintenanceWindow = $.maintenanceWindow;
+        this.manageMasterUserPassword = $.manageMasterUserPassword;
+        this.masterUserSecretKmsKeyId = $.masterUserSecretKmsKeyId;
+        this.masterUserSecrets = $.masterUserSecrets;
         this.maxAllocatedStorage = $.maxAllocatedStorage;
         this.monitoringInterval = $.monitoringInterval;
         this.monitoringRoleArn = $.monitoringRoleArn;
@@ -2290,6 +2339,79 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageMasterUserPassword(@Nullable Output<Boolean> manageMasterUserPassword) {
+            $.manageMasterUserPassword = manageMasterUserPassword;
+            return this;
+        }
+
+        /**
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageMasterUserPassword(Boolean manageMasterUserPassword) {
+            return manageMasterUserPassword(Output.of(manageMasterUserPassword));
+        }
+
+        /**
+         * @param masterUserSecretKmsKeyId The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecretKmsKeyId(@Nullable Output<String> masterUserSecretKmsKeyId) {
+            $.masterUserSecretKmsKeyId = masterUserSecretKmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param masterUserSecretKmsKeyId The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecretKmsKeyId(String masterUserSecretKmsKeyId) {
+            return masterUserSecretKmsKeyId(Output.of(masterUserSecretKmsKeyId));
+        }
+
+        /**
+         * @param masterUserSecrets A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecrets(@Nullable Output<List<InstanceMasterUserSecretArgs>> masterUserSecrets) {
+            $.masterUserSecrets = masterUserSecrets;
+            return this;
+        }
+
+        /**
+         * @param masterUserSecrets A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecrets(List<InstanceMasterUserSecretArgs> masterUserSecrets) {
+            return masterUserSecrets(Output.of(masterUserSecrets));
+        }
+
+        /**
+         * @param masterUserSecrets A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecrets(InstanceMasterUserSecretArgs... masterUserSecrets) {
+            return masterUserSecrets(List.of(masterUserSecrets));
+        }
+
+        /**
          * @param maxAllocatedStorage When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
          * 
          * @return builder
@@ -2497,9 +2619,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Required unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided) Password for the master DB user. Note that this may show up in
-         * logs, and it will be stored in the state file.
+         * @param password (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+         * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+         * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
          * 
          * @return builder
          * 
@@ -2510,9 +2632,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Required unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided) Password for the master DB user. Note that this may show up in
-         * logs, and it will be stored in the state file.
+         * @param password (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+         * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+         * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
          * 
          * @return builder
          * 
