@@ -3331,7 +3331,8 @@ func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
 			"aws_ssm_service_setting":    {Tok: awsResource(ssmMod, "ServiceSetting")},
 
 			// SSM Incidents
-			"aws_ssmincidents_replication_set": {Tok: awsResource(ssmIncidentsMod, "ReplicationSet")},
+			// TODO did this move to PF?
+			// "aws_ssmincidents_replication_set": {Tok: awsResource(ssmIncidentsMod, "ReplicationSet")},
 
 			// SimpleDB
 			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
@@ -3439,7 +3440,10 @@ func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_sns_topic_data_protection_policy": {Tok: awsResource(snsMod, "DataProtectionPolicy")},
+
+			// TODO did this move to PF?
+			// "aws_sns_topic_data_protection_policy": {Tok: awsResource(snsMod, "DataProtectionPolicy")},
+
 			// Step Functions (SFN)
 			"aws_sfn_activity":      {Tok: awsResource(sfnMod, "Activity")},
 			"aws_sfn_state_machine": {Tok: awsResource(sfnMod, "StateMachine")},
@@ -3783,8 +3787,7 @@ func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
 			// controlTower
 			"aws_controltower_control": {Tok: awsResource(controlTowerMod, "ControlTowerControl")},
 
-			// rbin
-			"aws_rbin_rule": {Tok: awsResource(rbinMod, "Rule")},
+			// "aws_rbin_rule": {Tok: awsResource(rbinMod, "Rule")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -6205,7 +6208,10 @@ func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
 			"aws_ssm_instances":           {Tok: awsDataSource(ssmMod, "getInstances")},
 			"aws_ssm_maintenance_windows": {Tok: awsDataSource(ssmMod, "getMaintenanceWindows")},
 			// SSM Incidents
-			"aws_ssmincidents_replication_set": {Tok: awsDataSource(ssmIncidentsMod, "getReplicationSet")},
+
+			// TODO did this move to PF?
+			// "aws_ssmincidents_replication_set": {Tok: awsDataSource(ssmIncidentsMod, "getReplicationSet")},
+
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
 			// Transfer
