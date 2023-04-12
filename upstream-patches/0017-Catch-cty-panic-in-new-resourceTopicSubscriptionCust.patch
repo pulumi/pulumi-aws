@@ -1,0 +1,28 @@
+From e28d4c56bed7e9074be205aaab9277945772433a Mon Sep 17 00:00:00 2001
+From: Thomas Kappler <tkappler@gmail.com>
+Date: Thu, 1 Dec 2022 10:56:32 -0800
+Subject: [PATCH 17/27] Catch cty panic in new
+ resourceTopicSubscriptionCustomizeDiff.
+
+The root cause is not fully understood yet but this might unblock us.
+---
+ internal/service/sns/topic_subscription.go | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/internal/service/sns/topic_subscription.go b/internal/service/sns/topic_subscription.go
+index c3acba5efe..3665ba1e74 100644
+--- a/internal/service/sns/topic_subscription.go
++++ b/internal/service/sns/topic_subscription.go
+@@ -514,9 +514,11 @@ func normalizeTopicSubscriptionDeliveryPolicy(policy string) ([]byte, error) {
+ 
+ func resourceTopicSubscriptionCustomizeDiff(_ context.Context, diff *schema.ResourceDiff, _ interface{}) error {
+ 	hasPolicy := diff.Get("filter_policy").(string) != ""
+-	hasScope := !diff.GetRawConfig().GetAttr("filter_policy_scope").IsNull()
+ 	hadScope := diff.Get("filter_policy_scope").(string) != ""
+ 
++	rawConfig := diff.GetRawConfig()
++	hasScope := rawConfig.Type().IsObjectType() && !rawConfig.GetAttr("filter_policy_scope").IsNull()
++
+ 	if hasPolicy && !hasScope {
+ 		if !hadScope {
+ 			// When the filter_policy_scope hasn't been read back from the API,
