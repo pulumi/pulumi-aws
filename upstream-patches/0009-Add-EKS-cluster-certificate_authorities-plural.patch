@@ -1,14 +1,14 @@
-From d25aed3b2d834119d9592bec838fd0936175f5e2 Mon Sep 17 00:00:00 2001
+From 920528cc0f70dff44726d2760b75a74e710cfbbb Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:32:49 +0000
-Subject: [PATCH 09/27] Add EKS cluster certificate_authorities (plural)
+Subject: [PATCH 09/26] Add EKS cluster certificate_authorities (plural)
 
 ---
  internal/service/eks/cluster.go | 22 ++++++++++++++++++++++
  1 file changed, 22 insertions(+)
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index 9eb3f74d7c..d3f84ba86a 100644
+index 45d0af18b7..dc07dc1b9f 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -52,9 +52,24 @@ func ResourceCluster() *schema.Resource {

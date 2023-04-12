@@ -1,7 +1,7 @@
-From 865f4c2abbbdccfd655d4dc2d66881fee39f6b80 Mon Sep 17 00:00:00 2001
+From 3a44198f0b5a537e5c387dee598f4b16fb855d72 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:42:19 +0000
-Subject: [PATCH 12/27] Revert framework conversions
+Subject: [PATCH 12/26] Revert framework conversions
 
 This commit reverts resources and data sources that were ported to the
 plugin framework, back to their previous implementation. The upstream
@@ -182,10 +182,10 @@ index 10259afb52..3cbf5123ff 100644
  	}
  
 diff --git a/internal/provider/service_packages_gen.go b/internal/provider/service_packages_gen.go
-index fcb34b05db..c2da47f3ac 100644
+index eda4493346..07a69e16b2 100644
 --- a/internal/provider/service_packages_gen.go
 +++ b/internal/provider/service_packages_gen.go
-@@ -91,7 +91,7 @@ import (
+@@ -92,7 +92,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/fsx"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/glacier"
@@ -194,7 +194,7 @@ index fcb34b05db..c2da47f3ac 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/glue"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/grafana"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/greengrass"
-@@ -131,7 +131,7 @@ import (
+@@ -132,7 +132,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mediapackage"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mediastore"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/memorydb"
@@ -203,7 +203,7 @@ index fcb34b05db..c2da47f3ac 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mq"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mwaa"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/neptune"
-@@ -181,14 +181,14 @@ import (
+@@ -183,14 +183,14 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/sfn"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/shield"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/signer"
@@ -220,7 +220,7 @@ index fcb34b05db..c2da47f3ac 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/swf"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/synthetics"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/timestreamwrite"
-@@ -290,7 +290,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -294,7 +294,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		fsx.ServicePackage,
  		gamelift.ServicePackage,
  		glacier.ServicePackage,
@@ -229,7 +229,7 @@ index fcb34b05db..c2da47f3ac 100644
  		glue.ServicePackage,
  		grafana.ServicePackage,
  		greengrass.ServicePackage,
-@@ -330,7 +330,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -334,7 +334,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		mediapackage.ServicePackage,
  		mediastore.ServicePackage,
  		memorydb.ServicePackage,
@@ -238,7 +238,7 @@ index fcb34b05db..c2da47f3ac 100644
  		mq.ServicePackage,
  		mwaa.ServicePackage,
  		neptune.ServicePackage,
-@@ -380,14 +380,14 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -385,14 +385,14 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		sfn.ServicePackage,
  		shield.ServicePackage,
  		signer.ServicePackage,
@@ -426,7 +426,7 @@ index 0000000000..3bd69472c8
 +	return nil
 +}
 diff --git a/internal/service/globalaccelerator/service_package_gen.go b/internal/service/globalaccelerator/service_package_gen.go
-index f0e65fbb85..c3376abded 100644
+index 4dc8fca71e..53bd6c4fcf 100644
 --- a/internal/service/globalaccelerator/service_package_gen.go
 +++ b/internal/service/globalaccelerator/service_package_gen.go
 @@ -13,9 +13,13 @@ type servicePackage struct{}
@@ -964,7 +964,7 @@ index 0000000000..0a66f5331f
 +	return nil
 +}
 diff --git a/internal/service/meta/region_data_source.go b/internal/service/meta/region_data_source.go
-index bfed7c2b88..8e750c4c13 100644
+index 732732f5c7..8fa6630ad5 100644
 --- a/internal/service/meta/region_data_source.go
 +++ b/internal/service/meta/region_data_source.go
 @@ -1,3 +1,5 @@
@@ -1317,7 +1317,7 @@ index 6bbd72b1a5..70189fbb91 100644
  
  package meta
 diff --git a/internal/service/simpledb/domain.go b/internal/service/simpledb/domain.go
-index c101bdc6b5..849abde753 100644
+index c99ae6f523..3ced22eb2c 100644
 --- a/internal/service/simpledb/domain.go
 +++ b/internal/service/simpledb/domain.go
 @@ -1,3 +1,5 @@

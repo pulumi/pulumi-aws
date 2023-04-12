@@ -1,7 +1,7 @@
-From 52223b87791a4a33b8ab87d74dc0f43f3c020b26 Mon Sep 17 00:00:00 2001
+From 0671b2a7ebbd5a7bb8fb2821851572c1b2b53311 Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@pulumi.com>
 Date: Fri, 3 Feb 2023 17:31:18 -0800
-Subject: [PATCH 21/27] Revert "Update endpointHashIPAddress"
+Subject: [PATCH 21/26] Revert "Update endpointHashIPAddress"
 
 This reverts commit 2197a6c2c7a0ff306cec3432acb9f5680866f034.
 
@@ -12,10 +12,10 @@ a computed property in hashing.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/internal/service/route53resolver/endpoint.go b/internal/service/route53resolver/endpoint.go
-index 51a301699e..9705af3b67 100644
+index 461770b843..d475fbcda9 100644
 --- a/internal/service/route53resolver/endpoint.go
 +++ b/internal/service/route53resolver/endpoint.go
-@@ -412,7 +412,7 @@ func waitEndpointDeleted(ctx context.Context, conn *route53resolver.Route53Resol
+@@ -383,7 +383,7 @@ func waitEndpointDeleted(ctx context.Context, conn *route53resolver.Route53Resol
  func endpointHashIPAddress(v interface{}) int {
  	var buf bytes.Buffer
  	m := v.(map[string]interface{})

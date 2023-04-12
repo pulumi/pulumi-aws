@@ -1,7 +1,7 @@
-From 1102bd1f28ad14415794db42ff97fd5434505e7e Mon Sep 17 00:00:00 2001
+From e548b8880f18fce31cc3b16ee839d59b0682f4bb Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 13:59:57 +0000
-Subject: [PATCH 15/27] Revert WAF schema changes
+Subject: [PATCH 15/26] Revert WAF schema changes
 
 - This causes far too many types to be generated downstream.
 ---

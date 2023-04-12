@@ -1,7 +1,7 @@
-From ba0c979cecf3dc562ab610b858531a3a3f981253 Mon Sep 17 00:00:00 2001
+From 0c553910c0f536417125cb631ee1f7fcd42cc908 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:31:27 +0000
-Subject: [PATCH 08/27] Add EKS cluster default_addons_to_remove
+Subject: [PATCH 08/26] Add EKS cluster default_addons_to_remove
 
 ---
  internal/service/eks/cluster.go               |   7 +
@@ -13,7 +13,7 @@ Subject: [PATCH 08/27] Add EKS cluster default_addons_to_remove
  create mode 100644 internal/service/eks/cluster_addon_removal_test.go
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index 658f3e4cae..9eb3f74d7c 100644
+index 0726aa7fb4..45d0af18b7 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -72,6 +72,13 @@ func ResourceCluster() *schema.Resource {
@@ -254,7 +254,7 @@ index 0000000000..7ec8d0303e
 +	}
 +}
 diff --git a/internal/service/eks/wait.go b/internal/service/eks/wait.go
-index 13b50ef76b..9027567ec8 100644
+index 34fa213a1a..8039919c31 100644
 --- a/internal/service/eks/wait.go
 +++ b/internal/service/eks/wait.go
 @@ -11,6 +11,9 @@ import (
