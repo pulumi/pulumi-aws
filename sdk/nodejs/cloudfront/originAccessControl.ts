@@ -61,7 +61,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
     }
 
     /**
-     * The description of the Origin Access Control. It may be empty.
+     * The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -73,15 +73,15 @@ export class OriginAccessControl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
      */
     public readonly originAccessControlOriginType!: pulumi.Output<string>;
     /**
-     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      */
     public readonly signingBehavior!: pulumi.Output<string>;
     /**
-     * Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      */
     public readonly signingProtocol!: pulumi.Output<string>;
 
@@ -132,7 +132,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
  */
 export interface OriginAccessControlState {
     /**
-     * The description of the Origin Access Control. It may be empty.
+     * The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
      */
     description?: pulumi.Input<string>;
     /**
@@ -144,15 +144,15 @@ export interface OriginAccessControlState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
      */
     originAccessControlOriginType?: pulumi.Input<string>;
     /**
-     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      */
     signingBehavior?: pulumi.Input<string>;
     /**
-     * Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      */
     signingProtocol?: pulumi.Input<string>;
 }
@@ -162,7 +162,7 @@ export interface OriginAccessControlState {
  */
 export interface OriginAccessControlArgs {
     /**
-     * The description of the Origin Access Control. It may be empty.
+     * The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
      */
     description?: pulumi.Input<string>;
     /**
@@ -170,15 +170,15 @@ export interface OriginAccessControlArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
      */
     originAccessControlOriginType: pulumi.Input<string>;
     /**
-     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      */
     signingBehavior: pulumi.Input<string>;
     /**
-     * Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      */
     signingProtocol: pulumi.Input<string>;
 }

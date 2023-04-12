@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * &gt; **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
  * 
  * ## Example Usage
- * ### With ACL
+ * ### With `private` ACL
  * ```java
  * package generated_program;
  * 
@@ -29,8 +29,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketOwnershipControls;
+ * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+ * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,12 +48,82 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
  * 
- *         var exampleBucketAcl = new BucketAclV2(&#34;exampleBucketAcl&#34;, BucketAclV2Args.builder()        
- *             .bucket(example.id())
- *             .acl(&#34;private&#34;)
+ *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .rule(BucketOwnershipControlsRuleArgs.builder()
+ *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
+ *                 .build())
  *             .build());
+ * 
+ *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .acl(&#34;private&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleBucketOwnershipControls)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With `public-read` ACL
+ * 
+ * &gt; This example explicitly disables the default S3 bucket security settings. This
+ * should be done with caution, as all bucket objects become publicly exposed.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketOwnershipControls;
+ * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+ * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
+ * import com.pulumi.aws.s3.BucketPublicAccessBlock;
+ * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .rule(BucketOwnershipControlsRuleArgs.builder()
+ *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleBucketPublicAccessBlock = new BucketPublicAccessBlock(&#34;exampleBucketPublicAccessBlock&#34;, BucketPublicAccessBlockArgs.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .blockPublicAcls(false)
+ *             .blockPublicPolicy(false)
+ *             .ignorePublicAcls(false)
+ *             .restrictPublicBuckets(false)
+ *             .build());
+ * 
+ *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .acl(&#34;public-read&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleBucketOwnershipControls,
+ *                     exampleBucketPublicAccessBlock)
+ *                 .build());
  * 
  *     }
  * }
@@ -63,10 +137,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.S3Functions;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketOwnershipControls;
+ * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+ * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
  * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,6 +161,13 @@ import javax.annotation.Nullable;
  *         final var current = S3Functions.getCanonicalUserId();
  * 
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ * 
+ *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .rule(BucketOwnershipControlsRuleArgs.builder()
+ *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
+ *                 .build())
+ *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
@@ -106,7 +191,9 @@ import javax.annotation.Nullable;
  *                     .id(current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleBucketOwnershipControls)
+ *                 .build());
  * 
  *     }
  * }

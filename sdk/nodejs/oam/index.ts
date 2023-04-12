@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetLinkArgs, GetLinkResult, GetLinkOutputArgs } from "./getLink";
+export const getLink: typeof import("./getLink").getLink = null as any;
+export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
+
+export { GetLinksResult } from "./getLinks";
+export const getLinks: typeof import("./getLinks").getLinks = null as any;
+utilities.lazyLoad(exports, ["getLinks"], () => require("./getLinks"));
+
 export { GetSinkArgs, GetSinkResult, GetSinkOutputArgs } from "./getSink";
 export const getSink: typeof import("./getSink").getSink = null as any;
 export const getSinkOutput: typeof import("./getSink").getSinkOutput = null as any;

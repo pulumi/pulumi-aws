@@ -55,6 +55,7 @@ class ClusterArgs:
                  snapshot_copy: Optional[pulumi.Input['ClusterSnapshotCopyArgs']] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -105,6 +106,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterSnapshotCopyArgs'] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -186,6 +188,8 @@ class ClusterArgs:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
@@ -664,6 +668,18 @@ class ClusterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
@@ -1453,6 +1469,7 @@ class Cluster(pulumi.CustomResource):
                  snapshot_copy: Optional[pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -1532,6 +1549,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         ...
@@ -1622,6 +1640,7 @@ class Cluster(pulumi.CustomResource):
                  snapshot_copy: Optional[pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1678,11 +1697,11 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["snapshot_copy"] = snapshot_copy
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["cluster_nodes"] = None
             __props__.__dict__["dns_name"] = None
-            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(

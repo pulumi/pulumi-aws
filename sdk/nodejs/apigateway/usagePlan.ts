@@ -144,7 +144,7 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The throttling limits of the usage plan.
      */
@@ -180,9 +180,9 @@ export class UsagePlan extends pulumi.CustomResource {
             resourceInputs["productCode"] = args ? args.productCode : undefined;
             resourceInputs["quotaSettings"] = args ? args.quotaSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["throttleSettings"] = args ? args.throttleSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UsagePlan.__pulumiType, name, resourceInputs, opts);
@@ -259,6 +259,10 @@ export interface UsagePlanArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throttling limits of the usage plan.
      */

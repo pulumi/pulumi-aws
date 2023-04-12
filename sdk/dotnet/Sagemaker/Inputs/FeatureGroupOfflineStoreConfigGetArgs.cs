@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("s3StorageConfig", required: true)]
         public Input<Inputs.FeatureGroupOfflineStoreConfigS3StorageConfigGetArgs> S3StorageConfig { get; set; } = null!;
 
+        /// <summary>
+        /// Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+        /// </summary>
+        [Input("tableFormat")]
+        public Input<string>? TableFormat { get; set; }
+
         public FeatureGroupOfflineStoreConfigGetArgs()
         {
         }

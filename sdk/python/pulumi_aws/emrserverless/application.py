@@ -21,6 +21,7 @@ class ApplicationArgs:
                  architecture: Optional[pulumi.Input[str]] = None,
                  auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
+                 image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: The configuration for an application to automatically start on job submission.
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
+        :param pulumi.Input['ApplicationImageConfigurationArgs'] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]] initial_capacities: The capacity to initialize when the application is created.
         :param pulumi.Input['ApplicationMaximumCapacityArgs'] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         :param pulumi.Input[str] name: The name of the application.
@@ -47,6 +49,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
             pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+        if image_configuration is not None:
+            pulumi.set(__self__, "image_configuration", image_configuration)
         if initial_capacities is not None:
             pulumi.set(__self__, "initial_capacities", initial_capacities)
         if maximum_capacity is not None:
@@ -119,6 +123,18 @@ class ApplicationArgs:
         pulumi.set(self, "auto_stop_configuration", value)
 
     @property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationArgs']]:
+        """
+        The image configuration applied to all worker types.
+        """
+        return pulumi.get(self, "image_configuration")
+
+    @image_configuration.setter
+    def image_configuration(self, value: Optional[pulumi.Input['ApplicationImageConfigurationArgs']]):
+        pulumi.set(self, "image_configuration", value)
+
+    @property
     @pulumi.getter(name="initialCapacities")
     def initial_capacities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]:
         """
@@ -186,6 +202,7 @@ class _ApplicationState:
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
+                 image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -200,6 +217,7 @@ class _ApplicationState:
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: The configuration for an application to automatically start on job submission.
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
+        :param pulumi.Input['ApplicationImageConfigurationArgs'] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]] initial_capacities: The capacity to initialize when the application is created.
         :param pulumi.Input['ApplicationMaximumCapacityArgs'] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         :param pulumi.Input[str] name: The name of the application.
@@ -217,6 +235,8 @@ class _ApplicationState:
             pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
             pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+        if image_configuration is not None:
+            pulumi.set(__self__, "image_configuration", image_configuration)
         if initial_capacities is not None:
             pulumi.set(__self__, "initial_capacities", initial_capacities)
         if maximum_capacity is not None:
@@ -281,6 +301,18 @@ class _ApplicationState:
     @auto_stop_configuration.setter
     def auto_stop_configuration(self, value: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]):
         pulumi.set(self, "auto_stop_configuration", value)
+
+    @property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationArgs']]:
+        """
+        The image configuration applied to all worker types.
+        """
+        return pulumi.get(self, "image_configuration")
+
+    @image_configuration.setter
+    def image_configuration(self, value: Optional[pulumi.Input['ApplicationImageConfigurationArgs']]):
+        pulumi.set(self, "image_configuration", value)
 
     @property
     @pulumi.getter(name="initialCapacities")
@@ -387,6 +419,7 @@ class Application(pulumi.CustomResource):
                  architecture: Optional[pulumi.Input[str]] = None,
                  auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
+                 image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationArgs']]] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]]] = None,
                  maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumCapacityArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -457,6 +490,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: The configuration for an application to automatically start on job submission.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
+        :param pulumi.Input[pulumi.InputType['ApplicationImageConfigurationArgs']] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]] initial_capacities: The capacity to initialize when the application is created.
         :param pulumi.Input[pulumi.InputType['ApplicationMaximumCapacityArgs']] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         :param pulumi.Input[str] name: The name of the application.
@@ -546,6 +580,7 @@ class Application(pulumi.CustomResource):
                  architecture: Optional[pulumi.Input[str]] = None,
                  auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
+                 image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationArgs']]] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]]] = None,
                  maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumCapacityArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -565,6 +600,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["architecture"] = architecture
             __props__.__dict__["auto_start_configuration"] = auto_start_configuration
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
+            __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacities"] = initial_capacities
             __props__.__dict__["maximum_capacity"] = maximum_capacity
             __props__.__dict__["name"] = name
@@ -592,6 +628,7 @@ class Application(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
             auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
+            image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationArgs']]] = None,
             initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]]] = None,
             maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumCapacityArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -611,6 +648,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: The configuration for an application to automatically start on job submission.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
+        :param pulumi.Input[pulumi.InputType['ApplicationImageConfigurationArgs']] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]] initial_capacities: The capacity to initialize when the application is created.
         :param pulumi.Input[pulumi.InputType['ApplicationMaximumCapacityArgs']] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         :param pulumi.Input[str] name: The name of the application.
@@ -628,6 +666,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_start_configuration"] = auto_start_configuration
         __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
+        __props__.__dict__["image_configuration"] = image_configuration
         __props__.__dict__["initial_capacities"] = initial_capacities
         __props__.__dict__["maximum_capacity"] = maximum_capacity
         __props__.__dict__["name"] = name
@@ -669,6 +708,14 @@ class Application(pulumi.CustomResource):
         The configuration for an application to automatically stop after a certain amount of time being idle.
         """
         return pulumi.get(self, "auto_stop_configuration")
+
+    @property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> pulumi.Output['outputs.ApplicationImageConfiguration']:
+        """
+        The image configuration applied to all worker types.
+        """
+        return pulumi.get(self, "image_configuration")
 
     @property
     @pulumi.getter(name="initialCapacities")

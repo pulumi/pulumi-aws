@@ -28,6 +28,7 @@ class ImageBuilderArgs:
                  image_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
@@ -43,6 +44,7 @@ class ImageBuilderArgs:
         :param pulumi.Input[str] image_name: Name of the image used to create the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -68,6 +70,8 @@ class ImageBuilderArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -214,6 +218,18 @@ class ImageBuilderArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
@@ -525,6 +541,7 @@ class ImageBuilder(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']]] = None,
                  __props__=None):
         """
@@ -572,6 +589,7 @@ class ImageBuilder(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[str] name: Unique name for the image builder.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         ...
@@ -638,6 +656,7 @@ class ImageBuilder(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -662,11 +681,11 @@ class ImageBuilder(pulumi.CustomResource):
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["state"] = None
-            __props__.__dict__["tags_all"] = None
         super(ImageBuilder, __self__).__init__(
             'aws:appstream/imageBuilder:ImageBuilder',
             resource_name,

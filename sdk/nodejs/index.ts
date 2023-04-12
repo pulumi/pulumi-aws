@@ -279,6 +279,7 @@ import * as timestreamwrite from "./timestreamwrite";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
+import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
@@ -465,6 +466,7 @@ export {
     transcribe,
     transfer,
     types,
+    vpclattice,
     waf,
     wafregional,
     wafv2,

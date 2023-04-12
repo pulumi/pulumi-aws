@@ -381,6 +381,8 @@ if typing.TYPE_CHECKING:
     transcribe = __transcribe
     import pulumi_aws.transfer as __transfer
     transfer = __transfer
+    import pulumi_aws.vpclattice as __vpclattice
+    vpclattice = __vpclattice
     import pulumi_aws.waf as __waf
     waf = __waf
     import pulumi_aws.wafregional as __wafregional
@@ -570,6 +572,7 @@ else:
     timestreamwrite = _utilities.lazy_import('pulumi_aws.timestreamwrite')
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
+    vpclattice = _utilities.lazy_import('pulumi_aws.vpclattice')
     waf = _utilities.lazy_import('pulumi_aws.waf')
     wafregional = _utilities.lazy_import('pulumi_aws.wafregional')
     wafv2 = _utilities.lazy_import('pulumi_aws.wafv2')
@@ -5726,6 +5729,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "inspector2/memberAssociation",
+  "fqn": "pulumi_aws.inspector2",
+  "classes": {
+   "aws:inspector2/memberAssociation:MemberAssociation": "MemberAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "inspector2/organizationConfiguration",
   "fqn": "pulumi_aws.inspector2",
   "classes": {
@@ -6394,6 +6405,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lightsail",
   "classes": {
    "aws:lightsail/disk_attachment:Disk_attachment": "Disk_attachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/distribution",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/distribution:Distribution": "Distribution"
   }
  },
  {
@@ -7430,10 +7449,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/accountSubscription",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/accountSubscription:AccountSubscription": "AccountSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/dataSet",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/dataSet:DataSet": "DataSet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/dataSource",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
    "aws:quicksight/dataSource:DataSource": "DataSource"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/folder",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/folder:Folder": "Folder"
   }
  },
  {
@@ -9682,6 +9725,22 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/service",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/serviceNetwork",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/serviceNetwork:ServiceNetwork": "ServiceNetwork"
   }
  },
  {

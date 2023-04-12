@@ -76,6 +76,7 @@ class InstanceArgs:
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -221,6 +222,7 @@ class InstanceArgs:
                or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
                "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
                creation. See [MSSQL User
@@ -351,6 +353,8 @@ class InstanceArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
         if username is not None:
@@ -1146,6 +1150,18 @@ class InstanceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -2619,6 +2635,7 @@ class Instance(pulumi.CustomResource):
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2883,6 +2900,7 @@ class Instance(pulumi.CustomResource):
                or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
                "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
                creation. See [MSSQL User
@@ -3091,6 +3109,7 @@ class Instance(pulumi.CustomResource):
                  storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3167,6 +3186,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["storage_throughput"] = storage_throughput
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["username"] = username
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
@@ -3181,7 +3201,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["replicas"] = None
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Instance, __self__).__init__(

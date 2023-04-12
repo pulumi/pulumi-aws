@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.outputs.FeatureGroupOfflineStoreConfigDataCatalo
 import com.pulumi.aws.sagemaker.outputs.FeatureGroupOfflineStoreConfigS3StorageConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,6 +29,11 @@ public final class FeatureGroupOfflineStoreConfig {
      * 
      */
     private FeatureGroupOfflineStoreConfigS3StorageConfig s3StorageConfig;
+    /**
+     * @return Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+     * 
+     */
+    private @Nullable String tableFormat;
 
     private FeatureGroupOfflineStoreConfig() {}
     /**
@@ -51,6 +57,13 @@ public final class FeatureGroupOfflineStoreConfig {
     public FeatureGroupOfflineStoreConfigS3StorageConfig s3StorageConfig() {
         return this.s3StorageConfig;
     }
+    /**
+     * @return Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+     * 
+     */
+    public Optional<String> tableFormat() {
+        return Optional.ofNullable(this.tableFormat);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,12 +77,14 @@ public final class FeatureGroupOfflineStoreConfig {
         private @Nullable FeatureGroupOfflineStoreConfigDataCatalogConfig dataCatalogConfig;
         private @Nullable Boolean disableGlueTableCreation;
         private FeatureGroupOfflineStoreConfigS3StorageConfig s3StorageConfig;
+        private @Nullable String tableFormat;
         public Builder() {}
         public Builder(FeatureGroupOfflineStoreConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataCatalogConfig = defaults.dataCatalogConfig;
     	      this.disableGlueTableCreation = defaults.disableGlueTableCreation;
     	      this.s3StorageConfig = defaults.s3StorageConfig;
+    	      this.tableFormat = defaults.tableFormat;
         }
 
         @CustomType.Setter
@@ -87,11 +102,17 @@ public final class FeatureGroupOfflineStoreConfig {
             this.s3StorageConfig = Objects.requireNonNull(s3StorageConfig);
             return this;
         }
+        @CustomType.Setter
+        public Builder tableFormat(@Nullable String tableFormat) {
+            this.tableFormat = tableFormat;
+            return this;
+        }
         public FeatureGroupOfflineStoreConfig build() {
             final var o = new FeatureGroupOfflineStoreConfig();
             o.dataCatalogConfig = dataCatalogConfig;
             o.disableGlueTableCreation = disableGlueTableCreation;
             o.s3StorageConfig = s3StorageConfig;
+            o.tableFormat = tableFormat;
             return o;
         }
     }

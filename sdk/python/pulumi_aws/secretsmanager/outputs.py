@@ -112,6 +112,8 @@ class SecretRotationRotationRules(dict):
         suggest = None
         if key == "automaticallyAfterDays":
             suggest = "automatically_after_days"
+        elif key == "scheduleExpression":
+            suggest = "schedule_expression"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SecretRotationRotationRules. Access the value via the '{suggest}' property getter instead.")
@@ -125,19 +127,44 @@ class SecretRotationRotationRules(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 automatically_after_days: int):
+                 automatically_after_days: Optional[int] = None,
+                 duration: Optional[str] = None,
+                 schedule_expression: Optional[str] = None):
         """
-        :param int automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret.
+        :param int automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+        :param str duration: The length of the rotation window in hours. For example, `3h` for a three hour window.
+        :param str schedule_expression: A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         """
-        pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        if automatically_after_days is not None:
+            pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
-    def automatically_after_days(self) -> int:
+    def automatically_after_days(self) -> Optional[int]:
         """
-        Specifies the number of days between automatic scheduled rotations of the secret.
+        Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         """
         return pulumi.get(self, "automatically_after_days")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[str]:
+        """
+        The length of the rotation window in hours. For example, `3h` for a three hour window.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[str]:
+        """
+        A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+        """
+        return pulumi.get(self, "schedule_expression")
 
 
 @pulumi.output_type
@@ -147,6 +174,8 @@ class SecretRotationRules(dict):
         suggest = None
         if key == "automaticallyAfterDays":
             suggest = "automatically_after_days"
+        elif key == "scheduleExpression":
+            suggest = "schedule_expression"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SecretRotationRules. Access the value via the '{suggest}' property getter instead.")
@@ -160,43 +189,88 @@ class SecretRotationRules(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 automatically_after_days: int):
+                 automatically_after_days: Optional[int] = None,
+                 duration: Optional[str] = None,
+                 schedule_expression: Optional[str] = None):
         """
         :param int automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret.
         """
-        pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        if automatically_after_days is not None:
+            pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
-    def automatically_after_days(self) -> int:
+    def automatically_after_days(self) -> Optional[int]:
         """
         Specifies the number of days between automatic scheduled rotations of the secret.
         """
         return pulumi.get(self, "automatically_after_days")
 
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[str]:
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[str]:
+        return pulumi.get(self, "schedule_expression")
+
 
 @pulumi.output_type
 class GetSecretRotationRotationRuleResult(dict):
     def __init__(__self__, *,
-                 automatically_after_days: int):
+                 automatically_after_days: int,
+                 duration: str,
+                 schedule_expression: str):
         pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> int:
         return pulumi.get(self, "automatically_after_days")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> str:
+        return pulumi.get(self, "schedule_expression")
 
 
 @pulumi.output_type
 class GetSecretRotationRuleResult(dict):
     def __init__(__self__, *,
-                 automatically_after_days: int):
+                 automatically_after_days: int,
+                 duration: str,
+                 schedule_expression: str):
         pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> int:
         return pulumi.get(self, "automatically_after_days")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> str:
+        return pulumi.get(self, "schedule_expression")
 
 
 @pulumi.output_type

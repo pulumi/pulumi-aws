@@ -210,6 +210,8 @@ type modelArgs struct {
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
 }
@@ -230,6 +232,8 @@ type ModelArgs struct {
 	PrimaryContainer ModelPrimaryContainerPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrInput
 }

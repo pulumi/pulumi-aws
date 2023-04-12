@@ -172,7 +172,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      */
@@ -251,12 +251,12 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterEndpoints"] = undefined /*out*/;
             resourceInputs["enginePatchVersion"] = undefined /*out*/;
             resourceInputs["shards"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
@@ -478,6 +478,10 @@ export interface ClusterArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      */

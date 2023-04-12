@@ -115,7 +115,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the VPC.
      */
@@ -164,6 +164,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcArn"] = args ? args.vpcArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
@@ -174,7 +175,6 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcAttachment.__pulumiType, name, resourceInputs, opts);
@@ -267,6 +267,10 @@ export interface VpcAttachmentArgs {
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the VPC.
      */

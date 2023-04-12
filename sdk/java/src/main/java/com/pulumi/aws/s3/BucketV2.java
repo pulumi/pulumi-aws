@@ -32,60 +32,10 @@ import javax.annotation.Nullable;
  * 
  * &gt; This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
  * 
- * &gt; **NOTE on S3 Bucket Accelerate Configuration:** S3 Bucket Accelerate can be configured in either the standalone resource `aws.s3.BucketAccelerateConfigurationV2`
- * or with the deprecated parameter `acceleration_status` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket canned ACL Configuration:** S3 Bucket canned ACL can be configured in either the standalone resource `aws.s3.BucketAclV2`
- * or with the deprecated parameter `acl` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket ACL Grants Configuration:** S3 Bucket grants can be configured in either the standalone resource `aws.s3.BucketAclV2`
- * or with the deprecated parameter `grant` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket CORS Configuration:** S3 Bucket CORS can be configured in either the standalone resource `aws.s3.BucketCorsConfigurationV2`
- * or with the deprecated parameter `cors_rule` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Lifecycle Configuration:** S3 Bucket Lifecycle can be configured in either the standalone resource `aws.s3.BucketLifecycleConfigurationV2`
- * or with the deprecated parameter `lifecycle_rule` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Logging Configuration:** S3 Bucket logging can be configured in either the standalone resource `aws.s3.BucketLoggingV2`
- * or with the deprecated parameter `logging` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Object Lock Configuration:** S3 Bucket Object Lock can be configured in either the standalone resource `aws.s3.BucketObjectLockConfigurationV2`
- * or with the deprecated parameter `object_lock_configuration` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Policy Configuration:** S3 Bucket Policy can be configured in either the standalone resource `aws.s3.BucketPolicy`
- * or with the deprecated parameter `policy` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `aws.s3.BucketReplicationConfig`
- * or with the deprecated parameter `replication_configuration` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Request Payment Configuration:** S3 Bucket Request Payment can be configured in either the standalone resource `aws.s3.BucketRequestPaymentConfigurationV2`
- * or with the deprecated parameter `request_payer` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Server Side Encryption Configuration:** S3 Bucket Server Side Encryption can be configured in either the standalone resource `aws.s3.BucketServerSideEncryptionConfigurationV2`
- * or with the deprecated parameter `server_side_encryption_configuration` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Versioning Configuration:** S3 Bucket versioning can be configured in either the standalone resource `aws.s3.BucketVersioningV2`
- * or with the deprecated parameter `versioning` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- * 
- * &gt; **NOTE on S3 Bucket Website Configuration:** S3 Bucket Website can be configured in either the standalone resource `aws.s3.BucketWebsiteConfigurationV2`
- * or with the deprecated parameter `website` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
+ * &gt; In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `aws.s3.BucketV2` resource.
  * 
  * ## Example Usage
- * ### Private Bucket w/ Tags
+ * ### Private Bucket With Tags
  * ```java
  * package generated_program;
  * 
@@ -94,286 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;),
- *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;)
- *             ))
- *             .build());
- * 
- *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
- *             .bucket(bucketV2.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Static Website Hosting
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2WebsiteArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
- *             .acl(&#34;public-read&#34;)
- *             .policy(Files.readString(Paths.get(&#34;policy.json&#34;)))
- *             .websites(BucketV2WebsiteArgs.builder()
- *                 .indexDocument(&#34;index.html&#34;)
- *                 .errorDocument(&#34;error.html&#34;)
- *                 .routingRules(&#34;&#34;&#34;
- * [{
- *     &#34;Condition&#34;: {
- *         &#34;KeyPrefixEquals&#34;: &#34;docs/&#34;
- *     },
- *     &#34;Redirect&#34;: {
- *         &#34;ReplaceKeyPrefixWith&#34;: &#34;documents/&#34;
- *     }
- * }]
- *                 &#34;&#34;&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using CORS
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2CorsRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
- *             .acl(&#34;public-read&#34;)
- *             .corsRules(BucketV2CorsRuleArgs.builder()
- *                 .allowedHeaders(&#34;*&#34;)
- *                 .allowedMethods(                
- *                     &#34;PUT&#34;,
- *                     &#34;POST&#34;)
- *                 .allowedOrigins(&#34;https://s3-website-test.domain.example&#34;)
- *                 .exposeHeaders(&#34;ETag&#34;)
- *                 .maxAgeSeconds(3000)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using versioning
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2VersioningArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
- *             .acl(&#34;private&#34;)
- *             .versionings(BucketV2VersioningArgs.builder()
- *                 .enabled(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Enable Logging
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2LoggingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var logBucket = new BucketV2(&#34;logBucket&#34;, BucketV2Args.builder()        
- *             .acl(&#34;log-delivery-write&#34;)
- *             .build());
- * 
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
- *             .acl(&#34;private&#34;)
- *             .loggings(BucketV2LoggingArgs.builder()
- *                 .targetBucket(logBucket.id())
- *                 .targetPrefix(&#34;log/&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using object lifecycle
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2LifecycleRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketV2VersioningArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
- *             .acl(&#34;private&#34;)
- *             .lifecycleRules(            
- *                 BucketV2LifecycleRuleArgs.builder()
- *                     .enabled(true)
- *                     .expirations(BucketV2LifecycleRuleExpirationArgs.builder()
- *                         .days(90)
- *                         .build())
- *                     .id(&#34;log&#34;)
- *                     .prefix(&#34;log/&#34;)
- *                     .tags(Map.ofEntries(
- *                         Map.entry(&#34;autoclean&#34;, &#34;true&#34;),
- *                         Map.entry(&#34;rule&#34;, &#34;log&#34;)
- *                     ))
- *                     .transitions(                    
- *                         BucketV2LifecycleRuleTransitionArgs.builder()
- *                             .days(30)
- *                             .storageClass(&#34;STANDARD_IA&#34;)
- *                             .build(),
- *                         BucketV2LifecycleRuleTransitionArgs.builder()
- *                             .days(60)
- *                             .storageClass(&#34;GLACIER&#34;)
- *                             .build())
- *                     .build(),
- *                 BucketV2LifecycleRuleArgs.builder()
- *                     .enabled(true)
- *                     .expirations(BucketV2LifecycleRuleExpirationArgs.builder()
- *                         .date(&#34;2016-01-12&#34;)
- *                         .build())
- *                     .id(&#34;tmp&#34;)
- *                     .prefix(&#34;tmp/&#34;)
- *                     .build())
- *             .build());
- * 
- *         var versioningBucket = new BucketV2(&#34;versioningBucket&#34;, BucketV2Args.builder()        
- *             .acl(&#34;private&#34;)
- *             .lifecycleRules(BucketV2LifecycleRuleArgs.builder()
- *                 .enabled(true)
- *                 .noncurrentVersionExpirations(BucketV2LifecycleRuleNoncurrentVersionExpirationArgs.builder()
- *                     .days(90)
- *                     .build())
- *                 .noncurrentVersionTransitions(                
- *                     BucketV2LifecycleRuleNoncurrentVersionTransitionArgs.builder()
- *                         .days(30)
- *                         .storageClass(&#34;STANDARD_IA&#34;)
- *                         .build(),
- *                     BucketV2LifecycleRuleNoncurrentVersionTransitionArgs.builder()
- *                         .days(60)
- *                         .storageClass(&#34;GLACIER&#34;)
- *                         .build())
- *                 .prefix(&#34;config/&#34;)
- *                 .build())
- *             .versionings(BucketV2VersioningArgs.builder()
- *                 .enabled(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using object lock configuration
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2ObjectLockConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -388,234 +58,59 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .objectLockConfiguration(BucketV2ObjectLockConfigurationArgs.builder()
- *                 .objectLockEnabled(&#34;Enabled&#34;)
- *                 .rule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;),
+ *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;)
+ *             ))
  *             .build());
  * 
  *     }
  * }
  * ```
- * ### Using replication configuration
- * ```java
- * package generated_program;
+ * ### Static Website Hosting
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2VersioningArgs;
- * import com.pulumi.aws.s3.inputs.BucketV2ReplicationConfigurationArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
+ * &gt; **NOTE:** The `website` attribute is deprecated.
+ * See `aws.s3.BucketWebsiteConfigurationV2` for examples with static website hosting configured.
  * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
+ * ### CORS Rules
  * 
- *     public static void stack(Context ctx) {
- *         var central = new Provider(&#34;central&#34;, ProviderArgs.builder()        
- *             .region(&#34;eu-central-1&#34;)
- *             .build());
+ * &gt; **NOTE:** The `cors_rule` attribute is deprecated.
+ * See `aws.s3.BucketCorsConfigurationV2` for examples with CORS rules configured.
  * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;s3.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
+ * ### Versioning
  * 
- *         var replicationRole = new Role(&#34;replicationRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
+ * &gt; **NOTE:** The `versioning` attribute is deprecated.
+ * See `aws.s3.BucketVersioningV2` for examples with versioning configured.
  * 
- *         var destination = new BucketV2(&#34;destination&#34;, BucketV2Args.builder()        
- *             .versionings(BucketV2VersioningArgs.builder()
- *                 .enabled(true)
- *                 .build())
- *             .build());
+ * ### Logging
  * 
- *         var source = new BucketV2(&#34;source&#34;, BucketV2Args.builder()        
- *             .acl(&#34;private&#34;)
- *             .versionings(BucketV2VersioningArgs.builder()
- *                 .enabled(true)
- *                 .build())
- *             .replicationConfigurations(BucketV2ReplicationConfigurationArgs.builder()
- *                 .role(replicationRole.arn())
- *                 .rules(BucketV2ReplicationConfigurationRuleArgs.builder()
- *                     .id(&#34;foobar&#34;)
- *                     .status(&#34;Enabled&#34;)
- *                     .filters(BucketV2ReplicationConfigurationRuleFilterArgs.builder()
- *                         .tags()
- *                         .build())
- *                     .destinations(BucketV2ReplicationConfigurationRuleDestinationArgs.builder()
- *                         .bucket(destination.arn())
- *                         .storageClass(&#34;STANDARD&#34;)
- *                         .replicationTimes(BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs.builder()
- *                             .status(&#34;Enabled&#34;)
- *                             .minutes(15)
- *                             .build())
- *                         .metrics(BucketV2ReplicationConfigurationRuleDestinationMetricArgs.builder()
- *                             .status(&#34;Enabled&#34;)
- *                             .minutes(15)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.central())
- *                 .build());
+ * &gt; **NOTE:** The `logging` attribute is deprecated.
+ * See `aws.s3.BucketLoggingV2` for examples with logging enabled.
  * 
- *         final var replicationPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(                    
- *                         &#34;s3:GetReplicationConfiguration&#34;,
- *                         &#34;s3:ListBucket&#34;)
- *                     .resources(source.arn())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(                    
- *                         &#34;s3:GetObjectVersionForReplication&#34;,
- *                         &#34;s3:GetObjectVersionAcl&#34;,
- *                         &#34;s3:GetObjectVersionTagging&#34;)
- *                     .resources(source.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(                    
- *                         &#34;s3:ReplicateObject&#34;,
- *                         &#34;s3:ReplicateDelete&#34;,
- *                         &#34;s3:ReplicateTags&#34;)
- *                     .resources(destination.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                     .build())
- *             .build());
+ * ### Object Lifecycle Rules
  * 
- *         var replicationPolicy = new Policy(&#34;replicationPolicy&#34;, PolicyArgs.builder()        
- *             .policy(replicationPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(replicationPolicyDocument -&gt; replicationPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
+ * &gt; **NOTE:** The `lifecycle_rule` attribute is deprecated.
+ * See `aws.s3.BucketLifecycleConfigurationV2` for examples with object lifecycle rules.
  * 
- *         var replicationRolePolicyAttachment = new RolePolicyAttachment(&#34;replicationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(replicationRole.name())
- *             .policyArn(replicationPolicy.arn())
- *             .build());
+ * ### Object Lock Configuration
  * 
- *     }
- * }
- * ```
+ * &gt; **NOTE:** The `object_lock_configuration` attribute is deprecated.
+ * See `aws.s3.BucketObjectLockConfigurationV2` for examples with object lock configurations on both new and existing buckets.
+ * 
+ * ### Replication Configuration
+ * 
+ * &gt; **NOTE:** The `replication_configuration` attribute is deprecated.
+ * See `aws.s3.BucketReplicationConfig` for examples with replication configured.
+ * 
  * ### Enable SSE-KMS Server Side Encryption
- * ```java
- * package generated_program;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2ServerSideEncryptionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
+ * &gt; **NOTE:** The `server_side_encryption_configuration` attribute is deprecated.
+ * See `aws.s3.BucketServerSideEncryptionConfigurationV2` for examples with server side encryption configured.
  * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
+ * ### ACL Policy Grants
  * 
- *     public static void stack(Context ctx) {
- *         var mykey = new Key(&#34;mykey&#34;, KeyArgs.builder()        
- *             .description(&#34;This key is used to encrypt bucket objects&#34;)
- *             .deletionWindowInDays(10)
- *             .build());
- * 
- *         var mybucket = new BucketV2(&#34;mybucket&#34;, BucketV2Args.builder()        
- *             .serverSideEncryptionConfigurations(BucketV2ServerSideEncryptionConfigurationArgs.builder()
- *                 .rules(BucketV2ServerSideEncryptionConfigurationRuleArgs.builder()
- *                     .applyServerSideEncryptionByDefaults(BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
- *                         .kmsMasterKeyId(mykey.arn())
- *                         .sseAlgorithm(&#34;aws:kms&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using ACL policy grants
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.S3Functions;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.inputs.BucketV2GrantArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentUser = S3Functions.getCanonicalUserId();
- * 
- *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
- *             .grants(            
- *                 BucketV2GrantArgs.builder()
- *                     .id(currentUser.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
- *                     .type(&#34;CanonicalUser&#34;)
- *                     .permissions(&#34;FULL_CONTROL&#34;)
- *                     .build(),
- *                 BucketV2GrantArgs.builder()
- *                     .type(&#34;Group&#34;)
- *                     .permissions(                    
- *                         &#34;READ_ACP&#34;,
- *                         &#34;WRITE&#34;)
- *                     .uri(&#34;http://acs.amazonaws.com/groups/s3/LogDelivery&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
+ * &gt; **NOTE:** The `acl` and `grant` attributes are deprecated.
+ * See `aws.s3.BucketAclV2` for examples with ACL grants.
  * 
  * ## Import
  * 

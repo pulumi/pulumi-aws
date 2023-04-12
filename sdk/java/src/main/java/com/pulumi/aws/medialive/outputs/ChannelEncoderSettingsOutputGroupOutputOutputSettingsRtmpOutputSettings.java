@@ -13,7 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings {
-    private @Nullable String certficateMode;
+    /**
+     * @return Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
+    private @Nullable String certificateMode;
     /**
      * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
      * 
@@ -31,8 +35,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
     private @Nullable Integer numRetries;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings() {}
-    public Optional<String> certficateMode() {
-        return Optional.ofNullable(this.certficateMode);
+    /**
+     * @return Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
+    public Optional<String> certificateMode() {
+        return Optional.ofNullable(this.certificateMode);
     }
     /**
      * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
@@ -65,22 +73,22 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String certficateMode;
+        private @Nullable String certificateMode;
         private @Nullable Integer connectionRetryInterval;
         private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination;
         private @Nullable Integer numRetries;
         public Builder() {}
         public Builder(ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.certficateMode = defaults.certficateMode;
+    	      this.certificateMode = defaults.certificateMode;
     	      this.connectionRetryInterval = defaults.connectionRetryInterval;
     	      this.destination = defaults.destination;
     	      this.numRetries = defaults.numRetries;
         }
 
         @CustomType.Setter
-        public Builder certficateMode(@Nullable String certficateMode) {
-            this.certficateMode = certficateMode;
+        public Builder certificateMode(@Nullable String certificateMode) {
+            this.certificateMode = certificateMode;
             return this;
         }
         @CustomType.Setter
@@ -100,7 +108,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings build() {
             final var o = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings();
-            o.certficateMode = certficateMode;
+            o.certificateMode = certificateMode;
             o.connectionRetryInterval = connectionRetryInterval;
             o.destination = destination;
             o.numRetries = numRetries;

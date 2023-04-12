@@ -101,6 +101,8 @@ type ContainerRecipe struct {
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the container recipe.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// Specifies the operating system platform when you use a custom base image.
+	PlatformOverride pulumi.StringPtrOutput `pulumi:"platformOverride"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -185,6 +187,8 @@ type containerRecipeState struct {
 	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the container recipe.
 	Platform *string `pulumi:"platform"`
+	// Specifies the operating system platform when you use a custom base image.
+	PlatformOverride *string `pulumi:"platformOverride"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -226,6 +230,8 @@ type ContainerRecipeState struct {
 	ParentImage pulumi.StringPtrInput
 	// Platform of the container recipe.
 	Platform pulumi.StringPtrInput
+	// Specifies the operating system platform when you use a custom base image.
+	PlatformOverride pulumi.StringPtrInput
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -261,6 +267,8 @@ type containerRecipeArgs struct {
 	Name *string `pulumi:"name"`
 	// The base image for the container recipe.
 	ParentImage string `pulumi:"parentImage"`
+	// Specifies the operating system platform when you use a custom base image.
+	PlatformOverride *string `pulumi:"platformOverride"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The destination repository for the container image. Detailed below.
@@ -291,6 +299,8 @@ type ContainerRecipeArgs struct {
 	Name pulumi.StringPtrInput
 	// The base image for the container recipe.
 	ParentImage pulumi.StringInput
+	// Specifies the operating system platform when you use a custom base image.
+	PlatformOverride pulumi.StringPtrInput
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The destination repository for the container image. Detailed below.
@@ -456,6 +466,11 @@ func (o ContainerRecipeOutput) ParentImage() pulumi.StringOutput {
 // Platform of the container recipe.
 func (o ContainerRecipeOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+}
+
+// Specifies the operating system platform when you use a custom base image.
+func (o ContainerRecipeOutput) PlatformOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.PlatformOverride }).(pulumi.StringPtrOutput)
 }
 
 // Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

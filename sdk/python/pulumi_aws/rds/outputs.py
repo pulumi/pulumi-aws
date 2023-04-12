@@ -1500,11 +1500,13 @@ class GetInstancesFilterResult(dict):
 class GetProxyAuthResult(dict):
     def __init__(__self__, *,
                  auth_scheme: str,
+                 client_password_auth_type: str,
                  description: str,
                  iam_auth: str,
                  secret_arn: str,
                  username: str):
         pulumi.set(__self__, "auth_scheme", auth_scheme)
+        pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "iam_auth", iam_auth)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -1514,6 +1516,11 @@ class GetProxyAuthResult(dict):
     @pulumi.getter(name="authScheme")
     def auth_scheme(self) -> str:
         return pulumi.get(self, "auth_scheme")
+
+    @property
+    @pulumi.getter(name="clientPasswordAuthType")
+    def client_password_auth_type(self) -> str:
+        return pulumi.get(self, "client_password_auth_type")
 
     @property
     @pulumi.getter

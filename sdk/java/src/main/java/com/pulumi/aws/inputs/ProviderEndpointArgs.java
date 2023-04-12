@@ -323,6 +323,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.chimesdkidentity);
     }
 
+    @Import(name="chimesdkmediapipelines")
+    private @Nullable Output<String> chimesdkmediapipelines;
+
+    public Optional<Output<String>> chimesdkmediapipelines() {
+        return Optional.ofNullable(this.chimesdkmediapipelines);
+    }
+
     @Import(name="chimesdkmeetings")
     private @Nullable Output<String> chimesdkmeetings;
 
@@ -2290,6 +2297,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.securityhub);
     }
 
+    @Import(name="securitylake")
+    private @Nullable Output<String> securitylake;
+
+    public Optional<Output<String>> securitylake() {
+        return Optional.ofNullable(this.securitylake);
+    }
+
     @Import(name="serverlessapplicationrepository")
     private @Nullable Output<String> serverlessapplicationrepository;
 
@@ -2570,6 +2584,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.voiceid);
     }
 
+    @Import(name="vpclattice")
+    private @Nullable Output<String> vpclattice;
+
+    public Optional<Output<String>> vpclattice() {
+        return Optional.ofNullable(this.vpclattice);
+    }
+
     @Import(name="waf")
     private @Nullable Output<String> waf;
 
@@ -2701,6 +2722,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.ce = $.ce;
         this.chime = $.chime;
         this.chimesdkidentity = $.chimesdkidentity;
+        this.chimesdkmediapipelines = $.chimesdkmediapipelines;
         this.chimesdkmeetings = $.chimesdkmeetings;
         this.chimesdkmessaging = $.chimesdkmessaging;
         this.cloud9 = $.cloud9;
@@ -2982,6 +3004,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.sdb = $.sdb;
         this.secretsmanager = $.secretsmanager;
         this.securityhub = $.securityhub;
+        this.securitylake = $.securitylake;
         this.serverlessapplicationrepository = $.serverlessapplicationrepository;
         this.serverlessapprepo = $.serverlessapprepo;
         this.serverlessrepo = $.serverlessrepo;
@@ -3022,6 +3045,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.transfer = $.transfer;
         this.translate = $.translate;
         this.voiceid = $.voiceid;
+        this.vpclattice = $.vpclattice;
         this.waf = $.waf;
         this.wafregional = $.wafregional;
         this.wafv2 = $.wafv2;
@@ -3448,6 +3472,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder chimesdkidentity(String chimesdkidentity) {
             return chimesdkidentity(Output.of(chimesdkidentity));
+        }
+
+        public Builder chimesdkmediapipelines(@Nullable Output<String> chimesdkmediapipelines) {
+            $.chimesdkmediapipelines = chimesdkmediapipelines;
+            return this;
+        }
+
+        public Builder chimesdkmediapipelines(String chimesdkmediapipelines) {
+            return chimesdkmediapipelines(Output.of(chimesdkmediapipelines));
         }
 
         public Builder chimesdkmeetings(@Nullable Output<String> chimesdkmeetings) {
@@ -5979,6 +6012,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return securityhub(Output.of(securityhub));
         }
 
+        public Builder securitylake(@Nullable Output<String> securitylake) {
+            $.securitylake = securitylake;
+            return this;
+        }
+
+        public Builder securitylake(String securitylake) {
+            return securitylake(Output.of(securitylake));
+        }
+
         public Builder serverlessapplicationrepository(@Nullable Output<String> serverlessapplicationrepository) {
             $.serverlessapplicationrepository = serverlessapplicationrepository;
             return this;
@@ -6337,6 +6379,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder voiceid(String voiceid) {
             return voiceid(Output.of(voiceid));
+        }
+
+        public Builder vpclattice(@Nullable Output<String> vpclattice) {
+            $.vpclattice = vpclattice;
+            return this;
+        }
+
+        public Builder vpclattice(String vpclattice) {
+            return vpclattice(Output.of(vpclattice));
         }
 
         public Builder waf(@Nullable Output<String> waf) {

@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
         /// </summary>
         public readonly Outputs.FeatureGroupOfflineStoreConfigS3StorageConfig S3StorageConfig;
+        /// <summary>
+        /// Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+        /// </summary>
+        public readonly string? TableFormat;
 
         [OutputConstructor]
         private FeatureGroupOfflineStoreConfig(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             bool? disableGlueTableCreation,
 
-            Outputs.FeatureGroupOfflineStoreConfigS3StorageConfig s3StorageConfig)
+            Outputs.FeatureGroupOfflineStoreConfigS3StorageConfig s3StorageConfig,
+
+            string? tableFormat)
         {
             DataCatalogConfig = dataCatalogConfig;
             DisableGlueTableCreation = disableGlueTableCreation;
             S3StorageConfig = s3StorageConfig;
+            TableFormat = tableFormat;
         }
     }
 }

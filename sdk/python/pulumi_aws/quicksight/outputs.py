@@ -11,6 +11,39 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DataSetColumnGroup',
+    'DataSetColumnGroupGeoSpatialColumnGroup',
+    'DataSetColumnLevelPermissionRule',
+    'DataSetDataSetUsageConfiguration',
+    'DataSetFieldFolder',
+    'DataSetLogicalTableMap',
+    'DataSetLogicalTableMapDataTransform',
+    'DataSetLogicalTableMapDataTransformCastColumnTypeOperation',
+    'DataSetLogicalTableMapDataTransformCreateColumnsOperation',
+    'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn',
+    'DataSetLogicalTableMapDataTransformFilterOperation',
+    'DataSetLogicalTableMapDataTransformProjectOperation',
+    'DataSetLogicalTableMapDataTransformRenameColumnOperation',
+    'DataSetLogicalTableMapDataTransformTagColumnOperation',
+    'DataSetLogicalTableMapDataTransformTagColumnOperationTag',
+    'DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription',
+    'DataSetLogicalTableMapDataTransformUntagColumnOperation',
+    'DataSetLogicalTableMapSource',
+    'DataSetLogicalTableMapSourceJoinInstruction',
+    'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties',
+    'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties',
+    'DataSetPermission',
+    'DataSetPhysicalTableMap',
+    'DataSetPhysicalTableMapCustomSql',
+    'DataSetPhysicalTableMapCustomSqlColumn',
+    'DataSetPhysicalTableMapRelationalTable',
+    'DataSetPhysicalTableMapRelationalTableInputColumn',
+    'DataSetPhysicalTableMapS3Source',
+    'DataSetPhysicalTableMapS3SourceInputColumn',
+    'DataSetPhysicalTableMapS3SourceUploadSettings',
+    'DataSetRowLevelPermissionDataSet',
+    'DataSetRowLevelPermissionTagConfiguration',
+    'DataSetRowLevelPermissionTagConfigurationTagRule',
     'DataSourceCredentials',
     'DataSourceCredentialsCredentialPair',
     'DataSourceParameters',
@@ -38,7 +71,1839 @@ __all__ = [
     'DataSourcePermission',
     'DataSourceSslProperties',
     'DataSourceVpcConnectionProperties',
+    'FolderPermission',
+    'GetDataSetColumnGroupResult',
+    'GetDataSetColumnGroupGeoSpatialColumnGroupResult',
+    'GetDataSetColumnLevelPermissionRuleResult',
+    'GetDataSetDataSetUsageConfigurationResult',
+    'GetDataSetFieldFolderResult',
+    'GetDataSetLogicalTableMapResult',
+    'GetDataSetLogicalTableMapDataTransformResult',
+    'GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult',
+    'GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult',
+    'GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult',
+    'GetDataSetLogicalTableMapDataTransformFilterOperationResult',
+    'GetDataSetLogicalTableMapDataTransformProjectOperationResult',
+    'GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult',
+    'GetDataSetLogicalTableMapDataTransformTagColumnOperationResult',
+    'GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult',
+    'GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult',
+    'GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult',
+    'GetDataSetLogicalTableMapSourceResult',
+    'GetDataSetLogicalTableMapSourceJoinInstructionResult',
+    'GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult',
+    'GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult',
+    'GetDataSetPermissionResult',
+    'GetDataSetPhysicalTableMapResult',
+    'GetDataSetPhysicalTableMapCustomSqlResult',
+    'GetDataSetPhysicalTableMapCustomSqlColumnResult',
+    'GetDataSetPhysicalTableMapRelationalTableResult',
+    'GetDataSetPhysicalTableMapRelationalTableInputColumnResult',
+    'GetDataSetPhysicalTableMapS3SourceResult',
+    'GetDataSetPhysicalTableMapS3SourceInputColumnResult',
+    'GetDataSetPhysicalTableMapS3SourceUploadSettingResult',
+    'GetDataSetRowLevelPermissionDataSetResult',
+    'GetDataSetRowLevelPermissionTagConfigurationResult',
+    'GetDataSetRowLevelPermissionTagConfigurationTagRuleResult',
 ]
+
+@pulumi.output_type
+class DataSetColumnGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "geoSpatialColumnGroup":
+            suggest = "geo_spatial_column_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetColumnGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetColumnGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetColumnGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 geo_spatial_column_group: Optional['outputs.DataSetColumnGroupGeoSpatialColumnGroup'] = None):
+        """
+        :param 'DataSetColumnGroupGeoSpatialColumnGroupArgs' geo_spatial_column_group: Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+        """
+        if geo_spatial_column_group is not None:
+            pulumi.set(__self__, "geo_spatial_column_group", geo_spatial_column_group)
+
+    @property
+    @pulumi.getter(name="geoSpatialColumnGroup")
+    def geo_spatial_column_group(self) -> Optional['outputs.DataSetColumnGroupGeoSpatialColumnGroup']:
+        """
+        Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+        """
+        return pulumi.get(self, "geo_spatial_column_group")
+
+
+@pulumi.output_type
+class DataSetColumnGroupGeoSpatialColumnGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetColumnGroupGeoSpatialColumnGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetColumnGroupGeoSpatialColumnGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetColumnGroupGeoSpatialColumnGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence[str],
+                 country_code: str,
+                 name: str):
+        """
+        :param Sequence[str] columns: Columns in this hierarchy.
+        :param str country_code: Country code. Valid values are `US`.
+        :param str name: A display name for the hierarchy.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence[str]:
+        """
+        Columns in this hierarchy.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> str:
+        """
+        Country code. Valid values are `US`.
+        """
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A display name for the hierarchy.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataSetColumnLevelPermissionRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnNames":
+            suggest = "column_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetColumnLevelPermissionRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetColumnLevelPermissionRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetColumnLevelPermissionRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_names: Optional[Sequence[str]] = None,
+                 principals: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] column_names: An array of column names.
+        :param Sequence[str] principals: An array of ARNs for Amazon QuickSight users or groups.
+        """
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if principals is not None:
+            pulumi.set(__self__, "principals", principals)
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Optional[Sequence[str]]:
+        """
+        An array of column names.
+        """
+        return pulumi.get(self, "column_names")
+
+    @property
+    @pulumi.getter
+    def principals(self) -> Optional[Sequence[str]]:
+        """
+        An array of ARNs for Amazon QuickSight users or groups.
+        """
+        return pulumi.get(self, "principals")
+
+
+@pulumi.output_type
+class DataSetDataSetUsageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableUseAsDirectQuerySource":
+            suggest = "disable_use_as_direct_query_source"
+        elif key == "disableUseAsImportedSource":
+            suggest = "disable_use_as_imported_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetDataSetUsageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetDataSetUsageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetDataSetUsageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disable_use_as_direct_query_source: Optional[bool] = None,
+                 disable_use_as_imported_source: Optional[bool] = None):
+        """
+        :param bool disable_use_as_direct_query_source: Controls whether a child dataset of a direct query can use this dataset as a source.
+        :param bool disable_use_as_imported_source: Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+        """
+        if disable_use_as_direct_query_source is not None:
+            pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
+        if disable_use_as_imported_source is not None:
+            pulumi.set(__self__, "disable_use_as_imported_source", disable_use_as_imported_source)
+
+    @property
+    @pulumi.getter(name="disableUseAsDirectQuerySource")
+    def disable_use_as_direct_query_source(self) -> Optional[bool]:
+        """
+        Controls whether a child dataset of a direct query can use this dataset as a source.
+        """
+        return pulumi.get(self, "disable_use_as_direct_query_source")
+
+    @property
+    @pulumi.getter(name="disableUseAsImportedSource")
+    def disable_use_as_imported_source(self) -> Optional[bool]:
+        """
+        Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+        """
+        return pulumi.get(self, "disable_use_as_imported_source")
+
+
+@pulumi.output_type
+class DataSetFieldFolder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldFoldersId":
+            suggest = "field_folders_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetFieldFolder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetFieldFolder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetFieldFolder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_folders_id: str,
+                 columns: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None):
+        """
+        :param str field_folders_id: Key of the field folder map.
+        :param Sequence[str] columns: An array of column names to add to the folder. A column can only be in one folder.
+        :param str description: Field folder description.
+        """
+        pulumi.set(__self__, "field_folders_id", field_folders_id)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="fieldFoldersId")
+    def field_folders_id(self) -> str:
+        """
+        Key of the field folder map.
+        """
+        return pulumi.get(self, "field_folders_id")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[str]]:
+        """
+        An array of column names to add to the folder. A column can only be in one folder.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Field folder description.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMap(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logicalTableMapId":
+            suggest = "logical_table_map_id"
+        elif key == "dataTransforms":
+            suggest = "data_transforms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alias: str,
+                 logical_table_map_id: str,
+                 source: 'outputs.DataSetLogicalTableMapSource',
+                 data_transforms: Optional[Sequence['outputs.DataSetLogicalTableMapDataTransform']] = None):
+        """
+        :param str alias: A display name for the logical table.
+        :param str logical_table_map_id: Key of the logical table map.
+        :param 'DataSetLogicalTableMapSourceArgs' source: Source of this logical table. See source.
+        :param Sequence['DataSetLogicalTableMapDataTransformArgs'] data_transforms: Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+        """
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "logical_table_map_id", logical_table_map_id)
+        pulumi.set(__self__, "source", source)
+        if data_transforms is not None:
+            pulumi.set(__self__, "data_transforms", data_transforms)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> str:
+        """
+        A display name for the logical table.
+        """
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="logicalTableMapId")
+    def logical_table_map_id(self) -> str:
+        """
+        Key of the logical table map.
+        """
+        return pulumi.get(self, "logical_table_map_id")
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.DataSetLogicalTableMapSource':
+        """
+        Source of this logical table. See source.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="dataTransforms")
+    def data_transforms(self) -> Optional[Sequence['outputs.DataSetLogicalTableMapDataTransform']]:
+        """
+        Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+        """
+        return pulumi.get(self, "data_transforms")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransform(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "castColumnTypeOperation":
+            suggest = "cast_column_type_operation"
+        elif key == "createColumnsOperation":
+            suggest = "create_columns_operation"
+        elif key == "filterOperation":
+            suggest = "filter_operation"
+        elif key == "projectOperation":
+            suggest = "project_operation"
+        elif key == "renameColumnOperation":
+            suggest = "rename_column_operation"
+        elif key == "tagColumnOperation":
+            suggest = "tag_column_operation"
+        elif key == "untagColumnOperation":
+            suggest = "untag_column_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransform. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransform.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransform.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cast_column_type_operation: Optional['outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation'] = None,
+                 create_columns_operation: Optional['outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation'] = None,
+                 filter_operation: Optional['outputs.DataSetLogicalTableMapDataTransformFilterOperation'] = None,
+                 project_operation: Optional['outputs.DataSetLogicalTableMapDataTransformProjectOperation'] = None,
+                 rename_column_operation: Optional['outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation'] = None,
+                 tag_column_operation: Optional['outputs.DataSetLogicalTableMapDataTransformTagColumnOperation'] = None,
+                 untag_column_operation: Optional['outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation'] = None):
+        """
+        :param 'DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs' cast_column_type_operation: A transform operation that casts a column to a different type. See cast_column_type_operation.
+        :param 'DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs' create_columns_operation: An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+        :param 'DataSetLogicalTableMapDataTransformFilterOperationArgs' filter_operation: An operation that filters rows based on some condition. See filter_operation.
+        :param 'DataSetLogicalTableMapDataTransformProjectOperationArgs' project_operation: An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+        :param 'DataSetLogicalTableMapDataTransformRenameColumnOperationArgs' rename_column_operation: An operation that renames a column. See rename_column_operation.
+        :param 'DataSetLogicalTableMapDataTransformTagColumnOperationArgs' tag_column_operation: An operation that tags a column with additional information. See tag_column_operation.
+        :param 'DataSetLogicalTableMapDataTransformUntagColumnOperationArgs' untag_column_operation: A transform operation that removes tags associated with a column. See untag_column_operation.
+        """
+        if cast_column_type_operation is not None:
+            pulumi.set(__self__, "cast_column_type_operation", cast_column_type_operation)
+        if create_columns_operation is not None:
+            pulumi.set(__self__, "create_columns_operation", create_columns_operation)
+        if filter_operation is not None:
+            pulumi.set(__self__, "filter_operation", filter_operation)
+        if project_operation is not None:
+            pulumi.set(__self__, "project_operation", project_operation)
+        if rename_column_operation is not None:
+            pulumi.set(__self__, "rename_column_operation", rename_column_operation)
+        if tag_column_operation is not None:
+            pulumi.set(__self__, "tag_column_operation", tag_column_operation)
+        if untag_column_operation is not None:
+            pulumi.set(__self__, "untag_column_operation", untag_column_operation)
+
+    @property
+    @pulumi.getter(name="castColumnTypeOperation")
+    def cast_column_type_operation(self) -> Optional['outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation']:
+        """
+        A transform operation that casts a column to a different type. See cast_column_type_operation.
+        """
+        return pulumi.get(self, "cast_column_type_operation")
+
+    @property
+    @pulumi.getter(name="createColumnsOperation")
+    def create_columns_operation(self) -> Optional['outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation']:
+        """
+        An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+        """
+        return pulumi.get(self, "create_columns_operation")
+
+    @property
+    @pulumi.getter(name="filterOperation")
+    def filter_operation(self) -> Optional['outputs.DataSetLogicalTableMapDataTransformFilterOperation']:
+        """
+        An operation that filters rows based on some condition. See filter_operation.
+        """
+        return pulumi.get(self, "filter_operation")
+
+    @property
+    @pulumi.getter(name="projectOperation")
+    def project_operation(self) -> Optional['outputs.DataSetLogicalTableMapDataTransformProjectOperation']:
+        """
+        An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+        """
+        return pulumi.get(self, "project_operation")
+
+    @property
+    @pulumi.getter(name="renameColumnOperation")
+    def rename_column_operation(self) -> Optional['outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation']:
+        """
+        An operation that renames a column. See rename_column_operation.
+        """
+        return pulumi.get(self, "rename_column_operation")
+
+    @property
+    @pulumi.getter(name="tagColumnOperation")
+    def tag_column_operation(self) -> Optional['outputs.DataSetLogicalTableMapDataTransformTagColumnOperation']:
+        """
+        An operation that tags a column with additional information. See tag_column_operation.
+        """
+        return pulumi.get(self, "tag_column_operation")
+
+    @property
+    @pulumi.getter(name="untagColumnOperation")
+    def untag_column_operation(self) -> Optional['outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation']:
+        """
+        A transform operation that removes tags associated with a column. See untag_column_operation.
+        """
+        return pulumi.get(self, "untag_column_operation")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformCastColumnTypeOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "newColumnType":
+            suggest = "new_column_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransformCastColumnTypeOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransformCastColumnTypeOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransformCastColumnTypeOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 new_column_type: str,
+                 format: Optional[str] = None):
+        """
+        :param str column_name: Column name.
+        :param str new_column_type: New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
+        :param str format: When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "new_column_type", new_column_type)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="newColumnType")
+    def new_column_type(self) -> str:
+        """
+        New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
+        """
+        return pulumi.get(self, "new_column_type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+        """
+        return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformCreateColumnsOperation(dict):
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn']):
+        """
+        :param Sequence['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs'] columns: Calculated columns to create. See columns.
+        """
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn']:
+        """
+        Calculated columns to create. See columns.
+        """
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnId":
+            suggest = "column_id"
+        elif key == "columnName":
+            suggest = "column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_id: str,
+                 column_name: str,
+                 expression: str):
+        """
+        :param str column_id: A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+        :param str column_name: Column name.
+        :param str expression: An expression that defines the calculated column.
+        """
+        pulumi.set(__self__, "column_id", column_id)
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter(name="columnId")
+    def column_id(self) -> str:
+        """
+        A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+        """
+        return pulumi.get(self, "column_id")
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        An expression that defines the calculated column.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformFilterOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionExpression":
+            suggest = "condition_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransformFilterOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransformFilterOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransformFilterOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_expression: str):
+        """
+        :param str condition_expression: An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+        """
+        pulumi.set(__self__, "condition_expression", condition_expression)
+
+    @property
+    @pulumi.getter(name="conditionExpression")
+    def condition_expression(self) -> str:
+        """
+        An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+        """
+        return pulumi.get(self, "condition_expression")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformProjectOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectedColumns":
+            suggest = "projected_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransformProjectOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransformProjectOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransformProjectOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 projected_columns: Sequence[str]):
+        """
+        :param Sequence[str] projected_columns: Projected columns.
+        """
+        pulumi.set(__self__, "projected_columns", projected_columns)
+
+    @property
+    @pulumi.getter(name="projectedColumns")
+    def projected_columns(self) -> Sequence[str]:
+        """
+        Projected columns.
+        """
+        return pulumi.get(self, "projected_columns")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformRenameColumnOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "newColumnName":
+            suggest = "new_column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransformRenameColumnOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransformRenameColumnOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransformRenameColumnOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 new_column_name: str):
+        """
+        :param str column_name: Column to be renamed.
+        :param str new_column_name: New name for the column.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "new_column_name", new_column_name)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        Column to be renamed.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="newColumnName")
+    def new_column_name(self) -> str:
+        """
+        New name for the column.
+        """
+        return pulumi.get(self, "new_column_name")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformTagColumnOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransformTagColumnOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransformTagColumnOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransformTagColumnOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 tags: Sequence['outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag']):
+        """
+        :param str column_name: Column name.
+        :param Sequence['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs'] tags: The dataset column tag, currently only used for geospatial type tagging. See tags.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag']:
+        """
+        The dataset column tag, currently only used for geospatial type tagging. See tags.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformTagColumnOperationTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnDescription":
+            suggest = "column_description"
+        elif key == "columnGeographicRole":
+            suggest = "column_geographic_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransformTagColumnOperationTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransformTagColumnOperationTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransformTagColumnOperationTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_description: Optional['outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription'] = None,
+                 column_geographic_role: Optional[str] = None):
+        """
+        :param 'DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs' column_description: A description for a column. See column_description.
+        :param str column_geographic_role: A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+        """
+        if column_description is not None:
+            pulumi.set(__self__, "column_description", column_description)
+        if column_geographic_role is not None:
+            pulumi.set(__self__, "column_geographic_role", column_geographic_role)
+
+    @property
+    @pulumi.getter(name="columnDescription")
+    def column_description(self) -> Optional['outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription']:
+        """
+        A description for a column. See column_description.
+        """
+        return pulumi.get(self, "column_description")
+
+    @property
+    @pulumi.getter(name="columnGeographicRole")
+    def column_geographic_role(self) -> Optional[str]:
+        """
+        A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+        """
+        return pulumi.get(self, "column_geographic_role")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription(dict):
+    def __init__(__self__, *,
+                 text: Optional[str] = None):
+        """
+        :param str text: The text of a description for a column.
+        """
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[str]:
+        """
+        The text of a description for a column.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapDataTransformUntagColumnOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "tagNames":
+            suggest = "tag_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapDataTransformUntagColumnOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapDataTransformUntagColumnOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapDataTransformUntagColumnOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 tag_names: Sequence[str]):
+        """
+        :param str column_name: Column name.
+        :param Sequence[str] tag_names: The column tags to remove from this column.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tag_names", tag_names)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="tagNames")
+    def tag_names(self) -> Sequence[str]:
+        """
+        The column tags to remove from this column.
+        """
+        return pulumi.get(self, "tag_names")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetArn":
+            suggest = "data_set_arn"
+        elif key == "joinInstruction":
+            suggest = "join_instruction"
+        elif key == "physicalTableId":
+            suggest = "physical_table_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_arn: Optional[str] = None,
+                 join_instruction: Optional['outputs.DataSetLogicalTableMapSourceJoinInstruction'] = None,
+                 physical_table_id: Optional[str] = None):
+        """
+        :param str data_set_arn: ARN of the parent data set.
+        :param 'DataSetLogicalTableMapSourceJoinInstructionArgs' join_instruction: Specifies the result of a join of two logical tables. See join_instruction.
+        :param str physical_table_id: Physical table ID.
+        """
+        if data_set_arn is not None:
+            pulumi.set(__self__, "data_set_arn", data_set_arn)
+        if join_instruction is not None:
+            pulumi.set(__self__, "join_instruction", join_instruction)
+        if physical_table_id is not None:
+            pulumi.set(__self__, "physical_table_id", physical_table_id)
+
+    @property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> Optional[str]:
+        """
+        ARN of the parent data set.
+        """
+        return pulumi.get(self, "data_set_arn")
+
+    @property
+    @pulumi.getter(name="joinInstruction")
+    def join_instruction(self) -> Optional['outputs.DataSetLogicalTableMapSourceJoinInstruction']:
+        """
+        Specifies the result of a join of two logical tables. See join_instruction.
+        """
+        return pulumi.get(self, "join_instruction")
+
+    @property
+    @pulumi.getter(name="physicalTableId")
+    def physical_table_id(self) -> Optional[str]:
+        """
+        Physical table ID.
+        """
+        return pulumi.get(self, "physical_table_id")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapSourceJoinInstruction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "leftOperand":
+            suggest = "left_operand"
+        elif key == "onClause":
+            suggest = "on_clause"
+        elif key == "rightOperand":
+            suggest = "right_operand"
+        elif key == "leftJoinKeyProperties":
+            suggest = "left_join_key_properties"
+        elif key == "rightJoinKeyProperties":
+            suggest = "right_join_key_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapSourceJoinInstruction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapSourceJoinInstruction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapSourceJoinInstruction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 left_operand: str,
+                 on_clause: str,
+                 right_operand: str,
+                 type: str,
+                 left_join_key_properties: Optional['outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties'] = None,
+                 right_join_key_properties: Optional['outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties'] = None):
+        """
+        :param str left_operand: Operand on the left side of a join.
+        :param str on_clause: Join instructions provided in the ON clause of a join.
+        :param str right_operand: Operand on the right side of a join.
+        :param str type: Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
+        :param 'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs' left_join_key_properties: Join key properties of the left operand. See left_join_key_properties.
+        :param 'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs' right_join_key_properties: Join key properties of the right operand. See right_join_key_properties.
+        """
+        pulumi.set(__self__, "left_operand", left_operand)
+        pulumi.set(__self__, "on_clause", on_clause)
+        pulumi.set(__self__, "right_operand", right_operand)
+        pulumi.set(__self__, "type", type)
+        if left_join_key_properties is not None:
+            pulumi.set(__self__, "left_join_key_properties", left_join_key_properties)
+        if right_join_key_properties is not None:
+            pulumi.set(__self__, "right_join_key_properties", right_join_key_properties)
+
+    @property
+    @pulumi.getter(name="leftOperand")
+    def left_operand(self) -> str:
+        """
+        Operand on the left side of a join.
+        """
+        return pulumi.get(self, "left_operand")
+
+    @property
+    @pulumi.getter(name="onClause")
+    def on_clause(self) -> str:
+        """
+        Join instructions provided in the ON clause of a join.
+        """
+        return pulumi.get(self, "on_clause")
+
+    @property
+    @pulumi.getter(name="rightOperand")
+    def right_operand(self) -> str:
+        """
+        Operand on the right side of a join.
+        """
+        return pulumi.get(self, "right_operand")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="leftJoinKeyProperties")
+    def left_join_key_properties(self) -> Optional['outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties']:
+        """
+        Join key properties of the left operand. See left_join_key_properties.
+        """
+        return pulumi.get(self, "left_join_key_properties")
+
+    @property
+    @pulumi.getter(name="rightJoinKeyProperties")
+    def right_join_key_properties(self) -> Optional['outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties']:
+        """
+        Join key properties of the right operand. See right_join_key_properties.
+        """
+        return pulumi.get(self, "right_join_key_properties")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uniqueKey":
+            suggest = "unique_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unique_key: Optional[bool] = None):
+        """
+        :param bool unique_key: A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        """
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+
+    @property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[bool]:
+        """
+        A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        """
+        return pulumi.get(self, "unique_key")
+
+
+@pulumi.output_type
+class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uniqueKey":
+            suggest = "unique_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unique_key: Optional[bool] = None):
+        """
+        :param bool unique_key: A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        """
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+
+    @property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[bool]:
+        """
+        A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        """
+        return pulumi.get(self, "unique_key")
+
+
+@pulumi.output_type
+class DataSetPermission(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[str],
+                 principal: str):
+        """
+        :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
+        :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> str:
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class DataSetPhysicalTableMap(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "physicalTableMapId":
+            suggest = "physical_table_map_id"
+        elif key == "customSql":
+            suggest = "custom_sql"
+        elif key == "relationalTable":
+            suggest = "relational_table"
+        elif key == "s3Source":
+            suggest = "s3_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetPhysicalTableMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetPhysicalTableMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetPhysicalTableMap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 physical_table_map_id: str,
+                 custom_sql: Optional['outputs.DataSetPhysicalTableMapCustomSql'] = None,
+                 relational_table: Optional['outputs.DataSetPhysicalTableMapRelationalTable'] = None,
+                 s3_source: Optional['outputs.DataSetPhysicalTableMapS3Source'] = None):
+        """
+        :param str physical_table_map_id: Key of the physical table map.
+        :param 'DataSetPhysicalTableMapCustomSqlArgs' custom_sql: A physical table type built from the results of the custom SQL query. See custom_sql.
+        :param 'DataSetPhysicalTableMapRelationalTableArgs' relational_table: A physical table type for relational data sources. See relational_table.
+        :param 'DataSetPhysicalTableMapS3SourceArgs' s3_source: A physical table type for as S3 data source. See s3_source.
+        """
+        pulumi.set(__self__, "physical_table_map_id", physical_table_map_id)
+        if custom_sql is not None:
+            pulumi.set(__self__, "custom_sql", custom_sql)
+        if relational_table is not None:
+            pulumi.set(__self__, "relational_table", relational_table)
+        if s3_source is not None:
+            pulumi.set(__self__, "s3_source", s3_source)
+
+    @property
+    @pulumi.getter(name="physicalTableMapId")
+    def physical_table_map_id(self) -> str:
+        """
+        Key of the physical table map.
+        """
+        return pulumi.get(self, "physical_table_map_id")
+
+    @property
+    @pulumi.getter(name="customSql")
+    def custom_sql(self) -> Optional['outputs.DataSetPhysicalTableMapCustomSql']:
+        """
+        A physical table type built from the results of the custom SQL query. See custom_sql.
+        """
+        return pulumi.get(self, "custom_sql")
+
+    @property
+    @pulumi.getter(name="relationalTable")
+    def relational_table(self) -> Optional['outputs.DataSetPhysicalTableMapRelationalTable']:
+        """
+        A physical table type for relational data sources. See relational_table.
+        """
+        return pulumi.get(self, "relational_table")
+
+    @property
+    @pulumi.getter(name="s3Source")
+    def s3_source(self) -> Optional['outputs.DataSetPhysicalTableMapS3Source']:
+        """
+        A physical table type for as S3 data source. See s3_source.
+        """
+        return pulumi.get(self, "s3_source")
+
+
+@pulumi.output_type
+class DataSetPhysicalTableMapCustomSql(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceArn":
+            suggest = "data_source_arn"
+        elif key == "sqlQuery":
+            suggest = "sql_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetPhysicalTableMapCustomSql. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetPhysicalTableMapCustomSql.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetPhysicalTableMapCustomSql.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_arn: str,
+                 name: str,
+                 sql_query: str,
+                 columns: Optional[Sequence['outputs.DataSetPhysicalTableMapCustomSqlColumn']] = None):
+        """
+        :param str data_source_arn: ARN of the data source.
+        :param str name: Display name for the dataset.
+        :param str sql_query: SQL query.
+        :param Sequence['DataSetPhysicalTableMapCustomSqlColumnArgs'] columns: Column schema from the SQL query result set. See columns.
+        """
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_query", sql_query)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        """
+        ARN of the data source.
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Display name for the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sqlQuery")
+    def sql_query(self) -> str:
+        """
+        SQL query.
+        """
+        return pulumi.get(self, "sql_query")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.DataSetPhysicalTableMapCustomSqlColumn']]:
+        """
+        Column schema from the SQL query result set. See columns.
+        """
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class DataSetPhysicalTableMapCustomSqlColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: Name of this column in the underlying data source.
+        :param str type: Data type of the column.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of this column in the underlying data source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Data type of the column.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DataSetPhysicalTableMapRelationalTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceArn":
+            suggest = "data_source_arn"
+        elif key == "inputColumns":
+            suggest = "input_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetPhysicalTableMapRelationalTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetPhysicalTableMapRelationalTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetPhysicalTableMapRelationalTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_arn: str,
+                 input_columns: Sequence['outputs.DataSetPhysicalTableMapRelationalTableInputColumn'],
+                 name: str,
+                 catalog: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str data_source_arn: ARN of the data source.
+        :param Sequence['DataSetPhysicalTableMapRelationalTableInputColumnArgs'] input_columns: Column schema of the table. See input_columns.
+        :param str name: Name of the relational table.
+        :param str catalog: Catalog associated with the table.
+        :param str schema: Schema name. This name applies to certain relational database engines.
+        """
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "input_columns", input_columns)
+        pulumi.set(__self__, "name", name)
+        if catalog is not None:
+            pulumi.set(__self__, "catalog", catalog)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        """
+        ARN of the data source.
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter(name="inputColumns")
+    def input_columns(self) -> Sequence['outputs.DataSetPhysicalTableMapRelationalTableInputColumn']:
+        """
+        Column schema of the table. See input_columns.
+        """
+        return pulumi.get(self, "input_columns")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the relational table.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> Optional[str]:
+        """
+        Catalog associated with the table.
+        """
+        return pulumi.get(self, "catalog")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Schema name. This name applies to certain relational database engines.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class DataSetPhysicalTableMapRelationalTableInputColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: Name of this column in the underlying data source.
+        :param str type: Data type of the column.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of this column in the underlying data source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Data type of the column.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DataSetPhysicalTableMapS3Source(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceArn":
+            suggest = "data_source_arn"
+        elif key == "inputColumns":
+            suggest = "input_columns"
+        elif key == "uploadSettings":
+            suggest = "upload_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetPhysicalTableMapS3Source. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetPhysicalTableMapS3Source.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetPhysicalTableMapS3Source.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_arn: str,
+                 input_columns: Sequence['outputs.DataSetPhysicalTableMapS3SourceInputColumn'],
+                 upload_settings: 'outputs.DataSetPhysicalTableMapS3SourceUploadSettings'):
+        """
+        :param str data_source_arn: ARN of the data source.
+        :param Sequence['DataSetPhysicalTableMapS3SourceInputColumnArgs'] input_columns: Column schema of the table. See input_columns.
+        :param 'DataSetPhysicalTableMapS3SourceUploadSettingsArgs' upload_settings: Information about the format for the S3 source file or files. See upload_settings.
+        """
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "input_columns", input_columns)
+        pulumi.set(__self__, "upload_settings", upload_settings)
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        """
+        ARN of the data source.
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter(name="inputColumns")
+    def input_columns(self) -> Sequence['outputs.DataSetPhysicalTableMapS3SourceInputColumn']:
+        """
+        Column schema of the table. See input_columns.
+        """
+        return pulumi.get(self, "input_columns")
+
+    @property
+    @pulumi.getter(name="uploadSettings")
+    def upload_settings(self) -> 'outputs.DataSetPhysicalTableMapS3SourceUploadSettings':
+        """
+        Information about the format for the S3 source file or files. See upload_settings.
+        """
+        return pulumi.get(self, "upload_settings")
+
+
+@pulumi.output_type
+class DataSetPhysicalTableMapS3SourceInputColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: Name of this column in the underlying data source.
+        :param str type: Data type of the column.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of this column in the underlying data source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Data type of the column.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DataSetPhysicalTableMapS3SourceUploadSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containsHeader":
+            suggest = "contains_header"
+        elif key == "startFromRow":
+            suggest = "start_from_row"
+        elif key == "textQualifier":
+            suggest = "text_qualifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetPhysicalTableMapS3SourceUploadSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetPhysicalTableMapS3SourceUploadSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetPhysicalTableMapS3SourceUploadSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contains_header: Optional[bool] = None,
+                 delimiter: Optional[str] = None,
+                 format: Optional[str] = None,
+                 start_from_row: Optional[int] = None,
+                 text_qualifier: Optional[str] = None):
+        """
+        :param bool contains_header: Whether the file has a header row, or the files each have a header row.
+        :param str delimiter: Delimiter between values in the file.
+        :param str format: File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
+        :param int start_from_row: A row number to start reading data from.
+        :param str text_qualifier: Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
+        """
+        if contains_header is not None:
+            pulumi.set(__self__, "contains_header", contains_header)
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if start_from_row is not None:
+            pulumi.set(__self__, "start_from_row", start_from_row)
+        if text_qualifier is not None:
+            pulumi.set(__self__, "text_qualifier", text_qualifier)
+
+    @property
+    @pulumi.getter(name="containsHeader")
+    def contains_header(self) -> Optional[bool]:
+        """
+        Whether the file has a header row, or the files each have a header row.
+        """
+        return pulumi.get(self, "contains_header")
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[str]:
+        """
+        Delimiter between values in the file.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="startFromRow")
+    def start_from_row(self) -> Optional[int]:
+        """
+        A row number to start reading data from.
+        """
+        return pulumi.get(self, "start_from_row")
+
+    @property
+    @pulumi.getter(name="textQualifier")
+    def text_qualifier(self) -> Optional[str]:
+        """
+        Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
+        """
+        return pulumi.get(self, "text_qualifier")
+
+
+@pulumi.output_type
+class DataSetRowLevelPermissionDataSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "permissionPolicy":
+            suggest = "permission_policy"
+        elif key == "formatVersion":
+            suggest = "format_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRowLevelPermissionDataSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRowLevelPermissionDataSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRowLevelPermissionDataSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: str,
+                 permission_policy: str,
+                 format_version: Optional[str] = None,
+                 namespace: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str arn: ARN of the dataset that contains permissions for RLS.
+        :param str permission_policy: Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
+        :param str format_version: User or group rules associated with the dataset that contains permissions for RLS.
+        :param str namespace: Namespace associated with the dataset that contains permissions for RLS.
+        :param str status: Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "permission_policy", permission_policy)
+        if format_version is not None:
+            pulumi.set(__self__, "format_version", format_version)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the dataset that contains permissions for RLS.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="permissionPolicy")
+    def permission_policy(self) -> str:
+        """
+        Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
+        """
+        return pulumi.get(self, "permission_policy")
+
+    @property
+    @pulumi.getter(name="formatVersion")
+    def format_version(self) -> Optional[str]:
+        """
+        User or group rules associated with the dataset that contains permissions for RLS.
+        """
+        return pulumi.get(self, "format_version")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Namespace associated with the dataset that contains permissions for RLS.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DataSetRowLevelPermissionTagConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagRules":
+            suggest = "tag_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRowLevelPermissionTagConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRowLevelPermissionTagConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRowLevelPermissionTagConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_rules: Sequence['outputs.DataSetRowLevelPermissionTagConfigurationTagRule'],
+                 status: Optional[str] = None):
+        """
+        :param Sequence['DataSetRowLevelPermissionTagConfigurationTagRuleArgs'] tag_rules: A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+        :param str status: The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        """
+        pulumi.set(__self__, "tag_rules", tag_rules)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="tagRules")
+    def tag_rules(self) -> Sequence['outputs.DataSetRowLevelPermissionTagConfigurationTagRule']:
+        """
+        A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+        """
+        return pulumi.get(self, "tag_rules")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DataSetRowLevelPermissionTagConfigurationTagRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "tagKey":
+            suggest = "tag_key"
+        elif key == "matchAllValue":
+            suggest = "match_all_value"
+        elif key == "tagMultiValueDelimiter":
+            suggest = "tag_multi_value_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRowLevelPermissionTagConfigurationTagRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRowLevelPermissionTagConfigurationTagRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRowLevelPermissionTagConfigurationTagRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 tag_key: str,
+                 match_all_value: Optional[str] = None,
+                 tag_multi_value_delimiter: Optional[str] = None):
+        """
+        :param str column_name: Column name that a tag key is assigned to.
+        :param str tag_key: Unique key for a tag.
+        :param str match_all_value: A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+        :param str tag_multi_value_delimiter: A string that you want to use to delimit the values when you pass the values at run time.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tag_key", tag_key)
+        if match_all_value is not None:
+            pulumi.set(__self__, "match_all_value", match_all_value)
+        if tag_multi_value_delimiter is not None:
+            pulumi.set(__self__, "tag_multi_value_delimiter", tag_multi_value_delimiter)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        Column name that a tag key is assigned to.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> str:
+        """
+        Unique key for a tag.
+        """
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="matchAllValue")
+    def match_all_value(self) -> Optional[str]:
+        """
+        A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+        """
+        return pulumi.get(self, "match_all_value")
+
+    @property
+    @pulumi.getter(name="tagMultiValueDelimiter")
+    def tag_multi_value_delimiter(self) -> Optional[str]:
+        """
+        A string that you want to use to delimit the values when you pass the values at run time.
+        """
+        return pulumi.get(self, "tag_multi_value_delimiter")
+
 
 @pulumi.output_type
 class DataSourceCredentials(dict):
@@ -1307,5 +3172,836 @@ class DataSourceVpcConnectionProperties(dict):
         The Amazon Resource Name (ARN) for the VPC connection.
         """
         return pulumi.get(self, "vpc_connection_arn")
+
+
+@pulumi.output_type
+class FolderPermission(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[str],
+                 principal: str):
+        """
+        :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
+        :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> str:
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class GetDataSetColumnGroupResult(dict):
+    def __init__(__self__, *,
+                 geo_spatial_column_groups: Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']):
+        pulumi.set(__self__, "geo_spatial_column_groups", geo_spatial_column_groups)
+
+    @property
+    @pulumi.getter(name="geoSpatialColumnGroups")
+    def geo_spatial_column_groups(self) -> Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']:
+        return pulumi.get(self, "geo_spatial_column_groups")
+
+
+@pulumi.output_type
+class GetDataSetColumnGroupGeoSpatialColumnGroupResult(dict):
+    def __init__(__self__, *,
+                 columns: Sequence[str],
+                 country_code: str,
+                 name: str):
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence[str]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> str:
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDataSetColumnLevelPermissionRuleResult(dict):
+    def __init__(__self__, *,
+                 column_names: Sequence[str],
+                 principals: Sequence[str]):
+        pulumi.set(__self__, "column_names", column_names)
+        pulumi.set(__self__, "principals", principals)
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Sequence[str]:
+        return pulumi.get(self, "column_names")
+
+    @property
+    @pulumi.getter
+    def principals(self) -> Sequence[str]:
+        return pulumi.get(self, "principals")
+
+
+@pulumi.output_type
+class GetDataSetDataSetUsageConfigurationResult(dict):
+    def __init__(__self__, *,
+                 disable_use_as_direct_query_source: bool,
+                 disable_use_as_imported_source: bool):
+        pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
+        pulumi.set(__self__, "disable_use_as_imported_source", disable_use_as_imported_source)
+
+    @property
+    @pulumi.getter(name="disableUseAsDirectQuerySource")
+    def disable_use_as_direct_query_source(self) -> bool:
+        return pulumi.get(self, "disable_use_as_direct_query_source")
+
+    @property
+    @pulumi.getter(name="disableUseAsImportedSource")
+    def disable_use_as_imported_source(self) -> bool:
+        return pulumi.get(self, "disable_use_as_imported_source")
+
+
+@pulumi.output_type
+class GetDataSetFieldFolderResult(dict):
+    def __init__(__self__, *,
+                 columns: Sequence[str],
+                 description: str,
+                 field_folders_id: str):
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "field_folders_id", field_folders_id)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence[str]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fieldFoldersId")
+    def field_folders_id(self) -> str:
+        return pulumi.get(self, "field_folders_id")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapResult(dict):
+    def __init__(__self__, *,
+                 alias: str,
+                 data_transforms: Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult'],
+                 logical_table_map_id: str,
+                 sources: Sequence['outputs.GetDataSetLogicalTableMapSourceResult']):
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "data_transforms", data_transforms)
+        pulumi.set(__self__, "logical_table_map_id", logical_table_map_id)
+        pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> str:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="dataTransforms")
+    def data_transforms(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult']:
+        return pulumi.get(self, "data_transforms")
+
+    @property
+    @pulumi.getter(name="logicalTableMapId")
+    def logical_table_map_id(self) -> str:
+        return pulumi.get(self, "logical_table_map_id")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence['outputs.GetDataSetLogicalTableMapSourceResult']:
+        return pulumi.get(self, "sources")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformResult(dict):
+    def __init__(__self__, *,
+                 cast_column_type_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult'],
+                 create_columns_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult'],
+                 filter_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformFilterOperationResult'],
+                 project_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformProjectOperationResult'],
+                 rename_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult'],
+                 tag_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationResult'],
+                 untag_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult']):
+        pulumi.set(__self__, "cast_column_type_operations", cast_column_type_operations)
+        pulumi.set(__self__, "create_columns_operations", create_columns_operations)
+        pulumi.set(__self__, "filter_operations", filter_operations)
+        pulumi.set(__self__, "project_operations", project_operations)
+        pulumi.set(__self__, "rename_column_operations", rename_column_operations)
+        pulumi.set(__self__, "tag_column_operations", tag_column_operations)
+        pulumi.set(__self__, "untag_column_operations", untag_column_operations)
+
+    @property
+    @pulumi.getter(name="castColumnTypeOperations")
+    def cast_column_type_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult']:
+        return pulumi.get(self, "cast_column_type_operations")
+
+    @property
+    @pulumi.getter(name="createColumnsOperations")
+    def create_columns_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult']:
+        return pulumi.get(self, "create_columns_operations")
+
+    @property
+    @pulumi.getter(name="filterOperations")
+    def filter_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformFilterOperationResult']:
+        return pulumi.get(self, "filter_operations")
+
+    @property
+    @pulumi.getter(name="projectOperations")
+    def project_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformProjectOperationResult']:
+        return pulumi.get(self, "project_operations")
+
+    @property
+    @pulumi.getter(name="renameColumnOperations")
+    def rename_column_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult']:
+        return pulumi.get(self, "rename_column_operations")
+
+    @property
+    @pulumi.getter(name="tagColumnOperations")
+    def tag_column_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationResult']:
+        return pulumi.get(self, "tag_column_operations")
+
+    @property
+    @pulumi.getter(name="untagColumnOperations")
+    def untag_column_operations(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult']:
+        return pulumi.get(self, "untag_column_operations")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult(dict):
+    def __init__(__self__, *,
+                 column_name: str,
+                 format: str,
+                 new_column_type: str):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "new_column_type", new_column_type)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="newColumnType")
+    def new_column_type(self) -> str:
+        return pulumi.get(self, "new_column_type")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult(dict):
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult']):
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult']:
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult(dict):
+    def __init__(__self__, *,
+                 column_id: str,
+                 column_name: str,
+                 expression: str):
+        pulumi.set(__self__, "column_id", column_id)
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter(name="columnId")
+    def column_id(self) -> str:
+        return pulumi.get(self, "column_id")
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformFilterOperationResult(dict):
+    def __init__(__self__, *,
+                 condition_expression: str):
+        pulumi.set(__self__, "condition_expression", condition_expression)
+
+    @property
+    @pulumi.getter(name="conditionExpression")
+    def condition_expression(self) -> str:
+        return pulumi.get(self, "condition_expression")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformProjectOperationResult(dict):
+    def __init__(__self__, *,
+                 projected_columns: Sequence[str]):
+        pulumi.set(__self__, "projected_columns", projected_columns)
+
+    @property
+    @pulumi.getter(name="projectedColumns")
+    def projected_columns(self) -> Sequence[str]:
+        return pulumi.get(self, "projected_columns")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult(dict):
+    def __init__(__self__, *,
+                 column_name: str,
+                 new_column_name: str):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "new_column_name", new_column_name)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="newColumnName")
+    def new_column_name(self) -> str:
+        return pulumi.get(self, "new_column_name")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformTagColumnOperationResult(dict):
+    def __init__(__self__, *,
+                 column_name: str,
+                 tags: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult']):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult']:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult(dict):
+    def __init__(__self__, *,
+                 column_descriptions: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult'],
+                 column_geographic_role: str):
+        pulumi.set(__self__, "column_descriptions", column_descriptions)
+        pulumi.set(__self__, "column_geographic_role", column_geographic_role)
+
+    @property
+    @pulumi.getter(name="columnDescriptions")
+    def column_descriptions(self) -> Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult']:
+        return pulumi.get(self, "column_descriptions")
+
+    @property
+    @pulumi.getter(name="columnGeographicRole")
+    def column_geographic_role(self) -> str:
+        return pulumi.get(self, "column_geographic_role")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult(dict):
+    def __init__(__self__, *,
+                 text: str):
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult(dict):
+    def __init__(__self__, *,
+                 column_name: str,
+                 tag_names: Sequence[str]):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tag_names", tag_names)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="tagNames")
+    def tag_names(self) -> Sequence[str]:
+        return pulumi.get(self, "tag_names")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapSourceResult(dict):
+    def __init__(__self__, *,
+                 data_set_arn: str,
+                 join_instructions: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult'],
+                 physical_table_id: str):
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+        pulumi.set(__self__, "join_instructions", join_instructions)
+        pulumi.set(__self__, "physical_table_id", physical_table_id)
+
+    @property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> str:
+        return pulumi.get(self, "data_set_arn")
+
+    @property
+    @pulumi.getter(name="joinInstructions")
+    def join_instructions(self) -> Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult']:
+        return pulumi.get(self, "join_instructions")
+
+    @property
+    @pulumi.getter(name="physicalTableId")
+    def physical_table_id(self) -> str:
+        return pulumi.get(self, "physical_table_id")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapSourceJoinInstructionResult(dict):
+    def __init__(__self__, *,
+                 left_join_key_properties: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult'],
+                 left_operand: str,
+                 on_clause: str,
+                 right_join_key_properties: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult'],
+                 right_operand: str,
+                 type: str):
+        pulumi.set(__self__, "left_join_key_properties", left_join_key_properties)
+        pulumi.set(__self__, "left_operand", left_operand)
+        pulumi.set(__self__, "on_clause", on_clause)
+        pulumi.set(__self__, "right_join_key_properties", right_join_key_properties)
+        pulumi.set(__self__, "right_operand", right_operand)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="leftJoinKeyProperties")
+    def left_join_key_properties(self) -> Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult']:
+        return pulumi.get(self, "left_join_key_properties")
+
+    @property
+    @pulumi.getter(name="leftOperand")
+    def left_operand(self) -> str:
+        return pulumi.get(self, "left_operand")
+
+    @property
+    @pulumi.getter(name="onClause")
+    def on_clause(self) -> str:
+        return pulumi.get(self, "on_clause")
+
+    @property
+    @pulumi.getter(name="rightJoinKeyProperties")
+    def right_join_key_properties(self) -> Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult']:
+        return pulumi.get(self, "right_join_key_properties")
+
+    @property
+    @pulumi.getter(name="rightOperand")
+    def right_operand(self) -> str:
+        return pulumi.get(self, "right_operand")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult(dict):
+    def __init__(__self__, *,
+                 unique_key: bool):
+        pulumi.set(__self__, "unique_key", unique_key)
+
+    @property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> bool:
+        return pulumi.get(self, "unique_key")
+
+
+@pulumi.output_type
+class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult(dict):
+    def __init__(__self__, *,
+                 unique_key: bool):
+        pulumi.set(__self__, "unique_key", unique_key)
+
+    @property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> bool:
+        return pulumi.get(self, "unique_key")
+
+
+@pulumi.output_type
+class GetDataSetPermissionResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[str],
+                 principal: str):
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> str:
+        return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class GetDataSetPhysicalTableMapResult(dict):
+    def __init__(__self__, *,
+                 custom_sqls: Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlResult'],
+                 physical_table_map_id: str,
+                 relational_tables: Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableResult'],
+                 s3_sources: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceResult']):
+        pulumi.set(__self__, "custom_sqls", custom_sqls)
+        pulumi.set(__self__, "physical_table_map_id", physical_table_map_id)
+        pulumi.set(__self__, "relational_tables", relational_tables)
+        pulumi.set(__self__, "s3_sources", s3_sources)
+
+    @property
+    @pulumi.getter(name="customSqls")
+    def custom_sqls(self) -> Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlResult']:
+        return pulumi.get(self, "custom_sqls")
+
+    @property
+    @pulumi.getter(name="physicalTableMapId")
+    def physical_table_map_id(self) -> str:
+        return pulumi.get(self, "physical_table_map_id")
+
+    @property
+    @pulumi.getter(name="relationalTables")
+    def relational_tables(self) -> Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableResult']:
+        return pulumi.get(self, "relational_tables")
+
+    @property
+    @pulumi.getter(name="s3Sources")
+    def s3_sources(self) -> Sequence['outputs.GetDataSetPhysicalTableMapS3SourceResult']:
+        return pulumi.get(self, "s3_sources")
+
+
+@pulumi.output_type
+class GetDataSetPhysicalTableMapCustomSqlResult(dict):
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult'],
+                 data_source_arn: str,
+                 name: str,
+                 sql_query: str):
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_query", sql_query)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult']:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sqlQuery")
+    def sql_query(self) -> str:
+        return pulumi.get(self, "sql_query")
+
+
+@pulumi.output_type
+class GetDataSetPhysicalTableMapCustomSqlColumnResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetDataSetPhysicalTableMapRelationalTableResult(dict):
+    def __init__(__self__, *,
+                 catalog: str,
+                 data_source_arn: str,
+                 input_columns: Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult'],
+                 name: str,
+                 schema: str):
+        pulumi.set(__self__, "catalog", catalog)
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "input_columns", input_columns)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> str:
+        return pulumi.get(self, "catalog")
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter(name="inputColumns")
+    def input_columns(self) -> Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult']:
+        return pulumi.get(self, "input_columns")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetDataSetPhysicalTableMapRelationalTableInputColumnResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetDataSetPhysicalTableMapS3SourceResult(dict):
+    def __init__(__self__, *,
+                 data_source_arn: str,
+                 input_columns: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult'],
+                 upload_settings: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult']):
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        pulumi.set(__self__, "input_columns", input_columns)
+        pulumi.set(__self__, "upload_settings", upload_settings)
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> str:
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter(name="inputColumns")
+    def input_columns(self) -> Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult']:
+        return pulumi.get(self, "input_columns")
+
+    @property
+    @pulumi.getter(name="uploadSettings")
+    def upload_settings(self) -> Sequence['outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult']:
+        return pulumi.get(self, "upload_settings")
+
+
+@pulumi.output_type
+class GetDataSetPhysicalTableMapS3SourceInputColumnResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetDataSetPhysicalTableMapS3SourceUploadSettingResult(dict):
+    def __init__(__self__, *,
+                 contains_header: bool,
+                 delimiter: str,
+                 format: str,
+                 start_from_row: int,
+                 text_qualifier: str):
+        pulumi.set(__self__, "contains_header", contains_header)
+        pulumi.set(__self__, "delimiter", delimiter)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "start_from_row", start_from_row)
+        pulumi.set(__self__, "text_qualifier", text_qualifier)
+
+    @property
+    @pulumi.getter(name="containsHeader")
+    def contains_header(self) -> bool:
+        return pulumi.get(self, "contains_header")
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> str:
+        return pulumi.get(self, "delimiter")
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="startFromRow")
+    def start_from_row(self) -> int:
+        return pulumi.get(self, "start_from_row")
+
+    @property
+    @pulumi.getter(name="textQualifier")
+    def text_qualifier(self) -> str:
+        return pulumi.get(self, "text_qualifier")
+
+
+@pulumi.output_type
+class GetDataSetRowLevelPermissionDataSetResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 format_version: str,
+                 namespace: str,
+                 permission_policy: str,
+                 status: str):
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "format_version", format_version)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "permission_policy", permission_policy)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="formatVersion")
+    def format_version(self) -> str:
+        return pulumi.get(self, "format_version")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="permissionPolicy")
+    def permission_policy(self) -> str:
+        return pulumi.get(self, "permission_policy")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetDataSetRowLevelPermissionTagConfigurationResult(dict):
+    def __init__(__self__, *,
+                 status: str,
+                 tag_rules: Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult']):
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tag_rules", tag_rules)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="tagRules")
+    def tag_rules(self) -> Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult']:
+        return pulumi.get(self, "tag_rules")
+
+
+@pulumi.output_type
+class GetDataSetRowLevelPermissionTagConfigurationTagRuleResult(dict):
+    def __init__(__self__, *,
+                 column_name: str,
+                 match_all_value: str,
+                 tag_key: str,
+                 tag_multi_value_delimiter: str):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "match_all_value", match_all_value)
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_multi_value_delimiter", tag_multi_value_delimiter)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="matchAllValue")
+    def match_all_value(self) -> str:
+        return pulumi.get(self, "match_all_value")
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> str:
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagMultiValueDelimiter")
+    def tag_multi_value_delimiter(self) -> str:
+        return pulumi.get(self, "tag_multi_value_delimiter")
 
 

@@ -48,6 +48,21 @@ public final class HumanTaskUIArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * The Liquid template for the worker user interface. See UI Template below.
      * 
      */
@@ -67,6 +82,7 @@ public final class HumanTaskUIArgs extends com.pulumi.resources.ResourceArgs {
     private HumanTaskUIArgs(HumanTaskUIArgs $) {
         this.humanTaskUiName = $.humanTaskUiName;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.uiTemplate = $.uiTemplate;
     }
 
@@ -128,6 +144,27 @@ public final class HumanTaskUIArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

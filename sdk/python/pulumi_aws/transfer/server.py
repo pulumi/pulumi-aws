@@ -33,6 +33,7 @@ class ServerArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
         """
@@ -54,6 +55,7 @@ class ServerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
@@ -91,6 +93,8 @@ class ServerArgs:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
             pulumi.set(__self__, "url", url)
         if workflow_details is not None:
@@ -299,6 +303,18 @@ class ServerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -723,6 +739,7 @@ class Server(pulumi.CustomResource):
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None,
                  __props__=None):
@@ -836,6 +853,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
@@ -968,6 +986,7 @@ class Server(pulumi.CustomResource):
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None,
                  __props__=None):
@@ -996,12 +1015,12 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["url"] = url
             __props__.__dict__["workflow_details"] = workflow_details
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["host_key_fingerprint"] = None
-            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(

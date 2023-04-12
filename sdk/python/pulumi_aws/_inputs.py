@@ -307,6 +307,7 @@ class ProviderEndpointArgs:
                  ce: Optional[pulumi.Input[str]] = None,
                  chime: Optional[pulumi.Input[str]] = None,
                  chimesdkidentity: Optional[pulumi.Input[str]] = None,
+                 chimesdkmediapipelines: Optional[pulumi.Input[str]] = None,
                  chimesdkmeetings: Optional[pulumi.Input[str]] = None,
                  chimesdkmessaging: Optional[pulumi.Input[str]] = None,
                  cloud9: Optional[pulumi.Input[str]] = None,
@@ -588,6 +589,7 @@ class ProviderEndpointArgs:
                  sdb: Optional[pulumi.Input[str]] = None,
                  secretsmanager: Optional[pulumi.Input[str]] = None,
                  securityhub: Optional[pulumi.Input[str]] = None,
+                 securitylake: Optional[pulumi.Input[str]] = None,
                  serverlessapplicationrepository: Optional[pulumi.Input[str]] = None,
                  serverlessapprepo: Optional[pulumi.Input[str]] = None,
                  serverlessrepo: Optional[pulumi.Input[str]] = None,
@@ -628,6 +630,7 @@ class ProviderEndpointArgs:
                  transfer: Optional[pulumi.Input[str]] = None,
                  translate: Optional[pulumi.Input[str]] = None,
                  voiceid: Optional[pulumi.Input[str]] = None,
+                 vpclattice: Optional[pulumi.Input[str]] = None,
                  waf: Optional[pulumi.Input[str]] = None,
                  wafregional: Optional[pulumi.Input[str]] = None,
                  wafv2: Optional[pulumi.Input[str]] = None,
@@ -728,6 +731,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "chime", chime)
         if chimesdkidentity is not None:
             pulumi.set(__self__, "chimesdkidentity", chimesdkidentity)
+        if chimesdkmediapipelines is not None:
+            pulumi.set(__self__, "chimesdkmediapipelines", chimesdkmediapipelines)
         if chimesdkmeetings is not None:
             pulumi.set(__self__, "chimesdkmeetings", chimesdkmeetings)
         if chimesdkmessaging is not None:
@@ -1290,6 +1295,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "secretsmanager", secretsmanager)
         if securityhub is not None:
             pulumi.set(__self__, "securityhub", securityhub)
+        if securitylake is not None:
+            pulumi.set(__self__, "securitylake", securitylake)
         if serverlessapplicationrepository is not None:
             pulumi.set(__self__, "serverlessapplicationrepository", serverlessapplicationrepository)
         if serverlessapprepo is not None:
@@ -1370,6 +1377,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "translate", translate)
         if voiceid is not None:
             pulumi.set(__self__, "voiceid", voiceid)
+        if vpclattice is not None:
+            pulumi.set(__self__, "vpclattice", vpclattice)
         if waf is not None:
             pulumi.set(__self__, "waf", waf)
         if wafregional is not None:
@@ -1790,6 +1799,15 @@ class ProviderEndpointArgs:
     @chimesdkidentity.setter
     def chimesdkidentity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "chimesdkidentity", value)
+
+    @property
+    @pulumi.getter
+    def chimesdkmediapipelines(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "chimesdkmediapipelines")
+
+    @chimesdkmediapipelines.setter
+    def chimesdkmediapipelines(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chimesdkmediapipelines", value)
 
     @property
     @pulumi.getter
@@ -4322,6 +4340,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def securitylake(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "securitylake")
+
+    @securitylake.setter
+    def securitylake(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "securitylake", value)
+
+    @property
+    @pulumi.getter
     def serverlessapplicationrepository(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "serverlessapplicationrepository")
 
@@ -4679,6 +4706,15 @@ class ProviderEndpointArgs:
     @voiceid.setter
     def voiceid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "voiceid", value)
+
+    @property
+    @pulumi.getter
+    def vpclattice(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpclattice")
+
+    @vpclattice.setter
+    def vpclattice(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpclattice", value)
 
     @property
     @pulumi.getter

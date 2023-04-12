@@ -12,341 +12,64 @@ import * as utilities from "../utilities";
  *
  * > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
  *
- * > **NOTE on S3 Bucket Accelerate Configuration:** S3 Bucket Accelerate can be configured in either the standalone resource `aws.s3.BucketAccelerateConfigurationV2`
- * or with the deprecated parameter `accelerationStatus` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket canned ACL Configuration:** S3 Bucket canned ACL can be configured in either the standalone resource `aws.s3.BucketAclV2`
- * or with the deprecated parameter `acl` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket ACL Grants Configuration:** S3 Bucket grants can be configured in either the standalone resource `aws.s3.BucketAclV2`
- * or with the deprecated parameter `grant` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket CORS Configuration:** S3 Bucket CORS can be configured in either the standalone resource `aws.s3.BucketCorsConfigurationV2`
- * or with the deprecated parameter `corsRule` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Lifecycle Configuration:** S3 Bucket Lifecycle can be configured in either the standalone resource `aws.s3.BucketLifecycleConfigurationV2`
- * or with the deprecated parameter `lifecycleRule` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Logging Configuration:** S3 Bucket logging can be configured in either the standalone resource `aws.s3.BucketLoggingV2`
- * or with the deprecated parameter `logging` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Object Lock Configuration:** S3 Bucket Object Lock can be configured in either the standalone resource `aws.s3.BucketObjectLockConfigurationV2`
- * or with the deprecated parameter `objectLockConfiguration` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Policy Configuration:** S3 Bucket Policy can be configured in either the standalone resource `aws.s3.BucketPolicy`
- * or with the deprecated parameter `policy` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `aws.s3.BucketReplicationConfig`
- * or with the deprecated parameter `replicationConfiguration` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Request Payment Configuration:** S3 Bucket Request Payment can be configured in either the standalone resource `aws.s3.BucketRequestPaymentConfigurationV2`
- * or with the deprecated parameter `requestPayer` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Server Side Encryption Configuration:** S3 Bucket Server Side Encryption can be configured in either the standalone resource `aws.s3.BucketServerSideEncryptionConfigurationV2`
- * or with the deprecated parameter `serverSideEncryptionConfiguration` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Versioning Configuration:** S3 Bucket versioning can be configured in either the standalone resource `aws.s3.BucketVersioningV2`
- * or with the deprecated parameter `versioning` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
- *
- * > **NOTE on S3 Bucket Website Configuration:** S3 Bucket Website can be configured in either the standalone resource `aws.s3.BucketWebsiteConfigurationV2`
- * or with the deprecated parameter `website` in the resource `aws.s3.BucketV2`.
- * Configuring with both will cause inconsistencies and may overwrite configuration.
+ * > In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `aws.s3.BucketV2` resource.
  *
  * ## Example Usage
- * ### Private Bucket w/ Tags
+ * ### Private Bucket With Tags
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {tags: {
- *     Name: "My bucket",
+ * const example = new aws.s3.BucketV2("example", {tags: {
  *     Environment: "Dev",
+ *     Name: "My bucket",
  * }});
- * const example = new aws.s3.BucketAclV2("example", {
- *     bucket: bucketV2.id,
- *     acl: "private",
- * });
  * ```
  * ### Static Website Hosting
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * > **NOTE:** The `website` attribute is deprecated.
+ * See `aws.s3.BucketWebsiteConfigurationV2` for examples with static website hosting configured.
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
- *     acl: "public-read",
- *     policy: fs.readFileSync("policy.json"),
- *     websites: [{
- *         indexDocument: "index.html",
- *         errorDocument: "error.html",
- *         routingRules: `[{
- *     "Condition": {
- *         "KeyPrefixEquals": "docs/"
- *     },
- *     "Redirect": {
- *         "ReplaceKeyPrefixWith": "documents/"
- *     }
- * }]
- * `,
- *     }],
- * });
- * ```
- * ### Using CORS
+ * ### CORS Rules
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * > **NOTE:** The `corsRule` attribute is deprecated.
+ * See `aws.s3.BucketCorsConfigurationV2` for examples with CORS rules configured.
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
- *     acl: "public-read",
- *     corsRules: [{
- *         allowedHeaders: ["*"],
- *         allowedMethods: [
- *             "PUT",
- *             "POST",
- *         ],
- *         allowedOrigins: ["https://s3-website-test.domain.example"],
- *         exposeHeaders: ["ETag"],
- *         maxAgeSeconds: 3000,
- *     }],
- * });
- * ```
- * ### Using versioning
+ * ### Versioning
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * > **NOTE:** The `versioning` attribute is deprecated.
+ * See `aws.s3.BucketVersioningV2` for examples with versioning configured.
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
- *     acl: "private",
- *     versionings: [{
- *         enabled: true,
- *     }],
- * });
- * ```
- * ### Enable Logging
+ * ### Logging
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * > **NOTE:** The `logging` attribute is deprecated.
+ * See `aws.s3.BucketLoggingV2` for examples with logging enabled.
  *
- * const logBucket = new aws.s3.BucketV2("logBucket", {acl: "log-delivery-write"});
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
- *     acl: "private",
- *     loggings: [{
- *         targetBucket: logBucket.id,
- *         targetPrefix: "log/",
- *     }],
- * });
- * ```
- * ### Using object lifecycle
+ * ### Object Lifecycle Rules
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * > **NOTE:** The `lifecycleRule` attribute is deprecated.
+ * See `aws.s3.BucketLifecycleConfigurationV2` for examples with object lifecycle rules.
  *
- * const bucket = new aws.s3.BucketV2("bucket", {
- *     acl: "private",
- *     lifecycleRules: [
- *         {
- *             enabled: true,
- *             expirations: [{
- *                 days: 90,
- *             }],
- *             id: "log",
- *             prefix: "log/",
- *             tags: {
- *                 autoclean: "true",
- *                 rule: "log",
- *             },
- *             transitions: [
- *                 {
- *                     days: 30,
- *                     storageClass: "STANDARD_IA",
- *                 },
- *                 {
- *                     days: 60,
- *                     storageClass: "GLACIER",
- *                 },
- *             ],
- *         },
- *         {
- *             enabled: true,
- *             expirations: [{
- *                 date: "2016-01-12",
- *             }],
- *             id: "tmp",
- *             prefix: "tmp/",
- *         },
- *     ],
- * });
- * const versioningBucket = new aws.s3.BucketV2("versioningBucket", {
- *     acl: "private",
- *     lifecycleRules: [{
- *         enabled: true,
- *         noncurrentVersionExpirations: [{
- *             days: 90,
- *         }],
- *         noncurrentVersionTransitions: [
- *             {
- *                 days: 30,
- *                 storageClass: "STANDARD_IA",
- *             },
- *             {
- *                 days: 60,
- *                 storageClass: "GLACIER",
- *             },
- *         ],
- *         prefix: "config/",
- *     }],
- *     versionings: [{
- *         enabled: true,
- *     }],
- * });
- * ```
- * ### Using replication configuration
+ * ### Object Lock Configuration
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * > **NOTE:** The `objectLockConfiguration` attribute is deprecated.
+ * See `aws.s3.BucketObjectLockConfigurationV2` for examples with object lock configurations on both new and existing buckets.
  *
- * const central = new aws.Provider("central", {region: "eu-central-1"});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["s3.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const replicationRole = new aws.iam.Role("replicationRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const destination = new aws.s3.BucketV2("destination", {versionings: [{
- *     enabled: true,
- * }]});
- * const source = new aws.s3.BucketV2("source", {
- *     acl: "private",
- *     versionings: [{
- *         enabled: true,
- *     }],
- *     replicationConfigurations: [{
- *         role: replicationRole.arn,
- *         rules: [{
- *             id: "foobar",
- *             status: "Enabled",
- *             filters: [{
- *                 tags: {},
- *             }],
- *             destinations: [{
- *                 bucket: destination.arn,
- *                 storageClass: "STANDARD",
- *                 replicationTimes: [{
- *                     status: "Enabled",
- *                     minutes: 15,
- *                 }],
- *                 metrics: [{
- *                     status: "Enabled",
- *                     minutes: 15,
- *                 }],
- *             }],
- *         }],
- *     }],
- * }, {
- *     provider: aws.central,
- * });
- * const replicationPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [
- *         {
- *             effect: "Allow",
- *             actions: [
- *                 "s3:GetReplicationConfiguration",
- *                 "s3:ListBucket",
- *             ],
- *             resources: [source.arn],
- *         },
- *         {
- *             effect: "Allow",
- *             actions: [
- *                 "s3:GetObjectVersionForReplication",
- *                 "s3:GetObjectVersionAcl",
- *                 "s3:GetObjectVersionTagging",
- *             ],
- *             resources: [pulumi.interpolate`${source.arn}/*`],
- *         },
- *         {
- *             effect: "Allow",
- *             actions: [
- *                 "s3:ReplicateObject",
- *                 "s3:ReplicateDelete",
- *                 "s3:ReplicateTags",
- *             ],
- *             resources: [pulumi.interpolate`${destination.arn}/*`],
- *         },
- *     ],
- * });
- * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: replicationPolicyDocument.apply(replicationPolicyDocument => replicationPolicyDocument.json)});
- * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment", {
- *     role: replicationRole.name,
- *     policyArn: replicationPolicy.arn,
- * });
- * ```
+ * ### Replication Configuration
+ *
+ * > **NOTE:** The `replicationConfiguration` attribute is deprecated.
+ * See `aws.s3.BucketReplicationConfig` for examples with replication configured.
+ *
  * ### Enable SSE-KMS Server Side Encryption
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
+ * > **NOTE:** The `serverSideEncryptionConfiguration` attribute is deprecated.
+ * See `aws.s3.BucketServerSideEncryptionConfigurationV2` for examples with server side encryption configured.
  *
- * const mykey = new aws.kms.Key("mykey", {
- *     description: "This key is used to encrypt bucket objects",
- *     deletionWindowInDays: 10,
- * });
- * const mybucket = new aws.s3.BucketV2("mybucket", {serverSideEncryptionConfigurations: [{
- *     rules: [{
- *         applyServerSideEncryptionByDefaults: [{
- *             kmsMasterKeyId: mykey.arn,
- *             sseAlgorithm: "aws:kms",
- *         }],
- *     }],
- * }]});
- * ```
- * ### Using ACL policy grants
+ * ### ACL Policy Grants
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentUser = aws.s3.getCanonicalUserId({});
- * const bucket = new aws.s3.BucketV2("bucket", {grants: [
- *     {
- *         id: currentUser.then(currentUser => currentUser.id),
- *         type: "CanonicalUser",
- *         permissions: ["FULL_CONTROL"],
- *     },
- *     {
- *         type: "Group",
- *         permissions: [
- *             "READ_ACP",
- *             "WRITE",
- *         ],
- *         uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
- *     },
- * ]});
- * ```
+ * > **NOTE:** The `acl` and `grant` attributes are deprecated.
+ * See `aws.s3.BucketAclV2` for examples with ACL grants.
  *
  * ## Import
  *

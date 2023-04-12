@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.,
+    /// A QuickSight data source can be imported using the AWS account ID, and data source ID separated by a slash (`/`) e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
@@ -228,6 +228,18 @@ namespace Pulumi.Aws.Quicksight
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>

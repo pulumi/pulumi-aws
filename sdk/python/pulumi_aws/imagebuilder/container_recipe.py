@@ -27,6 +27,7 @@ class ContainerRecipeArgs:
                  instance_configuration: Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform_override: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
@@ -42,6 +43,7 @@ class ContainerRecipeArgs:
         :param pulumi.Input['ContainerRecipeInstanceConfigurationArgs'] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
         :param pulumi.Input[str] kms_key_id: The KMS key used to encrypt the container image.
         :param pulumi.Input[str] name: The name of the container recipe.
+        :param pulumi.Input[str] platform_override: Specifies the operating system platform when you use a custom base image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
@@ -62,6 +64,8 @@ class ContainerRecipeArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if platform_override is not None:
+            pulumi.set(__self__, "platform_override", platform_override)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if working_directory is not None:
@@ -200,6 +204,18 @@ class ContainerRecipeArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="platformOverride")
+    def platform_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the operating system platform when you use a custom base image.
+        """
+        return pulumi.get(self, "platform_override")
+
+    @platform_override.setter
+    def platform_override(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_override", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -241,6 +257,7 @@ class _ContainerRecipeState:
                  owner: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
+                 platform_override: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_repository: Optional[pulumi.Input['ContainerRecipeTargetRepositoryArgs']] = None,
@@ -262,6 +279,7 @@ class _ContainerRecipeState:
         :param pulumi.Input[str] owner: Owner of the container recipe.
         :param pulumi.Input[str] parent_image: The base image for the container recipe.
         :param pulumi.Input[str] platform: Platform of the container recipe.
+        :param pulumi.Input[str] platform_override: Specifies the operating system platform when you use a custom base image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ContainerRecipeTargetRepositoryArgs'] target_repository: The destination repository for the container image. Detailed below.
@@ -296,6 +314,8 @@ class _ContainerRecipeState:
             pulumi.set(__self__, "parent_image", parent_image)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
+        if platform_override is not None:
+            pulumi.set(__self__, "platform_override", platform_override)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -476,6 +496,18 @@ class _ContainerRecipeState:
         pulumi.set(self, "platform", value)
 
     @property
+    @pulumi.getter(name="platformOverride")
+    def platform_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the operating system platform when you use a custom base image.
+        """
+        return pulumi.get(self, "platform_override")
+
+    @platform_override.setter
+    def platform_override(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_override", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -550,6 +582,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
+                 platform_override: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetRepositoryArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -610,6 +643,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The KMS key used to encrypt the container image.
         :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[str] parent_image: The base image for the container recipe.
+        :param pulumi.Input[str] platform_override: Specifies the operating system platform when you use a custom base image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetRepositoryArgs']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[str] version: Version of the container recipe.
@@ -689,6 +723,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
+                 platform_override: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetRepositoryArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -717,6 +752,7 @@ class ContainerRecipe(pulumi.CustomResource):
             if parent_image is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_image'")
             __props__.__dict__["parent_image"] = parent_image
+            __props__.__dict__["platform_override"] = platform_override
             __props__.__dict__["tags"] = tags
             if target_repository is None and not opts.urn:
                 raise TypeError("Missing required property 'target_repository'")
@@ -755,6 +791,7 @@ class ContainerRecipe(pulumi.CustomResource):
             owner: Optional[pulumi.Input[str]] = None,
             parent_image: Optional[pulumi.Input[str]] = None,
             platform: Optional[pulumi.Input[str]] = None,
+            platform_override: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetRepositoryArgs']]] = None,
@@ -781,6 +818,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] owner: Owner of the container recipe.
         :param pulumi.Input[str] parent_image: The base image for the container recipe.
         :param pulumi.Input[str] platform: Platform of the container recipe.
+        :param pulumi.Input[str] platform_override: Specifies the operating system platform when you use a custom base image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetRepositoryArgs']] target_repository: The destination repository for the container image. Detailed below.
@@ -805,6 +843,7 @@ class ContainerRecipe(pulumi.CustomResource):
         __props__.__dict__["owner"] = owner
         __props__.__dict__["parent_image"] = parent_image
         __props__.__dict__["platform"] = platform
+        __props__.__dict__["platform_override"] = platform_override
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_repository"] = target_repository
@@ -923,6 +962,14 @@ class ContainerRecipe(pulumi.CustomResource):
         Platform of the container recipe.
         """
         return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter(name="platformOverride")
+    def platform_override(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the operating system platform when you use a custom base image.
+        """
+        return pulumi.get(self, "platform_override")
 
     @property
     @pulumi.getter

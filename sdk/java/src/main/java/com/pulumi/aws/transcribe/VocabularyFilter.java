@@ -132,14 +132,14 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
     @Export(name="vocabularyFilterFileUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vocabularyFilterFileUri;
 
     /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+     * @return The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
     public Output<Optional<String>> vocabularyFilterFileUri() {
@@ -160,14 +160,14 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.vocabularyFilterName;
     }
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
      * 
      */
     @Export(name="words", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> words;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
      * 
      */
     public Output<Optional<List<String>>> words() {

@@ -8,6 +8,7 @@ import com.pulumi.aws.sagemaker.inputs.FeatureGroupOfflineStoreConfigS3StorageCo
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,12 +63,28 @@ public final class FeatureGroupOfflineStoreConfigArgs extends com.pulumi.resourc
         return this.s3StorageConfig;
     }
 
+    /**
+     * Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+     * 
+     */
+    @Import(name="tableFormat")
+    private @Nullable Output<String> tableFormat;
+
+    /**
+     * @return Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+     * 
+     */
+    public Optional<Output<String>> tableFormat() {
+        return Optional.ofNullable(this.tableFormat);
+    }
+
     private FeatureGroupOfflineStoreConfigArgs() {}
 
     private FeatureGroupOfflineStoreConfigArgs(FeatureGroupOfflineStoreConfigArgs $) {
         this.dataCatalogConfig = $.dataCatalogConfig;
         this.disableGlueTableCreation = $.disableGlueTableCreation;
         this.s3StorageConfig = $.s3StorageConfig;
+        this.tableFormat = $.tableFormat;
     }
 
     public static Builder builder() {
@@ -149,6 +166,27 @@ public final class FeatureGroupOfflineStoreConfigArgs extends com.pulumi.resourc
          */
         public Builder s3StorageConfig(FeatureGroupOfflineStoreConfigS3StorageConfigArgs s3StorageConfig) {
             return s3StorageConfig(Output.of(s3StorageConfig));
+        }
+
+        /**
+         * @param tableFormat Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableFormat(@Nullable Output<String> tableFormat) {
+            $.tableFormat = tableFormat;
+            return this;
+        }
+
+        /**
+         * @param tableFormat Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableFormat(String tableFormat) {
+            return tableFormat(Output.of(tableFormat));
         }
 
         public FeatureGroupOfflineStoreConfigArgs build() {

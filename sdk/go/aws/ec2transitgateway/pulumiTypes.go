@@ -116,6 +116,112 @@ func (o GetAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetAttachmentFi
 	}).(GetAttachmentFilterOutput)
 }
 
+type GetAttachmentsFilter struct {
+	// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetAttachmentsFilterInput is an input type that accepts GetAttachmentsFilterArgs and GetAttachmentsFilterOutput values.
+// You can construct a concrete instance of `GetAttachmentsFilterInput` via:
+//
+//	GetAttachmentsFilterArgs{...}
+type GetAttachmentsFilterInput interface {
+	pulumi.Input
+
+	ToGetAttachmentsFilterOutput() GetAttachmentsFilterOutput
+	ToGetAttachmentsFilterOutputWithContext(context.Context) GetAttachmentsFilterOutput
+}
+
+type GetAttachmentsFilterArgs struct {
+	// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAttachmentsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAttachmentsFilter)(nil)).Elem()
+}
+
+func (i GetAttachmentsFilterArgs) ToGetAttachmentsFilterOutput() GetAttachmentsFilterOutput {
+	return i.ToGetAttachmentsFilterOutputWithContext(context.Background())
+}
+
+func (i GetAttachmentsFilterArgs) ToGetAttachmentsFilterOutputWithContext(ctx context.Context) GetAttachmentsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAttachmentsFilterOutput)
+}
+
+// GetAttachmentsFilterArrayInput is an input type that accepts GetAttachmentsFilterArray and GetAttachmentsFilterArrayOutput values.
+// You can construct a concrete instance of `GetAttachmentsFilterArrayInput` via:
+//
+//	GetAttachmentsFilterArray{ GetAttachmentsFilterArgs{...} }
+type GetAttachmentsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetAttachmentsFilterArrayOutput() GetAttachmentsFilterArrayOutput
+	ToGetAttachmentsFilterArrayOutputWithContext(context.Context) GetAttachmentsFilterArrayOutput
+}
+
+type GetAttachmentsFilterArray []GetAttachmentsFilterInput
+
+func (GetAttachmentsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAttachmentsFilter)(nil)).Elem()
+}
+
+func (i GetAttachmentsFilterArray) ToGetAttachmentsFilterArrayOutput() GetAttachmentsFilterArrayOutput {
+	return i.ToGetAttachmentsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAttachmentsFilterArray) ToGetAttachmentsFilterArrayOutputWithContext(ctx context.Context) GetAttachmentsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAttachmentsFilterArrayOutput)
+}
+
+type GetAttachmentsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetAttachmentsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAttachmentsFilter)(nil)).Elem()
+}
+
+func (o GetAttachmentsFilterOutput) ToGetAttachmentsFilterOutput() GetAttachmentsFilterOutput {
+	return o
+}
+
+func (o GetAttachmentsFilterOutput) ToGetAttachmentsFilterOutputWithContext(ctx context.Context) GetAttachmentsFilterOutput {
+	return o
+}
+
+// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
+func (o GetAttachmentsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAttachmentsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetAttachmentsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAttachmentsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAttachmentsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAttachmentsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAttachmentsFilter)(nil)).Elem()
+}
+
+func (o GetAttachmentsFilterArrayOutput) ToGetAttachmentsFilterArrayOutput() GetAttachmentsFilterArrayOutput {
+	return o
+}
+
+func (o GetAttachmentsFilterArrayOutput) ToGetAttachmentsFilterArrayOutputWithContext(ctx context.Context) GetAttachmentsFilterArrayOutput {
+	return o
+}
+
+func (o GetAttachmentsFilterArrayOutput) Index(i pulumi.IntInput) GetAttachmentsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAttachmentsFilter {
+		return vs[0].([]GetAttachmentsFilter)[vs[1].(int)]
+	}).(GetAttachmentsFilterOutput)
+}
+
 type GetConnectFilter struct {
 	// Name of the filter.
 	Name string `pulumi:"name"`
@@ -970,6 +1076,118 @@ func (o GetPeeringAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetPeeri
 	}).(GetPeeringAttachmentFilterOutput)
 }
 
+type GetRouteTableAssociationsFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Transit Gateway Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetRouteTableAssociationsFilterInput is an input type that accepts GetRouteTableAssociationsFilterArgs and GetRouteTableAssociationsFilterOutput values.
+// You can construct a concrete instance of `GetRouteTableAssociationsFilterInput` via:
+//
+//	GetRouteTableAssociationsFilterArgs{...}
+type GetRouteTableAssociationsFilterInput interface {
+	pulumi.Input
+
+	ToGetRouteTableAssociationsFilterOutput() GetRouteTableAssociationsFilterOutput
+	ToGetRouteTableAssociationsFilterOutputWithContext(context.Context) GetRouteTableAssociationsFilterOutput
+}
+
+type GetRouteTableAssociationsFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Transit Gateway Route Table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetRouteTableAssociationsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableAssociationsFilter)(nil)).Elem()
+}
+
+func (i GetRouteTableAssociationsFilterArgs) ToGetRouteTableAssociationsFilterOutput() GetRouteTableAssociationsFilterOutput {
+	return i.ToGetRouteTableAssociationsFilterOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableAssociationsFilterArgs) ToGetRouteTableAssociationsFilterOutputWithContext(ctx context.Context) GetRouteTableAssociationsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableAssociationsFilterOutput)
+}
+
+// GetRouteTableAssociationsFilterArrayInput is an input type that accepts GetRouteTableAssociationsFilterArray and GetRouteTableAssociationsFilterArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableAssociationsFilterArrayInput` via:
+//
+//	GetRouteTableAssociationsFilterArray{ GetRouteTableAssociationsFilterArgs{...} }
+type GetRouteTableAssociationsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteTableAssociationsFilterArrayOutput() GetRouteTableAssociationsFilterArrayOutput
+	ToGetRouteTableAssociationsFilterArrayOutputWithContext(context.Context) GetRouteTableAssociationsFilterArrayOutput
+}
+
+type GetRouteTableAssociationsFilterArray []GetRouteTableAssociationsFilterInput
+
+func (GetRouteTableAssociationsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableAssociationsFilter)(nil)).Elem()
+}
+
+func (i GetRouteTableAssociationsFilterArray) ToGetRouteTableAssociationsFilterArrayOutput() GetRouteTableAssociationsFilterArrayOutput {
+	return i.ToGetRouteTableAssociationsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableAssociationsFilterArray) ToGetRouteTableAssociationsFilterArrayOutputWithContext(ctx context.Context) GetRouteTableAssociationsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableAssociationsFilterArrayOutput)
+}
+
+type GetRouteTableAssociationsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableAssociationsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableAssociationsFilter)(nil)).Elem()
+}
+
+func (o GetRouteTableAssociationsFilterOutput) ToGetRouteTableAssociationsFilterOutput() GetRouteTableAssociationsFilterOutput {
+	return o
+}
+
+func (o GetRouteTableAssociationsFilterOutput) ToGetRouteTableAssociationsFilterOutputWithContext(ctx context.Context) GetRouteTableAssociationsFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
+func (o GetRouteTableAssociationsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableAssociationsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Transit Gateway Route Table will be selected if any one of the given values matches.
+func (o GetRouteTableAssociationsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteTableAssociationsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetRouteTableAssociationsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableAssociationsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableAssociationsFilter)(nil)).Elem()
+}
+
+func (o GetRouteTableAssociationsFilterArrayOutput) ToGetRouteTableAssociationsFilterArrayOutput() GetRouteTableAssociationsFilterArrayOutput {
+	return o
+}
+
+func (o GetRouteTableAssociationsFilterArrayOutput) ToGetRouteTableAssociationsFilterArrayOutputWithContext(ctx context.Context) GetRouteTableAssociationsFilterArrayOutput {
+	return o
+}
+
+func (o GetRouteTableAssociationsFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableAssociationsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableAssociationsFilter {
+		return vs[0].([]GetRouteTableAssociationsFilter)[vs[1].(int)]
+	}).(GetRouteTableAssociationsFilterOutput)
+}
+
 type GetRouteTableFilter struct {
 	// Name of the filter.
 	Name string `pulumi:"name"`
@@ -1074,6 +1292,118 @@ func (o GetRouteTableFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableFi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableFilter {
 		return vs[0].([]GetRouteTableFilter)[vs[1].(int)]
 	}).(GetRouteTableFilterOutput)
+}
+
+type GetRouteTablePropagationsFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Transit Gateway Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetRouteTablePropagationsFilterInput is an input type that accepts GetRouteTablePropagationsFilterArgs and GetRouteTablePropagationsFilterOutput values.
+// You can construct a concrete instance of `GetRouteTablePropagationsFilterInput` via:
+//
+//	GetRouteTablePropagationsFilterArgs{...}
+type GetRouteTablePropagationsFilterInput interface {
+	pulumi.Input
+
+	ToGetRouteTablePropagationsFilterOutput() GetRouteTablePropagationsFilterOutput
+	ToGetRouteTablePropagationsFilterOutputWithContext(context.Context) GetRouteTablePropagationsFilterOutput
+}
+
+type GetRouteTablePropagationsFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Transit Gateway Route Table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetRouteTablePropagationsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTablePropagationsFilter)(nil)).Elem()
+}
+
+func (i GetRouteTablePropagationsFilterArgs) ToGetRouteTablePropagationsFilterOutput() GetRouteTablePropagationsFilterOutput {
+	return i.ToGetRouteTablePropagationsFilterOutputWithContext(context.Background())
+}
+
+func (i GetRouteTablePropagationsFilterArgs) ToGetRouteTablePropagationsFilterOutputWithContext(ctx context.Context) GetRouteTablePropagationsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablePropagationsFilterOutput)
+}
+
+// GetRouteTablePropagationsFilterArrayInput is an input type that accepts GetRouteTablePropagationsFilterArray and GetRouteTablePropagationsFilterArrayOutput values.
+// You can construct a concrete instance of `GetRouteTablePropagationsFilterArrayInput` via:
+//
+//	GetRouteTablePropagationsFilterArray{ GetRouteTablePropagationsFilterArgs{...} }
+type GetRouteTablePropagationsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteTablePropagationsFilterArrayOutput() GetRouteTablePropagationsFilterArrayOutput
+	ToGetRouteTablePropagationsFilterArrayOutputWithContext(context.Context) GetRouteTablePropagationsFilterArrayOutput
+}
+
+type GetRouteTablePropagationsFilterArray []GetRouteTablePropagationsFilterInput
+
+func (GetRouteTablePropagationsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTablePropagationsFilter)(nil)).Elem()
+}
+
+func (i GetRouteTablePropagationsFilterArray) ToGetRouteTablePropagationsFilterArrayOutput() GetRouteTablePropagationsFilterArrayOutput {
+	return i.ToGetRouteTablePropagationsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteTablePropagationsFilterArray) ToGetRouteTablePropagationsFilterArrayOutputWithContext(ctx context.Context) GetRouteTablePropagationsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablePropagationsFilterArrayOutput)
+}
+
+type GetRouteTablePropagationsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTablePropagationsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTablePropagationsFilter)(nil)).Elem()
+}
+
+func (o GetRouteTablePropagationsFilterOutput) ToGetRouteTablePropagationsFilterOutput() GetRouteTablePropagationsFilterOutput {
+	return o
+}
+
+func (o GetRouteTablePropagationsFilterOutput) ToGetRouteTablePropagationsFilterOutputWithContext(ctx context.Context) GetRouteTablePropagationsFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
+func (o GetRouteTablePropagationsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTablePropagationsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Transit Gateway Route Table will be selected if any one of the given values matches.
+func (o GetRouteTablePropagationsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteTablePropagationsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetRouteTablePropagationsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTablePropagationsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTablePropagationsFilter)(nil)).Elem()
+}
+
+func (o GetRouteTablePropagationsFilterArrayOutput) ToGetRouteTablePropagationsFilterArrayOutput() GetRouteTablePropagationsFilterArrayOutput {
+	return o
+}
+
+func (o GetRouteTablePropagationsFilterArrayOutput) ToGetRouteTablePropagationsFilterArrayOutputWithContext(ctx context.Context) GetRouteTablePropagationsFilterArrayOutput {
+	return o
+}
+
+func (o GetRouteTablePropagationsFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTablePropagationsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTablePropagationsFilter {
+		return vs[0].([]GetRouteTablePropagationsFilter)[vs[1].(int)]
+	}).(GetRouteTablePropagationsFilterOutput)
 }
 
 type GetTransitGatewayFilter struct {
@@ -1503,6 +1833,8 @@ func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttach
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterInput)(nil)).Elem(), GetAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterArrayInput)(nil)).Elem(), GetAttachmentFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentsFilterInput)(nil)).Elem(), GetAttachmentsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentsFilterArrayInput)(nil)).Elem(), GetAttachmentsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectFilterInput)(nil)).Elem(), GetConnectFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectFilterArrayInput)(nil)).Elem(), GetConnectFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectPeerFilterInput)(nil)).Elem(), GetConnectPeerFilterArgs{})
@@ -1519,8 +1851,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainSourceArrayInput)(nil)).Elem(), GetMulticastDomainSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentFilterInput)(nil)).Elem(), GetPeeringAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentFilterArrayInput)(nil)).Elem(), GetPeeringAttachmentFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableAssociationsFilterInput)(nil)).Elem(), GetRouteTableAssociationsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableAssociationsFilterArrayInput)(nil)).Elem(), GetRouteTableAssociationsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterInput)(nil)).Elem(), GetRouteTableFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterArrayInput)(nil)).Elem(), GetRouteTableFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablePropagationsFilterInput)(nil)).Elem(), GetRouteTablePropagationsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablePropagationsFilterArrayInput)(nil)).Elem(), GetRouteTablePropagationsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayFilterInput)(nil)).Elem(), GetTransitGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayFilterArrayInput)(nil)).Elem(), GetTransitGatewayFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentFilterInput)(nil)).Elem(), GetVpcAttachmentFilterArgs{})
@@ -1531,6 +1867,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterArrayInput)(nil)).Elem(), GetVpnAttachmentFilterArray{})
 	pulumi.RegisterOutputType(GetAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetAttachmentFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetAttachmentsFilterOutput{})
+	pulumi.RegisterOutputType(GetAttachmentsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectFilterOutput{})
 	pulumi.RegisterOutputType(GetConnectFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectPeerFilterOutput{})
@@ -1547,8 +1885,12 @@ func init() {
 	pulumi.RegisterOutputType(GetMulticastDomainSourceArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetPeeringAttachmentFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteTableAssociationsFilterOutput{})
+	pulumi.RegisterOutputType(GetRouteTableAssociationsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableFilterOutput{})
 	pulumi.RegisterOutputType(GetRouteTableFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteTablePropagationsFilterOutput{})
+	pulumi.RegisterOutputType(GetRouteTablePropagationsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcAttachmentFilterOutput{})

@@ -197,6 +197,8 @@ type customActionTypeArgs struct {
 	Settings *CustomActionTypeSettings `pulumi:"settings"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The version identifier of the custom action.
 	Version string `pulumi:"version"`
 }
@@ -217,6 +219,8 @@ type CustomActionTypeArgs struct {
 	Settings CustomActionTypeSettingsPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The version identifier of the custom action.
 	Version pulumi.StringInput
 }

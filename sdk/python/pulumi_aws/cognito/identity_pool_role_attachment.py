@@ -135,6 +135,69 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         """
         Provides an AWS Cognito Identity Pool Roles Attachment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main_identity_pool = aws.cognito.IdentityPool("mainIdentityPool",
+            identity_pool_name="identity pool",
+            allow_unauthenticated_identities=False,
+            supported_login_providers={
+                "graph.facebook.com": "7346241598935555",
+            })
+        authenticated_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Federated",
+                identifiers=["cognito-identity.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            conditions=[
+                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="cognito-identity.amazonaws.com:aud",
+                    values=[main_identity_pool.id],
+                ),
+                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="ForAnyValue:StringLike",
+                    variable="cognito-identity.amazonaws.com:amr",
+                    values=["authenticated"],
+                ),
+            ],
+        )])
+        authenticated_role = aws.iam.Role("authenticatedRole", assume_role_policy=authenticated_policy_document.json)
+        authenticated_role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "mobileanalytics:PutEvents",
+                "cognito-sync:*",
+                "cognito-identity:*",
+            ],
+            resources=["*"],
+        )])
+        authenticated_role_policy = aws.iam.RolePolicy("authenticatedRolePolicy",
+            role=authenticated_role.id,
+            policy=authenticated_role_policy_policy_document.json)
+        main_identity_pool_role_attachment = aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment",
+            identity_pool_id=main_identity_pool.id,
+            role_mappings=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingArgs(
+                identity_provider="graph.facebook.com",
+                ambiguous_role_resolution="AuthenticatedRole",
+                type="Rules",
+                mapping_rules=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs(
+                    claim="isAdmin",
+                    match_type="Equals",
+                    role_arn=authenticated_role.arn,
+                    value="paid",
+                )],
+            )],
+            roles={
+                "authenticated": authenticated_role.arn,
+            })
+        ```
+
         ## Import
 
         Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
@@ -157,6 +220,69 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Cognito Identity Pool Roles Attachment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main_identity_pool = aws.cognito.IdentityPool("mainIdentityPool",
+            identity_pool_name="identity pool",
+            allow_unauthenticated_identities=False,
+            supported_login_providers={
+                "graph.facebook.com": "7346241598935555",
+            })
+        authenticated_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Federated",
+                identifiers=["cognito-identity.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRoleWithWebIdentity"],
+            conditions=[
+                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="cognito-identity.amazonaws.com:aud",
+                    values=[main_identity_pool.id],
+                ),
+                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="ForAnyValue:StringLike",
+                    variable="cognito-identity.amazonaws.com:amr",
+                    values=["authenticated"],
+                ),
+            ],
+        )])
+        authenticated_role = aws.iam.Role("authenticatedRole", assume_role_policy=authenticated_policy_document.json)
+        authenticated_role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=[
+                "mobileanalytics:PutEvents",
+                "cognito-sync:*",
+                "cognito-identity:*",
+            ],
+            resources=["*"],
+        )])
+        authenticated_role_policy = aws.iam.RolePolicy("authenticatedRolePolicy",
+            role=authenticated_role.id,
+            policy=authenticated_role_policy_policy_document.json)
+        main_identity_pool_role_attachment = aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment",
+            identity_pool_id=main_identity_pool.id,
+            role_mappings=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingArgs(
+                identity_provider="graph.facebook.com",
+                ambiguous_role_resolution="AuthenticatedRole",
+                type="Rules",
+                mapping_rules=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs(
+                    claim="isAdmin",
+                    match_type="Equals",
+                    role_arn=authenticated_role.arn,
+                    value="paid",
+                )],
+            )],
+            roles={
+                "authenticated": authenticated_role.arn,
+            })
+        ```
 
         ## Import
 

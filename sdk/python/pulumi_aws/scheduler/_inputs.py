@@ -232,23 +232,22 @@ class ScheduleTargetArgs:
 @pulumi.input_type
 class ScheduleTargetDeadLetterConfigArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[str]] = None):
+                 arn: pulumi.Input[str]):
         """
         :param pulumi.Input[str] arn: ARN of the SQS queue specified as the destination for the dead-letter queue.
         """
-        if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[str]]:
+    def arn(self) -> pulumi.Input[str]:
         """
         ARN of the SQS queue specified as the destination for the dead-letter queue.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[str]]):
+    def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
 
 

@@ -5742,8 +5742,8 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(di
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "certficateMode":
-            suggest = "certficate_mode"
+        if key == "certificateMode":
+            suggest = "certificate_mode"
         elif key == "connectionRetryInterval":
             suggest = "connection_retry_interval"
         elif key == "numRetries":
@@ -5762,17 +5762,18 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(di
 
     def __init__(__self__, *,
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination',
-                 certficate_mode: Optional[str] = None,
+                 certificate_mode: Optional[str] = None,
                  connection_retry_interval: Optional[int] = None,
                  num_retries: Optional[int] = None):
         """
         :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs' destination: The RTMP endpoint excluding the stream name. See Destination for more details.
+        :param str certificate_mode: Setting to allow self signed or verified RTMP certificates.
         :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         :param int num_retries: Number of retry attempts.
         """
         pulumi.set(__self__, "destination", destination)
-        if certficate_mode is not None:
-            pulumi.set(__self__, "certficate_mode", certficate_mode)
+        if certificate_mode is not None:
+            pulumi.set(__self__, "certificate_mode", certificate_mode)
         if connection_retry_interval is not None:
             pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
         if num_retries is not None:
@@ -5787,9 +5788,12 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(di
         return pulumi.get(self, "destination")
 
     @property
-    @pulumi.getter(name="certficateMode")
-    def certficate_mode(self) -> Optional[str]:
-        return pulumi.get(self, "certficate_mode")
+    @pulumi.getter(name="certificateMode")
+    def certificate_mode(self) -> Optional[str]:
+        """
+        Setting to allow self signed or verified RTMP certificates.
+        """
+        return pulumi.get(self, "certificate_mode")
 
     @property
     @pulumi.getter(name="connectionRetryInterval")

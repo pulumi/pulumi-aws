@@ -22,7 +22,8 @@ class ContainerServiceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
                  public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ContainerService resource.
         :param pulumi.Input[str] power: The power specification for the container service. The power specifies the amount of memory,
@@ -43,6 +44,8 @@ class ContainerServiceArgs:
                configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider
+               `default_tags` configuration block.
         """
         pulumi.set(__self__, "power", power)
         pulumi.set(__self__, "scale", scale)
@@ -56,6 +59,8 @@ class ContainerServiceArgs:
             pulumi.set(__self__, "public_domain_names", public_domain_names)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -151,6 +156,19 @@ class ContainerServiceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider
+        `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -473,6 +491,7 @@ class ContainerService(pulumi.CustomResource):
                  public_domain_names: Optional[pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArgs']]] = None,
                  scale: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         An Amazon Lightsail container service is a highly scalable compute and networking resource on which you can deploy, run,
@@ -567,6 +586,8 @@ class ContainerService(pulumi.CustomResource):
                configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider
+               `default_tags` configuration block.
         """
         ...
     @overload
@@ -669,6 +690,7 @@ class ContainerService(pulumi.CustomResource):
                  public_domain_names: Optional[pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArgs']]] = None,
                  scale: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -689,6 +711,7 @@ class ContainerService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scale'")
             __props__.__dict__["scale"] = scale
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone"] = None
             __props__.__dict__["created_at"] = None
@@ -697,7 +720,6 @@ class ContainerService(pulumi.CustomResource):
             __props__.__dict__["private_domain_name"] = None
             __props__.__dict__["resource_type"] = None
             __props__.__dict__["state"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
         super(ContainerService, __self__).__init__(
             'aws:lightsail/containerService:ContainerService',

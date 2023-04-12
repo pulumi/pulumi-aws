@@ -16,7 +16,7 @@ import (
 // > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
 //
 // ## Example Usage
-// ### With ACL
+// ### With `private` ACL
 //
 // ```go
 // package main
@@ -30,14 +30,80 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAcl", &s3.BucketAclV2Args{
-//				Bucket: example.ID(),
-//				Acl:    pulumi.String("private"),
+//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
+//				Bucket: exampleBucketV2.ID(),
+//				Rule: &s3.BucketOwnershipControlsRuleArgs{
+//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
+//				},
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Acl:    pulumi.String("private"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketOwnershipControls,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With `public-read` ACL
+//
+// > This example explicitly disables the default S3 bucket security settings. This
+// should be done with caution, as all bucket objects become publicly exposed.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
+//				Bucket: exampleBucketV2.ID(),
+//				Rule: &s3.BucketOwnershipControlsRuleArgs{
+//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketPublicAccessBlock, err := s3.NewBucketPublicAccessBlock(ctx, "exampleBucketPublicAccessBlock", &s3.BucketPublicAccessBlockArgs{
+//				Bucket:                exampleBucketV2.ID(),
+//				BlockPublicAcls:       pulumi.Bool(false),
+//				BlockPublicPolicy:     pulumi.Bool(false),
+//				IgnorePublicAcls:      pulumi.Bool(false),
+//				RestrictPublicBuckets: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Acl:    pulumi.String("public-read"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketOwnershipControls,
+//				exampleBucketPublicAccessBlock,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -68,6 +134,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
+//				Bucket: exampleBucketV2.ID(),
+//				Rule: &s3.BucketOwnershipControlsRuleArgs{
+//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
 //				Bucket: exampleBucketV2.ID(),
 //				AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
@@ -91,7 +166,9 @@ import (
 //						Id: *pulumi.String(current.Id),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketOwnershipControls,
+//			}))
 //			if err != nil {
 //				return err
 //			}

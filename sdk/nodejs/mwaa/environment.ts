@@ -239,7 +239,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */
@@ -325,6 +325,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["schedulers"] = args ? args.schedulers : undefined;
             resourceInputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
             resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -332,7 +333,6 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["lastUpdateds"] = undefined /*out*/;
             resourceInputs["serviceRoleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["webserverUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -530,6 +530,10 @@ export interface EnvironmentArgs {
      * A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */

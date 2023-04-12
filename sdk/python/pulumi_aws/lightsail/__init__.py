@@ -14,6 +14,7 @@ from .container_service_deployment_version import *
 from .database import *
 from .disk import *
 from .disk_attachment import *
+from .distribution import *
 from .domain import *
 from .domain_entry import *
 from .instance import *

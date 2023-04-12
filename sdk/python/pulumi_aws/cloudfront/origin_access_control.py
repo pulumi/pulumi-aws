@@ -21,10 +21,10 @@ class OriginAccessControlArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OriginAccessControl resource.
-        :param pulumi.Input[str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. The only valid value is `s3`.
-        :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
-        :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
-        :param pulumi.Input[str] description: The description of the Origin Access Control. It may be empty.
+        :param pulumi.Input[str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+        :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+        :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+        :param pulumi.Input[str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         :param pulumi.Input[str] name: A name that identifies the Origin Access Control.
         """
         pulumi.set(__self__, "origin_access_control_origin_type", origin_access_control_origin_type)
@@ -39,7 +39,7 @@ class OriginAccessControlArgs:
     @pulumi.getter(name="originAccessControlOriginType")
     def origin_access_control_origin_type(self) -> pulumi.Input[str]:
         """
-        The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+        The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
         """
         return pulumi.get(self, "origin_access_control_origin_type")
 
@@ -51,7 +51,7 @@ class OriginAccessControlArgs:
     @pulumi.getter(name="signingBehavior")
     def signing_behavior(self) -> pulumi.Input[str]:
         """
-        Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+        Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         """
         return pulumi.get(self, "signing_behavior")
 
@@ -63,7 +63,7 @@ class OriginAccessControlArgs:
     @pulumi.getter(name="signingProtocol")
     def signing_protocol(self) -> pulumi.Input[str]:
         """
-        Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+        Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
         return pulumi.get(self, "signing_protocol")
 
@@ -75,7 +75,7 @@ class OriginAccessControlArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Origin Access Control. It may be empty.
+        The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         """
         return pulumi.get(self, "description")
 
@@ -107,12 +107,12 @@ class _OriginAccessControlState:
                  signing_protocol: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OriginAccessControl resources.
-        :param pulumi.Input[str] description: The description of the Origin Access Control. It may be empty.
+        :param pulumi.Input[str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         :param pulumi.Input[str] etag: The current version of this Origin Access Control.
         :param pulumi.Input[str] name: A name that identifies the Origin Access Control.
-        :param pulumi.Input[str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. The only valid value is `s3`.
-        :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
-        :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+        :param pulumi.Input[str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+        :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+        :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -131,7 +131,7 @@ class _OriginAccessControlState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Origin Access Control. It may be empty.
+        The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         """
         return pulumi.get(self, "description")
 
@@ -167,7 +167,7 @@ class _OriginAccessControlState:
     @pulumi.getter(name="originAccessControlOriginType")
     def origin_access_control_origin_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+        The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
         """
         return pulumi.get(self, "origin_access_control_origin_type")
 
@@ -179,7 +179,7 @@ class _OriginAccessControlState:
     @pulumi.getter(name="signingBehavior")
     def signing_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+        Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         """
         return pulumi.get(self, "signing_behavior")
 
@@ -191,7 +191,7 @@ class _OriginAccessControlState:
     @pulumi.getter(name="signingProtocol")
     def signing_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+        Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
         return pulumi.get(self, "signing_protocol")
 
@@ -240,11 +240,11 @@ class OriginAccessControl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the Origin Access Control. It may be empty.
+        :param pulumi.Input[str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         :param pulumi.Input[str] name: A name that identifies the Origin Access Control.
-        :param pulumi.Input[str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. The only valid value is `s3`.
-        :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
-        :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+        :param pulumi.Input[str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+        :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+        :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
         ...
     @overload
@@ -343,12 +343,12 @@ class OriginAccessControl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the Origin Access Control. It may be empty.
+        :param pulumi.Input[str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         :param pulumi.Input[str] etag: The current version of this Origin Access Control.
         :param pulumi.Input[str] name: A name that identifies the Origin Access Control.
-        :param pulumi.Input[str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. The only valid value is `s3`.
-        :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
-        :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+        :param pulumi.Input[str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+        :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+        :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -366,7 +366,7 @@ class OriginAccessControl(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the Origin Access Control. It may be empty.
+        The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         """
         return pulumi.get(self, "description")
 
@@ -390,7 +390,7 @@ class OriginAccessControl(pulumi.CustomResource):
     @pulumi.getter(name="originAccessControlOriginType")
     def origin_access_control_origin_type(self) -> pulumi.Output[str]:
         """
-        The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+        The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
         """
         return pulumi.get(self, "origin_access_control_origin_type")
 
@@ -398,7 +398,7 @@ class OriginAccessControl(pulumi.CustomResource):
     @pulumi.getter(name="signingBehavior")
     def signing_behavior(self) -> pulumi.Output[str]:
         """
-        Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+        Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         """
         return pulumi.get(self, "signing_behavior")
 
@@ -406,7 +406,7 @@ class OriginAccessControl(pulumi.CustomResource):
     @pulumi.getter(name="signingProtocol")
     def signing_protocol(self) -> pulumi.Output[str]:
         """
-        Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+        Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
         return pulumi.get(self, "signing_protocol")
 

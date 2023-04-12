@@ -8581,6 +8581,8 @@ type FeatureGroupOfflineStoreConfig struct {
 	DisableGlueTableCreation *bool `pulumi:"disableGlueTableCreation"`
 	// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
 	S3StorageConfig FeatureGroupOfflineStoreConfigS3StorageConfig `pulumi:"s3StorageConfig"`
+	// Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+	TableFormat *string `pulumi:"tableFormat"`
 }
 
 // FeatureGroupOfflineStoreConfigInput is an input type that accepts FeatureGroupOfflineStoreConfigArgs and FeatureGroupOfflineStoreConfigOutput values.
@@ -8601,6 +8603,8 @@ type FeatureGroupOfflineStoreConfigArgs struct {
 	DisableGlueTableCreation pulumi.BoolPtrInput `pulumi:"disableGlueTableCreation"`
 	// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
 	S3StorageConfig FeatureGroupOfflineStoreConfigS3StorageConfigInput `pulumi:"s3StorageConfig"`
+	// Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+	TableFormat pulumi.StringPtrInput `pulumi:"tableFormat"`
 }
 
 func (FeatureGroupOfflineStoreConfigArgs) ElementType() reflect.Type {
@@ -8699,6 +8703,11 @@ func (o FeatureGroupOfflineStoreConfigOutput) S3StorageConfig() FeatureGroupOffl
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput)
 }
 
+// Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+func (o FeatureGroupOfflineStoreConfigOutput) TableFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) *string { return v.TableFormat }).(pulumi.StringPtrOutput)
+}
+
 type FeatureGroupOfflineStoreConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupOfflineStoreConfigPtrOutput) ElementType() reflect.Type {
@@ -8751,6 +8760,16 @@ func (o FeatureGroupOfflineStoreConfigPtrOutput) S3StorageConfig() FeatureGroupO
 		}
 		return &v.S3StorageConfig
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput)
+}
+
+// Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
+func (o FeatureGroupOfflineStoreConfigPtrOutput) TableFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableFormat
+	}).(pulumi.StringPtrOutput)
 }
 
 type FeatureGroupOfflineStoreConfigDataCatalogConfig struct {

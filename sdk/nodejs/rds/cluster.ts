@@ -474,7 +474,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
@@ -598,6 +598,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
@@ -606,7 +607,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["masterUserSecrets"] = undefined /*out*/;
             resourceInputs["readerEndpoint"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["masterPassword"] };
@@ -1032,6 +1032,10 @@ export interface ClusterArgs {
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */

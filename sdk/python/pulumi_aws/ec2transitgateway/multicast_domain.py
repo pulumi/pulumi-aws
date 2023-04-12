@@ -18,7 +18,8 @@ class MulticastDomainArgs:
                  auto_accept_shared_associations: Optional[pulumi.Input[str]] = None,
                  igmpv2_support: Optional[pulumi.Input[str]] = None,
                  static_sources_support: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MulticastDomain resource.
         :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
@@ -26,6 +27,7 @@ class MulticastDomainArgs:
         :param pulumi.Input[str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if auto_accept_shared_associations is not None:
@@ -36,6 +38,8 @@ class MulticastDomainArgs:
             pulumi.set(__self__, "static_sources_support", static_sources_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -96,6 +100,18 @@ class MulticastDomainArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -243,6 +259,7 @@ class MulticastDomain(pulumi.CustomResource):
                  igmpv2_support: Optional[pulumi.Input[str]] = None,
                  static_sources_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -351,6 +368,7 @@ class MulticastDomain(pulumi.CustomResource):
         :param pulumi.Input[str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         """
         ...
@@ -478,6 +496,7 @@ class MulticastDomain(pulumi.CustomResource):
                  igmpv2_support: Optional[pulumi.Input[str]] = None,
                  static_sources_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -492,12 +511,12 @@ class MulticastDomain(pulumi.CustomResource):
             __props__.__dict__["igmpv2_support"] = igmpv2_support
             __props__.__dict__["static_sources_support"] = static_sources_support
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
-            __props__.__dict__["tags_all"] = None
         super(MulticastDomain, __self__).__init__(
             'aws:ec2transitgateway/multicastDomain:MulticastDomain',
             resource_name,

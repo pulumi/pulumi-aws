@@ -5,7 +5,11 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .account_subscription import *
+from .data_set import *
 from .data_source import *
+from .folder import *
+from .get_data_set import *
 from .group import *
 from .group_membership import *
 from .user import *

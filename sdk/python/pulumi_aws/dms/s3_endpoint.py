@@ -58,6 +58,7 @@ class S3EndpointArgs:
                  server_side_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timestamp_column_name: Optional[pulumi.Input[str]] = None,
                  use_csv_no_sup_value: Optional[pulumi.Input[bool]] = None,
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None):
@@ -107,6 +108,7 @@ class S3EndpointArgs:
         :param pulumi.Input[str] server_side_encryption_kms_key_id: When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         :param pulumi.Input[bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
         :param pulumi.Input[bool] use_task_start_time_for_full_load_timestamp: When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
@@ -195,6 +197,8 @@ class S3EndpointArgs:
             pulumi.set(__self__, "ssl_mode", ssl_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if timestamp_column_name is not None:
             pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
         if use_csv_no_sup_value is not None:
@@ -729,6 +733,18 @@ class S3EndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="timestampColumnName")
@@ -1656,6 +1672,7 @@ class S3Endpoint(pulumi.CustomResource):
                  service_access_role_arn: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timestamp_column_name: Optional[pulumi.Input[str]] = None,
                  use_csv_no_sup_value: Optional[pulumi.Input[bool]] = None,
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None,
@@ -1795,6 +1812,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         :param pulumi.Input[bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
         :param pulumi.Input[bool] use_task_start_time_for_full_load_timestamp: When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
@@ -1953,6 +1971,7 @@ class S3Endpoint(pulumi.CustomResource):
                  service_access_role_arn: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timestamp_column_name: Optional[pulumi.Input[str]] = None,
                  use_csv_no_sup_value: Optional[pulumi.Input[bool]] = None,
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None,
@@ -2017,6 +2036,7 @@ class S3Endpoint(pulumi.CustomResource):
             __props__.__dict__["service_access_role_arn"] = service_access_role_arn
             __props__.__dict__["ssl_mode"] = ssl_mode
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timestamp_column_name"] = timestamp_column_name
             __props__.__dict__["use_csv_no_sup_value"] = use_csv_no_sup_value
             __props__.__dict__["use_task_start_time_for_full_load_timestamp"] = use_task_start_time_for_full_load_timestamp
@@ -2024,7 +2044,6 @@ class S3Endpoint(pulumi.CustomResource):
             __props__.__dict__["engine_display_name"] = None
             __props__.__dict__["external_id"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(S3Endpoint, __self__).__init__(
             'aws:dms/s3Endpoint:S3Endpoint',
             resource_name,

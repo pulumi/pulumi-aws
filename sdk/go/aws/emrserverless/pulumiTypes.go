@@ -303,6 +303,143 @@ func (o ApplicationAutoStopConfigurationPtrOutput) IdleTimeoutMinutes() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+type ApplicationImageConfiguration struct {
+	// The image URI.
+	ImageUri string `pulumi:"imageUri"`
+}
+
+// ApplicationImageConfigurationInput is an input type that accepts ApplicationImageConfigurationArgs and ApplicationImageConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationImageConfigurationInput` via:
+//
+//	ApplicationImageConfigurationArgs{...}
+type ApplicationImageConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationImageConfigurationOutput() ApplicationImageConfigurationOutput
+	ToApplicationImageConfigurationOutputWithContext(context.Context) ApplicationImageConfigurationOutput
+}
+
+type ApplicationImageConfigurationArgs struct {
+	// The image URI.
+	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+}
+
+func (ApplicationImageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationImageConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationImageConfigurationArgs) ToApplicationImageConfigurationOutput() ApplicationImageConfigurationOutput {
+	return i.ToApplicationImageConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationImageConfigurationArgs) ToApplicationImageConfigurationOutputWithContext(ctx context.Context) ApplicationImageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationImageConfigurationOutput)
+}
+
+func (i ApplicationImageConfigurationArgs) ToApplicationImageConfigurationPtrOutput() ApplicationImageConfigurationPtrOutput {
+	return i.ToApplicationImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationImageConfigurationArgs) ToApplicationImageConfigurationPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationImageConfigurationOutput).ToApplicationImageConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationImageConfigurationPtrInput is an input type that accepts ApplicationImageConfigurationArgs, ApplicationImageConfigurationPtr and ApplicationImageConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationImageConfigurationPtrInput` via:
+//
+//	        ApplicationImageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationImageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationImageConfigurationPtrOutput() ApplicationImageConfigurationPtrOutput
+	ToApplicationImageConfigurationPtrOutputWithContext(context.Context) ApplicationImageConfigurationPtrOutput
+}
+
+type applicationImageConfigurationPtrType ApplicationImageConfigurationArgs
+
+func ApplicationImageConfigurationPtr(v *ApplicationImageConfigurationArgs) ApplicationImageConfigurationPtrInput {
+	return (*applicationImageConfigurationPtrType)(v)
+}
+
+func (*applicationImageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationImageConfiguration)(nil)).Elem()
+}
+
+func (i *applicationImageConfigurationPtrType) ToApplicationImageConfigurationPtrOutput() ApplicationImageConfigurationPtrOutput {
+	return i.ToApplicationImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationImageConfigurationPtrType) ToApplicationImageConfigurationPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationImageConfigurationPtrOutput)
+}
+
+type ApplicationImageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationImageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationImageConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationImageConfigurationOutput) ToApplicationImageConfigurationOutput() ApplicationImageConfigurationOutput {
+	return o
+}
+
+func (o ApplicationImageConfigurationOutput) ToApplicationImageConfigurationOutputWithContext(ctx context.Context) ApplicationImageConfigurationOutput {
+	return o
+}
+
+func (o ApplicationImageConfigurationOutput) ToApplicationImageConfigurationPtrOutput() ApplicationImageConfigurationPtrOutput {
+	return o.ToApplicationImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationImageConfigurationOutput) ToApplicationImageConfigurationPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationImageConfiguration) *ApplicationImageConfiguration {
+		return &v
+	}).(ApplicationImageConfigurationPtrOutput)
+}
+
+// The image URI.
+func (o ApplicationImageConfigurationOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationImageConfiguration) string { return v.ImageUri }).(pulumi.StringOutput)
+}
+
+type ApplicationImageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationImageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationImageConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationImageConfigurationPtrOutput) ToApplicationImageConfigurationPtrOutput() ApplicationImageConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationImageConfigurationPtrOutput) ToApplicationImageConfigurationPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationImageConfigurationPtrOutput) Elem() ApplicationImageConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationImageConfiguration) ApplicationImageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationImageConfiguration
+		return ret
+	}).(ApplicationImageConfigurationOutput)
+}
+
+// The image URI.
+func (o ApplicationImageConfigurationPtrOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationImageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageUri
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationInitialCapacity struct {
 	// The initial capacity configuration per worker.
 	InitialCapacityConfig *ApplicationInitialCapacityInitialCapacityConfig `pulumi:"initialCapacityConfig"`
@@ -1080,6 +1217,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStartConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStopConfigurationInput)(nil)).Elem(), ApplicationAutoStopConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStopConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStopConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationInput)(nil)).Elem(), ApplicationImageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationPtrInput)(nil)).Elem(), ApplicationImageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityInput)(nil)).Elem(), ApplicationInitialCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityArrayInput)(nil)).Elem(), ApplicationInitialCapacityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityInitialCapacityConfigInput)(nil)).Elem(), ApplicationInitialCapacityInitialCapacityConfigArgs{})
@@ -1094,6 +1233,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationImageConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationImageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityInitialCapacityConfigOutput{})

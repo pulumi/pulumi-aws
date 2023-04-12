@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Scheduler.Inputs
         /// <summary>
         /// ARN of the SQS queue specified as the destination for the dead-letter queue.
         /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public ScheduleTargetDeadLetterConfigGetArgs()
         {

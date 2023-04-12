@@ -337,6 +337,8 @@ type databaseArgs struct {
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -370,6 +372,8 @@ type DatabaseArgs struct {
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

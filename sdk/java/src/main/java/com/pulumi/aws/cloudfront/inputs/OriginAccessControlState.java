@@ -16,14 +16,14 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
     public static final OriginAccessControlState Empty = new OriginAccessControlState();
 
     /**
-     * The description of the Origin Access Control. It may be empty.
+     * The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Origin Access Control. It may be empty.
+     * @return The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
      * 
      */
     public Optional<Output<String>> description() {
@@ -61,14 +61,14 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
      * 
      */
     @Import(name="originAccessControlOriginType")
     private @Nullable Output<String> originAccessControlOriginType;
 
     /**
-     * @return The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * @return The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
      * 
      */
     public Optional<Output<String>> originAccessControlOriginType() {
@@ -76,14 +76,14 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      * 
      */
     @Import(name="signingBehavior")
     private @Nullable Output<String> signingBehavior;
 
     /**
-     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      * 
      */
     public Optional<Output<String>> signingBehavior() {
@@ -91,14 +91,14 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      * 
      */
     @Import(name="signingProtocol")
     private @Nullable Output<String> signingProtocol;
 
     /**
-     * @return Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * @return Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      * 
      */
     public Optional<Output<String>> signingProtocol() {
@@ -135,7 +135,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description The description of the Origin Access Control. It may be empty.
+         * @param description The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description The description of the Origin Access Control. It may be empty.
+         * @param description The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+         * @param signingBehavior Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+         * @param signingProtocol Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
          * 
          * @return builder
          * 

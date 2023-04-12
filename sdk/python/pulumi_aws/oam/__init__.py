@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_link import *
+from .get_links import *
 from .get_sink import *
 from .get_sinks import *
 from .link import *

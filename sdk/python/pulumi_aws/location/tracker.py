@@ -18,7 +18,8 @@ class TrackerArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  position_filtering: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Tracker resource.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource.
@@ -26,6 +27,7 @@ class TrackerArgs:
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         :param pulumi.Input[str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "tracker_name", tracker_name)
         if description is not None:
@@ -36,6 +38,8 @@ class TrackerArgs:
             pulumi.set(__self__, "position_filtering", position_filtering)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="trackerName")
@@ -96,6 +100,18 @@ class TrackerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -259,6 +275,7 @@ class Tracker(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  position_filtering: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -287,6 +304,7 @@ class Tracker(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         :param pulumi.Input[str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource.
         """
         ...
@@ -334,6 +352,7 @@ class Tracker(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  position_filtering: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -348,11 +367,11 @@ class Tracker(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["position_filtering"] = position_filtering
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if tracker_name is None and not opts.urn:
                 raise TypeError("Missing required property 'tracker_name'")
             __props__.__dict__["tracker_name"] = tracker_name
             __props__.__dict__["create_time"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["tracker_arn"] = None
             __props__.__dict__["update_time"] = None
         super(Tracker, __self__).__init__(
