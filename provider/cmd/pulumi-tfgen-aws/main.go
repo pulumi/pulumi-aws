@@ -15,19 +15,11 @@
 package main
 
 import (
-	"context"
-	"log"
-
 	aws "github.com/pulumi/pulumi-aws/provider/v5"
-	"github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
+	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 
 func main() {
-	ctx := context.Background()
-	parts, err := aws.MuxedProvider(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-	tfgen.MainWithMuxer("aws", parts...)
-
+	tfgen.Main("aws", version.Version, aws.Provider())
 }
