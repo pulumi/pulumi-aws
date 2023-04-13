@@ -6738,10 +6738,22 @@ func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
 }
 
 func PFProvider(upstream awsShim.UpstreamProvider) *pfbridge.ProviderInfo {
+	baseline := Provider(upstream)
+
 	info := tfbridge.ProviderInfo{
 		Name:         "aws",
 		Version:      version.Version,
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+
+		Config:     baseline.Config,
+		ExtraTypes: baseline.ExtraTypes,
+
+		CSharp:     baseline.CSharp,
+		Golang:     baseline.Golang,
+		Java:       baseline.Java,
+		JavaScript: baseline.JavaScript,
+		Python:     baseline.Python,
+
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"aws_auditmanager_account_registration": {
 				Tok: awsResource(auditmanagerMod, "AccountRegistration"),
@@ -6822,7 +6834,7 @@ func MuxedProvider(ctx context.Context) ([]pfbridge.Muxed, error) {
 		return nil, err
 	}
 	return []pfbridge.Muxed{
-		pfbridge.Muxed{SDK: Provider(upstream)},
-		pfbridge.Muxed{PF: PFProvider(upstream)},
+		{SDK: Provider(upstream)},
+		{PF: PFProvider(upstream)},
 	}, nil
 }
