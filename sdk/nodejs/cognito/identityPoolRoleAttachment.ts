@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const authenticatedRole = new aws.iam.Role("authenticatedRole", {assumeRolePolicy: authenticatedPolicyDocument.apply(authenticatedPolicyDocument => authenticatedPolicyDocument.json)});
- * const authenticatedRolePolicy = aws.iam.getPolicyDocument({
+ * const authenticatedRolePolicyPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -57,9 +57,9 @@ import * as utilities from "../utilities";
  *         resources: ["*"],
  *     }],
  * });
- * const authenticatedIam_rolePolicyRolePolicy = new aws.iam.RolePolicy("authenticatedIam/rolePolicyRolePolicy", {
+ * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticatedRolePolicy", {
  *     role: authenticatedRole.id,
- *     policy: authenticatedRolePolicy.then(authenticatedRolePolicy => authenticatedRolePolicy.json),
+ *     policy: authenticatedRolePolicyPolicyDocument.then(authenticatedRolePolicyPolicyDocument => authenticatedRolePolicyPolicyDocument.json),
  * });
  * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment", {
  *     identityPoolId: mainIdentityPool.id,
