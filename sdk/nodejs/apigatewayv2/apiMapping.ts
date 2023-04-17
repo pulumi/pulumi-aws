@@ -63,7 +63,7 @@ export class ApiMapping extends pulumi.CustomResource {
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
-     * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+     * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
      */
     public readonly apiMappingKey!: pulumi.Output<string | undefined>;
     /**
@@ -122,7 +122,7 @@ export interface ApiMappingState {
      */
     apiId?: pulumi.Input<string>;
     /**
-     * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+     * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
      */
     apiMappingKey?: pulumi.Input<string>;
     /**
@@ -144,7 +144,7 @@ export interface ApiMappingArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+     * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
      */
     apiMappingKey?: pulumi.Input<string>;
     /**

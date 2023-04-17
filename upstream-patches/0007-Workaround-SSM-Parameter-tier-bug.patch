@@ -1,7 +1,7 @@
-From 414e07016d5b08f512f1930e16543e8b2b635a65 Mon Sep 17 00:00:00 2001
+From 15b7c3ffd3f3658b9a9eba15c0b5ad5276d347fa Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:24:42 +0000
-Subject: [PATCH 07/27] Workaround SSM Parameter tier bug
+Subject: [PATCH 07/26] Workaround SSM Parameter tier bug
 
 - Disable "computed".
 - Disable diff suppression & counteractions
@@ -10,7 +10,7 @@ Subject: [PATCH 07/27] Workaround SSM Parameter tier bug
  1 file changed, 15 insertions(+), 11 deletions(-)
 
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
-index cd7ce58546..25c7ca2ab6 100644
+index 2b6c27cab4..180b9af613 100644
 --- a/internal/service/ssm/parameter.go
 +++ b/internal/service/ssm/parameter.go
 @@ -90,15 +90,17 @@ func ResourceParameter() *schema.Resource {

@@ -21,8 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:quicksight/accountSubscription:AccountSubscription":
+		r = &AccountSubscription{}
+	case "aws:quicksight/dataSet:DataSet":
+		r = &DataSet{}
 	case "aws:quicksight/dataSource:DataSource":
 		r = &DataSource{}
+	case "aws:quicksight/folder:Folder":
+		r = &Folder{}
 	case "aws:quicksight/group:Group":
 		r = &Group{}
 	case "aws:quicksight/groupMembership:GroupMembership":
@@ -44,7 +50,22 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"quicksight/accountSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/dataSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"quicksight/dataSource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/folder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

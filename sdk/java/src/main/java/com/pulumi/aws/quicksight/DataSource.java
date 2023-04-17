@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.,
+ * A QuickSight data source can be imported using the AWS account ID, and data source ID separated by a slash (`/`) e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id

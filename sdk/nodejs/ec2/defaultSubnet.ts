@@ -98,7 +98,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC the subnet is in
      */
@@ -157,6 +157,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             resourceInputs["privateDnsHostnameTypeOnLaunch"] = args ? args.privateDnsHostnameTypeOnLaunch : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
@@ -164,7 +165,6 @@ export class DefaultSubnet extends pulumi.CustomResource {
             resourceInputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -242,4 +242,5 @@ export interface DefaultSubnetArgs {
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

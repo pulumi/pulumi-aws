@@ -10,6 +10,4792 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DataSetColumnGroup struct {
+	// Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+	GeoSpatialColumnGroup *DataSetColumnGroupGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroup"`
+}
+
+// DataSetColumnGroupInput is an input type that accepts DataSetColumnGroupArgs and DataSetColumnGroupOutput values.
+// You can construct a concrete instance of `DataSetColumnGroupInput` via:
+//
+//	DataSetColumnGroupArgs{...}
+type DataSetColumnGroupInput interface {
+	pulumi.Input
+
+	ToDataSetColumnGroupOutput() DataSetColumnGroupOutput
+	ToDataSetColumnGroupOutputWithContext(context.Context) DataSetColumnGroupOutput
+}
+
+type DataSetColumnGroupArgs struct {
+	// Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+	GeoSpatialColumnGroup DataSetColumnGroupGeoSpatialColumnGroupPtrInput `pulumi:"geoSpatialColumnGroup"`
+}
+
+func (DataSetColumnGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnGroup)(nil)).Elem()
+}
+
+func (i DataSetColumnGroupArgs) ToDataSetColumnGroupOutput() DataSetColumnGroupOutput {
+	return i.ToDataSetColumnGroupOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnGroupArgs) ToDataSetColumnGroupOutputWithContext(ctx context.Context) DataSetColumnGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupOutput)
+}
+
+// DataSetColumnGroupArrayInput is an input type that accepts DataSetColumnGroupArray and DataSetColumnGroupArrayOutput values.
+// You can construct a concrete instance of `DataSetColumnGroupArrayInput` via:
+//
+//	DataSetColumnGroupArray{ DataSetColumnGroupArgs{...} }
+type DataSetColumnGroupArrayInput interface {
+	pulumi.Input
+
+	ToDataSetColumnGroupArrayOutput() DataSetColumnGroupArrayOutput
+	ToDataSetColumnGroupArrayOutputWithContext(context.Context) DataSetColumnGroupArrayOutput
+}
+
+type DataSetColumnGroupArray []DataSetColumnGroupInput
+
+func (DataSetColumnGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnGroup)(nil)).Elem()
+}
+
+func (i DataSetColumnGroupArray) ToDataSetColumnGroupArrayOutput() DataSetColumnGroupArrayOutput {
+	return i.ToDataSetColumnGroupArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnGroupArray) ToDataSetColumnGroupArrayOutputWithContext(ctx context.Context) DataSetColumnGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupArrayOutput)
+}
+
+type DataSetColumnGroupOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnGroup)(nil)).Elem()
+}
+
+func (o DataSetColumnGroupOutput) ToDataSetColumnGroupOutput() DataSetColumnGroupOutput {
+	return o
+}
+
+func (o DataSetColumnGroupOutput) ToDataSetColumnGroupOutputWithContext(ctx context.Context) DataSetColumnGroupOutput {
+	return o
+}
+
+// Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+func (o DataSetColumnGroupOutput) GeoSpatialColumnGroup() DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return o.ApplyT(func(v DataSetColumnGroup) *DataSetColumnGroupGeoSpatialColumnGroup { return v.GeoSpatialColumnGroup }).(DataSetColumnGroupGeoSpatialColumnGroupPtrOutput)
+}
+
+type DataSetColumnGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnGroup)(nil)).Elem()
+}
+
+func (o DataSetColumnGroupArrayOutput) ToDataSetColumnGroupArrayOutput() DataSetColumnGroupArrayOutput {
+	return o
+}
+
+func (o DataSetColumnGroupArrayOutput) ToDataSetColumnGroupArrayOutputWithContext(ctx context.Context) DataSetColumnGroupArrayOutput {
+	return o
+}
+
+func (o DataSetColumnGroupArrayOutput) Index(i pulumi.IntInput) DataSetColumnGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetColumnGroup {
+		return vs[0].([]DataSetColumnGroup)[vs[1].(int)]
+	}).(DataSetColumnGroupOutput)
+}
+
+type DataSetColumnGroupGeoSpatialColumnGroup struct {
+	// Columns in this hierarchy.
+	Columns []string `pulumi:"columns"`
+	// Country code. Valid values are `US`.
+	CountryCode string `pulumi:"countryCode"`
+	// A display name for the hierarchy.
+	Name string `pulumi:"name"`
+}
+
+// DataSetColumnGroupGeoSpatialColumnGroupInput is an input type that accepts DataSetColumnGroupGeoSpatialColumnGroupArgs and DataSetColumnGroupGeoSpatialColumnGroupOutput values.
+// You can construct a concrete instance of `DataSetColumnGroupGeoSpatialColumnGroupInput` via:
+//
+//	DataSetColumnGroupGeoSpatialColumnGroupArgs{...}
+type DataSetColumnGroupGeoSpatialColumnGroupInput interface {
+	pulumi.Input
+
+	ToDataSetColumnGroupGeoSpatialColumnGroupOutput() DataSetColumnGroupGeoSpatialColumnGroupOutput
+	ToDataSetColumnGroupGeoSpatialColumnGroupOutputWithContext(context.Context) DataSetColumnGroupGeoSpatialColumnGroupOutput
+}
+
+type DataSetColumnGroupGeoSpatialColumnGroupArgs struct {
+	// Columns in this hierarchy.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Country code. Valid values are `US`.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	// A display name for the hierarchy.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DataSetColumnGroupGeoSpatialColumnGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnGroupGeoSpatialColumnGroup)(nil)).Elem()
+}
+
+func (i DataSetColumnGroupGeoSpatialColumnGroupArgs) ToDataSetColumnGroupGeoSpatialColumnGroupOutput() DataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return i.ToDataSetColumnGroupGeoSpatialColumnGroupOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnGroupGeoSpatialColumnGroupArgs) ToDataSetColumnGroupGeoSpatialColumnGroupOutputWithContext(ctx context.Context) DataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupGeoSpatialColumnGroupOutput)
+}
+
+func (i DataSetColumnGroupGeoSpatialColumnGroupArgs) ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutput() DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return i.ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnGroupGeoSpatialColumnGroupArgs) ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(ctx context.Context) DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupGeoSpatialColumnGroupOutput).ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(ctx)
+}
+
+// DataSetColumnGroupGeoSpatialColumnGroupPtrInput is an input type that accepts DataSetColumnGroupGeoSpatialColumnGroupArgs, DataSetColumnGroupGeoSpatialColumnGroupPtr and DataSetColumnGroupGeoSpatialColumnGroupPtrOutput values.
+// You can construct a concrete instance of `DataSetColumnGroupGeoSpatialColumnGroupPtrInput` via:
+//
+//	        DataSetColumnGroupGeoSpatialColumnGroupArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetColumnGroupGeoSpatialColumnGroupPtrInput interface {
+	pulumi.Input
+
+	ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutput() DataSetColumnGroupGeoSpatialColumnGroupPtrOutput
+	ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(context.Context) DataSetColumnGroupGeoSpatialColumnGroupPtrOutput
+}
+
+type dataSetColumnGroupGeoSpatialColumnGroupPtrType DataSetColumnGroupGeoSpatialColumnGroupArgs
+
+func DataSetColumnGroupGeoSpatialColumnGroupPtr(v *DataSetColumnGroupGeoSpatialColumnGroupArgs) DataSetColumnGroupGeoSpatialColumnGroupPtrInput {
+	return (*dataSetColumnGroupGeoSpatialColumnGroupPtrType)(v)
+}
+
+func (*dataSetColumnGroupGeoSpatialColumnGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetColumnGroupGeoSpatialColumnGroup)(nil)).Elem()
+}
+
+func (i *dataSetColumnGroupGeoSpatialColumnGroupPtrType) ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutput() DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return i.ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetColumnGroupGeoSpatialColumnGroupPtrType) ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(ctx context.Context) DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupGeoSpatialColumnGroupPtrOutput)
+}
+
+type DataSetColumnGroupGeoSpatialColumnGroupOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnGroupGeoSpatialColumnGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnGroupGeoSpatialColumnGroup)(nil)).Elem()
+}
+
+func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) ToDataSetColumnGroupGeoSpatialColumnGroupOutput() DataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return o
+}
+
+func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) ToDataSetColumnGroupGeoSpatialColumnGroupOutputWithContext(ctx context.Context) DataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return o
+}
+
+func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutput() DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return o.ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(ctx context.Context) DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetColumnGroupGeoSpatialColumnGroup) *DataSetColumnGroupGeoSpatialColumnGroup {
+		return &v
+	}).(DataSetColumnGroupGeoSpatialColumnGroupPtrOutput)
+}
+
+// Columns in this hierarchy.
+func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetColumnGroupGeoSpatialColumnGroup) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Country code. Valid values are `US`.
+func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) CountryCode() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetColumnGroupGeoSpatialColumnGroup) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+// A display name for the hierarchy.
+func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetColumnGroupGeoSpatialColumnGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataSetColumnGroupGeoSpatialColumnGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetColumnGroupGeoSpatialColumnGroup)(nil)).Elem()
+}
+
+func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutput() DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return o
+}
+
+func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) ToDataSetColumnGroupGeoSpatialColumnGroupPtrOutputWithContext(ctx context.Context) DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
+	return o
+}
+
+func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) Elem() DataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return o.ApplyT(func(v *DataSetColumnGroupGeoSpatialColumnGroup) DataSetColumnGroupGeoSpatialColumnGroup {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetColumnGroupGeoSpatialColumnGroup
+		return ret
+	}).(DataSetColumnGroupGeoSpatialColumnGroupOutput)
+}
+
+// Columns in this hierarchy.
+func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSetColumnGroupGeoSpatialColumnGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Country code. Valid values are `US`.
+func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetColumnGroupGeoSpatialColumnGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CountryCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// A display name for the hierarchy.
+func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetColumnGroupGeoSpatialColumnGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetColumnLevelPermissionRule struct {
+	// An array of column names.
+	ColumnNames []string `pulumi:"columnNames"`
+	// An array of ARNs for Amazon QuickSight users or groups.
+	Principals []string `pulumi:"principals"`
+}
+
+// DataSetColumnLevelPermissionRuleInput is an input type that accepts DataSetColumnLevelPermissionRuleArgs and DataSetColumnLevelPermissionRuleOutput values.
+// You can construct a concrete instance of `DataSetColumnLevelPermissionRuleInput` via:
+//
+//	DataSetColumnLevelPermissionRuleArgs{...}
+type DataSetColumnLevelPermissionRuleInput interface {
+	pulumi.Input
+
+	ToDataSetColumnLevelPermissionRuleOutput() DataSetColumnLevelPermissionRuleOutput
+	ToDataSetColumnLevelPermissionRuleOutputWithContext(context.Context) DataSetColumnLevelPermissionRuleOutput
+}
+
+type DataSetColumnLevelPermissionRuleArgs struct {
+	// An array of column names.
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// An array of ARNs for Amazon QuickSight users or groups.
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
+}
+
+func (DataSetColumnLevelPermissionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (i DataSetColumnLevelPermissionRuleArgs) ToDataSetColumnLevelPermissionRuleOutput() DataSetColumnLevelPermissionRuleOutput {
+	return i.ToDataSetColumnLevelPermissionRuleOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnLevelPermissionRuleArgs) ToDataSetColumnLevelPermissionRuleOutputWithContext(ctx context.Context) DataSetColumnLevelPermissionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnLevelPermissionRuleOutput)
+}
+
+// DataSetColumnLevelPermissionRuleArrayInput is an input type that accepts DataSetColumnLevelPermissionRuleArray and DataSetColumnLevelPermissionRuleArrayOutput values.
+// You can construct a concrete instance of `DataSetColumnLevelPermissionRuleArrayInput` via:
+//
+//	DataSetColumnLevelPermissionRuleArray{ DataSetColumnLevelPermissionRuleArgs{...} }
+type DataSetColumnLevelPermissionRuleArrayInput interface {
+	pulumi.Input
+
+	ToDataSetColumnLevelPermissionRuleArrayOutput() DataSetColumnLevelPermissionRuleArrayOutput
+	ToDataSetColumnLevelPermissionRuleArrayOutputWithContext(context.Context) DataSetColumnLevelPermissionRuleArrayOutput
+}
+
+type DataSetColumnLevelPermissionRuleArray []DataSetColumnLevelPermissionRuleInput
+
+func (DataSetColumnLevelPermissionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (i DataSetColumnLevelPermissionRuleArray) ToDataSetColumnLevelPermissionRuleArrayOutput() DataSetColumnLevelPermissionRuleArrayOutput {
+	return i.ToDataSetColumnLevelPermissionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnLevelPermissionRuleArray) ToDataSetColumnLevelPermissionRuleArrayOutputWithContext(ctx context.Context) DataSetColumnLevelPermissionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnLevelPermissionRuleArrayOutput)
+}
+
+type DataSetColumnLevelPermissionRuleOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnLevelPermissionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (o DataSetColumnLevelPermissionRuleOutput) ToDataSetColumnLevelPermissionRuleOutput() DataSetColumnLevelPermissionRuleOutput {
+	return o
+}
+
+func (o DataSetColumnLevelPermissionRuleOutput) ToDataSetColumnLevelPermissionRuleOutputWithContext(ctx context.Context) DataSetColumnLevelPermissionRuleOutput {
+	return o
+}
+
+// An array of column names.
+func (o DataSetColumnLevelPermissionRuleOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// An array of ARNs for Amazon QuickSight users or groups.
+func (o DataSetColumnLevelPermissionRuleOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+type DataSetColumnLevelPermissionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnLevelPermissionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (o DataSetColumnLevelPermissionRuleArrayOutput) ToDataSetColumnLevelPermissionRuleArrayOutput() DataSetColumnLevelPermissionRuleArrayOutput {
+	return o
+}
+
+func (o DataSetColumnLevelPermissionRuleArrayOutput) ToDataSetColumnLevelPermissionRuleArrayOutputWithContext(ctx context.Context) DataSetColumnLevelPermissionRuleArrayOutput {
+	return o
+}
+
+func (o DataSetColumnLevelPermissionRuleArrayOutput) Index(i pulumi.IntInput) DataSetColumnLevelPermissionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetColumnLevelPermissionRule {
+		return vs[0].([]DataSetColumnLevelPermissionRule)[vs[1].(int)]
+	}).(DataSetColumnLevelPermissionRuleOutput)
+}
+
+type DataSetDataSetUsageConfiguration struct {
+	// Controls whether a child dataset of a direct query can use this dataset as a source.
+	DisableUseAsDirectQuerySource *bool `pulumi:"disableUseAsDirectQuerySource"`
+	// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+	DisableUseAsImportedSource *bool `pulumi:"disableUseAsImportedSource"`
+}
+
+// DataSetDataSetUsageConfigurationInput is an input type that accepts DataSetDataSetUsageConfigurationArgs and DataSetDataSetUsageConfigurationOutput values.
+// You can construct a concrete instance of `DataSetDataSetUsageConfigurationInput` via:
+//
+//	DataSetDataSetUsageConfigurationArgs{...}
+type DataSetDataSetUsageConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSetDataSetUsageConfigurationOutput() DataSetDataSetUsageConfigurationOutput
+	ToDataSetDataSetUsageConfigurationOutputWithContext(context.Context) DataSetDataSetUsageConfigurationOutput
+}
+
+type DataSetDataSetUsageConfigurationArgs struct {
+	// Controls whether a child dataset of a direct query can use this dataset as a source.
+	DisableUseAsDirectQuerySource pulumi.BoolPtrInput `pulumi:"disableUseAsDirectQuerySource"`
+	// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+	DisableUseAsImportedSource pulumi.BoolPtrInput `pulumi:"disableUseAsImportedSource"`
+}
+
+func (DataSetDataSetUsageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetDataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (i DataSetDataSetUsageConfigurationArgs) ToDataSetDataSetUsageConfigurationOutput() DataSetDataSetUsageConfigurationOutput {
+	return i.ToDataSetDataSetUsageConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSetDataSetUsageConfigurationArgs) ToDataSetDataSetUsageConfigurationOutputWithContext(ctx context.Context) DataSetDataSetUsageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetDataSetUsageConfigurationOutput)
+}
+
+func (i DataSetDataSetUsageConfigurationArgs) ToDataSetDataSetUsageConfigurationPtrOutput() DataSetDataSetUsageConfigurationPtrOutput {
+	return i.ToDataSetDataSetUsageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetDataSetUsageConfigurationArgs) ToDataSetDataSetUsageConfigurationPtrOutputWithContext(ctx context.Context) DataSetDataSetUsageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetDataSetUsageConfigurationOutput).ToDataSetDataSetUsageConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSetDataSetUsageConfigurationPtrInput is an input type that accepts DataSetDataSetUsageConfigurationArgs, DataSetDataSetUsageConfigurationPtr and DataSetDataSetUsageConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSetDataSetUsageConfigurationPtrInput` via:
+//
+//	        DataSetDataSetUsageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetDataSetUsageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetDataSetUsageConfigurationPtrOutput() DataSetDataSetUsageConfigurationPtrOutput
+	ToDataSetDataSetUsageConfigurationPtrOutputWithContext(context.Context) DataSetDataSetUsageConfigurationPtrOutput
+}
+
+type dataSetDataSetUsageConfigurationPtrType DataSetDataSetUsageConfigurationArgs
+
+func DataSetDataSetUsageConfigurationPtr(v *DataSetDataSetUsageConfigurationArgs) DataSetDataSetUsageConfigurationPtrInput {
+	return (*dataSetDataSetUsageConfigurationPtrType)(v)
+}
+
+func (*dataSetDataSetUsageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetDataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (i *dataSetDataSetUsageConfigurationPtrType) ToDataSetDataSetUsageConfigurationPtrOutput() DataSetDataSetUsageConfigurationPtrOutput {
+	return i.ToDataSetDataSetUsageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetDataSetUsageConfigurationPtrType) ToDataSetDataSetUsageConfigurationPtrOutputWithContext(ctx context.Context) DataSetDataSetUsageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetDataSetUsageConfigurationPtrOutput)
+}
+
+type DataSetDataSetUsageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSetDataSetUsageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetDataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (o DataSetDataSetUsageConfigurationOutput) ToDataSetDataSetUsageConfigurationOutput() DataSetDataSetUsageConfigurationOutput {
+	return o
+}
+
+func (o DataSetDataSetUsageConfigurationOutput) ToDataSetDataSetUsageConfigurationOutputWithContext(ctx context.Context) DataSetDataSetUsageConfigurationOutput {
+	return o
+}
+
+func (o DataSetDataSetUsageConfigurationOutput) ToDataSetDataSetUsageConfigurationPtrOutput() DataSetDataSetUsageConfigurationPtrOutput {
+	return o.ToDataSetDataSetUsageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetDataSetUsageConfigurationOutput) ToDataSetDataSetUsageConfigurationPtrOutputWithContext(ctx context.Context) DataSetDataSetUsageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetDataSetUsageConfiguration) *DataSetDataSetUsageConfiguration {
+		return &v
+	}).(DataSetDataSetUsageConfigurationPtrOutput)
+}
+
+// Controls whether a child dataset of a direct query can use this dataset as a source.
+func (o DataSetDataSetUsageConfigurationOutput) DisableUseAsDirectQuerySource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSetDataSetUsageConfiguration) *bool { return v.DisableUseAsDirectQuerySource }).(pulumi.BoolPtrOutput)
+}
+
+// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+func (o DataSetDataSetUsageConfigurationOutput) DisableUseAsImportedSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSetDataSetUsageConfiguration) *bool { return v.DisableUseAsImportedSource }).(pulumi.BoolPtrOutput)
+}
+
+type DataSetDataSetUsageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetDataSetUsageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetDataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (o DataSetDataSetUsageConfigurationPtrOutput) ToDataSetDataSetUsageConfigurationPtrOutput() DataSetDataSetUsageConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetDataSetUsageConfigurationPtrOutput) ToDataSetDataSetUsageConfigurationPtrOutputWithContext(ctx context.Context) DataSetDataSetUsageConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetDataSetUsageConfigurationPtrOutput) Elem() DataSetDataSetUsageConfigurationOutput {
+	return o.ApplyT(func(v *DataSetDataSetUsageConfiguration) DataSetDataSetUsageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetDataSetUsageConfiguration
+		return ret
+	}).(DataSetDataSetUsageConfigurationOutput)
+}
+
+// Controls whether a child dataset of a direct query can use this dataset as a source.
+func (o DataSetDataSetUsageConfigurationPtrOutput) DisableUseAsDirectQuerySource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSetDataSetUsageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableUseAsDirectQuerySource
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+func (o DataSetDataSetUsageConfigurationPtrOutput) DisableUseAsImportedSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSetDataSetUsageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableUseAsImportedSource
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataSetFieldFolder struct {
+	// An array of column names to add to the folder. A column can only be in one folder.
+	Columns []string `pulumi:"columns"`
+	// Field folder description.
+	Description *string `pulumi:"description"`
+	// Key of the field folder map.
+	FieldFoldersId string `pulumi:"fieldFoldersId"`
+}
+
+// DataSetFieldFolderInput is an input type that accepts DataSetFieldFolderArgs and DataSetFieldFolderOutput values.
+// You can construct a concrete instance of `DataSetFieldFolderInput` via:
+//
+//	DataSetFieldFolderArgs{...}
+type DataSetFieldFolderInput interface {
+	pulumi.Input
+
+	ToDataSetFieldFolderOutput() DataSetFieldFolderOutput
+	ToDataSetFieldFolderOutputWithContext(context.Context) DataSetFieldFolderOutput
+}
+
+type DataSetFieldFolderArgs struct {
+	// An array of column names to add to the folder. A column can only be in one folder.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Field folder description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Key of the field folder map.
+	FieldFoldersId pulumi.StringInput `pulumi:"fieldFoldersId"`
+}
+
+func (DataSetFieldFolderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetFieldFolder)(nil)).Elem()
+}
+
+func (i DataSetFieldFolderArgs) ToDataSetFieldFolderOutput() DataSetFieldFolderOutput {
+	return i.ToDataSetFieldFolderOutputWithContext(context.Background())
+}
+
+func (i DataSetFieldFolderArgs) ToDataSetFieldFolderOutputWithContext(ctx context.Context) DataSetFieldFolderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetFieldFolderOutput)
+}
+
+// DataSetFieldFolderArrayInput is an input type that accepts DataSetFieldFolderArray and DataSetFieldFolderArrayOutput values.
+// You can construct a concrete instance of `DataSetFieldFolderArrayInput` via:
+//
+//	DataSetFieldFolderArray{ DataSetFieldFolderArgs{...} }
+type DataSetFieldFolderArrayInput interface {
+	pulumi.Input
+
+	ToDataSetFieldFolderArrayOutput() DataSetFieldFolderArrayOutput
+	ToDataSetFieldFolderArrayOutputWithContext(context.Context) DataSetFieldFolderArrayOutput
+}
+
+type DataSetFieldFolderArray []DataSetFieldFolderInput
+
+func (DataSetFieldFolderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetFieldFolder)(nil)).Elem()
+}
+
+func (i DataSetFieldFolderArray) ToDataSetFieldFolderArrayOutput() DataSetFieldFolderArrayOutput {
+	return i.ToDataSetFieldFolderArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetFieldFolderArray) ToDataSetFieldFolderArrayOutputWithContext(ctx context.Context) DataSetFieldFolderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetFieldFolderArrayOutput)
+}
+
+type DataSetFieldFolderOutput struct{ *pulumi.OutputState }
+
+func (DataSetFieldFolderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetFieldFolder)(nil)).Elem()
+}
+
+func (o DataSetFieldFolderOutput) ToDataSetFieldFolderOutput() DataSetFieldFolderOutput {
+	return o
+}
+
+func (o DataSetFieldFolderOutput) ToDataSetFieldFolderOutputWithContext(ctx context.Context) DataSetFieldFolderOutput {
+	return o
+}
+
+// An array of column names to add to the folder. A column can only be in one folder.
+func (o DataSetFieldFolderOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetFieldFolder) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Field folder description.
+func (o DataSetFieldFolderOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetFieldFolder) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Key of the field folder map.
+func (o DataSetFieldFolderOutput) FieldFoldersId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetFieldFolder) string { return v.FieldFoldersId }).(pulumi.StringOutput)
+}
+
+type DataSetFieldFolderArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetFieldFolderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetFieldFolder)(nil)).Elem()
+}
+
+func (o DataSetFieldFolderArrayOutput) ToDataSetFieldFolderArrayOutput() DataSetFieldFolderArrayOutput {
+	return o
+}
+
+func (o DataSetFieldFolderArrayOutput) ToDataSetFieldFolderArrayOutputWithContext(ctx context.Context) DataSetFieldFolderArrayOutput {
+	return o
+}
+
+func (o DataSetFieldFolderArrayOutput) Index(i pulumi.IntInput) DataSetFieldFolderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetFieldFolder {
+		return vs[0].([]DataSetFieldFolder)[vs[1].(int)]
+	}).(DataSetFieldFolderOutput)
+}
+
+type DataSetLogicalTableMap struct {
+	// A display name for the logical table.
+	Alias string `pulumi:"alias"`
+	// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+	DataTransforms []DataSetLogicalTableMapDataTransform `pulumi:"dataTransforms"`
+	// Key of the logical table map.
+	LogicalTableMapId string `pulumi:"logicalTableMapId"`
+	// Source of this logical table. See source.
+	Source DataSetLogicalTableMapSource `pulumi:"source"`
+}
+
+// DataSetLogicalTableMapInput is an input type that accepts DataSetLogicalTableMap and DataSetLogicalTableMapOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapInput` via:
+//
+//	DataSetLogicalTableMap{ "key": DataSetLogicalTableArgs{...} }
+type DataSetLogicalTableMapInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapOutput() DataSetLogicalTableMapOutput
+	ToDataSetLogicalTableMapOutputWithContext(context.Context) DataSetLogicalTableMapOutput
+}
+
+type DataSetLogicalTableMapArgs struct {
+	// A display name for the logical table.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+	DataTransforms DataSetLogicalTableMapDataTransformArrayInput `pulumi:"dataTransforms"`
+	// Key of the logical table map.
+	LogicalTableMapId pulumi.StringInput `pulumi:"logicalTableMapId"`
+	// Source of this logical table. See source.
+	Source DataSetLogicalTableMapSourceInput `pulumi:"source"`
+}
+
+func (DataSetLogicalTableMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapArgs) ToDataSetLogicalTableMapOutput() DataSetLogicalTableMapOutput {
+	return i.ToDataSetLogicalTableMapOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapArgs) ToDataSetLogicalTableMapOutputWithContext(ctx context.Context) DataSetLogicalTableMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapOutput)
+}
+
+// DataSetLogicalTableMapArrayInput is an input type that accepts DataSetLogicalTableMapArray and DataSetLogicalTableMapArrayOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapArrayInput` via:
+//
+//	DataSetLogicalTableMapArray{ DataSetLogicalTableMapArgs{...} }
+type DataSetLogicalTableMapArrayInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapArrayOutput() DataSetLogicalTableMapArrayOutput
+	ToDataSetLogicalTableMapArrayOutputWithContext(context.Context) DataSetLogicalTableMapArrayOutput
+}
+
+type DataSetLogicalTableMapArray []DataSetLogicalTableMapInput
+
+func (DataSetLogicalTableMapArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapArray) ToDataSetLogicalTableMapArrayOutput() DataSetLogicalTableMapArrayOutput {
+	return i.ToDataSetLogicalTableMapArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapArray) ToDataSetLogicalTableMapArrayOutputWithContext(ctx context.Context) DataSetLogicalTableMapArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapArrayOutput)
+}
+
+type DataSetLogicalTableMapOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapOutput) ToDataSetLogicalTableMapOutput() DataSetLogicalTableMapOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapOutput) ToDataSetLogicalTableMapOutputWithContext(ctx context.Context) DataSetLogicalTableMapOutput {
+	return o
+}
+
+// A display name for the logical table.
+func (o DataSetLogicalTableMapOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMap) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+func (o DataSetLogicalTableMapOutput) DataTransforms() DataSetLogicalTableMapDataTransformArrayOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMap) []DataSetLogicalTableMapDataTransform { return v.DataTransforms }).(DataSetLogicalTableMapDataTransformArrayOutput)
+}
+
+// Key of the logical table map.
+func (o DataSetLogicalTableMapOutput) LogicalTableMapId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMap) string { return v.LogicalTableMapId }).(pulumi.StringOutput)
+}
+
+// Source of this logical table. See source.
+func (o DataSetLogicalTableMapOutput) Source() DataSetLogicalTableMapSourceOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMap) DataSetLogicalTableMapSource { return v.Source }).(DataSetLogicalTableMapSourceOutput)
+}
+
+type DataSetLogicalTableMapArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapArrayOutput) ToDataSetLogicalTableMapArrayOutput() DataSetLogicalTableMapArrayOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapArrayOutput) ToDataSetLogicalTableMapArrayOutputWithContext(ctx context.Context) DataSetLogicalTableMapArrayOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapArrayOutput) Index(i pulumi.IntInput) DataSetLogicalTableMapOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetLogicalTableMap {
+		return vs[0].([]DataSetLogicalTableMap)[vs[1].(int)]
+	}).(DataSetLogicalTableMapOutput)
+}
+
+type DataSetLogicalTableMapDataTransform struct {
+	// A transform operation that casts a column to a different type. See cast_column_type_operation.
+	CastColumnTypeOperation *DataSetLogicalTableMapDataTransformCastColumnTypeOperation `pulumi:"castColumnTypeOperation"`
+	// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+	CreateColumnsOperation *DataSetLogicalTableMapDataTransformCreateColumnsOperation `pulumi:"createColumnsOperation"`
+	// An operation that filters rows based on some condition. See filter_operation.
+	FilterOperation *DataSetLogicalTableMapDataTransformFilterOperation `pulumi:"filterOperation"`
+	// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+	ProjectOperation *DataSetLogicalTableMapDataTransformProjectOperation `pulumi:"projectOperation"`
+	// An operation that renames a column. See rename_column_operation.
+	RenameColumnOperation *DataSetLogicalTableMapDataTransformRenameColumnOperation `pulumi:"renameColumnOperation"`
+	// An operation that tags a column with additional information. See tag_column_operation.
+	TagColumnOperation *DataSetLogicalTableMapDataTransformTagColumnOperation `pulumi:"tagColumnOperation"`
+	// A transform operation that removes tags associated with a column. See untag_column_operation.
+	UntagColumnOperation *DataSetLogicalTableMapDataTransformUntagColumnOperation `pulumi:"untagColumnOperation"`
+}
+
+// DataSetLogicalTableMapDataTransformInput is an input type that accepts DataSetLogicalTableMapDataTransformArgs and DataSetLogicalTableMapDataTransformOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformInput` via:
+//
+//	DataSetLogicalTableMapDataTransformArgs{...}
+type DataSetLogicalTableMapDataTransformInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformOutput() DataSetLogicalTableMapDataTransformOutput
+	ToDataSetLogicalTableMapDataTransformOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformOutput
+}
+
+type DataSetLogicalTableMapDataTransformArgs struct {
+	// A transform operation that casts a column to a different type. See cast_column_type_operation.
+	CastColumnTypeOperation DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrInput `pulumi:"castColumnTypeOperation"`
+	// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+	CreateColumnsOperation DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrInput `pulumi:"createColumnsOperation"`
+	// An operation that filters rows based on some condition. See filter_operation.
+	FilterOperation DataSetLogicalTableMapDataTransformFilterOperationPtrInput `pulumi:"filterOperation"`
+	// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+	ProjectOperation DataSetLogicalTableMapDataTransformProjectOperationPtrInput `pulumi:"projectOperation"`
+	// An operation that renames a column. See rename_column_operation.
+	RenameColumnOperation DataSetLogicalTableMapDataTransformRenameColumnOperationPtrInput `pulumi:"renameColumnOperation"`
+	// An operation that tags a column with additional information. See tag_column_operation.
+	TagColumnOperation DataSetLogicalTableMapDataTransformTagColumnOperationPtrInput `pulumi:"tagColumnOperation"`
+	// A transform operation that removes tags associated with a column. See untag_column_operation.
+	UntagColumnOperation DataSetLogicalTableMapDataTransformUntagColumnOperationPtrInput `pulumi:"untagColumnOperation"`
+}
+
+func (DataSetLogicalTableMapDataTransformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransform)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformArgs) ToDataSetLogicalTableMapDataTransformOutput() DataSetLogicalTableMapDataTransformOutput {
+	return i.ToDataSetLogicalTableMapDataTransformOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformArgs) ToDataSetLogicalTableMapDataTransformOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformOutput)
+}
+
+// DataSetLogicalTableMapDataTransformArrayInput is an input type that accepts DataSetLogicalTableMapDataTransformArray and DataSetLogicalTableMapDataTransformArrayOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformArrayInput` via:
+//
+//	DataSetLogicalTableMapDataTransformArray{ DataSetLogicalTableMapDataTransformArgs{...} }
+type DataSetLogicalTableMapDataTransformArrayInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformArrayOutput() DataSetLogicalTableMapDataTransformArrayOutput
+	ToDataSetLogicalTableMapDataTransformArrayOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformArrayOutput
+}
+
+type DataSetLogicalTableMapDataTransformArray []DataSetLogicalTableMapDataTransformInput
+
+func (DataSetLogicalTableMapDataTransformArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetLogicalTableMapDataTransform)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformArray) ToDataSetLogicalTableMapDataTransformArrayOutput() DataSetLogicalTableMapDataTransformArrayOutput {
+	return i.ToDataSetLogicalTableMapDataTransformArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformArray) ToDataSetLogicalTableMapDataTransformArrayOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransform)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformOutput) ToDataSetLogicalTableMapDataTransformOutput() DataSetLogicalTableMapDataTransformOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformOutput) ToDataSetLogicalTableMapDataTransformOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformOutput {
+	return o
+}
+
+// A transform operation that casts a column to a different type. See cast_column_type_operation.
+func (o DataSetLogicalTableMapDataTransformOutput) CastColumnTypeOperation() DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
+		return v.CastColumnTypeOperation
+	}).(DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput)
+}
+
+// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+func (o DataSetLogicalTableMapDataTransformOutput) CreateColumnsOperation() DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformCreateColumnsOperation {
+		return v.CreateColumnsOperation
+	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput)
+}
+
+// An operation that filters rows based on some condition. See filter_operation.
+func (o DataSetLogicalTableMapDataTransformOutput) FilterOperation() DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformFilterOperation {
+		return v.FilterOperation
+	}).(DataSetLogicalTableMapDataTransformFilterOperationPtrOutput)
+}
+
+// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+func (o DataSetLogicalTableMapDataTransformOutput) ProjectOperation() DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformProjectOperation {
+		return v.ProjectOperation
+	}).(DataSetLogicalTableMapDataTransformProjectOperationPtrOutput)
+}
+
+// An operation that renames a column. See rename_column_operation.
+func (o DataSetLogicalTableMapDataTransformOutput) RenameColumnOperation() DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformRenameColumnOperation {
+		return v.RenameColumnOperation
+	}).(DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput)
+}
+
+// An operation that tags a column with additional information. See tag_column_operation.
+func (o DataSetLogicalTableMapDataTransformOutput) TagColumnOperation() DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformTagColumnOperation {
+		return v.TagColumnOperation
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput)
+}
+
+// A transform operation that removes tags associated with a column. See untag_column_operation.
+func (o DataSetLogicalTableMapDataTransformOutput) UntagColumnOperation() DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformUntagColumnOperation {
+		return v.UntagColumnOperation
+	}).(DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetLogicalTableMapDataTransform)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformArrayOutput) ToDataSetLogicalTableMapDataTransformArrayOutput() DataSetLogicalTableMapDataTransformArrayOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformArrayOutput) ToDataSetLogicalTableMapDataTransformArrayOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformArrayOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformArrayOutput) Index(i pulumi.IntInput) DataSetLogicalTableMapDataTransformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetLogicalTableMapDataTransform {
+		return vs[0].([]DataSetLogicalTableMapDataTransform)[vs[1].(int)]
+	}).(DataSetLogicalTableMapDataTransformOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCastColumnTypeOperation struct {
+	// Column name.
+	ColumnName string `pulumi:"columnName"`
+	// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+	Format *string `pulumi:"format"`
+	// New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
+	NewColumnType string `pulumi:"newColumnType"`
+}
+
+// DataSetLogicalTableMapDataTransformCastColumnTypeOperationInput is an input type that accepts DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs and DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformCastColumnTypeOperationInput` via:
+//
+//	DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs{...}
+type DataSetLogicalTableMapDataTransformCastColumnTypeOperationInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput() DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput
+	ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput
+}
+
+type DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs struct {
+	// Column name.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
+	NewColumnType pulumi.StringInput `pulumi:"newColumnType"`
+}
+
+func (DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformCastColumnTypeOperation)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput() DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return i.ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput)
+}
+
+func (i DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput() DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput).ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrInput is an input type that accepts DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs, DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtr and DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrInput` via:
+//
+//	        DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput() DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput
+	ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput
+}
+
+type dataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrType DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs
+
+func DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtr(v *DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrInput {
+	return (*dataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformCastColumnTypeOperation)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrType) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput() DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrType) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformCastColumnTypeOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput() DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput() DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return o.ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapDataTransformCastColumnTypeOperation) *DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
+		return &v
+	}).(DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput)
+}
+
+// Column name.
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCastColumnTypeOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCastColumnTypeOperation) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) NewColumnType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCastColumnTypeOperation) string { return v.NewColumnType }).(pulumi.StringOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformCastColumnTypeOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput() DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput) ToDataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput) Elem() DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformCastColumnTypeOperation) DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapDataTransformCastColumnTypeOperation
+		return ret
+	}).(DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput)
+}
+
+// Column name.
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformCastColumnTypeOperation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformCastColumnTypeOperation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
+func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput) NewColumnType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformCastColumnTypeOperation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NewColumnType
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperation struct {
+	// Calculated columns to create. See columns.
+	Columns []DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn `pulumi:"columns"`
+}
+
+// DataSetLogicalTableMapDataTransformCreateColumnsOperationInput is an input type that accepts DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs and DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformCreateColumnsOperationInput` via:
+//
+//	DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs{...}
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput
+	ToDataSetLogicalTableMapDataTransformCreateColumnsOperationOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs struct {
+	// Calculated columns to create. See columns.
+	Columns DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput `pulumi:"columns"`
+}
+
+func (DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformCreateColumnsOperation)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return i.ToDataSetLogicalTableMapDataTransformCreateColumnsOperationOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput)
+}
+
+func (i DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput).ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrInput is an input type that accepts DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs, DataSetLogicalTableMapDataTransformCreateColumnsOperationPtr and DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrInput` via:
+//
+//	        DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput
+	ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput
+}
+
+type dataSetLogicalTableMapDataTransformCreateColumnsOperationPtrType DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs
+
+func DataSetLogicalTableMapDataTransformCreateColumnsOperationPtr(v *DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrInput {
+	return (*dataSetLogicalTableMapDataTransformCreateColumnsOperationPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapDataTransformCreateColumnsOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformCreateColumnsOperation)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapDataTransformCreateColumnsOperationPtrType) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapDataTransformCreateColumnsOperationPtrType) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformCreateColumnsOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return o.ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapDataTransformCreateColumnsOperation) *DataSetLogicalTableMapDataTransformCreateColumnsOperation {
+		return &v
+	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput)
+}
+
+// Calculated columns to create. See columns.
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) Columns() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCreateColumnsOperation) []DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
+		return v.Columns
+	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformCreateColumnsOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput) Elem() DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformCreateColumnsOperation) DataSetLogicalTableMapDataTransformCreateColumnsOperation {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapDataTransformCreateColumnsOperation
+		return ret
+	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput)
+}
+
+// Calculated columns to create. See columns.
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput) Columns() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformCreateColumnsOperation) []DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn struct {
+	// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+	ColumnId string `pulumi:"columnId"`
+	// Column name.
+	ColumnName string `pulumi:"columnName"`
+	// An expression that defines the calculated column.
+	Expression string `pulumi:"expression"`
+}
+
+// DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput is an input type that accepts DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs and DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput` via:
+//
+//	DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs{...}
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput
+	ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs struct {
+	// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+	ColumnId pulumi.StringInput `pulumi:"columnId"`
+	// Column name.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// An expression that defines the calculated column.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return i.ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput)
+}
+
+// DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput is an input type that accepts DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray and DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput` via:
+//
+//	DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray{ DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs{...} }
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput
+	ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray []DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput
+
+func (DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return i.ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return o
+}
+
+// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.ColumnId }).(pulumi.StringOutput)
+}
+
+// Column name.
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// An expression that defines the calculated column.
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput) ToDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput) Index(i pulumi.IntInput) DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
+		return vs[0].([]DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)[vs[1].(int)]
+	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput)
+}
+
+type DataSetLogicalTableMapDataTransformFilterOperation struct {
+	// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+	ConditionExpression string `pulumi:"conditionExpression"`
+}
+
+// DataSetLogicalTableMapDataTransformFilterOperationInput is an input type that accepts DataSetLogicalTableMapDataTransformFilterOperationArgs and DataSetLogicalTableMapDataTransformFilterOperationOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformFilterOperationInput` via:
+//
+//	DataSetLogicalTableMapDataTransformFilterOperationArgs{...}
+type DataSetLogicalTableMapDataTransformFilterOperationInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformFilterOperationOutput() DataSetLogicalTableMapDataTransformFilterOperationOutput
+	ToDataSetLogicalTableMapDataTransformFilterOperationOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformFilterOperationOutput
+}
+
+type DataSetLogicalTableMapDataTransformFilterOperationArgs struct {
+	// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+	ConditionExpression pulumi.StringInput `pulumi:"conditionExpression"`
+}
+
+func (DataSetLogicalTableMapDataTransformFilterOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformFilterOperation)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformFilterOperationArgs) ToDataSetLogicalTableMapDataTransformFilterOperationOutput() DataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return i.ToDataSetLogicalTableMapDataTransformFilterOperationOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformFilterOperationArgs) ToDataSetLogicalTableMapDataTransformFilterOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformFilterOperationOutput)
+}
+
+func (i DataSetLogicalTableMapDataTransformFilterOperationArgs) ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutput() DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformFilterOperationArgs) ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformFilterOperationOutput).ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapDataTransformFilterOperationPtrInput is an input type that accepts DataSetLogicalTableMapDataTransformFilterOperationArgs, DataSetLogicalTableMapDataTransformFilterOperationPtr and DataSetLogicalTableMapDataTransformFilterOperationPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformFilterOperationPtrInput` via:
+//
+//	        DataSetLogicalTableMapDataTransformFilterOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapDataTransformFilterOperationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutput() DataSetLogicalTableMapDataTransformFilterOperationPtrOutput
+	ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformFilterOperationPtrOutput
+}
+
+type dataSetLogicalTableMapDataTransformFilterOperationPtrType DataSetLogicalTableMapDataTransformFilterOperationArgs
+
+func DataSetLogicalTableMapDataTransformFilterOperationPtr(v *DataSetLogicalTableMapDataTransformFilterOperationArgs) DataSetLogicalTableMapDataTransformFilterOperationPtrInput {
+	return (*dataSetLogicalTableMapDataTransformFilterOperationPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapDataTransformFilterOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformFilterOperation)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapDataTransformFilterOperationPtrType) ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutput() DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapDataTransformFilterOperationPtrType) ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformFilterOperationPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformFilterOperationOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformFilterOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformFilterOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformFilterOperationOutput) ToDataSetLogicalTableMapDataTransformFilterOperationOutput() DataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformFilterOperationOutput) ToDataSetLogicalTableMapDataTransformFilterOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformFilterOperationOutput) ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutput() DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return o.ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapDataTransformFilterOperationOutput) ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapDataTransformFilterOperation) *DataSetLogicalTableMapDataTransformFilterOperation {
+		return &v
+	}).(DataSetLogicalTableMapDataTransformFilterOperationPtrOutput)
+}
+
+// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+func (o DataSetLogicalTableMapDataTransformFilterOperationOutput) ConditionExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformFilterOperation) string { return v.ConditionExpression }).(pulumi.StringOutput)
+}
+
+type DataSetLogicalTableMapDataTransformFilterOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformFilterOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformFilterOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformFilterOperationPtrOutput) ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutput() DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformFilterOperationPtrOutput) ToDataSetLogicalTableMapDataTransformFilterOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformFilterOperationPtrOutput) Elem() DataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformFilterOperation) DataSetLogicalTableMapDataTransformFilterOperation {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapDataTransformFilterOperation
+		return ret
+	}).(DataSetLogicalTableMapDataTransformFilterOperationOutput)
+}
+
+// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+func (o DataSetLogicalTableMapDataTransformFilterOperationPtrOutput) ConditionExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformFilterOperation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConditionExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformProjectOperation struct {
+	// Projected columns.
+	ProjectedColumns []string `pulumi:"projectedColumns"`
+}
+
+// DataSetLogicalTableMapDataTransformProjectOperationInput is an input type that accepts DataSetLogicalTableMapDataTransformProjectOperationArgs and DataSetLogicalTableMapDataTransformProjectOperationOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformProjectOperationInput` via:
+//
+//	DataSetLogicalTableMapDataTransformProjectOperationArgs{...}
+type DataSetLogicalTableMapDataTransformProjectOperationInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformProjectOperationOutput() DataSetLogicalTableMapDataTransformProjectOperationOutput
+	ToDataSetLogicalTableMapDataTransformProjectOperationOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformProjectOperationOutput
+}
+
+type DataSetLogicalTableMapDataTransformProjectOperationArgs struct {
+	// Projected columns.
+	ProjectedColumns pulumi.StringArrayInput `pulumi:"projectedColumns"`
+}
+
+func (DataSetLogicalTableMapDataTransformProjectOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformProjectOperation)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformProjectOperationArgs) ToDataSetLogicalTableMapDataTransformProjectOperationOutput() DataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return i.ToDataSetLogicalTableMapDataTransformProjectOperationOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformProjectOperationArgs) ToDataSetLogicalTableMapDataTransformProjectOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformProjectOperationOutput)
+}
+
+func (i DataSetLogicalTableMapDataTransformProjectOperationArgs) ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutput() DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformProjectOperationArgs) ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformProjectOperationOutput).ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapDataTransformProjectOperationPtrInput is an input type that accepts DataSetLogicalTableMapDataTransformProjectOperationArgs, DataSetLogicalTableMapDataTransformProjectOperationPtr and DataSetLogicalTableMapDataTransformProjectOperationPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformProjectOperationPtrInput` via:
+//
+//	        DataSetLogicalTableMapDataTransformProjectOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapDataTransformProjectOperationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutput() DataSetLogicalTableMapDataTransformProjectOperationPtrOutput
+	ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformProjectOperationPtrOutput
+}
+
+type dataSetLogicalTableMapDataTransformProjectOperationPtrType DataSetLogicalTableMapDataTransformProjectOperationArgs
+
+func DataSetLogicalTableMapDataTransformProjectOperationPtr(v *DataSetLogicalTableMapDataTransformProjectOperationArgs) DataSetLogicalTableMapDataTransformProjectOperationPtrInput {
+	return (*dataSetLogicalTableMapDataTransformProjectOperationPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapDataTransformProjectOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformProjectOperation)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapDataTransformProjectOperationPtrType) ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutput() DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapDataTransformProjectOperationPtrType) ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformProjectOperationPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformProjectOperationOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformProjectOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformProjectOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformProjectOperationOutput) ToDataSetLogicalTableMapDataTransformProjectOperationOutput() DataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformProjectOperationOutput) ToDataSetLogicalTableMapDataTransformProjectOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformProjectOperationOutput) ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutput() DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return o.ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapDataTransformProjectOperationOutput) ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapDataTransformProjectOperation) *DataSetLogicalTableMapDataTransformProjectOperation {
+		return &v
+	}).(DataSetLogicalTableMapDataTransformProjectOperationPtrOutput)
+}
+
+// Projected columns.
+func (o DataSetLogicalTableMapDataTransformProjectOperationOutput) ProjectedColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformProjectOperation) []string { return v.ProjectedColumns }).(pulumi.StringArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformProjectOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformProjectOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformProjectOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformProjectOperationPtrOutput) ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutput() DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformProjectOperationPtrOutput) ToDataSetLogicalTableMapDataTransformProjectOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformProjectOperationPtrOutput) Elem() DataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformProjectOperation) DataSetLogicalTableMapDataTransformProjectOperation {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapDataTransformProjectOperation
+		return ret
+	}).(DataSetLogicalTableMapDataTransformProjectOperationOutput)
+}
+
+// Projected columns.
+func (o DataSetLogicalTableMapDataTransformProjectOperationPtrOutput) ProjectedColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformProjectOperation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectedColumns
+	}).(pulumi.StringArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformRenameColumnOperation struct {
+	// Column to be renamed.
+	ColumnName string `pulumi:"columnName"`
+	// New name for the column.
+	NewColumnName string `pulumi:"newColumnName"`
+}
+
+// DataSetLogicalTableMapDataTransformRenameColumnOperationInput is an input type that accepts DataSetLogicalTableMapDataTransformRenameColumnOperationArgs and DataSetLogicalTableMapDataTransformRenameColumnOperationOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformRenameColumnOperationInput` via:
+//
+//	DataSetLogicalTableMapDataTransformRenameColumnOperationArgs{...}
+type DataSetLogicalTableMapDataTransformRenameColumnOperationInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformRenameColumnOperationOutput() DataSetLogicalTableMapDataTransformRenameColumnOperationOutput
+	ToDataSetLogicalTableMapDataTransformRenameColumnOperationOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformRenameColumnOperationOutput
+}
+
+type DataSetLogicalTableMapDataTransformRenameColumnOperationArgs struct {
+	// Column to be renamed.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// New name for the column.
+	NewColumnName pulumi.StringInput `pulumi:"newColumnName"`
+}
+
+func (DataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformRenameColumnOperation)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ToDataSetLogicalTableMapDataTransformRenameColumnOperationOutput() DataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return i.ToDataSetLogicalTableMapDataTransformRenameColumnOperationOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ToDataSetLogicalTableMapDataTransformRenameColumnOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformRenameColumnOperationOutput)
+}
+
+func (i DataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformRenameColumnOperationOutput).ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapDataTransformRenameColumnOperationPtrInput is an input type that accepts DataSetLogicalTableMapDataTransformRenameColumnOperationArgs, DataSetLogicalTableMapDataTransformRenameColumnOperationPtr and DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformRenameColumnOperationPtrInput` via:
+//
+//	        DataSetLogicalTableMapDataTransformRenameColumnOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapDataTransformRenameColumnOperationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput
+	ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput
+}
+
+type dataSetLogicalTableMapDataTransformRenameColumnOperationPtrType DataSetLogicalTableMapDataTransformRenameColumnOperationArgs
+
+func DataSetLogicalTableMapDataTransformRenameColumnOperationPtr(v *DataSetLogicalTableMapDataTransformRenameColumnOperationArgs) DataSetLogicalTableMapDataTransformRenameColumnOperationPtrInput {
+	return (*dataSetLogicalTableMapDataTransformRenameColumnOperationPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapDataTransformRenameColumnOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformRenameColumnOperation)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapDataTransformRenameColumnOperationPtrType) ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapDataTransformRenameColumnOperationPtrType) ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformRenameColumnOperationOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformRenameColumnOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ToDataSetLogicalTableMapDataTransformRenameColumnOperationOutput() DataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ToDataSetLogicalTableMapDataTransformRenameColumnOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return o.ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapDataTransformRenameColumnOperation) *DataSetLogicalTableMapDataTransformRenameColumnOperation {
+		return &v
+	}).(DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput)
+}
+
+// Column to be renamed.
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformRenameColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// New name for the column.
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationOutput) NewColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformRenameColumnOperation) string { return v.NewColumnName }).(pulumi.StringOutput)
+}
+
+type DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformRenameColumnOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput) ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput) ToDataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput) Elem() DataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformRenameColumnOperation) DataSetLogicalTableMapDataTransformRenameColumnOperation {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapDataTransformRenameColumnOperation
+		return ret
+	}).(DataSetLogicalTableMapDataTransformRenameColumnOperationOutput)
+}
+
+// Column to be renamed.
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformRenameColumnOperation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// New name for the column.
+func (o DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput) NewColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformRenameColumnOperation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NewColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperation struct {
+	// Column name.
+	ColumnName string `pulumi:"columnName"`
+	// The dataset column tag, currently only used for geospatial type tagging. See tags.
+	Tags []DataSetLogicalTableMapDataTransformTagColumnOperationTag `pulumi:"tags"`
+}
+
+// DataSetLogicalTableMapDataTransformTagColumnOperationInput is an input type that accepts DataSetLogicalTableMapDataTransformTagColumnOperationArgs and DataSetLogicalTableMapDataTransformTagColumnOperationOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformTagColumnOperationInput` via:
+//
+//	DataSetLogicalTableMapDataTransformTagColumnOperationArgs{...}
+type DataSetLogicalTableMapDataTransformTagColumnOperationInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationOutput() DataSetLogicalTableMapDataTransformTagColumnOperationOutput
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationOutput
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationArgs struct {
+	// Column name.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The dataset column tag, currently only used for geospatial type tagging. See tags.
+	Tags DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput `pulumi:"tags"`
+}
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperation)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationOutput() DataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return i.ToDataSetLogicalTableMapDataTransformTagColumnOperationOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformTagColumnOperationOutput)
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformTagColumnOperationOutput).ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapDataTransformTagColumnOperationPtrInput is an input type that accepts DataSetLogicalTableMapDataTransformTagColumnOperationArgs, DataSetLogicalTableMapDataTransformTagColumnOperationPtr and DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformTagColumnOperationPtrInput` via:
+//
+//	        DataSetLogicalTableMapDataTransformTagColumnOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapDataTransformTagColumnOperationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput
+}
+
+type dataSetLogicalTableMapDataTransformTagColumnOperationPtrType DataSetLogicalTableMapDataTransformTagColumnOperationArgs
+
+func DataSetLogicalTableMapDataTransformTagColumnOperationPtr(v *DataSetLogicalTableMapDataTransformTagColumnOperationArgs) DataSetLogicalTableMapDataTransformTagColumnOperationPtrInput {
+	return (*dataSetLogicalTableMapDataTransformTagColumnOperationPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapDataTransformTagColumnOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformTagColumnOperation)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapDataTransformTagColumnOperationPtrType) ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapDataTransformTagColumnOperationPtrType) ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationOutput() DataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return o.ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapDataTransformTagColumnOperation) *DataSetLogicalTableMapDataTransformTagColumnOperation {
+		return &v
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput)
+}
+
+// Column name.
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The dataset column tag, currently only used for geospatial type tagging. See tags.
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationOutput) Tags() DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperation) []DataSetLogicalTableMapDataTransformTagColumnOperationTag {
+		return v.Tags
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformTagColumnOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) Elem() DataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformTagColumnOperation) DataSetLogicalTableMapDataTransformTagColumnOperation {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapDataTransformTagColumnOperation
+		return ret
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationOutput)
+}
+
+// Column name.
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformTagColumnOperation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The dataset column tag, currently only used for geospatial type tagging. See tags.
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) Tags() DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformTagColumnOperation) []DataSetLogicalTableMapDataTransformTagColumnOperationTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTag struct {
+	// A description for a column. See column_description.
+	ColumnDescription *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription `pulumi:"columnDescription"`
+	// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+	ColumnGeographicRole *string `pulumi:"columnGeographicRole"`
+}
+
+// DataSetLogicalTableMapDataTransformTagColumnOperationTagInput is an input type that accepts DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs and DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformTagColumnOperationTagInput` via:
+//
+//	DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs{...}
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationTagOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs struct {
+	// A description for a column. See column_description.
+	ColumnDescription DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrInput `pulumi:"columnDescription"`
+	// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+	ColumnGeographicRole pulumi.StringPtrInput `pulumi:"columnGeographicRole"`
+}
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationTag)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return i.ToDataSetLogicalTableMapDataTransformTagColumnOperationTagOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput)
+}
+
+// DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput is an input type that accepts DataSetLogicalTableMapDataTransformTagColumnOperationTagArray and DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput` via:
+//
+//	DataSetLogicalTableMapDataTransformTagColumnOperationTagArray{ DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs{...} }
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagArray []DataSetLogicalTableMapDataTransformTagColumnOperationTagInput
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetLogicalTableMapDataTransformTagColumnOperationTag)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationTagArray) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return i.ToDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationTagArray) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationTag)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return o
+}
+
+// A description for a column. See column_description.
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ColumnDescription() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperationTag) *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
+		return v.ColumnDescription
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput)
+}
+
+// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ColumnGeographicRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperationTag) *string {
+		return v.ColumnGeographicRole
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetLogicalTableMapDataTransformTagColumnOperationTag)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) Index(i pulumi.IntInput) DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetLogicalTableMapDataTransformTagColumnOperationTag {
+		return vs[0].([]DataSetLogicalTableMapDataTransformTagColumnOperationTag)[vs[1].(int)]
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription struct {
+	// The text of a description for a column.
+	Text *string `pulumi:"text"`
+}
+
+// DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput is an input type that accepts DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs and DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput` via:
+//
+//	DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs{...}
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs struct {
+	// The text of a description for a column.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+}
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return i.ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput)
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput).ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrInput is an input type that accepts DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs, DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtr and DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrInput` via:
+//
+//	        DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput
+	ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput
+}
+
+type dataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrType DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs
+
+func DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtr(v *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrInput {
+	return (*dataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrType) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrType) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return o.ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
+		return &v
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput)
+}
+
+// The text of a description for a column.
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) *string {
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput) ToDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput) Elem() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription
+		return ret
+	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput)
+}
+
+// The text of a description for a column.
+func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformUntagColumnOperation struct {
+	// Column name.
+	ColumnName string `pulumi:"columnName"`
+	// The column tags to remove from this column.
+	TagNames []string `pulumi:"tagNames"`
+}
+
+// DataSetLogicalTableMapDataTransformUntagColumnOperationInput is an input type that accepts DataSetLogicalTableMapDataTransformUntagColumnOperationArgs and DataSetLogicalTableMapDataTransformUntagColumnOperationOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformUntagColumnOperationInput` via:
+//
+//	DataSetLogicalTableMapDataTransformUntagColumnOperationArgs{...}
+type DataSetLogicalTableMapDataTransformUntagColumnOperationInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformUntagColumnOperationOutput() DataSetLogicalTableMapDataTransformUntagColumnOperationOutput
+	ToDataSetLogicalTableMapDataTransformUntagColumnOperationOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformUntagColumnOperationOutput
+}
+
+type DataSetLogicalTableMapDataTransformUntagColumnOperationArgs struct {
+	// Column name.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The column tags to remove from this column.
+	TagNames pulumi.StringArrayInput `pulumi:"tagNames"`
+}
+
+func (DataSetLogicalTableMapDataTransformUntagColumnOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformUntagColumnOperation)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapDataTransformUntagColumnOperationArgs) ToDataSetLogicalTableMapDataTransformUntagColumnOperationOutput() DataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return i.ToDataSetLogicalTableMapDataTransformUntagColumnOperationOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformUntagColumnOperationArgs) ToDataSetLogicalTableMapDataTransformUntagColumnOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformUntagColumnOperationOutput)
+}
+
+func (i DataSetLogicalTableMapDataTransformUntagColumnOperationArgs) ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapDataTransformUntagColumnOperationArgs) ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformUntagColumnOperationOutput).ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapDataTransformUntagColumnOperationPtrInput is an input type that accepts DataSetLogicalTableMapDataTransformUntagColumnOperationArgs, DataSetLogicalTableMapDataTransformUntagColumnOperationPtr and DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapDataTransformUntagColumnOperationPtrInput` via:
+//
+//	        DataSetLogicalTableMapDataTransformUntagColumnOperationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapDataTransformUntagColumnOperationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput
+	ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(context.Context) DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput
+}
+
+type dataSetLogicalTableMapDataTransformUntagColumnOperationPtrType DataSetLogicalTableMapDataTransformUntagColumnOperationArgs
+
+func DataSetLogicalTableMapDataTransformUntagColumnOperationPtr(v *DataSetLogicalTableMapDataTransformUntagColumnOperationArgs) DataSetLogicalTableMapDataTransformUntagColumnOperationPtrInput {
+	return (*dataSetLogicalTableMapDataTransformUntagColumnOperationPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapDataTransformUntagColumnOperationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformUntagColumnOperation)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapDataTransformUntagColumnOperationPtrType) ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return i.ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapDataTransformUntagColumnOperationPtrType) ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput)
+}
+
+type DataSetLogicalTableMapDataTransformUntagColumnOperationOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapDataTransformUntagColumnOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ToDataSetLogicalTableMapDataTransformUntagColumnOperationOutput() DataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ToDataSetLogicalTableMapDataTransformUntagColumnOperationOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return o.ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapDataTransformUntagColumnOperation) *DataSetLogicalTableMapDataTransformUntagColumnOperation {
+		return &v
+	}).(DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput)
+}
+
+// Column name.
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformUntagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The column tags to remove from this column.
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) TagNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformUntagColumnOperation) []string { return v.TagNames }).(pulumi.StringArrayOutput)
+}
+
+type DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapDataTransformUntagColumnOperation)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput() DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) ToDataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) Elem() DataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformUntagColumnOperation) DataSetLogicalTableMapDataTransformUntagColumnOperation {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapDataTransformUntagColumnOperation
+		return ret
+	}).(DataSetLogicalTableMapDataTransformUntagColumnOperationOutput)
+}
+
+// Column name.
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) ColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformUntagColumnOperation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The column tags to remove from this column.
+func (o DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) TagNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformUntagColumnOperation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TagNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type DataSetLogicalTableMapSource struct {
+	// ARN of the parent data set.
+	DataSetArn *string `pulumi:"dataSetArn"`
+	// Specifies the result of a join of two logical tables. See join_instruction.
+	JoinInstruction *DataSetLogicalTableMapSourceJoinInstruction `pulumi:"joinInstruction"`
+	// Physical table ID.
+	PhysicalTableId *string `pulumi:"physicalTableId"`
+}
+
+// DataSetLogicalTableMapSourceInput is an input type that accepts DataSetLogicalTableMapSourceArgs and DataSetLogicalTableMapSourceOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapSourceInput` via:
+//
+//	DataSetLogicalTableMapSourceArgs{...}
+type DataSetLogicalTableMapSourceInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapSourceOutput() DataSetLogicalTableMapSourceOutput
+	ToDataSetLogicalTableMapSourceOutputWithContext(context.Context) DataSetLogicalTableMapSourceOutput
+}
+
+type DataSetLogicalTableMapSourceArgs struct {
+	// ARN of the parent data set.
+	DataSetArn pulumi.StringPtrInput `pulumi:"dataSetArn"`
+	// Specifies the result of a join of two logical tables. See join_instruction.
+	JoinInstruction DataSetLogicalTableMapSourceJoinInstructionPtrInput `pulumi:"joinInstruction"`
+	// Physical table ID.
+	PhysicalTableId pulumi.StringPtrInput `pulumi:"physicalTableId"`
+}
+
+func (DataSetLogicalTableMapSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapSource)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapSourceArgs) ToDataSetLogicalTableMapSourceOutput() DataSetLogicalTableMapSourceOutput {
+	return i.ToDataSetLogicalTableMapSourceOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapSourceArgs) ToDataSetLogicalTableMapSourceOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceOutput)
+}
+
+type DataSetLogicalTableMapSourceOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapSource)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapSourceOutput) ToDataSetLogicalTableMapSourceOutput() DataSetLogicalTableMapSourceOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceOutput) ToDataSetLogicalTableMapSourceOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceOutput {
+	return o
+}
+
+// ARN of the parent data set.
+func (o DataSetLogicalTableMapSourceOutput) DataSetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSource) *string { return v.DataSetArn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the result of a join of two logical tables. See join_instruction.
+func (o DataSetLogicalTableMapSourceOutput) JoinInstruction() DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSource) *DataSetLogicalTableMapSourceJoinInstruction {
+		return v.JoinInstruction
+	}).(DataSetLogicalTableMapSourceJoinInstructionPtrOutput)
+}
+
+// Physical table ID.
+func (o DataSetLogicalTableMapSourceOutput) PhysicalTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSource) *string { return v.PhysicalTableId }).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstruction struct {
+	// Join key properties of the left operand. See left_join_key_properties.
+	LeftJoinKeyProperties *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties `pulumi:"leftJoinKeyProperties"`
+	// Operand on the left side of a join.
+	LeftOperand string `pulumi:"leftOperand"`
+	// Join instructions provided in the ON clause of a join.
+	OnClause string `pulumi:"onClause"`
+	// Join key properties of the right operand. See right_join_key_properties.
+	RightJoinKeyProperties *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties `pulumi:"rightJoinKeyProperties"`
+	// Operand on the right side of a join.
+	RightOperand string `pulumi:"rightOperand"`
+	// Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
+	Type string `pulumi:"type"`
+}
+
+// DataSetLogicalTableMapSourceJoinInstructionInput is an input type that accepts DataSetLogicalTableMapSourceJoinInstructionArgs and DataSetLogicalTableMapSourceJoinInstructionOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapSourceJoinInstructionInput` via:
+//
+//	DataSetLogicalTableMapSourceJoinInstructionArgs{...}
+type DataSetLogicalTableMapSourceJoinInstructionInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapSourceJoinInstructionOutput() DataSetLogicalTableMapSourceJoinInstructionOutput
+	ToDataSetLogicalTableMapSourceJoinInstructionOutputWithContext(context.Context) DataSetLogicalTableMapSourceJoinInstructionOutput
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionArgs struct {
+	// Join key properties of the left operand. See left_join_key_properties.
+	LeftJoinKeyProperties DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrInput `pulumi:"leftJoinKeyProperties"`
+	// Operand on the left side of a join.
+	LeftOperand pulumi.StringInput `pulumi:"leftOperand"`
+	// Join instructions provided in the ON clause of a join.
+	OnClause pulumi.StringInput `pulumi:"onClause"`
+	// Join key properties of the right operand. See right_join_key_properties.
+	RightJoinKeyProperties DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrInput `pulumi:"rightJoinKeyProperties"`
+	// Operand on the right side of a join.
+	RightOperand pulumi.StringInput `pulumi:"rightOperand"`
+	// Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataSetLogicalTableMapSourceJoinInstructionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstruction)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionArgs) ToDataSetLogicalTableMapSourceJoinInstructionOutput() DataSetLogicalTableMapSourceJoinInstructionOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionArgs) ToDataSetLogicalTableMapSourceJoinInstructionOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionOutput)
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionArgs) ToDataSetLogicalTableMapSourceJoinInstructionPtrOutput() DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionArgs) ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionOutput).ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapSourceJoinInstructionPtrInput is an input type that accepts DataSetLogicalTableMapSourceJoinInstructionArgs, DataSetLogicalTableMapSourceJoinInstructionPtr and DataSetLogicalTableMapSourceJoinInstructionPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapSourceJoinInstructionPtrInput` via:
+//
+//	        DataSetLogicalTableMapSourceJoinInstructionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapSourceJoinInstructionPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapSourceJoinInstructionPtrOutput() DataSetLogicalTableMapSourceJoinInstructionPtrOutput
+	ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(context.Context) DataSetLogicalTableMapSourceJoinInstructionPtrOutput
+}
+
+type dataSetLogicalTableMapSourceJoinInstructionPtrType DataSetLogicalTableMapSourceJoinInstructionArgs
+
+func DataSetLogicalTableMapSourceJoinInstructionPtr(v *DataSetLogicalTableMapSourceJoinInstructionArgs) DataSetLogicalTableMapSourceJoinInstructionPtrInput {
+	return (*dataSetLogicalTableMapSourceJoinInstructionPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapSourceJoinInstructionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapSourceJoinInstruction)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapSourceJoinInstructionPtrType) ToDataSetLogicalTableMapSourceJoinInstructionPtrOutput() DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapSourceJoinInstructionPtrType) ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionPtrOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapSourceJoinInstructionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstruction)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) ToDataSetLogicalTableMapSourceJoinInstructionOutput() DataSetLogicalTableMapSourceJoinInstructionOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) ToDataSetLogicalTableMapSourceJoinInstructionOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) ToDataSetLogicalTableMapSourceJoinInstructionPtrOutput() DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return o.ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstruction {
+		return &v
+	}).(DataSetLogicalTableMapSourceJoinInstructionPtrOutput)
+}
+
+// Join key properties of the left operand. See left_join_key_properties.
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) LeftJoinKeyProperties() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
+		return v.LeftJoinKeyProperties
+	}).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput)
+}
+
+// Operand on the left side of a join.
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) LeftOperand() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) string { return v.LeftOperand }).(pulumi.StringOutput)
+}
+
+// Join instructions provided in the ON clause of a join.
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) OnClause() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) string { return v.OnClause }).(pulumi.StringOutput)
+}
+
+// Join key properties of the right operand. See right_join_key_properties.
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) RightJoinKeyProperties() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
+		return v.RightJoinKeyProperties
+	}).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput)
+}
+
+// Operand on the right side of a join.
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) RightOperand() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) string { return v.RightOperand }).(pulumi.StringOutput)
+}
+
+// Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
+func (o DataSetLogicalTableMapSourceJoinInstructionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapSourceJoinInstructionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapSourceJoinInstruction)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) ToDataSetLogicalTableMapSourceJoinInstructionPtrOutput() DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) ToDataSetLogicalTableMapSourceJoinInstructionPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) Elem() DataSetLogicalTableMapSourceJoinInstructionOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) DataSetLogicalTableMapSourceJoinInstruction {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapSourceJoinInstruction
+		return ret
+	}).(DataSetLogicalTableMapSourceJoinInstructionOutput)
+}
+
+// Join key properties of the left operand. See left_join_key_properties.
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) LeftJoinKeyProperties() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
+		if v == nil {
+			return nil
+		}
+		return v.LeftJoinKeyProperties
+	}).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput)
+}
+
+// Operand on the left side of a join.
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) LeftOperand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LeftOperand
+	}).(pulumi.StringPtrOutput)
+}
+
+// Join instructions provided in the ON clause of a join.
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) OnClause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OnClause
+	}).(pulumi.StringPtrOutput)
+}
+
+// Join key properties of the right operand. See right_join_key_properties.
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) RightJoinKeyProperties() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
+		if v == nil {
+			return nil
+		}
+		return v.RightJoinKeyProperties
+	}).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput)
+}
+
+// Operand on the right side of a join.
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) RightOperand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RightOperand
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
+func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties struct {
+	// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+	UniqueKey *bool `pulumi:"uniqueKey"`
+}
+
+// DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesInput is an input type that accepts DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs and DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesInput` via:
+//
+//	DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs{...}
+type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput
+	ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutputWithContext(context.Context) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs struct {
+	// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+	UniqueKey pulumi.BoolPtrInput `pulumi:"uniqueKey"`
+}
+
+func (DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput)
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput).ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrInput is an input type that accepts DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs, DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtr and DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrInput` via:
+//
+//	        DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput
+	ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(context.Context) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput
+}
+
+type dataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrType DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs
+
+func DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtr(v *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrInput {
+	return (*dataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrType) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrType) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return o.ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties) *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
+		return &v
+	}).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput)
+}
+
+// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput) UniqueKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput) ToDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput) Elem() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties) DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties
+		return ret
+	}).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput)
+}
+
+// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput) UniqueKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueKey
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties struct {
+	// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+	UniqueKey *bool `pulumi:"uniqueKey"`
+}
+
+// DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesInput is an input type that accepts DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs and DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesInput` via:
+//
+//	DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs{...}
+type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput
+	ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutputWithContext(context.Context) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs struct {
+	// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+	UniqueKey pulumi.BoolPtrInput `pulumi:"uniqueKey"`
+}
+
+func (DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput)
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput).ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrInput is an input type that accepts DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs, DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtr and DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrInput` via:
+//
+//	        DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput
+	ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(context.Context) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput
+}
+
+type dataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrType DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs
+
+func DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtr(v *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrInput {
+	return (*dataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrType)(v)
+}
+
+func (*dataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrType) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return i.ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrType) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return o.ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties) *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
+		return &v
+	}).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput)
+}
+
+// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput) UniqueKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
+}
+
+type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput) ToDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput) Elem() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties) DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties
+		return ret
+	}).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput)
+}
+
+// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput) UniqueKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueKey
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataSetPermission struct {
+	// List of IAM actions to grant or revoke permissions on.
+	Actions []string `pulumi:"actions"`
+	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+	Principal string `pulumi:"principal"`
+}
+
+// DataSetPermissionInput is an input type that accepts DataSetPermissionArgs and DataSetPermissionOutput values.
+// You can construct a concrete instance of `DataSetPermissionInput` via:
+//
+//	DataSetPermissionArgs{...}
+type DataSetPermissionInput interface {
+	pulumi.Input
+
+	ToDataSetPermissionOutput() DataSetPermissionOutput
+	ToDataSetPermissionOutputWithContext(context.Context) DataSetPermissionOutput
+}
+
+type DataSetPermissionArgs struct {
+	// List of IAM actions to grant or revoke permissions on.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+	Principal pulumi.StringInput `pulumi:"principal"`
+}
+
+func (DataSetPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPermission)(nil)).Elem()
+}
+
+func (i DataSetPermissionArgs) ToDataSetPermissionOutput() DataSetPermissionOutput {
+	return i.ToDataSetPermissionOutputWithContext(context.Background())
+}
+
+func (i DataSetPermissionArgs) ToDataSetPermissionOutputWithContext(ctx context.Context) DataSetPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPermissionOutput)
+}
+
+// DataSetPermissionArrayInput is an input type that accepts DataSetPermissionArray and DataSetPermissionArrayOutput values.
+// You can construct a concrete instance of `DataSetPermissionArrayInput` via:
+//
+//	DataSetPermissionArray{ DataSetPermissionArgs{...} }
+type DataSetPermissionArrayInput interface {
+	pulumi.Input
+
+	ToDataSetPermissionArrayOutput() DataSetPermissionArrayOutput
+	ToDataSetPermissionArrayOutputWithContext(context.Context) DataSetPermissionArrayOutput
+}
+
+type DataSetPermissionArray []DataSetPermissionInput
+
+func (DataSetPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPermission)(nil)).Elem()
+}
+
+func (i DataSetPermissionArray) ToDataSetPermissionArrayOutput() DataSetPermissionArrayOutput {
+	return i.ToDataSetPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetPermissionArray) ToDataSetPermissionArrayOutputWithContext(ctx context.Context) DataSetPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPermissionArrayOutput)
+}
+
+type DataSetPermissionOutput struct{ *pulumi.OutputState }
+
+func (DataSetPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPermission)(nil)).Elem()
+}
+
+func (o DataSetPermissionOutput) ToDataSetPermissionOutput() DataSetPermissionOutput {
+	return o
+}
+
+func (o DataSetPermissionOutput) ToDataSetPermissionOutputWithContext(ctx context.Context) DataSetPermissionOutput {
+	return o
+}
+
+// List of IAM actions to grant or revoke permissions on.
+func (o DataSetPermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+func (o DataSetPermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type DataSetPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPermission)(nil)).Elem()
+}
+
+func (o DataSetPermissionArrayOutput) ToDataSetPermissionArrayOutput() DataSetPermissionArrayOutput {
+	return o
+}
+
+func (o DataSetPermissionArrayOutput) ToDataSetPermissionArrayOutputWithContext(ctx context.Context) DataSetPermissionArrayOutput {
+	return o
+}
+
+func (o DataSetPermissionArrayOutput) Index(i pulumi.IntInput) DataSetPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetPermission {
+		return vs[0].([]DataSetPermission)[vs[1].(int)]
+	}).(DataSetPermissionOutput)
+}
+
+type DataSetPhysicalTableMap struct {
+	// A physical table type built from the results of the custom SQL query. See custom_sql.
+	CustomSql *DataSetPhysicalTableMapCustomSql `pulumi:"customSql"`
+	// Key of the physical table map.
+	PhysicalTableMapId string `pulumi:"physicalTableMapId"`
+	// A physical table type for relational data sources. See relational_table.
+	RelationalTable *DataSetPhysicalTableMapRelationalTable `pulumi:"relationalTable"`
+	// A physical table type for as S3 data source. See s3_source.
+	S3Source *DataSetPhysicalTableMapS3Source `pulumi:"s3Source"`
+}
+
+// DataSetPhysicalTableMapInput is an input type that accepts DataSetPhysicalTableMap and DataSetPhysicalTableMapOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapInput` via:
+//
+//	DataSetPhysicalTableMap{ "key": DataSetPhysicalTableArgs{...} }
+type DataSetPhysicalTableMapInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapOutput() DataSetPhysicalTableMapOutput
+	ToDataSetPhysicalTableMapOutputWithContext(context.Context) DataSetPhysicalTableMapOutput
+}
+
+type DataSetPhysicalTableMapArgs struct {
+	// A physical table type built from the results of the custom SQL query. See custom_sql.
+	CustomSql DataSetPhysicalTableMapCustomSqlPtrInput `pulumi:"customSql"`
+	// Key of the physical table map.
+	PhysicalTableMapId pulumi.StringInput `pulumi:"physicalTableMapId"`
+	// A physical table type for relational data sources. See relational_table.
+	RelationalTable DataSetPhysicalTableMapRelationalTablePtrInput `pulumi:"relationalTable"`
+	// A physical table type for as S3 data source. See s3_source.
+	S3Source DataSetPhysicalTableMapS3SourcePtrInput `pulumi:"s3Source"`
+}
+
+func (DataSetPhysicalTableMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapArgs) ToDataSetPhysicalTableMapOutput() DataSetPhysicalTableMapOutput {
+	return i.ToDataSetPhysicalTableMapOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapArgs) ToDataSetPhysicalTableMapOutputWithContext(ctx context.Context) DataSetPhysicalTableMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapOutput)
+}
+
+// DataSetPhysicalTableMapArrayInput is an input type that accepts DataSetPhysicalTableMapArray and DataSetPhysicalTableMapArrayOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapArrayInput` via:
+//
+//	DataSetPhysicalTableMapArray{ DataSetPhysicalTableMapArgs{...} }
+type DataSetPhysicalTableMapArrayInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapArrayOutput() DataSetPhysicalTableMapArrayOutput
+	ToDataSetPhysicalTableMapArrayOutputWithContext(context.Context) DataSetPhysicalTableMapArrayOutput
+}
+
+type DataSetPhysicalTableMapArray []DataSetPhysicalTableMapInput
+
+func (DataSetPhysicalTableMapArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapArray) ToDataSetPhysicalTableMapArrayOutput() DataSetPhysicalTableMapArrayOutput {
+	return i.ToDataSetPhysicalTableMapArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapArray) ToDataSetPhysicalTableMapArrayOutputWithContext(ctx context.Context) DataSetPhysicalTableMapArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapArrayOutput)
+}
+
+type DataSetPhysicalTableMapOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapOutput) ToDataSetPhysicalTableMapOutput() DataSetPhysicalTableMapOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapOutput) ToDataSetPhysicalTableMapOutputWithContext(ctx context.Context) DataSetPhysicalTableMapOutput {
+	return o
+}
+
+// A physical table type built from the results of the custom SQL query. See custom_sql.
+func (o DataSetPhysicalTableMapOutput) CustomSql() DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMap) *DataSetPhysicalTableMapCustomSql { return v.CustomSql }).(DataSetPhysicalTableMapCustomSqlPtrOutput)
+}
+
+// Key of the physical table map.
+func (o DataSetPhysicalTableMapOutput) PhysicalTableMapId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMap) string { return v.PhysicalTableMapId }).(pulumi.StringOutput)
+}
+
+// A physical table type for relational data sources. See relational_table.
+func (o DataSetPhysicalTableMapOutput) RelationalTable() DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMap) *DataSetPhysicalTableMapRelationalTable { return v.RelationalTable }).(DataSetPhysicalTableMapRelationalTablePtrOutput)
+}
+
+// A physical table type for as S3 data source. See s3_source.
+func (o DataSetPhysicalTableMapOutput) S3Source() DataSetPhysicalTableMapS3SourcePtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMap) *DataSetPhysicalTableMapS3Source { return v.S3Source }).(DataSetPhysicalTableMapS3SourcePtrOutput)
+}
+
+type DataSetPhysicalTableMapArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapArrayOutput) ToDataSetPhysicalTableMapArrayOutput() DataSetPhysicalTableMapArrayOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapArrayOutput) ToDataSetPhysicalTableMapArrayOutputWithContext(ctx context.Context) DataSetPhysicalTableMapArrayOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapArrayOutput) Index(i pulumi.IntInput) DataSetPhysicalTableMapOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetPhysicalTableMap {
+		return vs[0].([]DataSetPhysicalTableMap)[vs[1].(int)]
+	}).(DataSetPhysicalTableMapOutput)
+}
+
+type DataSetPhysicalTableMapCustomSql struct {
+	// Column schema from the SQL query result set. See columns.
+	Columns []DataSetPhysicalTableMapCustomSqlColumn `pulumi:"columns"`
+	// ARN of the data source.
+	DataSourceArn string `pulumi:"dataSourceArn"`
+	// Display name for the dataset.
+	Name string `pulumi:"name"`
+	// SQL query.
+	SqlQuery string `pulumi:"sqlQuery"`
+}
+
+// DataSetPhysicalTableMapCustomSqlInput is an input type that accepts DataSetPhysicalTableMapCustomSqlArgs and DataSetPhysicalTableMapCustomSqlOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapCustomSqlInput` via:
+//
+//	DataSetPhysicalTableMapCustomSqlArgs{...}
+type DataSetPhysicalTableMapCustomSqlInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapCustomSqlOutput() DataSetPhysicalTableMapCustomSqlOutput
+	ToDataSetPhysicalTableMapCustomSqlOutputWithContext(context.Context) DataSetPhysicalTableMapCustomSqlOutput
+}
+
+type DataSetPhysicalTableMapCustomSqlArgs struct {
+	// Column schema from the SQL query result set. See columns.
+	Columns DataSetPhysicalTableMapCustomSqlColumnArrayInput `pulumi:"columns"`
+	// ARN of the data source.
+	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
+	// Display name for the dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SQL query.
+	SqlQuery pulumi.StringInput `pulumi:"sqlQuery"`
+}
+
+func (DataSetPhysicalTableMapCustomSqlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapCustomSql)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapCustomSqlArgs) ToDataSetPhysicalTableMapCustomSqlOutput() DataSetPhysicalTableMapCustomSqlOutput {
+	return i.ToDataSetPhysicalTableMapCustomSqlOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapCustomSqlArgs) ToDataSetPhysicalTableMapCustomSqlOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapCustomSqlOutput)
+}
+
+func (i DataSetPhysicalTableMapCustomSqlArgs) ToDataSetPhysicalTableMapCustomSqlPtrOutput() DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return i.ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapCustomSqlArgs) ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapCustomSqlOutput).ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(ctx)
+}
+
+// DataSetPhysicalTableMapCustomSqlPtrInput is an input type that accepts DataSetPhysicalTableMapCustomSqlArgs, DataSetPhysicalTableMapCustomSqlPtr and DataSetPhysicalTableMapCustomSqlPtrOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapCustomSqlPtrInput` via:
+//
+//	        DataSetPhysicalTableMapCustomSqlArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetPhysicalTableMapCustomSqlPtrInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapCustomSqlPtrOutput() DataSetPhysicalTableMapCustomSqlPtrOutput
+	ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(context.Context) DataSetPhysicalTableMapCustomSqlPtrOutput
+}
+
+type dataSetPhysicalTableMapCustomSqlPtrType DataSetPhysicalTableMapCustomSqlArgs
+
+func DataSetPhysicalTableMapCustomSqlPtr(v *DataSetPhysicalTableMapCustomSqlArgs) DataSetPhysicalTableMapCustomSqlPtrInput {
+	return (*dataSetPhysicalTableMapCustomSqlPtrType)(v)
+}
+
+func (*dataSetPhysicalTableMapCustomSqlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMapCustomSql)(nil)).Elem()
+}
+
+func (i *dataSetPhysicalTableMapCustomSqlPtrType) ToDataSetPhysicalTableMapCustomSqlPtrOutput() DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return i.ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetPhysicalTableMapCustomSqlPtrType) ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapCustomSqlPtrOutput)
+}
+
+type DataSetPhysicalTableMapCustomSqlOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapCustomSqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapCustomSql)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapCustomSqlOutput) ToDataSetPhysicalTableMapCustomSqlOutput() DataSetPhysicalTableMapCustomSqlOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapCustomSqlOutput) ToDataSetPhysicalTableMapCustomSqlOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapCustomSqlOutput) ToDataSetPhysicalTableMapCustomSqlPtrOutput() DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return o.ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetPhysicalTableMapCustomSqlOutput) ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetPhysicalTableMapCustomSql) *DataSetPhysicalTableMapCustomSql {
+		return &v
+	}).(DataSetPhysicalTableMapCustomSqlPtrOutput)
+}
+
+// Column schema from the SQL query result set. See columns.
+func (o DataSetPhysicalTableMapCustomSqlOutput) Columns() DataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSql) []DataSetPhysicalTableMapCustomSqlColumn { return v.Columns }).(DataSetPhysicalTableMapCustomSqlColumnArrayOutput)
+}
+
+// ARN of the data source.
+func (o DataSetPhysicalTableMapCustomSqlOutput) DataSourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSql) string { return v.DataSourceArn }).(pulumi.StringOutput)
+}
+
+// Display name for the dataset.
+func (o DataSetPhysicalTableMapCustomSqlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSql) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SQL query.
+func (o DataSetPhysicalTableMapCustomSqlOutput) SqlQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSql) string { return v.SqlQuery }).(pulumi.StringOutput)
+}
+
+type DataSetPhysicalTableMapCustomSqlPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapCustomSqlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMapCustomSql)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapCustomSqlPtrOutput) ToDataSetPhysicalTableMapCustomSqlPtrOutput() DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapCustomSqlPtrOutput) ToDataSetPhysicalTableMapCustomSqlPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlPtrOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapCustomSqlPtrOutput) Elem() DataSetPhysicalTableMapCustomSqlOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapCustomSql) DataSetPhysicalTableMapCustomSql {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetPhysicalTableMapCustomSql
+		return ret
+	}).(DataSetPhysicalTableMapCustomSqlOutput)
+}
+
+// Column schema from the SQL query result set. See columns.
+func (o DataSetPhysicalTableMapCustomSqlPtrOutput) Columns() DataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapCustomSql) []DataSetPhysicalTableMapCustomSqlColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(DataSetPhysicalTableMapCustomSqlColumnArrayOutput)
+}
+
+// ARN of the data source.
+func (o DataSetPhysicalTableMapCustomSqlPtrOutput) DataSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapCustomSql) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Display name for the dataset.
+func (o DataSetPhysicalTableMapCustomSqlPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapCustomSql) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// SQL query.
+func (o DataSetPhysicalTableMapCustomSqlPtrOutput) SqlQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapCustomSql) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SqlQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetPhysicalTableMapCustomSqlColumn struct {
+	// Name of this column in the underlying data source.
+	Name string `pulumi:"name"`
+	// Data type of the column.
+	Type string `pulumi:"type"`
+}
+
+// DataSetPhysicalTableMapCustomSqlColumnInput is an input type that accepts DataSetPhysicalTableMapCustomSqlColumnArgs and DataSetPhysicalTableMapCustomSqlColumnOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapCustomSqlColumnInput` via:
+//
+//	DataSetPhysicalTableMapCustomSqlColumnArgs{...}
+type DataSetPhysicalTableMapCustomSqlColumnInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapCustomSqlColumnOutput() DataSetPhysicalTableMapCustomSqlColumnOutput
+	ToDataSetPhysicalTableMapCustomSqlColumnOutputWithContext(context.Context) DataSetPhysicalTableMapCustomSqlColumnOutput
+}
+
+type DataSetPhysicalTableMapCustomSqlColumnArgs struct {
+	// Name of this column in the underlying data source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Data type of the column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataSetPhysicalTableMapCustomSqlColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapCustomSqlColumn)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapCustomSqlColumnArgs) ToDataSetPhysicalTableMapCustomSqlColumnOutput() DataSetPhysicalTableMapCustomSqlColumnOutput {
+	return i.ToDataSetPhysicalTableMapCustomSqlColumnOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapCustomSqlColumnArgs) ToDataSetPhysicalTableMapCustomSqlColumnOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapCustomSqlColumnOutput)
+}
+
+// DataSetPhysicalTableMapCustomSqlColumnArrayInput is an input type that accepts DataSetPhysicalTableMapCustomSqlColumnArray and DataSetPhysicalTableMapCustomSqlColumnArrayOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapCustomSqlColumnArrayInput` via:
+//
+//	DataSetPhysicalTableMapCustomSqlColumnArray{ DataSetPhysicalTableMapCustomSqlColumnArgs{...} }
+type DataSetPhysicalTableMapCustomSqlColumnArrayInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapCustomSqlColumnArrayOutput() DataSetPhysicalTableMapCustomSqlColumnArrayOutput
+	ToDataSetPhysicalTableMapCustomSqlColumnArrayOutputWithContext(context.Context) DataSetPhysicalTableMapCustomSqlColumnArrayOutput
+}
+
+type DataSetPhysicalTableMapCustomSqlColumnArray []DataSetPhysicalTableMapCustomSqlColumnInput
+
+func (DataSetPhysicalTableMapCustomSqlColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPhysicalTableMapCustomSqlColumn)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapCustomSqlColumnArray) ToDataSetPhysicalTableMapCustomSqlColumnArrayOutput() DataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return i.ToDataSetPhysicalTableMapCustomSqlColumnArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapCustomSqlColumnArray) ToDataSetPhysicalTableMapCustomSqlColumnArrayOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapCustomSqlColumnArrayOutput)
+}
+
+type DataSetPhysicalTableMapCustomSqlColumnOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapCustomSqlColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapCustomSqlColumn)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapCustomSqlColumnOutput) ToDataSetPhysicalTableMapCustomSqlColumnOutput() DataSetPhysicalTableMapCustomSqlColumnOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapCustomSqlColumnOutput) ToDataSetPhysicalTableMapCustomSqlColumnOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlColumnOutput {
+	return o
+}
+
+// Name of this column in the underlying data source.
+func (o DataSetPhysicalTableMapCustomSqlColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSqlColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Data type of the column.
+func (o DataSetPhysicalTableMapCustomSqlColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSqlColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DataSetPhysicalTableMapCustomSqlColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapCustomSqlColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPhysicalTableMapCustomSqlColumn)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapCustomSqlColumnArrayOutput) ToDataSetPhysicalTableMapCustomSqlColumnArrayOutput() DataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapCustomSqlColumnArrayOutput) ToDataSetPhysicalTableMapCustomSqlColumnArrayOutputWithContext(ctx context.Context) DataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapCustomSqlColumnArrayOutput) Index(i pulumi.IntInput) DataSetPhysicalTableMapCustomSqlColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetPhysicalTableMapCustomSqlColumn {
+		return vs[0].([]DataSetPhysicalTableMapCustomSqlColumn)[vs[1].(int)]
+	}).(DataSetPhysicalTableMapCustomSqlColumnOutput)
+}
+
+type DataSetPhysicalTableMapRelationalTable struct {
+	// Catalog associated with the table.
+	Catalog *string `pulumi:"catalog"`
+	// ARN of the data source.
+	DataSourceArn string `pulumi:"dataSourceArn"`
+	// Column schema of the table. See input_columns.
+	InputColumns []DataSetPhysicalTableMapRelationalTableInputColumn `pulumi:"inputColumns"`
+	// Name of the relational table.
+	Name string `pulumi:"name"`
+	// Schema name. This name applies to certain relational database engines.
+	Schema *string `pulumi:"schema"`
+}
+
+// DataSetPhysicalTableMapRelationalTableInput is an input type that accepts DataSetPhysicalTableMapRelationalTableArgs and DataSetPhysicalTableMapRelationalTableOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapRelationalTableInput` via:
+//
+//	DataSetPhysicalTableMapRelationalTableArgs{...}
+type DataSetPhysicalTableMapRelationalTableInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapRelationalTableOutput() DataSetPhysicalTableMapRelationalTableOutput
+	ToDataSetPhysicalTableMapRelationalTableOutputWithContext(context.Context) DataSetPhysicalTableMapRelationalTableOutput
+}
+
+type DataSetPhysicalTableMapRelationalTableArgs struct {
+	// Catalog associated with the table.
+	Catalog pulumi.StringPtrInput `pulumi:"catalog"`
+	// ARN of the data source.
+	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
+	// Column schema of the table. See input_columns.
+	InputColumns DataSetPhysicalTableMapRelationalTableInputColumnArrayInput `pulumi:"inputColumns"`
+	// Name of the relational table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Schema name. This name applies to certain relational database engines.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (DataSetPhysicalTableMapRelationalTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapRelationalTable)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapRelationalTableArgs) ToDataSetPhysicalTableMapRelationalTableOutput() DataSetPhysicalTableMapRelationalTableOutput {
+	return i.ToDataSetPhysicalTableMapRelationalTableOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapRelationalTableArgs) ToDataSetPhysicalTableMapRelationalTableOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapRelationalTableOutput)
+}
+
+func (i DataSetPhysicalTableMapRelationalTableArgs) ToDataSetPhysicalTableMapRelationalTablePtrOutput() DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return i.ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapRelationalTableArgs) ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapRelationalTableOutput).ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(ctx)
+}
+
+// DataSetPhysicalTableMapRelationalTablePtrInput is an input type that accepts DataSetPhysicalTableMapRelationalTableArgs, DataSetPhysicalTableMapRelationalTablePtr and DataSetPhysicalTableMapRelationalTablePtrOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapRelationalTablePtrInput` via:
+//
+//	        DataSetPhysicalTableMapRelationalTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetPhysicalTableMapRelationalTablePtrInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapRelationalTablePtrOutput() DataSetPhysicalTableMapRelationalTablePtrOutput
+	ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(context.Context) DataSetPhysicalTableMapRelationalTablePtrOutput
+}
+
+type dataSetPhysicalTableMapRelationalTablePtrType DataSetPhysicalTableMapRelationalTableArgs
+
+func DataSetPhysicalTableMapRelationalTablePtr(v *DataSetPhysicalTableMapRelationalTableArgs) DataSetPhysicalTableMapRelationalTablePtrInput {
+	return (*dataSetPhysicalTableMapRelationalTablePtrType)(v)
+}
+
+func (*dataSetPhysicalTableMapRelationalTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMapRelationalTable)(nil)).Elem()
+}
+
+func (i *dataSetPhysicalTableMapRelationalTablePtrType) ToDataSetPhysicalTableMapRelationalTablePtrOutput() DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return i.ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetPhysicalTableMapRelationalTablePtrType) ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapRelationalTablePtrOutput)
+}
+
+type DataSetPhysicalTableMapRelationalTableOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapRelationalTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapRelationalTable)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapRelationalTableOutput) ToDataSetPhysicalTableMapRelationalTableOutput() DataSetPhysicalTableMapRelationalTableOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapRelationalTableOutput) ToDataSetPhysicalTableMapRelationalTableOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTableOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapRelationalTableOutput) ToDataSetPhysicalTableMapRelationalTablePtrOutput() DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return o.ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(context.Background())
+}
+
+func (o DataSetPhysicalTableMapRelationalTableOutput) ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetPhysicalTableMapRelationalTable) *DataSetPhysicalTableMapRelationalTable {
+		return &v
+	}).(DataSetPhysicalTableMapRelationalTablePtrOutput)
+}
+
+// Catalog associated with the table.
+func (o DataSetPhysicalTableMapRelationalTableOutput) Catalog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTable) *string { return v.Catalog }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the data source.
+func (o DataSetPhysicalTableMapRelationalTableOutput) DataSourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTable) string { return v.DataSourceArn }).(pulumi.StringOutput)
+}
+
+// Column schema of the table. See input_columns.
+func (o DataSetPhysicalTableMapRelationalTableOutput) InputColumns() DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTable) []DataSetPhysicalTableMapRelationalTableInputColumn {
+		return v.InputColumns
+	}).(DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput)
+}
+
+// Name of the relational table.
+func (o DataSetPhysicalTableMapRelationalTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Schema name. This name applies to certain relational database engines.
+func (o DataSetPhysicalTableMapRelationalTableOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTable) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type DataSetPhysicalTableMapRelationalTablePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapRelationalTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMapRelationalTable)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapRelationalTablePtrOutput) ToDataSetPhysicalTableMapRelationalTablePtrOutput() DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapRelationalTablePtrOutput) ToDataSetPhysicalTableMapRelationalTablePtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTablePtrOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapRelationalTablePtrOutput) Elem() DataSetPhysicalTableMapRelationalTableOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapRelationalTable) DataSetPhysicalTableMapRelationalTable {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetPhysicalTableMapRelationalTable
+		return ret
+	}).(DataSetPhysicalTableMapRelationalTableOutput)
+}
+
+// Catalog associated with the table.
+func (o DataSetPhysicalTableMapRelationalTablePtrOutput) Catalog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapRelationalTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Catalog
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the data source.
+func (o DataSetPhysicalTableMapRelationalTablePtrOutput) DataSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapRelationalTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Column schema of the table. See input_columns.
+func (o DataSetPhysicalTableMapRelationalTablePtrOutput) InputColumns() DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapRelationalTable) []DataSetPhysicalTableMapRelationalTableInputColumn {
+		if v == nil {
+			return nil
+		}
+		return v.InputColumns
+	}).(DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput)
+}
+
+// Name of the relational table.
+func (o DataSetPhysicalTableMapRelationalTablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapRelationalTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schema name. This name applies to certain relational database engines.
+func (o DataSetPhysicalTableMapRelationalTablePtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapRelationalTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetPhysicalTableMapRelationalTableInputColumn struct {
+	// Name of this column in the underlying data source.
+	Name string `pulumi:"name"`
+	// Data type of the column.
+	Type string `pulumi:"type"`
+}
+
+// DataSetPhysicalTableMapRelationalTableInputColumnInput is an input type that accepts DataSetPhysicalTableMapRelationalTableInputColumnArgs and DataSetPhysicalTableMapRelationalTableInputColumnOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapRelationalTableInputColumnInput` via:
+//
+//	DataSetPhysicalTableMapRelationalTableInputColumnArgs{...}
+type DataSetPhysicalTableMapRelationalTableInputColumnInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapRelationalTableInputColumnOutput() DataSetPhysicalTableMapRelationalTableInputColumnOutput
+	ToDataSetPhysicalTableMapRelationalTableInputColumnOutputWithContext(context.Context) DataSetPhysicalTableMapRelationalTableInputColumnOutput
+}
+
+type DataSetPhysicalTableMapRelationalTableInputColumnArgs struct {
+	// Name of this column in the underlying data source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Data type of the column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataSetPhysicalTableMapRelationalTableInputColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapRelationalTableInputColumn)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapRelationalTableInputColumnArgs) ToDataSetPhysicalTableMapRelationalTableInputColumnOutput() DataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return i.ToDataSetPhysicalTableMapRelationalTableInputColumnOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapRelationalTableInputColumnArgs) ToDataSetPhysicalTableMapRelationalTableInputColumnOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapRelationalTableInputColumnOutput)
+}
+
+// DataSetPhysicalTableMapRelationalTableInputColumnArrayInput is an input type that accepts DataSetPhysicalTableMapRelationalTableInputColumnArray and DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapRelationalTableInputColumnArrayInput` via:
+//
+//	DataSetPhysicalTableMapRelationalTableInputColumnArray{ DataSetPhysicalTableMapRelationalTableInputColumnArgs{...} }
+type DataSetPhysicalTableMapRelationalTableInputColumnArrayInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput() DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput
+	ToDataSetPhysicalTableMapRelationalTableInputColumnArrayOutputWithContext(context.Context) DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput
+}
+
+type DataSetPhysicalTableMapRelationalTableInputColumnArray []DataSetPhysicalTableMapRelationalTableInputColumnInput
+
+func (DataSetPhysicalTableMapRelationalTableInputColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPhysicalTableMapRelationalTableInputColumn)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapRelationalTableInputColumnArray) ToDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput() DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return i.ToDataSetPhysicalTableMapRelationalTableInputColumnArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapRelationalTableInputColumnArray) ToDataSetPhysicalTableMapRelationalTableInputColumnArrayOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput)
+}
+
+type DataSetPhysicalTableMapRelationalTableInputColumnOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapRelationalTableInputColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapRelationalTableInputColumn)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapRelationalTableInputColumnOutput) ToDataSetPhysicalTableMapRelationalTableInputColumnOutput() DataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapRelationalTableInputColumnOutput) ToDataSetPhysicalTableMapRelationalTableInputColumnOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return o
+}
+
+// Name of this column in the underlying data source.
+func (o DataSetPhysicalTableMapRelationalTableInputColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTableInputColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Data type of the column.
+func (o DataSetPhysicalTableMapRelationalTableInputColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTableInputColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPhysicalTableMapRelationalTableInputColumn)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) ToDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput() DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) ToDataSetPhysicalTableMapRelationalTableInputColumnArrayOutputWithContext(ctx context.Context) DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) Index(i pulumi.IntInput) DataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetPhysicalTableMapRelationalTableInputColumn {
+		return vs[0].([]DataSetPhysicalTableMapRelationalTableInputColumn)[vs[1].(int)]
+	}).(DataSetPhysicalTableMapRelationalTableInputColumnOutput)
+}
+
+type DataSetPhysicalTableMapS3Source struct {
+	// ARN of the data source.
+	DataSourceArn string `pulumi:"dataSourceArn"`
+	// Column schema of the table. See input_columns.
+	InputColumns []DataSetPhysicalTableMapS3SourceInputColumn `pulumi:"inputColumns"`
+	// Information about the format for the S3 source file or files. See upload_settings.
+	UploadSettings DataSetPhysicalTableMapS3SourceUploadSettings `pulumi:"uploadSettings"`
+}
+
+// DataSetPhysicalTableMapS3SourceInput is an input type that accepts DataSetPhysicalTableMapS3SourceArgs and DataSetPhysicalTableMapS3SourceOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapS3SourceInput` via:
+//
+//	DataSetPhysicalTableMapS3SourceArgs{...}
+type DataSetPhysicalTableMapS3SourceInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapS3SourceOutput() DataSetPhysicalTableMapS3SourceOutput
+	ToDataSetPhysicalTableMapS3SourceOutputWithContext(context.Context) DataSetPhysicalTableMapS3SourceOutput
+}
+
+type DataSetPhysicalTableMapS3SourceArgs struct {
+	// ARN of the data source.
+	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
+	// Column schema of the table. See input_columns.
+	InputColumns DataSetPhysicalTableMapS3SourceInputColumnArrayInput `pulumi:"inputColumns"`
+	// Information about the format for the S3 source file or files. See upload_settings.
+	UploadSettings DataSetPhysicalTableMapS3SourceUploadSettingsInput `pulumi:"uploadSettings"`
+}
+
+func (DataSetPhysicalTableMapS3SourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapS3Source)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapS3SourceArgs) ToDataSetPhysicalTableMapS3SourceOutput() DataSetPhysicalTableMapS3SourceOutput {
+	return i.ToDataSetPhysicalTableMapS3SourceOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapS3SourceArgs) ToDataSetPhysicalTableMapS3SourceOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapS3SourceOutput)
+}
+
+func (i DataSetPhysicalTableMapS3SourceArgs) ToDataSetPhysicalTableMapS3SourcePtrOutput() DataSetPhysicalTableMapS3SourcePtrOutput {
+	return i.ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapS3SourceArgs) ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapS3SourceOutput).ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(ctx)
+}
+
+// DataSetPhysicalTableMapS3SourcePtrInput is an input type that accepts DataSetPhysicalTableMapS3SourceArgs, DataSetPhysicalTableMapS3SourcePtr and DataSetPhysicalTableMapS3SourcePtrOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapS3SourcePtrInput` via:
+//
+//	        DataSetPhysicalTableMapS3SourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetPhysicalTableMapS3SourcePtrInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapS3SourcePtrOutput() DataSetPhysicalTableMapS3SourcePtrOutput
+	ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(context.Context) DataSetPhysicalTableMapS3SourcePtrOutput
+}
+
+type dataSetPhysicalTableMapS3SourcePtrType DataSetPhysicalTableMapS3SourceArgs
+
+func DataSetPhysicalTableMapS3SourcePtr(v *DataSetPhysicalTableMapS3SourceArgs) DataSetPhysicalTableMapS3SourcePtrInput {
+	return (*dataSetPhysicalTableMapS3SourcePtrType)(v)
+}
+
+func (*dataSetPhysicalTableMapS3SourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMapS3Source)(nil)).Elem()
+}
+
+func (i *dataSetPhysicalTableMapS3SourcePtrType) ToDataSetPhysicalTableMapS3SourcePtrOutput() DataSetPhysicalTableMapS3SourcePtrOutput {
+	return i.ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetPhysicalTableMapS3SourcePtrType) ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapS3SourcePtrOutput)
+}
+
+type DataSetPhysicalTableMapS3SourceOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapS3SourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapS3Source)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapS3SourceOutput) ToDataSetPhysicalTableMapS3SourceOutput() DataSetPhysicalTableMapS3SourceOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceOutput) ToDataSetPhysicalTableMapS3SourceOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceOutput) ToDataSetPhysicalTableMapS3SourcePtrOutput() DataSetPhysicalTableMapS3SourcePtrOutput {
+	return o.ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(context.Background())
+}
+
+func (o DataSetPhysicalTableMapS3SourceOutput) ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetPhysicalTableMapS3Source) *DataSetPhysicalTableMapS3Source {
+		return &v
+	}).(DataSetPhysicalTableMapS3SourcePtrOutput)
+}
+
+// ARN of the data source.
+func (o DataSetPhysicalTableMapS3SourceOutput) DataSourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3Source) string { return v.DataSourceArn }).(pulumi.StringOutput)
+}
+
+// Column schema of the table. See input_columns.
+func (o DataSetPhysicalTableMapS3SourceOutput) InputColumns() DataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3Source) []DataSetPhysicalTableMapS3SourceInputColumn {
+		return v.InputColumns
+	}).(DataSetPhysicalTableMapS3SourceInputColumnArrayOutput)
+}
+
+// Information about the format for the S3 source file or files. See upload_settings.
+func (o DataSetPhysicalTableMapS3SourceOutput) UploadSettings() DataSetPhysicalTableMapS3SourceUploadSettingsOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3Source) DataSetPhysicalTableMapS3SourceUploadSettings {
+		return v.UploadSettings
+	}).(DataSetPhysicalTableMapS3SourceUploadSettingsOutput)
+}
+
+type DataSetPhysicalTableMapS3SourcePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapS3SourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMapS3Source)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapS3SourcePtrOutput) ToDataSetPhysicalTableMapS3SourcePtrOutput() DataSetPhysicalTableMapS3SourcePtrOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourcePtrOutput) ToDataSetPhysicalTableMapS3SourcePtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourcePtrOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourcePtrOutput) Elem() DataSetPhysicalTableMapS3SourceOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3Source) DataSetPhysicalTableMapS3Source {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetPhysicalTableMapS3Source
+		return ret
+	}).(DataSetPhysicalTableMapS3SourceOutput)
+}
+
+// ARN of the data source.
+func (o DataSetPhysicalTableMapS3SourcePtrOutput) DataSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3Source) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Column schema of the table. See input_columns.
+func (o DataSetPhysicalTableMapS3SourcePtrOutput) InputColumns() DataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3Source) []DataSetPhysicalTableMapS3SourceInputColumn {
+		if v == nil {
+			return nil
+		}
+		return v.InputColumns
+	}).(DataSetPhysicalTableMapS3SourceInputColumnArrayOutput)
+}
+
+// Information about the format for the S3 source file or files. See upload_settings.
+func (o DataSetPhysicalTableMapS3SourcePtrOutput) UploadSettings() DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3Source) *DataSetPhysicalTableMapS3SourceUploadSettings {
+		if v == nil {
+			return nil
+		}
+		return &v.UploadSettings
+	}).(DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput)
+}
+
+type DataSetPhysicalTableMapS3SourceInputColumn struct {
+	// Name of this column in the underlying data source.
+	Name string `pulumi:"name"`
+	// Data type of the column.
+	Type string `pulumi:"type"`
+}
+
+// DataSetPhysicalTableMapS3SourceInputColumnInput is an input type that accepts DataSetPhysicalTableMapS3SourceInputColumnArgs and DataSetPhysicalTableMapS3SourceInputColumnOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapS3SourceInputColumnInput` via:
+//
+//	DataSetPhysicalTableMapS3SourceInputColumnArgs{...}
+type DataSetPhysicalTableMapS3SourceInputColumnInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapS3SourceInputColumnOutput() DataSetPhysicalTableMapS3SourceInputColumnOutput
+	ToDataSetPhysicalTableMapS3SourceInputColumnOutputWithContext(context.Context) DataSetPhysicalTableMapS3SourceInputColumnOutput
+}
+
+type DataSetPhysicalTableMapS3SourceInputColumnArgs struct {
+	// Name of this column in the underlying data source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Data type of the column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataSetPhysicalTableMapS3SourceInputColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapS3SourceInputColumn)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapS3SourceInputColumnArgs) ToDataSetPhysicalTableMapS3SourceInputColumnOutput() DataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return i.ToDataSetPhysicalTableMapS3SourceInputColumnOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapS3SourceInputColumnArgs) ToDataSetPhysicalTableMapS3SourceInputColumnOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapS3SourceInputColumnOutput)
+}
+
+// DataSetPhysicalTableMapS3SourceInputColumnArrayInput is an input type that accepts DataSetPhysicalTableMapS3SourceInputColumnArray and DataSetPhysicalTableMapS3SourceInputColumnArrayOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapS3SourceInputColumnArrayInput` via:
+//
+//	DataSetPhysicalTableMapS3SourceInputColumnArray{ DataSetPhysicalTableMapS3SourceInputColumnArgs{...} }
+type DataSetPhysicalTableMapS3SourceInputColumnArrayInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapS3SourceInputColumnArrayOutput() DataSetPhysicalTableMapS3SourceInputColumnArrayOutput
+	ToDataSetPhysicalTableMapS3SourceInputColumnArrayOutputWithContext(context.Context) DataSetPhysicalTableMapS3SourceInputColumnArrayOutput
+}
+
+type DataSetPhysicalTableMapS3SourceInputColumnArray []DataSetPhysicalTableMapS3SourceInputColumnInput
+
+func (DataSetPhysicalTableMapS3SourceInputColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPhysicalTableMapS3SourceInputColumn)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapS3SourceInputColumnArray) ToDataSetPhysicalTableMapS3SourceInputColumnArrayOutput() DataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return i.ToDataSetPhysicalTableMapS3SourceInputColumnArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapS3SourceInputColumnArray) ToDataSetPhysicalTableMapS3SourceInputColumnArrayOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapS3SourceInputColumnArrayOutput)
+}
+
+type DataSetPhysicalTableMapS3SourceInputColumnOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapS3SourceInputColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapS3SourceInputColumn)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapS3SourceInputColumnOutput) ToDataSetPhysicalTableMapS3SourceInputColumnOutput() DataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceInputColumnOutput) ToDataSetPhysicalTableMapS3SourceInputColumnOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return o
+}
+
+// Name of this column in the underlying data source.
+func (o DataSetPhysicalTableMapS3SourceInputColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceInputColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Data type of the column.
+func (o DataSetPhysicalTableMapS3SourceInputColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceInputColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DataSetPhysicalTableMapS3SourceInputColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapS3SourceInputColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetPhysicalTableMapS3SourceInputColumn)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapS3SourceInputColumnArrayOutput) ToDataSetPhysicalTableMapS3SourceInputColumnArrayOutput() DataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceInputColumnArrayOutput) ToDataSetPhysicalTableMapS3SourceInputColumnArrayOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceInputColumnArrayOutput) Index(i pulumi.IntInput) DataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetPhysicalTableMapS3SourceInputColumn {
+		return vs[0].([]DataSetPhysicalTableMapS3SourceInputColumn)[vs[1].(int)]
+	}).(DataSetPhysicalTableMapS3SourceInputColumnOutput)
+}
+
+type DataSetPhysicalTableMapS3SourceUploadSettings struct {
+	// Whether the file has a header row, or the files each have a header row.
+	ContainsHeader *bool `pulumi:"containsHeader"`
+	// Delimiter between values in the file.
+	Delimiter *string `pulumi:"delimiter"`
+	// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
+	Format *string `pulumi:"format"`
+	// A row number to start reading data from.
+	StartFromRow *int `pulumi:"startFromRow"`
+	// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
+	TextQualifier *string `pulumi:"textQualifier"`
+}
+
+// DataSetPhysicalTableMapS3SourceUploadSettingsInput is an input type that accepts DataSetPhysicalTableMapS3SourceUploadSettingsArgs and DataSetPhysicalTableMapS3SourceUploadSettingsOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapS3SourceUploadSettingsInput` via:
+//
+//	DataSetPhysicalTableMapS3SourceUploadSettingsArgs{...}
+type DataSetPhysicalTableMapS3SourceUploadSettingsInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapS3SourceUploadSettingsOutput() DataSetPhysicalTableMapS3SourceUploadSettingsOutput
+	ToDataSetPhysicalTableMapS3SourceUploadSettingsOutputWithContext(context.Context) DataSetPhysicalTableMapS3SourceUploadSettingsOutput
+}
+
+type DataSetPhysicalTableMapS3SourceUploadSettingsArgs struct {
+	// Whether the file has a header row, or the files each have a header row.
+	ContainsHeader pulumi.BoolPtrInput `pulumi:"containsHeader"`
+	// Delimiter between values in the file.
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// A row number to start reading data from.
+	StartFromRow pulumi.IntPtrInput `pulumi:"startFromRow"`
+	// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
+	TextQualifier pulumi.StringPtrInput `pulumi:"textQualifier"`
+}
+
+func (DataSetPhysicalTableMapS3SourceUploadSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapS3SourceUploadSettings)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapS3SourceUploadSettingsArgs) ToDataSetPhysicalTableMapS3SourceUploadSettingsOutput() DataSetPhysicalTableMapS3SourceUploadSettingsOutput {
+	return i.ToDataSetPhysicalTableMapS3SourceUploadSettingsOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapS3SourceUploadSettingsArgs) ToDataSetPhysicalTableMapS3SourceUploadSettingsOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceUploadSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapS3SourceUploadSettingsOutput)
+}
+
+func (i DataSetPhysicalTableMapS3SourceUploadSettingsArgs) ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput() DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return i.ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetPhysicalTableMapS3SourceUploadSettingsArgs) ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapS3SourceUploadSettingsOutput).ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(ctx)
+}
+
+// DataSetPhysicalTableMapS3SourceUploadSettingsPtrInput is an input type that accepts DataSetPhysicalTableMapS3SourceUploadSettingsArgs, DataSetPhysicalTableMapS3SourceUploadSettingsPtr and DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapS3SourceUploadSettingsPtrInput` via:
+//
+//	        DataSetPhysicalTableMapS3SourceUploadSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetPhysicalTableMapS3SourceUploadSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput() DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput
+	ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(context.Context) DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput
+}
+
+type dataSetPhysicalTableMapS3SourceUploadSettingsPtrType DataSetPhysicalTableMapS3SourceUploadSettingsArgs
+
+func DataSetPhysicalTableMapS3SourceUploadSettingsPtr(v *DataSetPhysicalTableMapS3SourceUploadSettingsArgs) DataSetPhysicalTableMapS3SourceUploadSettingsPtrInput {
+	return (*dataSetPhysicalTableMapS3SourceUploadSettingsPtrType)(v)
+}
+
+func (*dataSetPhysicalTableMapS3SourceUploadSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMapS3SourceUploadSettings)(nil)).Elem()
+}
+
+func (i *dataSetPhysicalTableMapS3SourceUploadSettingsPtrType) ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput() DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return i.ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetPhysicalTableMapS3SourceUploadSettingsPtrType) ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput)
+}
+
+type DataSetPhysicalTableMapS3SourceUploadSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapS3SourceUploadSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMapS3SourceUploadSettings)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) ToDataSetPhysicalTableMapS3SourceUploadSettingsOutput() DataSetPhysicalTableMapS3SourceUploadSettingsOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) ToDataSetPhysicalTableMapS3SourceUploadSettingsOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceUploadSettingsOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput() DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return o.ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetPhysicalTableMapS3SourceUploadSettings) *DataSetPhysicalTableMapS3SourceUploadSettings {
+		return &v
+	}).(DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput)
+}
+
+// Whether the file has a header row, or the files each have a header row.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) ContainsHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceUploadSettings) *bool { return v.ContainsHeader }).(pulumi.BoolPtrOutput)
+}
+
+// Delimiter between values in the file.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceUploadSettings) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceUploadSettings) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// A row number to start reading data from.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) StartFromRow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceUploadSettings) *int { return v.StartFromRow }).(pulumi.IntPtrOutput)
+}
+
+// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) TextQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceUploadSettings) *string { return v.TextQualifier }).(pulumi.StringPtrOutput)
+}
+
+type DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMapS3SourceUploadSettings)(nil)).Elem()
+}
+
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput() DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) ToDataSetPhysicalTableMapS3SourceUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
+	return o
+}
+
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) Elem() DataSetPhysicalTableMapS3SourceUploadSettingsOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3SourceUploadSettings) DataSetPhysicalTableMapS3SourceUploadSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetPhysicalTableMapS3SourceUploadSettings
+		return ret
+	}).(DataSetPhysicalTableMapS3SourceUploadSettingsOutput)
+}
+
+// Whether the file has a header row, or the files each have a header row.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) ContainsHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3SourceUploadSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ContainsHeader
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Delimiter between values in the file.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3SourceUploadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3SourceUploadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// A row number to start reading data from.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) StartFromRow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3SourceUploadSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartFromRow
+	}).(pulumi.IntPtrOutput)
+}
+
+// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
+func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) TextQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMapS3SourceUploadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetRowLevelPermissionDataSet struct {
+	// ARN of the dataset that contains permissions for RLS.
+	Arn string `pulumi:"arn"`
+	// User or group rules associated with the dataset that contains permissions for RLS.
+	FormatVersion *string `pulumi:"formatVersion"`
+	// Namespace associated with the dataset that contains permissions for RLS.
+	Namespace *string `pulumi:"namespace"`
+	// Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
+	PermissionPolicy string `pulumi:"permissionPolicy"`
+	// Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// DataSetRowLevelPermissionDataSetInput is an input type that accepts DataSetRowLevelPermissionDataSetArgs and DataSetRowLevelPermissionDataSetOutput values.
+// You can construct a concrete instance of `DataSetRowLevelPermissionDataSetInput` via:
+//
+//	DataSetRowLevelPermissionDataSetArgs{...}
+type DataSetRowLevelPermissionDataSetInput interface {
+	pulumi.Input
+
+	ToDataSetRowLevelPermissionDataSetOutput() DataSetRowLevelPermissionDataSetOutput
+	ToDataSetRowLevelPermissionDataSetOutputWithContext(context.Context) DataSetRowLevelPermissionDataSetOutput
+}
+
+type DataSetRowLevelPermissionDataSetArgs struct {
+	// ARN of the dataset that contains permissions for RLS.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// User or group rules associated with the dataset that contains permissions for RLS.
+	FormatVersion pulumi.StringPtrInput `pulumi:"formatVersion"`
+	// Namespace associated with the dataset that contains permissions for RLS.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
+	PermissionPolicy pulumi.StringInput `pulumi:"permissionPolicy"`
+	// Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DataSetRowLevelPermissionDataSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRowLevelPermissionDataSet)(nil)).Elem()
+}
+
+func (i DataSetRowLevelPermissionDataSetArgs) ToDataSetRowLevelPermissionDataSetOutput() DataSetRowLevelPermissionDataSetOutput {
+	return i.ToDataSetRowLevelPermissionDataSetOutputWithContext(context.Background())
+}
+
+func (i DataSetRowLevelPermissionDataSetArgs) ToDataSetRowLevelPermissionDataSetOutputWithContext(ctx context.Context) DataSetRowLevelPermissionDataSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionDataSetOutput)
+}
+
+func (i DataSetRowLevelPermissionDataSetArgs) ToDataSetRowLevelPermissionDataSetPtrOutput() DataSetRowLevelPermissionDataSetPtrOutput {
+	return i.ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetRowLevelPermissionDataSetArgs) ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionDataSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionDataSetOutput).ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(ctx)
+}
+
+// DataSetRowLevelPermissionDataSetPtrInput is an input type that accepts DataSetRowLevelPermissionDataSetArgs, DataSetRowLevelPermissionDataSetPtr and DataSetRowLevelPermissionDataSetPtrOutput values.
+// You can construct a concrete instance of `DataSetRowLevelPermissionDataSetPtrInput` via:
+//
+//	        DataSetRowLevelPermissionDataSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetRowLevelPermissionDataSetPtrInput interface {
+	pulumi.Input
+
+	ToDataSetRowLevelPermissionDataSetPtrOutput() DataSetRowLevelPermissionDataSetPtrOutput
+	ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(context.Context) DataSetRowLevelPermissionDataSetPtrOutput
+}
+
+type dataSetRowLevelPermissionDataSetPtrType DataSetRowLevelPermissionDataSetArgs
+
+func DataSetRowLevelPermissionDataSetPtr(v *DataSetRowLevelPermissionDataSetArgs) DataSetRowLevelPermissionDataSetPtrInput {
+	return (*dataSetRowLevelPermissionDataSetPtrType)(v)
+}
+
+func (*dataSetRowLevelPermissionDataSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetRowLevelPermissionDataSet)(nil)).Elem()
+}
+
+func (i *dataSetRowLevelPermissionDataSetPtrType) ToDataSetRowLevelPermissionDataSetPtrOutput() DataSetRowLevelPermissionDataSetPtrOutput {
+	return i.ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetRowLevelPermissionDataSetPtrType) ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionDataSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionDataSetPtrOutput)
+}
+
+type DataSetRowLevelPermissionDataSetOutput struct{ *pulumi.OutputState }
+
+func (DataSetRowLevelPermissionDataSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRowLevelPermissionDataSet)(nil)).Elem()
+}
+
+func (o DataSetRowLevelPermissionDataSetOutput) ToDataSetRowLevelPermissionDataSetOutput() DataSetRowLevelPermissionDataSetOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionDataSetOutput) ToDataSetRowLevelPermissionDataSetOutputWithContext(ctx context.Context) DataSetRowLevelPermissionDataSetOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionDataSetOutput) ToDataSetRowLevelPermissionDataSetPtrOutput() DataSetRowLevelPermissionDataSetPtrOutput {
+	return o.ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetRowLevelPermissionDataSetOutput) ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionDataSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetRowLevelPermissionDataSet) *DataSetRowLevelPermissionDataSet {
+		return &v
+	}).(DataSetRowLevelPermissionDataSetPtrOutput)
+}
+
+// ARN of the dataset that contains permissions for RLS.
+func (o DataSetRowLevelPermissionDataSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// User or group rules associated with the dataset that contains permissions for RLS.
+func (o DataSetRowLevelPermissionDataSetOutput) FormatVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) *string { return v.FormatVersion }).(pulumi.StringPtrOutput)
+}
+
+// Namespace associated with the dataset that contains permissions for RLS.
+func (o DataSetRowLevelPermissionDataSetOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
+func (o DataSetRowLevelPermissionDataSetOutput) PermissionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) string { return v.PermissionPolicy }).(pulumi.StringOutput)
+}
+
+// Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+func (o DataSetRowLevelPermissionDataSetOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DataSetRowLevelPermissionDataSetPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetRowLevelPermissionDataSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetRowLevelPermissionDataSet)(nil)).Elem()
+}
+
+func (o DataSetRowLevelPermissionDataSetPtrOutput) ToDataSetRowLevelPermissionDataSetPtrOutput() DataSetRowLevelPermissionDataSetPtrOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionDataSetPtrOutput) ToDataSetRowLevelPermissionDataSetPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionDataSetPtrOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionDataSetPtrOutput) Elem() DataSetRowLevelPermissionDataSetOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) DataSetRowLevelPermissionDataSet {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetRowLevelPermissionDataSet
+		return ret
+	}).(DataSetRowLevelPermissionDataSetOutput)
+}
+
+// ARN of the dataset that contains permissions for RLS.
+func (o DataSetRowLevelPermissionDataSetPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// User or group rules associated with the dataset that contains permissions for RLS.
+func (o DataSetRowLevelPermissionDataSetPtrOutput) FormatVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FormatVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Namespace associated with the dataset that contains permissions for RLS.
+func (o DataSetRowLevelPermissionDataSetPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
+func (o DataSetRowLevelPermissionDataSetPtrOutput) PermissionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PermissionPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+func (o DataSetRowLevelPermissionDataSetPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetRowLevelPermissionTagConfiguration struct {
+	// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+	Status *string `pulumi:"status"`
+	// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+	TagRules []DataSetRowLevelPermissionTagConfigurationTagRule `pulumi:"tagRules"`
+}
+
+// DataSetRowLevelPermissionTagConfigurationInput is an input type that accepts DataSetRowLevelPermissionTagConfigurationArgs and DataSetRowLevelPermissionTagConfigurationOutput values.
+// You can construct a concrete instance of `DataSetRowLevelPermissionTagConfigurationInput` via:
+//
+//	DataSetRowLevelPermissionTagConfigurationArgs{...}
+type DataSetRowLevelPermissionTagConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSetRowLevelPermissionTagConfigurationOutput() DataSetRowLevelPermissionTagConfigurationOutput
+	ToDataSetRowLevelPermissionTagConfigurationOutputWithContext(context.Context) DataSetRowLevelPermissionTagConfigurationOutput
+}
+
+type DataSetRowLevelPermissionTagConfigurationArgs struct {
+	// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+	TagRules DataSetRowLevelPermissionTagConfigurationTagRuleArrayInput `pulumi:"tagRules"`
+}
+
+func (DataSetRowLevelPermissionTagConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRowLevelPermissionTagConfiguration)(nil)).Elem()
+}
+
+func (i DataSetRowLevelPermissionTagConfigurationArgs) ToDataSetRowLevelPermissionTagConfigurationOutput() DataSetRowLevelPermissionTagConfigurationOutput {
+	return i.ToDataSetRowLevelPermissionTagConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSetRowLevelPermissionTagConfigurationArgs) ToDataSetRowLevelPermissionTagConfigurationOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionTagConfigurationOutput)
+}
+
+func (i DataSetRowLevelPermissionTagConfigurationArgs) ToDataSetRowLevelPermissionTagConfigurationPtrOutput() DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return i.ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetRowLevelPermissionTagConfigurationArgs) ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionTagConfigurationOutput).ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSetRowLevelPermissionTagConfigurationPtrInput is an input type that accepts DataSetRowLevelPermissionTagConfigurationArgs, DataSetRowLevelPermissionTagConfigurationPtr and DataSetRowLevelPermissionTagConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSetRowLevelPermissionTagConfigurationPtrInput` via:
+//
+//	        DataSetRowLevelPermissionTagConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetRowLevelPermissionTagConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetRowLevelPermissionTagConfigurationPtrOutput() DataSetRowLevelPermissionTagConfigurationPtrOutput
+	ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(context.Context) DataSetRowLevelPermissionTagConfigurationPtrOutput
+}
+
+type dataSetRowLevelPermissionTagConfigurationPtrType DataSetRowLevelPermissionTagConfigurationArgs
+
+func DataSetRowLevelPermissionTagConfigurationPtr(v *DataSetRowLevelPermissionTagConfigurationArgs) DataSetRowLevelPermissionTagConfigurationPtrInput {
+	return (*dataSetRowLevelPermissionTagConfigurationPtrType)(v)
+}
+
+func (*dataSetRowLevelPermissionTagConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetRowLevelPermissionTagConfiguration)(nil)).Elem()
+}
+
+func (i *dataSetRowLevelPermissionTagConfigurationPtrType) ToDataSetRowLevelPermissionTagConfigurationPtrOutput() DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return i.ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetRowLevelPermissionTagConfigurationPtrType) ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
+}
+
+type DataSetRowLevelPermissionTagConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSetRowLevelPermissionTagConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRowLevelPermissionTagConfiguration)(nil)).Elem()
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationOutput) ToDataSetRowLevelPermissionTagConfigurationOutput() DataSetRowLevelPermissionTagConfigurationOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationOutput) ToDataSetRowLevelPermissionTagConfigurationOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationOutput) ToDataSetRowLevelPermissionTagConfigurationPtrOutput() DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return o.ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationOutput) ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetRowLevelPermissionTagConfiguration) *DataSetRowLevelPermissionTagConfiguration {
+		return &v
+	}).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
+}
+
+// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+func (o DataSetRowLevelPermissionTagConfigurationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+func (o DataSetRowLevelPermissionTagConfigurationOutput) TagRules() DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfiguration) []DataSetRowLevelPermissionTagConfigurationTagRule {
+		return v.TagRules
+	}).(DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput)
+}
+
+type DataSetRowLevelPermissionTagConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetRowLevelPermissionTagConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetRowLevelPermissionTagConfiguration)(nil)).Elem()
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) ToDataSetRowLevelPermissionTagConfigurationPtrOutput() DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) ToDataSetRowLevelPermissionTagConfigurationPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) Elem() DataSetRowLevelPermissionTagConfigurationOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionTagConfiguration) DataSetRowLevelPermissionTagConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetRowLevelPermissionTagConfiguration
+		return ret
+	}).(DataSetRowLevelPermissionTagConfigurationOutput)
+}
+
+// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionTagConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) TagRules() DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionTagConfiguration) []DataSetRowLevelPermissionTagConfigurationTagRule {
+		if v == nil {
+			return nil
+		}
+		return v.TagRules
+	}).(DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput)
+}
+
+type DataSetRowLevelPermissionTagConfigurationTagRule struct {
+	// Column name that a tag key is assigned to.
+	ColumnName string `pulumi:"columnName"`
+	// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+	MatchAllValue *string `pulumi:"matchAllValue"`
+	// Unique key for a tag.
+	TagKey string `pulumi:"tagKey"`
+	// A string that you want to use to delimit the values when you pass the values at run time.
+	TagMultiValueDelimiter *string `pulumi:"tagMultiValueDelimiter"`
+}
+
+// DataSetRowLevelPermissionTagConfigurationTagRuleInput is an input type that accepts DataSetRowLevelPermissionTagConfigurationTagRuleArgs and DataSetRowLevelPermissionTagConfigurationTagRuleOutput values.
+// You can construct a concrete instance of `DataSetRowLevelPermissionTagConfigurationTagRuleInput` via:
+//
+//	DataSetRowLevelPermissionTagConfigurationTagRuleArgs{...}
+type DataSetRowLevelPermissionTagConfigurationTagRuleInput interface {
+	pulumi.Input
+
+	ToDataSetRowLevelPermissionTagConfigurationTagRuleOutput() DataSetRowLevelPermissionTagConfigurationTagRuleOutput
+	ToDataSetRowLevelPermissionTagConfigurationTagRuleOutputWithContext(context.Context) DataSetRowLevelPermissionTagConfigurationTagRuleOutput
+}
+
+type DataSetRowLevelPermissionTagConfigurationTagRuleArgs struct {
+	// Column name that a tag key is assigned to.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+	MatchAllValue pulumi.StringPtrInput `pulumi:"matchAllValue"`
+	// Unique key for a tag.
+	TagKey pulumi.StringInput `pulumi:"tagKey"`
+	// A string that you want to use to delimit the values when you pass the values at run time.
+	TagMultiValueDelimiter pulumi.StringPtrInput `pulumi:"tagMultiValueDelimiter"`
+}
+
+func (DataSetRowLevelPermissionTagConfigurationTagRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRowLevelPermissionTagConfigurationTagRule)(nil)).Elem()
+}
+
+func (i DataSetRowLevelPermissionTagConfigurationTagRuleArgs) ToDataSetRowLevelPermissionTagConfigurationTagRuleOutput() DataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return i.ToDataSetRowLevelPermissionTagConfigurationTagRuleOutputWithContext(context.Background())
+}
+
+func (i DataSetRowLevelPermissionTagConfigurationTagRuleArgs) ToDataSetRowLevelPermissionTagConfigurationTagRuleOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionTagConfigurationTagRuleOutput)
+}
+
+// DataSetRowLevelPermissionTagConfigurationTagRuleArrayInput is an input type that accepts DataSetRowLevelPermissionTagConfigurationTagRuleArray and DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput values.
+// You can construct a concrete instance of `DataSetRowLevelPermissionTagConfigurationTagRuleArrayInput` via:
+//
+//	DataSetRowLevelPermissionTagConfigurationTagRuleArray{ DataSetRowLevelPermissionTagConfigurationTagRuleArgs{...} }
+type DataSetRowLevelPermissionTagConfigurationTagRuleArrayInput interface {
+	pulumi.Input
+
+	ToDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput() DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput
+	ToDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutputWithContext(context.Context) DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput
+}
+
+type DataSetRowLevelPermissionTagConfigurationTagRuleArray []DataSetRowLevelPermissionTagConfigurationTagRuleInput
+
+func (DataSetRowLevelPermissionTagConfigurationTagRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetRowLevelPermissionTagConfigurationTagRule)(nil)).Elem()
+}
+
+func (i DataSetRowLevelPermissionTagConfigurationTagRuleArray) ToDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput() DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return i.ToDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetRowLevelPermissionTagConfigurationTagRuleArray) ToDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput)
+}
+
+type DataSetRowLevelPermissionTagConfigurationTagRuleOutput struct{ *pulumi.OutputState }
+
+func (DataSetRowLevelPermissionTagConfigurationTagRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetRowLevelPermissionTagConfigurationTagRule)(nil)).Elem()
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) ToDataSetRowLevelPermissionTagConfigurationTagRuleOutput() DataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) ToDataSetRowLevelPermissionTagConfigurationTagRuleOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return o
+}
+
+// Column name that a tag key is assigned to.
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfigurationTagRule) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) MatchAllValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfigurationTagRule) *string { return v.MatchAllValue }).(pulumi.StringPtrOutput)
+}
+
+// Unique key for a tag.
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfigurationTagRule) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+// A string that you want to use to delimit the values when you pass the values at run time.
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagMultiValueDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfigurationTagRule) *string { return v.TagMultiValueDelimiter }).(pulumi.StringPtrOutput)
+}
+
+type DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetRowLevelPermissionTagConfigurationTagRule)(nil)).Elem()
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) ToDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput() DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) ToDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutputWithContext(ctx context.Context) DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return o
+}
+
+func (o DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) Index(i pulumi.IntInput) DataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetRowLevelPermissionTagConfigurationTagRule {
+		return vs[0].([]DataSetRowLevelPermissionTagConfigurationTagRule)[vs[1].(int)]
+	}).(DataSetRowLevelPermissionTagConfigurationTagRuleOutput)
+}
+
 type DataSourceCredentials struct {
 	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
 	// When the value is not null, the `credentialPair` from the data source in the ARN is used.
@@ -4596,7 +9382,3672 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type FolderPermission struct {
+	// List of IAM actions to grant or revoke permissions on.
+	Actions []string `pulumi:"actions"`
+	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+	Principal string `pulumi:"principal"`
+}
+
+// FolderPermissionInput is an input type that accepts FolderPermissionArgs and FolderPermissionOutput values.
+// You can construct a concrete instance of `FolderPermissionInput` via:
+//
+//	FolderPermissionArgs{...}
+type FolderPermissionInput interface {
+	pulumi.Input
+
+	ToFolderPermissionOutput() FolderPermissionOutput
+	ToFolderPermissionOutputWithContext(context.Context) FolderPermissionOutput
+}
+
+type FolderPermissionArgs struct {
+	// List of IAM actions to grant or revoke permissions on.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+	Principal pulumi.StringInput `pulumi:"principal"`
+}
+
+func (FolderPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FolderPermission)(nil)).Elem()
+}
+
+func (i FolderPermissionArgs) ToFolderPermissionOutput() FolderPermissionOutput {
+	return i.ToFolderPermissionOutputWithContext(context.Background())
+}
+
+func (i FolderPermissionArgs) ToFolderPermissionOutputWithContext(ctx context.Context) FolderPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FolderPermissionOutput)
+}
+
+// FolderPermissionArrayInput is an input type that accepts FolderPermissionArray and FolderPermissionArrayOutput values.
+// You can construct a concrete instance of `FolderPermissionArrayInput` via:
+//
+//	FolderPermissionArray{ FolderPermissionArgs{...} }
+type FolderPermissionArrayInput interface {
+	pulumi.Input
+
+	ToFolderPermissionArrayOutput() FolderPermissionArrayOutput
+	ToFolderPermissionArrayOutputWithContext(context.Context) FolderPermissionArrayOutput
+}
+
+type FolderPermissionArray []FolderPermissionInput
+
+func (FolderPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FolderPermission)(nil)).Elem()
+}
+
+func (i FolderPermissionArray) ToFolderPermissionArrayOutput() FolderPermissionArrayOutput {
+	return i.ToFolderPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i FolderPermissionArray) ToFolderPermissionArrayOutputWithContext(ctx context.Context) FolderPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FolderPermissionArrayOutput)
+}
+
+type FolderPermissionOutput struct{ *pulumi.OutputState }
+
+func (FolderPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FolderPermission)(nil)).Elem()
+}
+
+func (o FolderPermissionOutput) ToFolderPermissionOutput() FolderPermissionOutput {
+	return o
+}
+
+func (o FolderPermissionOutput) ToFolderPermissionOutputWithContext(ctx context.Context) FolderPermissionOutput {
+	return o
+}
+
+// List of IAM actions to grant or revoke permissions on.
+func (o FolderPermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FolderPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+func (o FolderPermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v FolderPermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type FolderPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (FolderPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FolderPermission)(nil)).Elem()
+}
+
+func (o FolderPermissionArrayOutput) ToFolderPermissionArrayOutput() FolderPermissionArrayOutput {
+	return o
+}
+
+func (o FolderPermissionArrayOutput) ToFolderPermissionArrayOutputWithContext(ctx context.Context) FolderPermissionArrayOutput {
+	return o
+}
+
+func (o FolderPermissionArrayOutput) Index(i pulumi.IntInput) FolderPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FolderPermission {
+		return vs[0].([]FolderPermission)[vs[1].(int)]
+	}).(FolderPermissionOutput)
+}
+
+type GetDataSetColumnGroup struct {
+	GeoSpatialColumnGroups []GetDataSetColumnGroupGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroups"`
+}
+
+// GetDataSetColumnGroupInput is an input type that accepts GetDataSetColumnGroupArgs and GetDataSetColumnGroupOutput values.
+// You can construct a concrete instance of `GetDataSetColumnGroupInput` via:
+//
+//	GetDataSetColumnGroupArgs{...}
+type GetDataSetColumnGroupInput interface {
+	pulumi.Input
+
+	ToGetDataSetColumnGroupOutput() GetDataSetColumnGroupOutput
+	ToGetDataSetColumnGroupOutputWithContext(context.Context) GetDataSetColumnGroupOutput
+}
+
+type GetDataSetColumnGroupArgs struct {
+	GeoSpatialColumnGroups GetDataSetColumnGroupGeoSpatialColumnGroupArrayInput `pulumi:"geoSpatialColumnGroups"`
+}
+
+func (GetDataSetColumnGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetColumnGroup)(nil)).Elem()
+}
+
+func (i GetDataSetColumnGroupArgs) ToGetDataSetColumnGroupOutput() GetDataSetColumnGroupOutput {
+	return i.ToGetDataSetColumnGroupOutputWithContext(context.Background())
+}
+
+func (i GetDataSetColumnGroupArgs) ToGetDataSetColumnGroupOutputWithContext(ctx context.Context) GetDataSetColumnGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetColumnGroupOutput)
+}
+
+// GetDataSetColumnGroupArrayInput is an input type that accepts GetDataSetColumnGroupArray and GetDataSetColumnGroupArrayOutput values.
+// You can construct a concrete instance of `GetDataSetColumnGroupArrayInput` via:
+//
+//	GetDataSetColumnGroupArray{ GetDataSetColumnGroupArgs{...} }
+type GetDataSetColumnGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetColumnGroupArrayOutput() GetDataSetColumnGroupArrayOutput
+	ToGetDataSetColumnGroupArrayOutputWithContext(context.Context) GetDataSetColumnGroupArrayOutput
+}
+
+type GetDataSetColumnGroupArray []GetDataSetColumnGroupInput
+
+func (GetDataSetColumnGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetColumnGroup)(nil)).Elem()
+}
+
+func (i GetDataSetColumnGroupArray) ToGetDataSetColumnGroupArrayOutput() GetDataSetColumnGroupArrayOutput {
+	return i.ToGetDataSetColumnGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetColumnGroupArray) ToGetDataSetColumnGroupArrayOutputWithContext(ctx context.Context) GetDataSetColumnGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetColumnGroupArrayOutput)
+}
+
+type GetDataSetColumnGroupOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetColumnGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetColumnGroup)(nil)).Elem()
+}
+
+func (o GetDataSetColumnGroupOutput) ToGetDataSetColumnGroupOutput() GetDataSetColumnGroupOutput {
+	return o
+}
+
+func (o GetDataSetColumnGroupOutput) ToGetDataSetColumnGroupOutputWithContext(ctx context.Context) GetDataSetColumnGroupOutput {
+	return o
+}
+
+func (o GetDataSetColumnGroupOutput) GeoSpatialColumnGroups() GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput {
+	return o.ApplyT(func(v GetDataSetColumnGroup) []GetDataSetColumnGroupGeoSpatialColumnGroup {
+		return v.GeoSpatialColumnGroups
+	}).(GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput)
+}
+
+type GetDataSetColumnGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetColumnGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetColumnGroup)(nil)).Elem()
+}
+
+func (o GetDataSetColumnGroupArrayOutput) ToGetDataSetColumnGroupArrayOutput() GetDataSetColumnGroupArrayOutput {
+	return o
+}
+
+func (o GetDataSetColumnGroupArrayOutput) ToGetDataSetColumnGroupArrayOutputWithContext(ctx context.Context) GetDataSetColumnGroupArrayOutput {
+	return o
+}
+
+func (o GetDataSetColumnGroupArrayOutput) Index(i pulumi.IntInput) GetDataSetColumnGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetColumnGroup {
+		return vs[0].([]GetDataSetColumnGroup)[vs[1].(int)]
+	}).(GetDataSetColumnGroupOutput)
+}
+
+type GetDataSetColumnGroupGeoSpatialColumnGroup struct {
+	Columns     []string `pulumi:"columns"`
+	CountryCode string   `pulumi:"countryCode"`
+	Name        string   `pulumi:"name"`
+}
+
+// GetDataSetColumnGroupGeoSpatialColumnGroupInput is an input type that accepts GetDataSetColumnGroupGeoSpatialColumnGroupArgs and GetDataSetColumnGroupGeoSpatialColumnGroupOutput values.
+// You can construct a concrete instance of `GetDataSetColumnGroupGeoSpatialColumnGroupInput` via:
+//
+//	GetDataSetColumnGroupGeoSpatialColumnGroupArgs{...}
+type GetDataSetColumnGroupGeoSpatialColumnGroupInput interface {
+	pulumi.Input
+
+	ToGetDataSetColumnGroupGeoSpatialColumnGroupOutput() GetDataSetColumnGroupGeoSpatialColumnGroupOutput
+	ToGetDataSetColumnGroupGeoSpatialColumnGroupOutputWithContext(context.Context) GetDataSetColumnGroupGeoSpatialColumnGroupOutput
+}
+
+type GetDataSetColumnGroupGeoSpatialColumnGroupArgs struct {
+	Columns     pulumi.StringArrayInput `pulumi:"columns"`
+	CountryCode pulumi.StringInput      `pulumi:"countryCode"`
+	Name        pulumi.StringInput      `pulumi:"name"`
+}
+
+func (GetDataSetColumnGroupGeoSpatialColumnGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetColumnGroupGeoSpatialColumnGroup)(nil)).Elem()
+}
+
+func (i GetDataSetColumnGroupGeoSpatialColumnGroupArgs) ToGetDataSetColumnGroupGeoSpatialColumnGroupOutput() GetDataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return i.ToGetDataSetColumnGroupGeoSpatialColumnGroupOutputWithContext(context.Background())
+}
+
+func (i GetDataSetColumnGroupGeoSpatialColumnGroupArgs) ToGetDataSetColumnGroupGeoSpatialColumnGroupOutputWithContext(ctx context.Context) GetDataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetColumnGroupGeoSpatialColumnGroupOutput)
+}
+
+// GetDataSetColumnGroupGeoSpatialColumnGroupArrayInput is an input type that accepts GetDataSetColumnGroupGeoSpatialColumnGroupArray and GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput values.
+// You can construct a concrete instance of `GetDataSetColumnGroupGeoSpatialColumnGroupArrayInput` via:
+//
+//	GetDataSetColumnGroupGeoSpatialColumnGroupArray{ GetDataSetColumnGroupGeoSpatialColumnGroupArgs{...} }
+type GetDataSetColumnGroupGeoSpatialColumnGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput() GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput
+	ToGetDataSetColumnGroupGeoSpatialColumnGroupArrayOutputWithContext(context.Context) GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput
+}
+
+type GetDataSetColumnGroupGeoSpatialColumnGroupArray []GetDataSetColumnGroupGeoSpatialColumnGroupInput
+
+func (GetDataSetColumnGroupGeoSpatialColumnGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetColumnGroupGeoSpatialColumnGroup)(nil)).Elem()
+}
+
+func (i GetDataSetColumnGroupGeoSpatialColumnGroupArray) ToGetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput() GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput {
+	return i.ToGetDataSetColumnGroupGeoSpatialColumnGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetColumnGroupGeoSpatialColumnGroupArray) ToGetDataSetColumnGroupGeoSpatialColumnGroupArrayOutputWithContext(ctx context.Context) GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput)
+}
+
+type GetDataSetColumnGroupGeoSpatialColumnGroupOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetColumnGroupGeoSpatialColumnGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetColumnGroupGeoSpatialColumnGroup)(nil)).Elem()
+}
+
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) ToGetDataSetColumnGroupGeoSpatialColumnGroupOutput() GetDataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return o
+}
+
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) ToGetDataSetColumnGroupGeoSpatialColumnGroupOutputWithContext(ctx context.Context) GetDataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return o
+}
+
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataSetColumnGroupGeoSpatialColumnGroup) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) CountryCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetColumnGroupGeoSpatialColumnGroup) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetColumnGroupGeoSpatialColumnGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetColumnGroupGeoSpatialColumnGroup)(nil)).Elem()
+}
+
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput) ToGetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput() GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput {
+	return o
+}
+
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput) ToGetDataSetColumnGroupGeoSpatialColumnGroupArrayOutputWithContext(ctx context.Context) GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput {
+	return o
+}
+
+func (o GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput) Index(i pulumi.IntInput) GetDataSetColumnGroupGeoSpatialColumnGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetColumnGroupGeoSpatialColumnGroup {
+		return vs[0].([]GetDataSetColumnGroupGeoSpatialColumnGroup)[vs[1].(int)]
+	}).(GetDataSetColumnGroupGeoSpatialColumnGroupOutput)
+}
+
+type GetDataSetColumnLevelPermissionRule struct {
+	ColumnNames []string `pulumi:"columnNames"`
+	Principals  []string `pulumi:"principals"`
+}
+
+// GetDataSetColumnLevelPermissionRuleInput is an input type that accepts GetDataSetColumnLevelPermissionRuleArgs and GetDataSetColumnLevelPermissionRuleOutput values.
+// You can construct a concrete instance of `GetDataSetColumnLevelPermissionRuleInput` via:
+//
+//	GetDataSetColumnLevelPermissionRuleArgs{...}
+type GetDataSetColumnLevelPermissionRuleInput interface {
+	pulumi.Input
+
+	ToGetDataSetColumnLevelPermissionRuleOutput() GetDataSetColumnLevelPermissionRuleOutput
+	ToGetDataSetColumnLevelPermissionRuleOutputWithContext(context.Context) GetDataSetColumnLevelPermissionRuleOutput
+}
+
+type GetDataSetColumnLevelPermissionRuleArgs struct {
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	Principals  pulumi.StringArrayInput `pulumi:"principals"`
+}
+
+func (GetDataSetColumnLevelPermissionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (i GetDataSetColumnLevelPermissionRuleArgs) ToGetDataSetColumnLevelPermissionRuleOutput() GetDataSetColumnLevelPermissionRuleOutput {
+	return i.ToGetDataSetColumnLevelPermissionRuleOutputWithContext(context.Background())
+}
+
+func (i GetDataSetColumnLevelPermissionRuleArgs) ToGetDataSetColumnLevelPermissionRuleOutputWithContext(ctx context.Context) GetDataSetColumnLevelPermissionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetColumnLevelPermissionRuleOutput)
+}
+
+// GetDataSetColumnLevelPermissionRuleArrayInput is an input type that accepts GetDataSetColumnLevelPermissionRuleArray and GetDataSetColumnLevelPermissionRuleArrayOutput values.
+// You can construct a concrete instance of `GetDataSetColumnLevelPermissionRuleArrayInput` via:
+//
+//	GetDataSetColumnLevelPermissionRuleArray{ GetDataSetColumnLevelPermissionRuleArgs{...} }
+type GetDataSetColumnLevelPermissionRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetColumnLevelPermissionRuleArrayOutput() GetDataSetColumnLevelPermissionRuleArrayOutput
+	ToGetDataSetColumnLevelPermissionRuleArrayOutputWithContext(context.Context) GetDataSetColumnLevelPermissionRuleArrayOutput
+}
+
+type GetDataSetColumnLevelPermissionRuleArray []GetDataSetColumnLevelPermissionRuleInput
+
+func (GetDataSetColumnLevelPermissionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (i GetDataSetColumnLevelPermissionRuleArray) ToGetDataSetColumnLevelPermissionRuleArrayOutput() GetDataSetColumnLevelPermissionRuleArrayOutput {
+	return i.ToGetDataSetColumnLevelPermissionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetColumnLevelPermissionRuleArray) ToGetDataSetColumnLevelPermissionRuleArrayOutputWithContext(ctx context.Context) GetDataSetColumnLevelPermissionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetColumnLevelPermissionRuleArrayOutput)
+}
+
+type GetDataSetColumnLevelPermissionRuleOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetColumnLevelPermissionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (o GetDataSetColumnLevelPermissionRuleOutput) ToGetDataSetColumnLevelPermissionRuleOutput() GetDataSetColumnLevelPermissionRuleOutput {
+	return o
+}
+
+func (o GetDataSetColumnLevelPermissionRuleOutput) ToGetDataSetColumnLevelPermissionRuleOutputWithContext(ctx context.Context) GetDataSetColumnLevelPermissionRuleOutput {
+	return o
+}
+
+func (o GetDataSetColumnLevelPermissionRuleOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataSetColumnLevelPermissionRule) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDataSetColumnLevelPermissionRuleOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataSetColumnLevelPermissionRule) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+type GetDataSetColumnLevelPermissionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetColumnLevelPermissionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (o GetDataSetColumnLevelPermissionRuleArrayOutput) ToGetDataSetColumnLevelPermissionRuleArrayOutput() GetDataSetColumnLevelPermissionRuleArrayOutput {
+	return o
+}
+
+func (o GetDataSetColumnLevelPermissionRuleArrayOutput) ToGetDataSetColumnLevelPermissionRuleArrayOutputWithContext(ctx context.Context) GetDataSetColumnLevelPermissionRuleArrayOutput {
+	return o
+}
+
+func (o GetDataSetColumnLevelPermissionRuleArrayOutput) Index(i pulumi.IntInput) GetDataSetColumnLevelPermissionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetColumnLevelPermissionRule {
+		return vs[0].([]GetDataSetColumnLevelPermissionRule)[vs[1].(int)]
+	}).(GetDataSetColumnLevelPermissionRuleOutput)
+}
+
+type GetDataSetDataSetUsageConfiguration struct {
+	DisableUseAsDirectQuerySource bool `pulumi:"disableUseAsDirectQuerySource"`
+	DisableUseAsImportedSource    bool `pulumi:"disableUseAsImportedSource"`
+}
+
+// GetDataSetDataSetUsageConfigurationInput is an input type that accepts GetDataSetDataSetUsageConfigurationArgs and GetDataSetDataSetUsageConfigurationOutput values.
+// You can construct a concrete instance of `GetDataSetDataSetUsageConfigurationInput` via:
+//
+//	GetDataSetDataSetUsageConfigurationArgs{...}
+type GetDataSetDataSetUsageConfigurationInput interface {
+	pulumi.Input
+
+	ToGetDataSetDataSetUsageConfigurationOutput() GetDataSetDataSetUsageConfigurationOutput
+	ToGetDataSetDataSetUsageConfigurationOutputWithContext(context.Context) GetDataSetDataSetUsageConfigurationOutput
+}
+
+type GetDataSetDataSetUsageConfigurationArgs struct {
+	DisableUseAsDirectQuerySource pulumi.BoolInput `pulumi:"disableUseAsDirectQuerySource"`
+	DisableUseAsImportedSource    pulumi.BoolInput `pulumi:"disableUseAsImportedSource"`
+}
+
+func (GetDataSetDataSetUsageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetDataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (i GetDataSetDataSetUsageConfigurationArgs) ToGetDataSetDataSetUsageConfigurationOutput() GetDataSetDataSetUsageConfigurationOutput {
+	return i.ToGetDataSetDataSetUsageConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetDataSetUsageConfigurationArgs) ToGetDataSetDataSetUsageConfigurationOutputWithContext(ctx context.Context) GetDataSetDataSetUsageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetDataSetUsageConfigurationOutput)
+}
+
+// GetDataSetDataSetUsageConfigurationArrayInput is an input type that accepts GetDataSetDataSetUsageConfigurationArray and GetDataSetDataSetUsageConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetDataSetUsageConfigurationArrayInput` via:
+//
+//	GetDataSetDataSetUsageConfigurationArray{ GetDataSetDataSetUsageConfigurationArgs{...} }
+type GetDataSetDataSetUsageConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetDataSetUsageConfigurationArrayOutput() GetDataSetDataSetUsageConfigurationArrayOutput
+	ToGetDataSetDataSetUsageConfigurationArrayOutputWithContext(context.Context) GetDataSetDataSetUsageConfigurationArrayOutput
+}
+
+type GetDataSetDataSetUsageConfigurationArray []GetDataSetDataSetUsageConfigurationInput
+
+func (GetDataSetDataSetUsageConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetDataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (i GetDataSetDataSetUsageConfigurationArray) ToGetDataSetDataSetUsageConfigurationArrayOutput() GetDataSetDataSetUsageConfigurationArrayOutput {
+	return i.ToGetDataSetDataSetUsageConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetDataSetUsageConfigurationArray) ToGetDataSetDataSetUsageConfigurationArrayOutputWithContext(ctx context.Context) GetDataSetDataSetUsageConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetDataSetUsageConfigurationArrayOutput)
+}
+
+type GetDataSetDataSetUsageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetDataSetUsageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetDataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (o GetDataSetDataSetUsageConfigurationOutput) ToGetDataSetDataSetUsageConfigurationOutput() GetDataSetDataSetUsageConfigurationOutput {
+	return o
+}
+
+func (o GetDataSetDataSetUsageConfigurationOutput) ToGetDataSetDataSetUsageConfigurationOutputWithContext(ctx context.Context) GetDataSetDataSetUsageConfigurationOutput {
+	return o
+}
+
+func (o GetDataSetDataSetUsageConfigurationOutput) DisableUseAsDirectQuerySource() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDataSetDataSetUsageConfiguration) bool { return v.DisableUseAsDirectQuerySource }).(pulumi.BoolOutput)
+}
+
+func (o GetDataSetDataSetUsageConfigurationOutput) DisableUseAsImportedSource() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDataSetDataSetUsageConfiguration) bool { return v.DisableUseAsImportedSource }).(pulumi.BoolOutput)
+}
+
+type GetDataSetDataSetUsageConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetDataSetUsageConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetDataSetUsageConfiguration)(nil)).Elem()
+}
+
+func (o GetDataSetDataSetUsageConfigurationArrayOutput) ToGetDataSetDataSetUsageConfigurationArrayOutput() GetDataSetDataSetUsageConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDataSetDataSetUsageConfigurationArrayOutput) ToGetDataSetDataSetUsageConfigurationArrayOutputWithContext(ctx context.Context) GetDataSetDataSetUsageConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDataSetDataSetUsageConfigurationArrayOutput) Index(i pulumi.IntInput) GetDataSetDataSetUsageConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetDataSetUsageConfiguration {
+		return vs[0].([]GetDataSetDataSetUsageConfiguration)[vs[1].(int)]
+	}).(GetDataSetDataSetUsageConfigurationOutput)
+}
+
+type GetDataSetFieldFolder struct {
+	Columns        []string `pulumi:"columns"`
+	Description    string   `pulumi:"description"`
+	FieldFoldersId string   `pulumi:"fieldFoldersId"`
+}
+
+// GetDataSetFieldFolderInput is an input type that accepts GetDataSetFieldFolderArgs and GetDataSetFieldFolderOutput values.
+// You can construct a concrete instance of `GetDataSetFieldFolderInput` via:
+//
+//	GetDataSetFieldFolderArgs{...}
+type GetDataSetFieldFolderInput interface {
+	pulumi.Input
+
+	ToGetDataSetFieldFolderOutput() GetDataSetFieldFolderOutput
+	ToGetDataSetFieldFolderOutputWithContext(context.Context) GetDataSetFieldFolderOutput
+}
+
+type GetDataSetFieldFolderArgs struct {
+	Columns        pulumi.StringArrayInput `pulumi:"columns"`
+	Description    pulumi.StringInput      `pulumi:"description"`
+	FieldFoldersId pulumi.StringInput      `pulumi:"fieldFoldersId"`
+}
+
+func (GetDataSetFieldFolderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetFieldFolder)(nil)).Elem()
+}
+
+func (i GetDataSetFieldFolderArgs) ToGetDataSetFieldFolderOutput() GetDataSetFieldFolderOutput {
+	return i.ToGetDataSetFieldFolderOutputWithContext(context.Background())
+}
+
+func (i GetDataSetFieldFolderArgs) ToGetDataSetFieldFolderOutputWithContext(ctx context.Context) GetDataSetFieldFolderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetFieldFolderOutput)
+}
+
+// GetDataSetFieldFolderArrayInput is an input type that accepts GetDataSetFieldFolderArray and GetDataSetFieldFolderArrayOutput values.
+// You can construct a concrete instance of `GetDataSetFieldFolderArrayInput` via:
+//
+//	GetDataSetFieldFolderArray{ GetDataSetFieldFolderArgs{...} }
+type GetDataSetFieldFolderArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetFieldFolderArrayOutput() GetDataSetFieldFolderArrayOutput
+	ToGetDataSetFieldFolderArrayOutputWithContext(context.Context) GetDataSetFieldFolderArrayOutput
+}
+
+type GetDataSetFieldFolderArray []GetDataSetFieldFolderInput
+
+func (GetDataSetFieldFolderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetFieldFolder)(nil)).Elem()
+}
+
+func (i GetDataSetFieldFolderArray) ToGetDataSetFieldFolderArrayOutput() GetDataSetFieldFolderArrayOutput {
+	return i.ToGetDataSetFieldFolderArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetFieldFolderArray) ToGetDataSetFieldFolderArrayOutputWithContext(ctx context.Context) GetDataSetFieldFolderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetFieldFolderArrayOutput)
+}
+
+type GetDataSetFieldFolderOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetFieldFolderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetFieldFolder)(nil)).Elem()
+}
+
+func (o GetDataSetFieldFolderOutput) ToGetDataSetFieldFolderOutput() GetDataSetFieldFolderOutput {
+	return o
+}
+
+func (o GetDataSetFieldFolderOutput) ToGetDataSetFieldFolderOutputWithContext(ctx context.Context) GetDataSetFieldFolderOutput {
+	return o
+}
+
+func (o GetDataSetFieldFolderOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataSetFieldFolder) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDataSetFieldFolderOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetFieldFolder) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetFieldFolderOutput) FieldFoldersId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetFieldFolder) string { return v.FieldFoldersId }).(pulumi.StringOutput)
+}
+
+type GetDataSetFieldFolderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetFieldFolderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetFieldFolder)(nil)).Elem()
+}
+
+func (o GetDataSetFieldFolderArrayOutput) ToGetDataSetFieldFolderArrayOutput() GetDataSetFieldFolderArrayOutput {
+	return o
+}
+
+func (o GetDataSetFieldFolderArrayOutput) ToGetDataSetFieldFolderArrayOutputWithContext(ctx context.Context) GetDataSetFieldFolderArrayOutput {
+	return o
+}
+
+func (o GetDataSetFieldFolderArrayOutput) Index(i pulumi.IntInput) GetDataSetFieldFolderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetFieldFolder {
+		return vs[0].([]GetDataSetFieldFolder)[vs[1].(int)]
+	}).(GetDataSetFieldFolderOutput)
+}
+
+type GetDataSetLogicalTableMap struct {
+	Alias             string                                   `pulumi:"alias"`
+	DataTransforms    []GetDataSetLogicalTableMapDataTransform `pulumi:"dataTransforms"`
+	LogicalTableMapId string                                   `pulumi:"logicalTableMapId"`
+	Sources           []GetDataSetLogicalTableMapSource        `pulumi:"sources"`
+}
+
+// GetDataSetLogicalTableMapInput is an input type that accepts GetDataSetLogicalTableMap and GetDataSetLogicalTableMapOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapInput` via:
+//
+//	GetDataSetLogicalTableMap{ "key": GetDataSetLogicalTableArgs{...} }
+type GetDataSetLogicalTableMapInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapOutput() GetDataSetLogicalTableMapOutput
+	ToGetDataSetLogicalTableMapOutputWithContext(context.Context) GetDataSetLogicalTableMapOutput
+}
+
+type GetDataSetLogicalTableMapArgs struct {
+	Alias             pulumi.StringInput                               `pulumi:"alias"`
+	DataTransforms    GetDataSetLogicalTableMapDataTransformArrayInput `pulumi:"dataTransforms"`
+	LogicalTableMapId pulumi.StringInput                               `pulumi:"logicalTableMapId"`
+	Sources           GetDataSetLogicalTableMapSourceArrayInput        `pulumi:"sources"`
+}
+
+func (GetDataSetLogicalTableMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapArgs) ToGetDataSetLogicalTableMapOutput() GetDataSetLogicalTableMapOutput {
+	return i.ToGetDataSetLogicalTableMapOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapArgs) ToGetDataSetLogicalTableMapOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapOutput)
+}
+
+// GetDataSetLogicalTableMapArrayInput is an input type that accepts GetDataSetLogicalTableMapArray and GetDataSetLogicalTableMapArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapArrayInput` via:
+//
+//	GetDataSetLogicalTableMapArray{ GetDataSetLogicalTableMapArgs{...} }
+type GetDataSetLogicalTableMapArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapArrayOutput() GetDataSetLogicalTableMapArrayOutput
+	ToGetDataSetLogicalTableMapArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapArrayOutput
+}
+
+type GetDataSetLogicalTableMapArray []GetDataSetLogicalTableMapInput
+
+func (GetDataSetLogicalTableMapArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapArray) ToGetDataSetLogicalTableMapArrayOutput() GetDataSetLogicalTableMapArrayOutput {
+	return i.ToGetDataSetLogicalTableMapArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapArray) ToGetDataSetLogicalTableMapArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapArrayOutput)
+}
+
+type GetDataSetLogicalTableMapOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapOutput) ToGetDataSetLogicalTableMapOutput() GetDataSetLogicalTableMapOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapOutput) ToGetDataSetLogicalTableMapOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMap) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapOutput) DataTransforms() GetDataSetLogicalTableMapDataTransformArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMap) []GetDataSetLogicalTableMapDataTransform { return v.DataTransforms }).(GetDataSetLogicalTableMapDataTransformArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapOutput) LogicalTableMapId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMap) string { return v.LogicalTableMapId }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapOutput) Sources() GetDataSetLogicalTableMapSourceArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMap) []GetDataSetLogicalTableMapSource { return v.Sources }).(GetDataSetLogicalTableMapSourceArrayOutput)
+}
+
+type GetDataSetLogicalTableMapArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapArrayOutput) ToGetDataSetLogicalTableMapArrayOutput() GetDataSetLogicalTableMapArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapArrayOutput) ToGetDataSetLogicalTableMapArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMap {
+		return vs[0].([]GetDataSetLogicalTableMap)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransform struct {
+	CastColumnTypeOperations []GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation `pulumi:"castColumnTypeOperations"`
+	CreateColumnsOperations  []GetDataSetLogicalTableMapDataTransformCreateColumnsOperation  `pulumi:"createColumnsOperations"`
+	FilterOperations         []GetDataSetLogicalTableMapDataTransformFilterOperation         `pulumi:"filterOperations"`
+	ProjectOperations        []GetDataSetLogicalTableMapDataTransformProjectOperation        `pulumi:"projectOperations"`
+	RenameColumnOperations   []GetDataSetLogicalTableMapDataTransformRenameColumnOperation   `pulumi:"renameColumnOperations"`
+	TagColumnOperations      []GetDataSetLogicalTableMapDataTransformTagColumnOperation      `pulumi:"tagColumnOperations"`
+	UntagColumnOperations    []GetDataSetLogicalTableMapDataTransformUntagColumnOperation    `pulumi:"untagColumnOperations"`
+}
+
+// GetDataSetLogicalTableMapDataTransformInput is an input type that accepts GetDataSetLogicalTableMapDataTransformArgs and GetDataSetLogicalTableMapDataTransformOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformArgs{...}
+type GetDataSetLogicalTableMapDataTransformInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformOutput() GetDataSetLogicalTableMapDataTransformOutput
+	ToGetDataSetLogicalTableMapDataTransformOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformArgs struct {
+	CastColumnTypeOperations GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayInput `pulumi:"castColumnTypeOperations"`
+	CreateColumnsOperations  GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayInput  `pulumi:"createColumnsOperations"`
+	FilterOperations         GetDataSetLogicalTableMapDataTransformFilterOperationArrayInput         `pulumi:"filterOperations"`
+	ProjectOperations        GetDataSetLogicalTableMapDataTransformProjectOperationArrayInput        `pulumi:"projectOperations"`
+	RenameColumnOperations   GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayInput   `pulumi:"renameColumnOperations"`
+	TagColumnOperations      GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayInput      `pulumi:"tagColumnOperations"`
+	UntagColumnOperations    GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayInput    `pulumi:"untagColumnOperations"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransform)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformArgs) ToGetDataSetLogicalTableMapDataTransformOutput() GetDataSetLogicalTableMapDataTransformOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformArgs) ToGetDataSetLogicalTableMapDataTransformOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformArray and GetDataSetLogicalTableMapDataTransformArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformArray{ GetDataSetLogicalTableMapDataTransformArgs{...} }
+type GetDataSetLogicalTableMapDataTransformArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformArrayOutput() GetDataSetLogicalTableMapDataTransformArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformArray []GetDataSetLogicalTableMapDataTransformInput
+
+func (GetDataSetLogicalTableMapDataTransformArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransform)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformArray) ToGetDataSetLogicalTableMapDataTransformArrayOutput() GetDataSetLogicalTableMapDataTransformArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformArray) ToGetDataSetLogicalTableMapDataTransformArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransform)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) ToGetDataSetLogicalTableMapDataTransformOutput() GetDataSetLogicalTableMapDataTransformOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) ToGetDataSetLogicalTableMapDataTransformOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) CastColumnTypeOperations() GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransform) []GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation {
+		return v.CastColumnTypeOperations
+	}).(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) CreateColumnsOperations() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransform) []GetDataSetLogicalTableMapDataTransformCreateColumnsOperation {
+		return v.CreateColumnsOperations
+	}).(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) FilterOperations() GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransform) []GetDataSetLogicalTableMapDataTransformFilterOperation {
+		return v.FilterOperations
+	}).(GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) ProjectOperations() GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransform) []GetDataSetLogicalTableMapDataTransformProjectOperation {
+		return v.ProjectOperations
+	}).(GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) RenameColumnOperations() GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransform) []GetDataSetLogicalTableMapDataTransformRenameColumnOperation {
+		return v.RenameColumnOperations
+	}).(GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) TagColumnOperations() GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransform) []GetDataSetLogicalTableMapDataTransformTagColumnOperation {
+		return v.TagColumnOperations
+	}).(GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformOutput) UntagColumnOperations() GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransform) []GetDataSetLogicalTableMapDataTransformUntagColumnOperation {
+		return v.UntagColumnOperations
+	}).(GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransform)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformArrayOutput) ToGetDataSetLogicalTableMapDataTransformArrayOutput() GetDataSetLogicalTableMapDataTransformArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformArrayOutput) ToGetDataSetLogicalTableMapDataTransformArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransform {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransform)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation struct {
+	ColumnName    string `pulumi:"columnName"`
+	Format        string `pulumi:"format"`
+	NewColumnType string `pulumi:"newColumnType"`
+}
+
+// GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs and GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs{...}
+type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput() GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput
+	ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs struct {
+	ColumnName    pulumi.StringInput `pulumi:"columnName"`
+	Format        pulumi.StringInput `pulumi:"format"`
+	NewColumnType pulumi.StringInput `pulumi:"newColumnType"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput() GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs) ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArray and GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArray{ GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs{...} }
+type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput() GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArray []GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationInput
+
+func (GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArray) ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput() GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArray) ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput() GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) string { return v.Format }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput) NewColumnType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation) string { return v.NewColumnType }).(pulumi.StringOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput() GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformCastColumnTypeOperation)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperation struct {
+	Columns []GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn `pulumi:"columns"`
+}
+
+// GetDataSetLogicalTableMapDataTransformCreateColumnsOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArgs and GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformCreateColumnsOperationInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArgs{...}
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput
+	ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArgs struct {
+	Columns GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput `pulumi:"columns"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCreateColumnsOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArgs) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArray and GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArray{ GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArgs{...} }
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArray []GetDataSetLogicalTableMapDataTransformCreateColumnsOperationInput
+
+func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformCreateColumnsOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArray) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArray) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCreateColumnsOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) Columns() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperation) []GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
+		return v.Columns
+	}).(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformCreateColumnsOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformCreateColumnsOperation {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformCreateColumnsOperation)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn struct {
+	ColumnId   string `pulumi:"columnId"`
+	ColumnName string `pulumi:"columnName"`
+	Expression string `pulumi:"expression"`
+}
+
+// GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput is an input type that accepts GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs and GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs{...}
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput
+	ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs struct {
+	ColumnId   pulumi.StringInput `pulumi:"columnId"`
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray and GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray{ GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs{...} }
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray []GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput
+
+func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.ColumnId }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput() GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput) ToGetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformFilterOperation struct {
+	ConditionExpression string `pulumi:"conditionExpression"`
+}
+
+// GetDataSetLogicalTableMapDataTransformFilterOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformFilterOperationArgs and GetDataSetLogicalTableMapDataTransformFilterOperationOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformFilterOperationInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformFilterOperationArgs{...}
+type GetDataSetLogicalTableMapDataTransformFilterOperationInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformFilterOperationOutput() GetDataSetLogicalTableMapDataTransformFilterOperationOutput
+	ToGetDataSetLogicalTableMapDataTransformFilterOperationOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformFilterOperationOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformFilterOperationArgs struct {
+	ConditionExpression pulumi.StringInput `pulumi:"conditionExpression"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformFilterOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformFilterOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformFilterOperationArgs) ToGetDataSetLogicalTableMapDataTransformFilterOperationOutput() GetDataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformFilterOperationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformFilterOperationArgs) ToGetDataSetLogicalTableMapDataTransformFilterOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformFilterOperationOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformFilterOperationArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformFilterOperationArray and GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformFilterOperationArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformFilterOperationArray{ GetDataSetLogicalTableMapDataTransformFilterOperationArgs{...} }
+type GetDataSetLogicalTableMapDataTransformFilterOperationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput() GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformFilterOperationArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformFilterOperationArray []GetDataSetLogicalTableMapDataTransformFilterOperationInput
+
+func (GetDataSetLogicalTableMapDataTransformFilterOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformFilterOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformFilterOperationArray) ToGetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput() GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformFilterOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformFilterOperationArray) ToGetDataSetLogicalTableMapDataTransformFilterOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformFilterOperationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformFilterOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformFilterOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformFilterOperationOutput) ToGetDataSetLogicalTableMapDataTransformFilterOperationOutput() GetDataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformFilterOperationOutput) ToGetDataSetLogicalTableMapDataTransformFilterOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformFilterOperationOutput) ConditionExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformFilterOperation) string { return v.ConditionExpression }).(pulumi.StringOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformFilterOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput() GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformFilterOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformFilterOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformFilterOperation {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformFilterOperation)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformFilterOperationOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformProjectOperation struct {
+	ProjectedColumns []string `pulumi:"projectedColumns"`
+}
+
+// GetDataSetLogicalTableMapDataTransformProjectOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformProjectOperationArgs and GetDataSetLogicalTableMapDataTransformProjectOperationOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformProjectOperationInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformProjectOperationArgs{...}
+type GetDataSetLogicalTableMapDataTransformProjectOperationInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformProjectOperationOutput() GetDataSetLogicalTableMapDataTransformProjectOperationOutput
+	ToGetDataSetLogicalTableMapDataTransformProjectOperationOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformProjectOperationOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformProjectOperationArgs struct {
+	ProjectedColumns pulumi.StringArrayInput `pulumi:"projectedColumns"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformProjectOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformProjectOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformProjectOperationArgs) ToGetDataSetLogicalTableMapDataTransformProjectOperationOutput() GetDataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformProjectOperationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformProjectOperationArgs) ToGetDataSetLogicalTableMapDataTransformProjectOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformProjectOperationOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformProjectOperationArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformProjectOperationArray and GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformProjectOperationArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformProjectOperationArray{ GetDataSetLogicalTableMapDataTransformProjectOperationArgs{...} }
+type GetDataSetLogicalTableMapDataTransformProjectOperationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput() GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformProjectOperationArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformProjectOperationArray []GetDataSetLogicalTableMapDataTransformProjectOperationInput
+
+func (GetDataSetLogicalTableMapDataTransformProjectOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformProjectOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformProjectOperationArray) ToGetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput() GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformProjectOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformProjectOperationArray) ToGetDataSetLogicalTableMapDataTransformProjectOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformProjectOperationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformProjectOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformProjectOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformProjectOperationOutput) ToGetDataSetLogicalTableMapDataTransformProjectOperationOutput() GetDataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformProjectOperationOutput) ToGetDataSetLogicalTableMapDataTransformProjectOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformProjectOperationOutput) ProjectedColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformProjectOperation) []string { return v.ProjectedColumns }).(pulumi.StringArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformProjectOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput() GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformProjectOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformProjectOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformProjectOperation {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformProjectOperation)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformProjectOperationOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformRenameColumnOperation struct {
+	ColumnName    string `pulumi:"columnName"`
+	NewColumnName string `pulumi:"newColumnName"`
+}
+
+// GetDataSetLogicalTableMapDataTransformRenameColumnOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs and GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformRenameColumnOperationInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs{...}
+type GetDataSetLogicalTableMapDataTransformRenameColumnOperationInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput() GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput
+	ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs struct {
+	ColumnName    pulumi.StringInput `pulumi:"columnName"`
+	NewColumnName pulumi.StringInput `pulumi:"newColumnName"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformRenameColumnOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput() GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs) ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformRenameColumnOperationArray and GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformRenameColumnOperationArray{ GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs{...} }
+type GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformRenameColumnOperationArray []GetDataSetLogicalTableMapDataTransformRenameColumnOperationInput
+
+func (GetDataSetLogicalTableMapDataTransformRenameColumnOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformRenameColumnOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformRenameColumnOperationArray) ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformRenameColumnOperationArray) ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformRenameColumnOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput() GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformRenameColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput) NewColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformRenameColumnOperation) string { return v.NewColumnName }).(pulumi.StringOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformRenameColumnOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformRenameColumnOperation {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformRenameColumnOperation)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperation struct {
+	ColumnName string                                                        `pulumi:"columnName"`
+	Tags       []GetDataSetLogicalTableMapDataTransformTagColumnOperationTag `pulumi:"tags"`
+}
+
+// GetDataSetLogicalTableMapDataTransformTagColumnOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs and GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformTagColumnOperationInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs{...}
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs struct {
+	ColumnName pulumi.StringInput                                                    `pulumi:"columnName"`
+	Tags       GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput `pulumi:"tags"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformTagColumnOperationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformTagColumnOperationArray and GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformTagColumnOperationArray{ GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs{...} }
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationArray []GetDataSetLogicalTableMapDataTransformTagColumnOperationInput
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformTagColumnOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationArray) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationArray) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput) Tags() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperation) []GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
+		return v.Tags
+	}).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformTagColumnOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformTagColumnOperation {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformTagColumnOperation)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTag struct {
+	ColumnDescriptions   []GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription `pulumi:"columnDescriptions"`
+	ColumnGeographicRole string                                                                         `pulumi:"columnGeographicRole"`
+}
+
+// GetDataSetLogicalTableMapDataTransformTagColumnOperationTagInput is an input type that accepts GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs and GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformTagColumnOperationTagInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs{...}
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs struct {
+	ColumnDescriptions   GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayInput `pulumi:"columnDescriptions"`
+	ColumnGeographicRole pulumi.StringInput                                                                     `pulumi:"columnGeographicRole"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationTag)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArray and GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArray{ GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs{...} }
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArray []GetDataSetLogicalTableMapDataTransformTagColumnOperationTagInput
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformTagColumnOperationTag)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArray) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArray) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationTag)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ColumnDescriptions() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperationTag) []GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
+		return v.ColumnDescriptions
+	}).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ColumnGeographicRole() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperationTag) string {
+		return v.ColumnGeographicRole
+	}).(pulumi.StringOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformTagColumnOperationTag)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformTagColumnOperationTag {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformTagColumnOperationTag)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription struct {
+	Text string `pulumi:"text"`
+}
+
+// GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput is an input type that accepts GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs and GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs{...}
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs struct {
+	Text pulumi.StringInput `pulumi:"text"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArray and GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArray{ GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs{...} }
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArray []GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArray) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArray) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) string {
+		return v.Text
+	}).(pulumi.StringOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput() GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput) ToGetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformUntagColumnOperation struct {
+	ColumnName string   `pulumi:"columnName"`
+	TagNames   []string `pulumi:"tagNames"`
+}
+
+// GetDataSetLogicalTableMapDataTransformUntagColumnOperationInput is an input type that accepts GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs and GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformUntagColumnOperationInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs{...}
+type GetDataSetLogicalTableMapDataTransformUntagColumnOperationInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput() GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput
+	ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs struct {
+	ColumnName pulumi.StringInput      `pulumi:"columnName"`
+	TagNames   pulumi.StringArrayInput `pulumi:"tagNames"`
+}
+
+func (GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformUntagColumnOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs) ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput() GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs) ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput)
+}
+
+// GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayInput is an input type that accepts GetDataSetLogicalTableMapDataTransformUntagColumnOperationArray and GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayInput` via:
+//
+//	GetDataSetLogicalTableMapDataTransformUntagColumnOperationArray{ GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs{...} }
+type GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput
+	ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput
+}
+
+type GetDataSetLogicalTableMapDataTransformUntagColumnOperationArray []GetDataSetLogicalTableMapDataTransformUntagColumnOperationInput
+
+func (GetDataSetLogicalTableMapDataTransformUntagColumnOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformUntagColumnOperation)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapDataTransformUntagColumnOperationArray) ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput {
+	return i.ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapDataTransformUntagColumnOperationArray) ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformUntagColumnOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput() GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformUntagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput) TagNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapDataTransformUntagColumnOperation) []string { return v.TagNames }).(pulumi.StringArrayOutput)
+}
+
+type GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapDataTransformUntagColumnOperation)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput() GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput) ToGetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapDataTransformUntagColumnOperation {
+		return vs[0].([]GetDataSetLogicalTableMapDataTransformUntagColumnOperation)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput)
+}
+
+type GetDataSetLogicalTableMapSource struct {
+	DataSetArn       string                                           `pulumi:"dataSetArn"`
+	JoinInstructions []GetDataSetLogicalTableMapSourceJoinInstruction `pulumi:"joinInstructions"`
+	PhysicalTableId  string                                           `pulumi:"physicalTableId"`
+}
+
+// GetDataSetLogicalTableMapSourceInput is an input type that accepts GetDataSetLogicalTableMapSourceArgs and GetDataSetLogicalTableMapSourceOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapSourceInput` via:
+//
+//	GetDataSetLogicalTableMapSourceArgs{...}
+type GetDataSetLogicalTableMapSourceInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapSourceOutput() GetDataSetLogicalTableMapSourceOutput
+	ToGetDataSetLogicalTableMapSourceOutputWithContext(context.Context) GetDataSetLogicalTableMapSourceOutput
+}
+
+type GetDataSetLogicalTableMapSourceArgs struct {
+	DataSetArn       pulumi.StringInput                                       `pulumi:"dataSetArn"`
+	JoinInstructions GetDataSetLogicalTableMapSourceJoinInstructionArrayInput `pulumi:"joinInstructions"`
+	PhysicalTableId  pulumi.StringInput                                       `pulumi:"physicalTableId"`
+}
+
+func (GetDataSetLogicalTableMapSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapSource)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapSourceArgs) ToGetDataSetLogicalTableMapSourceOutput() GetDataSetLogicalTableMapSourceOutput {
+	return i.ToGetDataSetLogicalTableMapSourceOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapSourceArgs) ToGetDataSetLogicalTableMapSourceOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapSourceOutput)
+}
+
+// GetDataSetLogicalTableMapSourceArrayInput is an input type that accepts GetDataSetLogicalTableMapSourceArray and GetDataSetLogicalTableMapSourceArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapSourceArrayInput` via:
+//
+//	GetDataSetLogicalTableMapSourceArray{ GetDataSetLogicalTableMapSourceArgs{...} }
+type GetDataSetLogicalTableMapSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapSourceArrayOutput() GetDataSetLogicalTableMapSourceArrayOutput
+	ToGetDataSetLogicalTableMapSourceArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapSourceArrayOutput
+}
+
+type GetDataSetLogicalTableMapSourceArray []GetDataSetLogicalTableMapSourceInput
+
+func (GetDataSetLogicalTableMapSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapSource)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapSourceArray) ToGetDataSetLogicalTableMapSourceArrayOutput() GetDataSetLogicalTableMapSourceArrayOutput {
+	return i.ToGetDataSetLogicalTableMapSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapSourceArray) ToGetDataSetLogicalTableMapSourceArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapSourceArrayOutput)
+}
+
+type GetDataSetLogicalTableMapSourceOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapSource)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapSourceOutput) ToGetDataSetLogicalTableMapSourceOutput() GetDataSetLogicalTableMapSourceOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceOutput) ToGetDataSetLogicalTableMapSourceOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceOutput) DataSetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSource) string { return v.DataSetArn }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapSourceOutput) JoinInstructions() GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSource) []GetDataSetLogicalTableMapSourceJoinInstruction {
+		return v.JoinInstructions
+	}).(GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapSourceOutput) PhysicalTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSource) string { return v.PhysicalTableId }).(pulumi.StringOutput)
+}
+
+type GetDataSetLogicalTableMapSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapSource)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapSourceArrayOutput) ToGetDataSetLogicalTableMapSourceArrayOutput() GetDataSetLogicalTableMapSourceArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceArrayOutput) ToGetDataSetLogicalTableMapSourceArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapSource {
+		return vs[0].([]GetDataSetLogicalTableMapSource)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapSourceOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstruction struct {
+	LeftJoinKeyProperties  []GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty  `pulumi:"leftJoinKeyProperties"`
+	LeftOperand            string                                                               `pulumi:"leftOperand"`
+	OnClause               string                                                               `pulumi:"onClause"`
+	RightJoinKeyProperties []GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty `pulumi:"rightJoinKeyProperties"`
+	RightOperand           string                                                               `pulumi:"rightOperand"`
+	Type                   string                                                               `pulumi:"type"`
+}
+
+// GetDataSetLogicalTableMapSourceJoinInstructionInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionArgs and GetDataSetLogicalTableMapSourceJoinInstructionOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapSourceJoinInstructionInput` via:
+//
+//	GetDataSetLogicalTableMapSourceJoinInstructionArgs{...}
+type GetDataSetLogicalTableMapSourceJoinInstructionInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapSourceJoinInstructionOutput() GetDataSetLogicalTableMapSourceJoinInstructionOutput
+	ToGetDataSetLogicalTableMapSourceJoinInstructionOutputWithContext(context.Context) GetDataSetLogicalTableMapSourceJoinInstructionOutput
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionArgs struct {
+	LeftJoinKeyProperties  GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayInput  `pulumi:"leftJoinKeyProperties"`
+	LeftOperand            pulumi.StringInput                                                           `pulumi:"leftOperand"`
+	OnClause               pulumi.StringInput                                                           `pulumi:"onClause"`
+	RightJoinKeyProperties GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayInput `pulumi:"rightJoinKeyProperties"`
+	RightOperand           pulumi.StringInput                                                           `pulumi:"rightOperand"`
+	Type                   pulumi.StringInput                                                           `pulumi:"type"`
+}
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstruction)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionArgs) ToGetDataSetLogicalTableMapSourceJoinInstructionOutput() GetDataSetLogicalTableMapSourceJoinInstructionOutput {
+	return i.ToGetDataSetLogicalTableMapSourceJoinInstructionOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionArgs) ToGetDataSetLogicalTableMapSourceJoinInstructionOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapSourceJoinInstructionOutput)
+}
+
+// GetDataSetLogicalTableMapSourceJoinInstructionArrayInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionArray and GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapSourceJoinInstructionArrayInput` via:
+//
+//	GetDataSetLogicalTableMapSourceJoinInstructionArray{ GetDataSetLogicalTableMapSourceJoinInstructionArgs{...} }
+type GetDataSetLogicalTableMapSourceJoinInstructionArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapSourceJoinInstructionArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput
+	ToGetDataSetLogicalTableMapSourceJoinInstructionArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionArray []GetDataSetLogicalTableMapSourceJoinInstructionInput
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapSourceJoinInstruction)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionArray) ToGetDataSetLogicalTableMapSourceJoinInstructionArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput {
+	return i.ToGetDataSetLogicalTableMapSourceJoinInstructionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionArray) ToGetDataSetLogicalTableMapSourceJoinInstructionArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstruction)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionOutput() GetDataSetLogicalTableMapSourceJoinInstructionOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) LeftJoinKeyProperties() GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) []GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty {
+		return v.LeftJoinKeyProperties
+	}).(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) LeftOperand() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) string { return v.LeftOperand }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) OnClause() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) string { return v.OnClause }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) RightJoinKeyProperties() GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) []GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty {
+		return v.RightJoinKeyProperties
+	}).(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput)
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) RightOperand() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) string { return v.RightOperand }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstruction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapSourceJoinInstruction)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapSourceJoinInstructionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapSourceJoinInstruction {
+		return vs[0].([]GetDataSetLogicalTableMapSourceJoinInstruction)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapSourceJoinInstructionOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty struct {
+	UniqueKey bool `pulumi:"uniqueKey"`
+}
+
+// GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs and GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyInput` via:
+//
+//	GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs{...}
+type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput() GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput
+	ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutputWithContext(context.Context) GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs struct {
+	UniqueKey pulumi.BoolInput `pulumi:"uniqueKey"`
+}
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs) ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput() GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput {
+	return i.ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs) ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput)
+}
+
+// GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArray and GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayInput` via:
+//
+//	GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArray{ GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs{...} }
+type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput
+	ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArray []GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyInput
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArray) ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput {
+	return i.ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArray) ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput() GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput) UniqueKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty) bool { return v.UniqueKey }).(pulumi.BoolOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty {
+		return vs[0].([]GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty struct {
+	UniqueKey bool `pulumi:"uniqueKey"`
+}
+
+// GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs and GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyInput` via:
+//
+//	GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs{...}
+type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput() GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput
+	ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutputWithContext(context.Context) GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs struct {
+	UniqueKey pulumi.BoolInput `pulumi:"uniqueKey"`
+}
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs) ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput() GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput {
+	return i.ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs) ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput)
+}
+
+// GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayInput is an input type that accepts GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArray and GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput values.
+// You can construct a concrete instance of `GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayInput` via:
+//
+//	GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArray{ GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs{...} }
+type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput
+	ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutputWithContext(context.Context) GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArray []GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyInput
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty)(nil)).Elem()
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArray) ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput {
+	return i.ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArray) ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput() GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput) UniqueKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty) bool { return v.UniqueKey }).(pulumi.BoolOutput)
+}
+
+type GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty)(nil)).Elem()
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput() GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput) ToGetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutputWithContext(ctx context.Context) GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput {
+	return o
+}
+
+func (o GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput) Index(i pulumi.IntInput) GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty {
+		return vs[0].([]GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty)[vs[1].(int)]
+	}).(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput)
+}
+
+type GetDataSetPermission struct {
+	Actions   []string `pulumi:"actions"`
+	Principal string   `pulumi:"principal"`
+}
+
+// GetDataSetPermissionInput is an input type that accepts GetDataSetPermissionArgs and GetDataSetPermissionOutput values.
+// You can construct a concrete instance of `GetDataSetPermissionInput` via:
+//
+//	GetDataSetPermissionArgs{...}
+type GetDataSetPermissionInput interface {
+	pulumi.Input
+
+	ToGetDataSetPermissionOutput() GetDataSetPermissionOutput
+	ToGetDataSetPermissionOutputWithContext(context.Context) GetDataSetPermissionOutput
+}
+
+type GetDataSetPermissionArgs struct {
+	Actions   pulumi.StringArrayInput `pulumi:"actions"`
+	Principal pulumi.StringInput      `pulumi:"principal"`
+}
+
+func (GetDataSetPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPermission)(nil)).Elem()
+}
+
+func (i GetDataSetPermissionArgs) ToGetDataSetPermissionOutput() GetDataSetPermissionOutput {
+	return i.ToGetDataSetPermissionOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPermissionArgs) ToGetDataSetPermissionOutputWithContext(ctx context.Context) GetDataSetPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPermissionOutput)
+}
+
+// GetDataSetPermissionArrayInput is an input type that accepts GetDataSetPermissionArray and GetDataSetPermissionArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPermissionArrayInput` via:
+//
+//	GetDataSetPermissionArray{ GetDataSetPermissionArgs{...} }
+type GetDataSetPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPermissionArrayOutput() GetDataSetPermissionArrayOutput
+	ToGetDataSetPermissionArrayOutputWithContext(context.Context) GetDataSetPermissionArrayOutput
+}
+
+type GetDataSetPermissionArray []GetDataSetPermissionInput
+
+func (GetDataSetPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPermission)(nil)).Elem()
+}
+
+func (i GetDataSetPermissionArray) ToGetDataSetPermissionArrayOutput() GetDataSetPermissionArrayOutput {
+	return i.ToGetDataSetPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPermissionArray) ToGetDataSetPermissionArrayOutputWithContext(ctx context.Context) GetDataSetPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPermissionArrayOutput)
+}
+
+type GetDataSetPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPermission)(nil)).Elem()
+}
+
+func (o GetDataSetPermissionOutput) ToGetDataSetPermissionOutput() GetDataSetPermissionOutput {
+	return o
+}
+
+func (o GetDataSetPermissionOutput) ToGetDataSetPermissionOutputWithContext(ctx context.Context) GetDataSetPermissionOutput {
+	return o
+}
+
+func (o GetDataSetPermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataSetPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDataSetPermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type GetDataSetPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPermission)(nil)).Elem()
+}
+
+func (o GetDataSetPermissionArrayOutput) ToGetDataSetPermissionArrayOutput() GetDataSetPermissionArrayOutput {
+	return o
+}
+
+func (o GetDataSetPermissionArrayOutput) ToGetDataSetPermissionArrayOutputWithContext(ctx context.Context) GetDataSetPermissionArrayOutput {
+	return o
+}
+
+func (o GetDataSetPermissionArrayOutput) Index(i pulumi.IntInput) GetDataSetPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPermission {
+		return vs[0].([]GetDataSetPermission)[vs[1].(int)]
+	}).(GetDataSetPermissionOutput)
+}
+
+type GetDataSetPhysicalTableMap struct {
+	CustomSqls         []GetDataSetPhysicalTableMapCustomSql       `pulumi:"customSqls"`
+	PhysicalTableMapId string                                      `pulumi:"physicalTableMapId"`
+	RelationalTables   []GetDataSetPhysicalTableMapRelationalTable `pulumi:"relationalTables"`
+	S3Sources          []GetDataSetPhysicalTableMapS3Source        `pulumi:"s3Sources"`
+}
+
+// GetDataSetPhysicalTableMapInput is an input type that accepts GetDataSetPhysicalTableMap and GetDataSetPhysicalTableMapOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapInput` via:
+//
+//	GetDataSetPhysicalTableMap{ "key": GetDataSetPhysicalTableArgs{...} }
+type GetDataSetPhysicalTableMapInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapOutput() GetDataSetPhysicalTableMapOutput
+	ToGetDataSetPhysicalTableMapOutputWithContext(context.Context) GetDataSetPhysicalTableMapOutput
+}
+
+type GetDataSetPhysicalTableMapArgs struct {
+	CustomSqls         GetDataSetPhysicalTableMapCustomSqlArrayInput       `pulumi:"customSqls"`
+	PhysicalTableMapId pulumi.StringInput                                  `pulumi:"physicalTableMapId"`
+	RelationalTables   GetDataSetPhysicalTableMapRelationalTableArrayInput `pulumi:"relationalTables"`
+	S3Sources          GetDataSetPhysicalTableMapS3SourceArrayInput        `pulumi:"s3Sources"`
+}
+
+func (GetDataSetPhysicalTableMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapArgs) ToGetDataSetPhysicalTableMapOutput() GetDataSetPhysicalTableMapOutput {
+	return i.ToGetDataSetPhysicalTableMapOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapArgs) ToGetDataSetPhysicalTableMapOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapOutput)
+}
+
+// GetDataSetPhysicalTableMapArrayInput is an input type that accepts GetDataSetPhysicalTableMapArray and GetDataSetPhysicalTableMapArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapArrayInput` via:
+//
+//	GetDataSetPhysicalTableMapArray{ GetDataSetPhysicalTableMapArgs{...} }
+type GetDataSetPhysicalTableMapArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapArrayOutput() GetDataSetPhysicalTableMapArrayOutput
+	ToGetDataSetPhysicalTableMapArrayOutputWithContext(context.Context) GetDataSetPhysicalTableMapArrayOutput
+}
+
+type GetDataSetPhysicalTableMapArray []GetDataSetPhysicalTableMapInput
+
+func (GetDataSetPhysicalTableMapArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapArray) ToGetDataSetPhysicalTableMapArrayOutput() GetDataSetPhysicalTableMapArrayOutput {
+	return i.ToGetDataSetPhysicalTableMapArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapArray) ToGetDataSetPhysicalTableMapArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapOutput) ToGetDataSetPhysicalTableMapOutput() GetDataSetPhysicalTableMapOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapOutput) ToGetDataSetPhysicalTableMapOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapOutput) CustomSqls() GetDataSetPhysicalTableMapCustomSqlArrayOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMap) []GetDataSetPhysicalTableMapCustomSql { return v.CustomSqls }).(GetDataSetPhysicalTableMapCustomSqlArrayOutput)
+}
+
+func (o GetDataSetPhysicalTableMapOutput) PhysicalTableMapId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMap) string { return v.PhysicalTableMapId }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapOutput) RelationalTables() GetDataSetPhysicalTableMapRelationalTableArrayOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMap) []GetDataSetPhysicalTableMapRelationalTable {
+		return v.RelationalTables
+	}).(GetDataSetPhysicalTableMapRelationalTableArrayOutput)
+}
+
+func (o GetDataSetPhysicalTableMapOutput) S3Sources() GetDataSetPhysicalTableMapS3SourceArrayOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMap) []GetDataSetPhysicalTableMapS3Source { return v.S3Sources }).(GetDataSetPhysicalTableMapS3SourceArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapArrayOutput) ToGetDataSetPhysicalTableMapArrayOutput() GetDataSetPhysicalTableMapArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapArrayOutput) ToGetDataSetPhysicalTableMapArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapArrayOutput) Index(i pulumi.IntInput) GetDataSetPhysicalTableMapOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPhysicalTableMap {
+		return vs[0].([]GetDataSetPhysicalTableMap)[vs[1].(int)]
+	}).(GetDataSetPhysicalTableMapOutput)
+}
+
+type GetDataSetPhysicalTableMapCustomSql struct {
+	Columns       []GetDataSetPhysicalTableMapCustomSqlColumn `pulumi:"columns"`
+	DataSourceArn string                                      `pulumi:"dataSourceArn"`
+	Name          string                                      `pulumi:"name"`
+	SqlQuery      string                                      `pulumi:"sqlQuery"`
+}
+
+// GetDataSetPhysicalTableMapCustomSqlInput is an input type that accepts GetDataSetPhysicalTableMapCustomSqlArgs and GetDataSetPhysicalTableMapCustomSqlOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapCustomSqlInput` via:
+//
+//	GetDataSetPhysicalTableMapCustomSqlArgs{...}
+type GetDataSetPhysicalTableMapCustomSqlInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapCustomSqlOutput() GetDataSetPhysicalTableMapCustomSqlOutput
+	ToGetDataSetPhysicalTableMapCustomSqlOutputWithContext(context.Context) GetDataSetPhysicalTableMapCustomSqlOutput
+}
+
+type GetDataSetPhysicalTableMapCustomSqlArgs struct {
+	Columns       GetDataSetPhysicalTableMapCustomSqlColumnArrayInput `pulumi:"columns"`
+	DataSourceArn pulumi.StringInput                                  `pulumi:"dataSourceArn"`
+	Name          pulumi.StringInput                                  `pulumi:"name"`
+	SqlQuery      pulumi.StringInput                                  `pulumi:"sqlQuery"`
+}
+
+func (GetDataSetPhysicalTableMapCustomSqlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapCustomSql)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapCustomSqlArgs) ToGetDataSetPhysicalTableMapCustomSqlOutput() GetDataSetPhysicalTableMapCustomSqlOutput {
+	return i.ToGetDataSetPhysicalTableMapCustomSqlOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapCustomSqlArgs) ToGetDataSetPhysicalTableMapCustomSqlOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapCustomSqlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapCustomSqlOutput)
+}
+
+// GetDataSetPhysicalTableMapCustomSqlArrayInput is an input type that accepts GetDataSetPhysicalTableMapCustomSqlArray and GetDataSetPhysicalTableMapCustomSqlArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapCustomSqlArrayInput` via:
+//
+//	GetDataSetPhysicalTableMapCustomSqlArray{ GetDataSetPhysicalTableMapCustomSqlArgs{...} }
+type GetDataSetPhysicalTableMapCustomSqlArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapCustomSqlArrayOutput() GetDataSetPhysicalTableMapCustomSqlArrayOutput
+	ToGetDataSetPhysicalTableMapCustomSqlArrayOutputWithContext(context.Context) GetDataSetPhysicalTableMapCustomSqlArrayOutput
+}
+
+type GetDataSetPhysicalTableMapCustomSqlArray []GetDataSetPhysicalTableMapCustomSqlInput
+
+func (GetDataSetPhysicalTableMapCustomSqlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapCustomSql)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapCustomSqlArray) ToGetDataSetPhysicalTableMapCustomSqlArrayOutput() GetDataSetPhysicalTableMapCustomSqlArrayOutput {
+	return i.ToGetDataSetPhysicalTableMapCustomSqlArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapCustomSqlArray) ToGetDataSetPhysicalTableMapCustomSqlArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapCustomSqlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapCustomSqlArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapCustomSqlOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapCustomSqlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapCustomSql)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) ToGetDataSetPhysicalTableMapCustomSqlOutput() GetDataSetPhysicalTableMapCustomSqlOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) ToGetDataSetPhysicalTableMapCustomSqlOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapCustomSqlOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) Columns() GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) []GetDataSetPhysicalTableMapCustomSqlColumn {
+		return v.Columns
+	}).(GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput)
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) DataSourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) string { return v.DataSourceArn }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlOutput) SqlQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSql) string { return v.SqlQuery }).(pulumi.StringOutput)
+}
+
+type GetDataSetPhysicalTableMapCustomSqlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapCustomSqlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapCustomSql)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlArrayOutput) ToGetDataSetPhysicalTableMapCustomSqlArrayOutput() GetDataSetPhysicalTableMapCustomSqlArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlArrayOutput) ToGetDataSetPhysicalTableMapCustomSqlArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapCustomSqlArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlArrayOutput) Index(i pulumi.IntInput) GetDataSetPhysicalTableMapCustomSqlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPhysicalTableMapCustomSql {
+		return vs[0].([]GetDataSetPhysicalTableMapCustomSql)[vs[1].(int)]
+	}).(GetDataSetPhysicalTableMapCustomSqlOutput)
+}
+
+type GetDataSetPhysicalTableMapCustomSqlColumn struct {
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+}
+
+// GetDataSetPhysicalTableMapCustomSqlColumnInput is an input type that accepts GetDataSetPhysicalTableMapCustomSqlColumnArgs and GetDataSetPhysicalTableMapCustomSqlColumnOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapCustomSqlColumnInput` via:
+//
+//	GetDataSetPhysicalTableMapCustomSqlColumnArgs{...}
+type GetDataSetPhysicalTableMapCustomSqlColumnInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapCustomSqlColumnOutput() GetDataSetPhysicalTableMapCustomSqlColumnOutput
+	ToGetDataSetPhysicalTableMapCustomSqlColumnOutputWithContext(context.Context) GetDataSetPhysicalTableMapCustomSqlColumnOutput
+}
+
+type GetDataSetPhysicalTableMapCustomSqlColumnArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDataSetPhysicalTableMapCustomSqlColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapCustomSqlColumn)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapCustomSqlColumnArgs) ToGetDataSetPhysicalTableMapCustomSqlColumnOutput() GetDataSetPhysicalTableMapCustomSqlColumnOutput {
+	return i.ToGetDataSetPhysicalTableMapCustomSqlColumnOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapCustomSqlColumnArgs) ToGetDataSetPhysicalTableMapCustomSqlColumnOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapCustomSqlColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapCustomSqlColumnOutput)
+}
+
+// GetDataSetPhysicalTableMapCustomSqlColumnArrayInput is an input type that accepts GetDataSetPhysicalTableMapCustomSqlColumnArray and GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapCustomSqlColumnArrayInput` via:
+//
+//	GetDataSetPhysicalTableMapCustomSqlColumnArray{ GetDataSetPhysicalTableMapCustomSqlColumnArgs{...} }
+type GetDataSetPhysicalTableMapCustomSqlColumnArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapCustomSqlColumnArrayOutput() GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput
+	ToGetDataSetPhysicalTableMapCustomSqlColumnArrayOutputWithContext(context.Context) GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput
+}
+
+type GetDataSetPhysicalTableMapCustomSqlColumnArray []GetDataSetPhysicalTableMapCustomSqlColumnInput
+
+func (GetDataSetPhysicalTableMapCustomSqlColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapCustomSqlColumn)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapCustomSqlColumnArray) ToGetDataSetPhysicalTableMapCustomSqlColumnArrayOutput() GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return i.ToGetDataSetPhysicalTableMapCustomSqlColumnArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapCustomSqlColumnArray) ToGetDataSetPhysicalTableMapCustomSqlColumnArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapCustomSqlColumnOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapCustomSqlColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapCustomSqlColumn)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) ToGetDataSetPhysicalTableMapCustomSqlColumnOutput() GetDataSetPhysicalTableMapCustomSqlColumnOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) ToGetDataSetPhysicalTableMapCustomSqlColumnOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapCustomSqlColumnOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSqlColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapCustomSqlColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapCustomSqlColumn)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput) ToGetDataSetPhysicalTableMapCustomSqlColumnArrayOutput() GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput) ToGetDataSetPhysicalTableMapCustomSqlColumnArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput) Index(i pulumi.IntInput) GetDataSetPhysicalTableMapCustomSqlColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPhysicalTableMapCustomSqlColumn {
+		return vs[0].([]GetDataSetPhysicalTableMapCustomSqlColumn)[vs[1].(int)]
+	}).(GetDataSetPhysicalTableMapCustomSqlColumnOutput)
+}
+
+type GetDataSetPhysicalTableMapRelationalTable struct {
+	Catalog       string                                                 `pulumi:"catalog"`
+	DataSourceArn string                                                 `pulumi:"dataSourceArn"`
+	InputColumns  []GetDataSetPhysicalTableMapRelationalTableInputColumn `pulumi:"inputColumns"`
+	Name          string                                                 `pulumi:"name"`
+	Schema        string                                                 `pulumi:"schema"`
+}
+
+// GetDataSetPhysicalTableMapRelationalTableInput is an input type that accepts GetDataSetPhysicalTableMapRelationalTableArgs and GetDataSetPhysicalTableMapRelationalTableOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapRelationalTableInput` via:
+//
+//	GetDataSetPhysicalTableMapRelationalTableArgs{...}
+type GetDataSetPhysicalTableMapRelationalTableInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapRelationalTableOutput() GetDataSetPhysicalTableMapRelationalTableOutput
+	ToGetDataSetPhysicalTableMapRelationalTableOutputWithContext(context.Context) GetDataSetPhysicalTableMapRelationalTableOutput
+}
+
+type GetDataSetPhysicalTableMapRelationalTableArgs struct {
+	Catalog       pulumi.StringInput                                             `pulumi:"catalog"`
+	DataSourceArn pulumi.StringInput                                             `pulumi:"dataSourceArn"`
+	InputColumns  GetDataSetPhysicalTableMapRelationalTableInputColumnArrayInput `pulumi:"inputColumns"`
+	Name          pulumi.StringInput                                             `pulumi:"name"`
+	Schema        pulumi.StringInput                                             `pulumi:"schema"`
+}
+
+func (GetDataSetPhysicalTableMapRelationalTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapRelationalTable)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapRelationalTableArgs) ToGetDataSetPhysicalTableMapRelationalTableOutput() GetDataSetPhysicalTableMapRelationalTableOutput {
+	return i.ToGetDataSetPhysicalTableMapRelationalTableOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapRelationalTableArgs) ToGetDataSetPhysicalTableMapRelationalTableOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapRelationalTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapRelationalTableOutput)
+}
+
+// GetDataSetPhysicalTableMapRelationalTableArrayInput is an input type that accepts GetDataSetPhysicalTableMapRelationalTableArray and GetDataSetPhysicalTableMapRelationalTableArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapRelationalTableArrayInput` via:
+//
+//	GetDataSetPhysicalTableMapRelationalTableArray{ GetDataSetPhysicalTableMapRelationalTableArgs{...} }
+type GetDataSetPhysicalTableMapRelationalTableArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapRelationalTableArrayOutput() GetDataSetPhysicalTableMapRelationalTableArrayOutput
+	ToGetDataSetPhysicalTableMapRelationalTableArrayOutputWithContext(context.Context) GetDataSetPhysicalTableMapRelationalTableArrayOutput
+}
+
+type GetDataSetPhysicalTableMapRelationalTableArray []GetDataSetPhysicalTableMapRelationalTableInput
+
+func (GetDataSetPhysicalTableMapRelationalTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapRelationalTable)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapRelationalTableArray) ToGetDataSetPhysicalTableMapRelationalTableArrayOutput() GetDataSetPhysicalTableMapRelationalTableArrayOutput {
+	return i.ToGetDataSetPhysicalTableMapRelationalTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapRelationalTableArray) ToGetDataSetPhysicalTableMapRelationalTableArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapRelationalTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapRelationalTableArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapRelationalTableOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapRelationalTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapRelationalTable)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) ToGetDataSetPhysicalTableMapRelationalTableOutput() GetDataSetPhysicalTableMapRelationalTableOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) ToGetDataSetPhysicalTableMapRelationalTableOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapRelationalTableOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) Catalog() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) string { return v.Catalog }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) DataSourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) string { return v.DataSourceArn }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) InputColumns() GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) []GetDataSetPhysicalTableMapRelationalTableInputColumn {
+		return v.InputColumns
+	}).(GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput)
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTable) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+type GetDataSetPhysicalTableMapRelationalTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapRelationalTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapRelationalTable)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableArrayOutput) ToGetDataSetPhysicalTableMapRelationalTableArrayOutput() GetDataSetPhysicalTableMapRelationalTableArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableArrayOutput) ToGetDataSetPhysicalTableMapRelationalTableArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapRelationalTableArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableArrayOutput) Index(i pulumi.IntInput) GetDataSetPhysicalTableMapRelationalTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPhysicalTableMapRelationalTable {
+		return vs[0].([]GetDataSetPhysicalTableMapRelationalTable)[vs[1].(int)]
+	}).(GetDataSetPhysicalTableMapRelationalTableOutput)
+}
+
+type GetDataSetPhysicalTableMapRelationalTableInputColumn struct {
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+}
+
+// GetDataSetPhysicalTableMapRelationalTableInputColumnInput is an input type that accepts GetDataSetPhysicalTableMapRelationalTableInputColumnArgs and GetDataSetPhysicalTableMapRelationalTableInputColumnOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapRelationalTableInputColumnInput` via:
+//
+//	GetDataSetPhysicalTableMapRelationalTableInputColumnArgs{...}
+type GetDataSetPhysicalTableMapRelationalTableInputColumnInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapRelationalTableInputColumnOutput() GetDataSetPhysicalTableMapRelationalTableInputColumnOutput
+	ToGetDataSetPhysicalTableMapRelationalTableInputColumnOutputWithContext(context.Context) GetDataSetPhysicalTableMapRelationalTableInputColumnOutput
+}
+
+type GetDataSetPhysicalTableMapRelationalTableInputColumnArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDataSetPhysicalTableMapRelationalTableInputColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapRelationalTableInputColumn)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapRelationalTableInputColumnArgs) ToGetDataSetPhysicalTableMapRelationalTableInputColumnOutput() GetDataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return i.ToGetDataSetPhysicalTableMapRelationalTableInputColumnOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapRelationalTableInputColumnArgs) ToGetDataSetPhysicalTableMapRelationalTableInputColumnOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapRelationalTableInputColumnOutput)
+}
+
+// GetDataSetPhysicalTableMapRelationalTableInputColumnArrayInput is an input type that accepts GetDataSetPhysicalTableMapRelationalTableInputColumnArray and GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapRelationalTableInputColumnArrayInput` via:
+//
+//	GetDataSetPhysicalTableMapRelationalTableInputColumnArray{ GetDataSetPhysicalTableMapRelationalTableInputColumnArgs{...} }
+type GetDataSetPhysicalTableMapRelationalTableInputColumnArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput() GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput
+	ToGetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutputWithContext(context.Context) GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput
+}
+
+type GetDataSetPhysicalTableMapRelationalTableInputColumnArray []GetDataSetPhysicalTableMapRelationalTableInputColumnInput
+
+func (GetDataSetPhysicalTableMapRelationalTableInputColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapRelationalTableInputColumn)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapRelationalTableInputColumnArray) ToGetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput() GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return i.ToGetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapRelationalTableInputColumnArray) ToGetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapRelationalTableInputColumnOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapRelationalTableInputColumn)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) ToGetDataSetPhysicalTableMapRelationalTableInputColumnOutput() GetDataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) ToGetDataSetPhysicalTableMapRelationalTableInputColumnOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTableInputColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapRelationalTableInputColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapRelationalTableInputColumn)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) ToGetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput() GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) ToGetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) Index(i pulumi.IntInput) GetDataSetPhysicalTableMapRelationalTableInputColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPhysicalTableMapRelationalTableInputColumn {
+		return vs[0].([]GetDataSetPhysicalTableMapRelationalTableInputColumn)[vs[1].(int)]
+	}).(GetDataSetPhysicalTableMapRelationalTableInputColumnOutput)
+}
+
+type GetDataSetPhysicalTableMapS3Source struct {
+	DataSourceArn  string                                            `pulumi:"dataSourceArn"`
+	InputColumns   []GetDataSetPhysicalTableMapS3SourceInputColumn   `pulumi:"inputColumns"`
+	UploadSettings []GetDataSetPhysicalTableMapS3SourceUploadSetting `pulumi:"uploadSettings"`
+}
+
+// GetDataSetPhysicalTableMapS3SourceInput is an input type that accepts GetDataSetPhysicalTableMapS3SourceArgs and GetDataSetPhysicalTableMapS3SourceOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapS3SourceInput` via:
+//
+//	GetDataSetPhysicalTableMapS3SourceArgs{...}
+type GetDataSetPhysicalTableMapS3SourceInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapS3SourceOutput() GetDataSetPhysicalTableMapS3SourceOutput
+	ToGetDataSetPhysicalTableMapS3SourceOutputWithContext(context.Context) GetDataSetPhysicalTableMapS3SourceOutput
+}
+
+type GetDataSetPhysicalTableMapS3SourceArgs struct {
+	DataSourceArn  pulumi.StringInput                                        `pulumi:"dataSourceArn"`
+	InputColumns   GetDataSetPhysicalTableMapS3SourceInputColumnArrayInput   `pulumi:"inputColumns"`
+	UploadSettings GetDataSetPhysicalTableMapS3SourceUploadSettingArrayInput `pulumi:"uploadSettings"`
+}
+
+func (GetDataSetPhysicalTableMapS3SourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapS3Source)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceArgs) ToGetDataSetPhysicalTableMapS3SourceOutput() GetDataSetPhysicalTableMapS3SourceOutput {
+	return i.ToGetDataSetPhysicalTableMapS3SourceOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceArgs) ToGetDataSetPhysicalTableMapS3SourceOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapS3SourceOutput)
+}
+
+// GetDataSetPhysicalTableMapS3SourceArrayInput is an input type that accepts GetDataSetPhysicalTableMapS3SourceArray and GetDataSetPhysicalTableMapS3SourceArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapS3SourceArrayInput` via:
+//
+//	GetDataSetPhysicalTableMapS3SourceArray{ GetDataSetPhysicalTableMapS3SourceArgs{...} }
+type GetDataSetPhysicalTableMapS3SourceArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapS3SourceArrayOutput() GetDataSetPhysicalTableMapS3SourceArrayOutput
+	ToGetDataSetPhysicalTableMapS3SourceArrayOutputWithContext(context.Context) GetDataSetPhysicalTableMapS3SourceArrayOutput
+}
+
+type GetDataSetPhysicalTableMapS3SourceArray []GetDataSetPhysicalTableMapS3SourceInput
+
+func (GetDataSetPhysicalTableMapS3SourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapS3Source)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceArray) ToGetDataSetPhysicalTableMapS3SourceArrayOutput() GetDataSetPhysicalTableMapS3SourceArrayOutput {
+	return i.ToGetDataSetPhysicalTableMapS3SourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceArray) ToGetDataSetPhysicalTableMapS3SourceArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapS3SourceArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapS3SourceOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapS3SourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapS3Source)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceOutput) ToGetDataSetPhysicalTableMapS3SourceOutput() GetDataSetPhysicalTableMapS3SourceOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceOutput) ToGetDataSetPhysicalTableMapS3SourceOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceOutput) DataSourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3Source) string { return v.DataSourceArn }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceOutput) InputColumns() GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3Source) []GetDataSetPhysicalTableMapS3SourceInputColumn {
+		return v.InputColumns
+	}).(GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput)
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceOutput) UploadSettings() GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3Source) []GetDataSetPhysicalTableMapS3SourceUploadSetting {
+		return v.UploadSettings
+	}).(GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapS3SourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapS3SourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapS3Source)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceArrayOutput) ToGetDataSetPhysicalTableMapS3SourceArrayOutput() GetDataSetPhysicalTableMapS3SourceArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceArrayOutput) ToGetDataSetPhysicalTableMapS3SourceArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceArrayOutput) Index(i pulumi.IntInput) GetDataSetPhysicalTableMapS3SourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPhysicalTableMapS3Source {
+		return vs[0].([]GetDataSetPhysicalTableMapS3Source)[vs[1].(int)]
+	}).(GetDataSetPhysicalTableMapS3SourceOutput)
+}
+
+type GetDataSetPhysicalTableMapS3SourceInputColumn struct {
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+}
+
+// GetDataSetPhysicalTableMapS3SourceInputColumnInput is an input type that accepts GetDataSetPhysicalTableMapS3SourceInputColumnArgs and GetDataSetPhysicalTableMapS3SourceInputColumnOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapS3SourceInputColumnInput` via:
+//
+//	GetDataSetPhysicalTableMapS3SourceInputColumnArgs{...}
+type GetDataSetPhysicalTableMapS3SourceInputColumnInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapS3SourceInputColumnOutput() GetDataSetPhysicalTableMapS3SourceInputColumnOutput
+	ToGetDataSetPhysicalTableMapS3SourceInputColumnOutputWithContext(context.Context) GetDataSetPhysicalTableMapS3SourceInputColumnOutput
+}
+
+type GetDataSetPhysicalTableMapS3SourceInputColumnArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDataSetPhysicalTableMapS3SourceInputColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceInputColumn)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceInputColumnArgs) ToGetDataSetPhysicalTableMapS3SourceInputColumnOutput() GetDataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return i.ToGetDataSetPhysicalTableMapS3SourceInputColumnOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceInputColumnArgs) ToGetDataSetPhysicalTableMapS3SourceInputColumnOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapS3SourceInputColumnOutput)
+}
+
+// GetDataSetPhysicalTableMapS3SourceInputColumnArrayInput is an input type that accepts GetDataSetPhysicalTableMapS3SourceInputColumnArray and GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapS3SourceInputColumnArrayInput` via:
+//
+//	GetDataSetPhysicalTableMapS3SourceInputColumnArray{ GetDataSetPhysicalTableMapS3SourceInputColumnArgs{...} }
+type GetDataSetPhysicalTableMapS3SourceInputColumnArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput() GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput
+	ToGetDataSetPhysicalTableMapS3SourceInputColumnArrayOutputWithContext(context.Context) GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput
+}
+
+type GetDataSetPhysicalTableMapS3SourceInputColumnArray []GetDataSetPhysicalTableMapS3SourceInputColumnInput
+
+func (GetDataSetPhysicalTableMapS3SourceInputColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapS3SourceInputColumn)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceInputColumnArray) ToGetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput() GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return i.ToGetDataSetPhysicalTableMapS3SourceInputColumnArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceInputColumnArray) ToGetDataSetPhysicalTableMapS3SourceInputColumnArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapS3SourceInputColumnOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapS3SourceInputColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceInputColumn)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) ToGetDataSetPhysicalTableMapS3SourceInputColumnOutput() GetDataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) ToGetDataSetPhysicalTableMapS3SourceInputColumnOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceInputColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceInputColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapS3SourceInputColumn)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput) ToGetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput() GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput) ToGetDataSetPhysicalTableMapS3SourceInputColumnArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput) Index(i pulumi.IntInput) GetDataSetPhysicalTableMapS3SourceInputColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPhysicalTableMapS3SourceInputColumn {
+		return vs[0].([]GetDataSetPhysicalTableMapS3SourceInputColumn)[vs[1].(int)]
+	}).(GetDataSetPhysicalTableMapS3SourceInputColumnOutput)
+}
+
+type GetDataSetPhysicalTableMapS3SourceUploadSetting struct {
+	ContainsHeader bool   `pulumi:"containsHeader"`
+	Delimiter      string `pulumi:"delimiter"`
+	Format         string `pulumi:"format"`
+	StartFromRow   int    `pulumi:"startFromRow"`
+	TextQualifier  string `pulumi:"textQualifier"`
+}
+
+// GetDataSetPhysicalTableMapS3SourceUploadSettingInput is an input type that accepts GetDataSetPhysicalTableMapS3SourceUploadSettingArgs and GetDataSetPhysicalTableMapS3SourceUploadSettingOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapS3SourceUploadSettingInput` via:
+//
+//	GetDataSetPhysicalTableMapS3SourceUploadSettingArgs{...}
+type GetDataSetPhysicalTableMapS3SourceUploadSettingInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapS3SourceUploadSettingOutput() GetDataSetPhysicalTableMapS3SourceUploadSettingOutput
+	ToGetDataSetPhysicalTableMapS3SourceUploadSettingOutputWithContext(context.Context) GetDataSetPhysicalTableMapS3SourceUploadSettingOutput
+}
+
+type GetDataSetPhysicalTableMapS3SourceUploadSettingArgs struct {
+	ContainsHeader pulumi.BoolInput   `pulumi:"containsHeader"`
+	Delimiter      pulumi.StringInput `pulumi:"delimiter"`
+	Format         pulumi.StringInput `pulumi:"format"`
+	StartFromRow   pulumi.IntInput    `pulumi:"startFromRow"`
+	TextQualifier  pulumi.StringInput `pulumi:"textQualifier"`
+}
+
+func (GetDataSetPhysicalTableMapS3SourceUploadSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceUploadSetting)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceUploadSettingArgs) ToGetDataSetPhysicalTableMapS3SourceUploadSettingOutput() GetDataSetPhysicalTableMapS3SourceUploadSettingOutput {
+	return i.ToGetDataSetPhysicalTableMapS3SourceUploadSettingOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceUploadSettingArgs) ToGetDataSetPhysicalTableMapS3SourceUploadSettingOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceUploadSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapS3SourceUploadSettingOutput)
+}
+
+// GetDataSetPhysicalTableMapS3SourceUploadSettingArrayInput is an input type that accepts GetDataSetPhysicalTableMapS3SourceUploadSettingArray and GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput values.
+// You can construct a concrete instance of `GetDataSetPhysicalTableMapS3SourceUploadSettingArrayInput` via:
+//
+//	GetDataSetPhysicalTableMapS3SourceUploadSettingArray{ GetDataSetPhysicalTableMapS3SourceUploadSettingArgs{...} }
+type GetDataSetPhysicalTableMapS3SourceUploadSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput() GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput
+	ToGetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutputWithContext(context.Context) GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput
+}
+
+type GetDataSetPhysicalTableMapS3SourceUploadSettingArray []GetDataSetPhysicalTableMapS3SourceUploadSettingInput
+
+func (GetDataSetPhysicalTableMapS3SourceUploadSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapS3SourceUploadSetting)(nil)).Elem()
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceUploadSettingArray) ToGetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput() GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput {
+	return i.ToGetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetPhysicalTableMapS3SourceUploadSettingArray) ToGetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput)
+}
+
+type GetDataSetPhysicalTableMapS3SourceUploadSettingOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceUploadSetting)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) ToGetDataSetPhysicalTableMapS3SourceUploadSettingOutput() GetDataSetPhysicalTableMapS3SourceUploadSettingOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) ToGetDataSetPhysicalTableMapS3SourceUploadSettingOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceUploadSettingOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) ContainsHeader() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) bool { return v.ContainsHeader }).(pulumi.BoolOutput)
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) Delimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) string { return v.Delimiter }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) string { return v.Format }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) StartFromRow() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) int { return v.StartFromRow }).(pulumi.IntOutput)
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingOutput) TextQualifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetPhysicalTableMapS3SourceUploadSetting) string { return v.TextQualifier }).(pulumi.StringOutput)
+}
+
+type GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetPhysicalTableMapS3SourceUploadSetting)(nil)).Elem()
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput) ToGetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput() GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput) ToGetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutputWithContext(ctx context.Context) GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput {
+	return o
+}
+
+func (o GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput) Index(i pulumi.IntInput) GetDataSetPhysicalTableMapS3SourceUploadSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetPhysicalTableMapS3SourceUploadSetting {
+		return vs[0].([]GetDataSetPhysicalTableMapS3SourceUploadSetting)[vs[1].(int)]
+	}).(GetDataSetPhysicalTableMapS3SourceUploadSettingOutput)
+}
+
+type GetDataSetRowLevelPermissionDataSet struct {
+	Arn              string `pulumi:"arn"`
+	FormatVersion    string `pulumi:"formatVersion"`
+	Namespace        string `pulumi:"namespace"`
+	PermissionPolicy string `pulumi:"permissionPolicy"`
+	Status           string `pulumi:"status"`
+}
+
+// GetDataSetRowLevelPermissionDataSetInput is an input type that accepts GetDataSetRowLevelPermissionDataSetArgs and GetDataSetRowLevelPermissionDataSetOutput values.
+// You can construct a concrete instance of `GetDataSetRowLevelPermissionDataSetInput` via:
+//
+//	GetDataSetRowLevelPermissionDataSetArgs{...}
+type GetDataSetRowLevelPermissionDataSetInput interface {
+	pulumi.Input
+
+	ToGetDataSetRowLevelPermissionDataSetOutput() GetDataSetRowLevelPermissionDataSetOutput
+	ToGetDataSetRowLevelPermissionDataSetOutputWithContext(context.Context) GetDataSetRowLevelPermissionDataSetOutput
+}
+
+type GetDataSetRowLevelPermissionDataSetArgs struct {
+	Arn              pulumi.StringInput `pulumi:"arn"`
+	FormatVersion    pulumi.StringInput `pulumi:"formatVersion"`
+	Namespace        pulumi.StringInput `pulumi:"namespace"`
+	PermissionPolicy pulumi.StringInput `pulumi:"permissionPolicy"`
+	Status           pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetDataSetRowLevelPermissionDataSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetRowLevelPermissionDataSet)(nil)).Elem()
+}
+
+func (i GetDataSetRowLevelPermissionDataSetArgs) ToGetDataSetRowLevelPermissionDataSetOutput() GetDataSetRowLevelPermissionDataSetOutput {
+	return i.ToGetDataSetRowLevelPermissionDataSetOutputWithContext(context.Background())
+}
+
+func (i GetDataSetRowLevelPermissionDataSetArgs) ToGetDataSetRowLevelPermissionDataSetOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionDataSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetRowLevelPermissionDataSetOutput)
+}
+
+// GetDataSetRowLevelPermissionDataSetArrayInput is an input type that accepts GetDataSetRowLevelPermissionDataSetArray and GetDataSetRowLevelPermissionDataSetArrayOutput values.
+// You can construct a concrete instance of `GetDataSetRowLevelPermissionDataSetArrayInput` via:
+//
+//	GetDataSetRowLevelPermissionDataSetArray{ GetDataSetRowLevelPermissionDataSetArgs{...} }
+type GetDataSetRowLevelPermissionDataSetArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetRowLevelPermissionDataSetArrayOutput() GetDataSetRowLevelPermissionDataSetArrayOutput
+	ToGetDataSetRowLevelPermissionDataSetArrayOutputWithContext(context.Context) GetDataSetRowLevelPermissionDataSetArrayOutput
+}
+
+type GetDataSetRowLevelPermissionDataSetArray []GetDataSetRowLevelPermissionDataSetInput
+
+func (GetDataSetRowLevelPermissionDataSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetRowLevelPermissionDataSet)(nil)).Elem()
+}
+
+func (i GetDataSetRowLevelPermissionDataSetArray) ToGetDataSetRowLevelPermissionDataSetArrayOutput() GetDataSetRowLevelPermissionDataSetArrayOutput {
+	return i.ToGetDataSetRowLevelPermissionDataSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetRowLevelPermissionDataSetArray) ToGetDataSetRowLevelPermissionDataSetArrayOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionDataSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetRowLevelPermissionDataSetArrayOutput)
+}
+
+type GetDataSetRowLevelPermissionDataSetOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetRowLevelPermissionDataSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetRowLevelPermissionDataSet)(nil)).Elem()
+}
+
+func (o GetDataSetRowLevelPermissionDataSetOutput) ToGetDataSetRowLevelPermissionDataSetOutput() GetDataSetRowLevelPermissionDataSetOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionDataSetOutput) ToGetDataSetRowLevelPermissionDataSetOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionDataSetOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionDataSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetRowLevelPermissionDataSetOutput) FormatVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.FormatVersion }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetRowLevelPermissionDataSetOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetRowLevelPermissionDataSetOutput) PermissionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.PermissionPolicy }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetRowLevelPermissionDataSetOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionDataSet) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetDataSetRowLevelPermissionDataSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetRowLevelPermissionDataSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetRowLevelPermissionDataSet)(nil)).Elem()
+}
+
+func (o GetDataSetRowLevelPermissionDataSetArrayOutput) ToGetDataSetRowLevelPermissionDataSetArrayOutput() GetDataSetRowLevelPermissionDataSetArrayOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionDataSetArrayOutput) ToGetDataSetRowLevelPermissionDataSetArrayOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionDataSetArrayOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionDataSetArrayOutput) Index(i pulumi.IntInput) GetDataSetRowLevelPermissionDataSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetRowLevelPermissionDataSet {
+		return vs[0].([]GetDataSetRowLevelPermissionDataSet)[vs[1].(int)]
+	}).(GetDataSetRowLevelPermissionDataSetOutput)
+}
+
+type GetDataSetRowLevelPermissionTagConfiguration struct {
+	Status   string                                                `pulumi:"status"`
+	TagRules []GetDataSetRowLevelPermissionTagConfigurationTagRule `pulumi:"tagRules"`
+}
+
+// GetDataSetRowLevelPermissionTagConfigurationInput is an input type that accepts GetDataSetRowLevelPermissionTagConfigurationArgs and GetDataSetRowLevelPermissionTagConfigurationOutput values.
+// You can construct a concrete instance of `GetDataSetRowLevelPermissionTagConfigurationInput` via:
+//
+//	GetDataSetRowLevelPermissionTagConfigurationArgs{...}
+type GetDataSetRowLevelPermissionTagConfigurationInput interface {
+	pulumi.Input
+
+	ToGetDataSetRowLevelPermissionTagConfigurationOutput() GetDataSetRowLevelPermissionTagConfigurationOutput
+	ToGetDataSetRowLevelPermissionTagConfigurationOutputWithContext(context.Context) GetDataSetRowLevelPermissionTagConfigurationOutput
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationArgs struct {
+	Status   pulumi.StringInput                                            `pulumi:"status"`
+	TagRules GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayInput `pulumi:"tagRules"`
+}
+
+func (GetDataSetRowLevelPermissionTagConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfiguration)(nil)).Elem()
+}
+
+func (i GetDataSetRowLevelPermissionTagConfigurationArgs) ToGetDataSetRowLevelPermissionTagConfigurationOutput() GetDataSetRowLevelPermissionTagConfigurationOutput {
+	return i.ToGetDataSetRowLevelPermissionTagConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetDataSetRowLevelPermissionTagConfigurationArgs) ToGetDataSetRowLevelPermissionTagConfigurationOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionTagConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetRowLevelPermissionTagConfigurationOutput)
+}
+
+// GetDataSetRowLevelPermissionTagConfigurationArrayInput is an input type that accepts GetDataSetRowLevelPermissionTagConfigurationArray and GetDataSetRowLevelPermissionTagConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetDataSetRowLevelPermissionTagConfigurationArrayInput` via:
+//
+//	GetDataSetRowLevelPermissionTagConfigurationArray{ GetDataSetRowLevelPermissionTagConfigurationArgs{...} }
+type GetDataSetRowLevelPermissionTagConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetRowLevelPermissionTagConfigurationArrayOutput() GetDataSetRowLevelPermissionTagConfigurationArrayOutput
+	ToGetDataSetRowLevelPermissionTagConfigurationArrayOutputWithContext(context.Context) GetDataSetRowLevelPermissionTagConfigurationArrayOutput
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationArray []GetDataSetRowLevelPermissionTagConfigurationInput
+
+func (GetDataSetRowLevelPermissionTagConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetRowLevelPermissionTagConfiguration)(nil)).Elem()
+}
+
+func (i GetDataSetRowLevelPermissionTagConfigurationArray) ToGetDataSetRowLevelPermissionTagConfigurationArrayOutput() GetDataSetRowLevelPermissionTagConfigurationArrayOutput {
+	return i.ToGetDataSetRowLevelPermissionTagConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetRowLevelPermissionTagConfigurationArray) ToGetDataSetRowLevelPermissionTagConfigurationArrayOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionTagConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetRowLevelPermissionTagConfigurationArrayOutput)
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetRowLevelPermissionTagConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfiguration)(nil)).Elem()
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationOutput) ToGetDataSetRowLevelPermissionTagConfigurationOutput() GetDataSetRowLevelPermissionTagConfigurationOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationOutput) ToGetDataSetRowLevelPermissionTagConfigurationOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionTagConfigurationOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfiguration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationOutput) TagRules() GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfiguration) []GetDataSetRowLevelPermissionTagConfigurationTagRule {
+		return v.TagRules
+	}).(GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput)
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetRowLevelPermissionTagConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetRowLevelPermissionTagConfiguration)(nil)).Elem()
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationArrayOutput) ToGetDataSetRowLevelPermissionTagConfigurationArrayOutput() GetDataSetRowLevelPermissionTagConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationArrayOutput) ToGetDataSetRowLevelPermissionTagConfigurationArrayOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionTagConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationArrayOutput) Index(i pulumi.IntInput) GetDataSetRowLevelPermissionTagConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetRowLevelPermissionTagConfiguration {
+		return vs[0].([]GetDataSetRowLevelPermissionTagConfiguration)[vs[1].(int)]
+	}).(GetDataSetRowLevelPermissionTagConfigurationOutput)
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationTagRule struct {
+	ColumnName             string `pulumi:"columnName"`
+	MatchAllValue          string `pulumi:"matchAllValue"`
+	TagKey                 string `pulumi:"tagKey"`
+	TagMultiValueDelimiter string `pulumi:"tagMultiValueDelimiter"`
+}
+
+// GetDataSetRowLevelPermissionTagConfigurationTagRuleInput is an input type that accepts GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs and GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput values.
+// You can construct a concrete instance of `GetDataSetRowLevelPermissionTagConfigurationTagRuleInput` via:
+//
+//	GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs{...}
+type GetDataSetRowLevelPermissionTagConfigurationTagRuleInput interface {
+	pulumi.Input
+
+	ToGetDataSetRowLevelPermissionTagConfigurationTagRuleOutput() GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput
+	ToGetDataSetRowLevelPermissionTagConfigurationTagRuleOutputWithContext(context.Context) GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs struct {
+	ColumnName             pulumi.StringInput `pulumi:"columnName"`
+	MatchAllValue          pulumi.StringInput `pulumi:"matchAllValue"`
+	TagKey                 pulumi.StringInput `pulumi:"tagKey"`
+	TagMultiValueDelimiter pulumi.StringInput `pulumi:"tagMultiValueDelimiter"`
+}
+
+func (GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationTagRule)(nil)).Elem()
+}
+
+func (i GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs) ToGetDataSetRowLevelPermissionTagConfigurationTagRuleOutput() GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return i.ToGetDataSetRowLevelPermissionTagConfigurationTagRuleOutputWithContext(context.Background())
+}
+
+func (i GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs) ToGetDataSetRowLevelPermissionTagConfigurationTagRuleOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput)
+}
+
+// GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayInput is an input type that accepts GetDataSetRowLevelPermissionTagConfigurationTagRuleArray and GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput values.
+// You can construct a concrete instance of `GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayInput` via:
+//
+//	GetDataSetRowLevelPermissionTagConfigurationTagRuleArray{ GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs{...} }
+type GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput() GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput
+	ToGetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutputWithContext(context.Context) GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationTagRuleArray []GetDataSetRowLevelPermissionTagConfigurationTagRuleInput
+
+func (GetDataSetRowLevelPermissionTagConfigurationTagRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetRowLevelPermissionTagConfigurationTagRule)(nil)).Elem()
+}
+
+func (i GetDataSetRowLevelPermissionTagConfigurationTagRuleArray) ToGetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput() GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return i.ToGetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataSetRowLevelPermissionTagConfigurationTagRuleArray) ToGetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput)
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationTagRule)(nil)).Elem()
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) ToGetDataSetRowLevelPermissionTagConfigurationTagRuleOutput() GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) ToGetDataSetRowLevelPermissionTagConfigurationTagRuleOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) MatchAllValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) string { return v.MatchAllValue }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) string { return v.TagKey }).(pulumi.StringOutput)
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagMultiValueDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSetRowLevelPermissionTagConfigurationTagRule) string { return v.TagMultiValueDelimiter }).(pulumi.StringOutput)
+}
+
+type GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataSetRowLevelPermissionTagConfigurationTagRule)(nil)).Elem()
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) ToGetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput() GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) ToGetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutputWithContext(ctx context.Context) GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
+	return o
+}
+
+func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) Index(i pulumi.IntInput) GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataSetRowLevelPermissionTagConfigurationTagRule {
+		return vs[0].([]GetDataSetRowLevelPermissionTagConfigurationTagRule)[vs[1].(int)]
+	}).(GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnGroupInput)(nil)).Elem(), DataSetColumnGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnGroupArrayInput)(nil)).Elem(), DataSetColumnGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnGroupGeoSpatialColumnGroupInput)(nil)).Elem(), DataSetColumnGroupGeoSpatialColumnGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnGroupGeoSpatialColumnGroupPtrInput)(nil)).Elem(), DataSetColumnGroupGeoSpatialColumnGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnLevelPermissionRuleInput)(nil)).Elem(), DataSetColumnLevelPermissionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnLevelPermissionRuleArrayInput)(nil)).Elem(), DataSetColumnLevelPermissionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDataSetUsageConfigurationInput)(nil)).Elem(), DataSetDataSetUsageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDataSetUsageConfigurationPtrInput)(nil)).Elem(), DataSetDataSetUsageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFieldFolderInput)(nil)).Elem(), DataSetFieldFolderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFieldFolderArrayInput)(nil)).Elem(), DataSetFieldFolderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapInput)(nil)).Elem(), DataSetLogicalTableMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapArrayInput)(nil)).Elem(), DataSetLogicalTableMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformArrayInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformCastColumnTypeOperationInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformCreateColumnsOperationInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformFilterOperationInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformFilterOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformFilterOperationPtrInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformFilterOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformProjectOperationInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformProjectOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformProjectOperationPtrInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformProjectOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformRenameColumnOperationInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformRenameColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformRenameColumnOperationPtrInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformRenameColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformTagColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationPtrInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformTagColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationTagInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformTagColumnOperationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformUntagColumnOperationInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformUntagColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapDataTransformUntagColumnOperationPtrInput)(nil)).Elem(), DataSetLogicalTableMapDataTransformUntagColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapSourceInput)(nil)).Elem(), DataSetLogicalTableMapSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionInput)(nil)).Elem(), DataSetLogicalTableMapSourceJoinInstructionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionPtrInput)(nil)).Elem(), DataSetLogicalTableMapSourceJoinInstructionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesInput)(nil)).Elem(), DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrInput)(nil)).Elem(), DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesInput)(nil)).Elem(), DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrInput)(nil)).Elem(), DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPermissionInput)(nil)).Elem(), DataSetPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPermissionArrayInput)(nil)).Elem(), DataSetPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapInput)(nil)).Elem(), DataSetPhysicalTableMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapArrayInput)(nil)).Elem(), DataSetPhysicalTableMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapCustomSqlInput)(nil)).Elem(), DataSetPhysicalTableMapCustomSqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapCustomSqlPtrInput)(nil)).Elem(), DataSetPhysicalTableMapCustomSqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapCustomSqlColumnInput)(nil)).Elem(), DataSetPhysicalTableMapCustomSqlColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapCustomSqlColumnArrayInput)(nil)).Elem(), DataSetPhysicalTableMapCustomSqlColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapRelationalTableInput)(nil)).Elem(), DataSetPhysicalTableMapRelationalTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapRelationalTablePtrInput)(nil)).Elem(), DataSetPhysicalTableMapRelationalTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapRelationalTableInputColumnInput)(nil)).Elem(), DataSetPhysicalTableMapRelationalTableInputColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapRelationalTableInputColumnArrayInput)(nil)).Elem(), DataSetPhysicalTableMapRelationalTableInputColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapS3SourceInput)(nil)).Elem(), DataSetPhysicalTableMapS3SourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapS3SourcePtrInput)(nil)).Elem(), DataSetPhysicalTableMapS3SourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapS3SourceInputColumnInput)(nil)).Elem(), DataSetPhysicalTableMapS3SourceInputColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapS3SourceInputColumnArrayInput)(nil)).Elem(), DataSetPhysicalTableMapS3SourceInputColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapS3SourceUploadSettingsInput)(nil)).Elem(), DataSetPhysicalTableMapS3SourceUploadSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapS3SourceUploadSettingsPtrInput)(nil)).Elem(), DataSetPhysicalTableMapS3SourceUploadSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionDataSetInput)(nil)).Elem(), DataSetRowLevelPermissionDataSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionDataSetPtrInput)(nil)).Elem(), DataSetRowLevelPermissionDataSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionTagConfigurationInput)(nil)).Elem(), DataSetRowLevelPermissionTagConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionTagConfigurationPtrInput)(nil)).Elem(), DataSetRowLevelPermissionTagConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionTagConfigurationTagRuleInput)(nil)).Elem(), DataSetRowLevelPermissionTagConfigurationTagRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionTagConfigurationTagRuleArrayInput)(nil)).Elem(), DataSetRowLevelPermissionTagConfigurationTagRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCredentialsInput)(nil)).Elem(), DataSourceCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCredentialsPtrInput)(nil)).Elem(), DataSourceCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCredentialsCredentialPairInput)(nil)).Elem(), DataSourceCredentialsCredentialPairArgs{})
@@ -4651,6 +13102,139 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSslPropertiesPtrInput)(nil)).Elem(), DataSourceSslPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesPtrInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FolderPermissionInput)(nil)).Elem(), FolderPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FolderPermissionArrayInput)(nil)).Elem(), FolderPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupArrayInput)(nil)).Elem(), GetDataSetColumnGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupGeoSpatialColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupGeoSpatialColumnGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupGeoSpatialColumnGroupArrayInput)(nil)).Elem(), GetDataSetColumnGroupGeoSpatialColumnGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnLevelPermissionRuleInput)(nil)).Elem(), GetDataSetColumnLevelPermissionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnLevelPermissionRuleArrayInput)(nil)).Elem(), GetDataSetColumnLevelPermissionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetDataSetUsageConfigurationInput)(nil)).Elem(), GetDataSetDataSetUsageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetDataSetUsageConfigurationArrayInput)(nil)).Elem(), GetDataSetDataSetUsageConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetFieldFolderInput)(nil)).Elem(), GetDataSetFieldFolderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetFieldFolderArrayInput)(nil)).Elem(), GetDataSetFieldFolderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapInput)(nil)).Elem(), GetDataSetLogicalTableMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCreateColumnsOperationInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformFilterOperationInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformFilterOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformFilterOperationArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformFilterOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformProjectOperationInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformProjectOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformProjectOperationArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformProjectOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformRenameColumnOperationInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformRenameColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformRenameColumnOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformTagColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformTagColumnOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationTagInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformUntagColumnOperationInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformUntagColumnOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapDataTransformUntagColumnOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapSourceInput)(nil)).Elem(), GetDataSetLogicalTableMapSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapSourceArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionInput)(nil)).Elem(), GetDataSetLogicalTableMapSourceJoinInstructionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapSourceJoinInstructionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyInput)(nil)).Elem(), GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyInput)(nil)).Elem(), GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayInput)(nil)).Elem(), GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPermissionInput)(nil)).Elem(), GetDataSetPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPermissionArrayInput)(nil)).Elem(), GetDataSetPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapInput)(nil)).Elem(), GetDataSetPhysicalTableMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapArrayInput)(nil)).Elem(), GetDataSetPhysicalTableMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapCustomSqlInput)(nil)).Elem(), GetDataSetPhysicalTableMapCustomSqlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapCustomSqlArrayInput)(nil)).Elem(), GetDataSetPhysicalTableMapCustomSqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapCustomSqlColumnInput)(nil)).Elem(), GetDataSetPhysicalTableMapCustomSqlColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapCustomSqlColumnArrayInput)(nil)).Elem(), GetDataSetPhysicalTableMapCustomSqlColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapRelationalTableInput)(nil)).Elem(), GetDataSetPhysicalTableMapRelationalTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapRelationalTableArrayInput)(nil)).Elem(), GetDataSetPhysicalTableMapRelationalTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapRelationalTableInputColumnInput)(nil)).Elem(), GetDataSetPhysicalTableMapRelationalTableInputColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapRelationalTableInputColumnArrayInput)(nil)).Elem(), GetDataSetPhysicalTableMapRelationalTableInputColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceInput)(nil)).Elem(), GetDataSetPhysicalTableMapS3SourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceArrayInput)(nil)).Elem(), GetDataSetPhysicalTableMapS3SourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceInputColumnInput)(nil)).Elem(), GetDataSetPhysicalTableMapS3SourceInputColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceInputColumnArrayInput)(nil)).Elem(), GetDataSetPhysicalTableMapS3SourceInputColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceUploadSettingInput)(nil)).Elem(), GetDataSetPhysicalTableMapS3SourceUploadSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetPhysicalTableMapS3SourceUploadSettingArrayInput)(nil)).Elem(), GetDataSetPhysicalTableMapS3SourceUploadSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionDataSetInput)(nil)).Elem(), GetDataSetRowLevelPermissionDataSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionDataSetArrayInput)(nil)).Elem(), GetDataSetRowLevelPermissionDataSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationArrayInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationTagRuleInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationTagRuleArray{})
+	pulumi.RegisterOutputType(DataSetColumnGroupOutput{})
+	pulumi.RegisterOutputType(DataSetColumnGroupArrayOutput{})
+	pulumi.RegisterOutputType(DataSetColumnGroupGeoSpatialColumnGroupOutput{})
+	pulumi.RegisterOutputType(DataSetColumnGroupGeoSpatialColumnGroupPtrOutput{})
+	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleOutput{})
+	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleArrayOutput{})
+	pulumi.RegisterOutputType(DataSetDataSetUsageConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSetDataSetUsageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetFieldFolderOutput{})
+	pulumi.RegisterOutputType(DataSetFieldFolderArrayOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapArrayOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformArrayOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformFilterOperationOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformFilterOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformProjectOperationOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformProjectOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformRenameColumnOperationOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformTagColumnOperationOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformUntagColumnOperationOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapSourceOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapSourceJoinInstructionOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapSourceJoinInstructionPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSetPermissionOutput{})
+	pulumi.RegisterOutputType(DataSetPermissionArrayOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapArrayOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapCustomSqlOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapCustomSqlPtrOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapCustomSqlColumnOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapCustomSqlColumnArrayOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapRelationalTableOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapRelationalTablePtrOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapRelationalTableInputColumnOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapS3SourceOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapS3SourcePtrOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapS3SourceInputColumnOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapS3SourceInputColumnArrayOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapS3SourceUploadSettingsOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataSetRowLevelPermissionDataSetOutput{})
+	pulumi.RegisterOutputType(DataSetRowLevelPermissionDataSetPtrOutput{})
+	pulumi.RegisterOutputType(DataSetRowLevelPermissionTagConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSetRowLevelPermissionTagConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetRowLevelPermissionTagConfigurationTagRuleOutput{})
+	pulumi.RegisterOutputType(DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceCredentialsOutput{})
 	pulumi.RegisterOutputType(DataSourceCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceCredentialsCredentialPairOutput{})
@@ -4705,4 +13289,72 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSslPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FolderPermissionOutput{})
+	pulumi.RegisterOutputType(FolderPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetColumnGroupOutput{})
+	pulumi.RegisterOutputType(GetDataSetColumnGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetColumnGroupGeoSpatialColumnGroupOutput{})
+	pulumi.RegisterOutputType(GetDataSetColumnGroupGeoSpatialColumnGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetColumnLevelPermissionRuleOutput{})
+	pulumi.RegisterOutputType(GetDataSetColumnLevelPermissionRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetDataSetUsageConfigurationOutput{})
+	pulumi.RegisterOutputType(GetDataSetDataSetUsageConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetFieldFolderOutput{})
+	pulumi.RegisterOutputType(GetDataSetFieldFolderArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformFilterOperationOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformFilterOperationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformProjectOperationOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformProjectOperationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformRenameColumnOperationOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformRenameColumnOperationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformTagColumnOperationOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformTagColumnOperationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformUntagColumnOperationOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapDataTransformUntagColumnOperationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapSourceOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapSourceArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapSourceJoinInstructionOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapSourceJoinInstructionArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyOutput{})
+	pulumi.RegisterOutputType(GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPermissionOutput{})
+	pulumi.RegisterOutputType(GetDataSetPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapCustomSqlOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapCustomSqlArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapCustomSqlColumnOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapCustomSqlColumnArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapRelationalTableOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapRelationalTableArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapRelationalTableInputColumnOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapRelationalTableInputColumnArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapS3SourceOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapS3SourceArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapS3SourceInputColumnOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapS3SourceInputColumnArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapS3SourceUploadSettingOutput{})
+	pulumi.RegisterOutputType(GetDataSetPhysicalTableMapS3SourceUploadSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionDataSetOutput{})
+	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionDataSetArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationOutput{})
+	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput{})
+	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput{})
 }

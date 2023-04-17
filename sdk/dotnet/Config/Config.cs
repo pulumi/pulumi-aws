@@ -416,6 +416,7 @@ namespace Pulumi.Aws
                 public string? Ce { get; set; } = null!;
                 public string? Chime { get; set; } = null!;
                 public string? Chimesdkidentity { get; set; } = null!;
+                public string? Chimesdkmediapipelines { get; set; } = null!;
                 public string? Chimesdkmeetings { get; set; } = null!;
                 public string? Chimesdkmessaging { get; set; } = null!;
                 public string? Cloud9 { get; set; } = null!;
@@ -697,6 +698,7 @@ namespace Pulumi.Aws
                 public string? Sdb { get; set; } = null!;
                 public string? Secretsmanager { get; set; } = null!;
                 public string? Securityhub { get; set; } = null!;
+                public string? Securitylake { get; set; } = null!;
                 public string? Serverlessapplicationrepository { get; set; } = null!;
                 public string? Serverlessapprepo { get; set; } = null!;
                 public string? Serverlessrepo { get; set; } = null!;
@@ -737,6 +739,7 @@ namespace Pulumi.Aws
                 public string? Transfer { get; set; } = null!;
                 public string? Translate { get; set; } = null!;
                 public string? Voiceid { get; set; } = null!;
+                public string? Vpclattice { get; set; } = null!;
                 public string? Waf { get; set; } = null!;
                 public string? Wafregional { get; set; } = null!;
                 public string? Wafv2 { get; set; } = null!;

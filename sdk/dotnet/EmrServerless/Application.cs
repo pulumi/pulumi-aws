@@ -122,6 +122,12 @@ namespace Pulumi.Aws.EmrServerless
         public Output<Outputs.ApplicationAutoStopConfiguration> AutoStopConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The image configuration applied to all worker types.
+        /// </summary>
+        [Output("imageConfiguration")]
+        public Output<Outputs.ApplicationImageConfiguration> ImageConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The capacity to initialize when the application is created.
         /// </summary>
         [Output("initialCapacities")]
@@ -233,6 +239,12 @@ namespace Pulumi.Aws.EmrServerless
         [Input("autoStopConfiguration")]
         public Input<Inputs.ApplicationAutoStopConfigurationArgs>? AutoStopConfiguration { get; set; }
 
+        /// <summary>
+        /// The image configuration applied to all worker types.
+        /// </summary>
+        [Input("imageConfiguration")]
+        public Input<Inputs.ApplicationImageConfigurationArgs>? ImageConfiguration { get; set; }
+
         [Input("initialCapacities")]
         private InputList<Inputs.ApplicationInitialCapacityArgs>? _initialCapacities;
 
@@ -318,6 +330,12 @@ namespace Pulumi.Aws.EmrServerless
         /// </summary>
         [Input("autoStopConfiguration")]
         public Input<Inputs.ApplicationAutoStopConfigurationGetArgs>? AutoStopConfiguration { get; set; }
+
+        /// <summary>
+        /// The image configuration applied to all worker types.
+        /// </summary>
+        [Input("imageConfiguration")]
+        public Input<Inputs.ApplicationImageConfigurationGetArgs>? ImageConfiguration { get; set; }
 
         [Input("initialCapacities")]
         private InputList<Inputs.ApplicationInitialCapacityGetArgs>? _initialCapacities;

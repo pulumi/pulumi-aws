@@ -137,6 +137,10 @@ export class ContainerRecipe extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
+     * Specifies the operating system platform when you use a custom base image.
+     */
+    public readonly platformOverride!: pulumi.Output<string | undefined>;
+    /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -184,6 +188,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["parentImage"] = state ? state.parentImage : undefined;
             resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["platformOverride"] = state ? state.platformOverride : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targetRepository"] = state ? state.targetRepository : undefined;
@@ -215,6 +220,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentImage"] = args ? args.parentImage : undefined;
+            resourceInputs["platformOverride"] = args ? args.platformOverride : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetRepository"] = args ? args.targetRepository : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -292,6 +298,10 @@ export interface ContainerRecipeState {
      */
     platform?: pulumi.Input<string>;
     /**
+     * Specifies the operating system platform when you use a custom base image.
+     */
+    platformOverride?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -353,6 +363,10 @@ export interface ContainerRecipeArgs {
      * The base image for the container recipe.
      */
     parentImage: pulumi.Input<string>;
+    /**
+     * Specifies the operating system platform when you use a custom base image.
+     */
+    platformOverride?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -177,7 +177,8 @@ type contactListArgs struct {
 	// A description of what the contact list is about.
 	Description *string `pulumi:"description"`
 	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block(s) with topic for the contact list. Detailed below.
 	Topics []ContactListTopic `pulumi:"topics"`
 }
@@ -189,7 +190,8 @@ type ContactListArgs struct {
 	// A description of what the contact list is about.
 	Description pulumi.StringPtrInput
 	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Configuration block(s) with topic for the contact list. Detailed below.
 	Topics ContactListTopicArrayInput
 }

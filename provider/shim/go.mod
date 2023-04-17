@@ -13,7 +13,7 @@ require (
 	github.com/ProtonMail/go-crypto v0.0.0-20230201104953-d1d05f4e2bfb // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.44.232 // indirect
+	github.com/aws/aws-sdk-go v1.44.237 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.17.7 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.18.12 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.13.12 // indirect
@@ -25,17 +25,17 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/cloudcontrol v1.11.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs v1.20.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/comprehend v1.23.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/computeoptimizer v1.21.5 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.91.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/computeoptimizer v1.22.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.93.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/fis v1.14.6 // indirect
-	github.com/aws/aws-sdk-go-v2/service/healthlake v1.15.6 // indirect
+	github.com/aws/aws-sdk-go-v2/service/healthlake v1.15.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iam v1.19.7 // indirect
-	github.com/aws/aws-sdk-go-v2/service/identitystore v1.16.6 // indirect
+	github.com/aws/aws-sdk-go-v2/service/identitystore v1.16.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/inspector2 v1.11.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.25 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.14.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ivschat v1.4.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/kendra v1.38.7 // indirect
+	github.com/aws/aws-sdk-go-v2/service/kendra v1.39.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/lambda v1.30.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/medialive v1.31.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/oam v1.1.7 // indirect
@@ -47,7 +47,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.1.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53domains v1.14.6 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3control v1.31.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/scheduler v1.1.6 // indirect
+	github.com/aws/aws-sdk-go-v2/service/scheduler v1.1.7 // indirect
+	github.com/aws/aws-sdk-go-v2/service/securitylake v1.3.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sesv2 v1.17.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.36.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssmcontacts v1.15.0 // indirect
@@ -56,6 +57,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.14.6 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.18.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/transcribe v1.26.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/vpclattice v1.0.1 // indirect
 	github.com/aws/smithy-go v1.13.5 // indirect
 	github.com/beevik/etree v1.1.0 // indirect
 	github.com/cloudflare/circl v1.3.2 // indirect

@@ -1,7 +1,7 @@
-From e28d4c56bed7e9074be205aaab9277945772433a Mon Sep 17 00:00:00 2001
+From 570caf5ae08be3f478d118047b22c53a0d22debc Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@gmail.com>
 Date: Thu, 1 Dec 2022 10:56:32 -0800
-Subject: [PATCH 17/27] Catch cty panic in new
+Subject: [PATCH 17/26] Catch cty panic in new
  resourceTopicSubscriptionCustomizeDiff.
 
 The root cause is not fully understood yet but this might unblock us.
@@ -10,7 +10,7 @@ The root cause is not fully understood yet but this might unblock us.
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/internal/service/sns/topic_subscription.go b/internal/service/sns/topic_subscription.go
-index c3acba5efe..3665ba1e74 100644
+index a9d24446d7..aefbd1a611 100644
 --- a/internal/service/sns/topic_subscription.go
 +++ b/internal/service/sns/topic_subscription.go
 @@ -514,9 +514,11 @@ func normalizeTopicSubscriptionDeliveryPolicy(policy string) ([]byte, error) {

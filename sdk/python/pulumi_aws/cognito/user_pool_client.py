@@ -41,7 +41,9 @@ class UserPoolClientArgs:
         """
         The set of arguments for constructing a UserPoolClient resource.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
-        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+               By default, the unit is hours.
+               The unit can be overridden by a value in `token_validity_units.access_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
@@ -53,12 +55,16 @@ class UserPoolClientArgs:
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+               By default, the unit is hours.
+               The unit can be overridden by a value in `token_validity_units.id_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: Name of the application client.
         :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: Time limit in days refresh tokens are valid for.
+        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+               By default, the unit is days.
+               The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
@@ -123,7 +129,9 @@ class UserPoolClientArgs:
     @pulumi.getter(name="accessTokenValidity")
     def access_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+        By default, the unit is hours.
+        The unit can be overridden by a value in `token_validity_units.access_token`.
         """
         return pulumi.get(self, "access_token_validity")
 
@@ -267,7 +275,9 @@ class UserPoolClientArgs:
     @pulumi.getter(name="idTokenValidity")
     def id_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+        By default, the unit is hours.
+        The unit can be overridden by a value in `token_validity_units.id_token`.
         """
         return pulumi.get(self, "id_token_validity")
 
@@ -327,7 +337,9 @@ class UserPoolClientArgs:
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit in days refresh tokens are valid for.
+        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+        By default, the unit is days.
+        The unit can be overridden by a value in `token_validity_units.refresh_token`.
         """
         return pulumi.get(self, "refresh_token_validity")
 
@@ -400,7 +412,9 @@ class _UserPoolClientState:
                  write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering UserPoolClient resources.
-        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+               By default, the unit is hours.
+               The unit can be overridden by a value in `token_validity_units.access_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
@@ -413,12 +427,16 @@ class _UserPoolClientState:
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+               By default, the unit is hours.
+               The unit can be overridden by a value in `token_validity_units.id_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: Name of the application client.
         :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: Time limit in days refresh tokens are valid for.
+        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+               By default, the unit is days.
+               The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
@@ -475,7 +493,9 @@ class _UserPoolClientState:
     @pulumi.getter(name="accessTokenValidity")
     def access_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+        By default, the unit is hours.
+        The unit can be overridden by a value in `token_validity_units.access_token`.
         """
         return pulumi.get(self, "access_token_validity")
 
@@ -631,7 +651,9 @@ class _UserPoolClientState:
     @pulumi.getter(name="idTokenValidity")
     def id_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+        By default, the unit is hours.
+        The unit can be overridden by a value in `token_validity_units.id_token`.
         """
         return pulumi.get(self, "id_token_validity")
 
@@ -691,7 +713,9 @@ class _UserPoolClientState:
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit in days refresh tokens are valid for.
+        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+        By default, the unit is days.
+        The unit can be overridden by a value in `token_validity_units.refresh_token`.
         """
         return pulumi.get(self, "refresh_token_validity")
 
@@ -874,7 +898,9 @@ class UserPoolClient(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+               By default, the unit is hours.
+               The unit can be overridden by a value in `token_validity_units.access_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
@@ -886,12 +912,16 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+               By default, the unit is hours.
+               The unit can be overridden by a value in `token_validity_units.id_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: Name of the application client.
         :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: Time limit in days refresh tokens are valid for.
+        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+               By default, the unit is days.
+               The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input[pulumi.InputType['UserPoolClientTokenValidityUnitsArgs']] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
@@ -1112,7 +1142,9 @@ class UserPoolClient(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+               By default, the unit is hours.
+               The unit can be overridden by a value in `token_validity_units.access_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
@@ -1125,12 +1157,16 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+               By default, the unit is hours.
+               The unit can be overridden by a value in `token_validity_units.id_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: Name of the application client.
         :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: Time limit in days refresh tokens are valid for.
+        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+               By default, the unit is days.
+               The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input[pulumi.InputType['UserPoolClientTokenValidityUnitsArgs']] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
@@ -1169,7 +1205,9 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="accessTokenValidity")
     def access_token_validity(self) -> pulumi.Output[Optional[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+        By default, the unit is hours.
+        The unit can be overridden by a value in `token_validity_units.access_token`.
         """
         return pulumi.get(self, "access_token_validity")
 
@@ -1273,7 +1311,9 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="idTokenValidity")
     def id_token_validity(self) -> pulumi.Output[Optional[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+        By default, the unit is hours.
+        The unit can be overridden by a value in `token_validity_units.id_token`.
         """
         return pulumi.get(self, "id_token_validity")
 
@@ -1313,7 +1353,9 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> pulumi.Output[Optional[int]]:
         """
-        Time limit in days refresh tokens are valid for.
+        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+        By default, the unit is days.
+        The unit can be overridden by a value in `token_validity_units.refresh_token`.
         """
         return pulumi.get(self, "refresh_token_validity")
 

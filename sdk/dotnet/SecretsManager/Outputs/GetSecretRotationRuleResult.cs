@@ -14,11 +14,20 @@ namespace Pulumi.Aws.SecretsManager.Outputs
     public sealed class GetSecretRotationRuleResult
     {
         public readonly int AutomaticallyAfterDays;
+        public readonly string Duration;
+        public readonly string ScheduleExpression;
 
         [OutputConstructor]
-        private GetSecretRotationRuleResult(int automaticallyAfterDays)
+        private GetSecretRotationRuleResult(
+            int automaticallyAfterDays,
+
+            string duration,
+
+            string scheduleExpression)
         {
             AutomaticallyAfterDays = automaticallyAfterDays;
+            Duration = duration;
+            ScheduleExpression = scheduleExpression;
         }
     }
 }

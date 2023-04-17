@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Disk{}
 	case "aws:lightsail/disk_attachment:Disk_attachment":
 		r = &Disk_attachment{}
+	case "aws:lightsail/distribution:Distribution":
+		r = &Distribution{}
 	case "aws:lightsail/domain:Domain":
 		r = &Domain{}
 	case "aws:lightsail/domainEntry:DomainEntry":
@@ -121,6 +123,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/disk_attachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/distribution",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

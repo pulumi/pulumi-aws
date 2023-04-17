@@ -50,6 +50,7 @@ class LaunchTemplateArgs:
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  update_default_version: Optional[pulumi.Input[bool]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -98,6 +99,7 @@ class LaunchTemplateArgs:
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[str] user_data: The base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
@@ -170,6 +172,8 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if update_default_version is not None:
             pulumi.set(__self__, "update_default_version", update_default_version)
         if user_data is not None:
@@ -593,6 +597,18 @@ class LaunchTemplateArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="updateDefaultVersion")
@@ -1336,6 +1352,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  update_default_version: Optional[pulumi.Input[bool]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1469,6 +1486,7 @@ class LaunchTemplate(pulumi.CustomResource):
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[str] user_data: The base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
@@ -1612,6 +1630,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateTagSpecificationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  update_default_version: Optional[pulumi.Input[bool]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1658,12 +1677,12 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["tag_specifications"] = tag_specifications
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["update_default_version"] = update_default_version
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest_version"] = None
-            __props__.__dict__["tags_all"] = None
         super(LaunchTemplate, __self__).__init__(
             'aws:ec2/launchTemplate:LaunchTemplate',
             resource_name,

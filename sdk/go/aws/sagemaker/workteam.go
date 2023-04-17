@@ -214,6 +214,8 @@ type workteamArgs struct {
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the Workteam (must be unique).
 	WorkforceName string `pulumi:"workforceName"`
 	// The name of the workforce.
@@ -230,6 +232,8 @@ type WorkteamArgs struct {
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The name of the Workteam (must be unique).
 	WorkforceName pulumi.StringInput
 	// The name of the workforce.

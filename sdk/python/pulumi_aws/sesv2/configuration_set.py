@@ -22,6 +22,7 @@ class ConfigurationSetArgs:
                  sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
                  suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
                  vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
@@ -46,6 +47,8 @@ class ConfigurationSetArgs:
             pulumi.set(__self__, "suppression_options", suppression_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tracking_options is not None:
             pulumi.set(__self__, "tracking_options", tracking_options)
         if vdm_options is not None:
@@ -122,6 +125,15 @@ class ConfigurationSetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="trackingOptions")
@@ -323,6 +335,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
                  suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
                  vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
                  __props__=None):
@@ -444,6 +457,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
                  suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
                  vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
                  __props__=None):
@@ -463,10 +477,10 @@ class ConfigurationSet(pulumi.CustomResource):
             __props__.__dict__["sending_options"] = sending_options
             __props__.__dict__["suppression_options"] = suppression_options
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tracking_options"] = tracking_options
             __props__.__dict__["vdm_options"] = vdm_options
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(ConfigurationSet, __self__).__init__(
             'aws:sesv2/configurationSet:ConfigurationSet',
             resource_name,

@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'GetAttachmentFilterResult',
+    'GetAttachmentsFilterResult',
     'GetConnectFilterResult',
     'GetConnectPeerFilterResult',
     'GetDirectConnectGatewayAttachmentFilterResult',
@@ -19,7 +20,9 @@ __all__ = [
     'GetMulticastDomainMemberResult',
     'GetMulticastDomainSourceResult',
     'GetPeeringAttachmentFilterResult',
+    'GetRouteTableAssociationsFilterResult',
     'GetRouteTableFilterResult',
+    'GetRouteTablePropagationsFilterResult',
     'GetTransitGatewayFilterResult',
     'GetVpcAttachmentFilterResult',
     'GetVpcAttachmentsFilterResult',
@@ -43,6 +46,35 @@ class GetAttachmentFilterResult(dict):
     def name(self) -> str:
         """
         Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAttachmentsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
         """
         return pulumi.get(self, "name")
 
@@ -292,6 +324,39 @@ class GetPeeringAttachmentFilterResult(dict):
 
 
 @pulumi.output_type
+class GetRouteTableAssociationsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               A Transit Gateway Route Table will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        A Transit Gateway Route Table will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class GetRouteTableFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -316,6 +381,39 @@ class GetRouteTableFilterResult(dict):
     def values(self) -> Sequence[str]:
         """
         List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetRouteTablePropagationsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               A Transit Gateway Route Table will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        A Transit Gateway Route Table will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

@@ -17,11 +17,19 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs();
 
-    @Import(name="certficateMode")
-    private @Nullable Output<String> certficateMode;
+    /**
+     * Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
+    @Import(name="certificateMode")
+    private @Nullable Output<String> certificateMode;
 
-    public Optional<Output<String>> certficateMode() {
-        return Optional.ofNullable(this.certficateMode);
+    /**
+     * @return Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
+    public Optional<Output<String>> certificateMode() {
+        return Optional.ofNullable(this.certificateMode);
     }
 
     /**
@@ -72,7 +80,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs() {}
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs(ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs $) {
-        this.certficateMode = $.certficateMode;
+        this.certificateMode = $.certificateMode;
         this.connectionRetryInterval = $.connectionRetryInterval;
         this.destination = $.destination;
         this.numRetries = $.numRetries;
@@ -96,13 +104,25 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder certficateMode(@Nullable Output<String> certficateMode) {
-            $.certficateMode = certficateMode;
+        /**
+         * @param certificateMode Setting to allow self signed or verified RTMP certificates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateMode(@Nullable Output<String> certificateMode) {
+            $.certificateMode = certificateMode;
             return this;
         }
 
-        public Builder certficateMode(String certficateMode) {
-            return certficateMode(Output.of(certficateMode));
+        /**
+         * @param certificateMode Setting to allow self signed or verified RTMP certificates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateMode(String certificateMode) {
+            return certificateMode(Output.of(certificateMode));
         }
 
         /**

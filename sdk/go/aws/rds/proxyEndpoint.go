@@ -143,7 +143,8 @@ type proxyEndpointArgs struct {
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName string `pulumi:"dbProxyName"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole *string `pulumi:"targetRole"`
 	// One or more VPC security group IDs to associate with the new proxy.
@@ -159,7 +160,8 @@ type ProxyEndpointArgs struct {
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole pulumi.StringPtrInput
 	// One or more VPC security group IDs to associate with the new proxy.

@@ -32,6 +32,7 @@ class CanaryArgs:
                  start_canary: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None,
                  zip_file: Optional[pulumi.Input[str]] = None):
         """
@@ -52,6 +53,7 @@ class CanaryArgs:
         :param pulumi.Input[bool] start_canary: Whether to run or stop the canary.
         :param pulumi.Input[int] success_retention_period: Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
@@ -82,6 +84,8 @@ class CanaryArgs:
             pulumi.set(__self__, "success_retention_period", success_retention_period)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
         if zip_file is not None:
@@ -278,6 +282,18 @@ class CanaryArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
@@ -717,6 +733,7 @@ class Canary(pulumi.CustomResource):
                  start_canary: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
                  zip_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -768,6 +785,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[bool] start_canary: Whether to run or stop the canary.
         :param pulumi.Input[int] success_retention_period: Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
         :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
@@ -838,6 +856,7 @@ class Canary(pulumi.CustomResource):
                  start_canary: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
                  zip_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -875,13 +894,13 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["start_canary"] = start_canary
             __props__.__dict__["success_retention_period"] = success_retention_period
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["zip_file"] = zip_file
             __props__.__dict__["arn"] = None
             __props__.__dict__["engine_arn"] = None
             __props__.__dict__["source_location_arn"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["timelines"] = None
         super(Canary, __self__).__init__(
             'aws:synthetics/canary:Canary',

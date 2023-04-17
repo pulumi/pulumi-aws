@@ -55,6 +55,7 @@ public final class Endpoints {
     private @Nullable String ce;
     private @Nullable String chime;
     private @Nullable String chimesdkidentity;
+    private @Nullable String chimesdkmediapipelines;
     private @Nullable String chimesdkmeetings;
     private @Nullable String chimesdkmessaging;
     private @Nullable String cloud9;
@@ -336,6 +337,7 @@ public final class Endpoints {
     private @Nullable String sdb;
     private @Nullable String secretsmanager;
     private @Nullable String securityhub;
+    private @Nullable String securitylake;
     private @Nullable String serverlessapplicationrepository;
     private @Nullable String serverlessapprepo;
     private @Nullable String serverlessrepo;
@@ -376,6 +378,7 @@ public final class Endpoints {
     private @Nullable String transfer;
     private @Nullable String translate;
     private @Nullable String voiceid;
+    private @Nullable String vpclattice;
     private @Nullable String waf;
     private @Nullable String wafregional;
     private @Nullable String wafv2;
@@ -521,6 +524,9 @@ public final class Endpoints {
     }
     public Optional<String> chimesdkidentity() {
         return Optional.ofNullable(this.chimesdkidentity);
+    }
+    public Optional<String> chimesdkmediapipelines() {
+        return Optional.ofNullable(this.chimesdkmediapipelines);
     }
     public Optional<String> chimesdkmeetings() {
         return Optional.ofNullable(this.chimesdkmeetings);
@@ -1365,6 +1371,9 @@ public final class Endpoints {
     public Optional<String> securityhub() {
         return Optional.ofNullable(this.securityhub);
     }
+    public Optional<String> securitylake() {
+        return Optional.ofNullable(this.securitylake);
+    }
     public Optional<String> serverlessapplicationrepository() {
         return Optional.ofNullable(this.serverlessapplicationrepository);
     }
@@ -1485,6 +1494,9 @@ public final class Endpoints {
     public Optional<String> voiceid() {
         return Optional.ofNullable(this.voiceid);
     }
+    public Optional<String> vpclattice() {
+        return Optional.ofNullable(this.vpclattice);
+    }
     public Optional<String> waf() {
         return Optional.ofNullable(this.waf);
     }
@@ -1575,6 +1587,7 @@ public final class Endpoints {
         private @Nullable String ce;
         private @Nullable String chime;
         private @Nullable String chimesdkidentity;
+        private @Nullable String chimesdkmediapipelines;
         private @Nullable String chimesdkmeetings;
         private @Nullable String chimesdkmessaging;
         private @Nullable String cloud9;
@@ -1856,6 +1869,7 @@ public final class Endpoints {
         private @Nullable String sdb;
         private @Nullable String secretsmanager;
         private @Nullable String securityhub;
+        private @Nullable String securitylake;
         private @Nullable String serverlessapplicationrepository;
         private @Nullable String serverlessapprepo;
         private @Nullable String serverlessrepo;
@@ -1896,6 +1910,7 @@ public final class Endpoints {
         private @Nullable String transfer;
         private @Nullable String translate;
         private @Nullable String voiceid;
+        private @Nullable String vpclattice;
         private @Nullable String waf;
         private @Nullable String wafregional;
         private @Nullable String wafv2;
@@ -1955,6 +1970,7 @@ public final class Endpoints {
     	      this.ce = defaults.ce;
     	      this.chime = defaults.chime;
     	      this.chimesdkidentity = defaults.chimesdkidentity;
+    	      this.chimesdkmediapipelines = defaults.chimesdkmediapipelines;
     	      this.chimesdkmeetings = defaults.chimesdkmeetings;
     	      this.chimesdkmessaging = defaults.chimesdkmessaging;
     	      this.cloud9 = defaults.cloud9;
@@ -2236,6 +2252,7 @@ public final class Endpoints {
     	      this.sdb = defaults.sdb;
     	      this.secretsmanager = defaults.secretsmanager;
     	      this.securityhub = defaults.securityhub;
+    	      this.securitylake = defaults.securitylake;
     	      this.serverlessapplicationrepository = defaults.serverlessapplicationrepository;
     	      this.serverlessapprepo = defaults.serverlessapprepo;
     	      this.serverlessrepo = defaults.serverlessrepo;
@@ -2276,6 +2293,7 @@ public final class Endpoints {
     	      this.transfer = defaults.transfer;
     	      this.translate = defaults.translate;
     	      this.voiceid = defaults.voiceid;
+    	      this.vpclattice = defaults.vpclattice;
     	      this.waf = defaults.waf;
     	      this.wafregional = defaults.wafregional;
     	      this.wafv2 = defaults.wafv2;
@@ -2508,6 +2526,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder chimesdkidentity(@Nullable String chimesdkidentity) {
             this.chimesdkidentity = chimesdkidentity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder chimesdkmediapipelines(@Nullable String chimesdkmediapipelines) {
+            this.chimesdkmediapipelines = chimesdkmediapipelines;
             return this;
         }
         @CustomType.Setter
@@ -3916,6 +3939,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder securitylake(@Nullable String securitylake) {
+            this.securitylake = securitylake;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serverlessapplicationrepository(@Nullable String serverlessapplicationrepository) {
             this.serverlessapplicationrepository = serverlessapplicationrepository;
             return this;
@@ -4116,6 +4144,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder vpclattice(@Nullable String vpclattice) {
+            this.vpclattice = vpclattice;
+            return this;
+        }
+        @CustomType.Setter
         public Builder waf(@Nullable String waf) {
             this.waf = waf;
             return this;
@@ -4221,6 +4254,7 @@ public final class Endpoints {
             o.ce = ce;
             o.chime = chime;
             o.chimesdkidentity = chimesdkidentity;
+            o.chimesdkmediapipelines = chimesdkmediapipelines;
             o.chimesdkmeetings = chimesdkmeetings;
             o.chimesdkmessaging = chimesdkmessaging;
             o.cloud9 = cloud9;
@@ -4502,6 +4536,7 @@ public final class Endpoints {
             o.sdb = sdb;
             o.secretsmanager = secretsmanager;
             o.securityhub = securityhub;
+            o.securitylake = securitylake;
             o.serverlessapplicationrepository = serverlessapplicationrepository;
             o.serverlessapprepo = serverlessapprepo;
             o.serverlessrepo = serverlessrepo;
@@ -4542,6 +4577,7 @@ public final class Endpoints {
             o.transfer = transfer;
             o.translate = translate;
             o.voiceid = voiceid;
+            o.vpclattice = vpclattice;
             o.waf = waf;
             o.wafregional = wafregional;
             o.wafv2 = wafv2;

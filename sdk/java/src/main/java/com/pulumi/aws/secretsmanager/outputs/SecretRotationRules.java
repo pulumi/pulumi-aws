@@ -5,7 +5,10 @@ package com.pulumi.aws.secretsmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class SecretRotationRules {
@@ -13,15 +16,23 @@ public final class SecretRotationRules {
      * @return Specifies the number of days between automatic scheduled rotations of the secret.
      * 
      */
-    private Integer automaticallyAfterDays;
+    private @Nullable Integer automaticallyAfterDays;
+    private @Nullable String duration;
+    private @Nullable String scheduleExpression;
 
     private SecretRotationRules() {}
     /**
      * @return Specifies the number of days between automatic scheduled rotations of the secret.
      * 
      */
-    public Integer automaticallyAfterDays() {
-        return this.automaticallyAfterDays;
+    public Optional<Integer> automaticallyAfterDays() {
+        return Optional.ofNullable(this.automaticallyAfterDays);
+    }
+    public Optional<String> duration() {
+        return Optional.ofNullable(this.duration);
+    }
+    public Optional<String> scheduleExpression() {
+        return Optional.ofNullable(this.scheduleExpression);
     }
 
     public static Builder builder() {
@@ -33,21 +44,37 @@ public final class SecretRotationRules {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer automaticallyAfterDays;
+        private @Nullable Integer automaticallyAfterDays;
+        private @Nullable String duration;
+        private @Nullable String scheduleExpression;
         public Builder() {}
         public Builder(SecretRotationRules defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automaticallyAfterDays = defaults.automaticallyAfterDays;
+    	      this.duration = defaults.duration;
+    	      this.scheduleExpression = defaults.scheduleExpression;
         }
 
         @CustomType.Setter
-        public Builder automaticallyAfterDays(Integer automaticallyAfterDays) {
-            this.automaticallyAfterDays = Objects.requireNonNull(automaticallyAfterDays);
+        public Builder automaticallyAfterDays(@Nullable Integer automaticallyAfterDays) {
+            this.automaticallyAfterDays = automaticallyAfterDays;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder duration(@Nullable String duration) {
+            this.duration = duration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scheduleExpression(@Nullable String scheduleExpression) {
+            this.scheduleExpression = scheduleExpression;
             return this;
         }
         public SecretRotationRules build() {
             final var o = new SecretRotationRules();
             o.automaticallyAfterDays = automaticallyAfterDays;
+            o.duration = duration;
+            o.scheduleExpression = scheduleExpression;
             return o;
         }
     }

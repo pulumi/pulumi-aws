@@ -478,7 +478,7 @@ func (o ScheduleTargetPtrOutput) SqsParameters() ScheduleTargetSqsParametersPtrO
 
 type ScheduleTargetDeadLetterConfig struct {
 	// ARN of the SQS queue specified as the destination for the dead-letter queue.
-	Arn *string `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
 }
 
 // ScheduleTargetDeadLetterConfigInput is an input type that accepts ScheduleTargetDeadLetterConfigArgs and ScheduleTargetDeadLetterConfigOutput values.
@@ -494,7 +494,7 @@ type ScheduleTargetDeadLetterConfigInput interface {
 
 type ScheduleTargetDeadLetterConfigArgs struct {
 	// ARN of the SQS queue specified as the destination for the dead-letter queue.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (ScheduleTargetDeadLetterConfigArgs) ElementType() reflect.Type {
@@ -575,8 +575,8 @@ func (o ScheduleTargetDeadLetterConfigOutput) ToScheduleTargetDeadLetterConfigPt
 }
 
 // ARN of the SQS queue specified as the destination for the dead-letter queue.
-func (o ScheduleTargetDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScheduleTargetDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
+func (o ScheduleTargetDeadLetterConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleTargetDeadLetterConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 type ScheduleTargetDeadLetterConfigPtrOutput struct{ *pulumi.OutputState }
@@ -609,7 +609,7 @@ func (o ScheduleTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Arn
+		return &v.Arn
 	}).(pulumi.StringPtrOutput)
 }
 

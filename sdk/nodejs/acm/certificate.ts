@@ -247,7 +247,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Source of the certificate.
      */
@@ -314,6 +314,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
             resourceInputs["validationOptions"] = args ? args.validationOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -324,7 +325,6 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["renewalEligibility"] = undefined /*out*/;
             resourceInputs["renewalSummaries"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationEmails"] = undefined /*out*/;
         }
@@ -492,6 +492,10 @@ export interface CertificateArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */

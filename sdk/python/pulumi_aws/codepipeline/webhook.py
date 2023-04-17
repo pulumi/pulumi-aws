@@ -22,7 +22,8 @@ class WebhookArgs:
                  target_pipeline: pulumi.Input[str],
                  authentication_configuration: Optional[pulumi.Input['WebhookAuthenticationConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Webhook resource.
         :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
@@ -32,6 +33,7 @@ class WebhookArgs:
         :param pulumi.Input['WebhookAuthenticationConfigurationArgs'] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "filters", filters)
@@ -43,6 +45,8 @@ class WebhookArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -127,6 +131,18 @@ class WebhookArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -307,6 +323,7 @@ class Webhook(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_action: Optional[pulumi.Input[str]] = None,
                  target_pipeline: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -401,6 +418,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         """
@@ -514,6 +532,7 @@ class Webhook(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_action: Optional[pulumi.Input[str]] = None,
                  target_pipeline: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -534,6 +553,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["filters"] = filters
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if target_action is None and not opts.urn:
                 raise TypeError("Missing required property 'target_action'")
             __props__.__dict__["target_action"] = target_action
@@ -541,7 +561,6 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_pipeline'")
             __props__.__dict__["target_pipeline"] = target_pipeline
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
         super(Webhook, __self__).__init__(
             'aws:codepipeline/webhook:Webhook',

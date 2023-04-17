@@ -144,6 +144,9 @@ namespace Pulumi.Aws.Inputs
         [Input("chimesdkidentity")]
         public Input<string>? Chimesdkidentity { get; set; }
 
+        [Input("chimesdkmediapipelines")]
+        public Input<string>? Chimesdkmediapipelines { get; set; }
+
         [Input("chimesdkmeetings")]
         public Input<string>? Chimesdkmeetings { get; set; }
 
@@ -987,6 +990,9 @@ namespace Pulumi.Aws.Inputs
         [Input("securityhub")]
         public Input<string>? Securityhub { get; set; }
 
+        [Input("securitylake")]
+        public Input<string>? Securitylake { get; set; }
+
         [Input("serverlessapplicationrepository")]
         public Input<string>? Serverlessapplicationrepository { get; set; }
 
@@ -1106,6 +1112,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("voiceid")]
         public Input<string>? Voiceid { get; set; }
+
+        [Input("vpclattice")]
+        public Input<string>? Vpclattice { get; set; }
 
         [Input("waf")]
         public Input<string>? Waf { get; set; }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class GetProxyAuthResult
     {
         public readonly string AuthScheme;
+        public readonly string ClientPasswordAuthType;
         public readonly string Description;
         public readonly string IamAuth;
         public readonly string SecretArn;
@@ -22,6 +23,8 @@ namespace Pulumi.Aws.Rds.Outputs
         [OutputConstructor]
         private GetProxyAuthResult(
             string authScheme,
+
+            string clientPasswordAuthType,
 
             string description,
 
@@ -32,6 +35,7 @@ namespace Pulumi.Aws.Rds.Outputs
             string username)
         {
             AuthScheme = authScheme;
+            ClientPasswordAuthType = clientPasswordAuthType;
             Description = description;
             IamAuth = iamAuth;
             SecretArn = secretArn;

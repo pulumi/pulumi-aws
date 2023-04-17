@@ -15,7 +15,7 @@ namespace Pulumi.Aws.S3
     /// &gt; **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
     /// 
     /// ## Example Usage
-    /// ### With ACL
+    /// ### With `private` ACL
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -24,12 +24,74 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketAcl = new Aws.S3.BucketAclV2("exampleBucketAcl", new()
+    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
     ///     {
-    ///         Bucket = example.Id,
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+    ///         {
+    ///             ObjectOwnership = "BucketOwnerPreferred",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleBucketOwnershipControls,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With `public-read` ACL
+    /// 
+    /// &gt; This example explicitly disables the default S3 bucket security settings. This
+    /// should be done with caution, as all bucket objects become publicly exposed.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+    ///         {
+    ///             ObjectOwnership = "BucketOwnerPreferred",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         BlockPublicAcls = false,
+    ///         BlockPublicPolicy = false,
+    ///         IgnorePublicAcls = false,
+    ///         RestrictPublicBuckets = false,
+    ///     });
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Acl = "public-read",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleBucketOwnershipControls,
+    ///             exampleBucketPublicAccessBlock,
+    ///         },
     ///     });
     /// 
     /// });
@@ -46,6 +108,15 @@ namespace Pulumi.Aws.S3
     ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
     /// 
     ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+    ///         {
+    ///             ObjectOwnership = "BucketOwnerPreferred",
+    ///         },
+    ///     });
     /// 
     ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
     ///     {
@@ -77,6 +148,12 @@ namespace Pulumi.Aws.S3
     ///             {
     ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
     ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleBucketOwnershipControls,
     ///         },
     ///     });
     /// 

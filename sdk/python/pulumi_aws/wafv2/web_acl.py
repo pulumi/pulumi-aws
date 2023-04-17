@@ -23,7 +23,8 @@ class WebAclArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a WebAcl resource.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
@@ -34,6 +35,7 @@ class WebAclArgs:
         :param pulumi.Input[str] name: Friendly name of the WebACL.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
@@ -48,6 +50,8 @@ class WebAclArgs:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -144,6 +148,18 @@ class WebAclArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -354,6 +370,7 @@ class WebAcl(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         """
@@ -538,6 +555,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
         ...
@@ -741,6 +759,7 @@ class WebAcl(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -762,13 +781,13 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["capacity"] = None
             __props__.__dict__["lock_token"] = None
-            __props__.__dict__["tags_all"] = None
         super(WebAcl, __self__).__init__(
             'aws:wafv2/webAcl:WebAcl',
             resource_name,

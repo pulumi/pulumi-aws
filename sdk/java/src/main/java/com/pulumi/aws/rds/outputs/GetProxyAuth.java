@@ -10,6 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetProxyAuth {
     private String authScheme;
+    private String clientPasswordAuthType;
     private String description;
     private String iamAuth;
     private String secretArn;
@@ -18,6 +19,9 @@ public final class GetProxyAuth {
     private GetProxyAuth() {}
     public String authScheme() {
         return this.authScheme;
+    }
+    public String clientPasswordAuthType() {
+        return this.clientPasswordAuthType;
     }
     public String description() {
         return this.description;
@@ -42,6 +46,7 @@ public final class GetProxyAuth {
     @CustomType.Builder
     public static final class Builder {
         private String authScheme;
+        private String clientPasswordAuthType;
         private String description;
         private String iamAuth;
         private String secretArn;
@@ -50,6 +55,7 @@ public final class GetProxyAuth {
         public Builder(GetProxyAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authScheme = defaults.authScheme;
+    	      this.clientPasswordAuthType = defaults.clientPasswordAuthType;
     	      this.description = defaults.description;
     	      this.iamAuth = defaults.iamAuth;
     	      this.secretArn = defaults.secretArn;
@@ -59,6 +65,11 @@ public final class GetProxyAuth {
         @CustomType.Setter
         public Builder authScheme(String authScheme) {
             this.authScheme = Objects.requireNonNull(authScheme);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientPasswordAuthType(String clientPasswordAuthType) {
+            this.clientPasswordAuthType = Objects.requireNonNull(clientPasswordAuthType);
             return this;
         }
         @CustomType.Setter
@@ -84,6 +95,7 @@ public final class GetProxyAuth {
         public GetProxyAuth build() {
             final var o = new GetProxyAuth();
             o.authScheme = authScheme;
+            o.clientPasswordAuthType = clientPasswordAuthType;
             o.description = description;
             o.iamAuth = iamAuth;
             o.secretArn = secretArn;

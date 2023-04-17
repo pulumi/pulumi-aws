@@ -16,12 +16,21 @@ namespace Pulumi.Aws.SecretsManager.Outputs
         /// <summary>
         /// Specifies the number of days between automatic scheduled rotations of the secret.
         /// </summary>
-        public readonly int AutomaticallyAfterDays;
+        public readonly int? AutomaticallyAfterDays;
+        public readonly string? Duration;
+        public readonly string? ScheduleExpression;
 
         [OutputConstructor]
-        private SecretRotationRules(int automaticallyAfterDays)
+        private SecretRotationRules(
+            int? automaticallyAfterDays,
+
+            string? duration,
+
+            string? scheduleExpression)
         {
             AutomaticallyAfterDays = automaticallyAfterDays;
+            Duration = duration;
+            ScheduleExpression = scheduleExpression;
         }
     }
 }

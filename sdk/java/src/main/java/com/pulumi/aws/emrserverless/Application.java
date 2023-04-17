@@ -8,6 +8,7 @@ import com.pulumi.aws.emrserverless.ApplicationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationState;
 import com.pulumi.aws.emrserverless.outputs.ApplicationAutoStartConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationAutoStopConfiguration;
+import com.pulumi.aws.emrserverless.outputs.ApplicationImageConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationInitialCapacity;
 import com.pulumi.aws.emrserverless.outputs.ApplicationMaximumCapacity;
 import com.pulumi.aws.emrserverless.outputs.ApplicationNetworkConfiguration;
@@ -200,6 +201,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<ApplicationAutoStopConfiguration> autoStopConfiguration() {
         return this.autoStopConfiguration;
+    }
+    /**
+     * The image configuration applied to all worker types.
+     * 
+     */
+    @Export(name="imageConfiguration", refs={ApplicationImageConfiguration.class}, tree="[0]")
+    private Output<ApplicationImageConfiguration> imageConfiguration;
+
+    /**
+     * @return The image configuration applied to all worker types.
+     * 
+     */
+    public Output<ApplicationImageConfiguration> imageConfiguration() {
+        return this.imageConfiguration;
     }
     /**
      * The capacity to initialize when the application is created.

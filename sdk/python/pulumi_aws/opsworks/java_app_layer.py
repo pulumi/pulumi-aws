@@ -43,6 +43,7 @@ class JavaAppLayerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a JavaAppLayer resource.
@@ -66,6 +67,7 @@ class JavaAppLayerArgs:
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         pulumi.set(__self__, "stack_id", stack_id)
@@ -121,6 +123,8 @@ class JavaAppLayerArgs:
             pulumi.set(__self__, "system_packages", system_packages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if use_ebs_optimized_instances is not None:
             pulumi.set(__self__, "use_ebs_optimized_instances", use_ebs_optimized_instances)
 
@@ -426,6 +430,18 @@ class JavaAppLayerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="useEbsOptimizedInstances")
@@ -932,6 +948,7 @@ class JavaAppLayer(pulumi.CustomResource):
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -968,6 +985,7 @@ class JavaAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         ...
@@ -1030,6 +1048,7 @@ class JavaAppLayer(pulumi.CustomResource):
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1069,9 +1088,9 @@ class JavaAppLayer(pulumi.CustomResource):
             __props__.__dict__["stack_id"] = stack_id
             __props__.__dict__["system_packages"] = system_packages
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(JavaAppLayer, __self__).__init__(
             'aws:opsworks/javaAppLayer:JavaAppLayer',
             resource_name,

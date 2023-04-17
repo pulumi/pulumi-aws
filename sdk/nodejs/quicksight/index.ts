@@ -5,10 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccountSubscriptionArgs, AccountSubscriptionState } from "./accountSubscription";
+export type AccountSubscription = import("./accountSubscription").AccountSubscription;
+export const AccountSubscription: typeof import("./accountSubscription").AccountSubscription = null as any;
+utilities.lazyLoad(exports, ["AccountSubscription"], () => require("./accountSubscription"));
+
+export { DataSetArgs, DataSetState } from "./dataSet";
+export type DataSet = import("./dataSet").DataSet;
+export const DataSet: typeof import("./dataSet").DataSet = null as any;
+utilities.lazyLoad(exports, ["DataSet"], () => require("./dataSet"));
+
 export { DataSourceArgs, DataSourceState } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
 utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+
+export { FolderArgs, FolderState } from "./folder";
+export type Folder = import("./folder").Folder;
+export const Folder: typeof import("./folder").Folder = null as any;
+utilities.lazyLoad(exports, ["Folder"], () => require("./folder"));
+
+export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
+export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
+export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
 
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
@@ -30,8 +50,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:quicksight/accountSubscription:AccountSubscription":
+                return new AccountSubscription(name, <any>undefined, { urn })
+            case "aws:quicksight/dataSet:DataSet":
+                return new DataSet(name, <any>undefined, { urn })
             case "aws:quicksight/dataSource:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws:quicksight/folder:Folder":
+                return new Folder(name, <any>undefined, { urn })
             case "aws:quicksight/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "aws:quicksight/groupMembership:GroupMembership":
@@ -43,7 +69,10 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "quicksight/accountSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/dataSet", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSource", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/folder", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/group", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/groupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)

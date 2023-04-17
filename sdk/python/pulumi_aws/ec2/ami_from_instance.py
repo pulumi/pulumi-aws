@@ -23,7 +23,8 @@ class AmiFromInstanceArgs:
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AmiFromInstance resource.
         :param pulumi.Input[str] source_instance_id: ID of the instance to use as the basis of the AMI.
@@ -55,6 +56,8 @@ class AmiFromInstanceArgs:
             pulumi.set(__self__, "snapshot_without_reboot", snapshot_without_reboot)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="sourceInstanceId")
@@ -156,6 +159,15 @@ class AmiFromInstanceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -653,6 +665,7 @@ class AmiFromInstance(pulumi.CustomResource):
                  snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
                  source_instance_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The "AMI from instance" resource allows the creation of an Amazon Machine
@@ -755,6 +768,7 @@ class AmiFromInstance(pulumi.CustomResource):
                  snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
                  source_instance_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -774,6 +788,7 @@ class AmiFromInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_instance_id'")
             __props__.__dict__["source_instance_id"] = source_instance_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["architecture"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["boot_mode"] = None
@@ -793,7 +808,6 @@ class AmiFromInstance(pulumi.CustomResource):
             __props__.__dict__["root_device_name"] = None
             __props__.__dict__["root_snapshot_id"] = None
             __props__.__dict__["sriov_net_support"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["tpm_support"] = None
             __props__.__dict__["usage_operation"] = None
             __props__.__dict__["virtualization_type"] = None

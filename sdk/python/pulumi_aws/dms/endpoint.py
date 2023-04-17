@@ -38,6 +38,7 @@ class EndpointArgs:
                  service_access_role: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
@@ -62,6 +63,7 @@ class EndpointArgs:
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] username: User name to be used to login to the endpoint database.
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
@@ -105,6 +107,8 @@ class EndpointArgs:
             pulumi.set(__self__, "ssl_mode", ssl_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -368,6 +372,18 @@ class EndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -813,6 +829,7 @@ class Endpoint(pulumi.CustomResource):
                  service_access_role: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -878,6 +895,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] username: User name to be used to login to the endpoint database.
         """
         ...
@@ -963,6 +981,7 @@ class Endpoint(pulumi.CustomResource):
                  service_access_role: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1001,9 +1020,9 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["service_access_role"] = service_access_role
             __props__.__dict__["ssl_mode"] = ssl_mode
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["username"] = username
             __props__.__dict__["endpoint_arn"] = None
-            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Endpoint, __self__).__init__(

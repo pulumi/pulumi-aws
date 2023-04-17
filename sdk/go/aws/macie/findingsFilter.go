@@ -181,7 +181,8 @@ type findingsFilterArgs struct {
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position *int `pulumi:"position"`
 	// A map of key-value pairs that specifies the tags to associate with the filter.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a FindingsFilter resource.
@@ -199,7 +200,8 @@ type FindingsFilterArgs struct {
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntPtrInput
 	// A map of key-value pairs that specifies the tags to associate with the filter.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (FindingsFilterArgs) ElementType() reflect.Type {

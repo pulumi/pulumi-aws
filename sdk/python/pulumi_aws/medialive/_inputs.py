@@ -5518,17 +5518,18 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs'],
-                 certficate_mode: Optional[pulumi.Input[str]] = None,
+                 certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
                  num_retries: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs'] destination: The RTMP endpoint excluding the stream name. See Destination for more details.
+        :param pulumi.Input[str] certificate_mode: Setting to allow self signed or verified RTMP certificates.
         :param pulumi.Input[int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         :param pulumi.Input[int] num_retries: Number of retry attempts.
         """
         pulumi.set(__self__, "destination", destination)
-        if certficate_mode is not None:
-            pulumi.set(__self__, "certficate_mode", certficate_mode)
+        if certificate_mode is not None:
+            pulumi.set(__self__, "certificate_mode", certificate_mode)
         if connection_retry_interval is not None:
             pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
         if num_retries is not None:
@@ -5547,13 +5548,16 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArg
         pulumi.set(self, "destination", value)
 
     @property
-    @pulumi.getter(name="certficateMode")
-    def certficate_mode(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "certficate_mode")
+    @pulumi.getter(name="certificateMode")
+    def certificate_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Setting to allow self signed or verified RTMP certificates.
+        """
+        return pulumi.get(self, "certificate_mode")
 
-    @certficate_mode.setter
-    def certficate_mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "certficate_mode", value)
+    @certificate_mode.setter
+    def certificate_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_mode", value)
 
     @property
     @pulumi.getter(name="connectionRetryInterval")

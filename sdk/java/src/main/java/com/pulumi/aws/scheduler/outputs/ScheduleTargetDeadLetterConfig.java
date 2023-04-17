@@ -6,8 +6,6 @@ package com.pulumi.aws.scheduler.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduleTargetDeadLetterConfig {
@@ -15,15 +13,15 @@ public final class ScheduleTargetDeadLetterConfig {
      * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
-    private @Nullable String arn;
+    private String arn;
 
     private ScheduleTargetDeadLetterConfig() {}
     /**
      * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
-    public Optional<String> arn() {
-        return Optional.ofNullable(this.arn);
+    public String arn() {
+        return this.arn;
     }
 
     public static Builder builder() {
@@ -35,7 +33,7 @@ public final class ScheduleTargetDeadLetterConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String arn;
+        private String arn;
         public Builder() {}
         public Builder(ScheduleTargetDeadLetterConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +41,8 @@ public final class ScheduleTargetDeadLetterConfig {
         }
 
         @CustomType.Setter
-        public Builder arn(@Nullable String arn) {
-            this.arn = arn;
+        public Builder arn(String arn) {
+            this.arn = Objects.requireNonNull(arn);
             return this;
         }
         public ScheduleTargetDeadLetterConfig build() {

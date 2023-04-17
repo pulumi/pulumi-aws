@@ -19,7 +19,8 @@ class ClusterEndpointArgs:
                  custom_endpoint_type: pulumi.Input[str],
                  excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClusterEndpoint resource.
         :param pulumi.Input[str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
@@ -28,6 +29,7 @@ class ClusterEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "cluster_endpoint_identifier", cluster_endpoint_identifier)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -38,6 +40,8 @@ class ClusterEndpointArgs:
             pulumi.set(__self__, "static_members", static_members)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="clusterEndpointIdentifier")
@@ -110,6 +114,18 @@ class ClusterEndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -275,6 +291,7 @@ class ClusterEndpoint(pulumi.CustomResource):
                  excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an RDS Aurora Cluster Endpoint.
@@ -355,6 +372,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -454,6 +472,7 @@ class ClusterEndpoint(pulumi.CustomResource):
                  excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -475,9 +494,9 @@ class ClusterEndpoint(pulumi.CustomResource):
             __props__.__dict__["excluded_members"] = excluded_members
             __props__.__dict__["static_members"] = static_members
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
-            __props__.__dict__["tags_all"] = None
         super(ClusterEndpoint, __self__).__init__(
             'aws:rds/clusterEndpoint:ClusterEndpoint',
             resource_name,

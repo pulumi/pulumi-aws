@@ -7,8 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ScheduleTargetDeadLetterConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +17,15 @@ public final class ScheduleTargetDeadLetterConfigArgs extends com.pulumi.resourc
      * ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
-    @Import(name="arn")
-    private @Nullable Output<String> arn;
+    @Import(name="arn", required=true)
+    private Output<String> arn;
 
     /**
      * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
-    public Optional<Output<String>> arn() {
-        return Optional.ofNullable(this.arn);
+    public Output<String> arn() {
+        return this.arn;
     }
 
     private ScheduleTargetDeadLetterConfigArgs() {}
@@ -60,7 +58,7 @@ public final class ScheduleTargetDeadLetterConfigArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder arn(@Nullable Output<String> arn) {
+        public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
@@ -76,6 +74,7 @@ public final class ScheduleTargetDeadLetterConfigArgs extends com.pulumi.resourc
         }
 
         public ScheduleTargetDeadLetterConfigArgs build() {
+            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
             return $;
         }
     }
