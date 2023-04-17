@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Cognito
     ///         AssumeRolePolicy = authenticatedPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var authenticatedRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var authenticatedRolePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -104,10 +104,10 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var authenticatedIam_rolePolicyRolePolicy = new Aws.Iam.RolePolicy("authenticatedIam/rolePolicyRolePolicy", new()
+    ///     var authenticatedRolePolicy = new Aws.Iam.RolePolicy("authenticatedRolePolicy", new()
     ///     {
     ///         Role = authenticatedRole.Id,
-    ///         Policy = authenticatedRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = authenticatedRolePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var mainIdentityPoolRoleAttachment = new Aws.Cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment", new()
