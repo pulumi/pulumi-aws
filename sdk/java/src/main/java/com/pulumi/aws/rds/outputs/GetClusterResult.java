@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.rds.outputs;
 
+import com.pulumi.aws.rds.outputs.GetClusterMasterUserSecret;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -38,6 +39,7 @@ public final class GetClusterResult {
      */
     private String id;
     private String kmsKeyId;
+    private List<GetClusterMasterUserSecret> masterUserSecrets;
     private String masterUsername;
     private String networkType;
     private Integer port;
@@ -121,6 +123,9 @@ public final class GetClusterResult {
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    public List<GetClusterMasterUserSecret> masterUserSecrets() {
+        return this.masterUserSecrets;
+    }
     public String masterUsername() {
         return this.masterUsername;
     }
@@ -186,6 +191,7 @@ public final class GetClusterResult {
         private List<String> iamRoles;
         private String id;
         private String kmsKeyId;
+        private List<GetClusterMasterUserSecret> masterUserSecrets;
         private String masterUsername;
         private String networkType;
         private Integer port;
@@ -220,6 +226,7 @@ public final class GetClusterResult {
     	      this.iamRoles = defaults.iamRoles;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
+    	      this.masterUserSecrets = defaults.masterUserSecrets;
     	      this.masterUsername = defaults.masterUsername;
     	      this.networkType = defaults.networkType;
     	      this.port = defaults.port;
@@ -350,6 +357,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder masterUserSecrets(List<GetClusterMasterUserSecret> masterUserSecrets) {
+            this.masterUserSecrets = Objects.requireNonNull(masterUserSecrets);
+            return this;
+        }
+        public Builder masterUserSecrets(GetClusterMasterUserSecret... masterUserSecrets) {
+            return masterUserSecrets(List.of(masterUserSecrets));
+        }
+        @CustomType.Setter
         public Builder masterUsername(String masterUsername) {
             this.masterUsername = Objects.requireNonNull(masterUsername);
             return this;
@@ -425,6 +440,7 @@ public final class GetClusterResult {
             o.iamRoles = iamRoles;
             o.id = id;
             o.kmsKeyId = kmsKeyId;
+            o.masterUserSecrets = masterUserSecrets;
             o.masterUsername = masterUsername;
             o.networkType = networkType;
             o.port = port;

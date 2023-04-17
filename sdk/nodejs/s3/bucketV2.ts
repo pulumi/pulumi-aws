@@ -412,7 +412,7 @@ export class BucketV2 extends pulumi.CustomResource {
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
-    public readonly bucketPrefix!: pulumi.Output<string | undefined>;
+    public readonly bucketPrefix!: pulumi.Output<string>;
     /**
      * Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      */
@@ -507,7 +507,7 @@ export class BucketV2 extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      *
@@ -591,6 +591,7 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
             resourceInputs["serverSideEncryptionConfigurations"] = args ? args.serverSideEncryptionConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["versionings"] = args ? args.versionings : undefined;
             resourceInputs["websites"] = args ? args.websites : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -598,7 +599,6 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["bucketRegionalDomainName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["websiteDomain"] = undefined /*out*/;
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
         }
@@ -868,6 +868,10 @@ export interface BucketV2Args {
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      *

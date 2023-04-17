@@ -31,6 +31,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? Method { get; set; }
 
         /// <summary>
+        /// Client request path to match on.
+        /// </summary>
+        [Input("path")]
+        public Input<Inputs.RouteSpecHttpRouteMatchPathGetArgs>? Path { get; set; }
+
+        /// <summary>
         /// The port number to match from the request.
         /// </summary>
         [Input("port")]
@@ -40,8 +46,20 @@ namespace Pulumi.Aws.AppMesh.Inputs
         /// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
-        [Input("prefix", required: true)]
-        public Input<string> Prefix { get; set; } = null!;
+        [Input("prefix")]
+        public Input<string>? Prefix { get; set; }
+
+        [Input("queryParameters")]
+        private InputList<Inputs.RouteSpecHttpRouteMatchQueryParameterGetArgs>? _queryParameters;
+
+        /// <summary>
+        /// Client request query parameters to match on.
+        /// </summary>
+        public InputList<Inputs.RouteSpecHttpRouteMatchQueryParameterGetArgs> QueryParameters
+        {
+            get => _queryParameters ?? (_queryParameters = new InputList<Inputs.RouteSpecHttpRouteMatchQueryParameterGetArgs>());
+            set => _queryParameters = value;
+        }
 
         /// <summary>
         /// Client request header scheme to match on. Valid values: `http`, `https`.

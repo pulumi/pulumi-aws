@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.EndpointConfigurationProductionVariantCoreDumpConfig? CoreDumpConfig;
         /// <summary>
+        /// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        /// </summary>
+        public readonly bool? EnableSsmAccess;
+        /// <summary>
         /// Initial number of instances used for auto-scaling.
         /// </summary>
         public readonly int? InitialInstanceCount;
@@ -66,6 +70,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.EndpointConfigurationProductionVariantCoreDumpConfig? coreDumpConfig,
 
+            bool? enableSsmAccess,
+
             int? initialInstanceCount,
 
             double? initialVariantWeight,
@@ -85,6 +91,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             AcceleratorType = acceleratorType;
             ContainerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             CoreDumpConfig = coreDumpConfig;
+            EnableSsmAccess = enableSsmAccess;
             InitialInstanceCount = initialInstanceCount;
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;

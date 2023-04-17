@@ -6,6 +6,8 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.VirtualRouterSpecListener;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualRouterSpec {
@@ -14,7 +16,7 @@ public final class VirtualRouterSpec {
      * Currently only one listener is supported per virtual router.
      * 
      */
-    private VirtualRouterSpecListener listener;
+    private @Nullable VirtualRouterSpecListener listener;
 
     private VirtualRouterSpec() {}
     /**
@@ -22,8 +24,8 @@ public final class VirtualRouterSpec {
      * Currently only one listener is supported per virtual router.
      * 
      */
-    public VirtualRouterSpecListener listener() {
-        return this.listener;
+    public Optional<VirtualRouterSpecListener> listener() {
+        return Optional.ofNullable(this.listener);
     }
 
     public static Builder builder() {
@@ -35,7 +37,7 @@ public final class VirtualRouterSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private VirtualRouterSpecListener listener;
+        private @Nullable VirtualRouterSpecListener listener;
         public Builder() {}
         public Builder(VirtualRouterSpec defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +45,8 @@ public final class VirtualRouterSpec {
         }
 
         @CustomType.Setter
-        public Builder listener(VirtualRouterSpecListener listener) {
-            this.listener = Objects.requireNonNull(listener);
+        public Builder listener(@Nullable VirtualRouterSpecListener listener) {
+            this.listener = listener;
             return this;
         }
         public VirtualRouterSpec build() {

@@ -49,7 +49,7 @@ type LookupRouteResult struct {
 	Name            string `pulumi:"name"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// Route specification
+	// Route specification. See the `appmesh.Route` resource for details.
 	Specs []GetRouteSpec `pulumi:"specs"`
 	// Map of tags.
 	Tags              map[string]string `pulumi:"tags"`
@@ -139,7 +139,7 @@ func (o LookupRouteResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Route specification
+// Route specification. See the `appmesh.Route` resource for details.
 func (o LookupRouteResultOutput) Specs() GetRouteSpecArrayOutput {
 	return o.ApplyT(func(v LookupRouteResult) []GetRouteSpec { return v.Specs }).(GetRouteSpecArrayOutput)
 }

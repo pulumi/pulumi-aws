@@ -51,6 +51,21 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * 
+     */
+    @Import(name="dualStackDnsName")
+    private @Nullable Output<String> dualStackDnsName;
+
+    /**
+     * @return The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * 
+     */
+    public Optional<Output<String>> dualStackDnsName() {
+        return Optional.ofNullable(this.dualStackDnsName);
+    }
+
+    /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
@@ -179,6 +194,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
     private AcceleratorState(AcceleratorState $) {
         this.attributes = $.attributes;
         this.dnsName = $.dnsName;
+        this.dualStackDnsName = $.dualStackDnsName;
         this.enabled = $.enabled;
         this.hostedZoneId = $.hostedZoneId;
         this.ipAddressType = $.ipAddressType;
@@ -247,6 +263,27 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dnsName(String dnsName) {
             return dnsName(Output.of(dnsName));
+        }
+
+        /**
+         * @param dualStackDnsName The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dualStackDnsName(@Nullable Output<String> dualStackDnsName) {
+            $.dualStackDnsName = dualStackDnsName;
+            return this;
+        }
+
+        /**
+         * @param dualStackDnsName The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dualStackDnsName(String dualStackDnsName) {
+            return dualStackDnsName(Output.of(dualStackDnsName));
         }
 
         /**

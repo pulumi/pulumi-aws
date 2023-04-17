@@ -201,13 +201,17 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly int Iops;
         /// <summary>
-        /// If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
+        /// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
         /// License model information for this DB instance.
         /// </summary>
         public readonly string LicenseModel;
+        /// <summary>
+        /// Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInstanceMasterUserSecretResult> MasterUserSecrets;
         /// <summary>
         /// Contains the master username for the DB instance.
         /// </summary>
@@ -328,6 +332,8 @@ namespace Pulumi.Aws.Rds
 
             string licenseModel,
 
+            ImmutableArray<Outputs.GetInstanceMasterUserSecretResult> masterUserSecrets,
+
             string masterUsername,
 
             int monitoringInterval,
@@ -388,6 +394,7 @@ namespace Pulumi.Aws.Rds
             Iops = iops;
             KmsKeyId = kmsKeyId;
             LicenseModel = licenseModel;
+            MasterUserSecrets = masterUserSecrets;
             MasterUsername = masterUsername;
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;

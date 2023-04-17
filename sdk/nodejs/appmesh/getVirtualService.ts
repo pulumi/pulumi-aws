@@ -95,7 +95,7 @@ export interface GetVirtualServiceResult {
      */
     readonly resourceOwner: string;
     /**
-     * Virtual service specification
+     * Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.
      */
     readonly specs: outputs.appmesh.GetVirtualServiceSpec[];
     /**

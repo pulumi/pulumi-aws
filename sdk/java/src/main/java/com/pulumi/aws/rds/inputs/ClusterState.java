@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.inputs;
 
 import com.pulumi.aws.rds.enums.EngineMode;
 import com.pulumi.aws.rds.enums.EngineType;
+import com.pulumi.aws.rds.inputs.ClusterMasterUserSecretArgs;
 import com.pulumi.aws.rds.inputs.ClusterRestoreToPointInTimeArgs;
 import com.pulumi.aws.rds.inputs.ClusterS3ImportArgs;
 import com.pulumi.aws.rds.inputs.ClusterScalingConfigurationArgs;
@@ -522,18 +523,63 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+     * 
+     */
+    @Import(name="manageMasterUserPassword")
+    private @Nullable Output<Boolean> manageMasterUserPassword;
+
+    /**
+     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+     * 
+     */
+    public Optional<Output<Boolean>> manageMasterUserPassword() {
+        return Optional.ofNullable(this.manageMasterUserPassword);
+    }
+
+    /**
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     @Import(name="masterPassword")
     private @Nullable Output<String> masterPassword;
 
     /**
-     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     public Optional<Output<String>> masterPassword() {
         return Optional.ofNullable(this.masterPassword);
+    }
+
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * 
+     */
+    @Import(name="masterUserSecretKmsKeyId")
+    private @Nullable Output<String> masterUserSecretKmsKeyId;
+
+    /**
+     * @return The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * 
+     */
+    public Optional<Output<String>> masterUserSecretKmsKeyId() {
+        return Optional.ofNullable(this.masterUserSecretKmsKeyId);
+    }
+
+    /**
+     * A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    @Import(name="masterUserSecrets")
+    private @Nullable Output<List<ClusterMasterUserSecretArgs>> masterUserSecrets;
+
+    /**
+     * @return A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    public Optional<Output<List<ClusterMasterUserSecretArgs>>> masterUserSecrets() {
+        return Optional.ofNullable(this.masterUserSecrets);
     }
 
     /**
@@ -851,7 +897,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.iamRoles = $.iamRoles;
         this.iops = $.iops;
         this.kmsKeyId = $.kmsKeyId;
+        this.manageMasterUserPassword = $.manageMasterUserPassword;
         this.masterPassword = $.masterPassword;
+        this.masterUserSecretKmsKeyId = $.masterUserSecretKmsKeyId;
+        this.masterUserSecrets = $.masterUserSecrets;
         this.masterUsername = $.masterUsername;
         this.networkType = $.networkType;
         this.port = $.port;
@@ -1665,7 +1714,28 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageMasterUserPassword(@Nullable Output<Boolean> manageMasterUserPassword) {
+            $.manageMasterUserPassword = manageMasterUserPassword;
+            return this;
+        }
+
+        /**
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageMasterUserPassword(Boolean manageMasterUserPassword) {
+            return manageMasterUserPassword(Output.of(manageMasterUserPassword));
+        }
+
+        /**
+         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
          * 
          * @return builder
          * 
@@ -1676,13 +1746,65 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
          * 
          * @return builder
          * 
          */
         public Builder masterPassword(String masterPassword) {
             return masterPassword(Output.of(masterPassword));
+        }
+
+        /**
+         * @param masterUserSecretKmsKeyId The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecretKmsKeyId(@Nullable Output<String> masterUserSecretKmsKeyId) {
+            $.masterUserSecretKmsKeyId = masterUserSecretKmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param masterUserSecretKmsKeyId The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecretKmsKeyId(String masterUserSecretKmsKeyId) {
+            return masterUserSecretKmsKeyId(Output.of(masterUserSecretKmsKeyId));
+        }
+
+        /**
+         * @param masterUserSecrets A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecrets(@Nullable Output<List<ClusterMasterUserSecretArgs>> masterUserSecrets) {
+            $.masterUserSecrets = masterUserSecrets;
+            return this;
+        }
+
+        /**
+         * @param masterUserSecrets A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecrets(List<ClusterMasterUserSecretArgs> masterUserSecrets) {
+            return masterUserSecrets(Output.of(masterUserSecrets));
+        }
+
+        /**
+         * @param masterUserSecrets A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterUserSecrets(ClusterMasterUserSecretArgs... masterUserSecrets) {
+            return masterUserSecrets(List.of(masterUserSecrets));
         }
 
         /**

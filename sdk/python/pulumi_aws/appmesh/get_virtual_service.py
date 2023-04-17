@@ -113,7 +113,7 @@ class GetVirtualServiceResult:
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetVirtualServiceSpecResult']:
         """
-        Virtual service specification
+        Virtual service specification. See the `appmesh.VirtualService` resource for details.
         """
         return pulumi.get(self, "specs")
 

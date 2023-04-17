@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListenerTl {
-    /**
-     * @return Listener&#39;s TLS certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTlCertificate> certificates;
-    /**
-     * @return Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-     * 
-     */
     private String mode;
-    /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTlValidation> validations;
 
     private GetVirtualGatewaySpecListenerTl() {}
-    /**
-     * @return Listener&#39;s TLS certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTlCertificate> certificates() {
         return this.certificates;
     }
-    /**
-     * @return Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-     * 
-     */
     public String mode() {
         return this.mode;
     }
-    /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTlValidation> validations() {
         return this.validations;
     }

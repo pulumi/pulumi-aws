@@ -2437,6 +2437,8 @@ class EndpointConfigurationProductionVariant(dict):
             suggest = "container_startup_health_check_timeout_in_seconds"
         elif key == "coreDumpConfig":
             suggest = "core_dump_config"
+        elif key == "enableSsmAccess":
+            suggest = "enable_ssm_access"
         elif key == "initialInstanceCount":
             suggest = "initial_instance_count"
         elif key == "initialVariantWeight":
@@ -2468,6 +2470,7 @@ class EndpointConfigurationProductionVariant(dict):
                  accelerator_type: Optional[str] = None,
                  container_startup_health_check_timeout_in_seconds: Optional[int] = None,
                  core_dump_config: Optional['outputs.EndpointConfigurationProductionVariantCoreDumpConfig'] = None,
+                 enable_ssm_access: Optional[bool] = None,
                  initial_instance_count: Optional[int] = None,
                  initial_variant_weight: Optional[float] = None,
                  instance_type: Optional[str] = None,
@@ -2480,6 +2483,7 @@ class EndpointConfigurationProductionVariant(dict):
         :param str accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
         :param int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         :param 'EndpointConfigurationProductionVariantCoreDumpConfigArgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        :param bool enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         :param int initial_instance_count: Initial number of instances used for auto-scaling.
         :param float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param str instance_type: The type of instance to start.
@@ -2495,6 +2499,8 @@ class EndpointConfigurationProductionVariant(dict):
             pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if core_dump_config is not None:
             pulumi.set(__self__, "core_dump_config", core_dump_config)
+        if enable_ssm_access is not None:
+            pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
@@ -2541,6 +2547,14 @@ class EndpointConfigurationProductionVariant(dict):
         Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         """
         return pulumi.get(self, "core_dump_config")
+
+    @property
+    @pulumi.getter(name="enableSsmAccess")
+    def enable_ssm_access(self) -> Optional[bool]:
+        """
+        You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        """
+        return pulumi.get(self, "enable_ssm_access")
 
     @property
     @pulumi.getter(name="initialInstanceCount")
@@ -2709,6 +2723,8 @@ class EndpointConfigurationShadowProductionVariant(dict):
             suggest = "container_startup_health_check_timeout_in_seconds"
         elif key == "coreDumpConfig":
             suggest = "core_dump_config"
+        elif key == "enableSsmAccess":
+            suggest = "enable_ssm_access"
         elif key == "initialInstanceCount":
             suggest = "initial_instance_count"
         elif key == "initialVariantWeight":
@@ -2740,6 +2756,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
                  accelerator_type: Optional[str] = None,
                  container_startup_health_check_timeout_in_seconds: Optional[int] = None,
                  core_dump_config: Optional['outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig'] = None,
+                 enable_ssm_access: Optional[bool] = None,
                  initial_instance_count: Optional[int] = None,
                  initial_variant_weight: Optional[float] = None,
                  instance_type: Optional[str] = None,
@@ -2752,6 +2769,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
         :param str accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
         :param int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         :param 'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        :param bool enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         :param int initial_instance_count: Initial number of instances used for auto-scaling.
         :param float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param str instance_type: The type of instance to start.
@@ -2767,6 +2785,8 @@ class EndpointConfigurationShadowProductionVariant(dict):
             pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if core_dump_config is not None:
             pulumi.set(__self__, "core_dump_config", core_dump_config)
+        if enable_ssm_access is not None:
+            pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
@@ -2813,6 +2833,14 @@ class EndpointConfigurationShadowProductionVariant(dict):
         Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         """
         return pulumi.get(self, "core_dump_config")
+
+    @property
+    @pulumi.getter(name="enableSsmAccess")
+    def enable_ssm_access(self) -> Optional[bool]:
+        """
+        You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        """
+        return pulumi.get(self, "enable_ssm_access")
 
     @property
     @pulumi.getter(name="initialInstanceCount")

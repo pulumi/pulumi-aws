@@ -125,7 +125,7 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string ResourceOwner;
         /// <summary>
-        /// Virtual gateway specification
+        /// Virtual gateway specification. See the `aws.appmesh.VirtualGateway` resource for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecResult> Specs;
         /// <summary>

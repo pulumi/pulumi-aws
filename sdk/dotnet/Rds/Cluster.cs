@@ -207,6 +207,58 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
+    /// 
+    /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+    /// 
+    /// You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Rds.Cluster("test", new()
+    ///     {
+    ///         ClusterIdentifier = "example",
+    ///         DatabaseName = "test",
+    ///         ManageMasterUserPassword = true,
+    ///         MasterUsername = "test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
+    /// 
+    /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+    /// 
+    /// You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "Example KMS Key",
+    ///     });
+    /// 
+    ///     var test = new Aws.Rds.Cluster("test", new()
+    ///     {
+    ///         ClusterIdentifier = "example",
+    ///         DatabaseName = "test",
+    ///         ManageMasterUserPassword = true,
+    ///         MasterUsername = "test",
+    ///         MasterUserSecretKmsKeyId = example.KeyId,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Global Cluster Restored From Snapshot
     /// 
     /// ```csharp
@@ -450,10 +502,28 @@ namespace Pulumi.Aws.Rds
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        /// </summary>
+        [Output("manageMasterUserPassword")]
+        public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        /// </summary>
+        [Output("masterUserSecretKmsKeyId")]
+        public Output<string> MasterUserSecretKmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        /// </summary>
+        [Output("masterUserSecrets")]
+        public Output<ImmutableArray<Outputs.ClusterMasterUserSecret>> MasterUserSecrets { get; private set; } = null!;
 
         /// <summary>
         /// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
@@ -809,11 +879,17 @@ namespace Pulumi.Aws.Rds
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        public Input<bool>? ManageMasterUserPassword { get; set; }
+
         [Input("masterPassword")]
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -824,6 +900,12 @@ namespace Pulumi.Aws.Rds
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        /// </summary>
+        [Input("masterUserSecretKmsKeyId")]
+        public Input<string>? MasterUserSecretKmsKeyId { get; set; }
 
         /// <summary>
         /// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
@@ -1166,11 +1248,17 @@ namespace Pulumi.Aws.Rds
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        public Input<bool>? ManageMasterUserPassword { get; set; }
+
         [Input("masterPassword")]
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -1180,6 +1268,24 @@ namespace Pulumi.Aws.Rds
                 var emptySecret = Output.CreateSecret(0);
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
+        }
+
+        /// <summary>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        /// </summary>
+        [Input("masterUserSecretKmsKeyId")]
+        public Input<string>? MasterUserSecretKmsKeyId { get; set; }
+
+        [Input("masterUserSecrets")]
+        private InputList<Inputs.ClusterMasterUserSecretGetArgs>? _masterUserSecrets;
+
+        /// <summary>
+        /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        /// </summary>
+        public InputList<Inputs.ClusterMasterUserSecretGetArgs> MasterUserSecrets
+        {
+            get => _masterUserSecrets ?? (_masterUserSecrets = new InputList<Inputs.ClusterMasterUserSecretGetArgs>());
+            set => _masterUserSecrets = value;
         }
 
         /// <summary>

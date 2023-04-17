@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DataProtectionPolicyArgs, DataProtectionPolicyState } from "./dataProtectionPolicy";
+export type DataProtectionPolicy = import("./dataProtectionPolicy").DataProtectionPolicy;
+export const DataProtectionPolicy: typeof import("./dataProtectionPolicy").DataProtectionPolicy = null as any;
+utilities.lazyLoad(exports, ["DataProtectionPolicy"], () => require("./dataProtectionPolicy"));
+
 export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
 export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
@@ -41,6 +46,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:sns/dataProtectionPolicy:DataProtectionPolicy":
+                return new DataProtectionPolicy(name, <any>undefined, { urn })
             case "aws:sns/platformApplication:PlatformApplication":
                 return new PlatformApplication(name, <any>undefined, { urn })
             case "aws:sns/smsPreferences:SmsPreferences":
@@ -56,6 +63,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "sns/dataProtectionPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "sns/platformApplication", _module)
 pulumi.runtime.registerResourceModule("aws", "sns/smsPreferences", _module)
 pulumi.runtime.registerResourceModule("aws", "sns/topic", _module)

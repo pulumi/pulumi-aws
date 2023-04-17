@@ -15,8 +15,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
     {
         public readonly ImmutableArray<Outputs.GetRouteSpecHttpRouteMatchHeaderResult> Headers;
         public readonly string Method;
+        public readonly ImmutableArray<Outputs.GetRouteSpecHttpRouteMatchPathResult> Paths;
         public readonly int Port;
         public readonly string Prefix;
+        public readonly ImmutableArray<Outputs.GetRouteSpecHttpRouteMatchQueryParameterResult> QueryParameters;
         public readonly string Scheme;
 
         [OutputConstructor]
@@ -25,16 +27,22 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             string method,
 
+            ImmutableArray<Outputs.GetRouteSpecHttpRouteMatchPathResult> paths,
+
             int port,
 
             string prefix,
+
+            ImmutableArray<Outputs.GetRouteSpecHttpRouteMatchQueryParameterResult> queryParameters,
 
             string scheme)
         {
             Headers = headers;
             Method = method;
+            Paths = paths;
             Port = port;
             Prefix = prefix;
+            QueryParameters = queryParameters;
             Scheme = scheme;
         }
     }

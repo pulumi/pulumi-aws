@@ -32,6 +32,7 @@ class BucketV2Args:
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versionings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]]] = None,
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]] = None):
         """
@@ -66,6 +67,7 @@ class BucketV2Args:
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
@@ -135,6 +137,8 @@ class BucketV2Args:
             pulumi.set(__self__, "server_side_encryption_configurations", server_side_encryption_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if versionings is not None:
             warnings.warn("""Use the aws_s3_bucket_versioning resource instead""", DeprecationWarning)
             pulumi.log.warn("""versionings is deprecated: Use the aws_s3_bucket_versioning resource instead""")
@@ -351,6 +355,18 @@ class BucketV2Args:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -898,6 +914,7 @@ class BucketV2(pulumi.CustomResource):
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ServerSideEncryptionConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versionings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]]] = None,
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2WebsiteArgs']]]]] = None,
                  __props__=None):
@@ -1266,6 +1283,7 @@ class BucketV2(pulumi.CustomResource):
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2WebsiteArgs']]]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
@@ -1640,6 +1658,7 @@ class BucketV2(pulumi.CustomResource):
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ServerSideEncryptionConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versionings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]]] = None,
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2WebsiteArgs']]]]] = None,
                  __props__=None):
@@ -1700,6 +1719,7 @@ class BucketV2(pulumi.CustomResource):
                 pulumi.log.warn("""server_side_encryption_configurations is deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead""")
             __props__.__dict__["server_side_encryption_configurations"] = server_side_encryption_configurations
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if versionings is not None and not opts.urn:
                 warnings.warn("""Use the aws_s3_bucket_versioning resource instead""", DeprecationWarning)
                 pulumi.log.warn("""versionings is deprecated: Use the aws_s3_bucket_versioning resource instead""")
@@ -1713,7 +1733,6 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["bucket_regional_domain_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["region"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["website_domain"] = None
             __props__.__dict__["website_endpoint"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucket:Bucket")])
@@ -1878,7 +1897,7 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> pulumi.Output[Optional[str]]:
+    def bucket_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         """

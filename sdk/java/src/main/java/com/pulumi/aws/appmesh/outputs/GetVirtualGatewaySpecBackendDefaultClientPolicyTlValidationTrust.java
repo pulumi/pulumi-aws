@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust {
-    /**
-     * @return An AWS Certificate Manager (ACM) certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms;
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files;
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust() {}
-    /**
-     * @return An AWS Certificate Manager (ACM) certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms() {
         return this.acms;
     }
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files() {
         return this.files;
     }
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds() {
         return this.sds;
     }

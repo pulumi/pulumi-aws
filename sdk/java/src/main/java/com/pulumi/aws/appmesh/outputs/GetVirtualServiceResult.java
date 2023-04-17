@@ -41,7 +41,7 @@ public final class GetVirtualServiceResult {
      */
     private String resourceOwner;
     /**
-     * @return Virtual service specification
+     * @return Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.
      * 
      */
     private List<GetVirtualServiceSpec> specs;
@@ -97,7 +97,7 @@ public final class GetVirtualServiceResult {
         return this.resourceOwner;
     }
     /**
-     * @return Virtual service specification
+     * @return Virtual service specification. See the `aws.appmesh.VirtualService` resource for details.
      * 
      */
     public List<GetVirtualServiceSpec> specs() {

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetMeshSpecEgressFilterResult
     {
-        /// <summary>
-        /// Egress filter type.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetInstanceResult',
@@ -21,7 +22,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -94,6 +95,9 @@ class GetInstanceResult:
         if license_model and not isinstance(license_model, str):
             raise TypeError("Expected argument 'license_model' to be a str")
         pulumi.set(__self__, "license_model", license_model)
+        if master_user_secrets and not isinstance(master_user_secrets, list):
+            raise TypeError("Expected argument 'master_user_secrets' to be a list")
+        pulumi.set(__self__, "master_user_secrets", master_user_secrets)
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
@@ -326,7 +330,7 @@ class GetInstanceResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
         """
-        If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
+        The Amazon Web Services KMS key identifier that is used to encrypt the secret.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -337,6 +341,14 @@ class GetInstanceResult:
         License model information for this DB instance.
         """
         return pulumi.get(self, "license_model")
+
+    @property
+    @pulumi.getter(name="masterUserSecrets")
+    def master_user_secrets(self) -> Sequence['outputs.GetInstanceMasterUserSecretResult']:
+        """
+        Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        """
+        return pulumi.get(self, "master_user_secrets")
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -510,6 +522,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             iops=self.iops,
             kms_key_id=self.kms_key_id,
             license_model=self.license_model,
+            master_user_secrets=self.master_user_secrets,
             master_username=self.master_username,
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
@@ -579,6 +592,7 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         iops=__ret__.iops,
         kms_key_id=__ret__.kms_key_id,
         license_model=__ret__.license_model,
+        master_user_secrets=__ret__.master_user_secrets,
         master_username=__ret__.master_username,
         monitoring_interval=__ret__.monitoring_interval,
         monitoring_role_arn=__ret__.monitoring_role_arn,

@@ -22,6 +22,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? Method;
         /// <summary>
+        /// Client request path to match on.
+        /// </summary>
+        public readonly Outputs.RouteSpecHttp2RouteMatchPath? Path;
+        /// <summary>
         /// The port number to match from the request.
         /// </summary>
         public readonly int? Port;
@@ -29,7 +33,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
-        public readonly string Prefix;
+        public readonly string? Prefix;
+        /// <summary>
+        /// Client request query parameters to match on.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RouteSpecHttp2RouteMatchQueryParameter> QueryParameters;
         /// <summary>
         /// Client request header scheme to match on. Valid values: `http`, `https`.
         /// </summary>
@@ -41,16 +49,22 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             string? method,
 
+            Outputs.RouteSpecHttp2RouteMatchPath? path,
+
             int? port,
 
-            string prefix,
+            string? prefix,
+
+            ImmutableArray<Outputs.RouteSpecHttp2RouteMatchQueryParameter> queryParameters,
 
             string? scheme)
         {
             Headers = headers;
             Method = method;
+            Path = path;
             Port = port;
             Prefix = prefix;
+            QueryParameters = queryParameters;
             Scheme = scheme;
         }
     }

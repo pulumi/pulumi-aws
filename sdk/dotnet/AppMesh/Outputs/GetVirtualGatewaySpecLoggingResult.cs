@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecLoggingResult
     {
-        /// <summary>
-        /// Access log configuration for a virtual gateway.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecLoggingAccessLogResult> AccessLogs;
 
         [OutputConstructor]

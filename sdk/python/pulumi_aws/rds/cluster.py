@@ -45,7 +45,9 @@ class ClusterArgs:
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
+                 master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -93,7 +95,9 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
         :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+        :param pulumi.Input[str] master_user_secret_kms_key_id: The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: The network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[int] port: The port on which the DB accepts connections
@@ -167,8 +171,12 @@ class ClusterArgs:
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if manage_master_user_password is not None:
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
+        if master_user_secret_kms_key_id is not None:
+            pulumi.set(__self__, "master_user_secret_kms_key_id", master_user_secret_kms_key_id)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
         if network_type is not None:
@@ -541,16 +549,40 @@ class ClusterArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @manage_master_user_password.setter
+    def manage_master_user_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_master_user_password", value)
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
     def master_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "master_password", value)
+
+    @property
+    @pulumi.getter(name="masterUserSecretKmsKeyId")
+    def master_user_secret_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        """
+        return pulumi.get(self, "master_user_secret_kms_key_id")
+
+    @master_user_secret_kms_key_id.setter
+    def master_user_secret_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_user_secret_kms_key_id", value)
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -790,7 +822,10 @@ class _ClusterState:
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
+                 master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -845,7 +880,10 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
         :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+        :param pulumi.Input[str] master_user_secret_kms_key_id: The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]] master_user_secrets: A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: The network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[int] port: The port on which the DB accepts connections
@@ -932,8 +970,14 @@ class _ClusterState:
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if manage_master_user_password is not None:
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
+        if master_user_secret_kms_key_id is not None:
+            pulumi.set(__self__, "master_user_secret_kms_key_id", master_user_secret_kms_key_id)
+        if master_user_secrets is not None:
+            pulumi.set(__self__, "master_user_secrets", master_user_secrets)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
         if network_type is not None:
@@ -1370,16 +1414,52 @@ class _ClusterState:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @manage_master_user_password.setter
+    def manage_master_user_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_master_user_password", value)
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
     def master_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "master_password", value)
+
+    @property
+    @pulumi.getter(name="masterUserSecretKmsKeyId")
+    def master_user_secret_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        """
+        return pulumi.get(self, "master_user_secret_kms_key_id")
+
+    @master_user_secret_kms_key_id.setter
+    def master_user_secret_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_user_secret_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="masterUserSecrets")
+    def master_user_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]]:
+        """
+        A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        """
+        return pulumi.get(self, "master_user_secrets")
+
+    @master_user_secrets.setter
+    def master_user_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]]):
+        pulumi.set(self, "master_user_secrets", value)
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -1641,7 +1721,9 @@ class Cluster(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
+                 master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -1808,6 +1890,40 @@ class Cluster(pulumi.CustomResource):
             engine=example_cluster.engine,
             engine_version=example_cluster.engine_version)
         ```
+        ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
+
+        > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+
+        You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.rds.Cluster("test",
+            cluster_identifier="example",
+            database_name="test",
+            manage_master_user_password=True,
+            master_username="test")
+        ```
+        ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
+
+        > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+
+        You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example", description="Example KMS Key")
+        test = aws.rds.Cluster("test",
+            cluster_identifier="example",
+            database_name="test",
+            manage_master_user_password=True,
+            master_username="test",
+            master_user_secret_kms_key_id=example.key_id)
+        ```
         ### Global Cluster Restored From Snapshot
 
         ```python
@@ -1865,7 +1981,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
         :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+        :param pulumi.Input[str] master_user_secret_kms_key_id: The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: The network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[int] port: The port on which the DB accepts connections
@@ -2037,6 +2155,40 @@ class Cluster(pulumi.CustomResource):
             engine=example_cluster.engine,
             engine_version=example_cluster.engine_version)
         ```
+        ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
+
+        > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+
+        You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.rds.Cluster("test",
+            cluster_identifier="example",
+            database_name="test",
+            manage_master_user_password=True,
+            master_username="test")
+        ```
+        ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
+
+        > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+
+        You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example", description="Example KMS Key")
+        test = aws.rds.Cluster("test",
+            cluster_identifier="example",
+            database_name="test",
+            manage_master_user_password=True,
+            master_username="test",
+            master_user_secret_kms_key_id=example.key_id)
+        ```
         ### Global Cluster Restored From Snapshot
 
         ```python
@@ -2107,7 +2259,9 @@ class Cluster(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
+                 master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -2162,7 +2316,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["iops"] = iops
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["manage_master_user_password"] = manage_master_user_password
             __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
+            __props__.__dict__["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["port"] = port
@@ -2185,6 +2341,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["hosted_zone_id"] = None
+            __props__.__dict__["master_user_secrets"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
@@ -2232,7 +2389,10 @@ class Cluster(pulumi.CustomResource):
             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             iops: Optional[pulumi.Input[int]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
+            manage_master_user_password: Optional[pulumi.Input[bool]] = None,
             master_password: Optional[pulumi.Input[str]] = None,
+            master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
+            master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterMasterUserSecretArgs']]]]] = None,
             master_username: Optional[pulumi.Input[str]] = None,
             network_type: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
@@ -2292,7 +2452,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
         :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+        :param pulumi.Input[str] master_user_secret_kms_key_id: The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterMasterUserSecretArgs']]]] master_user_secrets: A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: The network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[int] port: The port on which the DB accepts connections
@@ -2350,7 +2513,10 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["iam_roles"] = iam_roles
         __props__.__dict__["iops"] = iops
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["manage_master_user_password"] = manage_master_user_password
         __props__.__dict__["master_password"] = master_password
+        __props__.__dict__["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+        __props__.__dict__["master_user_secrets"] = master_user_secrets
         __props__.__dict__["master_username"] = master_username
         __props__.__dict__["network_type"] = network_type
         __props__.__dict__["port"] = port
@@ -2637,12 +2803,36 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[Optional[str]]:
         """
-        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "master_password")
+
+    @property
+    @pulumi.getter(name="masterUserSecretKmsKeyId")
+    def master_user_secret_kms_key_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        """
+        return pulumi.get(self, "master_user_secret_kms_key_id")
+
+    @property
+    @pulumi.getter(name="masterUserSecrets")
+    def master_user_secrets(self) -> pulumi.Output[Sequence['outputs.ClusterMasterUserSecret']]:
+        """
+        A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        """
+        return pulumi.get(self, "master_user_secrets")
 
     @property
     @pulumi.getter(name="masterUsername")

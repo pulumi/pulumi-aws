@@ -13,10 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetRouteSpecGrpcRouteMatchMetadata {
     private Boolean invert;
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     private List<GetRouteSpecGrpcRouteMatchMetadataMatch> matches;
     /**
      * @return Name of the route.
@@ -28,10 +24,6 @@ public final class GetRouteSpecGrpcRouteMatchMetadata {
     public Boolean invert() {
         return this.invert;
     }
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     public List<GetRouteSpecGrpcRouteMatchMetadataMatch> matches() {
         return this.matches;
     }

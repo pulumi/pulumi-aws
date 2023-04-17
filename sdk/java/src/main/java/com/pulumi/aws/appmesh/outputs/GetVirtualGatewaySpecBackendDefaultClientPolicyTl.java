@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTl {
-    /**
-     * @return Listener&#39;s TLS certificate.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate> certificates;
-    /**
-     * @return Whether the policy is enforced. Default is `true`.
-     * 
-     */
     private Boolean enforce;
-    /**
-     * @return One or more ports that the policy is enforced for.
-     * 
-     */
     private List<Integer> ports;
-    /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     private List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation> validations;
 
     private GetVirtualGatewaySpecBackendDefaultClientPolicyTl() {}
-    /**
-     * @return Listener&#39;s TLS certificate.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate> certificates() {
         return this.certificates;
     }
-    /**
-     * @return Whether the policy is enforced. Default is `true`.
-     * 
-     */
     public Boolean enforce() {
         return this.enforce;
     }
-    /**
-     * @return One or more ports that the policy is enforced for.
-     * 
-     */
     public List<Integer> ports() {
         return this.ports;
     }
-    /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
-     * 
-     */
     public List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidation> validations() {
         return this.validations;
     }

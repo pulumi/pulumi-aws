@@ -64,6 +64,12 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
+        /// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        /// </summary>
+        [Output("dualStackDnsName")]
+        public Output<string> DualStackDnsName { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         /// </summary>
         [Output("enabled")]
@@ -226,6 +232,12 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
+
+        /// <summary>
+        /// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        /// </summary>
+        [Input("dualStackDnsName")]
+        public Input<string>? DualStackDnsName { get; set; }
 
         /// <summary>
         /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.

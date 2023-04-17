@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterMasterUserSecretArgs',
     'ClusterParameterGroupParameterArgs',
     'ClusterRestoreToPointInTimeArgs',
     'ClusterS3ImportArgs',
@@ -19,6 +20,7 @@ __all__ = [
     'GlobalClusterGlobalClusterMemberArgs',
     'InstanceBlueGreenUpdateArgs',
     'InstanceListenerEndpointArgs',
+    'InstanceMasterUserSecretArgs',
     'InstanceRestoreToPointInTimeArgs',
     'InstanceS3ImportArgs',
     'OptionGroupOptionArgs',
@@ -32,6 +34,61 @@ __all__ = [
     'GetEngineVersionFilterArgs',
     'GetInstancesFilterArgs',
 ]
+
+@pulumi.input_type
+class ClusterMasterUserSecretArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None,
+                 secret_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
+        :param pulumi.Input[str] secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_status is not None:
+            pulumi.set(__self__, "secret_status", secret_status)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        return pulumi.get(self, "secret_status")
+
+    @secret_status.setter
+    def secret_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_status", value)
+
 
 @pulumi.input_type
 class ClusterParameterGroupParameterArgs:
@@ -486,6 +543,63 @@ class InstanceListenerEndpointArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class InstanceMasterUserSecretArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None,
+                 secret_status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
+               encrypted replica, set this to the destination KMS ARN.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
+        :param pulumi.Input[str] secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_status is not None:
+            pulumi.set(__self__, "secret_status", secret_status)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the KMS encryption key. If creating an
+        encrypted replica, set this to the destination KMS ARN.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        """
+        return pulumi.get(self, "secret_status")
+
+    @secret_status.setter
+    def secret_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_status", value)
 
 
 @pulumi.input_type

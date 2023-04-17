@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecGrpcRoute;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2Route;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRoute;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,6 +29,11 @@ public final class GatewayRouteSpec {
      * 
      */
     private @Nullable GatewayRouteSpecHttpRoute httpRoute;
+    /**
+     * @return Priority for the gateway route, between `0` and `1000`.
+     * 
+     */
+    private @Nullable Integer priority;
 
     private GatewayRouteSpec() {}
     /**
@@ -51,6 +57,13 @@ public final class GatewayRouteSpec {
     public Optional<GatewayRouteSpecHttpRoute> httpRoute() {
         return Optional.ofNullable(this.httpRoute);
     }
+    /**
+     * @return Priority for the gateway route, between `0` and `1000`.
+     * 
+     */
+    public Optional<Integer> priority() {
+        return Optional.ofNullable(this.priority);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,12 +77,14 @@ public final class GatewayRouteSpec {
         private @Nullable GatewayRouteSpecGrpcRoute grpcRoute;
         private @Nullable GatewayRouteSpecHttp2Route http2Route;
         private @Nullable GatewayRouteSpecHttpRoute httpRoute;
+        private @Nullable Integer priority;
         public Builder() {}
         public Builder(GatewayRouteSpec defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.grpcRoute = defaults.grpcRoute;
     	      this.http2Route = defaults.http2Route;
     	      this.httpRoute = defaults.httpRoute;
+    	      this.priority = defaults.priority;
         }
 
         @CustomType.Setter
@@ -87,11 +102,17 @@ public final class GatewayRouteSpec {
             this.httpRoute = httpRoute;
             return this;
         }
+        @CustomType.Setter
+        public Builder priority(@Nullable Integer priority) {
+            this.priority = priority;
+            return this;
+        }
         public GatewayRouteSpec build() {
             final var o = new GatewayRouteSpec();
             o.grpcRoute = grpcRoute;
             o.http2Route = http2Route;
             o.httpRoute = httpRoute;
+            o.priority = priority;
             return o;
         }
     }

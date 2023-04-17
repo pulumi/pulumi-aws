@@ -76,7 +76,7 @@ export interface GetRouteResult {
      */
     readonly resourceOwner: string;
     /**
-     * Route specification
+     * Route specification. See the `aws.appmesh.Route` resource for details.
      */
     readonly specs: outputs.appmesh.GetRouteSpec[];
     /**

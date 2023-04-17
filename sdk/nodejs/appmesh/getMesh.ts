@@ -87,7 +87,7 @@ export interface GetMeshResult {
      */
     readonly resourceOwner: string;
     /**
-     * Service mesh specification.
+     * Service mesh specification. See the `aws.appmesh.Mesh` resource for details.
      */
     readonly specs: outputs.appmesh.GetMeshSpec[];
     /**

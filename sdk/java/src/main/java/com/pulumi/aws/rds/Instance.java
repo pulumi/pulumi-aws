@@ -8,6 +8,7 @@ import com.pulumi.aws.rds.InstanceArgs;
 import com.pulumi.aws.rds.inputs.InstanceState;
 import com.pulumi.aws.rds.outputs.InstanceBlueGreenUpdate;
 import com.pulumi.aws.rds.outputs.InstanceListenerEndpoint;
+import com.pulumi.aws.rds.outputs.InstanceMasterUserSecret;
 import com.pulumi.aws.rds.outputs.InstanceRestoreToPointInTime;
 import com.pulumi.aws.rds.outputs.InstanceS3Import;
 import com.pulumi.core.Output;
@@ -124,6 +125,93 @@ import javax.annotation.Nullable;
  *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(50)
  *             .maxAllocatedStorage(100)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Managed Master Passwords via Secrets Manager, default KMS Key
+ * 
+ * &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+ * 
+ * You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Instance;
+ * import com.pulumi.aws.rds.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *             .allocatedStorage(10)
+ *             .dbName(&#34;mydb&#34;)
+ *             .engine(&#34;mysql&#34;)
+ *             .engineVersion(&#34;5.7&#34;)
+ *             .instanceClass(&#34;db.t3.micro&#34;)
+ *             .manageMasterUserPassword(true)
+ *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .username(&#34;foo&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Managed Master Passwords via Secrets Manager, specific KMS Key
+ * 
+ * &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+ * 
+ * You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.rds.Instance;
+ * import com.pulumi.aws.rds.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
+ *             .description(&#34;Example KMS Key&#34;)
+ *             .build());
+ * 
+ *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *             .allocatedStorage(10)
+ *             .dbName(&#34;mydb&#34;)
+ *             .engine(&#34;mysql&#34;)
+ *             .engineVersion(&#34;5.7&#34;)
+ *             .instanceClass(&#34;db.t3.micro&#34;)
+ *             .manageMasterUserPassword(true)
+ *             .masterUserSecretKmsKeyId(example.keyId())
+ *             .username(&#34;foo&#34;)
+ *             .parameterGroupName(&#34;default.mysql5.7&#34;)
  *             .build());
  * 
  *     }
@@ -766,6 +854,48 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.maintenanceWindow;
     }
     /**
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * 
+     */
+    @Export(name="manageMasterUserPassword", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> manageMasterUserPassword;
+
+    /**
+     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * 
+     */
+    public Output<Optional<Boolean>> manageMasterUserPassword() {
+        return Codegen.optional(this.manageMasterUserPassword);
+    }
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * 
+     */
+    @Export(name="masterUserSecretKmsKeyId", refs={String.class}, tree="[0]")
+    private Output<String> masterUserSecretKmsKeyId;
+
+    /**
+     * @return The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * 
+     */
+    public Output<String> masterUserSecretKmsKeyId() {
+        return this.masterUserSecretKmsKeyId;
+    }
+    /**
+     * A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    @Export(name="masterUserSecrets", refs={List.class,InstanceMasterUserSecret.class}, tree="[0,1]")
+    private Output<List<InstanceMasterUserSecret>> masterUserSecrets;
+
+    /**
+     * @return A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+     * 
+     */
+    public Output<List<InstanceMasterUserSecret>> masterUserSecrets() {
+        return this.masterUserSecrets;
+    }
+    /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
      * 
      */
@@ -910,18 +1040,18 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.parameterGroupName;
     }
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
+     * (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
+     * @return (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     public Output<Optional<String>> password() {

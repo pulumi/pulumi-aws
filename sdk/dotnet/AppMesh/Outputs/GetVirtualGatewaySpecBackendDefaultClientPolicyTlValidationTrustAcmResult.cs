@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult
     {
-        /// <summary>
-        /// One or more ACM ARNs.
-        /// </summary>
         public readonly ImmutableArray<string> CertificateAuthorityArns;
 
         [OutputConstructor]

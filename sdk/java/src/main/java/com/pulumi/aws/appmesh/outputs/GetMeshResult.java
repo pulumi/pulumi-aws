@@ -40,7 +40,7 @@ public final class GetMeshResult {
      */
     private String resourceOwner;
     /**
-     * @return Service mesh specification.
+     * @return Service mesh specification. See the `aws.appmesh.Mesh` resource for details.
      * 
      */
     private List<GetMeshSpec> specs;
@@ -93,7 +93,7 @@ public final class GetMeshResult {
         return this.resourceOwner;
     }
     /**
-     * @return Service mesh specification.
+     * @return Service mesh specification. See the `aws.appmesh.Mesh` resource for details.
      * 
      */
     public List<GetMeshSpec> specs() {

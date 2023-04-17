@@ -162,6 +162,42 @@ import * as utilities from "../utilities";
  *     engineVersion: exampleCluster.engineVersion,
  * });
  * ```
+ * ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
+ *
+ * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+ *
+ * You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `masterPassword` attribute (removal is required).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.rds.Cluster("test", {
+ *     clusterIdentifier: "example",
+ *     databaseName: "test",
+ *     manageMasterUserPassword: true,
+ *     masterUsername: "test",
+ * });
+ * ```
+ * ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
+ *
+ * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+ *
+ * You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kms.Key("example", {description: "Example KMS Key"});
+ * const test = new aws.rds.Cluster("test", {
+ *     clusterIdentifier: "example",
+ *     databaseName: "test",
+ *     manageMasterUserPassword: true,
+ *     masterUsername: "test",
+ *     masterUserSecretKmsKeyId: example.keyId,
+ * });
+ * ```
  * ### Global Cluster Restored From Snapshot
  *
  * ```typescript
@@ -354,9 +390,21 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `masterPassword` is provided.
+     */
+    public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
+    /**
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     */
+    public readonly masterUserSecretKmsKeyId!: pulumi.Output<string>;
+    /**
+     * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+     */
+    public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.rds.ClusterMasterUserSecret[]>;
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
@@ -478,7 +526,10 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
             resourceInputs["iops"] = state ? state.iops : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["manageMasterUserPassword"] = state ? state.manageMasterUserPassword : undefined;
             resourceInputs["masterPassword"] = state ? state.masterPassword : undefined;
+            resourceInputs["masterUserSecretKmsKeyId"] = state ? state.masterUserSecretKmsKeyId : undefined;
+            resourceInputs["masterUserSecrets"] = state ? state.masterUserSecrets : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
             resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
@@ -528,7 +579,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
             resourceInputs["iops"] = args ? args.iops : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["manageMasterUserPassword"] = args ? args.manageMasterUserPassword : undefined;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
+            resourceInputs["masterUserSecretKmsKeyId"] = args ? args.masterUserSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -551,6 +604,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["masterUserSecrets"] = undefined /*out*/;
             resourceInputs["readerEndpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -698,9 +752,21 @@ export interface ClusterState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `masterPassword` is provided.
+     */
+    manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     */
+    masterUserSecretKmsKeyId?: pulumi.Input<string>;
+    /**
+     * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+     */
+    masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.rds.ClusterMasterUserSecret>[]>;
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
@@ -894,9 +960,17 @@ export interface ClusterArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `masterPassword` is provided.
+     */
+    manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     */
+    masterUserSecretKmsKeyId?: pulumi.Input<string>;
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */

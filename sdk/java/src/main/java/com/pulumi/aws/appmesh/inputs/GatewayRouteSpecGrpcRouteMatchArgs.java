@@ -17,14 +17,14 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
     public static final GatewayRouteSpecGrpcRouteMatchArgs Empty = new GatewayRouteSpecGrpcRouteMatchArgs();
 
     /**
-     * The port number to match from the request.
+     * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number to match from the request.
+     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -72,7 +72,7 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
          * 
          * @return builder
          * 

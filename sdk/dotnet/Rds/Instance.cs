@@ -90,6 +90,66 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// ### Managed Master Passwords via Secrets Manager, default KMS Key
+    /// 
+    /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+    /// 
+    /// You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     {
+    ///         AllocatedStorage = 10,
+    ///         DbName = "mydb",
+    ///         Engine = "mysql",
+    ///         EngineVersion = "5.7",
+    ///         InstanceClass = "db.t3.micro",
+    ///         ManageMasterUserPassword = true,
+    ///         ParameterGroupName = "default.mysql5.7",
+    ///         Username = "foo",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Managed Master Passwords via Secrets Manager, specific KMS Key
+    /// 
+    /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+    /// 
+    /// You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "Example KMS Key",
+    ///     });
+    /// 
+    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     {
+    ///         AllocatedStorage = 10,
+    ///         DbName = "mydb",
+    ///         Engine = "mysql",
+    ///         EngineVersion = "5.7",
+    ///         InstanceClass = "db.t3.micro",
+    ///         ManageMasterUserPassword = true,
+    ///         MasterUserSecretKmsKeyId = example.KeyId,
+    ///         Username = "foo",
+    ///         ParameterGroupName = "default.mysql5.7",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -377,6 +437,24 @@ namespace Pulumi.Aws.Rds
         public Output<string> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        /// </summary>
+        [Output("manageMasterUserPassword")]
+        public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        /// </summary>
+        [Output("masterUserSecretKmsKeyId")]
+        public Output<string> MasterUserSecretKmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        /// </summary>
+        [Output("masterUserSecrets")]
+        public Output<ImmutableArray<Outputs.InstanceMasterUserSecret>> MasterUserSecrets { get; private set; } = null!;
+
+        /// <summary>
         /// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
         /// </summary>
         [Output("maxAllocatedStorage")]
@@ -440,9 +518,9 @@ namespace Pulumi.Aws.Rds
         public Output<string> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// (Required unless a `snapshot_identifier` or `replicate_source_db`
-        /// is provided) Password for the master DB user. Note that this may show up in
-        /// logs, and it will be stored in the state file.
+        /// (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+        /// is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        /// logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -901,6 +979,18 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        public Input<bool>? ManageMasterUserPassword { get; set; }
+
+        /// <summary>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        /// </summary>
+        [Input("masterUserSecretKmsKeyId")]
+        public Input<string>? MasterUserSecretKmsKeyId { get; set; }
+
+        /// <summary>
         /// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
         /// </summary>
         [Input("maxAllocatedStorage")]
@@ -967,9 +1057,9 @@ namespace Pulumi.Aws.Rds
         private Input<string>? _password;
 
         /// <summary>
-        /// (Required unless a `snapshot_identifier` or `replicate_source_db`
-        /// is provided) Password for the master DB user. Note that this may show up in
-        /// logs, and it will be stored in the state file.
+        /// (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+        /// is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        /// logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         public Input<string>? Password
         {
@@ -1439,6 +1529,30 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        public Input<bool>? ManageMasterUserPassword { get; set; }
+
+        /// <summary>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        /// </summary>
+        [Input("masterUserSecretKmsKeyId")]
+        public Input<string>? MasterUserSecretKmsKeyId { get; set; }
+
+        [Input("masterUserSecrets")]
+        private InputList<Inputs.InstanceMasterUserSecretGetArgs>? _masterUserSecrets;
+
+        /// <summary>
+        /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        /// </summary>
+        public InputList<Inputs.InstanceMasterUserSecretGetArgs> MasterUserSecrets
+        {
+            get => _masterUserSecrets ?? (_masterUserSecrets = new InputList<Inputs.InstanceMasterUserSecretGetArgs>());
+            set => _masterUserSecrets = value;
+        }
+
+        /// <summary>
         /// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
         /// </summary>
         [Input("maxAllocatedStorage")]
@@ -1505,9 +1619,9 @@ namespace Pulumi.Aws.Rds
         private Input<string>? _password;
 
         /// <summary>
-        /// (Required unless a `snapshot_identifier` or `replicate_source_db`
-        /// is provided) Password for the master DB user. Note that this may show up in
-        /// logs, and it will be stored in the state file.
+        /// (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+        /// is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        /// logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         public Input<string>? Password
         {

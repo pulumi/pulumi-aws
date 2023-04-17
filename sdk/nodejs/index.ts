@@ -235,6 +235,7 @@ import * as pricing from "./pricing";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
 import * as ram from "./ram";
+import * as rbin from "./rbin";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as redshiftdata from "./redshiftdata";
@@ -269,6 +270,7 @@ import * as simpledb from "./simpledb";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
+import * as ssmincidents from "./ssmincidents";
 import * as ssoadmin from "./ssoadmin";
 import * as storagegateway from "./storagegateway";
 import * as swf from "./swf";
@@ -419,6 +421,7 @@ export {
     qldb,
     quicksight,
     ram,
+    rbin,
     rds,
     redshift,
     redshiftdata,
@@ -453,6 +456,7 @@ export {
     sns,
     sqs,
     ssm,
+    ssmincidents,
     ssoadmin,
     storagegateway,
     swf,

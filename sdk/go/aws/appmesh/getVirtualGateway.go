@@ -47,7 +47,7 @@ type LookupVirtualGatewayResult struct {
 	Name            string `pulumi:"name"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// Virtual gateway specification
+	// Virtual gateway specification. See the `appmesh.VirtualGateway` resource for details.
 	Specs []GetVirtualGatewaySpec `pulumi:"specs"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -132,7 +132,7 @@ func (o LookupVirtualGatewayResultOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual gateway specification
+// Virtual gateway specification. See the `appmesh.VirtualGateway` resource for details.
 func (o LookupVirtualGatewayResultOutput) Specs() GetVirtualGatewaySpecArrayOutput {
 	return o.ApplyT(func(v LookupVirtualGatewayResult) []GetVirtualGatewaySpec { return v.Specs }).(GetVirtualGatewaySpecArrayOutput)
 }

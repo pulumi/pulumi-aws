@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRouteSpecGrpcRoute {
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     private List<GetRouteSpecGrpcRouteAction> actions;
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     private List<GetRouteSpecGrpcRouteMatch> matches;
-    /**
-     * @return Retry policy.
-     * 
-     */
     private List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies;
-    /**
-     * @return Types of timeouts.
-     * 
-     */
     private List<GetRouteSpecGrpcRouteTimeout> timeouts;
 
     private GetRouteSpecGrpcRoute() {}
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     public List<GetRouteSpecGrpcRouteAction> actions() {
         return this.actions;
     }
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     public List<GetRouteSpecGrpcRouteMatch> matches() {
         return this.matches;
     }
-    /**
-     * @return Retry policy.
-     * 
-     */
     public List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies() {
         return this.retryPolicies;
     }
-    /**
-     * @return Types of timeouts.
-     * 
-     */
     public List<GetRouteSpecGrpcRouteTimeout> timeouts() {
         return this.timeouts;
     }

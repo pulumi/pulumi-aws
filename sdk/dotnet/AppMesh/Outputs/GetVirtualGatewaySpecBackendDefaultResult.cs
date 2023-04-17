@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecBackendDefaultResult
     {
-        /// <summary>
-        /// Default client policy for virtual gateway backends.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult> ClientPolicies;
 
         [OutputConstructor]

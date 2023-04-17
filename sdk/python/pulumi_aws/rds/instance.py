@@ -48,6 +48,8 @@ class InstanceArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  license_model: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
+                 master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  max_allocated_storage: Optional[pulumi.Input[int]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -156,6 +158,8 @@ class InstanceArgs:
                Maintenance Window
                docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
                for more information.
+        :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        :param pulumi.Input[str] master_user_secret_kms_key_id: The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[int] max_allocated_storage: When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points
                when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -174,9 +178,9 @@ class InstanceArgs:
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
-        :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Password for the master DB user. Note that this may show up in
-               logs, and it will be stored in the state file.
+        :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+               is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+               logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
@@ -288,6 +292,10 @@ class InstanceArgs:
             pulumi.set(__self__, "license_model", license_model)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if manage_master_user_password is not None:
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
+        if master_user_secret_kms_key_id is not None:
+            pulumi.set(__self__, "master_user_secret_kms_key_id", master_user_secret_kms_key_id)
         if max_allocated_storage is not None:
             pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
         if monitoring_interval is not None:
@@ -769,6 +777,30 @@ class InstanceArgs:
         pulumi.set(self, "maintenance_window", value)
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @manage_master_user_password.setter
+    def manage_master_user_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_master_user_password", value)
+
+    @property
+    @pulumi.getter(name="masterUserSecretKmsKeyId")
+    def master_user_secret_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        """
+        return pulumi.get(self, "master_user_secret_kms_key_id")
+
+    @master_user_secret_kms_key_id.setter
+    def master_user_secret_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_user_secret_kms_key_id", value)
+
+    @property
     @pulumi.getter(name="maxAllocatedStorage")
     def max_allocated_storage(self) -> Optional[pulumi.Input[int]]:
         """
@@ -889,9 +921,9 @@ class InstanceArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) Password for the master DB user. Note that this may show up in
-        logs, and it will be stored in the state file.
+        (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+        is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "password")
 
@@ -1199,6 +1231,9 @@ class _InstanceState:
                  license_model: Optional[pulumi.Input[str]] = None,
                  listener_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
+                 master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceMasterUserSecretArgs']]]] = None,
                  max_allocated_storage: Optional[pulumi.Input[int]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1318,6 +1353,9 @@ class _InstanceState:
                Maintenance Window
                docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
                for more information.
+        :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        :param pulumi.Input[str] master_user_secret_kms_key_id: The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceMasterUserSecretArgs']]] master_user_secrets: A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[int] max_allocated_storage: When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points
                when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -1336,9 +1374,9 @@ class _InstanceState:
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
-        :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Password for the master DB user. Note that this may show up in
-               logs, and it will be stored in the state file.
+        :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+               is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+               logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
@@ -1468,6 +1506,12 @@ class _InstanceState:
             pulumi.set(__self__, "listener_endpoints", listener_endpoints)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if manage_master_user_password is not None:
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
+        if master_user_secret_kms_key_id is not None:
+            pulumi.set(__self__, "master_user_secret_kms_key_id", master_user_secret_kms_key_id)
+        if master_user_secrets is not None:
+            pulumi.set(__self__, "master_user_secrets", master_user_secrets)
         if max_allocated_storage is not None:
             pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
         if monitoring_interval is not None:
@@ -2041,6 +2085,42 @@ class _InstanceState:
         pulumi.set(self, "maintenance_window", value)
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @manage_master_user_password.setter
+    def manage_master_user_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_master_user_password", value)
+
+    @property
+    @pulumi.getter(name="masterUserSecretKmsKeyId")
+    def master_user_secret_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        """
+        return pulumi.get(self, "master_user_secret_kms_key_id")
+
+    @master_user_secret_kms_key_id.setter
+    def master_user_secret_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_user_secret_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="masterUserSecrets")
+    def master_user_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceMasterUserSecretArgs']]]]:
+        """
+        A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        """
+        return pulumi.get(self, "master_user_secrets")
+
+    @master_user_secrets.setter
+    def master_user_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceMasterUserSecretArgs']]]]):
+        pulumi.set(self, "master_user_secrets", value)
+
+    @property
     @pulumi.getter(name="maxAllocatedStorage")
     def max_allocated_storage(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2161,9 +2241,9 @@ class _InstanceState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) Password for the master DB user. Note that this may show up in
-        logs, and it will be stored in the state file.
+        (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+        is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "password")
 
@@ -2511,6 +2591,8 @@ class Instance(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  license_model: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
+                 master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  max_allocated_storage: Optional[pulumi.Input[int]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -2608,6 +2690,48 @@ class Instance(pulumi.CustomResource):
             allocated_storage=50,
             max_allocated_storage=100)
         ```
+        ### Managed Master Passwords via Secrets Manager, default KMS Key
+
+        > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+
+        You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Instance("default",
+            allocated_storage=10,
+            db_name="mydb",
+            engine="mysql",
+            engine_version="5.7",
+            instance_class="db.t3.micro",
+            manage_master_user_password=True,
+            parameter_group_name="default.mysql5.7",
+            username="foo")
+        ```
+        ### Managed Master Passwords via Secrets Manager, specific KMS Key
+
+        > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+
+        You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example", description="Example KMS Key")
+        default = aws.rds.Instance("default",
+            allocated_storage=10,
+            db_name="mydb",
+            engine="mysql",
+            engine_version="5.7",
+            instance_class="db.t3.micro",
+            manage_master_user_password=True,
+            master_user_secret_kms_key_id=example.key_id,
+            username="foo",
+            parameter_group_name="default.mysql5.7")
+        ```
 
         ## Import
 
@@ -2696,6 +2820,8 @@ class Instance(pulumi.CustomResource):
                Maintenance Window
                docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
                for more information.
+        :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        :param pulumi.Input[str] master_user_secret_kms_key_id: The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[int] max_allocated_storage: When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points
                when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -2714,9 +2840,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
-        :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Password for the master DB user. Note that this may show up in
-               logs, and it will be stored in the state file.
+        :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+               is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+               logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
@@ -2840,6 +2966,48 @@ class Instance(pulumi.CustomResource):
             allocated_storage=50,
             max_allocated_storage=100)
         ```
+        ### Managed Master Passwords via Secrets Manager, default KMS Key
+
+        > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+
+        You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Instance("default",
+            allocated_storage=10,
+            db_name="mydb",
+            engine="mysql",
+            engine_version="5.7",
+            instance_class="db.t3.micro",
+            manage_master_user_password=True,
+            parameter_group_name="default.mysql5.7",
+            username="foo")
+        ```
+        ### Managed Master Passwords via Secrets Manager, specific KMS Key
+
+        > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
+
+        You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example", description="Example KMS Key")
+        default = aws.rds.Instance("default",
+            allocated_storage=10,
+            db_name="mydb",
+            engine="mysql",
+            engine_version="5.7",
+            instance_class="db.t3.micro",
+            manage_master_user_password=True,
+            master_user_secret_kms_key_id=example.key_id,
+            username="foo",
+            parameter_group_name="default.mysql5.7")
+        ```
 
         ## Import
 
@@ -2895,6 +3063,8 @@ class Instance(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  license_model: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
+                 master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  max_allocated_storage: Optional[pulumi.Input[int]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -2966,6 +3136,8 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["license_model"] = license_model
             __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["manage_master_user_password"] = manage_master_user_password
+            __props__.__dict__["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
             __props__.__dict__["max_allocated_storage"] = max_allocated_storage
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
@@ -3005,6 +3177,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["latest_restorable_time"] = None
             __props__.__dict__["listener_endpoints"] = None
+            __props__.__dict__["master_user_secrets"] = None
             __props__.__dict__["replicas"] = None
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["status"] = None
@@ -3059,6 +3232,9 @@ class Instance(pulumi.CustomResource):
             license_model: Optional[pulumi.Input[str]] = None,
             listener_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceListenerEndpointArgs']]]]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
+            manage_master_user_password: Optional[pulumi.Input[bool]] = None,
+            master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
+            master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceMasterUserSecretArgs']]]]] = None,
             max_allocated_storage: Optional[pulumi.Input[int]] = None,
             monitoring_interval: Optional[pulumi.Input[int]] = None,
             monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -3183,6 +3359,9 @@ class Instance(pulumi.CustomResource):
                Maintenance Window
                docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
                for more information.
+        :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        :param pulumi.Input[str] master_user_secret_kms_key_id: The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceMasterUserSecretArgs']]]] master_user_secrets: A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[int] max_allocated_storage: When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points
                when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -3201,9 +3380,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
-        :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Password for the master DB user. Note that this may show up in
-               logs, and it will be stored in the state file.
+        :param pulumi.Input[str] password: (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+               is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+               logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
@@ -3299,6 +3478,9 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["license_model"] = license_model
         __props__.__dict__["listener_endpoints"] = listener_endpoints
         __props__.__dict__["maintenance_window"] = maintenance_window
+        __props__.__dict__["manage_master_user_password"] = manage_master_user_password
+        __props__.__dict__["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+        __props__.__dict__["master_user_secrets"] = master_user_secrets
         __props__.__dict__["max_allocated_storage"] = max_allocated_storage
         __props__.__dict__["monitoring_interval"] = monitoring_interval
         __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
@@ -3685,6 +3867,30 @@ class Instance(pulumi.CustomResource):
         return pulumi.get(self, "maintenance_window")
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @property
+    @pulumi.getter(name="masterUserSecretKmsKeyId")
+    def master_user_secret_kms_key_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        """
+        return pulumi.get(self, "master_user_secret_kms_key_id")
+
+    @property
+    @pulumi.getter(name="masterUserSecrets")
+    def master_user_secrets(self) -> pulumi.Output[Sequence['outputs.InstanceMasterUserSecret']]:
+        """
+        A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        """
+        return pulumi.get(self, "master_user_secrets")
+
+    @property
     @pulumi.getter(name="maxAllocatedStorage")
     def max_allocated_storage(self) -> pulumi.Output[Optional[int]]:
         """
@@ -3769,9 +3975,9 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        (Required unless a `snapshot_identifier` or `replicate_source_db`
-        is provided) Password for the master DB user. Note that this may show up in
-        logs, and it will be stored in the state file.
+        (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
+        is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
+        logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         """
         return pulumi.get(self, "password")
 

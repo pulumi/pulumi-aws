@@ -147,6 +147,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Id;
         public readonly string KmsKeyId;
+        public readonly ImmutableArray<Outputs.GetClusterMasterUserSecretResult> MasterUserSecrets;
         public readonly string MasterUsername;
         public readonly string NetworkType;
         public readonly int Port;
@@ -205,6 +206,8 @@ namespace Pulumi.Aws.Rds
 
             string kmsKeyId,
 
+            ImmutableArray<Outputs.GetClusterMasterUserSecretResult> masterUserSecrets,
+
             string masterUsername,
 
             string networkType,
@@ -246,6 +249,7 @@ namespace Pulumi.Aws.Rds
             IamRoles = iamRoles;
             Id = id;
             KmsKeyId = kmsKeyId;
+            MasterUserSecrets = masterUserSecrets;
             MasterUsername = masterUsername;
             NetworkType = networkType;
             Port = port;

@@ -13,53 +13,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualGatewaySpecListener {
-    /**
-     * @return Connection pool information for the listener.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools;
-    /**
-     * @return Health check information for the listener.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks;
-    /**
-     * @return Port mapping information for the listener.
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerPortMapping> portMappings;
-    /**
-     * @return Transport Layer Security (TLS) properties for the listener
-     * 
-     */
     private List<GetVirtualGatewaySpecListenerTl> tls;
 
     private GetVirtualGatewaySpecListener() {}
-    /**
-     * @return Connection pool information for the listener.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerConnectionPool> connectionPools() {
         return this.connectionPools;
     }
-    /**
-     * @return Health check information for the listener.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerHealthCheck> healthChecks() {
         return this.healthChecks;
     }
-    /**
-     * @return Port mapping information for the listener.
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerPortMapping> portMappings() {
         return this.portMappings;
     }
-    /**
-     * @return Transport Layer Security (TLS) properties for the listener
-     * 
-     */
     public List<GetVirtualGatewaySpecListenerTl> tls() {
         return this.tls;
     }

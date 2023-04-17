@@ -76,16 +76,17 @@ type LookupClusterResult struct {
 	IamDatabaseAuthenticationEnabled bool     `pulumi:"iamDatabaseAuthenticationEnabled"`
 	IamRoles                         []string `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string `pulumi:"id"`
-	KmsKeyId                    string `pulumi:"kmsKeyId"`
-	MasterUsername              string `pulumi:"masterUsername"`
-	NetworkType                 string `pulumi:"networkType"`
-	Port                        int    `pulumi:"port"`
-	PreferredBackupWindow       string `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  string `pulumi:"preferredMaintenanceWindow"`
-	ReaderEndpoint              string `pulumi:"readerEndpoint"`
-	ReplicationSourceIdentifier string `pulumi:"replicationSourceIdentifier"`
-	StorageEncrypted            bool   `pulumi:"storageEncrypted"`
+	Id                          string                       `pulumi:"id"`
+	KmsKeyId                    string                       `pulumi:"kmsKeyId"`
+	MasterUserSecrets           []GetClusterMasterUserSecret `pulumi:"masterUserSecrets"`
+	MasterUsername              string                       `pulumi:"masterUsername"`
+	NetworkType                 string                       `pulumi:"networkType"`
+	Port                        int                          `pulumi:"port"`
+	PreferredBackupWindow       string                       `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow  string                       `pulumi:"preferredMaintenanceWindow"`
+	ReaderEndpoint              string                       `pulumi:"readerEndpoint"`
+	ReplicationSourceIdentifier string                       `pulumi:"replicationSourceIdentifier"`
+	StorageEncrypted            bool                         `pulumi:"storageEncrypted"`
 	// A map of tags assigned to the resource.
 	Tags                map[string]string `pulumi:"tags"`
 	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
@@ -214,6 +215,10 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) MasterUserSecrets() GetClusterMasterUserSecretArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterMasterUserSecret { return v.MasterUserSecrets }).(GetClusterMasterUserSecretArrayOutput)
 }
 
 func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {

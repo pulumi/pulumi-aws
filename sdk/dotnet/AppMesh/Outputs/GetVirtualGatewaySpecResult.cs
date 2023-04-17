@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecResult
     {
-        /// <summary>
-        /// Defaults for backends.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecBackendDefaultResult> BackendDefaults;
-        /// <summary>
-        /// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecListenerResult> Listeners;
-        /// <summary>
-        /// Inbound and outbound access logging information for the virtual gateway.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecLoggingResult> Loggings;
 
         [OutputConstructor]

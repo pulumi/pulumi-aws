@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualGatewaySpecLoggingAccessLogResult
     {
-        /// <summary>
-        /// TLS validation context trust for a local file certificate.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult> Files;
 
         [OutputConstructor]

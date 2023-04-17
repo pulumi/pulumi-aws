@@ -16,8 +16,8 @@ namespace Pulumi.Aws.AppMesh.Inputs
         /// Listeners that the virtual router is expected to receive inbound traffic from.
         /// Currently only one listener is supported per virtual router.
         /// </summary>
-        [Input("listener", required: true)]
-        public Input<Inputs.VirtualRouterSpecListenerGetArgs> Listener { get; set; } = null!;
+        [Input("listener")]
+        public Input<Inputs.VirtualRouterSpecListenerGetArgs>? Listener { get; set; }
 
         public VirtualRouterSpecGetArgs()
         {
