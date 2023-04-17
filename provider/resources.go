@@ -488,55 +488,6 @@ func Provider() *tfbridge.ProviderInfo {
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"aws_auditmanager_account_registration": {
-				Tok: awsResource(auditmanagerMod, "AccountRegistration"),
-			},
-			"aws_auditmanager_assessment": {
-				Tok: awsResource(auditmanagerMod, "Assessment"),
-			},
-			"aws_auditmanager_assessment_delegation": {
-				Tok: awsResource(auditmanagerMod, "AssessmentDelegation"),
-			},
-			"aws_auditmanager_assessment_report": {
-				Tok: awsResource(auditmanagerMod, "AssessmentReport"),
-			},
-			"aws_auditmanager_control": {
-				Tok: awsResource(auditmanagerMod, "Control"),
-			},
-			"aws_auditmanager_framework": {
-				Tok: awsResource(auditmanagerMod, "Framework"),
-			},
-			"aws_auditmanager_framework_share": {
-				Tok: awsResource(auditmanagerMod, "FrameworkShare"),
-			},
-			"aws_auditmanager_organization_admin_account_registration": {
-				Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
-			},
-			"aws_medialive_multiplex_program": {
-				Tok: awsResource(medialiveMod, "MultiplexProgram"),
-			},
-			"aws_rds_export_task": {
-				Tok: awsResource(rdsMod, "ExportTask"),
-			},
-			"aws_resourceexplorer2_index": {
-				Tok: awsResource("ResourceExplorer", "Index"),
-			},
-			"aws_resourceexplorer2_view": {
-				Tok: awsResource("ResourceExplorer", "View"),
-			},
-			"aws_route53_cidr_collection": {
-				Tok: awsResource(route53Mod, "CidrCollection"),
-			},
-			"aws_route53_cidr_location": {
-				Tok: awsResource(route53Mod, "CidrLocation"),
-			},
-			"aws_vpc_security_group_egress_rule": {
-				Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
-			},
-			"aws_vpc_security_group_ingress_rule": {
-				Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
-			},
-
 			// AWS Certificate Manager
 			"aws_acm_certificate": {Tok: awsResource(acmMod, "Certificate")},
 			"aws_acm_certificate_validation": {
@@ -6801,6 +6752,64 @@ func Provider() *tfbridge.ProviderInfo {
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
+
+	pluginFrameworkResoures := map[string]*tfbridge.ResourceInfo{
+		"aws_auditmanager_account_registration": {
+			Tok: awsResource(auditmanagerMod, "AccountRegistration"),
+		},
+		"aws_auditmanager_assessment": {
+			Tok: awsResource(auditmanagerMod, "Assessment"),
+		},
+		"aws_auditmanager_assessment_delegation": {
+			Tok: awsResource(auditmanagerMod, "AssessmentDelegation"),
+		},
+		"aws_auditmanager_assessment_report": {
+			Tok: awsResource(auditmanagerMod, "AssessmentReport"),
+		},
+		"aws_auditmanager_control": {
+			Tok: awsResource(auditmanagerMod, "Control"),
+		},
+		"aws_auditmanager_framework": {
+			Tok: awsResource(auditmanagerMod, "Framework"),
+		},
+		"aws_auditmanager_framework_share": {
+			Tok: awsResource(auditmanagerMod, "FrameworkShare"),
+		},
+		"aws_auditmanager_organization_admin_account_registration": {
+			Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
+		},
+		"aws_medialive_multiplex_program": {
+			Tok: awsResource(medialiveMod, "MultiplexProgram"),
+		},
+		"aws_rds_export_task": {
+			Tok: awsResource(rdsMod, "ExportTask"),
+		},
+		"aws_resourceexplorer2_index": {
+			Tok: awsResource("ResourceExplorer", "Index"),
+		},
+		"aws_resourceexplorer2_view": {
+			Tok: awsResource("ResourceExplorer", "View"),
+		},
+		"aws_route53_cidr_collection": {
+			Tok: awsResource(route53Mod, "CidrCollection"),
+		},
+		"aws_route53_cidr_location": {
+			Tok: awsResource(route53Mod, "CidrLocation"),
+		},
+		"aws_vpc_security_group_egress_rule": {
+			Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
+		},
+		"aws_vpc_security_group_ingress_rule": {
+			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+		},
+	}
+
+	for k, v := range pluginFrameworkResoures {
+		if _, conflict := prov.Resources[k]; conflict {
+			panic(fmt.Sprintf("Resoruce already defined: %s", k))
+		}
+		prov.Resources[k] = v
+	}
 
 	return &prov
 }
