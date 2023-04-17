@@ -853,6 +853,7 @@
             "aws:ram/resourceAssociation:ResourceAssociation": 0,
             "aws:ram/resourceShare:ResourceShare": 0,
             "aws:ram/resourceShareAccepter:ResourceShareAccepter": 0,
+            "aws:rbin/rule:Rule": 0,
             "aws:rds/cluster:Cluster": 0,
             "aws:rds/clusterActivityStream:ClusterActivityStream": 0,
             "aws:rds/clusterEndpoint:ClusterEndpoint": 0,
@@ -1076,6 +1077,7 @@
             "aws:signer/signingProfile:SigningProfile": 0,
             "aws:signer/signingProfilePermission:SigningProfilePermission": 0,
             "aws:simpledb/domain:Domain": 0,
+            "aws:sns/dataProtectionPolicy:DataProtectionPolicy": 0,
             "aws:sns/platformApplication:PlatformApplication": 0,
             "aws:sns/smsPreferences:SmsPreferences": 0,
             "aws:sns/topic:Topic": 0,
@@ -1097,6 +1099,7 @@
             "aws:ssm/patchGroup:PatchGroup": 0,
             "aws:ssm/resourceDataSync:ResourceDataSync": 0,
             "aws:ssm/serviceSetting:ServiceSetting": 0,
+            "aws:ssmincidents/replicationSet:ReplicationSet": 0,
             "aws:ssoadmin/accountAssignment:AccountAssignment": 0,
             "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment": 0,
             "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes": 0,
@@ -1192,9 +1195,12 @@
             "aws:appconfig/getConfigurationProfiles:getConfigurationProfiles": 0,
             "aws:appconfig/getEnvironment:getEnvironment": 0,
             "aws:appconfig/getEnvironments:getEnvironments": 0,
+            "aws:appmesh/getGatewayRoute:getGatewayRoute": 0,
             "aws:appmesh/getMesh:getMesh": 0,
             "aws:appmesh/getRoute:getRoute": 0,
             "aws:appmesh/getVirtualGateway:getVirtualGateway": 0,
+            "aws:appmesh/getVirtualNode:getVirtualNode": 0,
+            "aws:appmesh/getVirtualRouter:getVirtualRouter": 0,
             "aws:appmesh/getVirtualService:getVirtualService": 0,
             "aws:auditmanager/getControl:getControl": 1,
             "aws:auditmanager/getFramework:getFramework": 1,
@@ -1506,6 +1512,8 @@
             "aws:networkmanager/getLinks:getLinks": 0,
             "aws:networkmanager/getSite:getSite": 0,
             "aws:networkmanager/getSites:getSites": 0,
+            "aws:oam/getSink:getSink": 0,
+            "aws:oam/getSinks:getSinks": 0,
             "aws:opensearch/getDomain:getDomain": 0,
             "aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators": 0,
             "aws:organizations/getDelegatedServices:getDelegatedServices": 0,
@@ -1600,6 +1608,7 @@
             "aws:ssm/getParameter:getParameter": 0,
             "aws:ssm/getParametersByPath:getParametersByPath": 0,
             "aws:ssm/getPatchBaseline:getPatchBaseline": 0,
+            "aws:ssmincidents/getReplicationSet:getReplicationSet": 0,
             "aws:ssoadmin/getInstances:getInstances": 0,
             "aws:ssoadmin/getPermissionSet:getPermissionSet": 0,
             "aws:storagegateway/getLocalDisk:getLocalDisk": 0,
@@ -2501,6 +2510,7 @@
             "aws:ram/resourceAssociation:ResourceAssociation": "aws_ram_resource_association",
             "aws:ram/resourceShare:ResourceShare": "aws_ram_resource_share",
             "aws:ram/resourceShareAccepter:ResourceShareAccepter": "aws_ram_resource_share_accepter",
+            "aws:rbin/rule:Rule": "aws_rbin_rule",
             "aws:rds/cluster:Cluster": "aws_rds_cluster",
             "aws:rds/clusterActivityStream:ClusterActivityStream": "aws_rds_cluster_activity_stream",
             "aws:rds/clusterEndpoint:ClusterEndpoint": "aws_rds_cluster_endpoint",
@@ -2725,6 +2735,7 @@
             "aws:signer/signingProfile:SigningProfile": "aws_signer_signing_profile",
             "aws:signer/signingProfilePermission:SigningProfilePermission": "aws_signer_signing_profile_permission",
             "aws:simpledb/domain:Domain": "aws_simpledb_domain",
+            "aws:sns/dataProtectionPolicy:DataProtectionPolicy": "aws_sns_topic_data_protection_policy",
             "aws:sns/platformApplication:PlatformApplication": "aws_sns_platform_application",
             "aws:sns/smsPreferences:SmsPreferences": "aws_sns_sms_preferences",
             "aws:sns/topic:Topic": "aws_sns_topic",
@@ -2746,6 +2757,7 @@
             "aws:ssm/patchGroup:PatchGroup": "aws_ssm_patch_group",
             "aws:ssm/resourceDataSync:ResourceDataSync": "aws_ssm_resource_data_sync",
             "aws:ssm/serviceSetting:ServiceSetting": "aws_ssm_service_setting",
+            "aws:ssmincidents/replicationSet:ReplicationSet": "aws_ssmincidents_replication_set",
             "aws:ssoadmin/accountAssignment:AccountAssignment": "aws_ssoadmin_account_assignment",
             "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment": "aws_ssoadmin_customer_managed_policy_attachment",
             "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes": "aws_ssoadmin_instance_access_control_attributes",
@@ -2844,9 +2856,12 @@
             "aws:applicationloadbalancing/getListener:getListener": "aws_alb_listener_legacy",
             "aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer": "aws_alb_legacy",
             "aws:applicationloadbalancing/getTargetGroup:getTargetGroup": "aws_alb_target_group_legacy",
+            "aws:appmesh/getGatewayRoute:getGatewayRoute": "aws_appmesh_gateway_route",
             "aws:appmesh/getMesh:getMesh": "aws_appmesh_mesh",
             "aws:appmesh/getRoute:getRoute": "aws_appmesh_route",
             "aws:appmesh/getVirtualGateway:getVirtualGateway": "aws_appmesh_virtual_gateway",
+            "aws:appmesh/getVirtualNode:getVirtualNode": "aws_appmesh_virtual_node",
+            "aws:appmesh/getVirtualRouter:getVirtualRouter": "aws_appmesh_virtual_router",
             "aws:appmesh/getVirtualService:getVirtualService": "aws_appmesh_virtual_service",
             "aws:auditmanager/getControl:getControl": "aws_auditmanager_control",
             "aws:auditmanager/getFramework:getFramework": "aws_auditmanager_framework",
@@ -3171,6 +3186,8 @@
             "aws:networkmanager/getLinks:getLinks": "aws_networkmanager_links",
             "aws:networkmanager/getSite:getSite": "aws_networkmanager_site",
             "aws:networkmanager/getSites:getSites": "aws_networkmanager_sites",
+            "aws:oam/getSink:getSink": "aws_oam_sink",
+            "aws:oam/getSinks:getSinks": "aws_oam_sinks",
             "aws:opensearch/getDomain:getDomain": "aws_opensearch_domain",
             "aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators": "aws_organizations_delegated_administrators",
             "aws:organizations/getDelegatedServices:getDelegatedServices": "aws_organizations_delegated_services",
@@ -3265,6 +3282,7 @@
             "aws:ssm/getParameter:getParameter": "aws_ssm_parameter",
             "aws:ssm/getParametersByPath:getParametersByPath": "aws_ssm_parameters_by_path",
             "aws:ssm/getPatchBaseline:getPatchBaseline": "aws_ssm_patch_baseline",
+            "aws:ssmincidents/getReplicationSet:getReplicationSet": "aws_ssmincidents_replication_set",
             "aws:ssoadmin/getInstances:getInstances": "aws_ssoadmin_instances",
             "aws:ssoadmin/getPermissionSet:getPermissionSet": "aws_ssoadmin_permission_set",
             "aws:storagegateway/getLocalDisk:getLocalDisk": "aws_storagegateway_local_disk",
@@ -5154,6 +5172,10 @@
             "aws:appmesh/GatewayRouteSpecHttp2RouteActionTargetVirtualService:GatewayRouteSpecHttp2RouteActionTargetVirtualService": {
                 "virtualServiceName": "virtual_service_name"
             },
+            "aws:appmesh/GatewayRouteSpecHttp2RouteMatch:GatewayRouteSpecHttp2RouteMatch": {
+                "headers": "header",
+                "queryParameters": "query_parameter"
+            },
             "aws:appmesh/GatewayRouteSpecHttpRouteActionRewriteHostname:GatewayRouteSpecHttpRouteActionRewriteHostname": {
                 "defaultTargetHostname": "default_target_hostname"
             },
@@ -5165,6 +5187,10 @@
             },
             "aws:appmesh/GatewayRouteSpecHttpRouteActionTargetVirtualService:GatewayRouteSpecHttpRouteActionTargetVirtualService": {
                 "virtualServiceName": "virtual_service_name"
+            },
+            "aws:appmesh/GatewayRouteSpecHttpRouteMatch:GatewayRouteSpecHttpRouteMatch": {
+                "headers": "header",
+                "queryParameters": "query_parameter"
             },
             "aws:appmesh/MeshSpec:MeshSpec": {
                 "egressFilter": "egress_filter"
@@ -5209,7 +5235,8 @@
                 "virtualNode": "virtual_node"
             },
             "aws:appmesh/RouteSpecHttp2RouteMatch:RouteSpecHttp2RouteMatch": {
-                "headers": "header"
+                "headers": "header",
+                "queryParameters": "query_parameter"
             },
             "aws:appmesh/RouteSpecHttp2RouteRetryPolicy:RouteSpecHttp2RouteRetryPolicy": {
                 "httpRetryEvents": "http_retry_events",
@@ -5230,7 +5257,8 @@
                 "virtualNode": "virtual_node"
             },
             "aws:appmesh/RouteSpecHttpRouteMatch:RouteSpecHttpRouteMatch": {
-                "headers": "header"
+                "headers": "header",
+                "queryParameters": "query_parameter"
             },
             "aws:appmesh/RouteSpecHttpRouteRetryPolicy:RouteSpecHttpRouteRetryPolicy": {
                 "httpRetryEvents": "http_retry_events",
@@ -5457,6 +5485,10 @@
                 "namespaceName": "namespace_name",
                 "serviceName": "service_name"
             },
+            "aws:appmesh/VirtualNodeSpecServiceDiscoveryDns:VirtualNodeSpecServiceDiscoveryDns": {
+                "ipPreference": "ip_preference",
+                "responseType": "response_type"
+            },
             "aws:appmesh/VirtualRouterSpecListener:VirtualRouterSpecListener": {
                 "portMapping": "port_mapping"
             },
@@ -5478,6 +5510,114 @@
                 "resourceOwner": "resource_owner",
                 "tagsAll": "tags_all",
                 "virtualGatewayName": "virtual_gateway_name"
+            },
+            "aws:appmesh/getGatewayRoute:getGatewayRoute": {
+                "createdDate": "created_date",
+                "lastUpdatedDate": "last_updated_date",
+                "meshName": "mesh_name",
+                "meshOwner": "mesh_owner",
+                "resourceOwner": "resource_owner",
+                "specs": "spec",
+                "virtualGatewayName": "virtual_gateway_name"
+            },
+            "aws:appmesh/getGatewayRouteSpec:getGatewayRouteSpec": {
+                "grpcRoutes": "grpc_route",
+                "http2Routes": "http2_route",
+                "httpRoutes": "http_route"
+            },
+            "aws:appmesh/getGatewayRouteSpecGrpcRoute:getGatewayRouteSpecGrpcRoute": {
+                "actions": "action",
+                "matches": "match"
+            },
+            "aws:appmesh/getGatewayRouteSpecGrpcRouteAction:getGatewayRouteSpecGrpcRouteAction": {
+                "targets": "target"
+            },
+            "aws:appmesh/getGatewayRouteSpecGrpcRouteActionTarget:getGatewayRouteSpecGrpcRouteActionTarget": {
+                "virtualServices": "virtual_service"
+            },
+            "aws:appmesh/getGatewayRouteSpecGrpcRouteActionTargetVirtualService:getGatewayRouteSpecGrpcRouteActionTargetVirtualService": {
+                "virtualServiceName": "virtual_service_name"
+            },
+            "aws:appmesh/getGatewayRouteSpecGrpcRouteMatch:getGatewayRouteSpecGrpcRouteMatch": {
+                "serviceName": "service_name"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2Route:getGatewayRouteSpecHttp2Route": {
+                "actions": "action",
+                "matches": "match"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteAction:getGatewayRouteSpecHttp2RouteAction": {
+                "rewrites": "rewrite",
+                "targets": "target"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteActionRewrite:getGatewayRouteSpecHttp2RouteActionRewrite": {
+                "hostnames": "hostname",
+                "prefixes": "prefix"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteActionRewriteHostname:getGatewayRouteSpecHttp2RouteActionRewriteHostname": {
+                "defaultTargetHostname": "default_target_hostname"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteActionRewritePrefix:getGatewayRouteSpecHttp2RouteActionRewritePrefix": {
+                "defaultPrefix": "default_prefix"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteActionTarget:getGatewayRouteSpecHttp2RouteActionTarget": {
+                "virtualServices": "virtual_service"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteActionTargetVirtualService:getGatewayRouteSpecHttp2RouteActionTargetVirtualService": {
+                "virtualServiceName": "virtual_service_name"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteMatch:getGatewayRouteSpecHttp2RouteMatch": {
+                "headers": "header",
+                "hostnames": "hostname",
+                "paths": "path",
+                "queryParameters": "query_parameter"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteMatchHeader:getGatewayRouteSpecHttp2RouteMatchHeader": {
+                "matches": "match"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteMatchHeaderMatch:getGatewayRouteSpecHttp2RouteMatchHeaderMatch": {
+                "ranges": "range"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttp2RouteMatchQueryParameter:getGatewayRouteSpecHttp2RouteMatchQueryParameter": {
+                "matches": "match"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRoute:getGatewayRouteSpecHttpRoute": {
+                "actions": "action",
+                "matches": "match"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteAction:getGatewayRouteSpecHttpRouteAction": {
+                "rewrites": "rewrite",
+                "targets": "target"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteActionRewrite:getGatewayRouteSpecHttpRouteActionRewrite": {
+                "hostnames": "hostname",
+                "prefixes": "prefix"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteActionRewriteHostname:getGatewayRouteSpecHttpRouteActionRewriteHostname": {
+                "defaultTargetHostname": "default_target_hostname"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteActionRewritePrefix:getGatewayRouteSpecHttpRouteActionRewritePrefix": {
+                "defaultPrefix": "default_prefix"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteActionTarget:getGatewayRouteSpecHttpRouteActionTarget": {
+                "virtualServices": "virtual_service"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteActionTargetVirtualService:getGatewayRouteSpecHttpRouteActionTargetVirtualService": {
+                "virtualServiceName": "virtual_service_name"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteMatch:getGatewayRouteSpecHttpRouteMatch": {
+                "headers": "header",
+                "hostnames": "hostname",
+                "paths": "path",
+                "queryParameters": "query_parameter"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteMatchHeader:getGatewayRouteSpecHttpRouteMatchHeader": {
+                "matches": "match"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteMatchHeaderMatch:getGatewayRouteSpecHttpRouteMatchHeaderMatch": {
+                "ranges": "range"
+            },
+            "aws:appmesh/getGatewayRouteSpecHttpRouteMatchQueryParameter:getGatewayRouteSpecHttpRouteMatchQueryParameter": {
+                "matches": "match"
             },
             "aws:appmesh/getMesh:getMesh": {
                 "createdDate": "created_date",
@@ -5551,13 +5691,18 @@
                 "virtualNode": "virtual_node"
             },
             "aws:appmesh/getRouteSpecHttp2RouteMatch:getRouteSpecHttp2RouteMatch": {
-                "headers": "header"
+                "headers": "header",
+                "paths": "path",
+                "queryParameters": "query_parameter"
             },
             "aws:appmesh/getRouteSpecHttp2RouteMatchHeader:getRouteSpecHttp2RouteMatchHeader": {
                 "matches": "match"
             },
             "aws:appmesh/getRouteSpecHttp2RouteMatchHeaderMatch:getRouteSpecHttp2RouteMatchHeaderMatch": {
                 "ranges": "range"
+            },
+            "aws:appmesh/getRouteSpecHttp2RouteMatchQueryParameter:getRouteSpecHttp2RouteMatchQueryParameter": {
+                "matches": "match"
             },
             "aws:appmesh/getRouteSpecHttp2RouteRetryPolicy:getRouteSpecHttp2RouteRetryPolicy": {
                 "httpRetryEvents": "http_retry_events",
@@ -5582,13 +5727,18 @@
                 "virtualNode": "virtual_node"
             },
             "aws:appmesh/getRouteSpecHttpRouteMatch:getRouteSpecHttpRouteMatch": {
-                "headers": "header"
+                "headers": "header",
+                "paths": "path",
+                "queryParameters": "query_parameter"
             },
             "aws:appmesh/getRouteSpecHttpRouteMatchHeader:getRouteSpecHttpRouteMatchHeader": {
                 "matches": "match"
             },
             "aws:appmesh/getRouteSpecHttpRouteMatchHeaderMatch:getRouteSpecHttpRouteMatchHeaderMatch": {
                 "ranges": "range"
+            },
+            "aws:appmesh/getRouteSpecHttpRouteMatchQueryParameter:getRouteSpecHttpRouteMatchQueryParameter": {
+                "matches": "match"
             },
             "aws:appmesh/getRouteSpecHttpRouteRetryPolicy:getRouteSpecHttpRouteRetryPolicy": {
                 "httpRetryEvents": "http_retry_events",
@@ -5741,6 +5891,238 @@
             },
             "aws:appmesh/getVirtualGatewaySpecLoggingAccessLogFileFormat:getVirtualGatewaySpecLoggingAccessLogFileFormat": {
                 "jsons": "json"
+            },
+            "aws:appmesh/getVirtualNode:getVirtualNode": {
+                "createdDate": "created_date",
+                "lastUpdatedDate": "last_updated_date",
+                "meshName": "mesh_name",
+                "meshOwner": "mesh_owner",
+                "resourceOwner": "resource_owner",
+                "specs": "spec"
+            },
+            "aws:appmesh/getVirtualNodeSpec:getVirtualNodeSpec": {
+                "backendDefaults": "backend_defaults",
+                "backends": "backend",
+                "listeners": "listener",
+                "loggings": "logging",
+                "serviceDiscoveries": "service_discovery"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackend:getVirtualNodeSpecBackend": {
+                "virtualServices": "virtual_service"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefault:getVirtualNodeSpecBackendDefault": {
+                "clientPolicies": "client_policy"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTl:getVirtualNodeSpecBackendDefaultClientPolicyTl": {
+                "certificates": "certificate",
+                "validations": "validation"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlCertificate:getVirtualNodeSpecBackendDefaultClientPolicyTlCertificate": {
+                "files": "file"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile:getVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFile": {
+                "certificateChain": "certificate_chain",
+                "privateKey": "private_key"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd:getVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd": {
+                "secretName": "secret_name"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlValidation:getVirtualNodeSpecBackendDefaultClientPolicyTlValidation": {
+                "subjectAlternativeNames": "subject_alternative_names",
+                "trusts": "trust"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName:getVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeName": {
+                "matches": "match"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch:getVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatch": {
+                "exacts": "exact"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust:getVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust": {
+                "acms": "acm",
+                "files": "file"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm:getVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm": {
+                "certificateAuthorityArns": "certificate_authority_arns"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile:getVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile": {
+                "certificateChain": "certificate_chain"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd:getVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd": {
+                "secretName": "secret_name"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualService:getVirtualNodeSpecBackendVirtualService": {
+                "clientPolicies": "client_policy",
+                "virtualServiceName": "virtual_service_name"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTl:getVirtualNodeSpecBackendVirtualServiceClientPolicyTl": {
+                "certificates": "certificate",
+                "validations": "validation"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate": {
+                "files": "file"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFile": {
+                "certificateChain": "certificate_chain",
+                "privateKey": "private_key"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd": {
+                "secretName": "secret_name"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation": {
+                "subjectAlternativeNames": "subject_alternative_names",
+                "trusts": "trust"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeName": {
+                "matches": "match"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatch": {
+                "exacts": "exact"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust": {
+                "acms": "acm",
+                "files": "file"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm": {
+                "certificateAuthorityArns": "certificate_authority_arns"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile": {
+                "certificateChain": "certificate_chain"
+            },
+            "aws:appmesh/getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd:getVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd": {
+                "secretName": "secret_name"
+            },
+            "aws:appmesh/getVirtualNodeSpecListener:getVirtualNodeSpecListener": {
+                "connectionPools": "connection_pool",
+                "healthChecks": "health_check",
+                "outlierDetections": "outlier_detection",
+                "portMappings": "port_mapping",
+                "timeouts": "timeout"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerConnectionPool:getVirtualNodeSpecListenerConnectionPool": {
+                "grpcs": "grpc",
+                "http2s": "http2",
+                "https": "http",
+                "tcps": "tcp"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerConnectionPoolGrpc:getVirtualNodeSpecListenerConnectionPoolGrpc": {
+                "maxRequests": "max_requests"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerConnectionPoolHttp2:getVirtualNodeSpecListenerConnectionPoolHttp2": {
+                "maxRequests": "max_requests"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerConnectionPoolHttp:getVirtualNodeSpecListenerConnectionPoolHttp": {
+                "maxConnections": "max_connections",
+                "maxPendingRequests": "max_pending_requests"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerConnectionPoolTcp:getVirtualNodeSpecListenerConnectionPoolTcp": {
+                "maxConnections": "max_connections"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerHealthCheck:getVirtualNodeSpecListenerHealthCheck": {
+                "healthyThreshold": "healthy_threshold",
+                "intervalMillis": "interval_millis",
+                "timeoutMillis": "timeout_millis",
+                "unhealthyThreshold": "unhealthy_threshold"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerOutlierDetection:getVirtualNodeSpecListenerOutlierDetection": {
+                "baseEjectionDurations": "base_ejection_duration",
+                "intervals": "interval",
+                "maxEjectionPercent": "max_ejection_percent",
+                "maxServerErrors": "max_server_errors"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTimeout:getVirtualNodeSpecListenerTimeout": {
+                "grpcs": "grpc",
+                "http2s": "http2",
+                "https": "http",
+                "tcps": "tcp"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTimeoutGrpc:getVirtualNodeSpecListenerTimeoutGrpc": {
+                "idles": "idle",
+                "perRequests": "per_request"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTimeoutHttp2:getVirtualNodeSpecListenerTimeoutHttp2": {
+                "idles": "idle",
+                "perRequests": "per_request"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTimeoutHttp:getVirtualNodeSpecListenerTimeoutHttp": {
+                "idles": "idle",
+                "perRequests": "per_request"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTimeoutTcp:getVirtualNodeSpecListenerTimeoutTcp": {
+                "idles": "idle"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTl:getVirtualNodeSpecListenerTl": {
+                "certificates": "certificate",
+                "validations": "validation"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlCertificate:getVirtualNodeSpecListenerTlCertificate": {
+                "acms": "acm",
+                "files": "file"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlCertificateAcm:getVirtualNodeSpecListenerTlCertificateAcm": {
+                "certificateArn": "certificate_arn"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlCertificateFile:getVirtualNodeSpecListenerTlCertificateFile": {
+                "certificateChain": "certificate_chain",
+                "privateKey": "private_key"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlCertificateSd:getVirtualNodeSpecListenerTlCertificateSd": {
+                "secretName": "secret_name"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlValidation:getVirtualNodeSpecListenerTlValidation": {
+                "subjectAlternativeNames": "subject_alternative_names",
+                "trusts": "trust"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlValidationSubjectAlternativeName:getVirtualNodeSpecListenerTlValidationSubjectAlternativeName": {
+                "matches": "match"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch:getVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatch": {
+                "exacts": "exact"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlValidationTrust:getVirtualNodeSpecListenerTlValidationTrust": {
+                "files": "file"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlValidationTrustFile:getVirtualNodeSpecListenerTlValidationTrustFile": {
+                "certificateChain": "certificate_chain"
+            },
+            "aws:appmesh/getVirtualNodeSpecListenerTlValidationTrustSd:getVirtualNodeSpecListenerTlValidationTrustSd": {
+                "secretName": "secret_name"
+            },
+            "aws:appmesh/getVirtualNodeSpecLogging:getVirtualNodeSpecLogging": {
+                "accessLogs": "access_log"
+            },
+            "aws:appmesh/getVirtualNodeSpecLoggingAccessLog:getVirtualNodeSpecLoggingAccessLog": {
+                "files": "file"
+            },
+            "aws:appmesh/getVirtualNodeSpecLoggingAccessLogFile:getVirtualNodeSpecLoggingAccessLogFile": {
+                "formats": "format"
+            },
+            "aws:appmesh/getVirtualNodeSpecLoggingAccessLogFileFormat:getVirtualNodeSpecLoggingAccessLogFileFormat": {
+                "jsons": "json"
+            },
+            "aws:appmesh/getVirtualNodeSpecServiceDiscovery:getVirtualNodeSpecServiceDiscovery": {
+                "awsCloudMaps": "aws_cloud_map"
+            },
+            "aws:appmesh/getVirtualNodeSpecServiceDiscoveryAwsCloudMap:getVirtualNodeSpecServiceDiscoveryAwsCloudMap": {
+                "namespaceName": "namespace_name",
+                "serviceName": "service_name"
+            },
+            "aws:appmesh/getVirtualNodeSpecServiceDiscoveryDn:getVirtualNodeSpecServiceDiscoveryDn": {
+                "ipPreference": "ip_preference",
+                "responseType": "response_type"
+            },
+            "aws:appmesh/getVirtualRouter:getVirtualRouter": {
+                "createdDate": "created_date",
+                "lastUpdatedDate": "last_updated_date",
+                "meshName": "mesh_name",
+                "meshOwner": "mesh_owner",
+                "resourceOwner": "resource_owner",
+                "specs": "spec"
+            },
+            "aws:appmesh/getVirtualRouterSpec:getVirtualRouterSpec": {
+                "listeners": "listener"
+            },
+            "aws:appmesh/getVirtualRouterSpecListener:getVirtualRouterSpecListener": {
+                "portMappings": "port_mapping"
             },
             "aws:appmesh/getVirtualService:getVirtualService": {
                 "createdDate": "created_date",
@@ -16578,6 +16960,7 @@
             },
             "aws:globalaccelerator/accelerator:Accelerator": {
                 "dnsName": "dns_name",
+                "dualStackDnsName": "dual_stack_dns_name",
                 "hostedZoneId": "hosted_zone_id",
                 "ipAddressType": "ip_address_type",
                 "ipAddresses": "ip_addresses",
@@ -22912,6 +23295,10 @@
                 "tagsAll": "tags_all",
                 "vpcArn": "vpc_arn"
             },
+            "aws:oam/getSink:getSink": {
+                "sinkId": "sink_id",
+                "sinkIdentifier": "sink_identifier"
+            },
             "aws:oam/link:Link": {
                 "labelTemplate": "label_template",
                 "linkId": "link_id",
@@ -24244,6 +24631,35 @@
                 "shareId": "share_id",
                 "shareName": "share_name"
             },
+            "aws:rbin/RuleLockConfiguration:RuleLockConfiguration": {
+                "unlockDelay": "unlock_delay"
+            },
+            "aws:rbin/RuleLockConfigurationUnlockDelay:RuleLockConfigurationUnlockDelay": {
+                "unlockDelayUnit": "unlock_delay_unit",
+                "unlockDelayValue": "unlock_delay_value"
+            },
+            "aws:rbin/RuleResourceTag:RuleResourceTag": {
+                "resourceTagKey": "resource_tag_key",
+                "resourceTagValue": "resource_tag_value"
+            },
+            "aws:rbin/RuleRetentionPeriod:RuleRetentionPeriod": {
+                "retentionPeriodUnit": "retention_period_unit",
+                "retentionPeriodValue": "retention_period_value"
+            },
+            "aws:rbin/rule:Rule": {
+                "lockConfiguration": "lock_configuration",
+                "lockEndTime": "lock_end_time",
+                "lockState": "lock_state",
+                "resourceTags": "resource_tags",
+                "resourceType": "resource_type",
+                "retentionPeriod": "retention_period",
+                "tagsAll": "tags_all"
+            },
+            "aws:rds/ClusterMasterUserSecret:ClusterMasterUserSecret": {
+                "kmsKeyId": "kms_key_id",
+                "secretArn": "secret_arn",
+                "secretStatus": "secret_status"
+            },
             "aws:rds/ClusterParameterGroupParameter:ClusterParameterGroupParameter": {
                 "applyMethod": "apply_method"
             },
@@ -24277,6 +24693,11 @@
             },
             "aws:rds/InstanceListenerEndpoint:InstanceListenerEndpoint": {
                 "hostedZoneId": "hosted_zone_id"
+            },
+            "aws:rds/InstanceMasterUserSecret:InstanceMasterUserSecret": {
+                "kmsKeyId": "kms_key_id",
+                "secretArn": "secret_arn",
+                "secretStatus": "secret_status"
             },
             "aws:rds/InstanceRestoreToPointInTime:InstanceRestoreToPointInTime": {
                 "restoreTime": "restore_time",
@@ -24353,7 +24774,10 @@
                 "iamDatabaseAuthenticationEnabled": "iam_database_authentication_enabled",
                 "iamRoles": "iam_roles",
                 "kmsKeyId": "kms_key_id",
+                "manageMasterUserPassword": "manage_master_user_password",
                 "masterPassword": "master_password",
+                "masterUserSecretKmsKeyId": "master_user_secret_kms_key_id",
+                "masterUserSecrets": "master_user_secret",
                 "masterUsername": "master_username",
                 "networkType": "network_type",
                 "preferredBackupWindow": "preferred_backup_window",
@@ -24490,6 +24914,7 @@
                 "iamDatabaseAuthenticationEnabled": "iam_database_authentication_enabled",
                 "iamRoles": "iam_roles",
                 "kmsKeyId": "kms_key_id",
+                "masterUserSecrets": "master_user_secret",
                 "masterUsername": "master_username",
                 "networkType": "network_type",
                 "preferredBackupWindow": "preferred_backup_window",
@@ -24498,6 +24923,11 @@
                 "replicationSourceIdentifier": "replication_source_identifier",
                 "storageEncrypted": "storage_encrypted",
                 "vpcSecurityGroupIds": "vpc_security_group_ids"
+            },
+            "aws:rds/getClusterMasterUserSecret:getClusterMasterUserSecret": {
+                "kmsKeyId": "kms_key_id",
+                "secretArn": "secret_arn",
+                "secretStatus": "secret_status"
             },
             "aws:rds/getClusterSnapshot:getClusterSnapshot": {
                 "allocatedStorage": "allocated_storage",
@@ -24566,6 +24996,7 @@
                 "hostedZoneId": "hosted_zone_id",
                 "kmsKeyId": "kms_key_id",
                 "licenseModel": "license_model",
+                "masterUserSecrets": "master_user_secret",
                 "masterUsername": "master_username",
                 "monitoringInterval": "monitoring_interval",
                 "monitoringRoleArn": "monitoring_role_arn",
@@ -24581,6 +25012,11 @@
                 "storageThroughput": "storage_throughput",
                 "storageType": "storage_type",
                 "vpcSecurityGroups": "vpc_security_groups"
+            },
+            "aws:rds/getInstanceMasterUserSecret:getInstanceMasterUserSecret": {
+                "kmsKeyId": "kms_key_id",
+                "secretArn": "secret_arn",
+                "secretStatus": "secret_status"
             },
             "aws:rds/getInstances:getInstances": {
                 "filters": "filter",
@@ -24710,6 +25146,9 @@
                 "licenseModel": "license_model",
                 "listenerEndpoints": "listener_endpoint",
                 "maintenanceWindow": "maintenance_window",
+                "manageMasterUserPassword": "manage_master_user_password",
+                "masterUserSecretKmsKeyId": "master_user_secret_kms_key_id",
+                "masterUserSecrets": "master_user_secret",
                 "maxAllocatedStorage": "max_allocated_storage",
                 "monitoringInterval": "monitoring_interval",
                 "monitoringRoleArn": "monitoring_role_arn",
@@ -26570,6 +27009,7 @@
                 "acceleratorType": "accelerator_type",
                 "containerStartupHealthCheckTimeoutInSeconds": "container_startup_health_check_timeout_in_seconds",
                 "coreDumpConfig": "core_dump_config",
+                "enableSsmAccess": "enable_ssm_access",
                 "initialInstanceCount": "initial_instance_count",
                 "initialVariantWeight": "initial_variant_weight",
                 "instanceType": "instance_type",
@@ -26591,6 +27031,7 @@
                 "acceleratorType": "accelerator_type",
                 "containerStartupHealthCheckTimeoutInSeconds": "container_startup_health_check_timeout_in_seconds",
                 "coreDumpConfig": "core_dump_config",
+                "enableSsmAccess": "enable_ssm_access",
                 "initialInstanceCount": "initial_instance_count",
                 "initialVariantWeight": "initial_variant_weight",
                 "instanceType": "instance_type",
@@ -28244,6 +28685,27 @@
             "aws:ssm/serviceSetting:ServiceSetting": {
                 "settingId": "setting_id",
                 "settingValue": "setting_value"
+            },
+            "aws:ssmincidents/ReplicationSetRegion:ReplicationSetRegion": {
+                "kmsKeyArn": "kms_key_arn",
+                "statusMessage": "status_message"
+            },
+            "aws:ssmincidents/getReplicationSet:getReplicationSet": {
+                "createdBy": "created_by",
+                "deletionProtected": "deletion_protected",
+                "lastModifiedBy": "last_modified_by",
+                "regions": "region"
+            },
+            "aws:ssmincidents/getReplicationSetRegion:getReplicationSetRegion": {
+                "kmsKeyArn": "kms_key_arn",
+                "statusMessage": "status_message"
+            },
+            "aws:ssmincidents/replicationSet:ReplicationSet": {
+                "createdBy": "created_by",
+                "deletionProtected": "deletion_protected",
+                "lastModifiedBy": "last_modified_by",
+                "regions": "region",
+                "tagsAll": "tags_all"
             },
             "aws:ssoadmin/InstanceAccessControlAttributesAttribute:InstanceAccessControlAttributesAttribute": {
                 "values": "value"
