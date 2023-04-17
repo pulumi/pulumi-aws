@@ -5,7 +5,6 @@ go 1.18
 require (
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.13.1
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.25
-	github.com/hashicorp/terraform-plugin-framework v1.2.0
 	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.5.0
@@ -22,9 +21,9 @@ replace (
 )
 
 replace (
-	github.com/pulumi/pulumi-terraform-bridge/pf => github.com/pulumi/pulumi-terraform-bridge/pf v0.7.1-0.20230413185424-fbca469ba3c9
-	github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.43.1-0.20230413185424-fbca469ba3c9
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer => github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.2-0.20230413185424-fbca469ba3c9
+	github.com/pulumi/pulumi-terraform-bridge/pf => github.com/pulumi/pulumi-terraform-bridge/pf v0.7.1-0.20230417183758-7590476dbfb0
+	github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.43.1-0.20230417183758-7590476dbfb0
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer => github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.3-0.20230417183758-7590476dbfb0
 )
 
 require (
@@ -181,6 +180,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.18.1 // indirect
 	github.com/hashicorp/terraform-json v0.16.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v1.2.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timeouts v0.3.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.10.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.14.3 // indirect

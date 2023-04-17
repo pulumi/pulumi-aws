@@ -19,7 +19,6 @@ package main
 import (
 	"context"
 	_ "embed"
-	"log"
 
 	aws "github.com/pulumi/pulumi-aws/provider/v5"
 	pf "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
@@ -30,11 +29,6 @@ var pulumiSchema []byte
 
 func main() {
 	ctx := context.Background()
-	parts, err := aws.MuxedProvider(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-	pf.MainWithMuxer(ctx, "aws", pf.ProviderMetadata{
-		PackageSchema: pulumiSchema,
-	}, parts...)
+	info := aws.Provider()
+	pf.MainWithMuxer(ctx, pulumiSchema, *info)
 }

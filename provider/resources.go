@@ -26,17 +26,19 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
-	"github.com/hashicorp/terraform-plugin-framework/provider"
+
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
-	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+
+	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the AWS token components used below.
@@ -431,8 +433,11 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 var metadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
-func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(upstream.SDKV2Provider)
+func Provider() *tfbridge.ProviderInfo {
+	ctx := context.Background()
+	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
+	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
+	p := pftfbridge.AugmentShimWithPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider), upstreamProvider.PluginFrameworkProvider)
 
 	prov := tfbridge.ProviderInfo{
 		P:            p,
@@ -483,6 +488,55 @@ func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
+			"aws_auditmanager_account_registration": {
+				Tok: awsResource(auditmanagerMod, "AccountRegistration"),
+			},
+			"aws_auditmanager_assessment": {
+				Tok: awsResource(auditmanagerMod, "Assessment"),
+			},
+			"aws_auditmanager_assessment_delegation": {
+				Tok: awsResource(auditmanagerMod, "AssessmentDelegation"),
+			},
+			"aws_auditmanager_assessment_report": {
+				Tok: awsResource(auditmanagerMod, "AssessmentReport"),
+			},
+			"aws_auditmanager_control": {
+				Tok: awsResource(auditmanagerMod, "Control"),
+			},
+			"aws_auditmanager_framework": {
+				Tok: awsResource(auditmanagerMod, "Framework"),
+			},
+			"aws_auditmanager_framework_share": {
+				Tok: awsResource(auditmanagerMod, "FrameworkShare"),
+			},
+			"aws_auditmanager_organization_admin_account_registration": {
+				Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
+			},
+			"aws_medialive_multiplex_program": {
+				Tok: awsResource(medialiveMod, "MultiplexProgram"),
+			},
+			"aws_rds_export_task": {
+				Tok: awsResource(rdsMod, "ExportTask"),
+			},
+			"aws_resourceexplorer2_index": {
+				Tok: awsResource("ResourceExplorer", "Index"),
+			},
+			"aws_resourceexplorer2_view": {
+				Tok: awsResource("ResourceExplorer", "View"),
+			},
+			"aws_route53_cidr_collection": {
+				Tok: awsResource(route53Mod, "CidrCollection"),
+			},
+			"aws_route53_cidr_location": {
+				Tok: awsResource(route53Mod, "CidrLocation"),
+			},
+			"aws_vpc_security_group_egress_rule": {
+				Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
+			},
+			"aws_vpc_security_group_ingress_rule": {
+				Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+			},
+
 			// AWS Certificate Manager
 			"aws_acm_certificate": {Tok: awsResource(acmMod, "Certificate")},
 			"aws_acm_certificate_validation": {
@@ -5703,6 +5757,20 @@ func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+
+			"aws_auditmanager_control": {
+				Tok: awsDataSource(auditmanagerMod, "getControl"),
+			},
+			"aws_auditmanager_framework": {
+				Tok: awsDataSource(auditmanagerMod, "getFramework"),
+			},
+			"aws_vpc_security_group_rule": {
+				Tok: awsDataSource("Vpc", "getSecurityGroupRule"),
+			},
+			"aws_vpc_security_group_rules": {
+				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
+			},
+
 			// AWS
 			"aws_arn":                     {Tok: awsDataSource(awsMod, "getArn")},
 			"aws_availability_zone":       {Tok: awsDataSource(awsMod, "getAvailabilityZone")},
@@ -6735,106 +6803,4 @@ func Provider(upstream awsShim.UpstreamProvider) *tfbridge.ProviderInfo {
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
 
 	return &prov
-}
-
-func PFProvider(upstream awsShim.UpstreamProvider) *pfbridge.ProviderInfo {
-	baseline := Provider(upstream)
-
-	info := tfbridge.ProviderInfo{
-		Name:         "aws",
-		Version:      version.Version,
-		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
-
-		Config:     baseline.Config,
-		ExtraTypes: baseline.ExtraTypes,
-
-		CSharp:     baseline.CSharp,
-		Golang:     baseline.Golang,
-		Java:       baseline.Java,
-		JavaScript: baseline.JavaScript,
-		Python:     baseline.Python,
-
-		Resources: map[string]*tfbridge.ResourceInfo{
-			"aws_auditmanager_account_registration": {
-				Tok: awsResource(auditmanagerMod, "AccountRegistration"),
-			},
-			"aws_auditmanager_assessment": {
-				Tok: awsResource(auditmanagerMod, "Assessment"),
-			},
-			"aws_auditmanager_assessment_delegation": {
-				Tok: awsResource(auditmanagerMod, "AssessmentDelegation"),
-			},
-			"aws_auditmanager_assessment_report": {
-				Tok: awsResource(auditmanagerMod, "AssessmentReport"),
-			},
-			"aws_auditmanager_control": {
-				Tok: awsResource(auditmanagerMod, "Control"),
-			},
-			"aws_auditmanager_framework": {
-				Tok: awsResource(auditmanagerMod, "Framework"),
-			},
-			"aws_auditmanager_framework_share": {
-				Tok: awsResource(auditmanagerMod, "FrameworkShare"),
-			},
-			"aws_auditmanager_organization_admin_account_registration": {
-				Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
-			},
-			"aws_medialive_multiplex_program": {
-				Tok: awsResource(medialiveMod, "MultiplexProgram"),
-			},
-			"aws_rds_export_task": {
-				Tok: awsResource(rdsMod, "ExportTask"),
-			},
-			"aws_resourceexplorer2_index": {
-				Tok: awsResource("ResourceExplorer", "Index"),
-			},
-			"aws_resourceexplorer2_view": {
-				Tok: awsResource("ResourceExplorer", "View"),
-			},
-			"aws_route53_cidr_collection": {
-				Tok: awsResource(route53Mod, "CidrCollection"),
-			},
-			"aws_route53_cidr_location": {
-				Tok: awsResource(route53Mod, "CidrLocation"),
-			},
-			"aws_vpc_security_group_egress_rule": {
-				Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
-			},
-			"aws_vpc_security_group_ingress_rule": {
-				Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
-			},
-		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"aws_auditmanager_control": {
-				Tok: awsDataSource(auditmanagerMod, "getControl"),
-			},
-			"aws_auditmanager_framework": {
-				Tok: awsDataSource(auditmanagerMod, "getFramework"),
-			},
-			"aws_vpc_security_group_rule": {
-				Tok: awsDataSource("Vpc", "getSecurityGroupRule"),
-			},
-			"aws_vpc_security_group_rules": {
-				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
-			},
-		},
-	}
-
-	return &pfbridge.ProviderInfo{
-		ProviderInfo: info,
-		NewProvider: func() provider.Provider {
-			return upstream.PluginFrameworkProvider
-		},
-	}
-}
-
-func MuxedProvider(ctx context.Context) ([]pfbridge.Muxed, error) {
-	upstream, err := awsShim.NewUpstreamProvider(ctx)
-	if err != nil {
-		return nil, err
-	}
-	return []pfbridge.Muxed{
-		{SDK: Provider(upstream)},
-		{PF: PFProvider(upstream)},
-	}, nil
 }
