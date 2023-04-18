@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/originAccessControl:OriginAccessControl")
 public class OriginAccessControl extends com.pulumi.resources.CustomResource {
     /**
-     * The description of the Origin Access Control. It may be empty.
+     * The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the Origin Access Control. It may be empty.
+     * @return The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
      * 
      */
     public Output<Optional<String>> description() {
@@ -107,42 +107,42 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
      * 
      */
     @Export(name="originAccessControlOriginType", refs={String.class}, tree="[0]")
     private Output<String> originAccessControlOriginType;
 
     /**
-     * @return The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+     * @return The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
      * 
      */
     public Output<String> originAccessControlOriginType() {
         return this.originAccessControlOriginType;
     }
     /**
-     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      * 
      */
     @Export(name="signingBehavior", refs={String.class}, tree="[0]")
     private Output<String> signingBehavior;
 
     /**
-     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+     * @return Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      * 
      */
     public Output<String> signingBehavior() {
         return this.signingBehavior;
     }
     /**
-     * Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      * 
      */
     @Export(name="signingProtocol", refs={String.class}, tree="[0]")
     private Output<String> signingProtocol;
 
     /**
-     * @return Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+     * @return Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      * 
      */
     public Output<String> signingProtocol() {

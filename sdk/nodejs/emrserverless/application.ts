@@ -112,6 +112,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration>;
     /**
+     * The image configuration applied to all worker types.
+     */
+    public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfiguration>;
+    /**
      * The capacity to initialize when the application is created.
      */
     public readonly initialCapacities!: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacity[] | undefined>;
@@ -161,6 +165,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["autoStartConfiguration"] = state ? state.autoStartConfiguration : undefined;
             resourceInputs["autoStopConfiguration"] = state ? state.autoStopConfiguration : undefined;
+            resourceInputs["imageConfiguration"] = state ? state.imageConfiguration : undefined;
             resourceInputs["initialCapacities"] = state ? state.initialCapacities : undefined;
             resourceInputs["maximumCapacity"] = state ? state.maximumCapacity : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -180,6 +185,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["architecture"] = args ? args.architecture : undefined;
             resourceInputs["autoStartConfiguration"] = args ? args.autoStartConfiguration : undefined;
             resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
+            resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
             resourceInputs["initialCapacities"] = args ? args.initialCapacities : undefined;
             resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -215,6 +221,10 @@ export interface ApplicationState {
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
     autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration>;
+    /**
+     * The image configuration applied to all worker types.
+     */
+    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfiguration>;
     /**
      * The capacity to initialize when the application is created.
      */
@@ -265,6 +275,10 @@ export interface ApplicationArgs {
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
     autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration>;
+    /**
+     * The image configuration applied to all worker types.
+     */
+    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfiguration>;
     /**
      * The capacity to initialize when the application is created.
      */

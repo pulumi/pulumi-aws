@@ -6,7 +6,10 @@ package com.pulumi.aws.secretsmanager.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.ResourceArgs {
@@ -14,24 +17,56 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
     public static final SecretRotationRotationRulesArgs Empty = new SecretRotationRotationRulesArgs();
 
     /**
-     * Specifies the number of days between automatic scheduled rotations of the secret.
+     * Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
      * 
      */
-    @Import(name="automaticallyAfterDays", required=true)
-    private Output<Integer> automaticallyAfterDays;
+    @Import(name="automaticallyAfterDays")
+    private @Nullable Output<Integer> automaticallyAfterDays;
 
     /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret.
+     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
      * 
      */
-    public Output<Integer> automaticallyAfterDays() {
-        return this.automaticallyAfterDays;
+    public Optional<Output<Integer>> automaticallyAfterDays() {
+        return Optional.ofNullable(this.automaticallyAfterDays);
+    }
+
+    /**
+     * The length of the rotation window in hours. For example, `3h` for a three hour window.
+     * 
+     */
+    @Import(name="duration")
+    private @Nullable Output<String> duration;
+
+    /**
+     * @return The length of the rotation window in hours. For example, `3h` for a three hour window.
+     * 
+     */
+    public Optional<Output<String>> duration() {
+        return Optional.ofNullable(this.duration);
+    }
+
+    /**
+     * A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * 
+     */
+    @Import(name="scheduleExpression")
+    private @Nullable Output<String> scheduleExpression;
+
+    /**
+     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * 
+     */
+    public Optional<Output<String>> scheduleExpression() {
+        return Optional.ofNullable(this.scheduleExpression);
     }
 
     private SecretRotationRotationRulesArgs() {}
 
     private SecretRotationRotationRulesArgs(SecretRotationRotationRulesArgs $) {
         this.automaticallyAfterDays = $.automaticallyAfterDays;
+        this.duration = $.duration;
+        this.scheduleExpression = $.scheduleExpression;
     }
 
     public static Builder builder() {
@@ -53,18 +88,18 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param automaticallyAfterDays Specifies the number of days between automatic scheduled rotations of the secret.
+         * @param automaticallyAfterDays Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder automaticallyAfterDays(Output<Integer> automaticallyAfterDays) {
+        public Builder automaticallyAfterDays(@Nullable Output<Integer> automaticallyAfterDays) {
             $.automaticallyAfterDays = automaticallyAfterDays;
             return this;
         }
 
         /**
-         * @param automaticallyAfterDays Specifies the number of days between automatic scheduled rotations of the secret.
+         * @param automaticallyAfterDays Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
          * 
          * @return builder
          * 
@@ -73,8 +108,49 @@ public final class SecretRotationRotationRulesArgs extends com.pulumi.resources.
             return automaticallyAfterDays(Output.of(automaticallyAfterDays));
         }
 
+        /**
+         * @param duration The length of the rotation window in hours. For example, `3h` for a three hour window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder duration(@Nullable Output<String> duration) {
+            $.duration = duration;
+            return this;
+        }
+
+        /**
+         * @param duration The length of the rotation window in hours. For example, `3h` for a three hour window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder duration(String duration) {
+            return duration(Output.of(duration));
+        }
+
+        /**
+         * @param scheduleExpression A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scheduleExpression(@Nullable Output<String> scheduleExpression) {
+            $.scheduleExpression = scheduleExpression;
+            return this;
+        }
+
+        /**
+         * @param scheduleExpression A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scheduleExpression(String scheduleExpression) {
+            return scheduleExpression(Output.of(scheduleExpression));
+        }
+
         public SecretRotationRotationRulesArgs build() {
-            $.automaticallyAfterDays = Objects.requireNonNull($.automaticallyAfterDays, "expected parameter 'automaticallyAfterDays' to be non-null");
             return $;
         }
     }

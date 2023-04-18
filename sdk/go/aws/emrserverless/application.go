@@ -129,6 +129,8 @@ type Application struct {
 	AutoStartConfiguration ApplicationAutoStartConfigurationOutput `pulumi:"autoStartConfiguration"`
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
 	AutoStopConfiguration ApplicationAutoStopConfigurationOutput `pulumi:"autoStopConfiguration"`
+	// The image configuration applied to all worker types.
+	ImageConfiguration ApplicationImageConfigurationOutput `pulumi:"imageConfiguration"`
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayOutput `pulumi:"initialCapacities"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
@@ -190,6 +192,8 @@ type applicationState struct {
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
 	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
+	// The image configuration applied to all worker types.
+	ImageConfiguration *ApplicationImageConfiguration `pulumi:"imageConfiguration"`
 	// The capacity to initialize when the application is created.
 	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
@@ -217,6 +221,8 @@ type ApplicationState struct {
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
 	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
+	// The image configuration applied to all worker types.
+	ImageConfiguration ApplicationImageConfigurationPtrInput
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayInput
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
@@ -246,6 +252,8 @@ type applicationArgs struct {
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
 	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
+	// The image configuration applied to all worker types.
+	ImageConfiguration *ApplicationImageConfiguration `pulumi:"imageConfiguration"`
 	// The capacity to initialize when the application is created.
 	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
@@ -270,6 +278,8 @@ type ApplicationArgs struct {
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
 	// The configuration for an application to automatically stop after a certain amount of time being idle.
 	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
+	// The image configuration applied to all worker types.
+	ImageConfiguration ApplicationImageConfigurationPtrInput
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayInput
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
@@ -391,6 +401,11 @@ func (o ApplicationOutput) AutoStartConfiguration() ApplicationAutoStartConfigur
 // The configuration for an application to automatically stop after a certain amount of time being idle.
 func (o ApplicationOutput) AutoStopConfiguration() ApplicationAutoStopConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationAutoStopConfigurationOutput { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationOutput)
+}
+
+// The image configuration applied to all worker types.
+func (o ApplicationOutput) ImageConfiguration() ApplicationImageConfigurationOutput {
+	return o.ApplyT(func(v *Application) ApplicationImageConfigurationOutput { return v.ImageConfiguration }).(ApplicationImageConfigurationOutput)
 }
 
 // The capacity to initialize when the application is created.

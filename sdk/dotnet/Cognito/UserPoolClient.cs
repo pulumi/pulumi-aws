@@ -193,7 +193,9 @@ namespace Pulumi.Aws.Cognito
     public partial class UserPoolClient : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+        /// By default, the unit is hours.
+        /// The unit can be overridden by a value in `token_validity_units.access_token`.
         /// </summary>
         [Output("accessTokenValidity")]
         public Output<int?> AccessTokenValidity { get; private set; } = null!;
@@ -271,7 +273,9 @@ namespace Pulumi.Aws.Cognito
         public Output<bool?> GenerateSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+        /// By default, the unit is hours.
+        /// The unit can be overridden by a value in `token_validity_units.id_token`.
         /// </summary>
         [Output("idTokenValidity")]
         public Output<int?> IdTokenValidity { get; private set; } = null!;
@@ -301,7 +305,9 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> ReadAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// Time limit in days refresh tokens are valid for.
+        /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+        /// By default, the unit is days.
+        /// The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Output("refreshTokenValidity")]
         public Output<int?> RefreshTokenValidity { get; private set; } = null!;
@@ -381,7 +387,9 @@ namespace Pulumi.Aws.Cognito
     public sealed class UserPoolClientArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+        /// By default, the unit is hours.
+        /// The unit can be overridden by a value in `token_validity_units.access_token`.
         /// </summary>
         [Input("accessTokenValidity")]
         public Input<int>? AccessTokenValidity { get; set; }
@@ -477,7 +485,9 @@ namespace Pulumi.Aws.Cognito
         public Input<bool>? GenerateSecret { get; set; }
 
         /// <summary>
-        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+        /// By default, the unit is hours.
+        /// The unit can be overridden by a value in `token_validity_units.id_token`.
         /// </summary>
         [Input("idTokenValidity")]
         public Input<int>? IdTokenValidity { get; set; }
@@ -519,7 +529,9 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Time limit in days refresh tokens are valid for.
+        /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+        /// By default, the unit is days.
+        /// The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }
@@ -569,7 +581,9 @@ namespace Pulumi.Aws.Cognito
     public sealed class UserPoolClientState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+        /// By default, the unit is hours.
+        /// The unit can be overridden by a value in `token_validity_units.access_token`.
         /// </summary>
         [Input("accessTokenValidity")]
         public Input<int>? AccessTokenValidity { get; set; }
@@ -681,7 +695,9 @@ namespace Pulumi.Aws.Cognito
         public Input<bool>? GenerateSecret { get; set; }
 
         /// <summary>
-        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+        /// By default, the unit is hours.
+        /// The unit can be overridden by a value in `token_validity_units.id_token`.
         /// </summary>
         [Input("idTokenValidity")]
         public Input<int>? IdTokenValidity { get; set; }
@@ -723,7 +739,9 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Time limit in days refresh tokens are valid for.
+        /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+        /// By default, the unit is days.
+        /// The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }

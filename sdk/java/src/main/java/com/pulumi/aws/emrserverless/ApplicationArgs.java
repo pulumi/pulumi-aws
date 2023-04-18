@@ -5,6 +5,7 @@ package com.pulumi.aws.emrserverless;
 
 import com.pulumi.aws.emrserverless.inputs.ApplicationAutoStartConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationAutoStopConfigurationArgs;
+import com.pulumi.aws.emrserverless.inputs.ApplicationImageConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationMaximumCapacityArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationNetworkConfigurationArgs;
@@ -65,6 +66,21 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ApplicationAutoStopConfigurationArgs>> autoStopConfiguration() {
         return Optional.ofNullable(this.autoStopConfiguration);
+    }
+
+    /**
+     * The image configuration applied to all worker types.
+     * 
+     */
+    @Import(name="imageConfiguration")
+    private @Nullable Output<ApplicationImageConfigurationArgs> imageConfiguration;
+
+    /**
+     * @return The image configuration applied to all worker types.
+     * 
+     */
+    public Optional<Output<ApplicationImageConfigurationArgs>> imageConfiguration() {
+        return Optional.ofNullable(this.imageConfiguration);
     }
 
     /**
@@ -178,6 +194,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         this.architecture = $.architecture;
         this.autoStartConfiguration = $.autoStartConfiguration;
         this.autoStopConfiguration = $.autoStopConfiguration;
+        this.imageConfiguration = $.imageConfiguration;
         this.initialCapacities = $.initialCapacities;
         this.maximumCapacity = $.maximumCapacity;
         this.name = $.name;
@@ -266,6 +283,27 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoStopConfiguration(ApplicationAutoStopConfigurationArgs autoStopConfiguration) {
             return autoStopConfiguration(Output.of(autoStopConfiguration));
+        }
+
+        /**
+         * @param imageConfiguration The image configuration applied to all worker types.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageConfiguration(@Nullable Output<ApplicationImageConfigurationArgs> imageConfiguration) {
+            $.imageConfiguration = imageConfiguration;
+            return this;
+        }
+
+        /**
+         * @param imageConfiguration The image configuration applied to all worker types.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageConfiguration(ApplicationImageConfigurationArgs imageConfiguration) {
+            return imageConfiguration(Output.of(imageConfiguration));
         }
 
         /**

@@ -57,17 +57,17 @@ import (
 type OriginAccessControl struct {
 	pulumi.CustomResourceState
 
-	// The description of the Origin Access Control. It may be empty.
+	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The current version of this Origin Access Control.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A name that identifies the Origin Access Control.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
 	OriginAccessControlOriginType pulumi.StringOutput `pulumi:"originAccessControlOriginType"`
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior pulumi.StringOutput `pulumi:"signingBehavior"`
-	// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
 	SigningProtocol pulumi.StringOutput `pulumi:"signingProtocol"`
 }
 
@@ -109,32 +109,32 @@ func GetOriginAccessControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OriginAccessControl resources.
 type originAccessControlState struct {
-	// The description of the Origin Access Control. It may be empty.
+	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description *string `pulumi:"description"`
 	// The current version of this Origin Access Control.
 	Etag *string `pulumi:"etag"`
 	// A name that identifies the Origin Access Control.
 	Name *string `pulumi:"name"`
-	// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
 	OriginAccessControlOriginType *string `pulumi:"originAccessControlOriginType"`
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior *string `pulumi:"signingBehavior"`
-	// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
 	SigningProtocol *string `pulumi:"signingProtocol"`
 }
 
 type OriginAccessControlState struct {
-	// The description of the Origin Access Control. It may be empty.
+	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description pulumi.StringPtrInput
 	// The current version of this Origin Access Control.
 	Etag pulumi.StringPtrInput
 	// A name that identifies the Origin Access Control.
 	Name pulumi.StringPtrInput
-	// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
 	OriginAccessControlOriginType pulumi.StringPtrInput
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior pulumi.StringPtrInput
-	// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
 	SigningProtocol pulumi.StringPtrInput
 }
 
@@ -143,29 +143,29 @@ func (OriginAccessControlState) ElementType() reflect.Type {
 }
 
 type originAccessControlArgs struct {
-	// The description of the Origin Access Control. It may be empty.
+	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description *string `pulumi:"description"`
 	// A name that identifies the Origin Access Control.
 	Name *string `pulumi:"name"`
-	// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
 	OriginAccessControlOriginType string `pulumi:"originAccessControlOriginType"`
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior string `pulumi:"signingBehavior"`
-	// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
 	SigningProtocol string `pulumi:"signingProtocol"`
 }
 
 // The set of arguments for constructing a OriginAccessControl resource.
 type OriginAccessControlArgs struct {
-	// The description of the Origin Access Control. It may be empty.
+	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description pulumi.StringPtrInput
 	// A name that identifies the Origin Access Control.
 	Name pulumi.StringPtrInput
-	// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
 	OriginAccessControlOriginType pulumi.StringInput
-	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior pulumi.StringInput
-	// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+	// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
 	SigningProtocol pulumi.StringInput
 }
 
@@ -256,7 +256,7 @@ func (o OriginAccessControlOutput) ToOriginAccessControlOutputWithContext(ctx co
 	return o
 }
 
-// The description of the Origin Access Control. It may be empty.
+// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 func (o OriginAccessControlOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -271,17 +271,17 @@ func (o OriginAccessControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
+// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
 func (o OriginAccessControlOutput) OriginAccessControlOriginType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.OriginAccessControlOriginType }).(pulumi.StringOutput)
 }
 
-// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
+// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 func (o OriginAccessControlOutput) SigningBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.SigningBehavior }).(pulumi.StringOutput)
 }
 
-// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
+// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
 func (o OriginAccessControlOutput) SigningProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.SigningProtocol }).(pulumi.StringOutput)
 }

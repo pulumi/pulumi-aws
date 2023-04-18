@@ -74,6 +74,10 @@ import javax.annotation.Nullable;
  *  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
  * ```
  * 
+ * ```sh
+ *  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
+ * ```
+ * 
  */
 @ResourceType(type="aws:securityhub/standardsSubscription:StandardsSubscription")
 public class StandardsSubscription extends com.pulumi.resources.CustomResource {

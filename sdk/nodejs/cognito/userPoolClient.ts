@@ -140,7 +140,9 @@ export class UserPoolClient extends pulumi.CustomResource {
     }
 
     /**
-     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.access_token`.
      */
     public readonly accessTokenValidity!: pulumi.Output<number | undefined>;
     /**
@@ -192,7 +194,9 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly generateSecret!: pulumi.Output<boolean | undefined>;
     /**
-     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.id_token`.
      */
     public readonly idTokenValidity!: pulumi.Output<number | undefined>;
     /**
@@ -212,7 +216,9 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly readAttributes!: pulumi.Output<string[] | undefined>;
     /**
-     * Time limit in days refresh tokens are valid for.
+     * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+     * By default, the unit is days.
+     * The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     public readonly refreshTokenValidity!: pulumi.Output<number | undefined>;
     /**
@@ -309,7 +315,9 @@ export class UserPoolClient extends pulumi.CustomResource {
  */
 export interface UserPoolClientState {
     /**
-     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.access_token`.
      */
     accessTokenValidity?: pulumi.Input<number>;
     /**
@@ -361,7 +369,9 @@ export interface UserPoolClientState {
      */
     generateSecret?: pulumi.Input<boolean>;
     /**
-     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.id_token`.
      */
     idTokenValidity?: pulumi.Input<number>;
     /**
@@ -381,7 +391,9 @@ export interface UserPoolClientState {
      */
     readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Time limit in days refresh tokens are valid for.
+     * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+     * By default, the unit is days.
+     * The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     refreshTokenValidity?: pulumi.Input<number>;
     /**
@@ -407,7 +419,9 @@ export interface UserPoolClientState {
  */
 export interface UserPoolClientArgs {
     /**
-     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.access_token`.
      */
     accessTokenValidity?: pulumi.Input<number>;
     /**
@@ -455,7 +469,9 @@ export interface UserPoolClientArgs {
      */
     generateSecret?: pulumi.Input<boolean>;
     /**
-     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.id_token`.
      */
     idTokenValidity?: pulumi.Input<number>;
     /**
@@ -475,7 +491,9 @@ export interface UserPoolClientArgs {
      */
     readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Time limit in days refresh tokens are valid for.
+     * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+     * By default, the unit is days.
+     * The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     refreshTokenValidity?: pulumi.Input<number>;
     /**

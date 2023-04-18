@@ -14306,7 +14306,8 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSett
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings struct {
-	CertficateMode *string `pulumi:"certficateMode"`
+	// Setting to allow self signed or verified RTMP certificates.
+	CertificateMode *string `pulumi:"certificateMode"`
 	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval *int `pulumi:"connectionRetryInterval"`
 	// The RTMP endpoint excluding the stream name. See Destination for more details.
@@ -14327,7 +14328,8 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsInpu
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs struct {
-	CertficateMode pulumi.StringPtrInput `pulumi:"certficateMode"`
+	// Setting to allow self signed or verified RTMP certificates.
+	CertificateMode pulumi.StringPtrInput `pulumi:"certificateMode"`
 	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval pulumi.IntPtrInput `pulumi:"connectionRetryInterval"`
 	// The RTMP endpoint excluding the stream name. See Destination for more details.
@@ -14413,9 +14415,10 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsO
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsPtrOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsOutput) CertficateMode() pulumi.StringPtrOutput {
+// Setting to allow self signed or verified RTMP certificates.
+func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsOutput) CertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings) *string {
-		return v.CertficateMode
+		return v.CertificateMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14464,12 +14467,13 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsP
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsOutput)
 }
 
-func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsPtrOutput) CertficateMode() pulumi.StringPtrOutput {
+// Setting to allow self signed or verified RTMP certificates.
+func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsPtrOutput) CertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.CertficateMode
+		return v.CertificateMode
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -13,6 +13,7 @@ from . import outputs
 __all__ = [
     'ApplicationAutoStartConfiguration',
     'ApplicationAutoStopConfiguration',
+    'ApplicationImageConfiguration',
     'ApplicationInitialCapacity',
     'ApplicationInitialCapacityInitialCapacityConfig',
     'ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration',
@@ -85,6 +86,41 @@ class ApplicationAutoStopConfiguration(dict):
         The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
         """
         return pulumi.get(self, "idle_timeout_minutes")
+
+
+@pulumi.output_type
+class ApplicationImageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationImageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationImageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationImageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_uri: str):
+        """
+        :param str image_uri: The image URI.
+        """
+        pulumi.set(__self__, "image_uri", image_uri)
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> str:
+        """
+        The image URI.
+        """
+        return pulumi.get(self, "image_uri")
 
 
 @pulumi.output_type

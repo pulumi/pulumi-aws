@@ -100,7 +100,7 @@ export class FindingsFilter extends pulumi.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the filter.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a FindingsFilter resource with the given unique name, arguments, and options.
@@ -139,8 +139,8 @@ export class FindingsFilter extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["position"] = args ? args.position : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FindingsFilter.__pulumiType, name, resourceInputs, opts);
@@ -218,4 +218,5 @@ export interface FindingsFilterArgs {
      * A map of key-value pairs that specifies the tags to associate with the filter.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

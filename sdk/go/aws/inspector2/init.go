@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DelegatedAdminAccount{}
 	case "aws:inspector2/enabler:Enabler":
 		r = &Enabler{}
+	case "aws:inspector2/memberAssociation:MemberAssociation":
+		r = &MemberAssociation{}
 	case "aws:inspector2/organizationConfiguration:OrganizationConfiguration":
 		r = &OrganizationConfiguration{}
 	default:
@@ -48,6 +50,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"inspector2/enabler",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"inspector2/memberAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

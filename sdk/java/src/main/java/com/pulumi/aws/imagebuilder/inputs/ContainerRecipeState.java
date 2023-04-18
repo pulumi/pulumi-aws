@@ -232,6 +232,21 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Specifies the operating system platform when you use a custom base image.
+     * 
+     */
+    @Import(name="platformOverride")
+    private @Nullable Output<String> platformOverride;
+
+    /**
+     * @return Specifies the operating system platform when you use a custom base image.
+     * 
+     */
+    public Optional<Output<String>> platformOverride() {
+        return Optional.ofNullable(this.platformOverride);
+    }
+
+    /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -323,6 +338,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         this.owner = $.owner;
         this.parentImage = $.parentImage;
         this.platform = $.platform;
+        this.platformOverride = $.platformOverride;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.targetRepository = $.targetRepository;
@@ -650,6 +666,27 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
          */
         public Builder platform(String platform) {
             return platform(Output.of(platform));
+        }
+
+        /**
+         * @param platformOverride Specifies the operating system platform when you use a custom base image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformOverride(@Nullable Output<String> platformOverride) {
+            $.platformOverride = platformOverride;
+            return this;
+        }
+
+        /**
+         * @param platformOverride Specifies the operating system platform when you use a custom base image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformOverride(String platformOverride) {
+            return platformOverride(Output.of(platformOverride));
         }
 
         /**

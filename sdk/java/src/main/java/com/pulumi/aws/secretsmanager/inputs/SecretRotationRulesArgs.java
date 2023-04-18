@@ -6,7 +6,10 @@ package com.pulumi.aws.secretsmanager.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SecretRotationRulesArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,21 +20,37 @@ public final class SecretRotationRulesArgs extends com.pulumi.resources.Resource
      * Specifies the number of days between automatic scheduled rotations of the secret.
      * 
      */
-    @Import(name="automaticallyAfterDays", required=true)
-    private Output<Integer> automaticallyAfterDays;
+    @Import(name="automaticallyAfterDays")
+    private @Nullable Output<Integer> automaticallyAfterDays;
 
     /**
      * @return Specifies the number of days between automatic scheduled rotations of the secret.
      * 
      */
-    public Output<Integer> automaticallyAfterDays() {
-        return this.automaticallyAfterDays;
+    public Optional<Output<Integer>> automaticallyAfterDays() {
+        return Optional.ofNullable(this.automaticallyAfterDays);
+    }
+
+    @Import(name="duration")
+    private @Nullable Output<String> duration;
+
+    public Optional<Output<String>> duration() {
+        return Optional.ofNullable(this.duration);
+    }
+
+    @Import(name="scheduleExpression")
+    private @Nullable Output<String> scheduleExpression;
+
+    public Optional<Output<String>> scheduleExpression() {
+        return Optional.ofNullable(this.scheduleExpression);
     }
 
     private SecretRotationRulesArgs() {}
 
     private SecretRotationRulesArgs(SecretRotationRulesArgs $) {
         this.automaticallyAfterDays = $.automaticallyAfterDays;
+        this.duration = $.duration;
+        this.scheduleExpression = $.scheduleExpression;
     }
 
     public static Builder builder() {
@@ -58,7 +77,7 @@ public final class SecretRotationRulesArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder automaticallyAfterDays(Output<Integer> automaticallyAfterDays) {
+        public Builder automaticallyAfterDays(@Nullable Output<Integer> automaticallyAfterDays) {
             $.automaticallyAfterDays = automaticallyAfterDays;
             return this;
         }
@@ -73,8 +92,25 @@ public final class SecretRotationRulesArgs extends com.pulumi.resources.Resource
             return automaticallyAfterDays(Output.of(automaticallyAfterDays));
         }
 
+        public Builder duration(@Nullable Output<String> duration) {
+            $.duration = duration;
+            return this;
+        }
+
+        public Builder duration(String duration) {
+            return duration(Output.of(duration));
+        }
+
+        public Builder scheduleExpression(@Nullable Output<String> scheduleExpression) {
+            $.scheduleExpression = scheduleExpression;
+            return this;
+        }
+
+        public Builder scheduleExpression(String scheduleExpression) {
+            return scheduleExpression(Output.of(scheduleExpression));
+        }
+
         public SecretRotationRulesArgs build() {
-            $.automaticallyAfterDays = Objects.requireNonNull($.automaticallyAfterDays, "expected parameter 'automaticallyAfterDays' to be non-null");
             return $;
         }
     }

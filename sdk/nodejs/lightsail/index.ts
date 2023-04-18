@@ -50,6 +50,11 @@ export type Disk_attachment = import("./disk_attachment").Disk_attachment;
 export const Disk_attachment: typeof import("./disk_attachment").Disk_attachment = null as any;
 utilities.lazyLoad(exports, ["Disk_attachment"], () => require("./disk_attachment"));
 
+export { DistributionArgs, DistributionState } from "./distribution";
+export type Distribution = import("./distribution").Distribution;
+export const Distribution: typeof import("./distribution").Distribution = null as any;
+utilities.lazyLoad(exports, ["Distribution"], () => require("./distribution"));
+
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
@@ -138,6 +143,8 @@ const _module = {
                 return new Disk(name, <any>undefined, { urn })
             case "aws:lightsail/disk_attachment:Disk_attachment":
                 return new Disk_attachment(name, <any>undefined, { urn })
+            case "aws:lightsail/distribution:Distribution":
+                return new Distribution(name, <any>undefined, { urn })
             case "aws:lightsail/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "aws:lightsail/domainEntry:DomainEntry":
@@ -178,6 +185,7 @@ pulumi.runtime.registerResourceModule("aws", "lightsail/containerServiceDeployme
 pulumi.runtime.registerResourceModule("aws", "lightsail/database", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/disk", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/disk_attachment", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/distribution", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/domainEntry", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/instance", _module)

@@ -85,14 +85,14 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
     @Import(name="vocabularyFilterFileUri")
     private @Nullable Output<String> vocabularyFilterFileUri;
 
     /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+     * @return The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
     public Optional<Output<String>> vocabularyFilterFileUri() {
@@ -115,14 +115,14 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
      * 
      */
     @Import(name="words")
     private @Nullable Output<List<String>> words;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
      * 
      */
     public Optional<Output<List<String>>> words() {
@@ -254,7 +254,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyFilterFileUri The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+         * @param vocabularyFilterFileUri The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyFilterFileUri The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
+         * @param vocabularyFilterFileUri The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
          * 
          * @return builder
          * 

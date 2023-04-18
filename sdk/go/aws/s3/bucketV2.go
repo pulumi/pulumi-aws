@@ -14,60 +14,10 @@ import (
 //
 // > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
 //
-// > **NOTE on S3 Bucket Accelerate Configuration:** S3 Bucket Accelerate can be configured in either the standalone resource `s3.BucketAccelerateConfigurationV2`
-// or with the deprecated parameter `accelerationStatus` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket canned ACL Configuration:** S3 Bucket canned ACL can be configured in either the standalone resource `s3.BucketAclV2`
-// or with the deprecated parameter `acl` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket ACL Grants Configuration:** S3 Bucket grants can be configured in either the standalone resource `s3.BucketAclV2`
-// or with the deprecated parameter `grant` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket CORS Configuration:** S3 Bucket CORS can be configured in either the standalone resource `s3.BucketCorsConfigurationV2`
-// or with the deprecated parameter `corsRule` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Lifecycle Configuration:** S3 Bucket Lifecycle can be configured in either the standalone resource `s3.BucketLifecycleConfigurationV2`
-// or with the deprecated parameter `lifecycleRule` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Logging Configuration:** S3 Bucket logging can be configured in either the standalone resource `s3.BucketLoggingV2`
-// or with the deprecated parameter `logging` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Object Lock Configuration:** S3 Bucket Object Lock can be configured in either the standalone resource `s3.BucketObjectLockConfigurationV2`
-// or with the deprecated parameter `objectLockConfiguration` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Policy Configuration:** S3 Bucket Policy can be configured in either the standalone resource `s3.BucketPolicy`
-// or with the deprecated parameter `policy` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `s3.BucketReplicationConfig`
-// or with the deprecated parameter `replicationConfiguration` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Request Payment Configuration:** S3 Bucket Request Payment can be configured in either the standalone resource `s3.BucketRequestPaymentConfigurationV2`
-// or with the deprecated parameter `requestPayer` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Server Side Encryption Configuration:** S3 Bucket Server Side Encryption can be configured in either the standalone resource `s3.BucketServerSideEncryptionConfigurationV2`
-// or with the deprecated parameter `serverSideEncryptionConfiguration` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Versioning Configuration:** S3 Bucket versioning can be configured in either the standalone resource `s3.BucketVersioningV2`
-// or with the deprecated parameter `versioning` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// > **NOTE on S3 Bucket Website Configuration:** S3 Bucket Website can be configured in either the standalone resource `s3.BucketWebsiteConfigurationV2`
-// or with the deprecated parameter `website` in the resource `s3.BucketV2`.
-// Configuring with both will cause inconsistencies and may overwrite configuration.
+// > In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `s3.BucketV2` resource.
 //
 // ## Example Usage
-// ### Private Bucket w/ Tags
+// ### Private Bucket With Tags
 //
 // ```go
 // package main
@@ -81,18 +31,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//			_, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
 //				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("My bucket"),
 //					"Environment": pulumi.String("Dev"),
+//					"Name":        pulumi.String("My bucket"),
 //				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-//				Bucket: bucketV2.ID(),
-//				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
@@ -104,507 +47,48 @@ import (
 // ```
 // ### Static Website Hosting
 //
-// ```go
-// package main
+// > **NOTE:** The `website` attribute is deprecated.
+// See `s3.BucketWebsiteConfigurationV2` for examples with static website hosting configured.
 //
-// import (
+// ### CORS Rules
 //
-//	"os"
+// > **NOTE:** The `corsRule` attribute is deprecated.
+// See `s3.BucketCorsConfigurationV2` for examples with CORS rules configured.
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// ### Versioning
 //
-// )
+// > **NOTE:** The `versioning` attribute is deprecated.
+// See `s3.BucketVersioningV2` for examples with versioning configured.
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+// ### Logging
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-//				Acl:    pulumi.String("public-read"),
-//				Policy: readFileOrPanic("policy.json"),
-//				Websites: s3.BucketV2WebsiteArray{
-//					&s3.BucketV2WebsiteArgs{
-//						IndexDocument: pulumi.String("index.html"),
-//						ErrorDocument: pulumi.String("error.html"),
-//						RoutingRules:  pulumi.String("[{\n    \"Condition\": {\n        \"KeyPrefixEquals\": \"docs/\"\n    },\n    \"Redirect\": {\n        \"ReplaceKeyPrefixWith\": \"documents/\"\n    }\n}]\n"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// > **NOTE:** The `logging` attribute is deprecated.
+// See `s3.BucketLoggingV2` for examples with logging enabled.
 //
-// ```
-// ### Using CORS
+// ### Object Lifecycle Rules
 //
-// ```go
-// package main
+// > **NOTE:** The `lifecycleRule` attribute is deprecated.
+// See `s3.BucketLifecycleConfigurationV2` for examples with object lifecycle rules.
 //
-// import (
+// ### Object Lock Configuration
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// > **NOTE:** The `objectLockConfiguration` attribute is deprecated.
+// See `s3.BucketObjectLockConfigurationV2` for examples with object lock configurations on both new and existing buckets.
 //
-// )
+// ### Replication Configuration
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-//				Acl: pulumi.String("public-read"),
-//				CorsRules: s3.BucketV2CorsRuleArray{
-//					&s3.BucketV2CorsRuleArgs{
-//						AllowedHeaders: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//						AllowedMethods: pulumi.StringArray{
-//							pulumi.String("PUT"),
-//							pulumi.String("POST"),
-//						},
-//						AllowedOrigins: pulumi.StringArray{
-//							pulumi.String("https://s3-website-test.domain.example"),
-//						},
-//						ExposeHeaders: pulumi.StringArray{
-//							pulumi.String("ETag"),
-//						},
-//						MaxAgeSeconds: pulumi.Int(3000),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// > **NOTE:** The `replicationConfiguration` attribute is deprecated.
+// See `s3.BucketReplicationConfig` for examples with replication configured.
 //
-// ```
-// ### Using versioning
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-//				Acl: pulumi.String("private"),
-//				Versionings: s3.BucketV2VersioningArray{
-//					&s3.BucketV2VersioningArgs{
-//						Enabled: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Enable Logging
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			logBucket, err := s3.NewBucketV2(ctx, "logBucket", &s3.BucketV2Args{
-//				Acl: pulumi.String("log-delivery-write"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-//				Acl: pulumi.String("private"),
-//				Loggings: s3.BucketV2LoggingArray{
-//					&s3.BucketV2LoggingArgs{
-//						TargetBucket: logBucket.ID(),
-//						TargetPrefix: pulumi.String("log/"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Using object lifecycle
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-//				Acl: pulumi.String("private"),
-//				LifecycleRules: s3.BucketV2LifecycleRuleArray{
-//					&s3.BucketV2LifecycleRuleArgs{
-//						Enabled: pulumi.Bool(true),
-//						Expirations: s3.BucketV2LifecycleRuleExpirationArray{
-//							&s3.BucketV2LifecycleRuleExpirationArgs{
-//								Days: pulumi.Int(90),
-//							},
-//						},
-//						Id:     pulumi.String("log"),
-//						Prefix: pulumi.String("log/"),
-//						Tags: pulumi.StringMap{
-//							"autoclean": pulumi.String("true"),
-//							"rule":      pulumi.String("log"),
-//						},
-//						Transitions: s3.BucketV2LifecycleRuleTransitionArray{
-//							&s3.BucketV2LifecycleRuleTransitionArgs{
-//								Days:         pulumi.Int(30),
-//								StorageClass: pulumi.String("STANDARD_IA"),
-//							},
-//							&s3.BucketV2LifecycleRuleTransitionArgs{
-//								Days:         pulumi.Int(60),
-//								StorageClass: pulumi.String("GLACIER"),
-//							},
-//						},
-//					},
-//					&s3.BucketV2LifecycleRuleArgs{
-//						Enabled: pulumi.Bool(true),
-//						Expirations: s3.BucketV2LifecycleRuleExpirationArray{
-//							&s3.BucketV2LifecycleRuleExpirationArgs{
-//								Date: pulumi.String("2016-01-12"),
-//							},
-//						},
-//						Id:     pulumi.String("tmp"),
-//						Prefix: pulumi.String("tmp/"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketV2(ctx, "versioningBucket", &s3.BucketV2Args{
-//				Acl: pulumi.String("private"),
-//				LifecycleRules: s3.BucketV2LifecycleRuleArray{
-//					&s3.BucketV2LifecycleRuleArgs{
-//						Enabled: pulumi.Bool(true),
-//						NoncurrentVersionExpirations: s3.BucketV2LifecycleRuleNoncurrentVersionExpirationArray{
-//							&s3.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs{
-//								Days: pulumi.Int(90),
-//							},
-//						},
-//						NoncurrentVersionTransitions: s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArray{
-//							&s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{
-//								Days:         pulumi.Int(30),
-//								StorageClass: pulumi.String("STANDARD_IA"),
-//							},
-//							&s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{
-//								Days:         pulumi.Int(60),
-//								StorageClass: pulumi.String("GLACIER"),
-//							},
-//						},
-//						Prefix: pulumi.String("config/"),
-//					},
-//				},
-//				Versionings: s3.BucketV2VersioningArray{
-//					&s3.BucketV2VersioningArgs{
-//						Enabled: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Using replication configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "central", &aws.ProviderArgs{
-//				Region: pulumi.String("eu-central-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"s3.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			destination, err := s3.NewBucketV2(ctx, "destination", &s3.BucketV2Args{
-//				Versionings: s3.BucketV2VersioningArray{
-//					&s3.BucketV2VersioningArgs{
-//						Enabled: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			source, err := s3.NewBucketV2(ctx, "source", &s3.BucketV2Args{
-//				Acl: pulumi.String("private"),
-//				Versionings: s3.BucketV2VersioningArray{
-//					&s3.BucketV2VersioningArgs{
-//						Enabled: pulumi.Bool(true),
-//					},
-//				},
-//				ReplicationConfigurations: s3.BucketV2ReplicationConfigurationArray{
-//					&s3.BucketV2ReplicationConfigurationArgs{
-//						Role: replicationRole.Arn,
-//						Rules: s3.BucketV2ReplicationConfigurationRuleArray{
-//							&s3.BucketV2ReplicationConfigurationRuleArgs{
-//								Id:     pulumi.String("foobar"),
-//								Status: pulumi.String("Enabled"),
-//								Filters: s3.BucketV2ReplicationConfigurationRuleFilterArray{
-//									&s3.BucketV2ReplicationConfigurationRuleFilterArgs{
-//										Tags: nil,
-//									},
-//								},
-//								Destinations: s3.BucketV2ReplicationConfigurationRuleDestinationArray{
-//									&s3.BucketV2ReplicationConfigurationRuleDestinationArgs{
-//										Bucket:       destination.Arn,
-//										StorageClass: pulumi.String("STANDARD"),
-//										ReplicationTimes: s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray{
-//											&s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs{
-//												Status:  pulumi.String("Enabled"),
-//												Minutes: pulumi.Int(15),
-//											},
-//										},
-//										Metrics: s3.BucketV2ReplicationConfigurationRuleDestinationMetricArray{
-//											&s3.BucketV2ReplicationConfigurationRuleDestinationMetricArgs{
-//												Status:  pulumi.String("Enabled"),
-//												Minutes: pulumi.Int(15),
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, pulumi.Provider(aws.Central))
-//			if err != nil {
-//				return err
-//			}
-//			replicationPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetReplicationConfiguration"),
-//							pulumi.String("s3:ListBucket"),
-//						},
-//						Resources: pulumi.StringArray{
-//							source.Arn,
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetObjectVersionForReplication"),
-//							pulumi.String("s3:GetObjectVersionAcl"),
-//							pulumi.String("s3:GetObjectVersionTagging"),
-//						},
-//						Resources: pulumi.StringArray{
-//							source.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:ReplicateObject"),
-//							pulumi.String("s3:ReplicateDelete"),
-//							pulumi.String("s3:ReplicateTags"),
-//						},
-//						Resources: pulumi.StringArray{
-//							destination.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			replicationPolicy, err := iam.NewPolicy(ctx, "replicationPolicy", &iam.PolicyArgs{
-//				Policy: replicationPolicyDocument.ApplyT(func(replicationPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &replicationPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "replicationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      replicationRole.Name,
-//				PolicyArn: replicationPolicy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Enable SSE-KMS Server Side Encryption
 //
-// ```go
-// package main
+// > **NOTE:** The `serverSideEncryptionConfiguration` attribute is deprecated.
+// See `s3.BucketServerSideEncryptionConfigurationV2` for examples with server side encryption configured.
 //
-// import (
+// ### ACL Policy Grants
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
-//				Description:          pulumi.String("This key is used to encrypt bucket objects"),
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketV2(ctx, "mybucket", &s3.BucketV2Args{
-//				ServerSideEncryptionConfigurations: s3.BucketV2ServerSideEncryptionConfigurationArray{
-//					&s3.BucketV2ServerSideEncryptionConfigurationArgs{
-//						Rules: s3.BucketV2ServerSideEncryptionConfigurationRuleArray{
-//							&s3.BucketV2ServerSideEncryptionConfigurationRuleArgs{
-//								ApplyServerSideEncryptionByDefaults: s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray{
-//									&s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{
-//										KmsMasterKeyId: mykey.Arn,
-//										SseAlgorithm:   pulumi.String("aws:kms"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Using ACL policy grants
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentUser, err := s3.GetCanonicalUserId(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-//				Grants: s3.BucketV2GrantArray{
-//					&s3.BucketV2GrantArgs{
-//						Id:   *pulumi.String(currentUser.Id),
-//						Type: pulumi.String("CanonicalUser"),
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("FULL_CONTROL"),
-//						},
-//					},
-//					&s3.BucketV2GrantArgs{
-//						Type: pulumi.String("Group"),
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("READ_ACP"),
-//							pulumi.String("WRITE"),
-//						},
-//						Uri: pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// > **NOTE:** The `acl` and `grant` attributes are deprecated.
+// See `s3.BucketAclV2` for examples with ACL grants.
 //
 // ## Import
 //

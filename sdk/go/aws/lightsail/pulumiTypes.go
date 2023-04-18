@@ -1205,6 +1205,1295 @@ func (o ContainerServicePublicDomainNamesCertificateArrayOutput) Index(i pulumi.
 	}).(ContainerServicePublicDomainNamesCertificateOutput)
 }
 
+type DistributionCacheBehavior struct {
+	// The cache behavior for the specified path.
+	Behavior string `pulumi:"behavior"`
+	// The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+	Path string `pulumi:"path"`
+}
+
+// DistributionCacheBehaviorInput is an input type that accepts DistributionCacheBehaviorArgs and DistributionCacheBehaviorOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorInput` via:
+//
+//	DistributionCacheBehaviorArgs{...}
+type DistributionCacheBehaviorInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorOutput() DistributionCacheBehaviorOutput
+	ToDistributionCacheBehaviorOutputWithContext(context.Context) DistributionCacheBehaviorOutput
+}
+
+type DistributionCacheBehaviorArgs struct {
+	// The cache behavior for the specified path.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (DistributionCacheBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehavior)(nil)).Elem()
+}
+
+func (i DistributionCacheBehaviorArgs) ToDistributionCacheBehaviorOutput() DistributionCacheBehaviorOutput {
+	return i.ToDistributionCacheBehaviorOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorArgs) ToDistributionCacheBehaviorOutputWithContext(ctx context.Context) DistributionCacheBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorOutput)
+}
+
+// DistributionCacheBehaviorArrayInput is an input type that accepts DistributionCacheBehaviorArray and DistributionCacheBehaviorArrayOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorArrayInput` via:
+//
+//	DistributionCacheBehaviorArray{ DistributionCacheBehaviorArgs{...} }
+type DistributionCacheBehaviorArrayInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorArrayOutput() DistributionCacheBehaviorArrayOutput
+	ToDistributionCacheBehaviorArrayOutputWithContext(context.Context) DistributionCacheBehaviorArrayOutput
+}
+
+type DistributionCacheBehaviorArray []DistributionCacheBehaviorInput
+
+func (DistributionCacheBehaviorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionCacheBehavior)(nil)).Elem()
+}
+
+func (i DistributionCacheBehaviorArray) ToDistributionCacheBehaviorArrayOutput() DistributionCacheBehaviorArrayOutput {
+	return i.ToDistributionCacheBehaviorArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorArray) ToDistributionCacheBehaviorArrayOutputWithContext(ctx context.Context) DistributionCacheBehaviorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorArrayOutput)
+}
+
+type DistributionCacheBehaviorOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehavior)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutput() DistributionCacheBehaviorOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutputWithContext(ctx context.Context) DistributionCacheBehaviorOutput {
+	return o
+}
+
+// The cache behavior for the specified path.
+func (o DistributionCacheBehaviorOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+func (o DistributionCacheBehaviorOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type DistributionCacheBehaviorArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionCacheBehavior)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorArrayOutput) ToDistributionCacheBehaviorArrayOutput() DistributionCacheBehaviorArrayOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorArrayOutput) ToDistributionCacheBehaviorArrayOutputWithContext(ctx context.Context) DistributionCacheBehaviorArrayOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) DistributionCacheBehaviorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionCacheBehavior {
+		return vs[0].([]DistributionCacheBehavior)[vs[1].(int)]
+	}).(DistributionCacheBehaviorOutput)
+}
+
+type DistributionCacheBehaviorSettings struct {
+	// The HTTP methods that are processed and forwarded to the distribution's origin.
+	AllowedHttpMethods *string `pulumi:"allowedHttpMethods"`
+	// The HTTP method responses that are cached by your distribution.
+	CachedHttpMethods *string `pulumi:"cachedHttpMethods"`
+	// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+	DefaultTtl *int `pulumi:"defaultTtl"`
+	// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+	ForwardedCookies *DistributionCacheBehaviorSettingsForwardedCookies `pulumi:"forwardedCookies"`
+	// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+	ForwardedHeaders *DistributionCacheBehaviorSettingsForwardedHeaders `pulumi:"forwardedHeaders"`
+	// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+	ForwardedQueryStrings *DistributionCacheBehaviorSettingsForwardedQueryStrings `pulumi:"forwardedQueryStrings"`
+	// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+	MaximumTtl *int `pulumi:"maximumTtl"`
+	// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+	MinimumTtl *int `pulumi:"minimumTtl"`
+}
+
+// DistributionCacheBehaviorSettingsInput is an input type that accepts DistributionCacheBehaviorSettingsArgs and DistributionCacheBehaviorSettingsOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorSettingsInput` via:
+//
+//	DistributionCacheBehaviorSettingsArgs{...}
+type DistributionCacheBehaviorSettingsInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorSettingsOutput() DistributionCacheBehaviorSettingsOutput
+	ToDistributionCacheBehaviorSettingsOutputWithContext(context.Context) DistributionCacheBehaviorSettingsOutput
+}
+
+type DistributionCacheBehaviorSettingsArgs struct {
+	// The HTTP methods that are processed and forwarded to the distribution's origin.
+	AllowedHttpMethods pulumi.StringPtrInput `pulumi:"allowedHttpMethods"`
+	// The HTTP method responses that are cached by your distribution.
+	CachedHttpMethods pulumi.StringPtrInput `pulumi:"cachedHttpMethods"`
+	// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
+	// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+	ForwardedCookies DistributionCacheBehaviorSettingsForwardedCookiesPtrInput `pulumi:"forwardedCookies"`
+	// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+	ForwardedHeaders DistributionCacheBehaviorSettingsForwardedHeadersPtrInput `pulumi:"forwardedHeaders"`
+	// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+	ForwardedQueryStrings DistributionCacheBehaviorSettingsForwardedQueryStringsPtrInput `pulumi:"forwardedQueryStrings"`
+	// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+	MaximumTtl pulumi.IntPtrInput `pulumi:"maximumTtl"`
+	// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
+}
+
+func (DistributionCacheBehaviorSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehaviorSettings)(nil)).Elem()
+}
+
+func (i DistributionCacheBehaviorSettingsArgs) ToDistributionCacheBehaviorSettingsOutput() DistributionCacheBehaviorSettingsOutput {
+	return i.ToDistributionCacheBehaviorSettingsOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorSettingsArgs) ToDistributionCacheBehaviorSettingsOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsOutput)
+}
+
+func (i DistributionCacheBehaviorSettingsArgs) ToDistributionCacheBehaviorSettingsPtrOutput() DistributionCacheBehaviorSettingsPtrOutput {
+	return i.ToDistributionCacheBehaviorSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorSettingsArgs) ToDistributionCacheBehaviorSettingsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsOutput).ToDistributionCacheBehaviorSettingsPtrOutputWithContext(ctx)
+}
+
+// DistributionCacheBehaviorSettingsPtrInput is an input type that accepts DistributionCacheBehaviorSettingsArgs, DistributionCacheBehaviorSettingsPtr and DistributionCacheBehaviorSettingsPtrOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorSettingsPtrInput` via:
+//
+//	        DistributionCacheBehaviorSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionCacheBehaviorSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorSettingsPtrOutput() DistributionCacheBehaviorSettingsPtrOutput
+	ToDistributionCacheBehaviorSettingsPtrOutputWithContext(context.Context) DistributionCacheBehaviorSettingsPtrOutput
+}
+
+type distributionCacheBehaviorSettingsPtrType DistributionCacheBehaviorSettingsArgs
+
+func DistributionCacheBehaviorSettingsPtr(v *DistributionCacheBehaviorSettingsArgs) DistributionCacheBehaviorSettingsPtrInput {
+	return (*distributionCacheBehaviorSettingsPtrType)(v)
+}
+
+func (*distributionCacheBehaviorSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheBehaviorSettings)(nil)).Elem()
+}
+
+func (i *distributionCacheBehaviorSettingsPtrType) ToDistributionCacheBehaviorSettingsPtrOutput() DistributionCacheBehaviorSettingsPtrOutput {
+	return i.ToDistributionCacheBehaviorSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionCacheBehaviorSettingsPtrType) ToDistributionCacheBehaviorSettingsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehaviorSettings)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorSettingsOutput) ToDistributionCacheBehaviorSettingsOutput() DistributionCacheBehaviorSettingsOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsOutput) ToDistributionCacheBehaviorSettingsOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsOutput) ToDistributionCacheBehaviorSettingsPtrOutput() DistributionCacheBehaviorSettingsPtrOutput {
+	return o.ToDistributionCacheBehaviorSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCacheBehaviorSettingsOutput) ToDistributionCacheBehaviorSettingsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettings {
+		return &v
+	}).(DistributionCacheBehaviorSettingsPtrOutput)
+}
+
+// The HTTP methods that are processed and forwarded to the distribution's origin.
+func (o DistributionCacheBehaviorSettingsOutput) AllowedHttpMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *string { return v.AllowedHttpMethods }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP method responses that are cached by your distribution.
+func (o DistributionCacheBehaviorSettingsOutput) CachedHttpMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *string { return v.CachedHttpMethods }).(pulumi.StringPtrOutput)
+}
+
+// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+func (o DistributionCacheBehaviorSettingsOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+func (o DistributionCacheBehaviorSettingsOutput) ForwardedCookies() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedCookies {
+		return v.ForwardedCookies
+	}).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
+}
+
+// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+func (o DistributionCacheBehaviorSettingsOutput) ForwardedHeaders() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedHeaders {
+		return v.ForwardedHeaders
+	}).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
+}
+
+// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+func (o DistributionCacheBehaviorSettingsOutput) ForwardedQueryStrings() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedQueryStrings {
+		return v.ForwardedQueryStrings
+	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
+}
+
+// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+func (o DistributionCacheBehaviorSettingsOutput) MaximumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *int { return v.MaximumTtl }).(pulumi.IntPtrOutput)
+}
+
+// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+func (o DistributionCacheBehaviorSettingsOutput) MinimumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheBehaviorSettings)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorSettingsPtrOutput) ToDistributionCacheBehaviorSettingsPtrOutput() DistributionCacheBehaviorSettingsPtrOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsPtrOutput) ToDistributionCacheBehaviorSettingsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsPtrOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsPtrOutput) Elem() DistributionCacheBehaviorSettingsOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) DistributionCacheBehaviorSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCacheBehaviorSettings
+		return ret
+	}).(DistributionCacheBehaviorSettingsOutput)
+}
+
+// The HTTP methods that are processed and forwarded to the distribution's origin.
+func (o DistributionCacheBehaviorSettingsPtrOutput) AllowedHttpMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedHttpMethods
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP method responses that are cached by your distribution.
+func (o DistributionCacheBehaviorSettingsPtrOutput) CachedHttpMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CachedHttpMethods
+	}).(pulumi.StringPtrOutput)
+}
+
+// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+func (o DistributionCacheBehaviorSettingsPtrOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedCookies() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedCookies {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedCookies
+	}).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
+}
+
+// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedHeaders() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedHeaders {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedHeaders
+	}).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
+}
+
+// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedQueryStrings() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedQueryStrings {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedQueryStrings
+	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
+}
+
+// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+func (o DistributionCacheBehaviorSettingsPtrOutput) MaximumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+func (o DistributionCacheBehaviorSettingsPtrOutput) MinimumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedCookies struct {
+	// The specific cookies to forward to your distribution's origin.
+	CookiesAllowLists []string `pulumi:"cookiesAllowLists"`
+	// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+	Option *string `pulumi:"option"`
+}
+
+// DistributionCacheBehaviorSettingsForwardedCookiesInput is an input type that accepts DistributionCacheBehaviorSettingsForwardedCookiesArgs and DistributionCacheBehaviorSettingsForwardedCookiesOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorSettingsForwardedCookiesInput` via:
+//
+//	DistributionCacheBehaviorSettingsForwardedCookiesArgs{...}
+type DistributionCacheBehaviorSettingsForwardedCookiesInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorSettingsForwardedCookiesOutput() DistributionCacheBehaviorSettingsForwardedCookiesOutput
+	ToDistributionCacheBehaviorSettingsForwardedCookiesOutputWithContext(context.Context) DistributionCacheBehaviorSettingsForwardedCookiesOutput
+}
+
+type DistributionCacheBehaviorSettingsForwardedCookiesArgs struct {
+	// The specific cookies to forward to your distribution's origin.
+	CookiesAllowLists pulumi.StringArrayInput `pulumi:"cookiesAllowLists"`
+	// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+	Option pulumi.StringPtrInput `pulumi:"option"`
+}
+
+func (DistributionCacheBehaviorSettingsForwardedCookiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedCookies)(nil)).Elem()
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedCookiesArgs) ToDistributionCacheBehaviorSettingsForwardedCookiesOutput() DistributionCacheBehaviorSettingsForwardedCookiesOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedCookiesOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedCookiesArgs) ToDistributionCacheBehaviorSettingsForwardedCookiesOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedCookiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedCookiesOutput)
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedCookiesArgs) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutput() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedCookiesArgs) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedCookiesOutput).ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(ctx)
+}
+
+// DistributionCacheBehaviorSettingsForwardedCookiesPtrInput is an input type that accepts DistributionCacheBehaviorSettingsForwardedCookiesArgs, DistributionCacheBehaviorSettingsForwardedCookiesPtr and DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorSettingsForwardedCookiesPtrInput` via:
+//
+//	        DistributionCacheBehaviorSettingsForwardedCookiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionCacheBehaviorSettingsForwardedCookiesPtrInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutput() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput
+	ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(context.Context) DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput
+}
+
+type distributionCacheBehaviorSettingsForwardedCookiesPtrType DistributionCacheBehaviorSettingsForwardedCookiesArgs
+
+func DistributionCacheBehaviorSettingsForwardedCookiesPtr(v *DistributionCacheBehaviorSettingsForwardedCookiesArgs) DistributionCacheBehaviorSettingsForwardedCookiesPtrInput {
+	return (*distributionCacheBehaviorSettingsForwardedCookiesPtrType)(v)
+}
+
+func (*distributionCacheBehaviorSettingsForwardedCookiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheBehaviorSettingsForwardedCookies)(nil)).Elem()
+}
+
+func (i *distributionCacheBehaviorSettingsForwardedCookiesPtrType) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutput() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionCacheBehaviorSettingsForwardedCookiesPtrType) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedCookiesOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorSettingsForwardedCookiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedCookies)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) ToDistributionCacheBehaviorSettingsForwardedCookiesOutput() DistributionCacheBehaviorSettingsForwardedCookiesOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) ToDistributionCacheBehaviorSettingsForwardedCookiesOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedCookiesOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutput() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return o.ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheBehaviorSettingsForwardedCookies) *DistributionCacheBehaviorSettingsForwardedCookies {
+		return &v
+	}).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
+}
+
+// The specific cookies to forward to your distribution's origin.
+func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) CookiesAllowLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedCookies) []string { return v.CookiesAllowLists }).(pulumi.StringArrayOutput)
+}
+
+// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) Option() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedCookies) *string { return v.Option }).(pulumi.StringPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheBehaviorSettingsForwardedCookies)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutput() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) Elem() DistributionCacheBehaviorSettingsForwardedCookiesOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedCookies) DistributionCacheBehaviorSettingsForwardedCookies {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCacheBehaviorSettingsForwardedCookies
+		return ret
+	}).(DistributionCacheBehaviorSettingsForwardedCookiesOutput)
+}
+
+// The specific cookies to forward to your distribution's origin.
+func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) CookiesAllowLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedCookies) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CookiesAllowLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) Option() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedCookies) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Option
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedHeaders struct {
+	// The specific headers to forward to your distribution's origin.
+	HeadersAllowLists []string `pulumi:"headersAllowLists"`
+	// The headers that you want your distribution to forward to your origin and base caching on.
+	Option *string `pulumi:"option"`
+}
+
+// DistributionCacheBehaviorSettingsForwardedHeadersInput is an input type that accepts DistributionCacheBehaviorSettingsForwardedHeadersArgs and DistributionCacheBehaviorSettingsForwardedHeadersOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorSettingsForwardedHeadersInput` via:
+//
+//	DistributionCacheBehaviorSettingsForwardedHeadersArgs{...}
+type DistributionCacheBehaviorSettingsForwardedHeadersInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorSettingsForwardedHeadersOutput() DistributionCacheBehaviorSettingsForwardedHeadersOutput
+	ToDistributionCacheBehaviorSettingsForwardedHeadersOutputWithContext(context.Context) DistributionCacheBehaviorSettingsForwardedHeadersOutput
+}
+
+type DistributionCacheBehaviorSettingsForwardedHeadersArgs struct {
+	// The specific headers to forward to your distribution's origin.
+	HeadersAllowLists pulumi.StringArrayInput `pulumi:"headersAllowLists"`
+	// The headers that you want your distribution to forward to your origin and base caching on.
+	Option pulumi.StringPtrInput `pulumi:"option"`
+}
+
+func (DistributionCacheBehaviorSettingsForwardedHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedHeaders)(nil)).Elem()
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedHeadersArgs) ToDistributionCacheBehaviorSettingsForwardedHeadersOutput() DistributionCacheBehaviorSettingsForwardedHeadersOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedHeadersOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedHeadersArgs) ToDistributionCacheBehaviorSettingsForwardedHeadersOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedHeadersOutput)
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedHeadersArgs) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutput() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedHeadersArgs) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedHeadersOutput).ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(ctx)
+}
+
+// DistributionCacheBehaviorSettingsForwardedHeadersPtrInput is an input type that accepts DistributionCacheBehaviorSettingsForwardedHeadersArgs, DistributionCacheBehaviorSettingsForwardedHeadersPtr and DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorSettingsForwardedHeadersPtrInput` via:
+//
+//	        DistributionCacheBehaviorSettingsForwardedHeadersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionCacheBehaviorSettingsForwardedHeadersPtrInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutput() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput
+	ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(context.Context) DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput
+}
+
+type distributionCacheBehaviorSettingsForwardedHeadersPtrType DistributionCacheBehaviorSettingsForwardedHeadersArgs
+
+func DistributionCacheBehaviorSettingsForwardedHeadersPtr(v *DistributionCacheBehaviorSettingsForwardedHeadersArgs) DistributionCacheBehaviorSettingsForwardedHeadersPtrInput {
+	return (*distributionCacheBehaviorSettingsForwardedHeadersPtrType)(v)
+}
+
+func (*distributionCacheBehaviorSettingsForwardedHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheBehaviorSettingsForwardedHeaders)(nil)).Elem()
+}
+
+func (i *distributionCacheBehaviorSettingsForwardedHeadersPtrType) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutput() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionCacheBehaviorSettingsForwardedHeadersPtrType) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedHeadersOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorSettingsForwardedHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedHeaders)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) ToDistributionCacheBehaviorSettingsForwardedHeadersOutput() DistributionCacheBehaviorSettingsForwardedHeadersOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) ToDistributionCacheBehaviorSettingsForwardedHeadersOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedHeadersOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutput() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return o.ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheBehaviorSettingsForwardedHeaders) *DistributionCacheBehaviorSettingsForwardedHeaders {
+		return &v
+	}).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
+}
+
+// The specific headers to forward to your distribution's origin.
+func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) HeadersAllowLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedHeaders) []string { return v.HeadersAllowLists }).(pulumi.StringArrayOutput)
+}
+
+// The headers that you want your distribution to forward to your origin and base caching on.
+func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) Option() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedHeaders) *string { return v.Option }).(pulumi.StringPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheBehaviorSettingsForwardedHeaders)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutput() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) Elem() DistributionCacheBehaviorSettingsForwardedHeadersOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedHeaders) DistributionCacheBehaviorSettingsForwardedHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCacheBehaviorSettingsForwardedHeaders
+		return ret
+	}).(DistributionCacheBehaviorSettingsForwardedHeadersOutput)
+}
+
+// The specific headers to forward to your distribution's origin.
+func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) HeadersAllowLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HeadersAllowLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// The headers that you want your distribution to forward to your origin and base caching on.
+func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) Option() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Option
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedQueryStrings struct {
+	// Indicates whether the distribution forwards and caches based on query strings.
+	Option *bool `pulumi:"option"`
+	// The specific query strings that the distribution forwards to the origin.
+	QueryStringsAllowedLists []string `pulumi:"queryStringsAllowedLists"`
+}
+
+// DistributionCacheBehaviorSettingsForwardedQueryStringsInput is an input type that accepts DistributionCacheBehaviorSettingsForwardedQueryStringsArgs and DistributionCacheBehaviorSettingsForwardedQueryStringsOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorSettingsForwardedQueryStringsInput` via:
+//
+//	DistributionCacheBehaviorSettingsForwardedQueryStringsArgs{...}
+type DistributionCacheBehaviorSettingsForwardedQueryStringsInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorSettingsForwardedQueryStringsOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsOutput
+	ToDistributionCacheBehaviorSettingsForwardedQueryStringsOutputWithContext(context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsOutput
+}
+
+type DistributionCacheBehaviorSettingsForwardedQueryStringsArgs struct {
+	// Indicates whether the distribution forwards and caches based on query strings.
+	Option pulumi.BoolPtrInput `pulumi:"option"`
+	// The specific query strings that the distribution forwards to the origin.
+	QueryStringsAllowedLists pulumi.StringArrayInput `pulumi:"queryStringsAllowedLists"`
+}
+
+func (DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedQueryStrings)(nil)).Elem()
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) ToDistributionCacheBehaviorSettingsForwardedQueryStringsOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedQueryStringsOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) ToDistributionCacheBehaviorSettingsForwardedQueryStringsOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedQueryStringsOutput)
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedQueryStringsOutput).ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(ctx)
+}
+
+// DistributionCacheBehaviorSettingsForwardedQueryStringsPtrInput is an input type that accepts DistributionCacheBehaviorSettingsForwardedQueryStringsArgs, DistributionCacheBehaviorSettingsForwardedQueryStringsPtr and DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput values.
+// You can construct a concrete instance of `DistributionCacheBehaviorSettingsForwardedQueryStringsPtrInput` via:
+//
+//	        DistributionCacheBehaviorSettingsForwardedQueryStringsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionCacheBehaviorSettingsForwardedQueryStringsPtrInput interface {
+	pulumi.Input
+
+	ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput
+	ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput
+}
+
+type distributionCacheBehaviorSettingsForwardedQueryStringsPtrType DistributionCacheBehaviorSettingsForwardedQueryStringsArgs
+
+func DistributionCacheBehaviorSettingsForwardedQueryStringsPtr(v *DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) DistributionCacheBehaviorSettingsForwardedQueryStringsPtrInput {
+	return (*distributionCacheBehaviorSettingsForwardedQueryStringsPtrType)(v)
+}
+
+func (*distributionCacheBehaviorSettingsForwardedQueryStringsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheBehaviorSettingsForwardedQueryStrings)(nil)).Elem()
+}
+
+func (i *distributionCacheBehaviorSettingsForwardedQueryStringsPtrType) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return i.ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionCacheBehaviorSettingsForwardedQueryStringsPtrType) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedQueryStringsOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedQueryStrings)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ToDistributionCacheBehaviorSettingsForwardedQueryStringsOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ToDistributionCacheBehaviorSettingsForwardedQueryStringsOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return o.ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheBehaviorSettingsForwardedQueryStrings) *DistributionCacheBehaviorSettingsForwardedQueryStrings {
+		return &v
+	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
+}
+
+// Indicates whether the distribution forwards and caches based on query strings.
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) Option() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedQueryStrings) *bool { return v.Option }).(pulumi.BoolPtrOutput)
+}
+
+// The specific query strings that the distribution forwards to the origin.
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) QueryStringsAllowedLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedQueryStrings) []string {
+		return v.QueryStringsAllowedLists
+	}).(pulumi.StringArrayOutput)
+}
+
+type DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheBehaviorSettingsForwardedQueryStrings)(nil)).Elem()
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
+	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) Elem() DistributionCacheBehaviorSettingsForwardedQueryStringsOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedQueryStrings) DistributionCacheBehaviorSettingsForwardedQueryStrings {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCacheBehaviorSettingsForwardedQueryStrings
+		return ret
+	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsOutput)
+}
+
+// Indicates whether the distribution forwards and caches based on query strings.
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) Option() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedQueryStrings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Option
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The specific query strings that the distribution forwards to the origin.
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) QueryStringsAllowedLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedQueryStrings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringsAllowedLists
+	}).(pulumi.StringArrayOutput)
+}
+
+type DistributionDefaultCacheBehavior struct {
+	// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+	Behavior string `pulumi:"behavior"`
+}
+
+// DistributionDefaultCacheBehaviorInput is an input type that accepts DistributionDefaultCacheBehaviorArgs and DistributionDefaultCacheBehaviorOutput values.
+// You can construct a concrete instance of `DistributionDefaultCacheBehaviorInput` via:
+//
+//	DistributionDefaultCacheBehaviorArgs{...}
+type DistributionDefaultCacheBehaviorInput interface {
+	pulumi.Input
+
+	ToDistributionDefaultCacheBehaviorOutput() DistributionDefaultCacheBehaviorOutput
+	ToDistributionDefaultCacheBehaviorOutputWithContext(context.Context) DistributionDefaultCacheBehaviorOutput
+}
+
+type DistributionDefaultCacheBehaviorArgs struct {
+	// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+}
+
+func (DistributionDefaultCacheBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionDefaultCacheBehavior)(nil)).Elem()
+}
+
+func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorOutput() DistributionDefaultCacheBehaviorOutput {
+	return i.ToDistributionDefaultCacheBehaviorOutputWithContext(context.Background())
+}
+
+func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorOutput)
+}
+
+func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
+	return i.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorOutput).ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx)
+}
+
+// DistributionDefaultCacheBehaviorPtrInput is an input type that accepts DistributionDefaultCacheBehaviorArgs, DistributionDefaultCacheBehaviorPtr and DistributionDefaultCacheBehaviorPtrOutput values.
+// You can construct a concrete instance of `DistributionDefaultCacheBehaviorPtrInput` via:
+//
+//	        DistributionDefaultCacheBehaviorArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionDefaultCacheBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput
+	ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Context) DistributionDefaultCacheBehaviorPtrOutput
+}
+
+type distributionDefaultCacheBehaviorPtrType DistributionDefaultCacheBehaviorArgs
+
+func DistributionDefaultCacheBehaviorPtr(v *DistributionDefaultCacheBehaviorArgs) DistributionDefaultCacheBehaviorPtrInput {
+	return (*distributionDefaultCacheBehaviorPtrType)(v)
+}
+
+func (*distributionDefaultCacheBehaviorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionDefaultCacheBehavior)(nil)).Elem()
+}
+
+func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
+	return i.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorPtrOutput)
+}
+
+type DistributionDefaultCacheBehaviorOutput struct{ *pulumi.OutputState }
+
+func (DistributionDefaultCacheBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionDefaultCacheBehavior)(nil)).Elem()
+}
+
+func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorOutput() DistributionDefaultCacheBehaviorOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
+	return o.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehavior {
+		return &v
+	}).(DistributionDefaultCacheBehaviorPtrOutput)
+}
+
+// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+func (o DistributionDefaultCacheBehaviorOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+type DistributionDefaultCacheBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionDefaultCacheBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionDefaultCacheBehavior)(nil)).Elem()
+}
+
+func (o DistributionDefaultCacheBehaviorPtrOutput) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorPtrOutput) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorPtrOutput) Elem() DistributionDefaultCacheBehaviorOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) DistributionDefaultCacheBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionDefaultCacheBehavior
+		return ret
+	}).(DistributionDefaultCacheBehaviorOutput)
+}
+
+// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+func (o DistributionDefaultCacheBehaviorPtrOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Behavior
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionLocation struct {
+	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// The AWS Region name of the origin resource.
+	RegionName string `pulumi:"regionName"`
+}
+
+// DistributionLocationInput is an input type that accepts DistributionLocationArgs and DistributionLocationOutput values.
+// You can construct a concrete instance of `DistributionLocationInput` via:
+//
+//	DistributionLocationArgs{...}
+type DistributionLocationInput interface {
+	pulumi.Input
+
+	ToDistributionLocationOutput() DistributionLocationOutput
+	ToDistributionLocationOutputWithContext(context.Context) DistributionLocationOutput
+}
+
+type DistributionLocationArgs struct {
+	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// The AWS Region name of the origin resource.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (DistributionLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionLocation)(nil)).Elem()
+}
+
+func (i DistributionLocationArgs) ToDistributionLocationOutput() DistributionLocationOutput {
+	return i.ToDistributionLocationOutputWithContext(context.Background())
+}
+
+func (i DistributionLocationArgs) ToDistributionLocationOutputWithContext(ctx context.Context) DistributionLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionLocationOutput)
+}
+
+// DistributionLocationArrayInput is an input type that accepts DistributionLocationArray and DistributionLocationArrayOutput values.
+// You can construct a concrete instance of `DistributionLocationArrayInput` via:
+//
+//	DistributionLocationArray{ DistributionLocationArgs{...} }
+type DistributionLocationArrayInput interface {
+	pulumi.Input
+
+	ToDistributionLocationArrayOutput() DistributionLocationArrayOutput
+	ToDistributionLocationArrayOutputWithContext(context.Context) DistributionLocationArrayOutput
+}
+
+type DistributionLocationArray []DistributionLocationInput
+
+func (DistributionLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionLocation)(nil)).Elem()
+}
+
+func (i DistributionLocationArray) ToDistributionLocationArrayOutput() DistributionLocationArrayOutput {
+	return i.ToDistributionLocationArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionLocationArray) ToDistributionLocationArrayOutputWithContext(ctx context.Context) DistributionLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionLocationArrayOutput)
+}
+
+type DistributionLocationOutput struct{ *pulumi.OutputState }
+
+func (DistributionLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionLocation)(nil)).Elem()
+}
+
+func (o DistributionLocationOutput) ToDistributionLocationOutput() DistributionLocationOutput {
+	return o
+}
+
+func (o DistributionLocationOutput) ToDistributionLocationOutputWithContext(ctx context.Context) DistributionLocationOutput {
+	return o
+}
+
+// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+func (o DistributionLocationOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionLocation) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The AWS Region name of the origin resource.
+func (o DistributionLocationOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionLocation) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type DistributionLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionLocation)(nil)).Elem()
+}
+
+func (o DistributionLocationArrayOutput) ToDistributionLocationArrayOutput() DistributionLocationArrayOutput {
+	return o
+}
+
+func (o DistributionLocationArrayOutput) ToDistributionLocationArrayOutputWithContext(ctx context.Context) DistributionLocationArrayOutput {
+	return o
+}
+
+func (o DistributionLocationArrayOutput) Index(i pulumi.IntInput) DistributionLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionLocation {
+		return vs[0].([]DistributionLocation)[vs[1].(int)]
+	}).(DistributionLocationOutput)
+}
+
+type DistributionOrigin struct {
+	// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+	Name string `pulumi:"name"`
+	// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+	ProtocolPolicy *string `pulumi:"protocolPolicy"`
+	// The AWS Region name of the origin resource.
+	RegionName string `pulumi:"regionName"`
+	// The resource type of the origin resource (e.g., Instance).
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// DistributionOriginInput is an input type that accepts DistributionOriginArgs and DistributionOriginOutput values.
+// You can construct a concrete instance of `DistributionOriginInput` via:
+//
+//	DistributionOriginArgs{...}
+type DistributionOriginInput interface {
+	pulumi.Input
+
+	ToDistributionOriginOutput() DistributionOriginOutput
+	ToDistributionOriginOutputWithContext(context.Context) DistributionOriginOutput
+}
+
+type DistributionOriginArgs struct {
+	// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+	ProtocolPolicy pulumi.StringPtrInput `pulumi:"protocolPolicy"`
+	// The AWS Region name of the origin resource.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+	// The resource type of the origin resource (e.g., Instance).
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (DistributionOriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOrigin)(nil)).Elem()
+}
+
+func (i DistributionOriginArgs) ToDistributionOriginOutput() DistributionOriginOutput {
+	return i.ToDistributionOriginOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginArgs) ToDistributionOriginOutputWithContext(ctx context.Context) DistributionOriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginOutput)
+}
+
+func (i DistributionOriginArgs) ToDistributionOriginPtrOutput() DistributionOriginPtrOutput {
+	return i.ToDistributionOriginPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginArgs) ToDistributionOriginPtrOutputWithContext(ctx context.Context) DistributionOriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginOutput).ToDistributionOriginPtrOutputWithContext(ctx)
+}
+
+// DistributionOriginPtrInput is an input type that accepts DistributionOriginArgs, DistributionOriginPtr and DistributionOriginPtrOutput values.
+// You can construct a concrete instance of `DistributionOriginPtrInput` via:
+//
+//	        DistributionOriginArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionOriginPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOriginPtrOutput() DistributionOriginPtrOutput
+	ToDistributionOriginPtrOutputWithContext(context.Context) DistributionOriginPtrOutput
+}
+
+type distributionOriginPtrType DistributionOriginArgs
+
+func DistributionOriginPtr(v *DistributionOriginArgs) DistributionOriginPtrInput {
+	return (*distributionOriginPtrType)(v)
+}
+
+func (*distributionOriginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOrigin)(nil)).Elem()
+}
+
+func (i *distributionOriginPtrType) ToDistributionOriginPtrOutput() DistributionOriginPtrOutput {
+	return i.ToDistributionOriginPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionOriginPtrType) ToDistributionOriginPtrOutputWithContext(ctx context.Context) DistributionOriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginPtrOutput)
+}
+
+type DistributionOriginOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOrigin)(nil)).Elem()
+}
+
+func (o DistributionOriginOutput) ToDistributionOriginOutput() DistributionOriginOutput {
+	return o
+}
+
+func (o DistributionOriginOutput) ToDistributionOriginOutputWithContext(ctx context.Context) DistributionOriginOutput {
+	return o
+}
+
+func (o DistributionOriginOutput) ToDistributionOriginPtrOutput() DistributionOriginPtrOutput {
+	return o.ToDistributionOriginPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginOutput) ToDistributionOriginPtrOutputWithContext(ctx context.Context) DistributionOriginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOrigin) *DistributionOrigin {
+		return &v
+	}).(DistributionOriginPtrOutput)
+}
+
+// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+func (o DistributionOriginOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionOrigin) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+func (o DistributionOriginOutput) ProtocolPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *string { return v.ProtocolPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region name of the origin resource.
+func (o DistributionOriginOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionOrigin) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+// The resource type of the origin resource (e.g., Instance).
+func (o DistributionOriginOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type DistributionOriginPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOrigin)(nil)).Elem()
+}
+
+func (o DistributionOriginPtrOutput) ToDistributionOriginPtrOutput() DistributionOriginPtrOutput {
+	return o
+}
+
+func (o DistributionOriginPtrOutput) ToDistributionOriginPtrOutputWithContext(ctx context.Context) DistributionOriginPtrOutput {
+	return o
+}
+
+func (o DistributionOriginPtrOutput) Elem() DistributionOriginOutput {
+	return o.ApplyT(func(v *DistributionOrigin) DistributionOrigin {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOrigin
+		return ret
+	}).(DistributionOriginOutput)
+}
+
+// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+func (o DistributionOriginPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOrigin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+func (o DistributionOriginPtrOutput) ProtocolPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOrigin) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProtocolPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region name of the origin resource.
+func (o DistributionOriginPtrOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOrigin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RegionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource type of the origin resource (e.g., Instance).
+func (o DistributionOriginPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOrigin) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceAddOn struct {
 	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 	SnapshotTime string `pulumi:"snapshotTime"`
@@ -1651,6 +2940,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesPtrInput)(nil)).Elem(), ContainerServicePublicDomainNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateArrayInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorInput)(nil)).Elem(), DistributionCacheBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorArrayInput)(nil)).Elem(), DistributionCacheBehaviorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorSettingsInput)(nil)).Elem(), DistributionCacheBehaviorSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorSettingsPtrInput)(nil)).Elem(), DistributionCacheBehaviorSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedCookiesInput)(nil)).Elem(), DistributionCacheBehaviorSettingsForwardedCookiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedCookiesPtrInput)(nil)).Elem(), DistributionCacheBehaviorSettingsForwardedCookiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedHeadersInput)(nil)).Elem(), DistributionCacheBehaviorSettingsForwardedHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedHeadersPtrInput)(nil)).Elem(), DistributionCacheBehaviorSettingsForwardedHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedQueryStringsInput)(nil)).Elem(), DistributionCacheBehaviorSettingsForwardedQueryStringsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorSettingsForwardedQueryStringsPtrInput)(nil)).Elem(), DistributionCacheBehaviorSettingsForwardedQueryStringsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorInput)(nil)).Elem(), DistributionDefaultCacheBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorPtrInput)(nil)).Elem(), DistributionDefaultCacheBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionLocationInput)(nil)).Elem(), DistributionLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionLocationArrayInput)(nil)).Elem(), DistributionLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginInput)(nil)).Elem(), DistributionOriginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginPtrInput)(nil)).Elem(), DistributionOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnInput)(nil)).Elem(), InstanceAddOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnPtrInput)(nil)).Elem(), InstanceAddOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoInput)(nil)).Elem(), InstancePublicPortsPortInfoArgs{})
@@ -1673,6 +2978,22 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesCertificateOutput{})
 	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesCertificateArrayOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorArrayOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorSettingsOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorSettingsForwardedCookiesOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorSettingsForwardedHeadersOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorSettingsForwardedQueryStringsOutput{})
+	pulumi.RegisterOutputType(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput{})
+	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorOutput{})
+	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(DistributionLocationOutput{})
+	pulumi.RegisterOutputType(DistributionLocationArrayOutput{})
+	pulumi.RegisterOutputType(DistributionOriginOutput{})
+	pulumi.RegisterOutputType(DistributionOriginPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAddOnOutput{})
 	pulumi.RegisterOutputType(InstanceAddOnPtrOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoOutput{})

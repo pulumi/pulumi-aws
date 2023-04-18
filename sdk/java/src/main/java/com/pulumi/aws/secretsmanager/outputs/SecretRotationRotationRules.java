@@ -5,23 +5,50 @@ package com.pulumi.aws.secretsmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class SecretRotationRotationRules {
     /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret.
+     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
      * 
      */
-    private Integer automaticallyAfterDays;
+    private @Nullable Integer automaticallyAfterDays;
+    /**
+     * @return The length of the rotation window in hours. For example, `3h` for a three hour window.
+     * 
+     */
+    private @Nullable String duration;
+    /**
+     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * 
+     */
+    private @Nullable String scheduleExpression;
 
     private SecretRotationRotationRules() {}
     /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret.
+     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
      * 
      */
-    public Integer automaticallyAfterDays() {
-        return this.automaticallyAfterDays;
+    public Optional<Integer> automaticallyAfterDays() {
+        return Optional.ofNullable(this.automaticallyAfterDays);
+    }
+    /**
+     * @return The length of the rotation window in hours. For example, `3h` for a three hour window.
+     * 
+     */
+    public Optional<String> duration() {
+        return Optional.ofNullable(this.duration);
+    }
+    /**
+     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * 
+     */
+    public Optional<String> scheduleExpression() {
+        return Optional.ofNullable(this.scheduleExpression);
     }
 
     public static Builder builder() {
@@ -33,21 +60,37 @@ public final class SecretRotationRotationRules {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer automaticallyAfterDays;
+        private @Nullable Integer automaticallyAfterDays;
+        private @Nullable String duration;
+        private @Nullable String scheduleExpression;
         public Builder() {}
         public Builder(SecretRotationRotationRules defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automaticallyAfterDays = defaults.automaticallyAfterDays;
+    	      this.duration = defaults.duration;
+    	      this.scheduleExpression = defaults.scheduleExpression;
         }
 
         @CustomType.Setter
-        public Builder automaticallyAfterDays(Integer automaticallyAfterDays) {
-            this.automaticallyAfterDays = Objects.requireNonNull(automaticallyAfterDays);
+        public Builder automaticallyAfterDays(@Nullable Integer automaticallyAfterDays) {
+            this.automaticallyAfterDays = automaticallyAfterDays;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder duration(@Nullable String duration) {
+            this.duration = duration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scheduleExpression(@Nullable String scheduleExpression) {
+            this.scheduleExpression = scheduleExpression;
             return this;
         }
         public SecretRotationRotationRules build() {
             final var o = new SecretRotationRotationRules();
             o.automaticallyAfterDays = automaticallyAfterDays;
+            o.duration = duration;
+            o.scheduleExpression = scheduleExpression;
             return o;
         }
     }

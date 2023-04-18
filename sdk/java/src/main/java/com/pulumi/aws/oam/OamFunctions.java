@@ -4,8 +4,12 @@
 package com.pulumi.aws.oam;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.oam.inputs.GetLinkArgs;
+import com.pulumi.aws.oam.inputs.GetLinkPlainArgs;
 import com.pulumi.aws.oam.inputs.GetSinkArgs;
 import com.pulumi.aws.oam.inputs.GetSinkPlainArgs;
+import com.pulumi.aws.oam.outputs.GetLinkResult;
+import com.pulumi.aws.oam.outputs.GetLinksResult;
 import com.pulumi.aws.oam.outputs.GetSinkResult;
 import com.pulumi.aws.oam.outputs.GetSinksResult;
 import com.pulumi.core.Output;
@@ -16,6 +20,368 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OamFunctions {
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Link.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLink(GetLinkArgs.builder()
+     *             .linkIdentifier(&#34;arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLinkResult> getLink(GetLinkArgs args) {
+        return getLink(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Link.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLink(GetLinkArgs.builder()
+     *             .linkIdentifier(&#34;arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLinkResult> getLinkPlain(GetLinkPlainArgs args) {
+        return getLinkPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Link.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLink(GetLinkArgs.builder()
+     *             .linkIdentifier(&#34;arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLinkResult> getLink(GetLinkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:oam/getLink:getLink", TypeShape.of(GetLinkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Link.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import com.pulumi.aws.oam.inputs.GetLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLink(GetLinkArgs.builder()
+     *             .linkIdentifier(&#34;arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLinkResult> getLinkPlain(GetLinkPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:oam/getLink:getLink", TypeShape.of(GetLinkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Links.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLinks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLinksResult> getLinks() {
+        return getLinks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Links.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLinks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLinksResult> getLinksPlain() {
+        return getLinksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Links.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLinks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLinksResult> getLinks(InvokeArgs args) {
+        return getLinks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Links.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLinks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLinksResult> getLinksPlain(InvokeArgs args) {
+        return getLinksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Links.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLinks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLinksResult> getLinks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:oam/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Observability Access Manager Links.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.oam.OamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OamFunctions.getLinks();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLinksResult> getLinksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:oam/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data source for managing an AWS CloudWatch Observability Access Manager Sink.
      * 

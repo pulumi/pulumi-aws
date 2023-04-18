@@ -3417,11 +3417,12 @@ func (o GetInstancesFilterArrayOutput) Index(i pulumi.IntInput) GetInstancesFilt
 }
 
 type GetProxyAuth struct {
-	AuthScheme  string `pulumi:"authScheme"`
-	Description string `pulumi:"description"`
-	IamAuth     string `pulumi:"iamAuth"`
-	SecretArn   string `pulumi:"secretArn"`
-	Username    string `pulumi:"username"`
+	AuthScheme             string `pulumi:"authScheme"`
+	ClientPasswordAuthType string `pulumi:"clientPasswordAuthType"`
+	Description            string `pulumi:"description"`
+	IamAuth                string `pulumi:"iamAuth"`
+	SecretArn              string `pulumi:"secretArn"`
+	Username               string `pulumi:"username"`
 }
 
 // GetProxyAuthInput is an input type that accepts GetProxyAuthArgs and GetProxyAuthOutput values.
@@ -3436,11 +3437,12 @@ type GetProxyAuthInput interface {
 }
 
 type GetProxyAuthArgs struct {
-	AuthScheme  pulumi.StringInput `pulumi:"authScheme"`
-	Description pulumi.StringInput `pulumi:"description"`
-	IamAuth     pulumi.StringInput `pulumi:"iamAuth"`
-	SecretArn   pulumi.StringInput `pulumi:"secretArn"`
-	Username    pulumi.StringInput `pulumi:"username"`
+	AuthScheme             pulumi.StringInput `pulumi:"authScheme"`
+	ClientPasswordAuthType pulumi.StringInput `pulumi:"clientPasswordAuthType"`
+	Description            pulumi.StringInput `pulumi:"description"`
+	IamAuth                pulumi.StringInput `pulumi:"iamAuth"`
+	SecretArn              pulumi.StringInput `pulumi:"secretArn"`
+	Username               pulumi.StringInput `pulumi:"username"`
 }
 
 func (GetProxyAuthArgs) ElementType() reflect.Type {
@@ -3496,6 +3498,10 @@ func (o GetProxyAuthOutput) ToGetProxyAuthOutputWithContext(ctx context.Context)
 
 func (o GetProxyAuthOutput) AuthScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProxyAuth) string { return v.AuthScheme }).(pulumi.StringOutput)
+}
+
+func (o GetProxyAuthOutput) ClientPasswordAuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProxyAuth) string { return v.ClientPasswordAuthType }).(pulumi.StringOutput)
 }
 
 func (o GetProxyAuthOutput) Description() pulumi.StringOutput {

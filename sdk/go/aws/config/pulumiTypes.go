@@ -295,6 +295,7 @@ type Endpoints struct {
 	Ce                                   *string `pulumi:"ce"`
 	Chime                                *string `pulumi:"chime"`
 	Chimesdkidentity                     *string `pulumi:"chimesdkidentity"`
+	Chimesdkmediapipelines               *string `pulumi:"chimesdkmediapipelines"`
 	Chimesdkmeetings                     *string `pulumi:"chimesdkmeetings"`
 	Chimesdkmessaging                    *string `pulumi:"chimesdkmessaging"`
 	Cloud9                               *string `pulumi:"cloud9"`
@@ -576,6 +577,7 @@ type Endpoints struct {
 	Sdb                                  *string `pulumi:"sdb"`
 	Secretsmanager                       *string `pulumi:"secretsmanager"`
 	Securityhub                          *string `pulumi:"securityhub"`
+	Securitylake                         *string `pulumi:"securitylake"`
 	Serverlessapplicationrepository      *string `pulumi:"serverlessapplicationrepository"`
 	Serverlessapprepo                    *string `pulumi:"serverlessapprepo"`
 	Serverlessrepo                       *string `pulumi:"serverlessrepo"`
@@ -616,6 +618,7 @@ type Endpoints struct {
 	Transfer                             *string `pulumi:"transfer"`
 	Translate                            *string `pulumi:"translate"`
 	Voiceid                              *string `pulumi:"voiceid"`
+	Vpclattice                           *string `pulumi:"vpclattice"`
 	Waf                                  *string `pulumi:"waf"`
 	Wafregional                          *string `pulumi:"wafregional"`
 	Wafv2                                *string `pulumi:"wafv2"`
@@ -686,6 +689,7 @@ type EndpointsArgs struct {
 	Ce                                   pulumi.StringPtrInput `pulumi:"ce"`
 	Chime                                pulumi.StringPtrInput `pulumi:"chime"`
 	Chimesdkidentity                     pulumi.StringPtrInput `pulumi:"chimesdkidentity"`
+	Chimesdkmediapipelines               pulumi.StringPtrInput `pulumi:"chimesdkmediapipelines"`
 	Chimesdkmeetings                     pulumi.StringPtrInput `pulumi:"chimesdkmeetings"`
 	Chimesdkmessaging                    pulumi.StringPtrInput `pulumi:"chimesdkmessaging"`
 	Cloud9                               pulumi.StringPtrInput `pulumi:"cloud9"`
@@ -967,6 +971,7 @@ type EndpointsArgs struct {
 	Sdb                                  pulumi.StringPtrInput `pulumi:"sdb"`
 	Secretsmanager                       pulumi.StringPtrInput `pulumi:"secretsmanager"`
 	Securityhub                          pulumi.StringPtrInput `pulumi:"securityhub"`
+	Securitylake                         pulumi.StringPtrInput `pulumi:"securitylake"`
 	Serverlessapplicationrepository      pulumi.StringPtrInput `pulumi:"serverlessapplicationrepository"`
 	Serverlessapprepo                    pulumi.StringPtrInput `pulumi:"serverlessapprepo"`
 	Serverlessrepo                       pulumi.StringPtrInput `pulumi:"serverlessrepo"`
@@ -1007,6 +1012,7 @@ type EndpointsArgs struct {
 	Transfer                             pulumi.StringPtrInput `pulumi:"transfer"`
 	Translate                            pulumi.StringPtrInput `pulumi:"translate"`
 	Voiceid                              pulumi.StringPtrInput `pulumi:"voiceid"`
+	Vpclattice                           pulumi.StringPtrInput `pulumi:"vpclattice"`
 	Waf                                  pulumi.StringPtrInput `pulumi:"waf"`
 	Wafregional                          pulumi.StringPtrInput `pulumi:"wafregional"`
 	Wafv2                                pulumi.StringPtrInput `pulumi:"wafv2"`
@@ -1246,6 +1252,10 @@ func (o EndpointsOutput) Chime() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Chimesdkidentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Chimesdkidentity }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Chimesdkmediapipelines() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Chimesdkmediapipelines }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Chimesdkmeetings() pulumi.StringPtrOutput {
@@ -2372,6 +2382,10 @@ func (o EndpointsOutput) Securityhub() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Securityhub }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Securitylake() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Securitylake }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Serverlessapplicationrepository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Serverlessapplicationrepository }).(pulumi.StringPtrOutput)
 }
@@ -2530,6 +2544,10 @@ func (o EndpointsOutput) Translate() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Voiceid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Voiceid }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Vpclattice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Vpclattice }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Waf() pulumi.StringPtrOutput {

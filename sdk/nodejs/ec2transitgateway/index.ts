@@ -20,6 +20,11 @@ export const getAttachment: typeof import("./getAttachment").getAttachment = nul
 export const getAttachmentOutput: typeof import("./getAttachment").getAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAttachment","getAttachmentOutput"], () => require("./getAttachment"));
 
+export { GetAttachmentsArgs, GetAttachmentsResult, GetAttachmentsOutputArgs } from "./getAttachments";
+export const getAttachments: typeof import("./getAttachments").getAttachments = null as any;
+export const getAttachmentsOutput: typeof import("./getAttachments").getAttachmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getAttachments","getAttachmentsOutput"], () => require("./getAttachments"));
+
 export { GetConnectArgs, GetConnectResult, GetConnectOutputArgs } from "./getConnect";
 export const getConnect: typeof import("./getConnect").getConnect = null as any;
 export const getConnectOutput: typeof import("./getConnect").getConnectOutput = null as any;
@@ -49,6 +54,16 @@ export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from 
 export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
 export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
+
+export { GetRouteTableAssociationsArgs, GetRouteTableAssociationsResult, GetRouteTableAssociationsOutputArgs } from "./getRouteTableAssociations";
+export const getRouteTableAssociations: typeof import("./getRouteTableAssociations").getRouteTableAssociations = null as any;
+export const getRouteTableAssociationsOutput: typeof import("./getRouteTableAssociations").getRouteTableAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteTableAssociations","getRouteTableAssociationsOutput"], () => require("./getRouteTableAssociations"));
+
+export { GetRouteTablePropagationsArgs, GetRouteTablePropagationsResult, GetRouteTablePropagationsOutputArgs } from "./getRouteTablePropagations";
+export const getRouteTablePropagations: typeof import("./getRouteTablePropagations").getRouteTablePropagations = null as any;
+export const getRouteTablePropagationsOutput: typeof import("./getRouteTablePropagations").getRouteTablePropagationsOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteTablePropagations","getRouteTablePropagationsOutput"], () => require("./getRouteTablePropagations"));
 
 export { GetTransitGatewayArgs, GetTransitGatewayResult, GetTransitGatewayOutputArgs } from "./getTransitGateway";
 export const getTransitGateway: typeof import("./getTransitGateway").getTransitGateway = null as any;

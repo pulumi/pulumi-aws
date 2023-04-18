@@ -18,6 +18,14 @@ __all__ = [
     'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs',
     'ContainerServicePublicDomainNamesArgs',
     'ContainerServicePublicDomainNamesCertificateArgs',
+    'DistributionCacheBehaviorArgs',
+    'DistributionCacheBehaviorSettingsArgs',
+    'DistributionCacheBehaviorSettingsForwardedCookiesArgs',
+    'DistributionCacheBehaviorSettingsForwardedHeadersArgs',
+    'DistributionCacheBehaviorSettingsForwardedQueryStringsArgs',
+    'DistributionDefaultCacheBehaviorArgs',
+    'DistributionLocationArgs',
+    'DistributionOriginArgs',
     'InstanceAddOnArgs',
     'InstancePublicPortsPortInfoArgs',
     'LbCertificateDomainValidationRecordArgs',
@@ -429,6 +437,423 @@ class ContainerServicePublicDomainNamesCertificateArgs:
     @domain_names.setter
     def domain_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "domain_names", value)
+
+
+@pulumi.input_type
+class DistributionCacheBehaviorArgs:
+    def __init__(__self__, *,
+                 behavior: pulumi.Input[str],
+                 path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] behavior: The cache behavior for the specified path.
+        :param pulumi.Input[str] path: The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\\*), and file types (\\*.html, \\*jpg, \\*js). Directories and file paths are case-sensitive.
+        """
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def behavior(self) -> pulumi.Input[str]:
+        """
+        The cache behavior for the specified path.
+        """
+        return pulumi.get(self, "behavior")
+
+    @behavior.setter
+    def behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "behavior", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\\*), and file types (\\*.html, \\*jpg, \\*js). Directories and file paths are case-sensitive.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class DistributionCacheBehaviorSettingsArgs:
+    def __init__(__self__, *,
+                 allowed_http_methods: Optional[pulumi.Input[str]] = None,
+                 cached_http_methods: Optional[pulumi.Input[str]] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
+                 forwarded_cookies: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgs']] = None,
+                 forwarded_headers: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgs']] = None,
+                 forwarded_query_strings: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs']] = None,
+                 maximum_ttl: Optional[pulumi.Input[int]] = None,
+                 minimum_ttl: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] allowed_http_methods: The HTTP methods that are processed and forwarded to the distribution's origin.
+        :param pulumi.Input[str] cached_http_methods: The HTTP method responses that are cached by your distribution.
+        :param pulumi.Input[int] default_ttl: The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgs'] forwarded_cookies: An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgs'] forwarded_headers: An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs'] forwarded_query_strings: An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+        :param pulumi.Input[int] maximum_ttl: The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        :param pulumi.Input[int] minimum_ttl: The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        """
+        if allowed_http_methods is not None:
+            pulumi.set(__self__, "allowed_http_methods", allowed_http_methods)
+        if cached_http_methods is not None:
+            pulumi.set(__self__, "cached_http_methods", cached_http_methods)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if forwarded_cookies is not None:
+            pulumi.set(__self__, "forwarded_cookies", forwarded_cookies)
+        if forwarded_headers is not None:
+            pulumi.set(__self__, "forwarded_headers", forwarded_headers)
+        if forwarded_query_strings is not None:
+            pulumi.set(__self__, "forwarded_query_strings", forwarded_query_strings)
+        if maximum_ttl is not None:
+            pulumi.set(__self__, "maximum_ttl", maximum_ttl)
+        if minimum_ttl is not None:
+            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
+
+    @property
+    @pulumi.getter(name="allowedHttpMethods")
+    def allowed_http_methods(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP methods that are processed and forwarded to the distribution's origin.
+        """
+        return pulumi.get(self, "allowed_http_methods")
+
+    @allowed_http_methods.setter
+    def allowed_http_methods(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allowed_http_methods", value)
+
+    @property
+    @pulumi.getter(name="cachedHttpMethods")
+    def cached_http_methods(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP method responses that are cached by your distribution.
+        """
+        return pulumi.get(self, "cached_http_methods")
+
+    @cached_http_methods.setter
+    def cached_http_methods(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cached_http_methods", value)
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @default_ttl.setter
+    def default_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_ttl", value)
+
+    @property
+    @pulumi.getter(name="forwardedCookies")
+    def forwarded_cookies(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgs']]:
+        """
+        An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+        """
+        return pulumi.get(self, "forwarded_cookies")
+
+    @forwarded_cookies.setter
+    def forwarded_cookies(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgs']]):
+        pulumi.set(self, "forwarded_cookies", value)
+
+    @property
+    @pulumi.getter(name="forwardedHeaders")
+    def forwarded_headers(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgs']]:
+        """
+        An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+        """
+        return pulumi.get(self, "forwarded_headers")
+
+    @forwarded_headers.setter
+    def forwarded_headers(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgs']]):
+        pulumi.set(self, "forwarded_headers", value)
+
+    @property
+    @pulumi.getter(name="forwardedQueryStrings")
+    def forwarded_query_strings(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs']]:
+        """
+        An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+        """
+        return pulumi.get(self, "forwarded_query_strings")
+
+    @forwarded_query_strings.setter
+    def forwarded_query_strings(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs']]):
+        pulumi.set(self, "forwarded_query_strings", value)
+
+    @property
+    @pulumi.getter(name="maximumTtl")
+    def maximum_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        """
+        return pulumi.get(self, "maximum_ttl")
+
+    @maximum_ttl.setter
+    def maximum_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_ttl", value)
+
+    @property
+    @pulumi.getter(name="minimumTtl")
+    def minimum_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        """
+        return pulumi.get(self, "minimum_ttl")
+
+    @minimum_ttl.setter
+    def minimum_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_ttl", value)
+
+
+@pulumi.input_type
+class DistributionCacheBehaviorSettingsForwardedCookiesArgs:
+    def __init__(__self__, *,
+                 cookies_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 option: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cookies_allow_lists: The specific cookies to forward to your distribution's origin.
+        :param pulumi.Input[str] option: Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+        """
+        if cookies_allow_lists is not None:
+            pulumi.set(__self__, "cookies_allow_lists", cookies_allow_lists)
+        if option is not None:
+            pulumi.set(__self__, "option", option)
+
+    @property
+    @pulumi.getter(name="cookiesAllowLists")
+    def cookies_allow_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The specific cookies to forward to your distribution's origin.
+        """
+        return pulumi.get(self, "cookies_allow_lists")
+
+    @cookies_allow_lists.setter
+    def cookies_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cookies_allow_lists", value)
+
+    @property
+    @pulumi.getter
+    def option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+        """
+        return pulumi.get(self, "option")
+
+    @option.setter
+    def option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "option", value)
+
+
+@pulumi.input_type
+class DistributionCacheBehaviorSettingsForwardedHeadersArgs:
+    def __init__(__self__, *,
+                 headers_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 option: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_allow_lists: The specific headers to forward to your distribution's origin.
+        :param pulumi.Input[str] option: The headers that you want your distribution to forward to your origin and base caching on.
+        """
+        if headers_allow_lists is not None:
+            pulumi.set(__self__, "headers_allow_lists", headers_allow_lists)
+        if option is not None:
+            pulumi.set(__self__, "option", option)
+
+    @property
+    @pulumi.getter(name="headersAllowLists")
+    def headers_allow_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The specific headers to forward to your distribution's origin.
+        """
+        return pulumi.get(self, "headers_allow_lists")
+
+    @headers_allow_lists.setter
+    def headers_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers_allow_lists", value)
+
+    @property
+    @pulumi.getter
+    def option(self) -> Optional[pulumi.Input[str]]:
+        """
+        The headers that you want your distribution to forward to your origin and base caching on.
+        """
+        return pulumi.get(self, "option")
+
+    @option.setter
+    def option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "option", value)
+
+
+@pulumi.input_type
+class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs:
+    def __init__(__self__, *,
+                 option: Optional[pulumi.Input[bool]] = None,
+                 query_strings_allowed_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] option: Indicates whether the distribution forwards and caches based on query strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] query_strings_allowed_lists: The specific query strings that the distribution forwards to the origin.
+        """
+        if option is not None:
+            pulumi.set(__self__, "option", option)
+        if query_strings_allowed_lists is not None:
+            pulumi.set(__self__, "query_strings_allowed_lists", query_strings_allowed_lists)
+
+    @property
+    @pulumi.getter
+    def option(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the distribution forwards and caches based on query strings.
+        """
+        return pulumi.get(self, "option")
+
+    @option.setter
+    def option(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "option", value)
+
+    @property
+    @pulumi.getter(name="queryStringsAllowedLists")
+    def query_strings_allowed_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The specific query strings that the distribution forwards to the origin.
+        """
+        return pulumi.get(self, "query_strings_allowed_lists")
+
+    @query_strings_allowed_lists.setter
+    def query_strings_allowed_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "query_strings_allowed_lists", value)
+
+
+@pulumi.input_type
+class DistributionDefaultCacheBehaviorArgs:
+    def __init__(__self__, *,
+                 behavior: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] behavior: The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+        """
+        pulumi.set(__self__, "behavior", behavior)
+
+    @property
+    @pulumi.getter
+    def behavior(self) -> pulumi.Input[str]:
+        """
+        The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+        """
+        return pulumi.get(self, "behavior")
+
+    @behavior.setter
+    def behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "behavior", value)
+
+
+@pulumi.input_type
+class DistributionLocationArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[str],
+                 region_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] availability_zone: The Availability Zone. Follows the format us-east-2a (case-sensitive).
+        :param pulumi.Input[str] region_name: The AWS Region name of the origin resource.
+        """
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[str]:
+        """
+        The Availability Zone. Follows the format us-east-2a (case-sensitive).
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> pulumi.Input[str]:
+        """
+        The AWS Region name of the origin resource.
+        """
+        return pulumi.get(self, "region_name")
+
+    @region_name.setter
+    def region_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region_name", value)
+
+
+@pulumi.input_type
+class DistributionOriginArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 region_name: pulumi.Input[str],
+                 protocol_policy: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+        :param pulumi.Input[str] region_name: The AWS Region name of the origin resource.
+        :param pulumi.Input[str] protocol_policy: The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+        :param pulumi.Input[str] resource_type: The resource type of the origin resource (e.g., Instance).
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region_name", region_name)
+        if protocol_policy is not None:
+            pulumi.set(__self__, "protocol_policy", protocol_policy)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> pulumi.Input[str]:
+        """
+        The AWS Region name of the origin resource.
+        """
+        return pulumi.get(self, "region_name")
+
+    @region_name.setter
+    def region_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region_name", value)
+
+    @property
+    @pulumi.getter(name="protocolPolicy")
+    def protocol_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+        """
+        return pulumi.get(self, "protocol_policy")
+
+    @protocol_policy.setter
+    def protocol_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol_policy", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource type of the origin resource (e.g., Instance).
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
 
 
 @pulumi.input_type

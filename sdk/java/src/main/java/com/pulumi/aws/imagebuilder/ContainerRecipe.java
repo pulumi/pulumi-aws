@@ -286,6 +286,20 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
         return this.platform;
     }
     /**
+     * Specifies the operating system platform when you use a custom base image.
+     * 
+     */
+    @Export(name="platformOverride", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> platformOverride;
+
+    /**
+     * @return Specifies the operating system platform when you use a custom base image.
+     * 
+     */
+    public Output<Optional<String>> platformOverride() {
+        return Codegen.optional(this.platformOverride);
+    }
+    /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

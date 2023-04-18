@@ -227,14 +227,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cognito/userPoolClient:UserPoolClient")
 public class UserPoolClient extends com.pulumi.resources.CustomResource {
     /**
-     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.access_token`.
      * 
      */
     @Export(name="accessTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> accessTokenValidity;
 
     /**
-     * @return Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+     * @return Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.access_token`.
      * 
      */
     public Output<Optional<Integer>> accessTokenValidity() {
@@ -409,14 +413,18 @@ public class UserPoolClient extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.generateSecret);
     }
     /**
-     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.id_token`.
      * 
      */
     @Export(name="idTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idTokenValidity;
 
     /**
-     * @return Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
+     * @return Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+     * By default, the unit is hours.
+     * The unit can be overridden by a value in `token_validity_units.id_token`.
      * 
      */
     public Output<Optional<Integer>> idTokenValidity() {
@@ -479,14 +487,18 @@ public class UserPoolClient extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.readAttributes);
     }
     /**
-     * Time limit in days refresh tokens are valid for.
+     * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+     * By default, the unit is days.
+     * The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
     @Export(name="refreshTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> refreshTokenValidity;
 
     /**
-     * @return Time limit in days refresh tokens are valid for.
+     * @return Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+     * By default, the unit is days.
+     * The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
     public Output<Optional<Integer>> refreshTokenValidity() {

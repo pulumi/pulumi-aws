@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'ApplicationAutoStartConfigurationArgs',
     'ApplicationAutoStopConfigurationArgs',
+    'ApplicationImageConfigurationArgs',
     'ApplicationInitialCapacityArgs',
     'ApplicationInitialCapacityInitialCapacityConfigArgs',
     'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs',
@@ -79,6 +80,28 @@ class ApplicationAutoStopConfigurationArgs:
     @idle_timeout_minutes.setter
     def idle_timeout_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_minutes", value)
+
+
+@pulumi.input_type
+class ApplicationImageConfigurationArgs:
+    def __init__(__self__, *,
+                 image_uri: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] image_uri: The image URI.
+        """
+        pulumi.set(__self__, "image_uri", image_uri)
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> pulumi.Input[str]:
+        """
+        The image URI.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @image_uri.setter
+    def image_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_uri", value)
 
 
 @pulumi.input_type

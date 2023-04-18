@@ -236,7 +236,9 @@ import (
 type UserPoolClient struct {
 	pulumi.CustomResourceState
 
-	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity pulumi.IntPtrOutput `pulumi:"accessTokenValidity"`
 	// List of allowed OAuth flows (code, implicit, client_credentials).
 	AllowedOauthFlows pulumi.StringArrayOutput `pulumi:"allowedOauthFlows"`
@@ -262,7 +264,9 @@ type UserPoolClient struct {
 	ExplicitAuthFlows pulumi.StringArrayOutput `pulumi:"explicitAuthFlows"`
 	// Should an application secret be generated.
 	GenerateSecret pulumi.BoolPtrOutput `pulumi:"generateSecret"`
-	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity pulumi.IntPtrOutput `pulumi:"idTokenValidity"`
 	// List of allowed logout URLs for the identity providers.
 	LogoutUrls pulumi.StringArrayOutput `pulumi:"logoutUrls"`
@@ -272,7 +276,9 @@ type UserPoolClient struct {
 	PreventUserExistenceErrors pulumi.StringOutput `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes the application client can read from.
 	ReadAttributes pulumi.StringArrayOutput `pulumi:"readAttributes"`
-	// Time limit in days refresh tokens are valid for.
+	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+	// By default, the unit is days.
+	// The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity pulumi.IntPtrOutput `pulumi:"refreshTokenValidity"`
 	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders pulumi.StringArrayOutput `pulumi:"supportedIdentityProviders"`
@@ -320,7 +326,9 @@ func GetUserPoolClient(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPoolClient resources.
 type userPoolClientState struct {
-	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity *int `pulumi:"accessTokenValidity"`
 	// List of allowed OAuth flows (code, implicit, client_credentials).
 	AllowedOauthFlows []string `pulumi:"allowedOauthFlows"`
@@ -346,7 +354,9 @@ type userPoolClientState struct {
 	ExplicitAuthFlows []string `pulumi:"explicitAuthFlows"`
 	// Should an application secret be generated.
 	GenerateSecret *bool `pulumi:"generateSecret"`
-	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity *int `pulumi:"idTokenValidity"`
 	// List of allowed logout URLs for the identity providers.
 	LogoutUrls []string `pulumi:"logoutUrls"`
@@ -356,7 +366,9 @@ type userPoolClientState struct {
 	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
-	// Time limit in days refresh tokens are valid for.
+	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+	// By default, the unit is days.
+	// The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
@@ -369,7 +381,9 @@ type userPoolClientState struct {
 }
 
 type UserPoolClientState struct {
-	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity pulumi.IntPtrInput
 	// List of allowed OAuth flows (code, implicit, client_credentials).
 	AllowedOauthFlows pulumi.StringArrayInput
@@ -395,7 +409,9 @@ type UserPoolClientState struct {
 	ExplicitAuthFlows pulumi.StringArrayInput
 	// Should an application secret be generated.
 	GenerateSecret pulumi.BoolPtrInput
-	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity pulumi.IntPtrInput
 	// List of allowed logout URLs for the identity providers.
 	LogoutUrls pulumi.StringArrayInput
@@ -405,7 +421,9 @@ type UserPoolClientState struct {
 	PreventUserExistenceErrors pulumi.StringPtrInput
 	// List of user pool attributes the application client can read from.
 	ReadAttributes pulumi.StringArrayInput
-	// Time limit in days refresh tokens are valid for.
+	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+	// By default, the unit is days.
+	// The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity pulumi.IntPtrInput
 	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders pulumi.StringArrayInput
@@ -422,7 +440,9 @@ func (UserPoolClientState) ElementType() reflect.Type {
 }
 
 type userPoolClientArgs struct {
-	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity *int `pulumi:"accessTokenValidity"`
 	// List of allowed OAuth flows (code, implicit, client_credentials).
 	AllowedOauthFlows []string `pulumi:"allowedOauthFlows"`
@@ -446,7 +466,9 @@ type userPoolClientArgs struct {
 	ExplicitAuthFlows []string `pulumi:"explicitAuthFlows"`
 	// Should an application secret be generated.
 	GenerateSecret *bool `pulumi:"generateSecret"`
-	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity *int `pulumi:"idTokenValidity"`
 	// List of allowed logout URLs for the identity providers.
 	LogoutUrls []string `pulumi:"logoutUrls"`
@@ -456,7 +478,9 @@ type userPoolClientArgs struct {
 	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
-	// Time limit in days refresh tokens are valid for.
+	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+	// By default, the unit is days.
+	// The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
@@ -470,7 +494,9 @@ type userPoolClientArgs struct {
 
 // The set of arguments for constructing a UserPoolClient resource.
 type UserPoolClientArgs struct {
-	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity pulumi.IntPtrInput
 	// List of allowed OAuth flows (code, implicit, client_credentials).
 	AllowedOauthFlows pulumi.StringArrayInput
@@ -494,7 +520,9 @@ type UserPoolClientArgs struct {
 	ExplicitAuthFlows pulumi.StringArrayInput
 	// Should an application secret be generated.
 	GenerateSecret pulumi.BoolPtrInput
-	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+	// By default, the unit is hours.
+	// The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity pulumi.IntPtrInput
 	// List of allowed logout URLs for the identity providers.
 	LogoutUrls pulumi.StringArrayInput
@@ -504,7 +532,9 @@ type UserPoolClientArgs struct {
 	PreventUserExistenceErrors pulumi.StringPtrInput
 	// List of user pool attributes the application client can read from.
 	ReadAttributes pulumi.StringArrayInput
-	// Time limit in days refresh tokens are valid for.
+	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+	// By default, the unit is days.
+	// The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity pulumi.IntPtrInput
 	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders pulumi.StringArrayInput
@@ -603,7 +633,9 @@ func (o UserPoolClientOutput) ToUserPoolClientOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
+// By default, the unit is hours.
+// The unit can be overridden by a value in `token_validity_units.access_token`.
 func (o UserPoolClientOutput) AccessTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.AccessTokenValidity }).(pulumi.IntPtrOutput)
 }
@@ -668,7 +700,9 @@ func (o UserPoolClientOutput) GenerateSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolPtrOutput { return v.GenerateSecret }).(pulumi.BoolPtrOutput)
 }
 
-// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
+// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
+// By default, the unit is hours.
+// The unit can be overridden by a value in `token_validity_units.id_token`.
 func (o UserPoolClientOutput) IdTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
 }
@@ -693,7 +727,9 @@ func (o UserPoolClientOutput) ReadAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.ReadAttributes }).(pulumi.StringArrayOutput)
 }
 
-// Time limit in days refresh tokens are valid for.
+// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
+// By default, the unit is days.
+// The unit can be overridden by a value in `token_validity_units.refresh_token`.
 func (o UserPoolClientOutput) RefreshTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.RefreshTokenValidity }).(pulumi.IntPtrOutput)
 }

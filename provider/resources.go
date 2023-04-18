@@ -221,6 +221,7 @@ const (
 	timestreamWriteMod          = "TimestreamWrite"          // Timestream Write
 	transcribeMod               = "Transcribe"               // Transcribe
 	transferMod                 = "Transfer"                 // Transfer Service
+	vpclatticeMod               = "VpcLattice"               // VPC Lattice
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
 	wafV2Mod                    = "WafV2"                    // Web Application Firewall V2 (WAFV2)
 	wafregionalMod              = "WafRegional"              // Web Application Firewall (WAF) Regional
@@ -2237,6 +2238,7 @@ func Provider() *tfbridge.ProviderInfo {
 			// Inspector V2
 			"aws_inspector2_delegated_admin_account":    {Tok: awsResource(inspector2Mod, "DelegatedAdminAccount")},
 			"aws_inspector2_enabler":                    {Tok: awsResource(inspector2Mod, "Enabler")},
+			"aws_inspector2_member_association":         {Tok: awsResource(inspector2Mod, "MemberAssociation")},
 			"aws_inspector2_organization_configuration": {Tok: awsResource(inspector2Mod, "OrganizationConfiguration")},
 
 			// IOT
@@ -2449,6 +2451,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_lightsail_container_service_deployment_version": {Tok: awsResource(lightsailMod, "ContainerServiceDeploymentVersion")},
 			"aws_lightsail_container_service":                    {Tok: awsResource(lightsailMod, "ContainerService")},
 			"aws_lightsail_database":                             {Tok: awsResource(lightsailMod, "Database")},
+			"aws_lightsail_distribution":                         {Tok: awsResource(lightsailMod, "Distribution")},
 			"aws_lightsail_disk_attachment":                      {Tok: awsResource(lightsailMod, "Disk_attachment")},
 			"aws_lightsail_disk":                                 {Tok: awsResource(lightsailMod, "Disk")},
 			"aws_lightsail_domain_entry":                         {Tok: awsResource(lightsailMod, "DomainEntry")},
@@ -3540,10 +3543,13 @@ func Provider() *tfbridge.ProviderInfo {
 			// Datapipeline
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
 			// Quicksight
-			"aws_quicksight_group":            {Tok: awsResource(quicksightMod, "Group")},
-			"aws_quicksight_user":             {Tok: awsResource(quicksightMod, "User")},
-			"aws_quicksight_group_membership": {Tok: awsResource(quicksightMod, "GroupMembership")},
-			"aws_quicksight_data_source":      {Tok: awsResource(quicksightMod, "DataSource")},
+			"aws_quicksight_account_subscription": {Tok: awsResource(quicksightMod, "AccountSubscription")},
+			"aws_quicksight_data_set":             {Tok: awsResource(quicksightMod, "DataSet")},
+			"aws_quicksight_group":                {Tok: awsResource(quicksightMod, "Group")},
+			"aws_quicksight_user":                 {Tok: awsResource(quicksightMod, "User")},
+			"aws_quicksight_group_membership":     {Tok: awsResource(quicksightMod, "GroupMembership")},
+			"aws_quicksight_data_source":          {Tok: awsResource(quicksightMod, "DataSource")},
+			"aws_quicksight_folder":               {Tok: awsResource(quicksightMod, "Folder")},
 			// Service Quotas
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// Fis
@@ -3788,7 +3794,13 @@ func Provider() *tfbridge.ProviderInfo {
 
 			// controlTower
 			"aws_controltower_control": {Tok: awsResource(controlTowerMod, "ControlTowerControl")},
-			"aws_rbin_rule":            {Tok: awsResource(rbinMod, "Rule")},
+
+			// rbin
+			"aws_rbin_rule": {Tok: awsResource(rbinMod, "Rule")},
+
+			// vpclattice
+			"aws_vpclattice_service":         {Tok: awsResource(vpclatticeMod, "Service")},
+			"aws_vpclattice_service_network": {Tok: awsResource(vpclatticeMod, "ServiceNetwork")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -5932,7 +5944,10 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_ec2_client_vpn_endpoint": {Tok: awsDataSource(ec2ClientVpnMod, "getEndpoint")},
 
 			// EC2 Transit Gateway
-			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
+			"aws_ec2_transit_gateway":                          {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
+			"aws_ec2_transit_gateway_attachments":              {Tok: awsDataSource(ec2TransitGatewayMod, "getAttachments")},
+			"aws_ec2_transit_gateway_route_table_associations": {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTableAssociations")},
+			"aws_ec2_transit_gateway_route_table_propagations": {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTablePropagations")},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {
 				Tok: awsDataSource(ec2TransitGatewayMod, "getDirectConnectGatewayAttachment"),
 			},
@@ -6173,6 +6188,8 @@ func Provider() *tfbridge.ProviderInfo {
 			// OAM
 			"aws_oam_sink":  {Tok: awsDataSource(oamMod, "getSink")},
 			"aws_oam_sinks": {Tok: awsDataSource(oamMod, "getSinks")},
+			"aws_oam_link":  {Tok: awsDataSource(oamMod, "getLink")},
+			"aws_oam_links": {Tok: awsDataSource(oamMod, "getLinks")},
 			// RedShift
 			"aws_redshift_cluster":             {Tok: awsDataSource(redshiftMod, "getCluster")},
 			"aws_redshift_service_account":     {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
@@ -6415,6 +6432,12 @@ func Provider() *tfbridge.ProviderInfo {
 
 			// Interactive Video Service
 			"aws_ivs_stream_key": {Tok: awsDataSource(ivsMod, "getStreamKey")},
+
+			// Quicksight
+			"aws_quicksight_data_set": {Tok: awsDataSource(quicksightMod, "getDataSet")},
+
+			// VpcLattice
+			"aws_vpclattice_service": {Tok: awsDataSource(vpclatticeMod, "getService")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

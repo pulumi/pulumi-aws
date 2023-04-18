@@ -223,6 +223,7 @@ class Endpoints(dict):
                  ce: Optional[str] = None,
                  chime: Optional[str] = None,
                  chimesdkidentity: Optional[str] = None,
+                 chimesdkmediapipelines: Optional[str] = None,
                  chimesdkmeetings: Optional[str] = None,
                  chimesdkmessaging: Optional[str] = None,
                  cloud9: Optional[str] = None,
@@ -504,6 +505,7 @@ class Endpoints(dict):
                  sdb: Optional[str] = None,
                  secretsmanager: Optional[str] = None,
                  securityhub: Optional[str] = None,
+                 securitylake: Optional[str] = None,
                  serverlessapplicationrepository: Optional[str] = None,
                  serverlessapprepo: Optional[str] = None,
                  serverlessrepo: Optional[str] = None,
@@ -544,6 +546,7 @@ class Endpoints(dict):
                  transfer: Optional[str] = None,
                  translate: Optional[str] = None,
                  voiceid: Optional[str] = None,
+                 vpclattice: Optional[str] = None,
                  waf: Optional[str] = None,
                  wafregional: Optional[str] = None,
                  wafv2: Optional[str] = None,
@@ -644,6 +647,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "chime", chime)
         if chimesdkidentity is not None:
             pulumi.set(__self__, "chimesdkidentity", chimesdkidentity)
+        if chimesdkmediapipelines is not None:
+            pulumi.set(__self__, "chimesdkmediapipelines", chimesdkmediapipelines)
         if chimesdkmeetings is not None:
             pulumi.set(__self__, "chimesdkmeetings", chimesdkmeetings)
         if chimesdkmessaging is not None:
@@ -1206,6 +1211,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "secretsmanager", secretsmanager)
         if securityhub is not None:
             pulumi.set(__self__, "securityhub", securityhub)
+        if securitylake is not None:
+            pulumi.set(__self__, "securitylake", securitylake)
         if serverlessapplicationrepository is not None:
             pulumi.set(__self__, "serverlessapplicationrepository", serverlessapplicationrepository)
         if serverlessapprepo is not None:
@@ -1286,6 +1293,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "translate", translate)
         if voiceid is not None:
             pulumi.set(__self__, "voiceid", voiceid)
+        if vpclattice is not None:
+            pulumi.set(__self__, "vpclattice", vpclattice)
         if waf is not None:
             pulumi.set(__self__, "waf", waf)
         if wafregional is not None:
@@ -1530,6 +1539,11 @@ class Endpoints(dict):
     @pulumi.getter
     def chimesdkidentity(self) -> Optional[str]:
         return pulumi.get(self, "chimesdkidentity")
+
+    @property
+    @pulumi.getter
+    def chimesdkmediapipelines(self) -> Optional[str]:
+        return pulumi.get(self, "chimesdkmediapipelines")
 
     @property
     @pulumi.getter
@@ -2938,6 +2952,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def securitylake(self) -> Optional[str]:
+        return pulumi.get(self, "securitylake")
+
+    @property
+    @pulumi.getter
     def serverlessapplicationrepository(self) -> Optional[str]:
         return pulumi.get(self, "serverlessapplicationrepository")
 
@@ -3135,6 +3154,11 @@ class Endpoints(dict):
     @pulumi.getter
     def voiceid(self) -> Optional[str]:
         return pulumi.get(self, "voiceid")
+
+    @property
+    @pulumi.getter
+    def vpclattice(self) -> Optional[str]:
+        return pulumi.get(self, "vpclattice")
 
     @property
     @pulumi.getter

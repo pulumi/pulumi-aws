@@ -144,8 +144,12 @@ func (o SecretReplicaArrayOutput) Index(i pulumi.IntInput) SecretReplicaOutput {
 }
 
 type SecretRotationRotationRules struct {
-	// Specifies the number of days between automatic scheduled rotations of the secret.
-	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
+	// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+	AutomaticallyAfterDays *int `pulumi:"automaticallyAfterDays"`
+	// The length of the rotation window in hours. For example, `3h` for a three hour window.
+	Duration *string `pulumi:"duration"`
+	// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
 }
 
 // SecretRotationRotationRulesInput is an input type that accepts SecretRotationRotationRulesArgs and SecretRotationRotationRulesOutput values.
@@ -160,8 +164,12 @@ type SecretRotationRotationRulesInput interface {
 }
 
 type SecretRotationRotationRulesArgs struct {
-	// Specifies the number of days between automatic scheduled rotations of the secret.
-	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
+	// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+	AutomaticallyAfterDays pulumi.IntPtrInput `pulumi:"automaticallyAfterDays"`
+	// The length of the rotation window in hours. For example, `3h` for a three hour window.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
 
 func (SecretRotationRotationRulesArgs) ElementType() reflect.Type {
@@ -241,9 +249,19 @@ func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesPtrOutpu
 	}).(SecretRotationRotationRulesPtrOutput)
 }
 
-// Specifies the number of days between automatic scheduled rotations of the secret.
-func (o SecretRotationRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func(v SecretRotationRotationRules) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+func (o SecretRotationRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecretRotationRotationRules) *int { return v.AutomaticallyAfterDays }).(pulumi.IntPtrOutput)
+}
+
+// The length of the rotation window in hours. For example, `3h` for a three hour window.
+func (o SecretRotationRotationRulesOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretRotationRotationRules) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+func (o SecretRotationRotationRulesOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretRotationRotationRules) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
 type SecretRotationRotationRulesPtrOutput struct{ *pulumi.OutputState }
@@ -270,19 +288,41 @@ func (o SecretRotationRotationRulesPtrOutput) Elem() SecretRotationRotationRules
 	}).(SecretRotationRotationRulesOutput)
 }
 
-// Specifies the number of days between automatic scheduled rotations of the secret.
+// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretRotationRotationRules) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.AutomaticallyAfterDays
+		return v.AutomaticallyAfterDays
 	}).(pulumi.IntPtrOutput)
+}
+
+// The length of the rotation window in hours. For example, `3h` for a three hour window.
+func (o SecretRotationRotationRulesPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretRotationRotationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+func (o SecretRotationRotationRulesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretRotationRotationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
 }
 
 type SecretRotationRules struct {
 	// Specifies the number of days between automatic scheduled rotations of the secret.
-	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
+	AutomaticallyAfterDays *int    `pulumi:"automaticallyAfterDays"`
+	Duration               *string `pulumi:"duration"`
+	ScheduleExpression     *string `pulumi:"scheduleExpression"`
 }
 
 // SecretRotationRulesInput is an input type that accepts SecretRotationRulesArgs and SecretRotationRulesOutput values.
@@ -298,7 +338,9 @@ type SecretRotationRulesInput interface {
 
 type SecretRotationRulesArgs struct {
 	// Specifies the number of days between automatic scheduled rotations of the secret.
-	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
+	AutomaticallyAfterDays pulumi.IntPtrInput    `pulumi:"automaticallyAfterDays"`
+	Duration               pulumi.StringPtrInput `pulumi:"duration"`
+	ScheduleExpression     pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
 
 func (SecretRotationRulesArgs) ElementType() reflect.Type {
@@ -379,8 +421,16 @@ func (o SecretRotationRulesOutput) ToSecretRotationRulesPtrOutputWithContext(ctx
 }
 
 // Specifies the number of days between automatic scheduled rotations of the secret.
-func (o SecretRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func(v SecretRotationRules) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+func (o SecretRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecretRotationRules) *int { return v.AutomaticallyAfterDays }).(pulumi.IntPtrOutput)
+}
+
+func (o SecretRotationRulesOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretRotationRules) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+func (o SecretRotationRulesOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretRotationRules) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
 type SecretRotationRulesPtrOutput struct{ *pulumi.OutputState }
@@ -413,12 +463,32 @@ func (o SecretRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntPtrOutp
 		if v == nil {
 			return nil
 		}
-		return &v.AutomaticallyAfterDays
+		return v.AutomaticallyAfterDays
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o SecretRotationRulesPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretRotationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecretRotationRulesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretRotationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSecretRotationRotationRule struct {
-	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
+	AutomaticallyAfterDays int    `pulumi:"automaticallyAfterDays"`
+	Duration               string `pulumi:"duration"`
+	ScheduleExpression     string `pulumi:"scheduleExpression"`
 }
 
 // GetSecretRotationRotationRuleInput is an input type that accepts GetSecretRotationRotationRuleArgs and GetSecretRotationRotationRuleOutput values.
@@ -433,7 +503,9 @@ type GetSecretRotationRotationRuleInput interface {
 }
 
 type GetSecretRotationRotationRuleArgs struct {
-	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
+	AutomaticallyAfterDays pulumi.IntInput    `pulumi:"automaticallyAfterDays"`
+	Duration               pulumi.StringInput `pulumi:"duration"`
+	ScheduleExpression     pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
 func (GetSecretRotationRotationRuleArgs) ElementType() reflect.Type {
@@ -491,6 +563,14 @@ func (o GetSecretRotationRotationRuleOutput) AutomaticallyAfterDays() pulumi.Int
 	return o.ApplyT(func(v GetSecretRotationRotationRule) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
 }
 
+func (o GetSecretRotationRotationRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretRotationRotationRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+func (o GetSecretRotationRotationRuleOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretRotationRotationRule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
 type GetSecretRotationRotationRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSecretRotationRotationRuleArrayOutput) ElementType() reflect.Type {
@@ -512,7 +592,9 @@ func (o GetSecretRotationRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSe
 }
 
 type GetSecretRotationRule struct {
-	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
+	AutomaticallyAfterDays int    `pulumi:"automaticallyAfterDays"`
+	Duration               string `pulumi:"duration"`
+	ScheduleExpression     string `pulumi:"scheduleExpression"`
 }
 
 // GetSecretRotationRuleInput is an input type that accepts GetSecretRotationRuleArgs and GetSecretRotationRuleOutput values.
@@ -527,7 +609,9 @@ type GetSecretRotationRuleInput interface {
 }
 
 type GetSecretRotationRuleArgs struct {
-	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
+	AutomaticallyAfterDays pulumi.IntInput    `pulumi:"automaticallyAfterDays"`
+	Duration               pulumi.StringInput `pulumi:"duration"`
+	ScheduleExpression     pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
 func (GetSecretRotationRuleArgs) ElementType() reflect.Type {
@@ -583,6 +667,14 @@ func (o GetSecretRotationRuleOutput) ToGetSecretRotationRuleOutputWithContext(ct
 
 func (o GetSecretRotationRuleOutput) AutomaticallyAfterDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSecretRotationRule) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+}
+
+func (o GetSecretRotationRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretRotationRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+func (o GetSecretRotationRuleOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretRotationRule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
 type GetSecretRotationRuleArrayOutput struct{ *pulumi.OutputState }

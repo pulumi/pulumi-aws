@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Provides an AWS Cognito Identity Pool Roles Attachment.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -85,12 +84,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var authenticatedRolePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .effect(&#34;Allow&#34;)
- *             .actions(            
- *                 &#34;mobileanalytics:PutEvents&#34;,
- *                 &#34;cognito-sync:*&#34;,
- *                 &#34;cognito-identity:*&#34;)
- *             .resources(&#34;*&#34;)
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .actions(                
+ *                     &#34;mobileanalytics:PutEvents&#34;,
+ *                     &#34;cognito-sync:*&#34;,
+ *                     &#34;cognito-identity:*&#34;)
+ *                 .resources(&#34;*&#34;)
+ *                 .build())
  *             .build());
  * 
  *         var authenticatedRolePolicy = new RolePolicy(&#34;authenticatedRolePolicy&#34;, RolePolicyArgs.builder()        

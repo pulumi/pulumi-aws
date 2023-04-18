@@ -104,7 +104,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DefaultVpc resource with the given unique name, arguments, and options.
@@ -157,6 +157,7 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["defaultNetworkAclId"] = undefined /*out*/;
@@ -168,7 +169,6 @@ export class DefaultVpc extends pulumi.CustomResource {
             resourceInputs["ipv6AssociationId"] = undefined /*out*/;
             resourceInputs["mainRouteTableId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DefaultVpc.__pulumiType, name, resourceInputs, opts);
@@ -245,4 +245,5 @@ export interface DefaultVpcArgs {
     ipv6IpamPoolId?: pulumi.Input<string>;
     ipv6NetmaskLength?: pulumi.Input<number>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

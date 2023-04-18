@@ -23,7 +23,7 @@ class ApiMappingArgs:
         :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
-        :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+        :param pulumi.Input[str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -71,7 +71,7 @@ class ApiMappingArgs:
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+        The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         """
         return pulumi.get(self, "api_mapping_key")
 
@@ -90,7 +90,7 @@ class _ApiMappingState:
         """
         Input properties used for looking up and filtering ApiMapping resources.
         :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+        :param pulumi.Input[str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
@@ -119,7 +119,7 @@ class _ApiMappingState:
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+        The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         """
         return pulumi.get(self, "api_mapping_key")
 
@@ -190,7 +190,7 @@ class ApiMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+        :param pulumi.Input[str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
@@ -285,7 +285,7 @@ class ApiMapping(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+        :param pulumi.Input[str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
@@ -311,7 +311,7 @@ class ApiMapping(pulumi.CustomResource):
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
+        The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         """
         return pulumi.get(self, "api_mapping_key")
 

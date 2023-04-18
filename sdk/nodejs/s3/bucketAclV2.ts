@@ -13,16 +13,57 @@ import * as utilities from "../utilities";
  * > **Note:** destroy does not delete the S3 Bucket ACL but does remove the resource from state.
  *
  * ## Example Usage
- * ### With ACL
+ * ### With `private` ACL
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const exampleBucketAcl = new aws.s3.BucketAclV2("exampleBucketAcl", {
- *     bucket: example.id,
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
+ *     bucket: exampleBucketV2.id,
+ *     rule: {
+ *         objectOwnership: "BucketOwnerPreferred",
+ *     },
+ * });
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
  *     acl: "private",
+ * }, {
+ *     dependsOn: [exampleBucketOwnershipControls],
+ * });
+ * ```
+ * ### With `public-read` ACL
+ *
+ * > This example explicitly disables the default S3 bucket security settings. This
+ * should be done with caution, as all bucket objects become publicly exposed.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
+ *     bucket: exampleBucketV2.id,
+ *     rule: {
+ *         objectOwnership: "BucketOwnerPreferred",
+ *     },
+ * });
+ * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
+ *     bucket: exampleBucketV2.id,
+ *     blockPublicAcls: false,
+ *     blockPublicPolicy: false,
+ *     ignorePublicAcls: false,
+ *     restrictPublicBuckets: false,
+ * });
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
+ *     acl: "public-read",
+ * }, {
+ *     dependsOn: [
+ *         exampleBucketOwnershipControls,
+ *         exampleBucketPublicAccessBlock,
+ *     ],
  * });
  * ```
  * ### With Grants
@@ -33,6 +74,12 @@ import * as utilities from "../utilities";
  *
  * const current = aws.s3.getCanonicalUserId({});
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
+ *     bucket: exampleBucketV2.id,
+ *     rule: {
+ *         objectOwnership: "BucketOwnerPreferred",
+ *     },
+ * });
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
  *     bucket: exampleBucketV2.id,
  *     accessControlPolicy: {
@@ -56,6 +103,8 @@ import * as utilities from "../utilities";
  *             id: current.then(current => current.id),
  *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
  *

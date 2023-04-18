@@ -4842,30 +4842,6 @@
   ],
   "website/docs/r/s3_bucket.html.markdown": [
     {
-      "old": "-> **NOTE:** The parameter `website` is deprecated.\nUse the resource [`aws_s3_bucket_website_configuration`](s3_bucket_website_configuration.html.markdown) instead.\n"
-    },
-    {
-      "old": "-> **NOTE:** The parameter `cors_rule` is deprecated.\nUse the resource [`aws_s3_bucket_cors_configuration`](s3_bucket_cors_configuration.html.markdown) instead.\n"
-    },
-    {
-      "old": "-> **NOTE:** The parameter `versioning` is deprecated.\nUse the resource [`aws_s3_bucket_versioning`](s3_bucket_versioning.html.markdown) instead.\n"
-    },
-    {
-      "old": "-> **NOTE:** The parameter `logging` is deprecated.\nUse the resource [`aws_s3_bucket_logging`](s3_bucket_logging.html.markdown) instead.\n"
-    },
-    {
-      "old": "-> **NOTE:** The parameter `lifecycle_rule` is deprecated.\nUse the resource [`aws_s3_bucket_lifecycle_configuration`](s3_bucket_lifecycle_configuration.html) instead.\n"
-    },
-    {
-      "old": "-> **NOTE:** The parameter `object_lock_configuration` is deprecated.\nTo **enable** Object Lock on a **new** bucket, use the `object_lock_enabled` argument in **this** resource.\nTo configure the default retention rule of the Object Lock configuration use the resource [`aws_s3_bucket_object_lock_configuration` resource](s3_bucket_object_lock_configuration.html.markdown) instead.\nTo **enable** Object Lock on an **existing** bucket, please contact AWS Support and refer to the [Object lock configuration for an existing bucket](s3_bucket_object_lock_configuration.html.markdown#object-lock-configuration-for-an-existing-bucket) example for more details.\n"
-    },
-    {
-      "old": "-> **NOTE:** The parameter `replication_configuration` is deprecated.\nUse the resource [`aws_s3_bucket_replication_configuration`](s3_bucket_replication_configuration.html) instead.\n"
-    },
-    {
-      "old": "-> **NOTE:** The parameter `server_side_encryption_configuration` is deprecated.\nUse the resource [`aws_s3_bucket_server_side_encryption_configuration`](s3_bucket_server_side_encryption_configuration.html) instead.\n"
-    },
-    {
       "old": "* `object_lock_enabled` - (Optional, **Deprecated**) Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead."
     }
   ],

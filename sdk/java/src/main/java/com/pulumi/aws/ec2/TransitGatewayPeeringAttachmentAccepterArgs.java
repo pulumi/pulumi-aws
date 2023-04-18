@@ -32,6 +32,21 @@ public final class TransitGatewayPeeringAttachmentAccepterArgs extends com.pulum
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.
      * 
      */
@@ -50,6 +65,7 @@ public final class TransitGatewayPeeringAttachmentAccepterArgs extends com.pulum
 
     private TransitGatewayPeeringAttachmentAccepterArgs(TransitGatewayPeeringAttachmentAccepterArgs $) {
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
     }
 
@@ -90,6 +106,27 @@ public final class TransitGatewayPeeringAttachmentAccepterArgs extends com.pulum
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

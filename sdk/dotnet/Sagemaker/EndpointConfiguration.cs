@@ -80,10 +80,16 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+        /// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Output("namePrefix")]
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
@@ -174,10 +180,16 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+        /// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
 
         [Input("productionVariants", required: true)]
         private InputList<Inputs.EndpointConfigurationProductionVariantArgs>? _productionVariants;
@@ -215,6 +227,18 @@ namespace Pulumi.Aws.Sagemaker
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public EndpointConfigurationArgs()
         {
         }
@@ -248,10 +272,16 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+        /// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
 
         [Input("productionVariants")]
         private InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>? _productionVariants;

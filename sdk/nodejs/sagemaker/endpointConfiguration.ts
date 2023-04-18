@@ -84,9 +84,13 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     */
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      */
@@ -102,7 +106,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a EndpointConfiguration resource with the given unique name, arguments, and options.
@@ -122,6 +126,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             resourceInputs["dataCaptureConfig"] = state ? state.dataCaptureConfig : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["productionVariants"] = state ? state.productionVariants : undefined;
             resourceInputs["shadowProductionVariants"] = state ? state.shadowProductionVariants : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -135,11 +140,12 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             resourceInputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["productionVariants"] = args ? args.productionVariants : undefined;
             resourceInputs["shadowProductionVariants"] = args ? args.shadowProductionVariants : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EndpointConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -167,9 +173,13 @@ export interface EndpointConfigurationState {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      */
@@ -205,9 +215,13 @@ export interface EndpointConfigurationArgs {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      */
@@ -220,4 +234,8 @@ export interface EndpointConfigurationArgs {
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

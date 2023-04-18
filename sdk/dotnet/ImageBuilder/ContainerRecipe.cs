@@ -156,6 +156,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the operating system platform when you use a custom base image.
+        /// </summary>
+        [Output("platformOverride")]
+        public Output<string?> PlatformOverride { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -291,6 +297,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("parentImage", required: true)]
         public Input<string> ParentImage { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the operating system platform when you use a custom base image.
+        /// </summary>
+        [Input("platformOverride")]
+        public Input<string>? PlatformOverride { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -418,6 +430,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
+
+        /// <summary>
+        /// Specifies the operating system platform when you use a custom base image.
+        /// </summary>
+        [Input("platformOverride")]
+        public Input<string>? PlatformOverride { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

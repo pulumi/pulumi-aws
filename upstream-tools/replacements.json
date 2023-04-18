@@ -55,10 +55,6 @@
     {
       "old": "Terraform data source for managing an AWS App Mesh Virtual Node.",
       "new": "Data source for managing an AWS App Mesh Virtual Node."
-    },
-    {
-      "old": "Terraform data source for managing an AWS App Mesh Virtual Node.",
-      "new": "Data source for managing an AWS App Mesh Virtual Node."
     }
   ],
   "website/docs/d/appmesh_virtual_router.html.markdown": [
@@ -140,6 +136,12 @@
     {
       "old": "Terraform data source for getting information about AWS EC2 Public IPv4 Pools.",
       "new": "Data source for getting information about AWS EC2 Public IPv4 Pools."
+    }
+  ],
+  "website/docs/d/ec2_transit_gateway_attachments.html.markdown": [
+    {
+      "old": "[2]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ec2_transit_gateway_attachment",
+      "new": ""
     }
   ],
   "website/docs/d/ec2_transit_gateway_vpc_attachments.html.markdown": [
@@ -238,21 +240,33 @@
       "old": "-> For more information about building AWS Core Network policy documents with Terraform, see the Using AWS & AWSCC Provider Together Guide"
     }
   ],
-  "website/docs/d/oam_sink.html.markdown": [
+  "website/docs/d/oam_link.html.markdown": [
     {
-      "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Sink.",
-      "new": "Data source for managing an AWS CloudWatch Observability Access Manager Sink."
+      "old": "  Terraform data source for managing an AWS CloudWatch Observability Access Manager Link.",
+      "new": "  Data source for managing an AWS CloudWatch Observability Access Manager Link."
     },
+    {
+      "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Link.",
+      "new": "Data source for managing an AWS CloudWatch Observability Access Manager Link."
+    }
+  ],
+  "website/docs/d/oam_links.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS CloudWatch Observability Access Manager Links.",
+      "new": "  Data source for managing an AWS CloudWatch Observability Access Manager Links."
+    },
+    {
+      "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Links.",
+      "new": "Data source for managing an AWS CloudWatch Observability Access Manager Links."
+    }
+  ],
+  "website/docs/d/oam_sink.html.markdown": [
     {
       "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Sink.",
       "new": "Data source for managing an AWS CloudWatch Observability Access Manager Sink."
     }
   ],
   "website/docs/d/oam_sinks.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Sinks.",
-      "new": "Data source for managing an AWS CloudWatch Observability Access Manager Sinks."
-    },
     {
       "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Sinks.",
       "new": "Data source for managing an AWS CloudWatch Observability Access Manager Sinks."
@@ -367,6 +381,16 @@
     {
       "old": "the data source, as noted in issue 4149",
       "new": "the data source."
+    }
+  ],
+  "website/docs/d/vpclattice_service.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS VPC Lattice Service.",
+      "new": "  Data source for managing an AWS VPC Lattice Service."
+    },
+    {
+      "old": "Terraform data source for managing an AWS VPC Lattice Service.",
+      "new": "Data source for managing an AWS VPC Lattice Service."
     }
   ],
   "website/docs/r/accessanalyzer_archive_rule.html.markdown": [
@@ -701,6 +725,10 @@
     {
       "old": "  Terraform resource for managing an AWS CloudFront Origin Access Control.",
       "new": "  Resource for managing an AWS CloudFront Origin Access Control."
+    },
+    {
+      "old": "* `description` - (Optional) The description of the Origin Access Control. Defaults to \"Managed by Terraform\" if omitted.",
+      "new": "* `description` - (Optional) The description of the Origin Access Control. Defaults to \"Managed by Pulumi\" if omitted."
     }
   ],
   "website/docs/r/cloudfront_origin_access_identity.html.markdown": [
@@ -1490,6 +1518,16 @@
       "new": "Resource for enabling AWS Inspector V2 resource scans."
     }
   ],
+  "website/docs/r/inspector2_member_association.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS Inspector V2 Member Association.",
+      "new": "  Resource for managing an AWS Inspector V2 Member Association."
+    },
+    {
+      "old": "Terraform resource for associating accounts to existing Inspector2 instances.",
+      "new": "Resource for associating accounts to existing Inspector2 instances."
+    }
+  ],
   "website/docs/r/inspector2_organization_configuration.html.markdown": [
     {
       "old": "  Terraform resource for managing an AWS Inspector V2 Organization Configuration.",
@@ -1797,6 +1835,16 @@
     {
       "old": "~> **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but Terraform cannot destroy it. Removing this resource from your configuration will remove it from your statefile and Terraform management.",
       "new": "~> **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile."
+    }
+  ],
+  "website/docs/r/lightsail_distribution.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS Lightsail Distribution.",
+      "new": "  Resource for managing an AWS Lightsail Distribution."
+    },
+    {
+      "old": "Terraform resource for managing an AWS Lightsail Distribution.",
+      "new": "Resource for managing an AWS Lightsail Distribution."
     }
   ],
   "website/docs/r/lightsail_instance.html.markdown": [
@@ -2235,11 +2283,21 @@
       "new": "* `name` - (Optional) The friendly name for the QLDB Ledger instance. By default generated by the provider."
     }
   ],
-  "website/docs/r/rbin_rule.html.markdown": [
+  "website/docs/r/quicksight_account_subscription.html.markdown": [
     {
-      "old": "Terraform resource for managing an AWS RBin Rule.",
-      "new": "Resource for managing an AWS RBin Rule."
+      "old": "  Terraform resource for managing an AWS QuickSight Account Subscription.",
+      "new": "  Resource for managing an AWS QuickSight Account Subscription."
     },
+    {
+      "old": "  account_name          = \"quicksight-terraform\"",
+      "new": "  account_name          = \"quicksight-pulumi\""
+    },
+    {
+      "old": "Terraform resource for managing an AWS QuickSight Account Subscription.",
+      "new": "Resource for managing an AWS QuickSight Account Subscription."
+    }
+  ],
+  "website/docs/r/rbin_rule.html.markdown": [
     {
       "old": "Terraform resource for managing an AWS RBin Rule.",
       "new": "Resource for managing an AWS RBin Rule."
@@ -2349,20 +2407,12 @@
   ],
   "website/docs/r/s3_bucket.html.markdown": [
     {
-      "old": "    allowed_origins = [\"https://s3-website-test.hashicorp.com\"]",
-      "new": "    allowed_origins = [\"https://s3-website-test.domain.example\"]"
-    },
-    {
       "old": "  Terraform wil only perform drift detection if a configuration value is provided.",
       "new": "  the provider wil only perform drift detection if a configuration value is provided."
     },
     {
       "old": "  Terraform will only perform drift detection if a configuration value is provided.",
       "new": "  The provider will only perform drift detection if a configuration value is provided."
-    },
-    {
-      "old": "  bucket = \"s3-website-test.hashicorp.com\"",
-      "new": "  bucket = \"s3-website-test.domain.example\""
     },
     {
       "old": "* `acceleration_status` - (Optional, **Deprecated**) Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. Terraform will only perform drift detection if a configuration value is provided.",
@@ -2411,9 +2461,6 @@
     {
       "old": "* `website` - (Optional, **Deprecated**) Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See [Website](#website) below for details. Terraform will only perform drift detection if a configuration value is provided.",
       "new": "* `website` - (Optional, **Deprecated**) Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See [Website](#website) below for details. The provider will only perform drift detection if a configuration value is provided."
-    },
-    {
-      "old": "-> **NOTE:** The parameters `acl` and `grant` are deprecated.\nUse the resource `aws_s3_bucket_acl` instead.\n"
     },
     {
       "old": "~> **NOTE:** Currently, changes to the `cors_rule` configuration of *existing* resources cannot be automatically detected by Terraform. To manage changes of CORS rules to an S3 bucket, use the `aws_s3_bucket_cors_configuration` resource instead. If you use `cors_rule` on an `aws_s3_bucket`, Terraform will assume management over the full set of CORS rules for the S3 bucket, treating additional CORS rules as drift. For this reason, `cors_rule` cannot be mixed with the external `aws_s3_bucket_cors_configuration` resource for a given S3 bucket.",
@@ -3051,6 +3098,26 @@
     {
       "old": "~> **NOTE on Security Groups and Security Group Rules:** Terraform currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or",
       "new": "~> **NOTE on Security Groups and Security Group Rules:** this provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or"
+    }
+  ],
+  "website/docs/r/vpclattice_service.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS VPC Lattice Service.",
+      "new": "  Resource for managing an AWS VPC Lattice Service."
+    },
+    {
+      "old": "Terraform resource for managing an AWS VPC Lattice Service.",
+      "new": "Resource for managing an AWS VPC Lattice Service."
+    }
+  ],
+  "website/docs/r/vpclattice_service_network.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS VPC Lattice Service Network.",
+      "new": "  Resource for managing an AWS VPC Lattice Service Network."
+    },
+    {
+      "old": "Terraform resource for managing an AWS VPC Lattice Service Network.",
+      "new": "Resource for managing an AWS VPC Lattice Service Network."
     }
   ],
   "website/docs/r/vpn_connection.html.markdown": [

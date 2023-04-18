@@ -14,60 +14,10 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
     /// 
-    /// &gt; **NOTE on S3 Bucket Accelerate Configuration:** S3 Bucket Accelerate can be configured in either the standalone resource `aws.s3.BucketAccelerateConfigurationV2`
-    /// or with the deprecated parameter `acceleration_status` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket canned ACL Configuration:** S3 Bucket canned ACL can be configured in either the standalone resource `aws.s3.BucketAclV2`
-    /// or with the deprecated parameter `acl` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket ACL Grants Configuration:** S3 Bucket grants can be configured in either the standalone resource `aws.s3.BucketAclV2`
-    /// or with the deprecated parameter `grant` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket CORS Configuration:** S3 Bucket CORS can be configured in either the standalone resource `aws.s3.BucketCorsConfigurationV2`
-    /// or with the deprecated parameter `cors_rule` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Lifecycle Configuration:** S3 Bucket Lifecycle can be configured in either the standalone resource `aws.s3.BucketLifecycleConfigurationV2`
-    /// or with the deprecated parameter `lifecycle_rule` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Logging Configuration:** S3 Bucket logging can be configured in either the standalone resource `aws.s3.BucketLoggingV2`
-    /// or with the deprecated parameter `logging` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Object Lock Configuration:** S3 Bucket Object Lock can be configured in either the standalone resource `aws.s3.BucketObjectLockConfigurationV2`
-    /// or with the deprecated parameter `object_lock_configuration` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Policy Configuration:** S3 Bucket Policy can be configured in either the standalone resource `aws.s3.BucketPolicy`
-    /// or with the deprecated parameter `policy` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `aws.s3.BucketReplicationConfig`
-    /// or with the deprecated parameter `replication_configuration` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Request Payment Configuration:** S3 Bucket Request Payment can be configured in either the standalone resource `aws.s3.BucketRequestPaymentConfigurationV2`
-    /// or with the deprecated parameter `request_payer` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Server Side Encryption Configuration:** S3 Bucket Server Side Encryption can be configured in either the standalone resource `aws.s3.BucketServerSideEncryptionConfigurationV2`
-    /// or with the deprecated parameter `server_side_encryption_configuration` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Versioning Configuration:** S3 Bucket versioning can be configured in either the standalone resource `aws.s3.BucketVersioningV2`
-    /// or with the deprecated parameter `versioning` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
-    /// 
-    /// &gt; **NOTE on S3 Bucket Website Configuration:** S3 Bucket Website can be configured in either the standalone resource `aws.s3.BucketWebsiteConfigurationV2`
-    /// or with the deprecated parameter `website` in the resource `aws.s3.BucketV2`.
-    /// Configuring with both will cause inconsistencies and may overwrite configuration.
+    /// &gt; In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `aws.s3.BucketV2` resource.
     /// 
     /// ## Example Usage
-    /// ### Private Bucket w/ Tags
+    /// ### Private Bucket With Tags
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -76,511 +26,61 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
     ///         Tags = 
     ///         {
-    ///             { "Name", "My bucket" },
     ///             { "Environment", "Dev" },
+    ///             { "Name", "My bucket" },
     ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
-    ///     {
-    ///         Bucket = bucketV2.Id,
-    ///         Acl = "private",
     ///     });
     /// 
     /// });
     /// ```
     /// ### Static Website Hosting
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
+    /// &gt; **NOTE:** The `website` attribute is deprecated.
+    /// See `aws.s3.BucketWebsiteConfigurationV2` for examples with static website hosting configured.
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
-    ///     {
-    ///         Acl = "public-read",
-    ///         Policy = File.ReadAllText("policy.json"),
-    ///         Websites = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2WebsiteArgs
-    ///             {
-    ///                 IndexDocument = "index.html",
-    ///                 ErrorDocument = "error.html",
-    ///                 RoutingRules = @"[{
-    ///     ""Condition"": {
-    ///         ""KeyPrefixEquals"": ""docs/""
-    ///     },
-    ///     ""Redirect"": {
-    ///         ""ReplaceKeyPrefixWith"": ""documents/""
-    ///     }
-    /// }]
-    /// ",
-    ///             },
-    ///         },
-    ///     });
+    /// ### CORS Rules
     /// 
-    /// });
-    /// ```
-    /// ### Using CORS
+    /// &gt; **NOTE:** The `cors_rule` attribute is deprecated.
+    /// See `aws.s3.BucketCorsConfigurationV2` for examples with CORS rules configured.
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
+    /// ### Versioning
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
-    ///     {
-    ///         Acl = "public-read",
-    ///         CorsRules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2CorsRuleArgs
-    ///             {
-    ///                 AllowedHeaders = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "PUT",
-    ///                     "POST",
-    ///                 },
-    ///                 AllowedOrigins = new[]
-    ///                 {
-    ///                     "https://s3-website-test.domain.example",
-    ///                 },
-    ///                 ExposeHeaders = new[]
-    ///                 {
-    ///                     "ETag",
-    ///                 },
-    ///                 MaxAgeSeconds = 3000,
-    ///             },
-    ///         },
-    ///     });
+    /// &gt; **NOTE:** The `versioning` attribute is deprecated.
+    /// See `aws.s3.BucketVersioningV2` for examples with versioning configured.
     /// 
-    /// });
-    /// ```
-    /// ### Using versioning
+    /// ### Logging
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
+    /// &gt; **NOTE:** The `logging` attribute is deprecated.
+    /// See `aws.s3.BucketLoggingV2` for examples with logging enabled.
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
-    ///     {
-    ///         Acl = "private",
-    ///         Versionings = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2VersioningArgs
-    ///             {
-    ///                 Enabled = true,
-    ///             },
-    ///         },
-    ///     });
+    /// ### Object Lifecycle Rules
     /// 
-    /// });
-    /// ```
-    /// ### Enable Logging
+    /// &gt; **NOTE:** The `lifecycle_rule` attribute is deprecated.
+    /// See `aws.s3.BucketLifecycleConfigurationV2` for examples with object lifecycle rules.
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
+    /// ### Object Lock Configuration
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var logBucket = new Aws.S3.BucketV2("logBucket", new()
-    ///     {
-    ///         Acl = "log-delivery-write",
-    ///     });
+    /// &gt; **NOTE:** The `object_lock_configuration` attribute is deprecated.
+    /// See `aws.s3.BucketObjectLockConfigurationV2` for examples with object lock configurations on both new and existing buckets.
     /// 
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
-    ///     {
-    ///         Acl = "private",
-    ///         Loggings = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2LoggingArgs
-    ///             {
-    ///                 TargetBucket = logBucket.Id,
-    ///                 TargetPrefix = "log/",
-    ///             },
-    ///         },
-    ///     });
+    /// ### Replication Configuration
     /// 
-    /// });
-    /// ```
-    /// ### Using object lifecycle
+    /// &gt; **NOTE:** The `replication_configuration` attribute is deprecated.
+    /// See `aws.s3.BucketReplicationConfig` for examples with replication configured.
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
-    ///     {
-    ///         Acl = "private",
-    ///         LifecycleRules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2LifecycleRuleArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Expirations = new[]
-    ///                 {
-    ///                     new Aws.S3.Inputs.BucketV2LifecycleRuleExpirationArgs
-    ///                     {
-    ///                         Days = 90,
-    ///                     },
-    ///                 },
-    ///                 Id = "log",
-    ///                 Prefix = "log/",
-    ///                 Tags = 
-    ///                 {
-    ///                     { "autoclean", "true" },
-    ///                     { "rule", "log" },
-    ///                 },
-    ///                 Transitions = new[]
-    ///                 {
-    ///                     new Aws.S3.Inputs.BucketV2LifecycleRuleTransitionArgs
-    ///                     {
-    ///                         Days = 30,
-    ///                         StorageClass = "STANDARD_IA",
-    ///                     },
-    ///                     new Aws.S3.Inputs.BucketV2LifecycleRuleTransitionArgs
-    ///                     {
-    ///                         Days = 60,
-    ///                         StorageClass = "GLACIER",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.S3.Inputs.BucketV2LifecycleRuleArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Expirations = new[]
-    ///                 {
-    ///                     new Aws.S3.Inputs.BucketV2LifecycleRuleExpirationArgs
-    ///                     {
-    ///                         Date = "2016-01-12",
-    ///                     },
-    ///                 },
-    ///                 Id = "tmp",
-    ///                 Prefix = "tmp/",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var versioningBucket = new Aws.S3.BucketV2("versioningBucket", new()
-    ///     {
-    ///         Acl = "private",
-    ///         LifecycleRules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2LifecycleRuleArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 NoncurrentVersionExpirations = new[]
-    ///                 {
-    ///                     new Aws.S3.Inputs.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs
-    ///                     {
-    ///                         Days = 90,
-    ///                     },
-    ///                 },
-    ///                 NoncurrentVersionTransitions = new[]
-    ///                 {
-    ///                     new Aws.S3.Inputs.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs
-    ///                     {
-    ///                         Days = 30,
-    ///                         StorageClass = "STANDARD_IA",
-    ///                     },
-    ///                     new Aws.S3.Inputs.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs
-    ///                     {
-    ///                         Days = 60,
-    ///                         StorageClass = "GLACIER",
-    ///                     },
-    ///                 },
-    ///                 Prefix = "config/",
-    ///             },
-    ///         },
-    ///         Versionings = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2VersioningArgs
-    ///             {
-    ///                 Enabled = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using replication configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var central = new Aws.Provider("central", new()
-    ///     {
-    ///         Region = "eu-central-1",
-    ///     });
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "s3.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var replicationRole = new Aws.Iam.Role("replicationRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var destination = new Aws.S3.BucketV2("destination", new()
-    ///     {
-    ///         Versionings = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2VersioningArgs
-    ///             {
-    ///                 Enabled = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var source = new Aws.S3.BucketV2("source", new()
-    ///     {
-    ///         Acl = "private",
-    ///         Versionings = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2VersioningArgs
-    ///             {
-    ///                 Enabled = true,
-    ///             },
-    ///         },
-    ///         ReplicationConfigurations = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2ReplicationConfigurationArgs
-    ///             {
-    ///                 Role = replicationRole.Arn,
-    ///                 Rules = new[]
-    ///                 {
-    ///                     new Aws.S3.Inputs.BucketV2ReplicationConfigurationRuleArgs
-    ///                     {
-    ///                         Id = "foobar",
-    ///                         Status = "Enabled",
-    ///                         Filters = new[]
-    ///                         {
-    ///                             new Aws.S3.Inputs.BucketV2ReplicationConfigurationRuleFilterArgs
-    ///                             {
-    ///                                 Tags = null,
-    ///                             },
-    ///                         },
-    ///                         Destinations = new[]
-    ///                         {
-    ///                             new Aws.S3.Inputs.BucketV2ReplicationConfigurationRuleDestinationArgs
-    ///                             {
-    ///                                 Bucket = destination.Arn,
-    ///                                 StorageClass = "STANDARD",
-    ///                                 ReplicationTimes = new[]
-    ///                                 {
-    ///                                     new Aws.S3.Inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs
-    ///                                     {
-    ///                                         Status = "Enabled",
-    ///                                         Minutes = 15,
-    ///                                     },
-    ///                                 },
-    ///                                 Metrics = new[]
-    ///                                 {
-    ///                                     new Aws.S3.Inputs.BucketV2ReplicationConfigurationRuleDestinationMetricArgs
-    ///                                     {
-    ///                                         Status = "Enabled",
-    ///                                         Minutes = 15,
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Central,
-    ///     });
-    /// 
-    ///     var replicationPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetReplicationConfiguration",
-    ///                     "s3:ListBucket",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     source.Arn,
-    ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetObjectVersionForReplication",
-    ///                     "s3:GetObjectVersionAcl",
-    ///                     "s3:GetObjectVersionTagging",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{source.Arn}/*",
-    ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:ReplicateObject",
-    ///                     "s3:ReplicateDelete",
-    ///                     "s3:ReplicateTags",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{destination.Arn}/*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new()
-    ///     {
-    ///         PolicyDocument = replicationPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var replicationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("replicationRolePolicyAttachment", new()
-    ///     {
-    ///         Role = replicationRole.Name,
-    ///         PolicyArn = replicationPolicy.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Enable SSE-KMS Server Side Encryption
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
+    /// &gt; **NOTE:** The `server_side_encryption_configuration` attribute is deprecated.
+    /// See `aws.s3.BucketServerSideEncryptionConfigurationV2` for examples with server side encryption configured.
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mykey = new Aws.Kms.Key("mykey", new()
-    ///     {
-    ///         Description = "This key is used to encrypt bucket objects",
-    ///         DeletionWindowInDays = 10,
-    ///     });
+    /// ### ACL Policy Grants
     /// 
-    ///     var mybucket = new Aws.S3.BucketV2("mybucket", new()
-    ///     {
-    ///         ServerSideEncryptionConfigurations = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2ServerSideEncryptionConfigurationArgs
-    ///             {
-    ///                 Rules = new[]
-    ///                 {
-    ///                     new Aws.S3.Inputs.BucketV2ServerSideEncryptionConfigurationRuleArgs
-    ///                     {
-    ///                         ApplyServerSideEncryptionByDefaults = new[]
-    ///                         {
-    ///                             new Aws.S3.Inputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs
-    ///                             {
-    ///                                 KmsMasterKeyId = mykey.Arn,
-    ///                                 SseAlgorithm = "aws:kms",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using ACL policy grants
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentUser = Aws.S3.GetCanonicalUserId.Invoke();
-    /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
-    ///     {
-    ///         Grants = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketV2GrantArgs
-    ///             {
-    ///                 Id = currentUser.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-    ///                 Type = "CanonicalUser",
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "FULL_CONTROL",
-    ///                 },
-    ///             },
-    ///             new Aws.S3.Inputs.BucketV2GrantArgs
-    ///             {
-    ///                 Type = "Group",
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "READ_ACP",
-    ///                     "WRITE",
-    ///                 },
-    ///                 Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// &gt; **NOTE:** The `acl` and `grant` attributes are deprecated.
+    /// See `aws.s3.BucketAclV2` for examples with ACL grants.
     /// 
     /// ## Import
     /// 

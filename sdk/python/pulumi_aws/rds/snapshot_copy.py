@@ -22,6 +22,7 @@ class SnapshotCopyArgs:
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  presigned_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_custom_availability_zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
@@ -33,6 +34,7 @@ class SnapshotCopyArgs:
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         """
         pulumi.set(__self__, "source_db_snapshot_identifier", source_db_snapshot_identifier)
@@ -49,6 +51,8 @@ class SnapshotCopyArgs:
             pulumi.set(__self__, "presigned_url", presigned_url)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_custom_availability_zone is not None:
             pulumi.set(__self__, "target_custom_availability_zone", target_custom_availability_zone)
 
@@ -147,6 +151,18 @@ class SnapshotCopyArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="targetCustomAvailabilityZone")
@@ -541,6 +557,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  presigned_url: Optional[pulumi.Input[str]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_custom_availability_zone: Optional[pulumi.Input[str]] = None,
                  target_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -589,6 +606,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         :param pulumi.Input[str] target_db_snapshot_identifier: The Identifier for the snapshot.
         """
@@ -656,6 +674,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  presigned_url: Optional[pulumi.Input[str]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_custom_availability_zone: Optional[pulumi.Input[str]] = None,
                  target_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -676,6 +695,7 @@ class SnapshotCopy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_db_snapshot_identifier'")
             __props__.__dict__["source_db_snapshot_identifier"] = source_db_snapshot_identifier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["target_custom_availability_zone"] = target_custom_availability_zone
             if target_db_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'target_db_snapshot_identifier'")
@@ -692,7 +712,6 @@ class SnapshotCopy(pulumi.CustomResource):
             __props__.__dict__["snapshot_type"] = None
             __props__.__dict__["source_region"] = None
             __props__.__dict__["storage_type"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(SnapshotCopy, __self__).__init__(
             'aws:rds/snapshotCopy:SnapshotCopy',

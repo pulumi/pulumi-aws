@@ -130,18 +130,32 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyArn);
     }
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+     * @return The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
+    private Output<String> namePrefix;
+
+    /**
+     * @return Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.

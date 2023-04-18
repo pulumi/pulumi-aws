@@ -923,325 +923,64 @@ class BucketV2(pulumi.CustomResource):
 
         > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
 
-        > **NOTE on S3 Bucket Accelerate Configuration:** S3 Bucket Accelerate can be configured in either the standalone resource `s3.BucketAccelerateConfigurationV2`
-        or with the deprecated parameter `acceleration_status` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket canned ACL Configuration:** S3 Bucket canned ACL can be configured in either the standalone resource `s3.BucketAclV2`
-        or with the deprecated parameter `acl` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket ACL Grants Configuration:** S3 Bucket grants can be configured in either the standalone resource `s3.BucketAclV2`
-        or with the deprecated parameter `grant` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket CORS Configuration:** S3 Bucket CORS can be configured in either the standalone resource `s3.BucketCorsConfigurationV2`
-        or with the deprecated parameter `cors_rule` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Lifecycle Configuration:** S3 Bucket Lifecycle can be configured in either the standalone resource `s3.BucketLifecycleConfigurationV2`
-        or with the deprecated parameter `lifecycle_rule` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Logging Configuration:** S3 Bucket logging can be configured in either the standalone resource `s3.BucketLoggingV2`
-        or with the deprecated parameter `logging` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Object Lock Configuration:** S3 Bucket Object Lock can be configured in either the standalone resource `s3.BucketObjectLockConfigurationV2`
-        or with the deprecated parameter `object_lock_configuration` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Policy Configuration:** S3 Bucket Policy can be configured in either the standalone resource `s3.BucketPolicy`
-        or with the deprecated parameter `policy` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `s3.BucketReplicationConfig`
-        or with the deprecated parameter `replication_configuration` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Request Payment Configuration:** S3 Bucket Request Payment can be configured in either the standalone resource `s3.BucketRequestPaymentConfigurationV2`
-        or with the deprecated parameter `request_payer` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Server Side Encryption Configuration:** S3 Bucket Server Side Encryption can be configured in either the standalone resource `s3.BucketServerSideEncryptionConfigurationV2`
-        or with the deprecated parameter `server_side_encryption_configuration` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Versioning Configuration:** S3 Bucket versioning can be configured in either the standalone resource `s3.BucketVersioningV2`
-        or with the deprecated parameter `versioning` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Website Configuration:** S3 Bucket Website can be configured in either the standalone resource `s3.BucketWebsiteConfigurationV2`
-        or with the deprecated parameter `website` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
+        > In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `s3.BucketV2` resource.
 
         ## Example Usage
-        ### Private Bucket w/ Tags
+        ### Private Bucket With Tags
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
+        example = aws.s3.BucketV2("example", tags={
             "Environment": "Dev",
+            "Name": "My bucket",
         })
-        example = aws.s3.BucketAclV2("example",
-            bucket=bucket_v2.id,
-            acl="private")
         ```
         ### Static Website Hosting
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `website` attribute is deprecated.
+        See `s3.BucketWebsiteConfigurationV2` for examples with static website hosting configured.
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            acl="public-read",
-            policy=(lambda path: open(path).read())("policy.json"),
-            websites=[aws.s3.BucketV2WebsiteArgs(
-                index_document="index.html",
-                error_document="error.html",
-                routing_rules=\"\"\"[{
-            "Condition": {
-                "KeyPrefixEquals": "docs/"
-            },
-            "Redirect": {
-                "ReplaceKeyPrefixWith": "documents/"
-            }
-        }]
-        \"\"\",
-            )])
-        ```
-        ### Using CORS
+        ### CORS Rules
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `cors_rule` attribute is deprecated.
+        See `s3.BucketCorsConfigurationV2` for examples with CORS rules configured.
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            acl="public-read",
-            cors_rules=[aws.s3.BucketV2CorsRuleArgs(
-                allowed_headers=["*"],
-                allowed_methods=[
-                    "PUT",
-                    "POST",
-                ],
-                allowed_origins=["https://s3-website-test.domain.example"],
-                expose_headers=["ETag"],
-                max_age_seconds=3000,
-            )])
-        ```
-        ### Using versioning
+        ### Versioning
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `versioning` attribute is deprecated.
+        See `s3.BucketVersioningV2` for examples with versioning configured.
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            acl="private",
-            versionings=[aws.s3.BucketV2VersioningArgs(
-                enabled=True,
-            )])
-        ```
-        ### Enable Logging
+        ### Logging
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `logging` attribute is deprecated.
+        See `s3.BucketLoggingV2` for examples with logging enabled.
 
-        log_bucket = aws.s3.BucketV2("logBucket", acl="log-delivery-write")
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            acl="private",
-            loggings=[aws.s3.BucketV2LoggingArgs(
-                target_bucket=log_bucket.id,
-                target_prefix="log/",
-            )])
-        ```
-        ### Using object lifecycle
+        ### Object Lifecycle Rules
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `lifecycle_rule` attribute is deprecated.
+        See `s3.BucketLifecycleConfigurationV2` for examples with object lifecycle rules.
 
-        bucket = aws.s3.BucketV2("bucket",
-            acl="private",
-            lifecycle_rules=[
-                aws.s3.BucketV2LifecycleRuleArgs(
-                    enabled=True,
-                    expirations=[aws.s3.BucketV2LifecycleRuleExpirationArgs(
-                        days=90,
-                    )],
-                    id="log",
-                    prefix="log/",
-                    tags={
-                        "autoclean": "true",
-                        "rule": "log",
-                    },
-                    transitions=[
-                        aws.s3.BucketV2LifecycleRuleTransitionArgs(
-                            days=30,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.s3.BucketV2LifecycleRuleTransitionArgs(
-                            days=60,
-                            storage_class="GLACIER",
-                        ),
-                    ],
-                ),
-                aws.s3.BucketV2LifecycleRuleArgs(
-                    enabled=True,
-                    expirations=[aws.s3.BucketV2LifecycleRuleExpirationArgs(
-                        date="2016-01-12",
-                    )],
-                    id="tmp",
-                    prefix="tmp/",
-                ),
-            ])
-        versioning_bucket = aws.s3.BucketV2("versioningBucket",
-            acl="private",
-            lifecycle_rules=[aws.s3.BucketV2LifecycleRuleArgs(
-                enabled=True,
-                noncurrent_version_expirations=[aws.s3.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs(
-                    days=90,
-                )],
-                noncurrent_version_transitions=[
-                    aws.s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs(
-                        days=30,
-                        storage_class="STANDARD_IA",
-                    ),
-                    aws.s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs(
-                        days=60,
-                        storage_class="GLACIER",
-                    ),
-                ],
-                prefix="config/",
-            )],
-            versionings=[aws.s3.BucketV2VersioningArgs(
-                enabled=True,
-            )])
-        ```
-        ### Using replication configuration
+        ### Object Lock Configuration
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `object_lock_configuration` attribute is deprecated.
+        See `s3.BucketObjectLockConfigurationV2` for examples with object lock configurations on both new and existing buckets.
 
-        central = aws.Provider("central", region="eu-central-1")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["s3.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        replication_role = aws.iam.Role("replicationRole", assume_role_policy=assume_role.json)
-        destination = aws.s3.BucketV2("destination", versionings=[aws.s3.BucketV2VersioningArgs(
-            enabled=True,
-        )])
-        source = aws.s3.BucketV2("source",
-            acl="private",
-            versionings=[aws.s3.BucketV2VersioningArgs(
-                enabled=True,
-            )],
-            replication_configurations=[aws.s3.BucketV2ReplicationConfigurationArgs(
-                role=replication_role.arn,
-                rules=[aws.s3.BucketV2ReplicationConfigurationRuleArgs(
-                    id="foobar",
-                    status="Enabled",
-                    filters=[aws.s3.BucketV2ReplicationConfigurationRuleFilterArgs(
-                        tags={},
-                    )],
-                    destinations=[aws.s3.BucketV2ReplicationConfigurationRuleDestinationArgs(
-                        bucket=destination.arn,
-                        storage_class="STANDARD",
-                        replication_times=[aws.s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs(
-                            status="Enabled",
-                            minutes=15,
-                        )],
-                        metrics=[aws.s3.BucketV2ReplicationConfigurationRuleDestinationMetricArgs(
-                            status="Enabled",
-                            minutes=15,
-                        )],
-                    )],
-                )],
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:GetReplicationConfiguration",
-                    "s3:ListBucket",
-                ],
-                resources=[source.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:GetObjectVersionForReplication",
-                    "s3:GetObjectVersionAcl",
-                    "s3:GetObjectVersionTagging",
-                ],
-                resources=[source.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:ReplicateObject",
-                    "s3:ReplicateDelete",
-                    "s3:ReplicateTags",
-                ],
-                resources=[destination.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-        ])
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=replication_policy_document.json)
-        replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
-            role=replication_role.name,
-            policy_arn=replication_policy.arn)
-        ```
+        ### Replication Configuration
+
+        > **NOTE:** The `replication_configuration` attribute is deprecated.
+        See `s3.BucketReplicationConfig` for examples with replication configured.
+
         ### Enable SSE-KMS Server Side Encryption
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `server_side_encryption_configuration` attribute is deprecated.
+        See `s3.BucketServerSideEncryptionConfigurationV2` for examples with server side encryption configured.
 
-        mykey = aws.kms.Key("mykey",
-            description="This key is used to encrypt bucket objects",
-            deletion_window_in_days=10)
-        mybucket = aws.s3.BucketV2("mybucket", server_side_encryption_configurations=[aws.s3.BucketV2ServerSideEncryptionConfigurationArgs(
-            rules=[aws.s3.BucketV2ServerSideEncryptionConfigurationRuleArgs(
-                apply_server_side_encryption_by_defaults=[aws.s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs(
-                    kms_master_key_id=mykey.arn,
-                    sse_algorithm="aws:kms",
-                )],
-            )],
-        )])
-        ```
-        ### Using ACL policy grants
+        ### ACL Policy Grants
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_user = aws.s3.get_canonical_user_id()
-        bucket = aws.s3.BucketV2("bucket", grants=[
-            aws.s3.BucketV2GrantArgs(
-                id=current_user.id,
-                type="CanonicalUser",
-                permissions=["FULL_CONTROL"],
-            ),
-            aws.s3.BucketV2GrantArgs(
-                type="Group",
-                permissions=[
-                    "READ_ACP",
-                    "WRITE",
-                ],
-                uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
-            ),
-        ])
-        ```
+        > **NOTE:** The `acl` and `grant` attributes are deprecated.
+        See `s3.BucketAclV2` for examples with ACL grants.
 
         ## Import
 
@@ -1299,325 +1038,64 @@ class BucketV2(pulumi.CustomResource):
 
         > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
 
-        > **NOTE on S3 Bucket Accelerate Configuration:** S3 Bucket Accelerate can be configured in either the standalone resource `s3.BucketAccelerateConfigurationV2`
-        or with the deprecated parameter `acceleration_status` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket canned ACL Configuration:** S3 Bucket canned ACL can be configured in either the standalone resource `s3.BucketAclV2`
-        or with the deprecated parameter `acl` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket ACL Grants Configuration:** S3 Bucket grants can be configured in either the standalone resource `s3.BucketAclV2`
-        or with the deprecated parameter `grant` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket CORS Configuration:** S3 Bucket CORS can be configured in either the standalone resource `s3.BucketCorsConfigurationV2`
-        or with the deprecated parameter `cors_rule` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Lifecycle Configuration:** S3 Bucket Lifecycle can be configured in either the standalone resource `s3.BucketLifecycleConfigurationV2`
-        or with the deprecated parameter `lifecycle_rule` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Logging Configuration:** S3 Bucket logging can be configured in either the standalone resource `s3.BucketLoggingV2`
-        or with the deprecated parameter `logging` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Object Lock Configuration:** S3 Bucket Object Lock can be configured in either the standalone resource `s3.BucketObjectLockConfigurationV2`
-        or with the deprecated parameter `object_lock_configuration` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Policy Configuration:** S3 Bucket Policy can be configured in either the standalone resource `s3.BucketPolicy`
-        or with the deprecated parameter `policy` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `s3.BucketReplicationConfig`
-        or with the deprecated parameter `replication_configuration` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Request Payment Configuration:** S3 Bucket Request Payment can be configured in either the standalone resource `s3.BucketRequestPaymentConfigurationV2`
-        or with the deprecated parameter `request_payer` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Server Side Encryption Configuration:** S3 Bucket Server Side Encryption can be configured in either the standalone resource `s3.BucketServerSideEncryptionConfigurationV2`
-        or with the deprecated parameter `server_side_encryption_configuration` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Versioning Configuration:** S3 Bucket versioning can be configured in either the standalone resource `s3.BucketVersioningV2`
-        or with the deprecated parameter `versioning` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
-
-        > **NOTE on S3 Bucket Website Configuration:** S3 Bucket Website can be configured in either the standalone resource `s3.BucketWebsiteConfigurationV2`
-        or with the deprecated parameter `website` in the resource `s3.BucketV2`.
-        Configuring with both will cause inconsistencies and may overwrite configuration.
+        > In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `s3.BucketV2` resource.
 
         ## Example Usage
-        ### Private Bucket w/ Tags
+        ### Private Bucket With Tags
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
+        example = aws.s3.BucketV2("example", tags={
             "Environment": "Dev",
+            "Name": "My bucket",
         })
-        example = aws.s3.BucketAclV2("example",
-            bucket=bucket_v2.id,
-            acl="private")
         ```
         ### Static Website Hosting
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `website` attribute is deprecated.
+        See `s3.BucketWebsiteConfigurationV2` for examples with static website hosting configured.
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            acl="public-read",
-            policy=(lambda path: open(path).read())("policy.json"),
-            websites=[aws.s3.BucketV2WebsiteArgs(
-                index_document="index.html",
-                error_document="error.html",
-                routing_rules=\"\"\"[{
-            "Condition": {
-                "KeyPrefixEquals": "docs/"
-            },
-            "Redirect": {
-                "ReplaceKeyPrefixWith": "documents/"
-            }
-        }]
-        \"\"\",
-            )])
-        ```
-        ### Using CORS
+        ### CORS Rules
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `cors_rule` attribute is deprecated.
+        See `s3.BucketCorsConfigurationV2` for examples with CORS rules configured.
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            acl="public-read",
-            cors_rules=[aws.s3.BucketV2CorsRuleArgs(
-                allowed_headers=["*"],
-                allowed_methods=[
-                    "PUT",
-                    "POST",
-                ],
-                allowed_origins=["https://s3-website-test.domain.example"],
-                expose_headers=["ETag"],
-                max_age_seconds=3000,
-            )])
-        ```
-        ### Using versioning
+        ### Versioning
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `versioning` attribute is deprecated.
+        See `s3.BucketVersioningV2` for examples with versioning configured.
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            acl="private",
-            versionings=[aws.s3.BucketV2VersioningArgs(
-                enabled=True,
-            )])
-        ```
-        ### Enable Logging
+        ### Logging
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `logging` attribute is deprecated.
+        See `s3.BucketLoggingV2` for examples with logging enabled.
 
-        log_bucket = aws.s3.BucketV2("logBucket", acl="log-delivery-write")
-        bucket_v2 = aws.s3.BucketV2("bucketV2",
-            acl="private",
-            loggings=[aws.s3.BucketV2LoggingArgs(
-                target_bucket=log_bucket.id,
-                target_prefix="log/",
-            )])
-        ```
-        ### Using object lifecycle
+        ### Object Lifecycle Rules
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `lifecycle_rule` attribute is deprecated.
+        See `s3.BucketLifecycleConfigurationV2` for examples with object lifecycle rules.
 
-        bucket = aws.s3.BucketV2("bucket",
-            acl="private",
-            lifecycle_rules=[
-                aws.s3.BucketV2LifecycleRuleArgs(
-                    enabled=True,
-                    expirations=[aws.s3.BucketV2LifecycleRuleExpirationArgs(
-                        days=90,
-                    )],
-                    id="log",
-                    prefix="log/",
-                    tags={
-                        "autoclean": "true",
-                        "rule": "log",
-                    },
-                    transitions=[
-                        aws.s3.BucketV2LifecycleRuleTransitionArgs(
-                            days=30,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.s3.BucketV2LifecycleRuleTransitionArgs(
-                            days=60,
-                            storage_class="GLACIER",
-                        ),
-                    ],
-                ),
-                aws.s3.BucketV2LifecycleRuleArgs(
-                    enabled=True,
-                    expirations=[aws.s3.BucketV2LifecycleRuleExpirationArgs(
-                        date="2016-01-12",
-                    )],
-                    id="tmp",
-                    prefix="tmp/",
-                ),
-            ])
-        versioning_bucket = aws.s3.BucketV2("versioningBucket",
-            acl="private",
-            lifecycle_rules=[aws.s3.BucketV2LifecycleRuleArgs(
-                enabled=True,
-                noncurrent_version_expirations=[aws.s3.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs(
-                    days=90,
-                )],
-                noncurrent_version_transitions=[
-                    aws.s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs(
-                        days=30,
-                        storage_class="STANDARD_IA",
-                    ),
-                    aws.s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs(
-                        days=60,
-                        storage_class="GLACIER",
-                    ),
-                ],
-                prefix="config/",
-            )],
-            versionings=[aws.s3.BucketV2VersioningArgs(
-                enabled=True,
-            )])
-        ```
-        ### Using replication configuration
+        ### Object Lock Configuration
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `object_lock_configuration` attribute is deprecated.
+        See `s3.BucketObjectLockConfigurationV2` for examples with object lock configurations on both new and existing buckets.
 
-        central = aws.Provider("central", region="eu-central-1")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["s3.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        replication_role = aws.iam.Role("replicationRole", assume_role_policy=assume_role.json)
-        destination = aws.s3.BucketV2("destination", versionings=[aws.s3.BucketV2VersioningArgs(
-            enabled=True,
-        )])
-        source = aws.s3.BucketV2("source",
-            acl="private",
-            versionings=[aws.s3.BucketV2VersioningArgs(
-                enabled=True,
-            )],
-            replication_configurations=[aws.s3.BucketV2ReplicationConfigurationArgs(
-                role=replication_role.arn,
-                rules=[aws.s3.BucketV2ReplicationConfigurationRuleArgs(
-                    id="foobar",
-                    status="Enabled",
-                    filters=[aws.s3.BucketV2ReplicationConfigurationRuleFilterArgs(
-                        tags={},
-                    )],
-                    destinations=[aws.s3.BucketV2ReplicationConfigurationRuleDestinationArgs(
-                        bucket=destination.arn,
-                        storage_class="STANDARD",
-                        replication_times=[aws.s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs(
-                            status="Enabled",
-                            minutes=15,
-                        )],
-                        metrics=[aws.s3.BucketV2ReplicationConfigurationRuleDestinationMetricArgs(
-                            status="Enabled",
-                            minutes=15,
-                        )],
-                    )],
-                )],
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:GetReplicationConfiguration",
-                    "s3:ListBucket",
-                ],
-                resources=[source.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:GetObjectVersionForReplication",
-                    "s3:GetObjectVersionAcl",
-                    "s3:GetObjectVersionTagging",
-                ],
-                resources=[source.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:ReplicateObject",
-                    "s3:ReplicateDelete",
-                    "s3:ReplicateTags",
-                ],
-                resources=[destination.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-        ])
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=replication_policy_document.json)
-        replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
-            role=replication_role.name,
-            policy_arn=replication_policy.arn)
-        ```
+        ### Replication Configuration
+
+        > **NOTE:** The `replication_configuration` attribute is deprecated.
+        See `s3.BucketReplicationConfig` for examples with replication configured.
+
         ### Enable SSE-KMS Server Side Encryption
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+        > **NOTE:** The `server_side_encryption_configuration` attribute is deprecated.
+        See `s3.BucketServerSideEncryptionConfigurationV2` for examples with server side encryption configured.
 
-        mykey = aws.kms.Key("mykey",
-            description="This key is used to encrypt bucket objects",
-            deletion_window_in_days=10)
-        mybucket = aws.s3.BucketV2("mybucket", server_side_encryption_configurations=[aws.s3.BucketV2ServerSideEncryptionConfigurationArgs(
-            rules=[aws.s3.BucketV2ServerSideEncryptionConfigurationRuleArgs(
-                apply_server_side_encryption_by_defaults=[aws.s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs(
-                    kms_master_key_id=mykey.arn,
-                    sse_algorithm="aws:kms",
-                )],
-            )],
-        )])
-        ```
-        ### Using ACL policy grants
+        ### ACL Policy Grants
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_user = aws.s3.get_canonical_user_id()
-        bucket = aws.s3.BucketV2("bucket", grants=[
-            aws.s3.BucketV2GrantArgs(
-                id=current_user.id,
-                type="CanonicalUser",
-                permissions=["FULL_CONTROL"],
-            ),
-            aws.s3.BucketV2GrantArgs(
-                type="Group",
-                permissions=[
-                    "READ_ACP",
-                    "WRITE",
-                ],
-                uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
-            ),
-        ])
-        ```
+        > **NOTE:** The `acl` and `grant` attributes are deprecated.
+        See `s3.BucketAclV2` for examples with ACL grants.
 
         ## Import
 

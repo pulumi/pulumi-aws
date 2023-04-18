@@ -157,6 +157,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * The ID of the EC2 Transit Gateway.
      * 
      */
@@ -813,6 +828,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.remoteIpv6NetworkCidr = $.remoteIpv6NetworkCidr;
         this.staticRoutesOnly = $.staticRoutesOnly;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.transitGatewayId = $.transitGatewayId;
         this.transportTransitGatewayAttachmentId = $.transportTransitGatewayAttachmentId;
         this.tunnel1DpdTimeoutAction = $.tunnel1DpdTimeoutAction;
@@ -1063,6 +1079,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

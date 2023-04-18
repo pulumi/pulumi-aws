@@ -270,7 +270,8 @@ type fleetArgs struct {
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView *string `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig *FleetVpcConfig `pulumi:"vpcConfig"`
 }
@@ -308,7 +309,8 @@ type FleetArgs struct {
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView pulumi.StringPtrInput
 	// Map of tags to attach to AppStream instances.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig FleetVpcConfigPtrInput
 }

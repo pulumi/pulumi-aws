@@ -52,14 +52,14 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+     * ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+     * @return ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -202,6 +202,21 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private SecretArgs() {}
 
     private SecretArgs(SecretArgs $) {
@@ -216,6 +231,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         this.rotationLambdaArn = $.rotationLambdaArn;
         this.rotationRules = $.rotationRules;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -279,7 +295,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+         * @param kmsKeyId ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
          * 
          * @return builder
          * 
@@ -290,7 +306,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+         * @param kmsKeyId ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
          * 
          * @return builder
          * 
@@ -491,6 +507,27 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public SecretArgs build() {

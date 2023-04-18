@@ -13,7 +13,10 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings
     {
-        public readonly string? CertficateMode;
+        /// <summary>
+        /// Setting to allow self signed or verified RTMP certificates.
+        /// </summary>
+        public readonly string? CertificateMode;
         /// <summary>
         /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         /// </summary>
@@ -29,7 +32,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
         [OutputConstructor]
         private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(
-            string? certficateMode,
+            string? certificateMode,
 
             int? connectionRetryInterval,
 
@@ -37,7 +40,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             int? numRetries)
         {
-            CertficateMode = certficateMode;
+            CertificateMode = certificateMode;
             ConnectionRetryInterval = connectionRetryInterval;
             Destination = destination;
             NumRetries = numRetries;

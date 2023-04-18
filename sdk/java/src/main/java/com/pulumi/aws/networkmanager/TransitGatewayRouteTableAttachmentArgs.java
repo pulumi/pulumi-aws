@@ -47,6 +47,21 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * The ARN of the transit gateway route table for the attachment.
      * 
      */
@@ -66,6 +81,7 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
     private TransitGatewayRouteTableAttachmentArgs(TransitGatewayRouteTableAttachmentArgs $) {
         this.peeringId = $.peeringId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.transitGatewayRouteTableArn = $.transitGatewayRouteTableArn;
     }
 
@@ -127,6 +143,27 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

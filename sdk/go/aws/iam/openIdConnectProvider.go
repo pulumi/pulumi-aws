@@ -31,8 +31,10 @@ import (
 //				ClientIdLists: pulumi.StringArray{
 //					pulumi.String("266362248691-342342xasdasdasda-apps.googleusercontent.com"),
 //				},
-//				ThumbprintLists: pulumi.StringArray{},
-//				Url:             pulumi.String("https://accounts.google.com"),
+//				ThumbprintLists: pulumi.StringArray{
+//					pulumi.String("cf23df2207d99a74fbe169e3eba035e633b65d94"),
+//				},
+//				Url: pulumi.String("https://accounts.google.com"),
 //			})
 //			if err != nil {
 //				return err

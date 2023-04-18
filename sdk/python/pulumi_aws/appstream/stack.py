@@ -26,6 +26,7 @@ class StackArgs:
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None):
         """
         The set of arguments for constructing a Stack resource.
@@ -65,6 +66,8 @@ class StackArgs:
             pulumi.set(__self__, "storage_connectors", storage_connectors)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_settings is not None:
             pulumi.set(__self__, "user_settings", user_settings)
 
@@ -190,6 +193,15 @@ class StackArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="userSettings")
@@ -456,6 +468,7 @@ class Stack(pulumi.CustomResource):
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]]] = None,
                  __props__=None):
         """
@@ -635,6 +648,7 @@ class Stack(pulumi.CustomResource):
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -655,10 +669,10 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["redirect_url"] = redirect_url
             __props__.__dict__["storage_connectors"] = storage_connectors
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
-            __props__.__dict__["tags_all"] = None
         super(Stack, __self__).__init__(
             'aws:appstream/stack:Stack',
             resource_name,

@@ -185,6 +185,14 @@ namespace Pulumi.Aws.CodeGuruReviewer
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public RepositoryAssociationArgs()
         {
         }

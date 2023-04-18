@@ -5,15 +5,24 @@ package com.pulumi.aws.secretsmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetSecretRotationRotationRule {
     private Integer automaticallyAfterDays;
+    private String duration;
+    private String scheduleExpression;
 
     private GetSecretRotationRotationRule() {}
     public Integer automaticallyAfterDays() {
         return this.automaticallyAfterDays;
+    }
+    public String duration() {
+        return this.duration;
+    }
+    public String scheduleExpression() {
+        return this.scheduleExpression;
     }
 
     public static Builder builder() {
@@ -26,10 +35,14 @@ public final class GetSecretRotationRotationRule {
     @CustomType.Builder
     public static final class Builder {
         private Integer automaticallyAfterDays;
+        private String duration;
+        private String scheduleExpression;
         public Builder() {}
         public Builder(GetSecretRotationRotationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automaticallyAfterDays = defaults.automaticallyAfterDays;
+    	      this.duration = defaults.duration;
+    	      this.scheduleExpression = defaults.scheduleExpression;
         }
 
         @CustomType.Setter
@@ -37,9 +50,21 @@ public final class GetSecretRotationRotationRule {
             this.automaticallyAfterDays = Objects.requireNonNull(automaticallyAfterDays);
             return this;
         }
+        @CustomType.Setter
+        public Builder duration(String duration) {
+            this.duration = Objects.requireNonNull(duration);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scheduleExpression(String scheduleExpression) {
+            this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
+            return this;
+        }
         public GetSecretRotationRotationRule build() {
             final var o = new GetSecretRotationRotationRule();
             o.automaticallyAfterDays = automaticallyAfterDays;
+            o.duration = duration;
+            o.scheduleExpression = scheduleExpression;
             return o;
         }
     }

@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Scheduler.Outputs
         /// <summary>
         /// ARN of the SQS queue specified as the destination for the dead-letter queue.
         /// </summary>
-        public readonly string? Arn;
+        public readonly string Arn;
 
         [OutputConstructor]
-        private ScheduleTargetDeadLetterConfig(string? arn)
+        private ScheduleTargetDeadLetterConfig(string arn)
         {
             Arn = arn;
         }

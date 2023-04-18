@@ -140,7 +140,16 @@ init_upstream:
 			(cd upstream && git submodule update --init && git remote add source git@github.com:hashicorp/terraform-provider-aws.git) ; \
 		fi; \
 
-patch_upstream: init_upstream
+export_upstream_patches: init_upstream
+ifeq ($(shell cd upstream && git rev-parse --is-shallow-repository), false)
+	find upstream-patches -type f -delete
+	# Find the most recent tag before the current checkout - don't abbreviate the tag name
+	# Create patch files for each commit since the last tag
+	cd upstream && LAST_TAG=$$(git describe --abbrev=0 --tags) && \
+		git format-patch  -o ../upstream-patches --minimal --no-signature HEAD...$${LAST_TAG}
+endif
+
+patch_upstream: init_upstream export_upstream_patches
 	@# Ensure tool is installed
 	cd upstream-tools && yarn install --frozen-lockfile
 	@# Reset all changes in the submodule so we're starting from a clean slate
