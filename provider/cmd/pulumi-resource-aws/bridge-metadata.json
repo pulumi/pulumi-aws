@@ -631,6 +631,7 @@
             "aws:inspector/resourceGroup:ResourceGroup": 0,
             "aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount": 0,
             "aws:inspector2/enabler:Enabler": 0,
+            "aws:inspector2/memberAssociation:MemberAssociation": 0,
             "aws:inspector2/organizationConfiguration:OrganizationConfiguration": 0,
             "aws:iot/authorizer:Authorizer": 0,
             "aws:iot/certificate:Certificate": 0,
@@ -715,6 +716,7 @@
             "aws:lightsail/database:Database": 0,
             "aws:lightsail/disk:Disk": 0,
             "aws:lightsail/disk_attachment:Disk_attachment": 0,
+            "aws:lightsail/distribution:Distribution": 0,
             "aws:lightsail/domain:Domain": 0,
             "aws:lightsail/domainEntry:DomainEntry": 0,
             "aws:lightsail/instance:Instance": 0,
@@ -845,7 +847,10 @@
             "aws:pinpoint/smsChannel:SmsChannel": 0,
             "aws:qldb/ledger:Ledger": 0,
             "aws:qldb/stream:Stream": 0,
+            "aws:quicksight/accountSubscription:AccountSubscription": 0,
+            "aws:quicksight/dataSet:DataSet": 0,
             "aws:quicksight/dataSource:DataSource": 0,
+            "aws:quicksight/folder:Folder": 0,
             "aws:quicksight/group:Group": 0,
             "aws:quicksight/groupMembership:GroupMembership": 0,
             "aws:quicksight/user:User": 0,
@@ -1133,6 +1138,8 @@
             "aws:transfer/workflow:Workflow": 0,
             "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule": 1,
             "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule": 1,
+            "aws:vpclattice/service:Service": 0,
+            "aws:vpclattice/serviceNetwork:ServiceNetwork": 0,
             "aws:waf/byteMatchSet:ByteMatchSet": 0,
             "aws:waf/geoMatchSet:GeoMatchSet": 0,
             "aws:waf/ipSet:IpSet": 0,
@@ -1342,12 +1349,15 @@
             "aws:ec2/getVpnGateway:getVpnGateway": 0,
             "aws:ec2clientvpn/getEndpoint:getEndpoint": 0,
             "aws:ec2transitgateway/getAttachment:getAttachment": 0,
+            "aws:ec2transitgateway/getAttachments:getAttachments": 0,
             "aws:ec2transitgateway/getConnect:getConnect": 0,
             "aws:ec2transitgateway/getConnectPeer:getConnectPeer": 0,
             "aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment": 0,
             "aws:ec2transitgateway/getMulticastDomain:getMulticastDomain": 0,
             "aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment": 0,
             "aws:ec2transitgateway/getRouteTable:getRouteTable": 0,
+            "aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations": 0,
+            "aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations": 0,
             "aws:ec2transitgateway/getTransitGateway:getTransitGateway": 0,
             "aws:ec2transitgateway/getVpcAttachment:getVpcAttachment": 0,
             "aws:ec2transitgateway/getVpcAttachments:getVpcAttachments": 0,
@@ -1512,6 +1522,8 @@
             "aws:networkmanager/getLinks:getLinks": 0,
             "aws:networkmanager/getSite:getSite": 0,
             "aws:networkmanager/getSites:getSites": 0,
+            "aws:oam/getLink:getLink": 0,
+            "aws:oam/getLinks:getLinks": 0,
             "aws:oam/getSink:getSink": 0,
             "aws:oam/getSinks:getSinks": 0,
             "aws:opensearch/getDomain:getDomain": 0,
@@ -1532,6 +1544,7 @@
             "aws:outposts/getSites:getSites": 0,
             "aws:pricing/getProduct:getProduct": 0,
             "aws:qldb/getLedger:getLedger": 0,
+            "aws:quicksight/getDataSet:getDataSet": 0,
             "aws:ram/getResourceShare:getResourceShare": 0,
             "aws:rds/getCertificate:getCertificate": 0,
             "aws:rds/getCluster:getCluster": 0,
@@ -1615,6 +1628,7 @@
             "aws:transfer/getServer:getServer": 0,
             "aws:vpc/getSecurityGroupRule:getSecurityGroupRule": 1,
             "aws:vpc/getSecurityGroupRules:getSecurityGroupRules": 1,
+            "aws:vpclattice/getService:getService": 0,
             "aws:waf/getIpset:getIpset": 0,
             "aws:waf/getRateBasedRule:getRateBasedRule": 0,
             "aws:waf/getRule:getRule": 0,
@@ -2288,6 +2302,7 @@
             "aws:inspector/resourceGroup:ResourceGroup": "aws_inspector_resource_group",
             "aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount": "aws_inspector2_delegated_admin_account",
             "aws:inspector2/enabler:Enabler": "aws_inspector2_enabler",
+            "aws:inspector2/memberAssociation:MemberAssociation": "aws_inspector2_member_association",
             "aws:inspector2/organizationConfiguration:OrganizationConfiguration": "aws_inspector2_organization_configuration",
             "aws:iot/authorizer:Authorizer": "aws_iot_authorizer",
             "aws:iot/certificate:Certificate": "aws_iot_certificate",
@@ -2372,6 +2387,7 @@
             "aws:lightsail/database:Database": "aws_lightsail_database",
             "aws:lightsail/disk:Disk": "aws_lightsail_disk",
             "aws:lightsail/disk_attachment:Disk_attachment": "aws_lightsail_disk_attachment",
+            "aws:lightsail/distribution:Distribution": "aws_lightsail_distribution",
             "aws:lightsail/domain:Domain": "aws_lightsail_domain",
             "aws:lightsail/domainEntry:DomainEntry": "aws_lightsail_domain_entry",
             "aws:lightsail/instance:Instance": "aws_lightsail_instance",
@@ -2502,7 +2518,10 @@
             "aws:pinpoint/smsChannel:SmsChannel": "aws_pinpoint_sms_channel",
             "aws:qldb/ledger:Ledger": "aws_qldb_ledger",
             "aws:qldb/stream:Stream": "aws_qldb_stream",
+            "aws:quicksight/accountSubscription:AccountSubscription": "aws_quicksight_account_subscription",
+            "aws:quicksight/dataSet:DataSet": "aws_quicksight_data_set",
             "aws:quicksight/dataSource:DataSource": "aws_quicksight_data_source",
+            "aws:quicksight/folder:Folder": "aws_quicksight_folder",
             "aws:quicksight/group:Group": "aws_quicksight_group",
             "aws:quicksight/groupMembership:GroupMembership": "aws_quicksight_group_membership",
             "aws:quicksight/user:User": "aws_quicksight_user",
@@ -2791,6 +2810,8 @@
             "aws:transfer/workflow:Workflow": "aws_transfer_workflow",
             "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule": "aws_vpc_security_group_egress_rule",
             "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule": "aws_vpc_security_group_ingress_rule",
+            "aws:vpclattice/service:Service": "aws_vpclattice_service",
+            "aws:vpclattice/serviceNetwork:ServiceNetwork": "aws_vpclattice_service_network",
             "aws:waf/byteMatchSet:ByteMatchSet": "aws_waf_byte_match_set",
             "aws:waf/geoMatchSet:GeoMatchSet": "aws_waf_geo_match_set",
             "aws:waf/ipSet:IpSet": "aws_waf_ipset",
@@ -3004,12 +3025,15 @@
             "aws:ec2/getVpnGateway:getVpnGateway": "aws_vpn_gateway",
             "aws:ec2clientvpn/getEndpoint:getEndpoint": "aws_ec2_client_vpn_endpoint",
             "aws:ec2transitgateway/getAttachment:getAttachment": "aws_ec2_transit_gateway_attachment",
+            "aws:ec2transitgateway/getAttachments:getAttachments": "aws_ec2_transit_gateway_attachments",
             "aws:ec2transitgateway/getConnect:getConnect": "aws_ec2_transit_gateway_connect",
             "aws:ec2transitgateway/getConnectPeer:getConnectPeer": "aws_ec2_transit_gateway_connect_peer",
             "aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment": "aws_ec2_transit_gateway_dx_gateway_attachment",
             "aws:ec2transitgateway/getMulticastDomain:getMulticastDomain": "aws_ec2_transit_gateway_multicast_domain",
             "aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment": "aws_ec2_transit_gateway_peering_attachment",
             "aws:ec2transitgateway/getRouteTable:getRouteTable": "aws_ec2_transit_gateway_route_table",
+            "aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations": "aws_ec2_transit_gateway_route_table_associations",
+            "aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations": "aws_ec2_transit_gateway_route_table_propagations",
             "aws:ec2transitgateway/getTransitGateway:getTransitGateway": "aws_ec2_transit_gateway",
             "aws:ec2transitgateway/getVpcAttachment:getVpcAttachment": "aws_ec2_transit_gateway_vpc_attachment",
             "aws:ec2transitgateway/getVpcAttachments:getVpcAttachments": "aws_ec2_transit_gateway_vpc_attachments",
@@ -3186,6 +3210,8 @@
             "aws:networkmanager/getLinks:getLinks": "aws_networkmanager_links",
             "aws:networkmanager/getSite:getSite": "aws_networkmanager_site",
             "aws:networkmanager/getSites:getSites": "aws_networkmanager_sites",
+            "aws:oam/getLink:getLink": "aws_oam_link",
+            "aws:oam/getLinks:getLinks": "aws_oam_links",
             "aws:oam/getSink:getSink": "aws_oam_sink",
             "aws:oam/getSinks:getSinks": "aws_oam_sinks",
             "aws:opensearch/getDomain:getDomain": "aws_opensearch_domain",
@@ -3206,6 +3232,7 @@
             "aws:outposts/getSites:getSites": "aws_outposts_sites",
             "aws:pricing/getProduct:getProduct": "aws_pricing_product",
             "aws:qldb/getLedger:getLedger": "aws_qldb_ledger",
+            "aws:quicksight/getDataSet:getDataSet": "aws_quicksight_data_set",
             "aws:ram/getResourceShare:getResourceShare": "aws_ram_resource_share",
             "aws:rds/getCertificate:getCertificate": "aws_rds_certificate",
             "aws:rds/getCluster:getCluster": "aws_rds_cluster",
@@ -3289,6 +3316,7 @@
             "aws:transfer/getServer:getServer": "aws_transfer_server",
             "aws:vpc/getSecurityGroupRule:getSecurityGroupRule": "aws_vpc_security_group_rule",
             "aws:vpc/getSecurityGroupRules:getSecurityGroupRules": "aws_vpc_security_group_rules",
+            "aws:vpclattice/getService:getService": "aws_vpclattice_service",
             "aws:waf/getIpset:getIpset": "aws_waf_ipset",
             "aws:waf/getRateBasedRule:getRateBasedRule": "aws_waf_rate_based_rule",
             "aws:waf/getRule:getRule": "aws_waf_rule",
@@ -14231,6 +14259,9 @@
                 "transitGatewayId": "transit_gateway_id",
                 "transitGatewayOwnerId": "transit_gateway_owner_id"
             },
+            "aws:ec2transitgateway/getAttachments:getAttachments": {
+                "filters": "filter"
+            },
             "aws:ec2transitgateway/getConnect:getConnect": {
                 "filters": "filter",
                 "transitGatewayConnectId": "transit_gateway_connect_id",
@@ -14285,6 +14316,14 @@
                 "defaultPropagationRouteTable": "default_propagation_route_table",
                 "filters": "filter",
                 "transitGatewayId": "transit_gateway_id"
+            },
+            "aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations": {
+                "filters": "filter",
+                "transitGatewayRouteTableId": "transit_gateway_route_table_id"
+            },
+            "aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations": {
+                "filters": "filter",
+                "transitGatewayRouteTableId": "transit_gateway_route_table_id"
             },
             "aws:ec2transitgateway/getTransitGateway:getTransitGateway": {
                 "amazonSideAsn": "amazon_side_asn",
@@ -16374,6 +16413,9 @@
             "aws:emrserverless/ApplicationAutoStopConfiguration:ApplicationAutoStopConfiguration": {
                 "idleTimeoutMinutes": "idle_timeout_minutes"
             },
+            "aws:emrserverless/ApplicationImageConfiguration:ApplicationImageConfiguration": {
+                "imageUri": "image_uri"
+            },
             "aws:emrserverless/ApplicationInitialCapacity:ApplicationInitialCapacity": {
                 "initialCapacityConfig": "initial_capacity_config",
                 "initialCapacityType": "initial_capacity_type"
@@ -16389,6 +16431,7 @@
             "aws:emrserverless/application:Application": {
                 "autoStartConfiguration": "auto_start_configuration",
                 "autoStopConfiguration": "auto_stop_configuration",
+                "imageConfiguration": "image_configuration",
                 "initialCapacities": "initial_capacity",
                 "maximumCapacity": "maximum_capacity",
                 "networkConfiguration": "network_configuration",
@@ -18062,6 +18105,7 @@
                 "instanceConfiguration": "instance_configuration",
                 "kmsKeyId": "kms_key_id",
                 "parentImage": "parent_image",
+                "platformOverride": "platform_override",
                 "tagsAll": "tags_all",
                 "targetRepository": "target_repository",
                 "workingDirectory": "working_directory"
@@ -18497,6 +18541,9 @@
             "aws:inspector2/enabler:Enabler": {
                 "accountIds": "account_ids",
                 "resourceTypes": "resource_types"
+            },
+            "aws:inspector2/memberAssociation:MemberAssociation": {
+                "accountId": "account_id"
             },
             "aws:inspector2/organizationConfiguration:OrganizationConfiguration": {
                 "autoEnable": "auto_enable",
@@ -20857,6 +20904,34 @@
                 "certificateName": "certificate_name",
                 "domainNames": "domain_names"
             },
+            "aws:lightsail/DistributionCacheBehaviorSettings:DistributionCacheBehaviorSettings": {
+                "allowedHttpMethods": "allowed_http_methods",
+                "cachedHttpMethods": "cached_http_methods",
+                "defaultTtl": "default_ttl",
+                "forwardedCookies": "forwarded_cookies",
+                "forwardedHeaders": "forwarded_headers",
+                "forwardedQueryStrings": "forwarded_query_strings",
+                "maximumTtl": "maximum_ttl",
+                "minimumTtl": "minimum_ttl"
+            },
+            "aws:lightsail/DistributionCacheBehaviorSettingsForwardedCookies:DistributionCacheBehaviorSettingsForwardedCookies": {
+                "cookiesAllowLists": "cookies_allow_list"
+            },
+            "aws:lightsail/DistributionCacheBehaviorSettingsForwardedHeaders:DistributionCacheBehaviorSettingsForwardedHeaders": {
+                "headersAllowLists": "headers_allow_list"
+            },
+            "aws:lightsail/DistributionCacheBehaviorSettingsForwardedQueryStrings:DistributionCacheBehaviorSettingsForwardedQueryStrings": {
+                "queryStringsAllowedLists": "query_strings_allowed_list"
+            },
+            "aws:lightsail/DistributionLocation:DistributionLocation": {
+                "availabilityZone": "availability_zone",
+                "regionName": "region_name"
+            },
+            "aws:lightsail/DistributionOrigin:DistributionOrigin": {
+                "protocolPolicy": "protocol_policy",
+                "regionName": "region_name",
+                "resourceType": "resource_type"
+            },
             "aws:lightsail/InstanceAddOn:InstanceAddOn": {
                 "snapshotTime": "snapshot_time"
             },
@@ -20952,6 +21027,23 @@
                 "diskName": "disk_name",
                 "diskPath": "disk_path",
                 "instanceName": "instance_name"
+            },
+            "aws:lightsail/distribution:Distribution": {
+                "alternativeDomainNames": "alternative_domain_names",
+                "bundleId": "bundle_id",
+                "cacheBehaviorSettings": "cache_behavior_settings",
+                "cacheBehaviors": "cache_behavior",
+                "certificateName": "certificate_name",
+                "createdAt": "created_at",
+                "defaultCacheBehavior": "default_cache_behavior",
+                "domainName": "domain_name",
+                "ipAddressType": "ip_address_type",
+                "isEnabled": "is_enabled",
+                "locations": "location",
+                "originPublicDns": "origin_public_dns",
+                "resourceType": "resource_type",
+                "supportCode": "support_code",
+                "tagsAll": "tags_all"
             },
             "aws:lightsail/domain:Domain": {
                 "domainName": "domain_name"
@@ -21722,7 +21814,7 @@
                 "destinationRefId": "destination_ref_id"
             },
             "aws:medialive/ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings:ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings": {
-                "certficateMode": "certficate_mode",
+                "certificateMode": "certificate_mode",
                 "connectionRetryInterval": "connection_retry_interval",
                 "numRetries": "num_retries"
             },
@@ -23295,6 +23387,13 @@
                 "tagsAll": "tags_all",
                 "vpcArn": "vpc_arn"
             },
+            "aws:oam/getLink:getLink": {
+                "labelTemplate": "label_template",
+                "linkId": "link_id",
+                "linkIdentifier": "link_identifier",
+                "resourceTypes": "resource_types",
+                "sinkArn": "sink_arn"
+            },
             "aws:oam/getSink:getSink": {
                 "sinkId": "sink_id",
                 "sinkIdentifier": "sink_identifier"
@@ -24538,6 +24637,119 @@
                 "streamName": "stream_name",
                 "tagsAll": "tags_all"
             },
+            "aws:quicksight/DataSetColumnGroup:DataSetColumnGroup": {
+                "geoSpatialColumnGroup": "geo_spatial_column_group"
+            },
+            "aws:quicksight/DataSetColumnGroupGeoSpatialColumnGroup:DataSetColumnGroupGeoSpatialColumnGroup": {
+                "countryCode": "country_code"
+            },
+            "aws:quicksight/DataSetColumnLevelPermissionRule:DataSetColumnLevelPermissionRule": {
+                "columnNames": "column_names"
+            },
+            "aws:quicksight/DataSetDataSetUsageConfiguration:DataSetDataSetUsageConfiguration": {
+                "disableUseAsDirectQuerySource": "disable_use_as_direct_query_source",
+                "disableUseAsImportedSource": "disable_use_as_imported_source"
+            },
+            "aws:quicksight/DataSetFieldFolder:DataSetFieldFolder": {
+                "fieldFoldersId": "field_folders_id"
+            },
+            "aws:quicksight/DataSetLogicalTableMap:DataSetLogicalTableMap": {
+                "dataTransforms": "data_transforms",
+                "logicalTableMapId": "logical_table_map_id"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransform:DataSetLogicalTableMapDataTransform": {
+                "castColumnTypeOperation": "cast_column_type_operation",
+                "createColumnsOperation": "create_columns_operation",
+                "filterOperation": "filter_operation",
+                "projectOperation": "project_operation",
+                "renameColumnOperation": "rename_column_operation",
+                "tagColumnOperation": "tag_column_operation",
+                "untagColumnOperation": "untag_column_operation"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransformCastColumnTypeOperation:DataSetLogicalTableMapDataTransformCastColumnTypeOperation": {
+                "columnName": "column_name",
+                "newColumnType": "new_column_type"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn:DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn": {
+                "columnId": "column_id",
+                "columnName": "column_name"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransformFilterOperation:DataSetLogicalTableMapDataTransformFilterOperation": {
+                "conditionExpression": "condition_expression"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransformProjectOperation:DataSetLogicalTableMapDataTransformProjectOperation": {
+                "projectedColumns": "projected_columns"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransformRenameColumnOperation:DataSetLogicalTableMapDataTransformRenameColumnOperation": {
+                "columnName": "column_name",
+                "newColumnName": "new_column_name"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransformTagColumnOperation:DataSetLogicalTableMapDataTransformTagColumnOperation": {
+                "columnName": "column_name"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransformTagColumnOperationTag:DataSetLogicalTableMapDataTransformTagColumnOperationTag": {
+                "columnDescription": "column_description",
+                "columnGeographicRole": "column_geographic_role"
+            },
+            "aws:quicksight/DataSetLogicalTableMapDataTransformUntagColumnOperation:DataSetLogicalTableMapDataTransformUntagColumnOperation": {
+                "columnName": "column_name",
+                "tagNames": "tag_names"
+            },
+            "aws:quicksight/DataSetLogicalTableMapSource:DataSetLogicalTableMapSource": {
+                "dataSetArn": "data_set_arn",
+                "joinInstruction": "join_instruction",
+                "physicalTableId": "physical_table_id"
+            },
+            "aws:quicksight/DataSetLogicalTableMapSourceJoinInstruction:DataSetLogicalTableMapSourceJoinInstruction": {
+                "leftJoinKeyProperties": "left_join_key_properties",
+                "leftOperand": "left_operand",
+                "onClause": "on_clause",
+                "rightJoinKeyProperties": "right_join_key_properties",
+                "rightOperand": "right_operand"
+            },
+            "aws:quicksight/DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties:DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties": {
+                "uniqueKey": "unique_key"
+            },
+            "aws:quicksight/DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties:DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties": {
+                "uniqueKey": "unique_key"
+            },
+            "aws:quicksight/DataSetPhysicalTableMap:DataSetPhysicalTableMap": {
+                "customSql": "custom_sql",
+                "physicalTableMapId": "physical_table_map_id",
+                "relationalTable": "relational_table",
+                "s3Source": "s3_source"
+            },
+            "aws:quicksight/DataSetPhysicalTableMapCustomSql:DataSetPhysicalTableMapCustomSql": {
+                "dataSourceArn": "data_source_arn",
+                "sqlQuery": "sql_query"
+            },
+            "aws:quicksight/DataSetPhysicalTableMapRelationalTable:DataSetPhysicalTableMapRelationalTable": {
+                "dataSourceArn": "data_source_arn",
+                "inputColumns": "input_columns"
+            },
+            "aws:quicksight/DataSetPhysicalTableMapS3Source:DataSetPhysicalTableMapS3Source": {
+                "dataSourceArn": "data_source_arn",
+                "inputColumns": "input_columns",
+                "uploadSettings": "upload_settings"
+            },
+            "aws:quicksight/DataSetPhysicalTableMapS3SourceUploadSettings:DataSetPhysicalTableMapS3SourceUploadSettings": {
+                "containsHeader": "contains_header",
+                "startFromRow": "start_from_row",
+                "textQualifier": "text_qualifier"
+            },
+            "aws:quicksight/DataSetRowLevelPermissionDataSet:DataSetRowLevelPermissionDataSet": {
+                "formatVersion": "format_version",
+                "permissionPolicy": "permission_policy"
+            },
+            "aws:quicksight/DataSetRowLevelPermissionTagConfiguration:DataSetRowLevelPermissionTagConfiguration": {
+                "tagRules": "tag_rules"
+            },
+            "aws:quicksight/DataSetRowLevelPermissionTagConfigurationTagRule:DataSetRowLevelPermissionTagConfigurationTagRule": {
+                "columnName": "column_name",
+                "matchAllValue": "match_all_value",
+                "tagKey": "tag_key",
+                "tagMultiValueDelimiter": "tag_multi_value_delimiter"
+            },
             "aws:quicksight/DataSourceCredentials:DataSourceCredentials": {
                 "copySourceArn": "copy_source_arn",
                 "credentialPair": "credential_pair"
@@ -24580,6 +24792,36 @@
             "aws:quicksight/DataSourceVpcConnectionProperties:DataSourceVpcConnectionProperties": {
                 "vpcConnectionArn": "vpc_connection_arn"
             },
+            "aws:quicksight/accountSubscription:AccountSubscription": {
+                "accountName": "account_name",
+                "accountSubscriptionStatus": "account_subscription_status",
+                "activeDirectoryName": "active_directory_name",
+                "adminGroups": "admin_group",
+                "authenticationMethod": "authentication_method",
+                "authorGroups": "author_group",
+                "awsAccountId": "aws_account_id",
+                "contactNumber": "contact_number",
+                "directoryId": "directory_id",
+                "emailAddress": "email_address",
+                "firstName": "first_name",
+                "lastName": "last_name",
+                "notificationEmail": "notification_email",
+                "readerGroups": "reader_group"
+            },
+            "aws:quicksight/dataSet:DataSet": {
+                "awsAccountId": "aws_account_id",
+                "columnGroups": "column_groups",
+                "columnLevelPermissionRules": "column_level_permission_rules",
+                "dataSetId": "data_set_id",
+                "dataSetUsageConfiguration": "data_set_usage_configuration",
+                "fieldFolders": "field_folders",
+                "importMode": "import_mode",
+                "logicalTableMaps": "logical_table_map",
+                "physicalTableMaps": "physical_table_map",
+                "rowLevelPermissionDataSet": "row_level_permission_data_set",
+                "rowLevelPermissionTagConfiguration": "row_level_permission_tag_configuration",
+                "tagsAll": "tags_all"
+            },
             "aws:quicksight/dataSource:DataSource": {
                 "awsAccountId": "aws_account_id",
                 "dataSourceId": "data_source_id",
@@ -24587,6 +24829,144 @@
                 "sslProperties": "ssl_properties",
                 "tagsAll": "tags_all",
                 "vpcConnectionProperties": "vpc_connection_properties"
+            },
+            "aws:quicksight/folder:Folder": {
+                "awsAccountId": "aws_account_id",
+                "createdTime": "created_time",
+                "folderId": "folder_id",
+                "folderPaths": "folder_path",
+                "folderType": "folder_type",
+                "lastUpdatedTime": "last_updated_time",
+                "parentFolderArn": "parent_folder_arn",
+                "tagsAll": "tags_all"
+            },
+            "aws:quicksight/getDataSet:getDataSet": {
+                "awsAccountId": "aws_account_id",
+                "columnGroups": "column_groups",
+                "columnLevelPermissionRules": "column_level_permission_rules",
+                "dataSetId": "data_set_id",
+                "dataSetUsageConfigurations": "data_set_usage_configuration",
+                "fieldFolders": "field_folders",
+                "importMode": "import_mode",
+                "logicalTableMaps": "logical_table_map",
+                "physicalTableMaps": "physical_table_map",
+                "rowLevelPermissionDataSets": "row_level_permission_data_set",
+                "rowLevelPermissionTagConfigurations": "row_level_permission_tag_configuration",
+                "tagsAll": "tags_all"
+            },
+            "aws:quicksight/getDataSetColumnGroup:getDataSetColumnGroup": {
+                "geoSpatialColumnGroups": "geo_spatial_column_group"
+            },
+            "aws:quicksight/getDataSetColumnGroupGeoSpatialColumnGroup:getDataSetColumnGroupGeoSpatialColumnGroup": {
+                "countryCode": "country_code"
+            },
+            "aws:quicksight/getDataSetColumnLevelPermissionRule:getDataSetColumnLevelPermissionRule": {
+                "columnNames": "column_names"
+            },
+            "aws:quicksight/getDataSetDataSetUsageConfiguration:getDataSetDataSetUsageConfiguration": {
+                "disableUseAsDirectQuerySource": "disable_use_as_direct_query_source",
+                "disableUseAsImportedSource": "disable_use_as_imported_source"
+            },
+            "aws:quicksight/getDataSetFieldFolder:getDataSetFieldFolder": {
+                "fieldFoldersId": "field_folders_id"
+            },
+            "aws:quicksight/getDataSetLogicalTableMap:getDataSetLogicalTableMap": {
+                "dataTransforms": "data_transforms",
+                "logicalTableMapId": "logical_table_map_id",
+                "sources": "source"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransform:getDataSetLogicalTableMapDataTransform": {
+                "castColumnTypeOperations": "cast_column_type_operation",
+                "createColumnsOperations": "create_columns_operation",
+                "filterOperations": "filter_operation",
+                "projectOperations": "project_operation",
+                "renameColumnOperations": "rename_column_operation",
+                "tagColumnOperations": "tag_column_operation",
+                "untagColumnOperations": "untag_column_operation"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransformCastColumnTypeOperation:getDataSetLogicalTableMapDataTransformCastColumnTypeOperation": {
+                "columnName": "column_name",
+                "newColumnType": "new_column_type"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn:getDataSetLogicalTableMapDataTransformCreateColumnsOperationColumn": {
+                "columnId": "column_id",
+                "columnName": "column_name"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransformFilterOperation:getDataSetLogicalTableMapDataTransformFilterOperation": {
+                "conditionExpression": "condition_expression"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransformProjectOperation:getDataSetLogicalTableMapDataTransformProjectOperation": {
+                "projectedColumns": "projected_columns"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransformRenameColumnOperation:getDataSetLogicalTableMapDataTransformRenameColumnOperation": {
+                "columnName": "column_name",
+                "newColumnName": "new_column_name"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransformTagColumnOperation:getDataSetLogicalTableMapDataTransformTagColumnOperation": {
+                "columnName": "column_name"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransformTagColumnOperationTag:getDataSetLogicalTableMapDataTransformTagColumnOperationTag": {
+                "columnDescriptions": "column_description",
+                "columnGeographicRole": "column_geographic_role"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapDataTransformUntagColumnOperation:getDataSetLogicalTableMapDataTransformUntagColumnOperation": {
+                "columnName": "column_name",
+                "tagNames": "tag_names"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapSource:getDataSetLogicalTableMapSource": {
+                "dataSetArn": "data_set_arn",
+                "joinInstructions": "join_instruction",
+                "physicalTableId": "physical_table_id"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapSourceJoinInstruction:getDataSetLogicalTableMapSourceJoinInstruction": {
+                "leftJoinKeyProperties": "left_join_key_properties",
+                "leftOperand": "left_operand",
+                "onClause": "on_clause",
+                "rightJoinKeyProperties": "right_join_key_properties",
+                "rightOperand": "right_operand"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty:getDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty": {
+                "uniqueKey": "unique_key"
+            },
+            "aws:quicksight/getDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty:getDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperty": {
+                "uniqueKey": "unique_key"
+            },
+            "aws:quicksight/getDataSetPhysicalTableMap:getDataSetPhysicalTableMap": {
+                "customSqls": "custom_sql",
+                "physicalTableMapId": "physical_table_map_id",
+                "relationalTables": "relational_table",
+                "s3Sources": "s3_source"
+            },
+            "aws:quicksight/getDataSetPhysicalTableMapCustomSql:getDataSetPhysicalTableMapCustomSql": {
+                "dataSourceArn": "data_source_arn",
+                "sqlQuery": "sql_query"
+            },
+            "aws:quicksight/getDataSetPhysicalTableMapRelationalTable:getDataSetPhysicalTableMapRelationalTable": {
+                "dataSourceArn": "data_source_arn",
+                "inputColumns": "input_columns"
+            },
+            "aws:quicksight/getDataSetPhysicalTableMapS3Source:getDataSetPhysicalTableMapS3Source": {
+                "dataSourceArn": "data_source_arn",
+                "inputColumns": "input_columns",
+                "uploadSettings": "upload_settings"
+            },
+            "aws:quicksight/getDataSetPhysicalTableMapS3SourceUploadSetting:getDataSetPhysicalTableMapS3SourceUploadSetting": {
+                "containsHeader": "contains_header",
+                "startFromRow": "start_from_row",
+                "textQualifier": "text_qualifier"
+            },
+            "aws:quicksight/getDataSetRowLevelPermissionDataSet:getDataSetRowLevelPermissionDataSet": {
+                "formatVersion": "format_version",
+                "permissionPolicy": "permission_policy"
+            },
+            "aws:quicksight/getDataSetRowLevelPermissionTagConfiguration:getDataSetRowLevelPermissionTagConfiguration": {
+                "tagRules": "tag_rules"
+            },
+            "aws:quicksight/getDataSetRowLevelPermissionTagConfigurationTagRule:getDataSetRowLevelPermissionTagConfigurationTagRule": {
+                "columnName": "column_name",
+                "matchAllValue": "match_all_value",
+                "tagKey": "tag_key",
+                "tagMultiValueDelimiter": "tag_multi_value_delimiter"
             },
             "aws:quicksight/group:Group": {
                 "awsAccountId": "aws_account_id",
@@ -25065,6 +25445,7 @@
             },
             "aws:rds/getProxyAuth:getProxyAuth": {
                 "authScheme": "auth_scheme",
+                "clientPasswordAuthType": "client_password_auth_type",
                 "iamAuth": "iam_auth",
                 "secretArn": "secret_arn"
             },
@@ -27073,7 +27454,8 @@
             "aws:sagemaker/FeatureGroupOfflineStoreConfig:FeatureGroupOfflineStoreConfig": {
                 "dataCatalogConfig": "data_catalog_config",
                 "disableGlueTableCreation": "disable_glue_table_creation",
-                "s3StorageConfig": "s3_storage_config"
+                "s3StorageConfig": "s3_storage_config",
+                "tableFormat": "table_format"
             },
             "aws:sagemaker/FeatureGroupOfflineStoreConfigDataCatalogConfig:FeatureGroupOfflineStoreConfigDataCatalogConfig": {
                 "tableName": "table_name"
@@ -27354,6 +27736,7 @@
                 "asyncInferenceConfig": "async_inference_config",
                 "dataCaptureConfig": "data_capture_config",
                 "kmsKeyArn": "kms_key_arn",
+                "namePrefix": "name_prefix",
                 "productionVariants": "production_variants",
                 "shadowProductionVariants": "shadow_production_variants",
                 "tagsAll": "tags_all"
@@ -27572,10 +27955,12 @@
                 "statusMessage": "status_message"
             },
             "aws:secretsmanager/SecretRotationRotationRules:SecretRotationRotationRules": {
-                "automaticallyAfterDays": "automatically_after_days"
+                "automaticallyAfterDays": "automatically_after_days",
+                "scheduleExpression": "schedule_expression"
             },
             "aws:secretsmanager/SecretRotationRules:SecretRotationRules": {
-                "automaticallyAfterDays": "automatically_after_days"
+                "automaticallyAfterDays": "automatically_after_days",
+                "scheduleExpression": "schedule_expression"
             },
             "aws:secretsmanager/getRandomPassword:getRandomPassword": {
                 "excludeCharacters": "exclude_characters",
@@ -27601,10 +27986,12 @@
                 "secretId": "secret_id"
             },
             "aws:secretsmanager/getSecretRotationRotationRule:getSecretRotationRotationRule": {
-                "automaticallyAfterDays": "automatically_after_days"
+                "automaticallyAfterDays": "automatically_after_days",
+                "scheduleExpression": "schedule_expression"
             },
             "aws:secretsmanager/getSecretRotationRule:getSecretRotationRule": {
-                "automaticallyAfterDays": "automatically_after_days"
+                "automaticallyAfterDays": "automatically_after_days",
+                "scheduleExpression": "schedule_expression"
             },
             "aws:secretsmanager/getSecretVersion:getSecretVersion": {
                 "secretBinary": "secret_binary",
@@ -29260,6 +29647,32 @@
                 "securityGroupRuleId": "security_group_rule_id",
                 "tagsAll": "tags_all",
                 "toPort": "to_port"
+            },
+            "aws:vpclattice/ServiceDnsEntry:ServiceDnsEntry": {
+                "domainName": "domain_name",
+                "hostedZoneId": "hosted_zone_id"
+            },
+            "aws:vpclattice/getService:getService": {
+                "authType": "auth_type",
+                "certificateArn": "certificate_arn",
+                "customDomainName": "custom_domain_name",
+                "dnsEntries": "dns_entry",
+                "serviceIdentifier": "service_identifier"
+            },
+            "aws:vpclattice/getServiceDnsEntry:getServiceDnsEntry": {
+                "domainName": "domain_name",
+                "hostedZoneId": "hosted_zone_id"
+            },
+            "aws:vpclattice/service:Service": {
+                "authType": "auth_type",
+                "certificateArn": "certificate_arn",
+                "customDomainName": "custom_domain_name",
+                "dnsEntries": "dns_entry",
+                "tagsAll": "tags_all"
+            },
+            "aws:vpclattice/serviceNetwork:ServiceNetwork": {
+                "authType": "auth_type",
+                "tagsAll": "tags_all"
             },
             "aws:waf/ByteMatchSetByteMatchTuple:ByteMatchSetByteMatchTuple": {
                 "fieldToMatch": "field_to_match",
