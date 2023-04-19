@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InputSecurityGroup{}
 	case "aws:medialive/multiplex:Multiplex":
 		r = &Multiplex{}
+	case "aws:medialive/multiplexProgram:MultiplexProgram":
+		r = &MultiplexProgram{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"medialive/multiplex",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"medialive/multiplexProgram",
 		&module{version},
 	)
 }

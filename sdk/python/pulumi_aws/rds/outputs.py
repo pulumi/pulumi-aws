@@ -18,6 +18,7 @@ __all__ = [
     'ClusterS3Import',
     'ClusterScalingConfiguration',
     'ClusterServerlessv2ScalingConfiguration',
+    'ExportTaskTimeouts',
     'GlobalClusterGlobalClusterMember',
     'InstanceBlueGreenUpdate',
     'InstanceListenerEndpoint',
@@ -470,6 +471,27 @@ class ClusterServerlessv2ScalingConfiguration(dict):
         The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
         """
         return pulumi.get(self, "min_capacity")
+
+
+@pulumi.output_type
+class ExportTaskTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type

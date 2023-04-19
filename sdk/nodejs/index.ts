@@ -120,6 +120,7 @@ import * as apprunner from "./apprunner";
 import * as appstream from "./appstream";
 import * as appsync from "./appsync";
 import * as athena from "./athena";
+import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
 import * as autoscalingplans from "./autoscalingplans";
 import * as backup from "./backup";
@@ -240,6 +241,7 @@ import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as redshiftdata from "./redshiftdata";
 import * as redshiftserverless from "./redshiftserverless";
+import * as resourceexplorer from "./resourceexplorer";
 import * as resourcegroups from "./resourcegroups";
 import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
 import * as rolesanywhere from "./rolesanywhere";
@@ -279,6 +281,7 @@ import * as timestreamwrite from "./timestreamwrite";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
+import * as vpc from "./vpc";
 import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
@@ -307,6 +310,7 @@ export {
     appstream,
     appsync,
     athena,
+    auditmanager,
     autoscaling,
     autoscalingplans,
     backup,
@@ -427,6 +431,7 @@ export {
     redshift,
     redshiftdata,
     redshiftserverless,
+    resourceexplorer,
     resourcegroups,
     resourcegroupstaggingapi,
     rolesanywhere,
@@ -466,6 +471,7 @@ export {
     transcribe,
     transfer,
     types,
+    vpc,
     vpclattice,
     waf,
     wafregional,

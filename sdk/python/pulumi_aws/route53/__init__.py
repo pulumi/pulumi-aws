@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .cidr_collection import *
+from .cidr_location import *
 from .delegation_set import *
 from .get_delegation_set import *
 from .get_resolver_endpoint import *

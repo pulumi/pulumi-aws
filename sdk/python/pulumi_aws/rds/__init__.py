@@ -14,6 +14,7 @@ from .cluster_parameter_group import *
 from .cluster_role_association import *
 from .cluster_snapshot import *
 from .event_subscription import *
+from .export_task import *
 from .get_certificate import *
 from .get_cluster import *
 from .get_cluster_snapshot import *
