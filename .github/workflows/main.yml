@@ -460,6 +460,10 @@ jobs:
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
+    - uses: actions/setup-go@v4
+      with:
+       go-version-file: 'provider/shim/go.mod'
+       cache-dependency-path: 'provider/shim/go.sum'
     - name: go test
       run: |
         cd provider/shim
