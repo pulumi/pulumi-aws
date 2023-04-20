@@ -39,9 +39,11 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
         go-version: ${{matrix.goversion}}
+        cache-dependency-path: |
+            **/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -151,9 +153,11 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
         go-version: ${{matrix.goversion}}
+        cache-dependency-path: |
+            **/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -199,9 +203,11 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
         go-version: ${{matrix.goversion}}
+        cache-dependency-path: |
+            **/go.sum
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
@@ -274,9 +280,11 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
         go-version: ${{matrix.goversion}}
+        cache-dependency-path: |
+            **/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -335,9 +343,11 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
         go-version: ${{matrix.goversion}}
+        cache-dependency-path: |
+            **/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -396,9 +406,11 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
         go-version: ${{matrix.goversion}}
+        cache-dependency-path: |
+            **/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -469,12 +481,17 @@ jobs:
       github.event.pull_request.head.repo.full_name == github.repository
     name: Run test of provider shim
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
+    - uses: actions/setup-go@v4
+      with:
+       go-version-file: 'provider/shim/go.mod'
+       cache-dependency-path: 'provider/shim/go.sum'
     - name: go test
       run: |
         cd provider/shim
@@ -500,9 +517,11 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
         go-version: ${{matrix.goversion}}
+        cache-dependency-path: |
+            **/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
