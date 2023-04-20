@@ -17,6 +17,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     public static final CertificateState Empty = new CertificateState();
 
     /**
+     * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+     * 
+     */
+    @Import(name="apiPassthrough")
+    private @Nullable Output<String> apiPassthrough;
+
+    /**
+     * @return Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+     * 
+     */
+    public Optional<Output<String>> apiPassthrough() {
+        return Optional.ofNullable(this.apiPassthrough);
+    }
+
+    /**
      * ARN of the certificate.
      * 
      */
@@ -141,6 +156,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     private CertificateState() {}
 
     private CertificateState(CertificateState $) {
+        this.apiPassthrough = $.apiPassthrough;
         this.arn = $.arn;
         this.certificate = $.certificate;
         this.certificateAuthorityArn = $.certificateAuthorityArn;
@@ -167,6 +183,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(CertificateState defaults) {
             $ = new CertificateState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param apiPassthrough Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiPassthrough(@Nullable Output<String> apiPassthrough) {
+            $.apiPassthrough = apiPassthrough;
+            return this;
+        }
+
+        /**
+         * @param apiPassthrough Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiPassthrough(String apiPassthrough) {
+            return apiPassthrough(Output.of(apiPassthrough));
         }
 
         /**

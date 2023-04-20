@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
+    /**
+     * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet;
     /**
      * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
      * 
@@ -41,6 +47,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig() {}
+    /**
+     * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet> awsManagedRulesAtpRuleSet() {
+        return Optional.ofNullable(this.awsManagedRulesAtpRuleSet);
+    }
     /**
      * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
      * 
@@ -86,6 +99,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet;
         private @Nullable String loginPath;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField passwordField;
@@ -94,6 +108,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.awsManagedRulesAtpRuleSet = defaults.awsManagedRulesAtpRuleSet;
     	      this.awsManagedRulesBotControlRuleSet = defaults.awsManagedRulesBotControlRuleSet;
     	      this.loginPath = defaults.loginPath;
     	      this.passwordField = defaults.passwordField;
@@ -101,6 +116,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     	      this.usernameField = defaults.usernameField;
         }
 
+        @CustomType.Setter
+        public Builder awsManagedRulesAtpRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet) {
+            this.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
+            return this;
+        }
         @CustomType.Setter
         public Builder awsManagedRulesBotControlRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet) {
             this.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
@@ -128,6 +148,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig build() {
             final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig();
+            o.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
             o.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             o.loginPath = loginPath;
             o.passwordField = passwordField;

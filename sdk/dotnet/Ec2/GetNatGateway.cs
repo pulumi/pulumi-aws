@@ -232,6 +232,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string AllocationId;
         /// <summary>
+        /// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        /// </summary>
+        public readonly string AssociationId;
+        /// <summary>
         /// Connectivity type of the NAT Gateway.
         /// </summary>
         public readonly string ConnectivityType;
@@ -258,6 +262,8 @@ namespace Pulumi.Aws.Ec2
         private GetNatGatewayResult(
             string allocationId,
 
+            string associationId,
+
             string connectivityType,
 
             ImmutableArray<Outputs.GetNatGatewayFilterResult> filters,
@@ -279,6 +285,7 @@ namespace Pulumi.Aws.Ec2
             string vpcId)
         {
             AllocationId = allocationId;
+            AssociationId = associationId;
             ConnectivityType = connectivityType;
             Filters = filters;
             Id = id;

@@ -141,6 +141,12 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the AWS Direct Connect service provider associated with the connection.
+        /// </summary>
+        [Output("partnerName")]
+        public Output<string> PartnerName { get; private set; } = null!;
+
+        /// <summary>
         /// The MAC Security (MACsec) port link status of the connection.
         /// </summary>
         [Output("portEncryptionStatus")]
@@ -361,6 +367,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the AWS Direct Connect service provider associated with the connection.
+        /// </summary>
+        [Input("partnerName")]
+        public Input<string>? PartnerName { get; set; }
 
         /// <summary>
         /// The MAC Security (MACsec) port link status of the connection.

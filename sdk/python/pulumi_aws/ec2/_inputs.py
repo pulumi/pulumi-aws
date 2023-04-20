@@ -4435,7 +4435,8 @@ class LaunchTemplateCpuOptionsArgs:
                  threads_per_core: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] core_count: The number of CPU cores for the instance.
-        :param pulumi.Input[int] threads_per_core: The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+        :param pulumi.Input[int] threads_per_core: The number of threads per CPU core.
+               To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
                Otherwise, specify the default value of 2.
         """
         if core_count is not None:
@@ -4459,7 +4460,8 @@ class LaunchTemplateCpuOptionsArgs:
     @pulumi.getter(name="threadsPerCore")
     def threads_per_core(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+        The number of threads per CPU core.
+        To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
         Otherwise, specify the default value of 2.
         """
         return pulumi.get(self, "threads_per_core")
@@ -4474,7 +4476,10 @@ class LaunchTemplateCreditSpecificationArgs:
     def __init__(__self__, *,
                  cpu_credits: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] cpu_credits: The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        :param pulumi.Input[str] cpu_credits: The credit option for CPU usage.
+               Can be `standard` or `unlimited`.
+               T3 instances are launched as `unlimited` by default.
+               T2 instances are launched as `standard` by default.
         """
         if cpu_credits is not None:
             pulumi.set(__self__, "cpu_credits", cpu_credits)
@@ -4483,7 +4488,10 @@ class LaunchTemplateCreditSpecificationArgs:
     @pulumi.getter(name="cpuCredits")
     def cpu_credits(self) -> Optional[pulumi.Input[str]]:
         """
-        The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        The credit option for CPU usage.
+        Can be `standard` or `unlimited`.
+        T3 instances are launched as `unlimited` by default.
+        T2 instances are launched as `standard` by default.
         """
         return pulumi.get(self, "cpu_credits")
 
@@ -5524,10 +5532,10 @@ class LaunchTemplateMetadataOptionsArgs:
                  http_tokens: Optional[pulumi.Input[str]] = None,
                  instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `enabled` or `disabled`.
         :param pulumi.Input[str] http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
-        :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
         :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
         """
         if http_endpoint is not None:
@@ -5545,7 +5553,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpEndpoint")
     def http_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        Whether the metadata service is available. Can be `enabled` or `disabled`.
         """
         return pulumi.get(self, "http_endpoint")
 
@@ -5569,7 +5577,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpPutResponseHopLimit")
     def http_put_response_hop_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
         """
         return pulumi.get(self, "http_put_response_hop_limit")
 
@@ -5581,7 +5589,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
         """
         return pulumi.get(self, "http_tokens")
 

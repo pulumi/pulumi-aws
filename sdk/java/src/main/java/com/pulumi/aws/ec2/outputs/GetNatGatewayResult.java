@@ -19,6 +19,11 @@ public final class GetNatGatewayResult {
      */
     private String allocationId;
     /**
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * 
+     */
+    private String associationId;
+    /**
      * @return Connectivity type of the NAT Gateway.
      * 
      */
@@ -52,6 +57,13 @@ public final class GetNatGatewayResult {
      */
     public String allocationId() {
         return this.allocationId;
+    }
+    /**
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * 
+     */
+    public String associationId() {
+        return this.associationId;
     }
     /**
      * @return Connectivity type of the NAT Gateway.
@@ -110,6 +122,7 @@ public final class GetNatGatewayResult {
     @CustomType.Builder
     public static final class Builder {
         private String allocationId;
+        private String associationId;
         private String connectivityType;
         private @Nullable List<GetNatGatewayFilter> filters;
         private String id;
@@ -124,6 +137,7 @@ public final class GetNatGatewayResult {
         public Builder(GetNatGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationId = defaults.allocationId;
+    	      this.associationId = defaults.associationId;
     	      this.connectivityType = defaults.connectivityType;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
@@ -139,6 +153,11 @@ public final class GetNatGatewayResult {
         @CustomType.Setter
         public Builder allocationId(String allocationId) {
             this.allocationId = Objects.requireNonNull(allocationId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder associationId(String associationId) {
+            this.associationId = Objects.requireNonNull(associationId);
             return this;
         }
         @CustomType.Setter
@@ -197,6 +216,7 @@ public final class GetNatGatewayResult {
         public GetNatGatewayResult build() {
             final var o = new GetNatGatewayResult();
             o.allocationId = allocationId;
+            o.associationId = associationId;
             o.connectivityType = connectivityType;
             o.filters = filters;
             o.id = id;

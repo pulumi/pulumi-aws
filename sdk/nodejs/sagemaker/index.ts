@@ -20,6 +20,11 @@ export type CodeRepository = import("./codeRepository").CodeRepository;
 export const CodeRepository: typeof import("./codeRepository").CodeRepository = null as any;
 utilities.lazyLoad(exports, ["CodeRepository"], () => require("./codeRepository"));
 
+export { DataQualityJobDefinitionArgs, DataQualityJobDefinitionState } from "./dataQualityJobDefinition";
+export type DataQualityJobDefinition = import("./dataQualityJobDefinition").DataQualityJobDefinition;
+export const DataQualityJobDefinition: typeof import("./dataQualityJobDefinition").DataQualityJobDefinition = null as any;
+utilities.lazyLoad(exports, ["DataQualityJobDefinition"], () => require("./dataQualityJobDefinition"));
+
 export { DeviceArgs, DeviceState } from "./device";
 export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
@@ -90,6 +95,11 @@ export type ModelPackageGroupPolicy = import("./modelPackageGroupPolicy").ModelP
 export const ModelPackageGroupPolicy: typeof import("./modelPackageGroupPolicy").ModelPackageGroupPolicy = null as any;
 utilities.lazyLoad(exports, ["ModelPackageGroupPolicy"], () => require("./modelPackageGroupPolicy"));
 
+export { MonitoringScheduleArgs, MonitoringScheduleState } from "./monitoringSchedule";
+export type MonitoringSchedule = import("./monitoringSchedule").MonitoringSchedule;
+export const MonitoringSchedule: typeof import("./monitoringSchedule").MonitoringSchedule = null as any;
+utilities.lazyLoad(exports, ["MonitoringSchedule"], () => require("./monitoringSchedule"));
+
 export { NotebookInstanceArgs, NotebookInstanceState } from "./notebookInstance";
 export type NotebookInstance = import("./notebookInstance").NotebookInstance;
 export const NotebookInstance: typeof import("./notebookInstance").NotebookInstance = null as any;
@@ -146,6 +156,8 @@ const _module = {
                 return new AppImageConfig(name, <any>undefined, { urn })
             case "aws:sagemaker/codeRepository:CodeRepository":
                 return new CodeRepository(name, <any>undefined, { urn })
+            case "aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition":
+                return new DataQualityJobDefinition(name, <any>undefined, { urn })
             case "aws:sagemaker/device:Device":
                 return new Device(name, <any>undefined, { urn })
             case "aws:sagemaker/deviceFleet:DeviceFleet":
@@ -172,6 +184,8 @@ const _module = {
                 return new ModelPackageGroup(name, <any>undefined, { urn })
             case "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy":
                 return new ModelPackageGroupPolicy(name, <any>undefined, { urn })
+            case "aws:sagemaker/monitoringSchedule:MonitoringSchedule":
+                return new MonitoringSchedule(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstance:NotebookInstance":
                 return new NotebookInstance(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
@@ -198,6 +212,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "sagemaker/app", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/appImageConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/codeRepository", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/dataQualityJobDefinition", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/device", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/deviceFleet", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/domain", _module)
@@ -211,6 +226,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroupPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/monitoringSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/project", _module)

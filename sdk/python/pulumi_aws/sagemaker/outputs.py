@@ -16,6 +16,24 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfigKernelSpec',
     'AppResourceSpec',
     'CodeRepositoryGitConfig',
+    'DataQualityJobDefinitionDataQualityAppSpecification',
+    'DataQualityJobDefinitionDataQualityBaselineConfig',
+    'DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource',
+    'DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource',
+    'DataQualityJobDefinitionDataQualityJobInput',
+    'DataQualityJobDefinitionDataQualityJobInputBatchTransformInput',
+    'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat',
+    'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv',
+    'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson',
+    'DataQualityJobDefinitionDataQualityJobInputEndpointInput',
+    'DataQualityJobDefinitionDataQualityJobOutputConfig',
+    'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs',
+    'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output',
+    'DataQualityJobDefinitionJobResources',
+    'DataQualityJobDefinitionJobResourcesClusterConfig',
+    'DataQualityJobDefinitionNetworkConfig',
+    'DataQualityJobDefinitionNetworkConfigVpcConfig',
+    'DataQualityJobDefinitionStoppingCondition',
     'DeviceDevice',
     'DeviceFleetOutputConfig',
     'DomainDefaultSpaceSettings',
@@ -84,6 +102,8 @@ __all__ = [
     'ModelPrimaryContainerImageConfig',
     'ModelPrimaryContainerImageConfigRepositoryAuthConfig',
     'ModelVpcConfig',
+    'MonitoringScheduleMonitoringScheduleConfig',
+    'MonitoringScheduleMonitoringScheduleConfigScheduleConfig',
     'NotebookInstanceInstanceMetadataServiceConfiguration',
     'ProjectServiceCatalogProvisioningDetails',
     'ProjectServiceCatalogProvisioningDetailsProvisioningParameter',
@@ -416,6 +436,892 @@ class CodeRepositoryGitConfig(dict):
         The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityAppSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+        elif key == "postAnalyticsProcessorSourceUri":
+            suggest = "post_analytics_processor_source_uri"
+        elif key == "recordPreprocessorSourceUri":
+            suggest = "record_preprocessor_source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityAppSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityAppSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityAppSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_uri: str,
+                 environment: Optional[Mapping[str, str]] = None,
+                 post_analytics_processor_source_uri: Optional[str] = None,
+                 record_preprocessor_source_uri: Optional[str] = None):
+        """
+        :param str image_uri: The container image that the data quality monitoring job runs.
+        :param Mapping[str, str] environment: Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
+        :param str post_analytics_processor_source_uri: An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
+        :param str record_preprocessor_source_uri: An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+        """
+        pulumi.set(__self__, "image_uri", image_uri)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if post_analytics_processor_source_uri is not None:
+            pulumi.set(__self__, "post_analytics_processor_source_uri", post_analytics_processor_source_uri)
+        if record_preprocessor_source_uri is not None:
+            pulumi.set(__self__, "record_preprocessor_source_uri", record_preprocessor_source_uri)
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> str:
+        """
+        The container image that the data quality monitoring job runs.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[Mapping[str, str]]:
+        """
+        Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="postAnalyticsProcessorSourceUri")
+    def post_analytics_processor_source_uri(self) -> Optional[str]:
+        """
+        An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
+        """
+        return pulumi.get(self, "post_analytics_processor_source_uri")
+
+    @property
+    @pulumi.getter(name="recordPreprocessorSourceUri")
+    def record_preprocessor_source_uri(self) -> Optional[str]:
+        """
+        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+        """
+        return pulumi.get(self, "record_preprocessor_source_uri")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "constraintsResource":
+            suggest = "constraints_resource"
+        elif key == "statisticsResource":
+            suggest = "statistics_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityBaselineConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityBaselineConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityBaselineConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 constraints_resource: Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource'] = None,
+                 statistics_resource: Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource'] = None):
+        """
+        :param 'DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs' constraints_resource: The constraints resource for a monitoring job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs' statistics_resource: The statistics resource for a monitoring job. Fields are documented below.
+        """
+        if constraints_resource is not None:
+            pulumi.set(__self__, "constraints_resource", constraints_resource)
+        if statistics_resource is not None:
+            pulumi.set(__self__, "statistics_resource", statistics_resource)
+
+    @property
+    @pulumi.getter(name="constraintsResource")
+    def constraints_resource(self) -> Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource']:
+        """
+        The constraints resource for a monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "constraints_resource")
+
+    @property
+    @pulumi.getter(name="statisticsResource")
+    def statistics_resource(self) -> Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource']:
+        """
+        The statistics resource for a monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "statistics_resource")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: Optional[str] = None):
+        """
+        :param str s3_uri: The Amazon S3 URI for the constraints resource.
+        """
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[str]:
+        """
+        The Amazon S3 URI for the constraints resource.
+        """
+        return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: Optional[str] = None):
+        """
+        :param str s3_uri: The Amazon S3 URI for the statistics resource.
+        """
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[str]:
+        """
+        The Amazon S3 URI for the statistics resource.
+        """
+        return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "batchTransformInput":
+            suggest = "batch_transform_input"
+        elif key == "endpointInput":
+            suggest = "endpoint_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityJobInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityJobInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityJobInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 batch_transform_input: Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInput'] = None,
+                 endpoint_input: Optional['outputs.DataQualityJobDefinitionDataQualityJobInputEndpointInput'] = None):
+        """
+        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs' batch_transform_input: Input object for the batch transform job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs' endpoint_input: Input object for the endpoint. Fields are documented below.
+        """
+        if batch_transform_input is not None:
+            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+        if endpoint_input is not None:
+            pulumi.set(__self__, "endpoint_input", endpoint_input)
+
+    @property
+    @pulumi.getter(name="batchTransformInput")
+    def batch_transform_input(self) -> Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInput']:
+        """
+        Input object for the batch transform job. Fields are documented below.
+        """
+        return pulumi.get(self, "batch_transform_input")
+
+    @property
+    @pulumi.getter(name="endpointInput")
+    def endpoint_input(self) -> Optional['outputs.DataQualityJobDefinitionDataQualityJobInputEndpointInput']:
+        """
+        Input object for the endpoint. Fields are documented below.
+        """
+        return pulumi.get(self, "endpoint_input")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobInputBatchTransformInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCapturedDestinationS3Uri":
+            suggest = "data_captured_destination_s3_uri"
+        elif key == "datasetFormat":
+            suggest = "dataset_format"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityJobInputBatchTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityJobInputBatchTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityJobInputBatchTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_captured_destination_s3_uri: str,
+                 dataset_format: 'outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat',
+                 local_path: Optional[str] = None,
+                 s3_data_distribution_type: Optional[str] = None,
+                 s3_input_mode: Optional[str] = None):
+        """
+        :param str data_captured_destination_s3_uri: The Amazon S3 location being used to capture the data.
+        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs' dataset_format: The dataset format for your batch transform job. Fields are documented below.
+        :param str local_path: Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
+        :param str s3_input_mode: Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
+        """
+        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        pulumi.set(__self__, "dataset_format", dataset_format)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+
+    @property
+    @pulumi.getter(name="dataCapturedDestinationS3Uri")
+    def data_captured_destination_s3_uri(self) -> str:
+        """
+        The Amazon S3 location being used to capture the data.
+        """
+        return pulumi.get(self, "data_captured_destination_s3_uri")
+
+    @property
+    @pulumi.getter(name="datasetFormat")
+    def dataset_format(self) -> 'outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat':
+        """
+        The dataset format for your batch transform job. Fields are documented below.
+        """
+        return pulumi.get(self, "dataset_format")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[str]:
+        """
+        Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[str]:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional[str]:
+        """
+        Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat(dict):
+    def __init__(__self__, *,
+                 csv: Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv'] = None,
+                 json: Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson'] = None):
+        """
+        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs' csv: The CSV dataset used in the monitoring job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs' json: The JSON dataset used in the monitoring job. Fields are documented below.
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv']:
+        """
+        The CSV dataset used in the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "csv")
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson']:
+        """
+        The JSON dataset used in the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "json")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv(dict):
+    def __init__(__self__, *,
+                 header: Optional[bool] = None):
+        """
+        :param bool header: Indicates if the CSV data has a header.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[bool]:
+        """
+        Indicates if the CSV data has a header.
+        """
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson(dict):
+    def __init__(__self__, *,
+                 line: Optional[bool] = None):
+        """
+        :param bool line: Indicates if the file should be read as a json object per line.
+        """
+        if line is not None:
+            pulumi.set(__self__, "line", line)
+
+    @property
+    @pulumi.getter
+    def line(self) -> Optional[bool]:
+        """
+        Indicates if the file should be read as a json object per line.
+        """
+        return pulumi.get(self, "line")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobInputEndpointInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityJobInputEndpointInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityJobInputEndpointInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityJobInputEndpointInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_name: str,
+                 local_path: Optional[str] = None,
+                 s3_data_distribution_type: Optional[str] = None,
+                 s3_input_mode: Optional[str] = None):
+        """
+        :param str endpoint_name: An endpoint in customer's account which has `data_capture_config` enabled.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
+        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
+        :param str s3_input_mode: Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
+        """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> str:
+        """
+        An endpoint in customer's account which has `data_capture_config` enabled.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[str]:
+        """
+        Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[str]:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional[str]:
+        """
+        Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringOutputs":
+            suggest = "monitoring_outputs"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityJobOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityJobOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityJobOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitoring_outputs: 'outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs',
+                 kms_key_id: Optional[str] = None):
+        """
+        :param 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs' monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
+        :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="monitoringOutputs")
+    def monitoring_outputs(self) -> 'outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs':
+        """
+        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
+        """
+        return pulumi.get(self, "monitoring_outputs")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Output":
+            suggest = "s3_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output: 'outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output'):
+        """
+        :param 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs' s3_output: The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+        """
+        pulumi.set(__self__, "s3_output", s3_output)
+
+    @property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> 'outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output':
+        """
+        The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+        """
+        return pulumi.get(self, "s3_output")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "s3UploadMode":
+            suggest = "s3_upload_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: str,
+                 local_path: Optional[str] = None,
+                 s3_upload_mode: Optional[str] = None):
+        """
+        :param str s3_uri: The Amazon S3 URI for the constraints resource.
+        :param str local_path: Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if s3_upload_mode is not None:
+            pulumi.set(__self__, "s3_upload_mode", s3_upload_mode)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> str:
+        """
+        The Amazon S3 URI for the constraints resource.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[str]:
+        """
+        Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="s3UploadMode")
+    def s3_upload_mode(self) -> Optional[str]:
+        """
+        Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
+        """
+        return pulumi.get(self, "s3_upload_mode")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionJobResources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterConfig":
+            suggest = "cluster_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionJobResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionJobResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionJobResources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_config: 'outputs.DataQualityJobDefinitionJobResourcesClusterConfig'):
+        """
+        :param 'DataQualityJobDefinitionJobResourcesClusterConfigArgs' cluster_config: The configuration for the cluster resources used to run the processing job. Fields are documented below.
+        """
+        pulumi.set(__self__, "cluster_config", cluster_config)
+
+    @property
+    @pulumi.getter(name="clusterConfig")
+    def cluster_config(self) -> 'outputs.DataQualityJobDefinitionJobResourcesClusterConfig':
+        """
+        The configuration for the cluster resources used to run the processing job. Fields are documented below.
+        """
+        return pulumi.get(self, "cluster_config")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionJobResourcesClusterConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionJobResourcesClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionJobResourcesClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionJobResourcesClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: int,
+                 instance_type: str,
+                 volume_size_in_gb: int,
+                 volume_kms_key_id: Optional[str] = None):
+        """
+        :param int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
+        :param str instance_type: The ML compute instance type for the processing job.
+        :param int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        :param str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> int:
+        """
+        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        The ML compute instance type for the processing job.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> int:
+        """
+        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionNetworkConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_inter_container_traffic_encryption: Optional[bool] = None,
+                 enable_network_isolation: Optional[bool] = None,
+                 vpc_config: Optional['outputs.DataQualityJobDefinitionNetworkConfigVpcConfig'] = None):
+        """
+        :param bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
+        :param bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
+        :param 'DataQualityJobDefinitionNetworkConfigVpcConfigArgs' vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
+        """
+        if enable_inter_container_traffic_encryption is not None:
+            pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
+        if enable_network_isolation is not None:
+            pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter(name="enableInterContainerTrafficEncryption")
+    def enable_inter_container_traffic_encryption(self) -> Optional[bool]:
+        """
+        Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
+        """
+        return pulumi.get(self, "enable_inter_container_traffic_encryption")
+
+    @property
+    @pulumi.getter(name="enableNetworkIsolation")
+    def enable_network_isolation(self) -> Optional[bool]:
+        """
+        Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
+        """
+        return pulumi.get(self, "enable_network_isolation")
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.DataQualityJobDefinitionNetworkConfigVpcConfig']:
+        """
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
+        """
+        return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionNetworkConfigVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionNetworkConfigVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionNetworkConfigVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionNetworkConfigVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnets: Sequence[str]):
+        """
+        :param Sequence[str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.
+        :param Sequence[str] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
+        """
+        The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionStoppingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_runtime_in_seconds: Optional[int] = None):
+        """
+        :param int max_runtime_in_seconds: The maximum runtime allowed in seconds.
+        """
+        if max_runtime_in_seconds is not None:
+            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+
+    @property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> Optional[int]:
+        """
+        The maximum runtime allowed in seconds.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
 
 
 @pulumi.output_type
@@ -4491,6 +5397,103 @@ class ModelVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringJobDefinitionName":
+            suggest = "monitoring_job_definition_name"
+        elif key == "monitoringType":
+            suggest = "monitoring_type"
+        elif key == "scheduleConfig":
+            suggest = "schedule_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitoring_job_definition_name: str,
+                 monitoring_type: str,
+                 schedule_config: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfig'] = None):
+        """
+        :param str monitoring_job_definition_name: The name of the monitoring job definition to schedule.
+        :param str monitoring_type: The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
+        :param 'MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs' schedule_config: Configures the monitoring schedule. Fields are documented below.
+        """
+        pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
+        pulumi.set(__self__, "monitoring_type", monitoring_type)
+        if schedule_config is not None:
+            pulumi.set(__self__, "schedule_config", schedule_config)
+
+    @property
+    @pulumi.getter(name="monitoringJobDefinitionName")
+    def monitoring_job_definition_name(self) -> str:
+        """
+        The name of the monitoring job definition to schedule.
+        """
+        return pulumi.get(self, "monitoring_job_definition_name")
+
+    @property
+    @pulumi.getter(name="monitoringType")
+    def monitoring_type(self) -> str:
+        """
+        The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
+        """
+        return pulumi.get(self, "monitoring_type")
+
+    @property
+    @pulumi.getter(name="scheduleConfig")
+    def schedule_config(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfig']:
+        """
+        Configures the monitoring schedule. Fields are documented below.
+        """
+        return pulumi.get(self, "schedule_config")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigScheduleConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleExpression":
+            suggest = "schedule_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigScheduleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigScheduleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigScheduleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_expression: str):
+        """
+        :param str schedule_expression: A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
+        """
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> str:
+        """
+        A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
+        """
+        return pulumi.get(self, "schedule_expression")
 
 
 @pulumi.output_type

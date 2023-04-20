@@ -17,7 +17,8 @@ public final class LaunchTemplateCpuOptions {
      */
     private @Nullable Integer coreCount;
     /**
-     * @return The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+     * @return The number of threads per CPU core.
+     * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
      * Otherwise, specify the default value of 2.
      * 
      */
@@ -32,7 +33,8 @@ public final class LaunchTemplateCpuOptions {
         return Optional.ofNullable(this.coreCount);
     }
     /**
-     * @return The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+     * @return The number of threads per CPU core.
+     * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
      * Otherwise, specify the default value of 2.
      * 
      */

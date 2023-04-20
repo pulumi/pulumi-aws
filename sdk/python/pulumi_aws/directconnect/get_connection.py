@@ -21,7 +21,7 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, aws_device=None, bandwidth=None, id=None, location=None, name=None, owner_account_id=None, provider_name=None, tags=None, vlan_id=None):
+    def __init__(__self__, arn=None, aws_device=None, bandwidth=None, id=None, location=None, name=None, owner_account_id=None, partner_name=None, provider_name=None, tags=None, vlan_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetConnectionResult:
         if owner_account_id and not isinstance(owner_account_id, str):
             raise TypeError("Expected argument 'owner_account_id' to be a str")
         pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if partner_name and not isinstance(partner_name, str):
+            raise TypeError("Expected argument 'partner_name' to be a str")
+        pulumi.set(__self__, "partner_name", partner_name)
         if provider_name and not isinstance(provider_name, str):
             raise TypeError("Expected argument 'provider_name' to be a str")
         pulumi.set(__self__, "provider_name", provider_name)
@@ -107,6 +110,14 @@ class GetConnectionResult:
         return pulumi.get(self, "owner_account_id")
 
     @property
+    @pulumi.getter(name="partnerName")
+    def partner_name(self) -> str:
+        """
+        The name of the AWS Direct Connect service provider associated with the connection.
+        """
+        return pulumi.get(self, "partner_name")
+
+    @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> str:
         """
@@ -144,6 +155,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             location=self.location,
             name=self.name,
             owner_account_id=self.owner_account_id,
+            partner_name=self.partner_name,
             provider_name=self.provider_name,
             tags=self.tags,
             vlan_id=self.vlan_id)
@@ -182,6 +194,7 @@ def get_connection(name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         owner_account_id=__ret__.owner_account_id,
+        partner_name=__ret__.partner_name,
         provider_name=__ret__.provider_name,
         tags=__ret__.tags,
         vlan_id=__ret__.vlan_id)

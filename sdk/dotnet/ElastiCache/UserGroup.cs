@@ -140,12 +140,6 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN that identifies the user group.
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
         /// The current supported value is `REDIS`.
         /// </summary>
         [Input("engine", required: true)]
@@ -161,6 +155,18 @@ namespace Pulumi.Aws.ElastiCache
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         /// <summary>

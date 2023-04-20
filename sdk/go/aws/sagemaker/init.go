@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AppImageConfig{}
 	case "aws:sagemaker/codeRepository:CodeRepository":
 		r = &CodeRepository{}
+	case "aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition":
+		r = &DataQualityJobDefinition{}
 	case "aws:sagemaker/device:Device":
 		r = &Device{}
 	case "aws:sagemaker/deviceFleet:DeviceFleet":
@@ -53,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ModelPackageGroup{}
 	case "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy":
 		r = &ModelPackageGroupPolicy{}
+	case "aws:sagemaker/monitoringSchedule:MonitoringSchedule":
+		r = &MonitoringSchedule{}
 	case "aws:sagemaker/notebookInstance:NotebookInstance":
 		r = &NotebookInstance{}
 	case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
@@ -97,6 +101,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/codeRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/dataQualityJobDefinition",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -162,6 +171,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/modelPackageGroupPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/monitoringSchedule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

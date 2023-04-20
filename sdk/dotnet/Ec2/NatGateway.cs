@@ -76,6 +76,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> AllocationId { get; private set; } = null!;
 
         /// <summary>
+        /// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        /// </summary>
+        [Output("associationId")]
+        public Output<string> AssociationId { get; private set; } = null!;
+
+        /// <summary>
         /// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
         /// </summary>
         [Output("connectivityType")]
@@ -224,6 +230,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
+
+        /// <summary>
+        /// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        /// </summary>
+        [Input("associationId")]
+        public Input<string>? AssociationId { get; set; }
 
         /// <summary>
         /// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.

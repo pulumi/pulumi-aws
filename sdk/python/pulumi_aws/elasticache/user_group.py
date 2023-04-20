@@ -16,23 +16,23 @@ class UserGroupArgs:
     def __init__(__self__, *,
                  engine: pulumi.Input[str],
                  user_group_id: pulumi.Input[str],
-                 arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
-        :param pulumi.Input[str] arn: The ARN that identifies the user group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "user_group_id", user_group_id)
-        if arn is not None:
-            pulumi.set(__self__, "arn", arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_ids is not None:
             pulumi.set(__self__, "user_ids", user_ids)
 
@@ -62,18 +62,6 @@ class UserGroupArgs:
 
     @property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN that identifies the user group.
-        """
-        return pulumi.get(self, "arn")
-
-    @arn.setter
-    def arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "arn", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -83,6 +71,18 @@ class UserGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="userIds")
@@ -206,9 +206,9 @@ class UserGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -243,9 +243,9 @@ class UserGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN that identifies the user group.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
@@ -299,9 +299,9 @@ class UserGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -313,16 +313,16 @@ class UserGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserGroupArgs.__new__(UserGroupArgs)
 
-            __props__.__dict__["arn"] = arn
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")
             __props__.__dict__["engine"] = engine
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if user_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_group_id'")
             __props__.__dict__["user_group_id"] = user_group_id
             __props__.__dict__["user_ids"] = user_ids
-            __props__.__dict__["tags_all"] = None
+            __props__.__dict__["arn"] = None
         super(UserGroup, __self__).__init__(
             'aws:elasticache/userGroup:UserGroup',
             resource_name,

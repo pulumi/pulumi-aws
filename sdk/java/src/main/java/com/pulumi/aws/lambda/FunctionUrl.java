@@ -152,6 +152,20 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
         return this.functionUrl;
     }
     /**
+     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * 
+     */
+    @Export(name="invokeMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> invokeMode;
+
+    /**
+     * @return Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * 
+     */
+    public Output<Optional<String>> invokeMode() {
+        return Codegen.optional(this.invokeMode);
+    }
+    /**
      * The alias name or `&#34;$LATEST&#34;`.
      * 
      */

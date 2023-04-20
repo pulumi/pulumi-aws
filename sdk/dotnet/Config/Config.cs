@@ -419,6 +419,8 @@ namespace Pulumi.Aws
                 public string? Chimesdkmediapipelines { get; set; } = null!;
                 public string? Chimesdkmeetings { get; set; } = null!;
                 public string? Chimesdkmessaging { get; set; } = null!;
+                public string? Chimesdkvoice { get; set; } = null!;
+                public string? Cleanrooms { get; set; } = null!;
                 public string? Cloud9 { get; set; } = null!;
                 public string? Cloudcontrol { get; set; } = null!;
                 public string? Cloudcontrolapi { get; set; } = null!;
@@ -482,6 +484,7 @@ namespace Pulumi.Aws
                 public string? Dlm { get; set; } = null!;
                 public string? Dms { get; set; } = null!;
                 public string? Docdb { get; set; } = null!;
+                public string? Docdbelastic { get; set; } = null!;
                 public string? Drs { get; set; } = null!;
                 public string? Ds { get; set; } = null!;
                 public string? Dynamodb { get; set; } = null!;

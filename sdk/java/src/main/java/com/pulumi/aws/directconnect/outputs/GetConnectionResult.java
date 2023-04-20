@@ -42,6 +42,11 @@ public final class GetConnectionResult {
      */
     private String ownerAccountId;
     /**
+     * @return The name of the AWS Direct Connect service provider associated with the connection.
+     * 
+     */
+    private String partnerName;
+    /**
      * @return Name of the service provider associated with the connection.
      * 
      */
@@ -104,6 +109,13 @@ public final class GetConnectionResult {
         return this.ownerAccountId;
     }
     /**
+     * @return The name of the AWS Direct Connect service provider associated with the connection.
+     * 
+     */
+    public String partnerName() {
+        return this.partnerName;
+    }
+    /**
      * @return Name of the service provider associated with the connection.
      * 
      */
@@ -141,6 +153,7 @@ public final class GetConnectionResult {
         private String location;
         private String name;
         private String ownerAccountId;
+        private String partnerName;
         private String providerName;
         private Map<String,String> tags;
         private String vlanId;
@@ -154,6 +167,7 @@ public final class GetConnectionResult {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.ownerAccountId = defaults.ownerAccountId;
+    	      this.partnerName = defaults.partnerName;
     	      this.providerName = defaults.providerName;
     	      this.tags = defaults.tags;
     	      this.vlanId = defaults.vlanId;
@@ -195,6 +209,11 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder partnerName(String partnerName) {
+            this.partnerName = Objects.requireNonNull(partnerName);
+            return this;
+        }
+        @CustomType.Setter
         public Builder providerName(String providerName) {
             this.providerName = Objects.requireNonNull(providerName);
             return this;
@@ -218,6 +237,7 @@ public final class GetConnectionResult {
             o.location = location;
             o.name = name;
             o.ownerAccountId = ownerAccountId;
+            o.partnerName = partnerName;
             o.providerName = providerName;
             o.tags = tags;
             o.vlanId = vlanId;

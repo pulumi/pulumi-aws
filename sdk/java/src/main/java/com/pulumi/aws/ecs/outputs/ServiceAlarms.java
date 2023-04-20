@@ -11,6 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceAlarms {
+    /**
+     * @return One or more CloudWatch alarm names.
+     * 
+     */
     private List<String> alarmNames;
     /**
      * @return Determines whether to use the CloudWatch alarm option in the service deployment process.
@@ -24,6 +28,10 @@ public final class ServiceAlarms {
     private Boolean rollback;
 
     private ServiceAlarms() {}
+    /**
+     * @return One or more CloudWatch alarm names.
+     * 
+     */
     public List<String> alarmNames() {
         return this.alarmNames;
     }

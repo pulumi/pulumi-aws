@@ -15,9 +15,17 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceAlarmsArgs Empty = new ServiceAlarmsArgs();
 
+    /**
+     * One or more CloudWatch alarm names.
+     * 
+     */
     @Import(name="alarmNames", required=true)
     private Output<List<String>> alarmNames;
 
+    /**
+     * @return One or more CloudWatch alarm names.
+     * 
+     */
     public Output<List<String>> alarmNames() {
         return this.alarmNames;
     }
@@ -78,15 +86,33 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ServiceAlarmsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alarmNames One or more CloudWatch alarm names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alarmNames(Output<List<String>> alarmNames) {
             $.alarmNames = alarmNames;
             return this;
         }
 
+        /**
+         * @param alarmNames One or more CloudWatch alarm names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alarmNames(List<String> alarmNames) {
             return alarmNames(Output.of(alarmNames));
         }
 
+        /**
+         * @param alarmNames One or more CloudWatch alarm names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alarmNames(String... alarmNames) {
             return alarmNames(List.of(alarmNames));
         }

@@ -18,6 +18,86 @@ import (
 // ## Example Usage
 //
 // This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
+// ### Account Takeover Protection
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewWebAcl(ctx, "atp-example", &wafv2.WebAclArgs{
+//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
+//					Allow: nil,
+//				},
+//				Description: pulumi.String("Example of a managed ATP rule."),
+//				Rules: wafv2.WebAclRuleArray{
+//					&wafv2.WebAclRuleArgs{
+//						Name: pulumi.String("atp-rule-1"),
+//						OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
+//							Count: nil,
+//						},
+//						Priority: pulumi.Int(1),
+//						Statement: &wafv2.WebAclRuleStatementArgs{
+//							ManagedRuleGroupStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs{
+//								ManagedRuleGroupConfigs: wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray{
+//									&wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs{
+//										AwsManagedRulesAtpRuleSet: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs{
+//											LoginPath: pulumi.String("/api/1/signin"),
+//											RequestInspection: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs{
+//												PasswordField: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs{
+//													Identifier: pulumi.String("/password"),
+//												},
+//												PayloadType: pulumi.String("JSON"),
+//												UsernameField: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs{
+//													Identifier: pulumi.String("/email"),
+//												},
+//											},
+//											ResponseInspection: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs{
+//												StatusCode: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs{
+//													FailureCodes: pulumi.IntArray{
+//														pulumi.Int(403),
+//													},
+//													SuccessCodes: pulumi.IntArray{
+//														pulumi.Int(200),
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//								Name:       pulumi.String("AWSManagedRulesATPRuleSet"),
+//								VendorName: pulumi.String("AWS"),
+//							},
+//						},
+//						VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				Scope: pulumi.String("CLOUDFRONT"),
+//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Rate Based
 // Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 //

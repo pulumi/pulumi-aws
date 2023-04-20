@@ -32,6 +32,21 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * 
+     */
+    @Import(name="associationId")
+    private @Nullable Output<String> associationId;
+
+    /**
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * 
+     */
+    public Optional<Output<String>> associationId() {
+        return Optional.ofNullable(this.associationId);
+    }
+
+    /**
      * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
      * 
      */
@@ -140,6 +155,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
 
     private NatGatewayState(NatGatewayState $) {
         this.allocationId = $.allocationId;
+        this.associationId = $.associationId;
         this.connectivityType = $.connectivityType;
         this.networkInterfaceId = $.networkInterfaceId;
         this.privateIp = $.privateIp;
@@ -186,6 +202,27 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allocationId(String allocationId) {
             return allocationId(Output.of(allocationId));
+        }
+
+        /**
+         * @param associationId The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associationId(@Nullable Output<String> associationId) {
+            $.associationId = associationId;
+            return this;
+        }
+
+        /**
+         * @param associationId The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associationId(String associationId) {
+            return associationId(Output.of(associationId));
         }
 
         /**

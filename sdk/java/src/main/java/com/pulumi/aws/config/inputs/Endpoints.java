@@ -58,6 +58,8 @@ public final class Endpoints {
     private @Nullable String chimesdkmediapipelines;
     private @Nullable String chimesdkmeetings;
     private @Nullable String chimesdkmessaging;
+    private @Nullable String chimesdkvoice;
+    private @Nullable String cleanrooms;
     private @Nullable String cloud9;
     private @Nullable String cloudcontrol;
     private @Nullable String cloudcontrolapi;
@@ -121,6 +123,7 @@ public final class Endpoints {
     private @Nullable String dlm;
     private @Nullable String dms;
     private @Nullable String docdb;
+    private @Nullable String docdbelastic;
     private @Nullable String drs;
     private @Nullable String ds;
     private @Nullable String dynamodb;
@@ -534,6 +537,12 @@ public final class Endpoints {
     public Optional<String> chimesdkmessaging() {
         return Optional.ofNullable(this.chimesdkmessaging);
     }
+    public Optional<String> chimesdkvoice() {
+        return Optional.ofNullable(this.chimesdkvoice);
+    }
+    public Optional<String> cleanrooms() {
+        return Optional.ofNullable(this.cleanrooms);
+    }
     public Optional<String> cloud9() {
         return Optional.ofNullable(this.cloud9);
     }
@@ -722,6 +731,9 @@ public final class Endpoints {
     }
     public Optional<String> docdb() {
         return Optional.ofNullable(this.docdb);
+    }
+    public Optional<String> docdbelastic() {
+        return Optional.ofNullable(this.docdbelastic);
     }
     public Optional<String> drs() {
         return Optional.ofNullable(this.drs);
@@ -1590,6 +1602,8 @@ public final class Endpoints {
         private @Nullable String chimesdkmediapipelines;
         private @Nullable String chimesdkmeetings;
         private @Nullable String chimesdkmessaging;
+        private @Nullable String chimesdkvoice;
+        private @Nullable String cleanrooms;
         private @Nullable String cloud9;
         private @Nullable String cloudcontrol;
         private @Nullable String cloudcontrolapi;
@@ -1653,6 +1667,7 @@ public final class Endpoints {
         private @Nullable String dlm;
         private @Nullable String dms;
         private @Nullable String docdb;
+        private @Nullable String docdbelastic;
         private @Nullable String drs;
         private @Nullable String ds;
         private @Nullable String dynamodb;
@@ -1973,6 +1988,8 @@ public final class Endpoints {
     	      this.chimesdkmediapipelines = defaults.chimesdkmediapipelines;
     	      this.chimesdkmeetings = defaults.chimesdkmeetings;
     	      this.chimesdkmessaging = defaults.chimesdkmessaging;
+    	      this.chimesdkvoice = defaults.chimesdkvoice;
+    	      this.cleanrooms = defaults.cleanrooms;
     	      this.cloud9 = defaults.cloud9;
     	      this.cloudcontrol = defaults.cloudcontrol;
     	      this.cloudcontrolapi = defaults.cloudcontrolapi;
@@ -2036,6 +2053,7 @@ public final class Endpoints {
     	      this.dlm = defaults.dlm;
     	      this.dms = defaults.dms;
     	      this.docdb = defaults.docdb;
+    	      this.docdbelastic = defaults.docdbelastic;
     	      this.drs = defaults.drs;
     	      this.ds = defaults.ds;
     	      this.dynamodb = defaults.dynamodb;
@@ -2544,6 +2562,16 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder chimesdkvoice(@Nullable String chimesdkvoice) {
+            this.chimesdkvoice = chimesdkvoice;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cleanrooms(@Nullable String cleanrooms) {
+            this.cleanrooms = cleanrooms;
+            return this;
+        }
+        @CustomType.Setter
         public Builder cloud9(@Nullable String cloud9) {
             this.cloud9 = cloud9;
             return this;
@@ -2856,6 +2884,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder docdb(@Nullable String docdb) {
             this.docdb = docdb;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder docdbelastic(@Nullable String docdbelastic) {
+            this.docdbelastic = docdbelastic;
             return this;
         }
         @CustomType.Setter
@@ -4257,6 +4290,8 @@ public final class Endpoints {
             o.chimesdkmediapipelines = chimesdkmediapipelines;
             o.chimesdkmeetings = chimesdkmeetings;
             o.chimesdkmessaging = chimesdkmessaging;
+            o.chimesdkvoice = chimesdkvoice;
+            o.cleanrooms = cleanrooms;
             o.cloud9 = cloud9;
             o.cloudcontrol = cloudcontrol;
             o.cloudcontrolapi = cloudcontrolapi;
@@ -4320,6 +4355,7 @@ public final class Endpoints {
             o.dlm = dlm;
             o.dms = dms;
             o.docdb = docdb;
+            o.docdbelastic = docdbelastic;
             o.drs = drs;
             o.ds = ds;
             o.dynamodb = dynamodb;

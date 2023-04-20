@@ -20,6 +20,11 @@ export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
 utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
 
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
 export { ReplicationInstanceArgs, ReplicationInstanceState } from "./replicationInstance";
 export type ReplicationInstance = import("./replicationInstance").ReplicationInstance;
 export const ReplicationInstance: typeof import("./replicationInstance").ReplicationInstance = null as any;

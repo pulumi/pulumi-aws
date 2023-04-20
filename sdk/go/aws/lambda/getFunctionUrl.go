@@ -72,6 +72,8 @@ type LookupFunctionUrlResult struct {
 	FunctionUrl string `pulumi:"functionUrl"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
+	InvokeMode string `pulumi:"invokeMode"`
 	// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 	LastModifiedTime string  `pulumi:"lastModifiedTime"`
 	Qualifier        *string `pulumi:"qualifier"`
@@ -151,6 +153,11 @@ func (o LookupFunctionUrlResultOutput) FunctionUrl() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupFunctionUrlResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
+func (o LookupFunctionUrlResultOutput) InvokeMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.InvokeMode }).(pulumi.StringOutput)
 }
 
 // When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).

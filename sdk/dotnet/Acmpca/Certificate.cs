@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Acmpca
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+        /// </summary>
+        [Output("apiPassthrough")]
+        public Output<string?> ApiPassthrough { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the certificate.
         /// </summary>
         [Output("arn")]
@@ -126,6 +132,12 @@ namespace Pulumi.Aws.Acmpca
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+        /// </summary>
+        [Input("apiPassthrough")]
+        public Input<string>? ApiPassthrough { get; set; }
+
+        /// <summary>
         /// ARN of the certificate authority.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
@@ -164,6 +176,12 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+        /// </summary>
+        [Input("apiPassthrough")]
+        public Input<string>? ApiPassthrough { get; set; }
+
         /// <summary>
         /// ARN of the certificate.
         /// </summary>

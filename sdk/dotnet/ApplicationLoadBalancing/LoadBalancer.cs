@@ -159,7 +159,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<bool?> EnableWafFailOpen { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         /// </summary>
         [Output("enableXffClientPort")]
         public Output<bool?> EnableXffClientPort { get; private set; } = null!;
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<bool>? EnableWafFailOpen { get; set; }
 
         /// <summary>
-        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         /// </summary>
         [Input("enableXffClientPort")]
         public Input<bool>? EnableXffClientPort { get; set; }
@@ -455,6 +455,18 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         /// </summary>
@@ -542,7 +554,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<bool>? EnableWafFailOpen { get; set; }
 
         /// <summary>
-        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+        /// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         /// </summary>
         [Input("enableXffClientPort")]
         public Input<bool>? EnableXffClientPort { get; set; }

@@ -110,6 +110,20 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allocationId);
     }
     /**
+     * The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * 
+     */
+    @Export(name="associationId", refs={String.class}, tree="[0]")
+    private Output<String> associationId;
+
+    /**
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * 
+     */
+    public Output<String> associationId() {
+        return this.associationId;
+    }
+    /**
      * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
      * 
      */

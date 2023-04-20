@@ -30,6 +30,16 @@ export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
 export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
 
+export { GetQuicksightGroupArgs, GetQuicksightGroupResult, GetQuicksightGroupOutputArgs } from "./getQuicksightGroup";
+export const getQuicksightGroup: typeof import("./getQuicksightGroup").getQuicksightGroup = null as any;
+export const getQuicksightGroupOutput: typeof import("./getQuicksightGroup").getQuicksightGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getQuicksightGroup","getQuicksightGroupOutput"], () => require("./getQuicksightGroup"));
+
+export { GetQuicksightUserArgs, GetQuicksightUserResult, GetQuicksightUserOutputArgs } from "./getQuicksightUser";
+export const getQuicksightUser: typeof import("./getQuicksightUser").getQuicksightUser = null as any;
+export const getQuicksightUserOutput: typeof import("./getQuicksightUser").getQuicksightUserOutput = null as any;
+utilities.lazyLoad(exports, ["getQuicksightUser","getQuicksightUserOutput"], () => require("./getQuicksightUser"));
+
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;

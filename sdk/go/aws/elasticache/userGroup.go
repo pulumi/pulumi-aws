@@ -150,12 +150,12 @@ func (UserGroupState) ElementType() reflect.Type {
 }
 
 type userGroupArgs struct {
-	// The ARN that identifies the user group.
-	Arn *string `pulumi:"arn"`
 	// The current supported value is `REDIS`.
 	Engine string `pulumi:"engine"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the user group.
 	UserGroupId string `pulumi:"userGroupId"`
 	// The list of user IDs that belong to the user group.
@@ -164,12 +164,12 @@ type userGroupArgs struct {
 
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
-	// The ARN that identifies the user group.
-	Arn pulumi.StringPtrInput
 	// The current supported value is `REDIS`.
 	Engine pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The ID of the user group.
 	UserGroupId pulumi.StringInput
 	// The list of user IDs that belong to the user group.
