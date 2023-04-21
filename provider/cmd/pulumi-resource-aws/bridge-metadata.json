@@ -878,7 +878,6 @@
             "aws:quicksight/groupMembership:GroupMembership": 0,
             "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": 1,
             "aws:quicksight/ingestion:Ingestion": 1,
-            "aws:quicksight/namespace:Namespace": 1,
             "aws:quicksight/user:User": 0,
             "aws:ram/principalAssociation:PrincipalAssociation": 0,
             "aws:ram/resourceAssociation:ResourceAssociation": 0,
@@ -2579,7 +2578,6 @@
             "aws:quicksight/groupMembership:GroupMembership": "aws_quicksight_group_membership",
             "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": "aws_quicksight_iam_policy_assignment",
             "aws:quicksight/ingestion:Ingestion": "aws_quicksight_ingestion",
-            "aws:quicksight/namespace:Namespace": "aws_quicksight_namespace",
             "aws:quicksight/user:User": "aws_quicksight_user",
             "aws:ram/principalAssociation:PrincipalAssociation": "aws_ram_principal_association",
             "aws:ram/resourceAssociation:ResourceAssociation": "aws_ram_resource_association",
@@ -25191,13 +25189,6 @@
                 "ingestionId": "ingestion_id",
                 "ingestionStatus": "ingestion_status",
                 "ingestionType": "ingestion_type"
-            },
-            "aws:quicksight/namespace:Namespace": {
-                "awsAccountId": "aws_account_id",
-                "capacityRegion": "capacity_region",
-                "creationStatus": "creation_status",
-                "identityStore": "identity_store",
-                "tagsAll": "tags_all"
             },
             "aws:quicksight/user:User": {
                 "awsAccountId": "aws_account_id",
