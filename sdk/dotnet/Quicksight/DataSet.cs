@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Quicksight
+namespace Pulumi.Aws.QuickSight
 {
     /// <summary>
     /// Resource for managing a QuickSight Data Set.
@@ -17,32 +17,33 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.DataSet("example", new()
+    ///     var example = new Aws.QuickSight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.DataSetPhysicalTableMapArgs
+    ///             new Aws.QuickSight.Inputs.DataSetPhysicalTableMapArgs
     ///             {
     ///                 PhysicalTableMapId = "example-id",
-    ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
+    ///                 S3Source = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
     ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
     ///                     InputColumns = new[]
     ///                     {
-    ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
+    ///                         new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
     ///                         {
     ///                             Name = "Column1",
     ///                             Type = "STRING",
     ///                         },
     ///                     },
-    ///                     UploadSettings = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
+    ///                     UploadSettings = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
     ///                     {
     ///                         Format = "JSON",
     ///                     },
@@ -57,32 +58,33 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.DataSet("example", new()
+    ///     var example = new Aws.QuickSight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.DataSetPhysicalTableMapArgs
+    ///             new Aws.QuickSight.Inputs.DataSetPhysicalTableMapArgs
     ///             {
     ///                 PhysicalTableMapId = "example-id",
-    ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
+    ///                 S3Source = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
     ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
     ///                     InputColumns = new[]
     ///                     {
-    ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
+    ///                         new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
     ///                         {
     ///                             Name = "Column1",
     ///                             Type = "STRING",
     ///                         },
     ///                     },
-    ///                     UploadSettings = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
+    ///                     UploadSettings = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
     ///                     {
     ///                         Format = "JSON",
     ///                     },
@@ -91,7 +93,7 @@ namespace Pulumi.Aws.Quicksight
     ///         },
     ///         ColumnLevelPermissionRules = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.DataSetColumnLevelPermissionRuleArgs
+    ///             new Aws.QuickSight.Inputs.DataSetColumnLevelPermissionRuleArgs
     ///             {
     ///                 ColumnNames = new[]
     ///                 {
@@ -111,32 +113,33 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.DataSet("example", new()
+    ///     var example = new Aws.QuickSight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.DataSetPhysicalTableMapArgs
+    ///             new Aws.QuickSight.Inputs.DataSetPhysicalTableMapArgs
     ///             {
     ///                 PhysicalTableMapId = "example-id",
-    ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
+    ///                 S3Source = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
     ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
     ///                     InputColumns = new[]
     ///                     {
-    ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
+    ///                         new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
     ///                         {
     ///                             Name = "Column1",
     ///                             Type = "STRING",
     ///                         },
     ///                     },
-    ///                     UploadSettings = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
+    ///                     UploadSettings = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
     ///                     {
     ///                         Format = "JSON",
     ///                     },
@@ -145,7 +148,7 @@ namespace Pulumi.Aws.Quicksight
     ///         },
     ///         FieldFolders = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.DataSetFieldFolderArgs
+    ///             new Aws.QuickSight.Inputs.DataSetFieldFolderArgs
     ///             {
     ///                 FieldFoldersId = "example-id",
     ///                 Columns = new[]
@@ -163,32 +166,33 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.DataSet("example", new()
+    ///     var example = new Aws.QuickSight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.DataSetPhysicalTableMapArgs
+    ///             new Aws.QuickSight.Inputs.DataSetPhysicalTableMapArgs
     ///             {
     ///                 PhysicalTableMapId = "example-id",
-    ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
+    ///                 S3Source = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
     ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
     ///                     InputColumns = new[]
     ///                     {
-    ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
+    ///                         new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
     ///                         {
     ///                             Name = "Column1",
     ///                             Type = "STRING",
     ///                         },
     ///                     },
-    ///                     UploadSettings = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
+    ///                     UploadSettings = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
     ///                     {
     ///                         Format = "JSON",
     ///                     },
@@ -197,7 +201,7 @@ namespace Pulumi.Aws.Quicksight
     ///         },
     ///         Permissions = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.DataSetPermissionArgs
+    ///             new Aws.QuickSight.Inputs.DataSetPermissionArgs
     ///             {
     ///                 Actions = new[]
     ///                 {
@@ -218,44 +222,45 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.DataSet("example", new()
+    ///     var example = new Aws.QuickSight.DataSet("example", new()
     ///     {
     ///         DataSetId = "example-id",
     ///         ImportMode = "SPICE",
     ///         PhysicalTableMaps = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.DataSetPhysicalTableMapArgs
+    ///             new Aws.QuickSight.Inputs.DataSetPhysicalTableMapArgs
     ///             {
     ///                 PhysicalTableMapId = "example-id",
-    ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
+    ///                 S3Source = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceArgs
     ///                 {
     ///                     DataSourceArn = aws_quicksight_data_source.Example.Arn,
     ///                     InputColumns = new[]
     ///                     {
-    ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
+    ///                         new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
     ///                         {
     ///                             Name = "Column1",
     ///                             Type = "STRING",
     ///                         },
     ///                     },
-    ///                     UploadSettings = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
+    ///                     UploadSettings = new Aws.QuickSight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
     ///                     {
     ///                         Format = "JSON",
     ///                     },
     ///                 },
     ///             },
     ///         },
-    ///         RowLevelPermissionTagConfiguration = new Aws.Quicksight.Inputs.DataSetRowLevelPermissionTagConfigurationArgs
+    ///         RowLevelPermissionTagConfiguration = new Aws.QuickSight.Inputs.DataSetRowLevelPermissionTagConfigurationArgs
     ///         {
     ///             Status = "ENABLED",
     ///             TagRules = new[]
     ///             {
-    ///                 new Aws.Quicksight.Inputs.DataSetRowLevelPermissionTagConfigurationTagRuleArgs
+    ///                 new Aws.QuickSight.Inputs.DataSetRowLevelPermissionTagConfigurationTagRuleArgs
     ///                 {
     ///                     ColumnName = "Column1",
     ///                     TagKey = "tagkey",

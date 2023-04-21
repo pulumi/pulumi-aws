@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
@@ -74,6 +76,7 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
@@ -96,6 +99,7 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 

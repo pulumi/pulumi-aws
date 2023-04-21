@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Quicksight.Inputs
+namespace Pulumi.Aws.QuickSight.Inputs
 {
 
     public sealed class DataSourceParametersPrestoGetArgs : global::Pulumi.ResourceArgs

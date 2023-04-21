@@ -7600,6 +7600,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/iamPolicyAssignment",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": "IamPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/ingestion",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/ingestion:Ingestion": "Ingestion"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/user",
   "fqn": "pulumi_aws.quicksight",
   "classes": {

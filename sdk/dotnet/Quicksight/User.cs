@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Quicksight
+namespace Pulumi.Aws.QuickSight
 {
     /// <summary>
     /// Resource for managing QuickSight User
@@ -16,12 +16,13 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.User("example", new()
+    ///     var example = new Aws.QuickSight.User("example", new()
     ///     {
     ///         Email = "author@example.com",
     ///         IamArn = "arn:aws:iam::123456789012:user/Example",

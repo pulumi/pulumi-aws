@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// using Github = Pulumi.Github;

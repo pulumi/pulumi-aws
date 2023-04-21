@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -47,9 +46,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Control(&#34;example&#34;, ControlArgs.builder()        
  *             .controlMappingSources(ControlControlMappingSourceArgs.builder()
- *                 .source_name(&#34;example&#34;)
- *                 .source_set_up_option(&#34;Procedural_Controls_Mapping&#34;)
- *                 .source_type(&#34;MANUAL&#34;)
+ *                 .sourceName(&#34;example&#34;)
+ *                 .sourceSetUpOption(&#34;Procedural_Controls_Mapping&#34;)
+ *                 .sourceType(&#34;MANUAL&#34;)
  *                 .build())
  *             .name(&#34;example&#34;)
  *             .build());

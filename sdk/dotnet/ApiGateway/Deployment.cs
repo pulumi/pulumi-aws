@@ -24,6 +24,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using System.Security.Cryptography;
     /// using System.Text;
     /// using System.Text.Json;
@@ -89,6 +90,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using System.Security.Cryptography;
     /// using System.Text;
     /// using System.Text.Json;

@@ -72,6 +72,7 @@ __all__ = [
     'DataSourceSslProperties',
     'DataSourceVpcConnectionProperties',
     'FolderPermission',
+    'IamPolicyAssignmentIdentities',
     'GetDataSetColumnGroupResult',
     'GetDataSetColumnGroupGeoSpatialColumnGroupResult',
     'GetDataSetColumnLevelPermissionRuleResult',
@@ -3201,6 +3202,33 @@ class FolderPermission(dict):
         ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class IamPolicyAssignmentIdentities(dict):
+    def __init__(__self__, *,
+                 groups: Optional[Sequence[str]] = None,
+                 users: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] users: Array of Quicksight user names to assign the policy to.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        """
+        Array of Quicksight user names to assign the policy to.
+        """
+        return pulumi.get(self, "users")
 
 
 @pulumi.output_type

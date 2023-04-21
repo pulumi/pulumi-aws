@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Quicksight
+namespace Pulumi.Aws.QuickSight
 {
     /// <summary>
     /// Resource for managing an AWS QuickSight Account Subscription.
@@ -16,12 +16,13 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var subscription = new Aws.Quicksight.AccountSubscription("subscription", new()
+    ///     var subscription = new Aws.QuickSight.AccountSubscription("subscription", new()
     ///     {
     ///         AccountName = "quicksight-pulumi",
     ///         AuthenticationMethod = "IAM_AND_QUICKSIGHT",

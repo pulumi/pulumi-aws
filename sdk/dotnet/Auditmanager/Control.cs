@@ -13,6 +13,32 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Control.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Auditmanager.Control("example", new()
+    ///     {
+    ///         ControlMappingSources = new[]
+    ///         {
+    ///             new Aws.Auditmanager.Inputs.ControlControlMappingSourceArgs
+    ///             {
+    ///                 SourceName = "example",
+    ///                 SourceSetUpOption = "Procedural_Controls_Mapping",
+    ///                 SourceType = "MANUAL",
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

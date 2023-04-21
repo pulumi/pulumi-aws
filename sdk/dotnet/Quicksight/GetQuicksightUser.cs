@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Quicksight
+namespace Pulumi.Aws.QuickSight
 {
     public static class GetQuicksightUser
     {
@@ -23,12 +23,13 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Quicksight.GetQuicksightUser.Invoke(new()
+        ///     var example = Aws.QuickSight.GetQuicksightUser.Invoke(new()
         ///     {
         ///         UserName = "example",
         ///     });
@@ -53,12 +54,13 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Quicksight.GetQuicksightUser.Invoke(new()
+        ///     var example = Aws.QuickSight.GetQuicksightUser.Invoke(new()
         ///     {
         ///         UserName = "example",
         ///     });
