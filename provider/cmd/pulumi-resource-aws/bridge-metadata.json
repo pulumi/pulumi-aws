@@ -166,6 +166,7 @@
             "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming": 0,
             "aws:chime/voiceConnectorTermination:VoiceConnectorTermination": 0,
             "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials": 0,
+            "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration": 0,
             "aws:cloud9/environmentEC2:EnvironmentEC2": 0,
             "aws:cloud9/environmentMembership:EnvironmentMembership": 0,
             "aws:cloudcontrol/resource:Resource": 0,
@@ -866,6 +867,7 @@
             "aws:pinpoint/eventStream:EventStream": 0,
             "aws:pinpoint/gcmChannel:GcmChannel": 0,
             "aws:pinpoint/smsChannel:SmsChannel": 0,
+            "aws:pipes/pipe:Pipe": 0,
             "aws:qldb/ledger:Ledger": 0,
             "aws:qldb/stream:Stream": 0,
             "aws:quicksight/accountSubscription:AccountSubscription": 0,
@@ -874,6 +876,9 @@
             "aws:quicksight/folder:Folder": 0,
             "aws:quicksight/group:Group": 0,
             "aws:quicksight/groupMembership:GroupMembership": 0,
+            "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": 1,
+            "aws:quicksight/ingestion:Ingestion": 1,
+            "aws:quicksight/namespace:Namespace": 1,
             "aws:quicksight/user:User": 0,
             "aws:ram/principalAssociation:PrincipalAssociation": 0,
             "aws:ram/resourceAssociation:ResourceAssociation": 0,
@@ -1009,6 +1014,7 @@
             "aws:sagemaker/app:App": 0,
             "aws:sagemaker/appImageConfig:AppImageConfig": 0,
             "aws:sagemaker/codeRepository:CodeRepository": 0,
+            "aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition": 0,
             "aws:sagemaker/device:Device": 0,
             "aws:sagemaker/deviceFleet:DeviceFleet": 0,
             "aws:sagemaker/domain:Domain": 0,
@@ -1022,6 +1028,7 @@
             "aws:sagemaker/model:Model": 0,
             "aws:sagemaker/modelPackageGroup:ModelPackageGroup": 0,
             "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy": 0,
+            "aws:sagemaker/monitoringSchedule:MonitoringSchedule": 0,
             "aws:sagemaker/notebookInstance:NotebookInstance": 0,
             "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration": 0,
             "aws:sagemaker/project:Project": 0,
@@ -1162,6 +1169,9 @@
             "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule": 1,
             "aws:vpclattice/service:Service": 0,
             "aws:vpclattice/serviceNetwork:ServiceNetwork": 0,
+            "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation": 0,
+            "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation": 0,
+            "aws:vpclattice/targetGroup:TargetGroup": 0,
             "aws:waf/byteMatchSet:ByteMatchSet": 0,
             "aws:waf/geoMatchSet:GeoMatchSet": 0,
             "aws:waf/ipSet:IpSet": 0,
@@ -1303,6 +1313,7 @@
             "aws:directconnect/getLocations:getLocations": 0,
             "aws:directconnect/getRouterConfiguration:getRouterConfiguration": 0,
             "aws:directoryservice/getDirectory:getDirectory": 0,
+            "aws:dms/getCertificate:getCertificate": 0,
             "aws:docdb/getEngineVersion:getEngineVersion": 0,
             "aws:docdb/getOrderableDbInstance:getOrderableDbInstance": 0,
             "aws:dynamodb/getTable:getTable": 0,
@@ -1583,6 +1594,8 @@
             "aws:pricing/getProduct:getProduct": 0,
             "aws:qldb/getLedger:getLedger": 0,
             "aws:quicksight/getDataSet:getDataSet": 0,
+            "aws:quicksight/getQuicksightGroup:getQuicksightGroup": 0,
+            "aws:quicksight/getQuicksightUser:getQuicksightUser": 0,
             "aws:ram/getResourceShare:getResourceShare": 0,
             "aws:rds/getCertificate:getCertificate": 0,
             "aws:rds/getCluster:getCluster": 0,
@@ -1854,6 +1867,7 @@
             "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming": "aws_chime_voice_connector_streaming",
             "aws:chime/voiceConnectorTermination:VoiceConnectorTermination": "aws_chime_voice_connector_termination",
             "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials": "aws_chime_voice_connector_termination_credentials",
+            "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration": "aws_chimesdkmediapipelines_media_insights_pipeline_configuration",
             "aws:cloud9/environmentEC2:EnvironmentEC2": "aws_cloud9_environment_ec2",
             "aws:cloud9/environmentMembership:EnvironmentMembership": "aws_cloud9_environment_membership",
             "aws:cloudcontrol/resource:Resource": "aws_cloudcontrolapi_resource",
@@ -2554,6 +2568,7 @@
             "aws:pinpoint/eventStream:EventStream": "aws_pinpoint_event_stream",
             "aws:pinpoint/gcmChannel:GcmChannel": "aws_pinpoint_gcm_channel",
             "aws:pinpoint/smsChannel:SmsChannel": "aws_pinpoint_sms_channel",
+            "aws:pipes/pipe:Pipe": "aws_pipes_pipe",
             "aws:qldb/ledger:Ledger": "aws_qldb_ledger",
             "aws:qldb/stream:Stream": "aws_qldb_stream",
             "aws:quicksight/accountSubscription:AccountSubscription": "aws_quicksight_account_subscription",
@@ -2562,6 +2577,9 @@
             "aws:quicksight/folder:Folder": "aws_quicksight_folder",
             "aws:quicksight/group:Group": "aws_quicksight_group",
             "aws:quicksight/groupMembership:GroupMembership": "aws_quicksight_group_membership",
+            "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": "aws_quicksight_iam_policy_assignment",
+            "aws:quicksight/ingestion:Ingestion": "aws_quicksight_ingestion",
+            "aws:quicksight/namespace:Namespace": "aws_quicksight_namespace",
             "aws:quicksight/user:User": "aws_quicksight_user",
             "aws:ram/principalAssociation:PrincipalAssociation": "aws_ram_principal_association",
             "aws:ram/resourceAssociation:ResourceAssociation": "aws_ram_resource_association",
@@ -2697,6 +2715,7 @@
             "aws:sagemaker/app:App": "aws_sagemaker_app",
             "aws:sagemaker/appImageConfig:AppImageConfig": "aws_sagemaker_app_image_config",
             "aws:sagemaker/codeRepository:CodeRepository": "aws_sagemaker_code_repository",
+            "aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition": "aws_sagemaker_data_quality_job_definition",
             "aws:sagemaker/device:Device": "aws_sagemaker_device",
             "aws:sagemaker/deviceFleet:DeviceFleet": "aws_sagemaker_device_fleet",
             "aws:sagemaker/domain:Domain": "aws_sagemaker_domain",
@@ -2710,6 +2729,7 @@
             "aws:sagemaker/model:Model": "aws_sagemaker_model",
             "aws:sagemaker/modelPackageGroup:ModelPackageGroup": "aws_sagemaker_model_package_group",
             "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy": "aws_sagemaker_model_package_group_policy",
+            "aws:sagemaker/monitoringSchedule:MonitoringSchedule": "aws_sagemaker_monitoring_schedule",
             "aws:sagemaker/notebookInstance:NotebookInstance": "aws_sagemaker_notebook_instance",
             "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration": "aws_sagemaker_notebook_instance_lifecycle_configuration",
             "aws:sagemaker/project:Project": "aws_sagemaker_project",
@@ -2850,6 +2870,9 @@
             "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule": "aws_vpc_security_group_ingress_rule",
             "aws:vpclattice/service:Service": "aws_vpclattice_service",
             "aws:vpclattice/serviceNetwork:ServiceNetwork": "aws_vpclattice_service_network",
+            "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation": "aws_vpclattice_service_network_service_association",
+            "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation": "aws_vpclattice_service_network_vpc_association",
+            "aws:vpclattice/targetGroup:TargetGroup": "aws_vpclattice_target_group",
             "aws:waf/byteMatchSet:ByteMatchSet": "aws_waf_byte_match_set",
             "aws:waf/geoMatchSet:GeoMatchSet": "aws_waf_geo_match_set",
             "aws:waf/ipSet:IpSet": "aws_waf_ipset",
@@ -2991,6 +3014,7 @@
             "aws:directconnect/getLocations:getLocations": "aws_dx_locations",
             "aws:directconnect/getRouterConfiguration:getRouterConfiguration": "aws_dx_router_configuration",
             "aws:directoryservice/getDirectory:getDirectory": "aws_directory_service_directory",
+            "aws:dms/getCertificate:getCertificate": "aws_dms_certificate",
             "aws:docdb/getEngineVersion:getEngineVersion": "aws_docdb_engine_version",
             "aws:docdb/getOrderableDbInstance:getOrderableDbInstance": "aws_docdb_orderable_db_instance",
             "aws:dynamodb/getTable:getTable": "aws_dynamodb_table",
@@ -3271,6 +3295,8 @@
             "aws:pricing/getProduct:getProduct": "aws_pricing_product",
             "aws:qldb/getLedger:getLedger": "aws_qldb_ledger",
             "aws:quicksight/getDataSet:getDataSet": "aws_quicksight_data_set",
+            "aws:quicksight/getQuicksightGroup:getQuicksightGroup": "aws_quicksight_group",
+            "aws:quicksight/getQuicksightUser:getQuicksightUser": "aws_quicksight_user",
             "aws:ram/getResourceShare:getResourceShare": "aws_ram_resource_share",
             "aws:rds/getCertificate:getCertificate": "aws_rds_certificate",
             "aws:rds/getCluster:getCluster": "aws_rds_cluster",
@@ -3466,6 +3492,7 @@
                 "ocspCustomCname": "ocsp_custom_cname"
             },
             "aws:acmpca/certificate:Certificate": {
+                "apiPassthrough": "api_passthrough",
                 "certificateAuthorityArn": "certificate_authority_arn",
                 "certificateChain": "certificate_chain",
                 "certificateSigningRequest": "certificate_signing_request",
@@ -4127,6 +4154,7 @@
                 "disableExecuteApiEndpoint": "disable_execute_api_endpoint",
                 "endpointConfiguration": "endpoint_configuration",
                 "executionArn": "execution_arn",
+                "failOnWarnings": "fail_on_warnings",
                 "minimumCompressionSize": "minimum_compression_size",
                 "putRestApiMode": "put_rest_api_mode",
                 "rootResourceId": "root_resource_id",
@@ -7602,6 +7630,88 @@
             "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials": {
                 "voiceConnectorId": "voice_connector_id"
             },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElement:MediaInsightsPipelineConfigurationElement": {
+                "amazonTranscribeCallAnalyticsProcessorConfiguration": "amazon_transcribe_call_analytics_processor_configuration",
+                "amazonTranscribeProcessorConfiguration": "amazon_transcribe_processor_configuration",
+                "kinesisDataStreamSinkConfiguration": "kinesis_data_stream_sink_configuration",
+                "lambdaFunctionSinkConfiguration": "lambda_function_sink_configuration",
+                "s3RecordingSinkConfiguration": "s3_recording_sink_configuration",
+                "snsTopicSinkConfiguration": "sns_topic_sink_configuration",
+                "sqsQueueSinkConfiguration": "sqs_queue_sink_configuration",
+                "voiceAnalyticsProcessorConfiguration": "voice_analytics_processor_configuration"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration:MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration": {
+                "callAnalyticsStreamCategories": "call_analytics_stream_categories",
+                "contentIdentificationType": "content_identification_type",
+                "contentRedactionType": "content_redaction_type",
+                "enablePartialResultsStabilization": "enable_partial_results_stabilization",
+                "filterPartialResults": "filter_partial_results",
+                "languageCode": "language_code",
+                "languageModelName": "language_model_name",
+                "partialResultsStability": "partial_results_stability",
+                "piiEntityTypes": "pii_entity_types",
+                "postCallAnalyticsSettings": "post_call_analytics_settings",
+                "vocabularyFilterMethod": "vocabulary_filter_method",
+                "vocabularyFilterName": "vocabulary_filter_name",
+                "vocabularyName": "vocabulary_name"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings:MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings": {
+                "contentRedactionOutput": "content_redaction_output",
+                "dataAccessRoleArn": "data_access_role_arn",
+                "outputEncryptionKmsKeyId": "output_encryption_kms_key_id",
+                "outputLocation": "output_location"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration:MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration": {
+                "contentIdentificationType": "content_identification_type",
+                "contentRedactionType": "content_redaction_type",
+                "enablePartialResultsStabilization": "enable_partial_results_stabilization",
+                "filterPartialResults": "filter_partial_results",
+                "languageCode": "language_code",
+                "languageModelName": "language_model_name",
+                "partialResultsStability": "partial_results_stability",
+                "piiEntityTypes": "pii_entity_types",
+                "showSpeakerLabel": "show_speaker_label",
+                "vocabularyFilterMethod": "vocabulary_filter_method",
+                "vocabularyFilterName": "vocabulary_filter_name",
+                "vocabularyName": "vocabulary_name"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration:MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration": {
+                "insightsTarget": "insights_target"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration:MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration": {
+                "insightsTarget": "insights_target"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration:MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration": {
+                "insightsTarget": "insights_target"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration:MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration": {
+                "insightsTarget": "insights_target"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration:MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration": {
+                "speakerSearchStatus": "speaker_search_status",
+                "voiceToneAnalysisStatus": "voice_tone_analysis_status"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule:MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule": {
+                "issueDetectionConfiguration": "issue_detection_configuration",
+                "keywordMatchConfiguration": "keyword_match_configuration",
+                "sentimentConfiguration": "sentiment_configuration"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration:MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration": {
+                "ruleName": "rule_name"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration:MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration": {
+                "ruleName": "rule_name"
+            },
+            "aws:chimesdkmediapipelines/MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration:MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration": {
+                "ruleName": "rule_name",
+                "sentimentType": "sentiment_type",
+                "timePeriod": "time_period"
+            },
+            "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration": {
+                "realTimeAlertConfiguration": "real_time_alert_configuration",
+                "resourceAccessRoleArn": "resource_access_role_arn",
+                "tagsAll": "tags_all"
+            },
             "aws:cloud9/environmentEC2:EnvironmentEC2": {
                 "automaticStopTimeMinutes": "automatic_stop_time_minutes",
                 "connectionType": "connection_type",
@@ -10380,6 +10490,7 @@
                 "jumboFrameCapable": "jumbo_frame_capable",
                 "macsecCapable": "macsec_capable",
                 "ownerAccountId": "owner_account_id",
+                "partnerName": "partner_name",
                 "portEncryptionStatus": "port_encryption_status",
                 "providerName": "provider_name",
                 "requestMacsec": "request_macsec",
@@ -10420,6 +10531,7 @@
             "aws:directconnect/getConnection:getConnection": {
                 "awsDevice": "aws_device",
                 "ownerAccountId": "owner_account_id",
+                "partnerName": "partner_name",
                 "providerName": "provider_name",
                 "vlanId": "vlan_id"
             },
@@ -10875,6 +10987,18 @@
                 "sourceIds": "source_ids",
                 "sourceType": "source_type",
                 "tagsAll": "tags_all"
+            },
+            "aws:dms/getCertificate:getCertificate": {
+                "certificateArn": "certificate_arn",
+                "certificateCreationDate": "certificate_creation_date",
+                "certificateId": "certificate_id",
+                "certificateOwner": "certificate_owner",
+                "certificatePem": "certificate_pem",
+                "certificateWallet": "certificate_wallet",
+                "keyLength": "key_length",
+                "signingAlgorithm": "signing_algorithm",
+                "validFromDate": "valid_from_date",
+                "validToDate": "valid_to_date"
             },
             "aws:dms/replicationInstance:ReplicationInstance": {
                 "allocatedStorage": "allocated_storage",
@@ -12899,6 +13023,7 @@
             },
             "aws:ec2/getNatGateway:getNatGateway": {
                 "allocationId": "allocation_id",
+                "associationId": "association_id",
                 "connectivityType": "connectivity_type",
                 "filters": "filter",
                 "networkInterfaceId": "network_interface_id",
@@ -13581,6 +13706,7 @@
             },
             "aws:ec2/natGateway:NatGateway": {
                 "allocationId": "allocation_id",
+                "associationId": "association_id",
                 "connectivityType": "connectivity_type",
                 "networkInterfaceId": "network_interface_id",
                 "privateIp": "private_ip",
@@ -20260,6 +20386,7 @@
                 "functionArn": "function_arn",
                 "functionName": "function_name",
                 "functionUrl": "function_url",
+                "invokeMode": "invoke_mode",
                 "urlId": "url_id"
             },
             "aws:lambda/getAlias:getAlias": {
@@ -20311,6 +20438,7 @@
                 "functionArn": "function_arn",
                 "functionName": "function_name",
                 "functionUrl": "function_url",
+                "invokeMode": "invoke_mode",
                 "lastModifiedTime": "last_modified_time",
                 "urlId": "url_id"
             },
@@ -22744,6 +22872,8 @@
                 "requirementsS3Path": "requirements_s3_path",
                 "serviceRoleArn": "service_role_arn",
                 "sourceBucketArn": "source_bucket_arn",
+                "startupScriptS3ObjectVersion": "startup_script_s3_object_version",
+                "startupScriptS3Path": "startup_script_s3_path",
                 "tagsAll": "tags_all",
                 "webserverAccessMode": "webserver_access_mode",
                 "webserverUrl": "webserver_url",
@@ -24648,6 +24778,23 @@
                 "shortCode": "short_code",
                 "transactionalMessagesPerSecond": "transactional_messages_per_second"
             },
+            "aws:pipes/PipeSourceParameters:PipeSourceParameters": {
+                "filterCriteria": "filter_criteria"
+            },
+            "aws:pipes/PipeSourceParametersFilterCriteria:PipeSourceParametersFilterCriteria": {
+                "filters": "filter"
+            },
+            "aws:pipes/PipeTargetParameters:PipeTargetParameters": {
+                "inputTemplate": "input_template"
+            },
+            "aws:pipes/pipe:Pipe": {
+                "desiredState": "desired_state",
+                "namePrefix": "name_prefix",
+                "roleArn": "role_arn",
+                "sourceParameters": "source_parameters",
+                "tagsAll": "tags_all",
+                "targetParameters": "target_parameters"
+            },
             "aws:pricing/getProduct:getProduct": {
                 "serviceCode": "service_code"
             },
@@ -24830,6 +24977,10 @@
             "aws:quicksight/DataSourceVpcConnectionProperties:DataSourceVpcConnectionProperties": {
                 "vpcConnectionArn": "vpc_connection_arn"
             },
+            "aws:quicksight/IamPolicyAssignmentIdentities:IamPolicyAssignmentIdentities": {
+                "groups": "group",
+                "users": "user"
+            },
             "aws:quicksight/accountSubscription:AccountSubscription": {
                 "accountName": "account_name",
                 "accountSubscriptionStatus": "account_subscription_status",
@@ -25006,6 +25157,18 @@
                 "tagKey": "tag_key",
                 "tagMultiValueDelimiter": "tag_multi_value_delimiter"
             },
+            "aws:quicksight/getQuicksightGroup:getQuicksightGroup": {
+                "awsAccountId": "aws_account_id",
+                "groupName": "group_name",
+                "principalId": "principal_id"
+            },
+            "aws:quicksight/getQuicksightUser:getQuicksightUser": {
+                "awsAccountId": "aws_account_id",
+                "identityType": "identity_type",
+                "principalId": "principal_id",
+                "userName": "user_name",
+                "userRole": "user_role"
+            },
             "aws:quicksight/group:Group": {
                 "awsAccountId": "aws_account_id",
                 "groupName": "group_name"
@@ -25014,6 +25177,27 @@
                 "awsAccountId": "aws_account_id",
                 "groupName": "group_name",
                 "memberName": "member_name"
+            },
+            "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": {
+                "assignmentId": "assignment_id",
+                "assignmentName": "assignment_name",
+                "assignmentStatus": "assignment_status",
+                "awsAccountId": "aws_account_id",
+                "policyArn": "policy_arn"
+            },
+            "aws:quicksight/ingestion:Ingestion": {
+                "awsAccountId": "aws_account_id",
+                "dataSetId": "data_set_id",
+                "ingestionId": "ingestion_id",
+                "ingestionStatus": "ingestion_status",
+                "ingestionType": "ingestion_type"
+            },
+            "aws:quicksight/namespace:Namespace": {
+                "awsAccountId": "aws_account_id",
+                "capacityRegion": "capacity_region",
+                "creationStatus": "creation_status",
+                "identityStore": "identity_store",
+                "tagsAll": "tags_all"
             },
             "aws:quicksight/user:User": {
                 "awsAccountId": "aws_account_id",
@@ -27267,6 +27451,70 @@
                 "repositoryUrl": "repository_url",
                 "secretArn": "secret_arn"
             },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityAppSpecification:DataQualityJobDefinitionDataQualityAppSpecification": {
+                "imageUri": "image_uri",
+                "postAnalyticsProcessorSourceUri": "post_analytics_processor_source_uri",
+                "recordPreprocessorSourceUri": "record_preprocessor_source_uri"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfig:DataQualityJobDefinitionDataQualityBaselineConfig": {
+                "constraintsResource": "constraints_resource",
+                "statisticsResource": "statistics_resource"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource:DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource": {
+                "s3Uri": "s3_uri"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource:DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource": {
+                "s3Uri": "s3_uri"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityJobInput:DataQualityJobDefinitionDataQualityJobInput": {
+                "batchTransformInput": "batch_transform_input",
+                "endpointInput": "endpoint_input"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityJobInputBatchTransformInput:DataQualityJobDefinitionDataQualityJobInputBatchTransformInput": {
+                "dataCapturedDestinationS3Uri": "data_captured_destination_s3_uri",
+                "datasetFormat": "dataset_format",
+                "localPath": "local_path",
+                "s3DataDistributionType": "s3_data_distribution_type",
+                "s3InputMode": "s3_input_mode"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityJobInputEndpointInput:DataQualityJobDefinitionDataQualityJobInputEndpointInput": {
+                "endpointName": "endpoint_name",
+                "localPath": "local_path",
+                "s3DataDistributionType": "s3_data_distribution_type",
+                "s3InputMode": "s3_input_mode"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfig:DataQualityJobDefinitionDataQualityJobOutputConfig": {
+                "kmsKeyId": "kms_key_id",
+                "monitoringOutputs": "monitoring_outputs"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs:DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs": {
+                "s3Output": "s3_output"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output:DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output": {
+                "localPath": "local_path",
+                "s3UploadMode": "s3_upload_mode",
+                "s3Uri": "s3_uri"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionJobResources:DataQualityJobDefinitionJobResources": {
+                "clusterConfig": "cluster_config"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionJobResourcesClusterConfig:DataQualityJobDefinitionJobResourcesClusterConfig": {
+                "instanceCount": "instance_count",
+                "instanceType": "instance_type",
+                "volumeKmsKeyId": "volume_kms_key_id",
+                "volumeSizeInGb": "volume_size_in_gb"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionNetworkConfig:DataQualityJobDefinitionNetworkConfig": {
+                "enableInterContainerTrafficEncryption": "enable_inter_container_traffic_encryption",
+                "enableNetworkIsolation": "enable_network_isolation",
+                "vpcConfig": "vpc_config"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionNetworkConfigVpcConfig:DataQualityJobDefinitionNetworkConfigVpcConfig": {
+                "securityGroupIds": "security_group_ids"
+            },
+            "aws:sagemaker/DataQualityJobDefinitionStoppingCondition:DataQualityJobDefinitionStoppingCondition": {
+                "maxRuntimeInSeconds": "max_runtime_in_seconds"
+            },
             "aws:sagemaker/DeviceDevice:DeviceDevice": {
                 "deviceName": "device_name",
                 "iotThingName": "iot_thing_name"
@@ -27569,6 +27817,14 @@
             "aws:sagemaker/ModelVpcConfig:ModelVpcConfig": {
                 "securityGroupIds": "security_group_ids"
             },
+            "aws:sagemaker/MonitoringScheduleMonitoringScheduleConfig:MonitoringScheduleMonitoringScheduleConfig": {
+                "monitoringJobDefinitionName": "monitoring_job_definition_name",
+                "monitoringType": "monitoring_type",
+                "scheduleConfig": "schedule_config"
+            },
+            "aws:sagemaker/MonitoringScheduleMonitoringScheduleConfigScheduleConfig:MonitoringScheduleMonitoringScheduleConfigScheduleConfig": {
+                "scheduleExpression": "schedule_expression"
+            },
             "aws:sagemaker/NotebookInstanceInstanceMetadataServiceConfiguration:NotebookInstanceInstanceMetadataServiceConfiguration": {
                 "minimumInstanceMetadataServiceVersion": "minimum_instance_metadata_service_version"
             },
@@ -27736,6 +27992,17 @@
                 "gitConfig": "git_config",
                 "tagsAll": "tags_all"
             },
+            "aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition": {
+                "dataQualityAppSpecification": "data_quality_app_specification",
+                "dataQualityBaselineConfig": "data_quality_baseline_config",
+                "dataQualityJobInput": "data_quality_job_input",
+                "dataQualityJobOutputConfig": "data_quality_job_output_config",
+                "jobResources": "job_resources",
+                "networkConfig": "network_config",
+                "roleArn": "role_arn",
+                "stoppingCondition": "stopping_condition",
+                "tagsAll": "tags_all"
+            },
             "aws:sagemaker/device:Device": {
                 "agentVersion": "agent_version",
                 "deviceFleetName": "device_fleet_name"
@@ -27839,6 +28106,10 @@
             "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy": {
                 "modelPackageGroupName": "model_package_group_name",
                 "resourcePolicy": "resource_policy"
+            },
+            "aws:sagemaker/monitoringSchedule:MonitoringSchedule": {
+                "monitoringScheduleConfig": "monitoring_schedule_config",
+                "tagsAll": "tags_all"
             },
             "aws:sagemaker/notebookInstance:NotebookInstance": {
                 "acceleratorTypes": "accelerator_types",
@@ -29690,6 +29961,23 @@
                 "domainName": "domain_name",
                 "hostedZoneId": "hosted_zone_id"
             },
+            "aws:vpclattice/ServiceNetworkServiceAssociationDnsEntry:ServiceNetworkServiceAssociationDnsEntry": {
+                "domainName": "domain_name",
+                "hostedZoneId": "hosted_zone_id"
+            },
+            "aws:vpclattice/TargetGroupConfig:TargetGroupConfig": {
+                "healthCheck": "health_check",
+                "ipAddressType": "ip_address_type",
+                "protocolVersion": "protocol_version",
+                "vpcIdentifier": "vpc_identifier"
+            },
+            "aws:vpclattice/TargetGroupConfigHealthCheck:TargetGroupConfigHealthCheck": {
+                "healthCheckIntervalSeconds": "health_check_interval_seconds",
+                "healthCheckTimeoutSeconds": "health_check_timeout_seconds",
+                "healthyThresholdCount": "healthy_threshold_count",
+                "protocolVersion": "protocol_version",
+                "unhealthyThresholdCount": "unhealthy_threshold_count"
+            },
             "aws:vpclattice/getService:getService": {
                 "authType": "auth_type",
                 "certificateArn": "certificate_arn",
@@ -29710,6 +29998,24 @@
             },
             "aws:vpclattice/serviceNetwork:ServiceNetwork": {
                 "authType": "auth_type",
+                "tagsAll": "tags_all"
+            },
+            "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation": {
+                "createdBy": "created_by",
+                "customDomainName": "custom_domain_name",
+                "dnsEntries": "dns_entry",
+                "serviceIdentifier": "service_identifier",
+                "serviceNetworkIdentifier": "service_network_identifier",
+                "tagsAll": "tags_all"
+            },
+            "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation": {
+                "createdBy": "created_by",
+                "securityGroupIds": "security_group_ids",
+                "serviceNetworkIdentifier": "service_network_identifier",
+                "tagsAll": "tags_all",
+                "vpcIdentifier": "vpc_identifier"
+            },
+            "aws:vpclattice/targetGroup:TargetGroup": {
                 "tagsAll": "tags_all"
             },
             "aws:waf/ByteMatchSetByteMatchTuple:ByteMatchSetByteMatchTuple": {
@@ -38689,11 +38995,42 @@
                 "vendorName": "vendor_name"
             },
             "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig": {
+                "awsManagedRulesAtpRuleSet": "aws_managed_rules_atp_rule_set",
                 "awsManagedRulesBotControlRuleSet": "aws_managed_rules_bot_control_rule_set",
                 "loginPath": "login_path",
                 "passwordField": "password_field",
                 "payloadType": "payload_type",
                 "usernameField": "username_field"
+            },
+            "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet": {
+                "loginPath": "login_path",
+                "requestInspection": "request_inspection",
+                "responseInspection": "response_inspection"
+            },
+            "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection": {
+                "passwordField": "password_field",
+                "payloadType": "payload_type",
+                "usernameField": "username_field"
+            },
+            "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection": {
+                "bodyContains": "body_contains",
+                "statusCode": "status_code"
+            },
+            "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains": {
+                "failureStrings": "failure_strings",
+                "successStrings": "success_strings"
+            },
+            "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader": {
+                "failureValues": "failure_values",
+                "successValues": "success_values"
+            },
+            "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson": {
+                "failureValues": "failure_values",
+                "successValues": "success_values"
+            },
+            "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode": {
+                "failureCodes": "failure_codes",
+                "successCodes": "success_codes"
             },
             "aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet:WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet": {
                 "inspectionLevel": "inspection_level"
