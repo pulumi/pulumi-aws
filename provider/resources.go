@@ -444,16 +444,18 @@ func Provider() *tfbridge.ProviderInfo {
 	p := pftfbridge.MuxShimWithPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider), upstreamProvider.PluginFrameworkProvider)
 
 	prov := tfbridge.ProviderInfo{
-		P:            p,
-		Name:         "aws",
-		Description:  "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
-		Keywords:     []string{"pulumi", "aws"},
-		License:      "Apache-2.0",
-		Homepage:     "https://pulumi.io",
-		Repository:   "https://github.com/pulumi/pulumi-aws",
-		Version:      version.Version,
-		GitHubOrg:    "hashicorp",
+		P:           p,
+		Name:        "aws",
+		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
+		Keywords:    []string{"pulumi", "aws"},
+		License:     "Apache-2.0",
+		Homepage:    "https://pulumi.io",
+		Repository:  "https://github.com/pulumi/pulumi-aws",
+		Version:     version.Version,
+		GitHubOrg:   "hashicorp",
+
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsTypeDefaultFile(awsMod, "Region"),
