@@ -6847,6 +6847,15 @@ func Provider() *tfbridge.ProviderInfo {
 		"aws_vpc_security_group_ingress_rule": {
 			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
 		},
+		"aws_quicksight_iam_policy_assignment": {
+			Tok: awsResource("QuickSight", "IamPolicyAssignment"),
+		},
+		"aws_quicksight_ingestion": {
+			Tok: awsResource("QuickSight", "Ingestion"),
+		},
+		"aws_quicksight_namespace": {
+			Tok: awsResource("QuickSight", "Namespace"),
+		},
 	}
 
 	for k, v := range pluginFrameworkResoures {
