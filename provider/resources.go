@@ -6853,9 +6853,9 @@ func Provider() *tfbridge.ProviderInfo {
 		"aws_quicksight_ingestion": {
 			Tok: awsResource("QuickSight", "Ingestion"),
 		},
-		"aws_quicksight_namespace": {
-			Tok: awsResource("QuickSight", "Namespace"),
-		},
+		// "aws_quicksight_namespace": {
+		// 	Tok: awsResource("QuickSight", "Namespace"),
+		// },
 	}
 
 	for k, v := range pluginFrameworkResoures {
@@ -6864,6 +6864,12 @@ func Provider() *tfbridge.ProviderInfo {
 		}
 		prov.Resources[k] = v
 	}
+
+	// TODO fix C# compilation error for QuickSight Namespace
+	// error CS0542: 'Namespace': member names cannot be the same as their enclosing type
+	// 9 Warning(s)
+	// 1 Error(s)
+	prov.IgnoreMappings = append(prov.IgnoreMappings, "aws_quicksight_namespace")
 
 	return &prov
 }
