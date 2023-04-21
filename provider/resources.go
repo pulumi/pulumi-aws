@@ -6587,6 +6587,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Namespaces: namespaceMap,
 		},
+
+		SkipExamples: func(token, path string) bool {
+			// Flaky example, see pulumi/pulumi-aws#2477
+			if token == "aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment" {
+				return true
+			}
+			return false
+		},
 	}
 
 	// Fix the spelling mistake on `aws_ses_configuration_set` Tok
