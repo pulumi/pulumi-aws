@@ -124,7 +124,7 @@ type LoadBalancer struct {
 	EnableTlsVersionAndCipherSuiteHeaders pulumi.BoolPtrOutput `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
 	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
 	EnableWafFailOpen pulumi.BoolPtrOutput `pulumi:"enableWafFailOpen"`
-	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrOutput `pulumi:"enableXffClientPort"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
@@ -214,7 +214,7 @@ type loadBalancerState struct {
 	EnableTlsVersionAndCipherSuiteHeaders *bool `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
 	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
 	EnableWafFailOpen *bool `pulumi:"enableWafFailOpen"`
-	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort *bool `pulumi:"enableXffClientPort"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
@@ -276,7 +276,7 @@ type LoadBalancerState struct {
 	EnableTlsVersionAndCipherSuiteHeaders pulumi.BoolPtrInput
 	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
 	EnableWafFailOpen pulumi.BoolPtrInput
-	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrInput
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
@@ -336,7 +336,7 @@ type loadBalancerArgs struct {
 	EnableTlsVersionAndCipherSuiteHeaders *bool `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
 	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
 	EnableWafFailOpen *bool `pulumi:"enableWafFailOpen"`
-	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort *bool `pulumi:"enableXffClientPort"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
@@ -364,6 +364,8 @@ type loadBalancerArgs struct {
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
 	XffHeaderProcessingMode *string `pulumi:"xffHeaderProcessingMode"`
 }
@@ -388,7 +390,7 @@ type LoadBalancerArgs struct {
 	EnableTlsVersionAndCipherSuiteHeaders pulumi.BoolPtrInput
 	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
 	EnableWafFailOpen pulumi.BoolPtrInput
-	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+	// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrInput
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
@@ -416,6 +418,8 @@ type LoadBalancerArgs struct {
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
 	XffHeaderProcessingMode pulumi.StringPtrInput
 }
@@ -567,7 +571,7 @@ func (o LoadBalancerOutput) EnableWafFailOpen() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.EnableWafFailOpen }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `true`.
+// Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 func (o LoadBalancerOutput) EnableXffClientPort() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.EnableXffClientPort }).(pulumi.BoolPtrOutput)
 }

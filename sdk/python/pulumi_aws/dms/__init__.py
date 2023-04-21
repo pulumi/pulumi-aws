@@ -8,6 +8,7 @@ import typing
 from .certificate import *
 from .endpoint import *
 from .event_subscription import *
+from .get_certificate import *
 from .replication_instance import *
 from .replication_subnet_group import *
 from .replication_task import *

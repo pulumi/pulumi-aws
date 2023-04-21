@@ -28,7 +28,8 @@ class PolicyArgs:
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
@@ -44,6 +45,7 @@ class PolicyArgs:
         :param pulumi.Input[str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
         pulumi.set(__self__, "security_service_policy_data", security_service_policy_data)
@@ -69,6 +71,8 @@ class PolicyArgs:
             pulumi.set(__self__, "resource_type_lists", resource_type_lists)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="excludeResourceTags")
@@ -225,6 +229,18 @@ class PolicyArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -505,6 +521,7 @@ class Policy(pulumi.CustomResource):
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
@@ -565,6 +582,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         :param pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -644,6 +662,7 @@ class Policy(pulumi.CustomResource):
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -670,9 +689,9 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'security_service_policy_data'")
             __props__.__dict__["security_service_policy_data"] = security_service_policy_data
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy_update_token"] = None
-            __props__.__dict__["tags_all"] = None
         super(Policy, __self__).__init__(
             'aws:fms/policy:Policy',
             resource_name,

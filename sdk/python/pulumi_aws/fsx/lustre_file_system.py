@@ -36,6 +36,7 @@ class LustreFileSystemArgs:
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LustreFileSystem resource.
@@ -59,6 +60,7 @@ class LustreFileSystemArgs:
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -100,6 +102,8 @@ class LustreFileSystemArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if weekly_maintenance_start_time is not None:
             pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
@@ -342,6 +346,18 @@ class LustreFileSystemArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
@@ -837,6 +853,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -900,6 +917,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         ...
@@ -982,6 +1000,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1014,13 +1033,13 @@ class LustreFileSystem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
             __props__.__dict__["arn"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["mount_name"] = None
             __props__.__dict__["network_interface_ids"] = None
             __props__.__dict__["owner_id"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(LustreFileSystem, __self__).__init__(
             'aws:fsx/lustreFileSystem:LustreFileSystem',

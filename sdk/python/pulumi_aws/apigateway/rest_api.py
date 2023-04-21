@@ -22,6 +22,7 @@ class RestApiArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
                  endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
+                 fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,6 +38,7 @@ class RestApiArgs:
         :param pulumi.Input[str] description: Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input['RestApiEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
+        :param pulumi.Input[bool] fail_on_warnings: Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[str] name: Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -57,6 +59,8 @@ class RestApiArgs:
             pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
+        if fail_on_warnings is not None:
+            pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
         if minimum_compression_size is not None:
             pulumi.set(__self__, "minimum_compression_size", minimum_compression_size)
         if name is not None:
@@ -143,6 +147,18 @@ class RestApiArgs:
     @endpoint_configuration.setter
     def endpoint_configuration(self, value: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]):
         pulumi.set(self, "endpoint_configuration", value)
+
+    @property
+    @pulumi.getter(name="failOnWarnings")
+    def fail_on_warnings(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+        """
+        return pulumi.get(self, "fail_on_warnings")
+
+    @fail_on_warnings.setter
+    def fail_on_warnings(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fail_on_warnings", value)
 
     @property
     @pulumi.getter(name="minimumCompressionSize")
@@ -241,6 +257,7 @@ class _RestApiState:
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
                  endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
                  execution_arn: Optional[pulumi.Input[str]] = None,
+                 fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -262,6 +279,7 @@ class _RestApiState:
         :param pulumi.Input[str] execution_arn: Execution ARN part to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        :param pulumi.Input[bool] fail_on_warnings: Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[str] name: Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -289,6 +307,8 @@ class _RestApiState:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if execution_arn is not None:
             pulumi.set(__self__, "execution_arn", execution_arn)
+        if fail_on_warnings is not None:
+            pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
         if minimum_compression_size is not None:
             pulumi.set(__self__, "minimum_compression_size", minimum_compression_size)
         if name is not None:
@@ -417,6 +437,18 @@ class _RestApiState:
         pulumi.set(self, "execution_arn", value)
 
     @property
+    @pulumi.getter(name="failOnWarnings")
+    def fail_on_warnings(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+        """
+        return pulumi.get(self, "fail_on_warnings")
+
+    @fail_on_warnings.setter
+    def fail_on_warnings(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fail_on_warnings", value)
+
+    @property
     @pulumi.getter(name="minimumCompressionSize")
     def minimum_compression_size(self) -> Optional[pulumi.Input[int]]:
         """
@@ -524,6 +556,7 @@ class RestApi(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
                  endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
+                 fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -594,6 +627,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
+        :param pulumi.Input[bool] fail_on_warnings: Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[str] name: Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -683,6 +717,7 @@ class RestApi(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
                  endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
+                 fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -705,6 +740,7 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
+            __props__.__dict__["fail_on_warnings"] = fail_on_warnings
             __props__.__dict__["minimum_compression_size"] = minimum_compression_size
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
@@ -735,6 +771,7 @@ class RestApi(pulumi.CustomResource):
             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
             endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
             execution_arn: Optional[pulumi.Input[str]] = None,
+            fail_on_warnings: Optional[pulumi.Input[bool]] = None,
             minimum_compression_size: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -761,6 +798,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[str] execution_arn: Execution ARN part to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        :param pulumi.Input[bool] fail_on_warnings: Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[str] name: Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -783,6 +821,7 @@ class RestApi(pulumi.CustomResource):
         __props__.__dict__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
         __props__.__dict__["endpoint_configuration"] = endpoint_configuration
         __props__.__dict__["execution_arn"] = execution_arn
+        __props__.__dict__["fail_on_warnings"] = fail_on_warnings
         __props__.__dict__["minimum_compression_size"] = minimum_compression_size
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
@@ -866,6 +905,14 @@ class RestApi(pulumi.CustomResource):
         e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         """
         return pulumi.get(self, "execution_arn")
+
+    @property
+    @pulumi.getter(name="failOnWarnings")
+    def fail_on_warnings(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+        """
+        return pulumi.get(self, "fail_on_warnings")
 
     @property
     @pulumi.getter(name="minimumCompressionSize")

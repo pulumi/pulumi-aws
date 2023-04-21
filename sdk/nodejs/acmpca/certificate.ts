@@ -54,6 +54,10 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+     */
+    public readonly apiPassthrough!: pulumi.Output<string | undefined>;
+    /**
      * ARN of the certificate.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
+            resourceInputs["apiPassthrough"] = state ? state.apiPassthrough : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["certificate"] = state ? state.certificate : undefined;
             resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
@@ -122,6 +127,7 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.validity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validity'");
             }
+            resourceInputs["apiPassthrough"] = args ? args.apiPassthrough : undefined;
             resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
             resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
             resourceInputs["signingAlgorithm"] = args ? args.signingAlgorithm : undefined;
@@ -140,6 +146,10 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
+    /**
+     * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+     */
+    apiPassthrough?: pulumi.Input<string>;
     /**
      * ARN of the certificate.
      */
@@ -179,6 +189,10 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
+    /**
+     * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+     */
+    apiPassthrough?: pulumi.Input<string>;
     /**
      * ARN of the certificate authority.
      */

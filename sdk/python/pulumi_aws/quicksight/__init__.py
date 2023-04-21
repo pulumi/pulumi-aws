@@ -10,6 +10,8 @@ from .data_set import *
 from .data_source import *
 from .folder import *
 from .get_data_set import *
+from .get_quicksight_group import *
+from .get_quicksight_user import *
 from .group import *
 from .group_membership import *
 from .user import *

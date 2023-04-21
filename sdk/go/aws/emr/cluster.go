@@ -617,6 +617,8 @@ type clusterArgs struct {
 	Steps []ClusterStep `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection *bool `pulumi:"terminationProtection"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
@@ -679,6 +681,8 @@ type ClusterArgs struct {
 	Steps ClusterStepArrayInput
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection pulumi.BoolPtrInput
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.

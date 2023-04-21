@@ -229,6 +229,14 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly sourceBucketArn!: pulumi.Output<string>;
     /**
+     * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     */
+    public readonly startupScriptS3ObjectVersion!: pulumi.Output<string>;
+    /**
+     * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     */
+    public readonly startupScriptS3Path!: pulumi.Output<string | undefined>;
+    /**
      * The status of the Amazon MWAA Environment
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -287,6 +295,8 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["schedulers"] = state ? state.schedulers : undefined;
             resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             resourceInputs["sourceBucketArn"] = state ? state.sourceBucketArn : undefined;
+            resourceInputs["startupScriptS3ObjectVersion"] = state ? state.startupScriptS3ObjectVersion : undefined;
+            resourceInputs["startupScriptS3Path"] = state ? state.startupScriptS3Path : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -324,6 +334,8 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
             resourceInputs["schedulers"] = args ? args.schedulers : undefined;
             resourceInputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
+            resourceInputs["startupScriptS3ObjectVersion"] = args ? args.startupScriptS3ObjectVersion : undefined;
+            resourceInputs["startupScriptS3Path"] = args ? args.startupScriptS3Path : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
@@ -429,6 +441,14 @@ export interface EnvironmentState {
      */
     sourceBucketArn?: pulumi.Input<string>;
     /**
+     * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     */
+    startupScriptS3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     */
+    startupScriptS3Path?: pulumi.Input<string>;
+    /**
      * The status of the Amazon MWAA Environment
      */
     status?: pulumi.Input<string>;
@@ -526,6 +546,14 @@ export interface EnvironmentArgs {
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      */
     sourceBucketArn: pulumi.Input<string>;
+    /**
+     * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     */
+    startupScriptS3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     */
+    startupScriptS3Path?: pulumi.Input<string>;
     /**
      * A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

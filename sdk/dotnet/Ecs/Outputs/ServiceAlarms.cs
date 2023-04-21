@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceAlarms
     {
+        /// <summary>
+        /// One or more CloudWatch alarm names.
+        /// </summary>
         public readonly ImmutableArray<string> AlarmNames;
         /// <summary>
         /// Determines whether to use the CloudWatch alarm option in the service deployment process.

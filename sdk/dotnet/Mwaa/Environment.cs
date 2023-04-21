@@ -300,6 +300,18 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> SourceBucketArn { get; private set; } = null!;
 
         /// <summary>
+        /// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        /// </summary>
+        [Output("startupScriptS3ObjectVersion")]
+        public Output<string> StartupScriptS3ObjectVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+        /// </summary>
+        [Output("startupScriptS3Path")]
+        public Output<string?> StartupScriptS3Path { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the Amazon MWAA Environment
         /// </summary>
         [Output("status")]
@@ -497,6 +509,18 @@ namespace Pulumi.Aws.Mwaa
         [Input("sourceBucketArn", required: true)]
         public Input<string> SourceBucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        /// </summary>
+        [Input("startupScriptS3ObjectVersion")]
+        public Input<string>? StartupScriptS3ObjectVersion { get; set; }
+
+        /// <summary>
+        /// The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+        /// </summary>
+        [Input("startupScriptS3Path")]
+        public Input<string>? StartupScriptS3Path { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -679,6 +703,18 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("sourceBucketArn")]
         public Input<string>? SourceBucketArn { get; set; }
+
+        /// <summary>
+        /// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        /// </summary>
+        [Input("startupScriptS3ObjectVersion")]
+        public Input<string>? StartupScriptS3ObjectVersion { get; set; }
+
+        /// <summary>
+        /// The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+        /// </summary>
+        [Input("startupScriptS3Path")]
+        public Input<string>? StartupScriptS3Path { get; set; }
 
         /// <summary>
         /// The status of the Amazon MWAA Environment

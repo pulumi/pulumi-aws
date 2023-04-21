@@ -92,6 +92,21 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * 
+     */
+    @Import(name="invokeMode")
+    private @Nullable Output<String> invokeMode;
+
+    /**
+     * @return Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * 
+     */
+    public Optional<Output<String>> invokeMode() {
+        return Optional.ofNullable(this.invokeMode);
+    }
+
+    /**
      * The alias name or `&#34;$LATEST&#34;`.
      * 
      */
@@ -129,6 +144,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         this.functionArn = $.functionArn;
         this.functionName = $.functionName;
         this.functionUrl = $.functionUrl;
+        this.invokeMode = $.invokeMode;
         this.qualifier = $.qualifier;
         this.urlId = $.urlId;
     }
@@ -254,6 +270,27 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder functionUrl(String functionUrl) {
             return functionUrl(Output.of(functionUrl));
+        }
+
+        /**
+         * @param invokeMode Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder invokeMode(@Nullable Output<String> invokeMode) {
+            $.invokeMode = invokeMode;
+            return this;
+        }
+
+        /**
+         * @param invokeMode Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder invokeMode(String invokeMode) {
+            return invokeMode(Output.of(invokeMode));
         }
 
         /**

@@ -372,24 +372,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
-     * Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;.
-     * For information on the difference between the available Aurora MySQL engines
-     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-     * in the Amazon RDS User Guide.
+     * The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
-     * Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;.
-     * For information on the difference between the available Aurora MySQL engines
-     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-     * in the Amazon RDS User Guide.
+     * @return The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -397,22 +387,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The engine version to use. If `auto_minor_version_upgrade`
-     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-     * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;. Cannot be specified for a replica.
+     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return The engine version to use. If `auto_minor_version_upgrade`
-     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-     * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;. Cannot be specified for a replica.
+     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -1715,12 +1697,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine (Required unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
-         * Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;.
-         * For information on the difference between the available Aurora MySQL engines
-         * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-         * in the Amazon RDS User Guide.
+         * @param engine The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
          * 
          * @return builder
          * 
@@ -1731,12 +1708,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine (Required unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
-         * Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;.
-         * For information on the difference between the available Aurora MySQL engines
-         * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-         * in the Amazon RDS User Guide.
+         * @param engine The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
          * 
          * @return builder
          * 
@@ -1746,11 +1718,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade`
-         * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-         * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-         * Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;. Cannot be specified for a replica.
+         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
          * 
          * @return builder
          * 
@@ -1761,11 +1729,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade`
-         * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-         * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-         * Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;. Cannot be specified for a replica.
+         * @param engineVersion The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
          * 
          * @return builder
          * 

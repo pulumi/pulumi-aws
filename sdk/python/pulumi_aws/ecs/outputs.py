@@ -595,6 +595,7 @@ class ServiceAlarms(dict):
                  enable: bool,
                  rollback: bool):
         """
+        :param Sequence[str] alarm_names: One or more CloudWatch alarm names.
         :param bool enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
         :param bool rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
@@ -605,6 +606,9 @@ class ServiceAlarms(dict):
     @property
     @pulumi.getter(name="alarmNames")
     def alarm_names(self) -> Sequence[str]:
+        """
+        One or more CloudWatch alarm names.
+        """
         return pulumi.get(self, "alarm_names")
 
     @property

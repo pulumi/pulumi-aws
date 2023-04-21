@@ -275,6 +275,36 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     * 
+     */
+    @Import(name="startupScriptS3ObjectVersion")
+    private @Nullable Output<String> startupScriptS3ObjectVersion;
+
+    /**
+     * @return The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     * 
+     */
+    public Optional<Output<String>> startupScriptS3ObjectVersion() {
+        return Optional.ofNullable(this.startupScriptS3ObjectVersion);
+    }
+
+    /**
+     * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     * 
+     */
+    @Import(name="startupScriptS3Path")
+    private @Nullable Output<String> startupScriptS3Path;
+
+    /**
+     * @return The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     * 
+     */
+    public Optional<Output<String>> startupScriptS3Path() {
+        return Optional.ofNullable(this.startupScriptS3Path);
+    }
+
+    /**
      * A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -354,6 +384,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         this.requirementsS3Path = $.requirementsS3Path;
         this.schedulers = $.schedulers;
         this.sourceBucketArn = $.sourceBucketArn;
+        this.startupScriptS3ObjectVersion = $.startupScriptS3ObjectVersion;
+        this.startupScriptS3Path = $.startupScriptS3Path;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.webserverAccessMode = $.webserverAccessMode;
@@ -733,6 +765,48 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sourceBucketArn(String sourceBucketArn) {
             return sourceBucketArn(Output.of(sourceBucketArn));
+        }
+
+        /**
+         * @param startupScriptS3ObjectVersion The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startupScriptS3ObjectVersion(@Nullable Output<String> startupScriptS3ObjectVersion) {
+            $.startupScriptS3ObjectVersion = startupScriptS3ObjectVersion;
+            return this;
+        }
+
+        /**
+         * @param startupScriptS3ObjectVersion The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startupScriptS3ObjectVersion(String startupScriptS3ObjectVersion) {
+            return startupScriptS3ObjectVersion(Output.of(startupScriptS3ObjectVersion));
+        }
+
+        /**
+         * @param startupScriptS3Path The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startupScriptS3Path(@Nullable Output<String> startupScriptS3Path) {
+            $.startupScriptS3Path = startupScriptS3Path;
+            return this;
+        }
+
+        /**
+         * @param startupScriptS3Path The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startupScriptS3Path(String startupScriptS3Path) {
+            return startupScriptS3Path(Output.of(startupScriptS3Path));
         }
 
         /**

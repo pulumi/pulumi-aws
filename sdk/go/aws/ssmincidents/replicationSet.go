@@ -261,6 +261,8 @@ type replicationSetArgs struct {
 	Regions []ReplicationSetRegion `pulumi:"regions"`
 	// Tags applied to the replication set.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ReplicationSet resource.
@@ -268,6 +270,8 @@ type ReplicationSetArgs struct {
 	Regions ReplicationSetRegionArrayInput
 	// Tags applied to the replication set.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ReplicationSetArgs) ElementType() reflect.Type {

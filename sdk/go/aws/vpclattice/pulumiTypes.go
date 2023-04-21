@@ -110,6 +110,789 @@ func (o ServiceDnsEntryArrayOutput) Index(i pulumi.IntInput) ServiceDnsEntryOutp
 	}).(ServiceDnsEntryOutput)
 }
 
+type ServiceNetworkServiceAssociationDnsEntry struct {
+	// The domain name of the service.
+	DomainName *string `pulumi:"domainName"`
+	// The ID of the hosted zone.
+	HostedZoneId *string `pulumi:"hostedZoneId"`
+}
+
+// ServiceNetworkServiceAssociationDnsEntryInput is an input type that accepts ServiceNetworkServiceAssociationDnsEntryArgs and ServiceNetworkServiceAssociationDnsEntryOutput values.
+// You can construct a concrete instance of `ServiceNetworkServiceAssociationDnsEntryInput` via:
+//
+//	ServiceNetworkServiceAssociationDnsEntryArgs{...}
+type ServiceNetworkServiceAssociationDnsEntryInput interface {
+	pulumi.Input
+
+	ToServiceNetworkServiceAssociationDnsEntryOutput() ServiceNetworkServiceAssociationDnsEntryOutput
+	ToServiceNetworkServiceAssociationDnsEntryOutputWithContext(context.Context) ServiceNetworkServiceAssociationDnsEntryOutput
+}
+
+type ServiceNetworkServiceAssociationDnsEntryArgs struct {
+	// The domain name of the service.
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	// The ID of the hosted zone.
+	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+}
+
+func (ServiceNetworkServiceAssociationDnsEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntry)(nil)).Elem()
+}
+
+func (i ServiceNetworkServiceAssociationDnsEntryArgs) ToServiceNetworkServiceAssociationDnsEntryOutput() ServiceNetworkServiceAssociationDnsEntryOutput {
+	return i.ToServiceNetworkServiceAssociationDnsEntryOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkServiceAssociationDnsEntryArgs) ToServiceNetworkServiceAssociationDnsEntryOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationDnsEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationDnsEntryOutput)
+}
+
+// ServiceNetworkServiceAssociationDnsEntryArrayInput is an input type that accepts ServiceNetworkServiceAssociationDnsEntryArray and ServiceNetworkServiceAssociationDnsEntryArrayOutput values.
+// You can construct a concrete instance of `ServiceNetworkServiceAssociationDnsEntryArrayInput` via:
+//
+//	ServiceNetworkServiceAssociationDnsEntryArray{ ServiceNetworkServiceAssociationDnsEntryArgs{...} }
+type ServiceNetworkServiceAssociationDnsEntryArrayInput interface {
+	pulumi.Input
+
+	ToServiceNetworkServiceAssociationDnsEntryArrayOutput() ServiceNetworkServiceAssociationDnsEntryArrayOutput
+	ToServiceNetworkServiceAssociationDnsEntryArrayOutputWithContext(context.Context) ServiceNetworkServiceAssociationDnsEntryArrayOutput
+}
+
+type ServiceNetworkServiceAssociationDnsEntryArray []ServiceNetworkServiceAssociationDnsEntryInput
+
+func (ServiceNetworkServiceAssociationDnsEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceNetworkServiceAssociationDnsEntry)(nil)).Elem()
+}
+
+func (i ServiceNetworkServiceAssociationDnsEntryArray) ToServiceNetworkServiceAssociationDnsEntryArrayOutput() ServiceNetworkServiceAssociationDnsEntryArrayOutput {
+	return i.ToServiceNetworkServiceAssociationDnsEntryArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkServiceAssociationDnsEntryArray) ToServiceNetworkServiceAssociationDnsEntryArrayOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationDnsEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationDnsEntryArrayOutput)
+}
+
+type ServiceNetworkServiceAssociationDnsEntryOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkServiceAssociationDnsEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntry)(nil)).Elem()
+}
+
+func (o ServiceNetworkServiceAssociationDnsEntryOutput) ToServiceNetworkServiceAssociationDnsEntryOutput() ServiceNetworkServiceAssociationDnsEntryOutput {
+	return o
+}
+
+func (o ServiceNetworkServiceAssociationDnsEntryOutput) ToServiceNetworkServiceAssociationDnsEntryOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationDnsEntryOutput {
+	return o
+}
+
+// The domain name of the service.
+func (o ServiceNetworkServiceAssociationDnsEntryOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceNetworkServiceAssociationDnsEntry) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the hosted zone.
+func (o ServiceNetworkServiceAssociationDnsEntryOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceNetworkServiceAssociationDnsEntry) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+type ServiceNetworkServiceAssociationDnsEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkServiceAssociationDnsEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceNetworkServiceAssociationDnsEntry)(nil)).Elem()
+}
+
+func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) ToServiceNetworkServiceAssociationDnsEntryArrayOutput() ServiceNetworkServiceAssociationDnsEntryArrayOutput {
+	return o
+}
+
+func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) ToServiceNetworkServiceAssociationDnsEntryArrayOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationDnsEntryArrayOutput {
+	return o
+}
+
+func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) Index(i pulumi.IntInput) ServiceNetworkServiceAssociationDnsEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceNetworkServiceAssociationDnsEntry {
+		return vs[0].([]ServiceNetworkServiceAssociationDnsEntry)[vs[1].(int)]
+	}).(ServiceNetworkServiceAssociationDnsEntryOutput)
+}
+
+type TargetGroupConfig struct {
+	// The health check configuration.
+	HealthCheck *TargetGroupConfigHealthCheck `pulumi:"healthCheck"`
+	// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+	IpAddressType *string `pulumi:"ipAddressType"`
+	// The port on which the targets are listening.
+	Port int `pulumi:"port"`
+	// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+	Protocol string `pulumi:"protocol"`
+	// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+	ProtocolVersion *string `pulumi:"protocolVersion"`
+	// The ID of the VPC.
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
+}
+
+// TargetGroupConfigInput is an input type that accepts TargetGroupConfigArgs and TargetGroupConfigOutput values.
+// You can construct a concrete instance of `TargetGroupConfigInput` via:
+//
+//	TargetGroupConfigArgs{...}
+type TargetGroupConfigInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigOutput() TargetGroupConfigOutput
+	ToTargetGroupConfigOutputWithContext(context.Context) TargetGroupConfigOutput
+}
+
+type TargetGroupConfigArgs struct {
+	// The health check configuration.
+	HealthCheck TargetGroupConfigHealthCheckPtrInput `pulumi:"healthCheck"`
+	// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	// The port on which the targets are listening.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+	ProtocolVersion pulumi.StringPtrInput `pulumi:"protocolVersion"`
+	// The ID of the VPC.
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
+}
+
+func (TargetGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfig)(nil)).Elem()
+}
+
+func (i TargetGroupConfigArgs) ToTargetGroupConfigOutput() TargetGroupConfigOutput {
+	return i.ToTargetGroupConfigOutputWithContext(context.Background())
+}
+
+func (i TargetGroupConfigArgs) ToTargetGroupConfigOutputWithContext(ctx context.Context) TargetGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigOutput)
+}
+
+func (i TargetGroupConfigArgs) ToTargetGroupConfigPtrOutput() TargetGroupConfigPtrOutput {
+	return i.ToTargetGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TargetGroupConfigArgs) ToTargetGroupConfigPtrOutputWithContext(ctx context.Context) TargetGroupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigOutput).ToTargetGroupConfigPtrOutputWithContext(ctx)
+}
+
+// TargetGroupConfigPtrInput is an input type that accepts TargetGroupConfigArgs, TargetGroupConfigPtr and TargetGroupConfigPtrOutput values.
+// You can construct a concrete instance of `TargetGroupConfigPtrInput` via:
+//
+//	        TargetGroupConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetGroupConfigPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigPtrOutput() TargetGroupConfigPtrOutput
+	ToTargetGroupConfigPtrOutputWithContext(context.Context) TargetGroupConfigPtrOutput
+}
+
+type targetGroupConfigPtrType TargetGroupConfigArgs
+
+func TargetGroupConfigPtr(v *TargetGroupConfigArgs) TargetGroupConfigPtrInput {
+	return (*targetGroupConfigPtrType)(v)
+}
+
+func (*targetGroupConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupConfig)(nil)).Elem()
+}
+
+func (i *targetGroupConfigPtrType) ToTargetGroupConfigPtrOutput() TargetGroupConfigPtrOutput {
+	return i.ToTargetGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupConfigPtrType) ToTargetGroupConfigPtrOutputWithContext(ctx context.Context) TargetGroupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigPtrOutput)
+}
+
+type TargetGroupConfigOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfig)(nil)).Elem()
+}
+
+func (o TargetGroupConfigOutput) ToTargetGroupConfigOutput() TargetGroupConfigOutput {
+	return o
+}
+
+func (o TargetGroupConfigOutput) ToTargetGroupConfigOutputWithContext(ctx context.Context) TargetGroupConfigOutput {
+	return o
+}
+
+func (o TargetGroupConfigOutput) ToTargetGroupConfigPtrOutput() TargetGroupConfigPtrOutput {
+	return o.ToTargetGroupConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigOutput) ToTargetGroupConfigPtrOutputWithContext(ctx context.Context) TargetGroupConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupConfig) *TargetGroupConfig {
+		return &v
+	}).(TargetGroupConfigPtrOutput)
+}
+
+// The health check configuration.
+func (o TargetGroupConfigOutput) HealthCheck() TargetGroupConfigHealthCheckPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupConfigHealthCheck { return v.HealthCheck }).(TargetGroupConfigHealthCheckPtrOutput)
+}
+
+// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+func (o TargetGroupConfigOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
+// The port on which the targets are listening.
+func (o TargetGroupConfigOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v TargetGroupConfig) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+func (o TargetGroupConfigOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetGroupConfig) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+func (o TargetGroupConfigOutput) ProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *string { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the VPC.
+func (o TargetGroupConfigOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetGroupConfig) string { return v.VpcIdentifier }).(pulumi.StringOutput)
+}
+
+type TargetGroupConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupConfig)(nil)).Elem()
+}
+
+func (o TargetGroupConfigPtrOutput) ToTargetGroupConfigPtrOutput() TargetGroupConfigPtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigPtrOutput) ToTargetGroupConfigPtrOutputWithContext(ctx context.Context) TargetGroupConfigPtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigPtrOutput) Elem() TargetGroupConfigOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) TargetGroupConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupConfig
+		return ret
+	}).(TargetGroupConfigOutput)
+}
+
+// The health check configuration.
+func (o TargetGroupConfigPtrOutput) HealthCheck() TargetGroupConfigHealthCheckPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *TargetGroupConfigHealthCheck {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheck
+	}).(TargetGroupConfigHealthCheckPtrOutput)
+}
+
+// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+func (o TargetGroupConfigPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port on which the targets are listening.
+func (o TargetGroupConfigPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+func (o TargetGroupConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+func (o TargetGroupConfigPtrOutput) ProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProtocolVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the VPC.
+func (o TargetGroupConfigPtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupConfigHealthCheck struct {
+	// Indicates whether health checking is enabled. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
+	// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+	// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+	HealthCheckTimeoutSeconds *int `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount     *int `pulumi:"healthyThresholdCount"`
+	// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+	Matcher *TargetGroupConfigHealthCheckMatcher `pulumi:"matcher"`
+	// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+	Path *string `pulumi:"path"`
+	// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+	Port *int `pulumi:"port"`
+	// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+	Protocol *string `pulumi:"protocol"`
+	// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+	ProtocolVersion *string `pulumi:"protocolVersion"`
+	// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+	UnhealthyThresholdCount *int `pulumi:"unhealthyThresholdCount"`
+}
+
+// TargetGroupConfigHealthCheckInput is an input type that accepts TargetGroupConfigHealthCheckArgs and TargetGroupConfigHealthCheckOutput values.
+// You can construct a concrete instance of `TargetGroupConfigHealthCheckInput` via:
+//
+//	TargetGroupConfigHealthCheckArgs{...}
+type TargetGroupConfigHealthCheckInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigHealthCheckOutput() TargetGroupConfigHealthCheckOutput
+	ToTargetGroupConfigHealthCheckOutputWithContext(context.Context) TargetGroupConfigHealthCheckOutput
+}
+
+type TargetGroupConfigHealthCheckArgs struct {
+	// Indicates whether health checking is enabled. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+	HealthCheckIntervalSeconds pulumi.IntPtrInput `pulumi:"healthCheckIntervalSeconds"`
+	// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+	// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+	HealthCheckTimeoutSeconds pulumi.IntPtrInput `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount     pulumi.IntPtrInput `pulumi:"healthyThresholdCount"`
+	// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+	Matcher TargetGroupConfigHealthCheckMatcherPtrInput `pulumi:"matcher"`
+	// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+	ProtocolVersion pulumi.StringPtrInput `pulumi:"protocolVersion"`
+	// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+	UnhealthyThresholdCount pulumi.IntPtrInput `pulumi:"unhealthyThresholdCount"`
+}
+
+func (TargetGroupConfigHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfigHealthCheck)(nil)).Elem()
+}
+
+func (i TargetGroupConfigHealthCheckArgs) ToTargetGroupConfigHealthCheckOutput() TargetGroupConfigHealthCheckOutput {
+	return i.ToTargetGroupConfigHealthCheckOutputWithContext(context.Background())
+}
+
+func (i TargetGroupConfigHealthCheckArgs) ToTargetGroupConfigHealthCheckOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckOutput)
+}
+
+func (i TargetGroupConfigHealthCheckArgs) ToTargetGroupConfigHealthCheckPtrOutput() TargetGroupConfigHealthCheckPtrOutput {
+	return i.ToTargetGroupConfigHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i TargetGroupConfigHealthCheckArgs) ToTargetGroupConfigHealthCheckPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckOutput).ToTargetGroupConfigHealthCheckPtrOutputWithContext(ctx)
+}
+
+// TargetGroupConfigHealthCheckPtrInput is an input type that accepts TargetGroupConfigHealthCheckArgs, TargetGroupConfigHealthCheckPtr and TargetGroupConfigHealthCheckPtrOutput values.
+// You can construct a concrete instance of `TargetGroupConfigHealthCheckPtrInput` via:
+//
+//	        TargetGroupConfigHealthCheckArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetGroupConfigHealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigHealthCheckPtrOutput() TargetGroupConfigHealthCheckPtrOutput
+	ToTargetGroupConfigHealthCheckPtrOutputWithContext(context.Context) TargetGroupConfigHealthCheckPtrOutput
+}
+
+type targetGroupConfigHealthCheckPtrType TargetGroupConfigHealthCheckArgs
+
+func TargetGroupConfigHealthCheckPtr(v *TargetGroupConfigHealthCheckArgs) TargetGroupConfigHealthCheckPtrInput {
+	return (*targetGroupConfigHealthCheckPtrType)(v)
+}
+
+func (*targetGroupConfigHealthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupConfigHealthCheck)(nil)).Elem()
+}
+
+func (i *targetGroupConfigHealthCheckPtrType) ToTargetGroupConfigHealthCheckPtrOutput() TargetGroupConfigHealthCheckPtrOutput {
+	return i.ToTargetGroupConfigHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupConfigHealthCheckPtrType) ToTargetGroupConfigHealthCheckPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckPtrOutput)
+}
+
+type TargetGroupConfigHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfigHealthCheck)(nil)).Elem()
+}
+
+func (o TargetGroupConfigHealthCheckOutput) ToTargetGroupConfigHealthCheckOutput() TargetGroupConfigHealthCheckOutput {
+	return o
+}
+
+func (o TargetGroupConfigHealthCheckOutput) ToTargetGroupConfigHealthCheckOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckOutput {
+	return o
+}
+
+func (o TargetGroupConfigHealthCheckOutput) ToTargetGroupConfigHealthCheckPtrOutput() TargetGroupConfigHealthCheckPtrOutput {
+	return o.ToTargetGroupConfigHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigHealthCheckOutput) ToTargetGroupConfigHealthCheckPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupConfigHealthCheck) *TargetGroupConfigHealthCheck {
+		return &v
+	}).(TargetGroupConfigHealthCheckPtrOutput)
+}
+
+// Indicates whether health checking is enabled. Defaults to `true`.
+func (o TargetGroupConfigHealthCheckOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+func (o TargetGroupConfigHealthCheckOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+func (o TargetGroupConfigHealthCheckOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.HealthCheckTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o TargetGroupConfigHealthCheckOutput) HealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.HealthyThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+func (o TargetGroupConfigHealthCheckOutput) Matcher() TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *TargetGroupConfigHealthCheckMatcher { return v.Matcher }).(TargetGroupConfigHealthCheckMatcherPtrOutput)
+}
+
+// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+func (o TargetGroupConfigHealthCheckOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+func (o TargetGroupConfigHealthCheckOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+func (o TargetGroupConfigHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+func (o TargetGroupConfigHealthCheckOutput) ProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *string { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+func (o TargetGroupConfigHealthCheckOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheck) *int { return v.UnhealthyThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+type TargetGroupConfigHealthCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigHealthCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupConfigHealthCheck)(nil)).Elem()
+}
+
+func (o TargetGroupConfigHealthCheckPtrOutput) ToTargetGroupConfigHealthCheckPtrOutput() TargetGroupConfigHealthCheckPtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigHealthCheckPtrOutput) ToTargetGroupConfigHealthCheckPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckPtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigHealthCheckPtrOutput) Elem() TargetGroupConfigHealthCheckOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) TargetGroupConfigHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupConfigHealthCheck
+		return ret
+	}).(TargetGroupConfigHealthCheckOutput)
+}
+
+// Indicates whether health checking is enabled. Defaults to `true`.
+func (o TargetGroupConfigHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+func (o TargetGroupConfigHealthCheckPtrOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckIntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+// * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+func (o TargetGroupConfigHealthCheckPtrOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TargetGroupConfigHealthCheckPtrOutput) HealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthyThresholdCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+func (o TargetGroupConfigHealthCheckPtrOutput) Matcher() TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *TargetGroupConfigHealthCheckMatcher {
+		if v == nil {
+			return nil
+		}
+		return v.Matcher
+	}).(TargetGroupConfigHealthCheckMatcherPtrOutput)
+}
+
+// The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+func (o TargetGroupConfigHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+func (o TargetGroupConfigHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+func (o TargetGroupConfigHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+func (o TargetGroupConfigHealthCheckPtrOutput) ProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProtocolVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+func (o TargetGroupConfigHealthCheckPtrOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyThresholdCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type TargetGroupConfigHealthCheckMatcher struct {
+	// The HTTP codes to use when checking for a successful response from a target.
+	Value *string `pulumi:"value"`
+}
+
+// TargetGroupConfigHealthCheckMatcherInput is an input type that accepts TargetGroupConfigHealthCheckMatcherArgs and TargetGroupConfigHealthCheckMatcherOutput values.
+// You can construct a concrete instance of `TargetGroupConfigHealthCheckMatcherInput` via:
+//
+//	TargetGroupConfigHealthCheckMatcherArgs{...}
+type TargetGroupConfigHealthCheckMatcherInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigHealthCheckMatcherOutput() TargetGroupConfigHealthCheckMatcherOutput
+	ToTargetGroupConfigHealthCheckMatcherOutputWithContext(context.Context) TargetGroupConfigHealthCheckMatcherOutput
+}
+
+type TargetGroupConfigHealthCheckMatcherArgs struct {
+	// The HTTP codes to use when checking for a successful response from a target.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TargetGroupConfigHealthCheckMatcherArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfigHealthCheckMatcher)(nil)).Elem()
+}
+
+func (i TargetGroupConfigHealthCheckMatcherArgs) ToTargetGroupConfigHealthCheckMatcherOutput() TargetGroupConfigHealthCheckMatcherOutput {
+	return i.ToTargetGroupConfigHealthCheckMatcherOutputWithContext(context.Background())
+}
+
+func (i TargetGroupConfigHealthCheckMatcherArgs) ToTargetGroupConfigHealthCheckMatcherOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckMatcherOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckMatcherOutput)
+}
+
+func (i TargetGroupConfigHealthCheckMatcherArgs) ToTargetGroupConfigHealthCheckMatcherPtrOutput() TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return i.ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(context.Background())
+}
+
+func (i TargetGroupConfigHealthCheckMatcherArgs) ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckMatcherOutput).ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(ctx)
+}
+
+// TargetGroupConfigHealthCheckMatcherPtrInput is an input type that accepts TargetGroupConfigHealthCheckMatcherArgs, TargetGroupConfigHealthCheckMatcherPtr and TargetGroupConfigHealthCheckMatcherPtrOutput values.
+// You can construct a concrete instance of `TargetGroupConfigHealthCheckMatcherPtrInput` via:
+//
+//	        TargetGroupConfigHealthCheckMatcherArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetGroupConfigHealthCheckMatcherPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupConfigHealthCheckMatcherPtrOutput() TargetGroupConfigHealthCheckMatcherPtrOutput
+	ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(context.Context) TargetGroupConfigHealthCheckMatcherPtrOutput
+}
+
+type targetGroupConfigHealthCheckMatcherPtrType TargetGroupConfigHealthCheckMatcherArgs
+
+func TargetGroupConfigHealthCheckMatcherPtr(v *TargetGroupConfigHealthCheckMatcherArgs) TargetGroupConfigHealthCheckMatcherPtrInput {
+	return (*targetGroupConfigHealthCheckMatcherPtrType)(v)
+}
+
+func (*targetGroupConfigHealthCheckMatcherPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupConfigHealthCheckMatcher)(nil)).Elem()
+}
+
+func (i *targetGroupConfigHealthCheckMatcherPtrType) ToTargetGroupConfigHealthCheckMatcherPtrOutput() TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return i.ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupConfigHealthCheckMatcherPtrType) ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckMatcherPtrOutput)
+}
+
+type TargetGroupConfigHealthCheckMatcherOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigHealthCheckMatcherOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupConfigHealthCheckMatcher)(nil)).Elem()
+}
+
+func (o TargetGroupConfigHealthCheckMatcherOutput) ToTargetGroupConfigHealthCheckMatcherOutput() TargetGroupConfigHealthCheckMatcherOutput {
+	return o
+}
+
+func (o TargetGroupConfigHealthCheckMatcherOutput) ToTargetGroupConfigHealthCheckMatcherOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckMatcherOutput {
+	return o
+}
+
+func (o TargetGroupConfigHealthCheckMatcherOutput) ToTargetGroupConfigHealthCheckMatcherPtrOutput() TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return o.ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupConfigHealthCheckMatcherOutput) ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupConfigHealthCheckMatcher) *TargetGroupConfigHealthCheckMatcher {
+		return &v
+	}).(TargetGroupConfigHealthCheckMatcherPtrOutput)
+}
+
+// The HTTP codes to use when checking for a successful response from a target.
+func (o TargetGroupConfigHealthCheckMatcherOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfigHealthCheckMatcher) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupConfigHealthCheckMatcherPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupConfigHealthCheckMatcherPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupConfigHealthCheckMatcher)(nil)).Elem()
+}
+
+func (o TargetGroupConfigHealthCheckMatcherPtrOutput) ToTargetGroupConfigHealthCheckMatcherPtrOutput() TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigHealthCheckMatcherPtrOutput) ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckMatcherPtrOutput {
+	return o
+}
+
+func (o TargetGroupConfigHealthCheckMatcherPtrOutput) Elem() TargetGroupConfigHealthCheckMatcherOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheckMatcher) TargetGroupConfigHealthCheckMatcher {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupConfigHealthCheckMatcher
+		return ret
+	}).(TargetGroupConfigHealthCheckMatcherOutput)
+}
+
+// The HTTP codes to use when checking for a successful response from a target.
+func (o TargetGroupConfigHealthCheckMatcherPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfigHealthCheckMatcher) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetServiceDnsEntry struct {
 	DomainName   string `pulumi:"domainName"`
 	HostedZoneId string `pulumi:"hostedZoneId"`
@@ -213,10 +996,26 @@ func (o GetServiceDnsEntryArrayOutput) Index(i pulumi.IntInput) GetServiceDnsEnt
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryInput)(nil)).Elem(), ServiceDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryArrayInput)(nil)).Elem(), ServiceDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryArrayInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigInput)(nil)).Elem(), TargetGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigPtrInput)(nil)).Elem(), TargetGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigHealthCheckInput)(nil)).Elem(), TargetGroupConfigHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigHealthCheckPtrInput)(nil)).Elem(), TargetGroupConfigHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigHealthCheckMatcherInput)(nil)).Elem(), TargetGroupConfigHealthCheckMatcherArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigHealthCheckMatcherPtrInput)(nil)).Elem(), TargetGroupConfigHealthCheckMatcherArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsEntryInput)(nil)).Elem(), GetServiceDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsEntryArrayInput)(nil)).Elem(), GetServiceDnsEntryArray{})
 	pulumi.RegisterOutputType(ServiceDnsEntryOutput{})
 	pulumi.RegisterOutputType(ServiceDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigHealthCheckOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigHealthCheckMatcherOutput{})
+	pulumi.RegisterOutputType(TargetGroupConfigHealthCheckMatcherPtrOutput{})
 	pulumi.RegisterOutputType(GetServiceDnsEntryOutput{})
 	pulumi.RegisterOutputType(GetServiceDnsEntryArrayOutput{})
 }

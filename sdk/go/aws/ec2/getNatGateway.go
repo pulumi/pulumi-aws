@@ -96,6 +96,8 @@ type LookupNatGatewayArgs struct {
 type LookupNatGatewayResult struct {
 	// ID of the EIP allocated to the selected Nat Gateway.
 	AllocationId string `pulumi:"allocationId"`
+	// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+	AssociationId string `pulumi:"associationId"`
 	// Connectivity type of the NAT Gateway.
 	ConnectivityType string                `pulumi:"connectivityType"`
 	Filters          []GetNatGatewayFilter `pulumi:"filters"`
@@ -164,6 +166,11 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(
 // ID of the EIP allocated to the selected Nat Gateway.
 func (o LookupNatGatewayResultOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AllocationId }).(pulumi.StringOutput)
+}
+
+// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+func (o LookupNatGatewayResultOutput) AssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.AssociationId }).(pulumi.StringOutput)
 }
 
 // Connectivity type of the NAT Gateway.

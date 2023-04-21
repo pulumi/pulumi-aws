@@ -77,6 +77,10 @@ export class NatGateway extends pulumi.CustomResource {
      */
     public readonly allocationId!: pulumi.Output<string | undefined>;
     /**
+     * The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+     */
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
+    /**
      * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
      */
     public readonly connectivityType!: pulumi.Output<string | undefined>;
@@ -119,6 +123,7 @@ export class NatGateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NatGatewayState | undefined;
             resourceInputs["allocationId"] = state ? state.allocationId : undefined;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
             resourceInputs["connectivityType"] = state ? state.connectivityType : undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["privateIp"] = state ? state.privateIp : undefined;
@@ -137,6 +142,7 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
         }
@@ -153,6 +159,10 @@ export interface NatGatewayState {
      * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
      */
     allocationId?: pulumi.Input<string>;
+    /**
+     * The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+     */
+    associationId?: pulumi.Input<string>;
     /**
      * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
      */

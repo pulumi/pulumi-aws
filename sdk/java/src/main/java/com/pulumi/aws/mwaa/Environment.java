@@ -509,6 +509,34 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.sourceBucketArn;
     }
     /**
+     * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     * 
+     */
+    @Export(name="startupScriptS3ObjectVersion", refs={String.class}, tree="[0]")
+    private Output<String> startupScriptS3ObjectVersion;
+
+    /**
+     * @return The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+     * 
+     */
+    public Output<String> startupScriptS3ObjectVersion() {
+        return this.startupScriptS3ObjectVersion;
+    }
+    /**
+     * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     * 
+     */
+    @Export(name="startupScriptS3Path", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> startupScriptS3Path;
+
+    /**
+     * @return The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+     * 
+     */
+    public Output<Optional<String>> startupScriptS3Path() {
+        return Codegen.optional(this.startupScriptS3Path);
+    }
+    /**
      * The status of the Amazon MWAA Environment
      * 
      */

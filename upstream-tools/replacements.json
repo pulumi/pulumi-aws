@@ -112,6 +112,16 @@
       "new": "With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance."
     }
   ],
+  "website/docs/d/dms_certificate.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS DMS (Database Migration) Certificate.",
+      "new": "  Data source for managing an AWS DMS (Database Migration) Certificate."
+    },
+    {
+      "old": "Terraform data source for managing an AWS DMS (Database Migration) Certificate.",
+      "new": "Data source for managing an AWS DMS (Database Migration) Certificate."
+    }
+  ],
   "website/docs/d/dx_router_configuration.html.markdown": [
     {
       "old": "  Terraform data source for managing an AWS Direct Connect Router Configuration.",
@@ -689,6 +699,16 @@
     {
       "old": "Create a cost_filter using resource tags, obtaining the tag value from a terraform variable",
       "new": "Create a cost_filter using resource tags, obtaining the tag value from a variable"
+    }
+  ],
+  "website/docs/r/chimesdkmediapipelines_media_insights_pipeline_configuration.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.",
+      "new": "  Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration."
+    },
+    {
+      "old": "Terraform resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.",
+      "new": "Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration."
     }
   ],
   "website/docs/r/cloudcontrolapi_resource.html.markdown": [
@@ -1683,7 +1703,7 @@
     },
     {
       "old": "~> **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, Terraform will recreate the resource whenever dynamic partitioning is enabled or disabled.",
-      "new": "~> **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, Pulumi will recreate the resource whenever dynamic partitioning is enabled or disabled."
+      "new": "~> **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled."
     }
   ],
   "website/docs/r/kms_ciphertext.html.markdown": [
@@ -2273,6 +2293,20 @@
       "old": "Read more about sensitive data in state.\n"
     }
   ],
+  "website/docs/r/pipes_pipe.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS EventBridge Pipes Pipe.",
+      "new": "  Resource for managing an AWS EventBridge Pipes Pipe."
+    },
+    {
+      "old": "* `name` - (Optional) Name of the pipe. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
+      "new": "* `name` - (Optional) Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`."
+    },
+    {
+      "old": "Terraform resource for managing an AWS EventBridge Pipes Pipe.",
+      "new": "Resource for managing an AWS EventBridge Pipes Pipe."
+    }
+  ],
   "website/docs/r/qldb_ledger.html.markdown": [
     {
       "old": "* `deletion_protection` - (Optional) The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via Terraform, this value must be configured to `false` and applied first before attempting deletion.",
@@ -2295,6 +2329,36 @@
     {
       "old": "Terraform resource for managing an AWS QuickSight Account Subscription.",
       "new": "Resource for managing an AWS QuickSight Account Subscription."
+    }
+  ],
+  "website/docs/r/quicksight_iam_policy_assignment.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS QuickSight IAM Policy Assignment.",
+      "new": "  Resource for managing an AWS QuickSight IAM Policy Assignment."
+    },
+    {
+      "old": "Terraform resource for managing an AWS QuickSight IAM Policy Assignment.",
+      "new": "Resource for managing an AWS QuickSight IAM Policy Assignment."
+    }
+  ],
+  "website/docs/r/quicksight_ingestion.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS QuickSight Ingestion.",
+      "new": "  Resource for managing an AWS QuickSight Ingestion."
+    },
+    {
+      "old": "Terraform resource for managing an AWS QuickSight Ingestion.",
+      "new": "Resource for managing an AWS QuickSight Ingestion."
+    }
+  ],
+  "website/docs/r/quicksight_namespace.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS QuickSight Namespace.",
+      "new": "  Resource for managing an AWS QuickSight Namespace."
+    },
+    {
+      "old": "Terraform resource for managing an AWS QuickSight Namespace.",
+      "new": "Resource for managing an AWS QuickSight Namespace."
     }
   ],
   "website/docs/r/rbin_rule.html.markdown": [
@@ -2719,10 +2783,22 @@
       "new": "    repository_url = \"https://github.com/github/docs.git\""
     }
   ],
+  "website/docs/r/sagemaker_data_quality_job_definition.html.markdown": [
+    {
+      "old": "* `name` - (Optional) The name of the data quality job definition. If omitted, Terraform will assign a random, unique name.",
+      "new": "* `name` - (Optional) The name of the data quality job definition. If omitted, the provider will assign a random, unique name."
+    }
+  ],
   "website/docs/r/sagemaker_endpoint.html.markdown": [
     {
       "old": "* `name` - (Optional) The name of the endpoint. If omitted, Terraform will assign a random, unique name.",
       "new": "* `name` - (Optional) The name of the endpoint. If omitted, the provider will assign a random, unique name."
+    }
+  ],
+  "website/docs/r/sagemaker_monitoring_schedule.html.markdown": [
+    {
+      "old": "* `name` - (Optional) The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, Terraform will assign a random, unique name.",
+      "new": "* `name` - (Optional) The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name."
     }
   ],
   "website/docs/r/sagemaker_notebook_instance.html.markdown": [
@@ -3118,6 +3194,36 @@
     {
       "old": "Terraform resource for managing an AWS VPC Lattice Service Network.",
       "new": "Resource for managing an AWS VPC Lattice Service Network."
+    }
+  ],
+  "website/docs/r/vpclattice_service_network_service_association.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS VPC Lattice Service Network Service Association.",
+      "new": "  Resource for managing an AWS VPC Lattice Service Network Service Association."
+    },
+    {
+      "old": "Terraform resource for managing an AWS VPC Lattice Service Network Service Association.",
+      "new": "Resource for managing an AWS VPC Lattice Service Network Service Association."
+    }
+  ],
+  "website/docs/r/vpclattice_service_network_vpc_association.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS VPC Lattice Service Network VPC Association.",
+      "new": "  Resource for managing an AWS VPC Lattice Service Network VPC Association."
+    },
+    {
+      "old": "Terraform resource for managing an AWS VPC Lattice Service Network VPC Association.",
+      "new": "Resource for managing an AWS VPC Lattice Service Network VPC Association."
+    }
+  ],
+  "website/docs/r/vpclattice_target_group.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS VPC Lattice Target Group.",
+      "new": "  Resource for managing an AWS VPC Lattice Target Group."
+    },
+    {
+      "old": "Terraform resource for managing an AWS VPC Lattice Target Group.",
+      "new": "Resource for managing an AWS VPC Lattice Target Group."
     }
   ],
   "website/docs/r/vpn_connection.html.markdown": [

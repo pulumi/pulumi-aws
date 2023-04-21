@@ -149,6 +149,10 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly string OwnerAccountId;
         /// <summary>
+        /// The name of the AWS Direct Connect service provider associated with the connection.
+        /// </summary>
+        public readonly string PartnerName;
+        /// <summary>
         /// Name of the service provider associated with the connection.
         /// </summary>
         public readonly string ProviderName;
@@ -177,6 +181,8 @@ namespace Pulumi.Aws.DirectConnect
 
             string ownerAccountId,
 
+            string partnerName,
+
             string providerName,
 
             ImmutableDictionary<string, string> tags,
@@ -190,6 +196,7 @@ namespace Pulumi.Aws.DirectConnect
             Location = location;
             Name = name;
             OwnerAccountId = ownerAccountId;
+            PartnerName = partnerName;
             ProviderName = providerName;
             Tags = tags;
             VlanId = vlanId;

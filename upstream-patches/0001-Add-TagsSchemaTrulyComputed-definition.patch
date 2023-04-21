@@ -1,4 +1,4 @@
-From 6b8aeb114d88c59e56aab92d19a285d30f4e68bc Mon Sep 17 00:00:00 2001
+From 58f878dcbfa95b36959489c1d60668e0685c2f2b Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 16:49:08 +0000
 Subject: [PATCH 01/26] Add TagsSchemaTrulyComputed definition

@@ -69,6 +69,8 @@ type LookupConnectionResult struct {
 	Name     string `pulumi:"name"`
 	// ID of the AWS account that owns the connection.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
+	// The name of the AWS Direct Connect service provider associated with the connection.
+	PartnerName string `pulumi:"partnerName"`
 	// Name of the service provider associated with the connection.
 	ProviderName string `pulumi:"providerName"`
 	// Map of tags for the resource.
@@ -149,6 +151,11 @@ func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 // ID of the AWS account that owns the connection.
 func (o LookupConnectionResultOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The name of the AWS Direct Connect service provider associated with the connection.
+func (o LookupConnectionResultOutput) PartnerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.PartnerName }).(pulumi.StringOutput)
 }
 
 // Name of the service provider associated with the connection.

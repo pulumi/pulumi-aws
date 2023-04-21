@@ -220,6 +220,21 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      * 
      */
@@ -250,6 +265,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         this.serverSideEncryption = $.serverSideEncryption;
         this.splunkConfiguration = $.splunkConfiguration;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.versionId = $.versionId;
     }
 
@@ -538,6 +554,27 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

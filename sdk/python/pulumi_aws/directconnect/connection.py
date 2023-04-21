@@ -174,6 +174,7 @@ class _ConnectionState:
                  macsec_capable: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_account_id: Optional[pulumi.Input[str]] = None,
+                 partner_name: Optional[pulumi.Input[str]] = None,
                  port_encryption_status: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  request_macsec: Optional[pulumi.Input[bool]] = None,
@@ -193,6 +194,7 @@ class _ConnectionState:
         :param pulumi.Input[bool] macsec_capable: Boolean value indicating whether the connection supports MAC Security (MACsec).
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] owner_account_id: The ID of the AWS account that owns the connection.
+        :param pulumi.Input[str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
         :param pulumi.Input[str] port_encryption_status: The MAC Security (MACsec) port link status of the connection.
         :param pulumi.Input[str] provider_name: The name of the service provider associated with the connection.
         :param pulumi.Input[bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -221,6 +223,8 @@ class _ConnectionState:
             pulumi.set(__self__, "name", name)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if partner_name is not None:
+            pulumi.set(__self__, "partner_name", partner_name)
         if port_encryption_status is not None:
             pulumi.set(__self__, "port_encryption_status", port_encryption_status)
         if provider_name is not None:
@@ -355,6 +359,18 @@ class _ConnectionState:
     @owner_account_id.setter
     def owner_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "owner_account_id", value)
+
+    @property
+    @pulumi.getter(name="partnerName")
+    def partner_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the AWS Direct Connect service provider associated with the connection.
+        """
+        return pulumi.get(self, "partner_name")
+
+    @partner_name.setter
+    def partner_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_name", value)
 
     @property
     @pulumi.getter(name="portEncryptionStatus")
@@ -620,6 +636,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["jumbo_frame_capable"] = None
             __props__.__dict__["macsec_capable"] = None
             __props__.__dict__["owner_account_id"] = None
+            __props__.__dict__["partner_name"] = None
             __props__.__dict__["port_encryption_status"] = None
             __props__.__dict__["vlan_id"] = None
         super(Connection, __self__).__init__(
@@ -642,6 +659,7 @@ class Connection(pulumi.CustomResource):
             macsec_capable: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_account_id: Optional[pulumi.Input[str]] = None,
+            partner_name: Optional[pulumi.Input[str]] = None,
             port_encryption_status: Optional[pulumi.Input[str]] = None,
             provider_name: Optional[pulumi.Input[str]] = None,
             request_macsec: Optional[pulumi.Input[bool]] = None,
@@ -666,6 +684,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[bool] macsec_capable: Boolean value indicating whether the connection supports MAC Security (MACsec).
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] owner_account_id: The ID of the AWS account that owns the connection.
+        :param pulumi.Input[str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
         :param pulumi.Input[str] port_encryption_status: The MAC Security (MACsec) port link status of the connection.
         :param pulumi.Input[str] provider_name: The name of the service provider associated with the connection.
         :param pulumi.Input[bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -688,6 +707,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["macsec_capable"] = macsec_capable
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
+        __props__.__dict__["partner_name"] = partner_name
         __props__.__dict__["port_encryption_status"] = port_encryption_status
         __props__.__dict__["provider_name"] = provider_name
         __props__.__dict__["request_macsec"] = request_macsec
@@ -776,6 +796,14 @@ class Connection(pulumi.CustomResource):
         The ID of the AWS account that owns the connection.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @property
+    @pulumi.getter(name="partnerName")
+    def partner_name(self) -> pulumi.Output[str]:
+        """
+        The name of the AWS Direct Connect service provider associated with the connection.
+        """
+        return pulumi.get(self, "partner_name")
 
     @property
     @pulumi.getter(name="portEncryptionStatus")

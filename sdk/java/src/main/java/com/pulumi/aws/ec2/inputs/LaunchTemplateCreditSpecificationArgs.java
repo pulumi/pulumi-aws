@@ -16,14 +16,20 @@ public final class LaunchTemplateCreditSpecificationArgs extends com.pulumi.reso
     public static final LaunchTemplateCreditSpecificationArgs Empty = new LaunchTemplateCreditSpecificationArgs();
 
     /**
-     * The credit option for CPU usage. Can be `&#34;standard&#34;` or `&#34;unlimited&#34;`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+     * The credit option for CPU usage.
+     * Can be `standard` or `unlimited`.
+     * T3 instances are launched as `unlimited` by default.
+     * T2 instances are launched as `standard` by default.
      * 
      */
     @Import(name="cpuCredits")
     private @Nullable Output<String> cpuCredits;
 
     /**
-     * @return The credit option for CPU usage. Can be `&#34;standard&#34;` or `&#34;unlimited&#34;`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+     * @return The credit option for CPU usage.
+     * Can be `standard` or `unlimited`.
+     * T3 instances are launched as `unlimited` by default.
+     * T2 instances are launched as `standard` by default.
      * 
      */
     public Optional<Output<String>> cpuCredits() {
@@ -55,7 +61,10 @@ public final class LaunchTemplateCreditSpecificationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cpuCredits The credit option for CPU usage. Can be `&#34;standard&#34;` or `&#34;unlimited&#34;`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+         * @param cpuCredits The credit option for CPU usage.
+         * Can be `standard` or `unlimited`.
+         * T3 instances are launched as `unlimited` by default.
+         * T2 instances are launched as `standard` by default.
          * 
          * @return builder
          * 
@@ -66,7 +75,10 @@ public final class LaunchTemplateCreditSpecificationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cpuCredits The credit option for CPU usage. Can be `&#34;standard&#34;` or `&#34;unlimited&#34;`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+         * @param cpuCredits The credit option for CPU usage.
+         * Can be `standard` or `unlimited`.
+         * T3 instances are launched as `unlimited` by default.
+         * T2 instances are launched as `standard` by default.
          * 
          * @return builder
          * 

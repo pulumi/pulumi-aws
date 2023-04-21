@@ -153,6 +153,12 @@ namespace Pulumi.Aws.Inputs
         [Input("chimesdkmessaging")]
         public Input<string>? Chimesdkmessaging { get; set; }
 
+        [Input("chimesdkvoice")]
+        public Input<string>? Chimesdkvoice { get; set; }
+
+        [Input("cleanrooms")]
+        public Input<string>? Cleanrooms { get; set; }
+
         [Input("cloud9")]
         public Input<string>? Cloud9 { get; set; }
 
@@ -341,6 +347,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("docdb")]
         public Input<string>? Docdb { get; set; }
+
+        [Input("docdbelastic")]
+        public Input<string>? Docdbelastic { get; set; }
 
         [Input("drs")]
         public Input<string>? Drs { get; set; }

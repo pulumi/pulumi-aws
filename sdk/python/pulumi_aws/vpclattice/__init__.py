@@ -8,5 +8,8 @@ import typing
 from .get_service import *
 from .service import *
 from .service_network import *
+from .service_network_service_association import *
+from .service_network_vpc_association import *
+from .target_group import *
 from ._inputs import *
 from . import outputs

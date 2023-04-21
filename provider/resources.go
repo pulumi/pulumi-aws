@@ -66,6 +66,7 @@ const (
 	batchMod                    = "Batch"                    // Batch
 	budgetsMod                  = "Budgets"                  // Budgets
 	chimeMod                    = "Chime"                    // Chime
+	chimeSDKMediaPipelinesMod   = "ChimeSDKMediaPipelines"   // Chime SDK Media Pipelines
 	cloud9Mod                   = "Cloud9"                   // Cloud9
 	cloudControlMod             = "CloudControl"             // CloudControl API
 	cloudformationMod           = "CloudFormation"           // Cloud Formation
@@ -169,6 +170,7 @@ const (
 	organizationsMod            = "Organizations"            // Organizations
 	outpostsMod                 = "Outposts"                 // Outposts
 	pinpointMod                 = "Pinpoint"                 // Pinpoint
+	pipesMod                    = "Pipes"                    // Pipes
 	pricingMod                  = "Pricing"                  // Pricing
 	qldbMod                     = "Qldb"                     // QLDB
 	quicksightMod               = "Quicksight"               // Quicksight
@@ -968,6 +970,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_chime_voice_connector_logging":                 {Tok: awsResource(chimeMod, "VoiceConnectorLogging")},
 			"aws_chime_voice_connector_streaming":               {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
 			"aws_chime_voice_connector_termination_credentials": {Tok: awsResource(chimeMod, "VoiceConnectorTerminationCredentials")},
+			// Chime SDK Media Pipelines
+			"aws_chimesdkmediapipelines_media_insights_pipeline_configuration": {
+				Tok: awsResource(chimeSDKMediaPipelinesMod, "MediaInsightsPipelineConfiguration"),
+			},
 			// Cloud9
 			"aws_cloud9_environment_ec2":        {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			"aws_cloud9_environment_membership": {Tok: awsResource(cloud9Mod, "EnvironmentMembership")},
@@ -2744,6 +2750,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_oam_sink_policy": {Tok: awsResource(oamMod, "SinkPolicy")},
 			"aws_oam_link":        {Tok: awsResource(oamMod, "Link")},
 
+			// Pipes
+			"aws_pipes_pipe": {Tok: awsResource(pipesMod, "Pipe")},
+
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_scheduled_action":   {Tok: awsResource(redshiftMod, "ScheduledAction")},
@@ -2916,8 +2925,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_sagemaker_project": {Tok: awsResource(sagemakerMod, "Project")},
-			"aws_sagemaker_space":   {Tok: awsResource(sagemakerMod, "Space")},
+			"aws_sagemaker_project":                     {Tok: awsResource(sagemakerMod, "Project")},
+			"aws_sagemaker_space":                       {Tok: awsResource(sagemakerMod, "Space")},
+			"aws_sagemaker_data_quality_job_definition": {Tok: awsResource(sagemakerMod, "DataQualityJobDefinition")},
+			"aws_sagemaker_monitoring_schedule":         {Tok: awsResource(sagemakerMod, "MonitoringSchedule")},
 			// Schemas
 			"aws_schemas_discoverer":      {Tok: awsResource(schemasMod, "Discoverer")},
 			"aws_schemas_registry":        {Tok: awsResource(schemasMod, "Registry")},
@@ -3785,8 +3796,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_rbin_rule": {Tok: awsResource(rbinMod, "Rule")},
 
 			// vpclattice
-			"aws_vpclattice_service":         {Tok: awsResource(vpclatticeMod, "Service")},
-			"aws_vpclattice_service_network": {Tok: awsResource(vpclatticeMod, "ServiceNetwork")},
+			"aws_vpclattice_service":                             {Tok: awsResource(vpclatticeMod, "Service")},
+			"aws_vpclattice_service_network":                     {Tok: awsResource(vpclatticeMod, "ServiceNetwork")},
+			"aws_vpclattice_service_network_service_association": {Tok: awsResource(vpclatticeMod, "ServiceNetworkServiceAssociation")},
+			"aws_vpclattice_service_network_vpc_association":     {Tok: awsResource(vpclatticeMod, "ServiceNetworkVpcAssociation")},
+			"aws_vpclattice_target_group":                        {Tok: awsResource(vpclatticeMod, "TargetGroup")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -5809,6 +5823,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datapipeline_pipeline":            {Tok: awsDataSource(datapipelineMod, "getPipeline")},
 			"aws_datapipeline_pipeline_definition": {Tok: awsDataSource(datapipelineMod, "getPipelineDefinition")},
 
+			// Data Migration Service
+			"aws_dms_certificate": {Tok: awsDataSource(dmsMod, "getCertificate")},
+
 			// DynamoDB
 			"aws_dynamodb_table": {
 				Tok: awsDataSource(dynamodbMod, "getTable"),
@@ -6406,6 +6423,8 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Quicksight
 			"aws_quicksight_data_set": {Tok: awsDataSource(quicksightMod, "getDataSet")},
+			"aws_quicksight_group":    {Tok: awsDataSource(quicksightMod, "getQuicksightGroup")},
+			"aws_quicksight_user":     {Tok: awsDataSource(quicksightMod, "getQuicksightUser")},
 
 			// VpcLattice
 			"aws_vpclattice_service": {Tok: awsDataSource(vpclatticeMod, "getService")},

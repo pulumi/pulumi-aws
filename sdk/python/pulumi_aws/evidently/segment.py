@@ -17,13 +17,15 @@ class SegmentArgs:
                  pattern: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Segment resource.
         :param pulumi.Input[str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
         :param pulumi.Input[str] description: Specifies the description of the segment.
         :param pulumi.Input[str] name: A name for the segment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "pattern", pattern)
         if description is not None:
@@ -32,6 +34,8 @@ class SegmentArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -80,6 +84,18 @@ class SegmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -259,6 +275,7 @@ class Segment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Evidently Segment resource.
@@ -321,6 +338,7 @@ class Segment(pulumi.CustomResource):
         :param pulumi.Input[str] name: A name for the segment.
         :param pulumi.Input[str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -402,6 +420,7 @@ class Segment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -417,12 +436,12 @@ class Segment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'pattern'")
             __props__.__dict__["pattern"] = pattern
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["experiment_count"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["launch_count"] = None
-            __props__.__dict__["tags_all"] = None
         super(Segment, __self__).__init__(
             'aws:evidently/segment:Segment',
             resource_name,

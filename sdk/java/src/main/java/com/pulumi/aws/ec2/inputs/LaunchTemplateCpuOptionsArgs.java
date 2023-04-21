@@ -31,7 +31,8 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+     * The number of threads per CPU core.
+     * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
      * Otherwise, specify the default value of 2.
      * 
      */
@@ -39,7 +40,8 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
     private @Nullable Output<Integer> threadsPerCore;
 
     /**
-     * @return The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+     * @return The number of threads per CPU core.
+     * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
      * Otherwise, specify the default value of 2.
      * 
      */
@@ -94,7 +96,8 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param threadsPerCore The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+         * @param threadsPerCore The number of threads per CPU core.
+         * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
          * Otherwise, specify the default value of 2.
          * 
          * @return builder
@@ -106,7 +109,8 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param threadsPerCore The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+         * @param threadsPerCore The number of threads per CPU core.
+         * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
          * Otherwise, specify the default value of 2.
          * 
          * @return builder

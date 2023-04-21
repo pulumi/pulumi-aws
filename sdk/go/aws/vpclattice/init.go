@@ -25,6 +25,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "aws:vpclattice/serviceNetwork:ServiceNetwork":
 		r = &ServiceNetwork{}
+	case "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation":
+		r = &ServiceNetworkServiceAssociation{}
+	case "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation":
+		r = &ServiceNetworkVpcAssociation{}
+	case "aws:vpclattice/targetGroup:TargetGroup":
+		r = &TargetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +52,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"vpclattice/serviceNetwork",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/serviceNetworkServiceAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/serviceNetworkVpcAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/targetGroup",
 		&module{version},
 	)
 }

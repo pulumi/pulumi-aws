@@ -160,6 +160,21 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * 
+     */
+    @Import(name="failOnWarnings")
+    private @Nullable Output<Boolean> failOnWarnings;
+
+    /**
+     * @return Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * 
+     */
+    public Optional<Output<Boolean>> failOnWarnings() {
+        return Optional.ofNullable(this.failOnWarnings);
+    }
+
+    /**
      * Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
@@ -291,6 +306,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         this.disableExecuteApiEndpoint = $.disableExecuteApiEndpoint;
         this.endpointConfiguration = $.endpointConfiguration;
         this.executionArn = $.executionArn;
+        this.failOnWarnings = $.failOnWarnings;
         this.minimumCompressionSize = $.minimumCompressionSize;
         this.name = $.name;
         this.parameters = $.parameters;
@@ -520,6 +536,27 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder executionArn(String executionArn) {
             return executionArn(Output.of(executionArn));
+        }
+
+        /**
+         * @param failOnWarnings Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failOnWarnings(@Nullable Output<Boolean> failOnWarnings) {
+            $.failOnWarnings = failOnWarnings;
+            return this;
+        }
+
+        /**
+         * @param failOnWarnings Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failOnWarnings(Boolean failOnWarnings) {
+            return failOnWarnings(Output.of(failOnWarnings));
         }
 
         /**

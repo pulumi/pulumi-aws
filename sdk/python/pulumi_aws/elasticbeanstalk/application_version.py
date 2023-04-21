@@ -20,7 +20,8 @@ class ApplicationVersionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ApplicationVersion resource.
         :param pulumi.Input[str] application: Name of the Beanstalk Application the version is associated with.
@@ -30,6 +31,7 @@ class ApplicationVersionArgs:
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "application", application)
         pulumi.set(__self__, "bucket", bucket)
@@ -42,6 +44,8 @@ class ApplicationVersionArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -126,6 +130,18 @@ class ApplicationVersionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -292,6 +308,7 @@ class ApplicationVersion(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
@@ -334,6 +351,7 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -395,6 +413,7 @@ class ApplicationVersion(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -417,8 +436,8 @@ class ApplicationVersion(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(ApplicationVersion, __self__).__init__(
             'aws:elasticbeanstalk/applicationVersion:ApplicationVersion',
             resource_name,

@@ -66,7 +66,7 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * The ARN that identifies the user group.
      */
-    public readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The current supported value is `REDIS`.
      */
@@ -78,7 +78,7 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the user group.
      */
@@ -115,12 +115,12 @@ export class UserGroup extends pulumi.CustomResource {
             if ((!args || args.userGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userGroupId'");
             }
-            resourceInputs["arn"] = args ? args.arn : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
             resourceInputs["userIds"] = args ? args.userIds : undefined;
-            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserGroup.__pulumiType, name, resourceInputs, opts);
@@ -162,10 +162,6 @@ export interface UserGroupState {
  */
 export interface UserGroupArgs {
     /**
-     * The ARN that identifies the user group.
-     */
-    arn?: pulumi.Input<string>;
-    /**
      * The current supported value is `REDIS`.
      */
     engine: pulumi.Input<string>;
@@ -173,6 +169,10 @@ export interface UserGroupArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the user group.
      */

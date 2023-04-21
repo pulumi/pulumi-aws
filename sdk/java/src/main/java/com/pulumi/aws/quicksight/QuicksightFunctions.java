@@ -6,7 +6,13 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
 import com.pulumi.aws.quicksight.inputs.GetDataSetPlainArgs;
+import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
+import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupPlainArgs;
+import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
+import com.pulumi.aws.quicksight.inputs.GetQuicksightUserPlainArgs;
 import com.pulumi.aws.quicksight.outputs.GetDataSetResult;
+import com.pulumi.aws.quicksight.outputs.GetQuicksightGroupResult;
+import com.pulumi.aws.quicksight.outputs.GetQuicksightUserResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -165,5 +171,325 @@ public final class QuicksightFunctions {
      */
     public static CompletableFuture<GetDataSetResult> getDataSetPlain(GetDataSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:quicksight/getDataSet:getDataSet", TypeShape.of(GetDataSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight group. By using this data source, you can reference QuickSight group
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
+     *             .groupName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQuicksightGroupResult> getQuicksightGroup(GetQuicksightGroupArgs args) {
+        return getQuicksightGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight group. By using this data source, you can reference QuickSight group
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
+     *             .groupName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain(GetQuicksightGroupPlainArgs args) {
+        return getQuicksightGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight group. By using this data source, you can reference QuickSight group
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
+     *             .groupName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQuicksightGroupResult> getQuicksightGroup(GetQuicksightGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", TypeShape.of(GetQuicksightGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight group. By using this data source, you can reference QuickSight group
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
+     *             .groupName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain(GetQuicksightGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:quicksight/getQuicksightGroup:getQuicksightGroup", TypeShape.of(GetQuicksightGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight user. By using this data source, you can reference QuickSight user
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
+     *             .userName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQuicksightUserResult> getQuicksightUser(GetQuicksightUserArgs args) {
+        return getQuicksightUser(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight user. By using this data source, you can reference QuickSight user
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
+     *             .userName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(GetQuicksightUserPlainArgs args) {
+        return getQuicksightUserPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight user. By using this data source, you can reference QuickSight user
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
+     *             .userName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQuicksightUserResult> getQuicksightUser(GetQuicksightUserArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getQuicksightUser:getQuicksightUser", TypeShape.of(GetQuicksightUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight user. By using this data source, you can reference QuickSight user
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
+     *             .userName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(GetQuicksightUserPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:quicksight/getQuicksightUser:getQuicksightUser", TypeShape.of(GetQuicksightUserResult.class), args, Utilities.withVersion(options));
     }
 }

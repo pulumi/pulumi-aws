@@ -17,6 +17,95 @@ namespace Pulumi.Aws.WafV2
     /// ## Example Usage
     /// 
     /// This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
+    /// ### Account Takeover Protection
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var atp_example = new Aws.WafV2.WebAcl("atp-example", new()
+    ///     {
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         Description = "Example of a managed ATP rule.",
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "atp-rule-1",
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Count = null,
+    ///                 },
+    ///                 Priority = 1,
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     ManagedRuleGroupStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementArgs
+    ///                     {
+    ///                         ManagedRuleGroupConfigs = new[]
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs
+    ///                             {
+    ///                                 AwsManagedRulesAtpRuleSet = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs
+    ///                                 {
+    ///                                     LoginPath = "/api/1/signin",
+    ///                                     RequestInspection = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs
+    ///                                     {
+    ///                                         PasswordField = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs
+    ///                                         {
+    ///                                             Identifier = "/password",
+    ///                                         },
+    ///                                         PayloadType = "JSON",
+    ///                                         UsernameField = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs
+    ///                                         {
+    ///                                             Identifier = "/email",
+    ///                                         },
+    ///                                     },
+    ///                                     ResponseInspection = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs
+    ///                                     {
+    ///                                         StatusCode = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs
+    ///                                         {
+    ///                                             FailureCodes = new[]
+    ///                                             {
+    ///                                                 403,
+    ///                                             },
+    ///                                             SuccessCodes = new[]
+    ///                                             {
+    ///                                                 200,
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Name = "AWSManagedRulesATPRuleSet",
+    ///                         VendorName = "AWS",
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scope = "CLOUDFRONT",
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Rate Based
     /// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
     /// 

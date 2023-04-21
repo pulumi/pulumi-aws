@@ -17,14 +17,14 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     public static final LaunchTemplateMetadataOptionsArgs Empty = new LaunchTemplateMetadataOptionsArgs();
 
     /**
-     * Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
+     * Whether the metadata service is available. Can be `enabled` or `disabled`.
      * 
      */
     @Import(name="httpEndpoint")
     private @Nullable Output<String> httpEndpoint;
 
     /**
-     * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
+     * @return Whether the metadata service is available. Can be `enabled` or `disabled`.
      * 
      */
     public Optional<Output<String>> httpEndpoint() {
@@ -47,14 +47,14 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+     * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
      * 
      */
     @Import(name="httpPutResponseHopLimit")
     private @Nullable Output<Integer> httpPutResponseHopLimit;
 
     /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
      * 
      */
     public Optional<Output<Integer>> httpPutResponseHopLimit() {
@@ -62,14 +62,14 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
+     * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
      * 
      */
     @Import(name="httpTokens")
     private @Nullable Output<String> httpTokens;
 
     /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
+     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
      * 
      */
     public Optional<Output<String>> httpTokens() {
@@ -120,7 +120,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpEndpoint Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
+         * @param httpEndpoint Whether the metadata service is available. Can be `enabled` or `disabled`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpEndpoint Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
+         * @param httpEndpoint Whether the metadata service is available. Can be `enabled` or `disabled`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
+         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
+         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
          * 
          * @return builder
          * 

@@ -168,6 +168,21 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the AWS Direct Connect service provider associated with the connection.
+     * 
+     */
+    @Import(name="partnerName")
+    private @Nullable Output<String> partnerName;
+
+    /**
+     * @return The name of the AWS Direct Connect service provider associated with the connection.
+     * 
+     */
+    public Optional<Output<String>> partnerName() {
+        return Optional.ofNullable(this.partnerName);
+    }
+
+    /**
      * The MAC Security (MACsec) port link status of the connection.
      * 
      */
@@ -285,6 +300,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         this.macsecCapable = $.macsecCapable;
         this.name = $.name;
         this.ownerAccountId = $.ownerAccountId;
+        this.partnerName = $.partnerName;
         this.portEncryptionStatus = $.portEncryptionStatus;
         this.providerName = $.providerName;
         this.requestMacsec = $.requestMacsec;
@@ -520,6 +536,27 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
+        }
+
+        /**
+         * @param partnerName The name of the AWS Direct Connect service provider associated with the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partnerName(@Nullable Output<String> partnerName) {
+            $.partnerName = partnerName;
+            return this;
+        }
+
+        /**
+         * @param partnerName The name of the AWS Direct Connect service provider associated with the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partnerName(String partnerName) {
+            return partnerName(Output.of(partnerName));
         }
 
         /**

@@ -127,6 +127,7 @@ import * as batch from "./batch";
 import * as budgets from "./budgets";
 import * as cfg from "./cfg";
 import * as chime from "./chime";
+import * as chimesdkmediapipelines from "./chimesdkmediapipelines";
 import * as cloud9 from "./cloud9";
 import * as cloudcontrol from "./cloudcontrol";
 import * as cloudformation from "./cloudformation";
@@ -231,6 +232,7 @@ import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
 import * as pinpoint from "./pinpoint";
+import * as pipes from "./pipes";
 import * as pricing from "./pricing";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
@@ -314,6 +316,7 @@ export {
     budgets,
     cfg,
     chime,
+    chimesdkmediapipelines,
     cloud9,
     cloudcontrol,
     cloudformation,
@@ -418,6 +421,7 @@ export {
     organizations,
     outposts,
     pinpoint,
+    pipes,
     pricing,
     qldb,
     quicksight,

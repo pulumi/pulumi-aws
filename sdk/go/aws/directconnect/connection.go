@@ -129,6 +129,8 @@ type Connection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the AWS account that owns the connection.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The name of the AWS Direct Connect service provider associated with the connection.
+	PartnerName pulumi.StringOutput `pulumi:"partnerName"`
 	// The MAC Security (MACsec) port link status of the connection.
 	PortEncryptionStatus pulumi.StringOutput `pulumi:"portEncryptionStatus"`
 	// The name of the service provider associated with the connection.
@@ -200,6 +202,8 @@ type connectionState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the AWS account that owns the connection.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The name of the AWS Direct Connect service provider associated with the connection.
+	PartnerName *string `pulumi:"partnerName"`
 	// The MAC Security (MACsec) port link status of the connection.
 	PortEncryptionStatus *string `pulumi:"portEncryptionStatus"`
 	// The name of the service provider associated with the connection.
@@ -237,6 +241,8 @@ type ConnectionState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the AWS account that owns the connection.
 	OwnerAccountId pulumi.StringPtrInput
+	// The name of the AWS Direct Connect service provider associated with the connection.
+	PartnerName pulumi.StringPtrInput
 	// The MAC Security (MACsec) port link status of the connection.
 	PortEncryptionStatus pulumi.StringPtrInput
 	// The name of the service provider associated with the connection.
@@ -435,6 +441,11 @@ func (o ConnectionOutput) Name() pulumi.StringOutput {
 // The ID of the AWS account that owns the connection.
 func (o ConnectionOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The name of the AWS Direct Connect service provider associated with the connection.
+func (o ConnectionOutput) PartnerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.PartnerName }).(pulumi.StringOutput)
 }
 
 // The MAC Security (MACsec) port link status of the connection.

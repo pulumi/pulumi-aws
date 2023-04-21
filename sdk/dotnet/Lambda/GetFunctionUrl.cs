@@ -141,6 +141,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
+        /// </summary>
+        public readonly string InvokeMode;
+        /// <summary>
         /// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
         /// </summary>
         public readonly string LastModifiedTime;
@@ -166,6 +170,8 @@ namespace Pulumi.Aws.Lambda
 
             string id,
 
+            string invokeMode,
+
             string lastModifiedTime,
 
             string? qualifier,
@@ -179,6 +185,7 @@ namespace Pulumi.Aws.Lambda
             FunctionName = functionName;
             FunctionUrl = functionUrl;
             Id = id;
+            InvokeMode = invokeMode;
             LastModifiedTime = lastModifiedTime;
             Qualifier = qualifier;
             UrlId = urlId;

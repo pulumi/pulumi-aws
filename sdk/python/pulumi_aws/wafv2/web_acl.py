@@ -381,6 +381,62 @@ class WebAcl(pulumi.CustomResource):
         ## Example Usage
 
         This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
+        ### Account Takeover Protection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        atp_example = aws.wafv2.WebAcl("atp-example",
+            default_action=aws.wafv2.WebAclDefaultActionArgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            ),
+            description="Example of a managed ATP rule.",
+            rules=[aws.wafv2.WebAclRuleArgs(
+                name="atp-rule-1",
+                override_action=aws.wafv2.WebAclRuleOverrideActionArgs(
+                    count=aws.wafv2.WebAclRuleOverrideActionCountArgs(),
+                ),
+                priority=1,
+                statement=aws.wafv2.WebAclRuleStatementArgs(
+                    managed_rule_group_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs(
+                        managed_rule_group_configs=[aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(
+                            aws_managed_rules_atp_rule_set=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs(
+                                login_path="/api/1/signin",
+                                request_inspection=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs(
+                                    password_field=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs(
+                                        identifier="/password",
+                                    ),
+                                    payload_type="JSON",
+                                    username_field=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs(
+                                        identifier="/email",
+                                    ),
+                                ),
+                                response_inspection=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs(
+                                    status_code=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs(
+                                        failure_codes=[403],
+                                        success_codes=[200],
+                                    ),
+                                ),
+                            ),
+                        )],
+                        name="AWSManagedRulesATPRuleSet",
+                        vendor_name="AWS",
+                    ),
+                ),
+                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
+                    cloudwatch_metrics_enabled=False,
+                    metric_name="friendly-rule-metric-name",
+                    sampled_requests_enabled=False,
+                ),
+            )],
+            scope="CLOUDFRONT",
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        ```
         ### Rate Based
         Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 
@@ -572,6 +628,62 @@ class WebAcl(pulumi.CustomResource):
         ## Example Usage
 
         This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
+        ### Account Takeover Protection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        atp_example = aws.wafv2.WebAcl("atp-example",
+            default_action=aws.wafv2.WebAclDefaultActionArgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            ),
+            description="Example of a managed ATP rule.",
+            rules=[aws.wafv2.WebAclRuleArgs(
+                name="atp-rule-1",
+                override_action=aws.wafv2.WebAclRuleOverrideActionArgs(
+                    count=aws.wafv2.WebAclRuleOverrideActionCountArgs(),
+                ),
+                priority=1,
+                statement=aws.wafv2.WebAclRuleStatementArgs(
+                    managed_rule_group_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs(
+                        managed_rule_group_configs=[aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(
+                            aws_managed_rules_atp_rule_set=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs(
+                                login_path="/api/1/signin",
+                                request_inspection=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs(
+                                    password_field=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs(
+                                        identifier="/password",
+                                    ),
+                                    payload_type="JSON",
+                                    username_field=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs(
+                                        identifier="/email",
+                                    ),
+                                ),
+                                response_inspection=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs(
+                                    status_code=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs(
+                                        failure_codes=[403],
+                                        success_codes=[200],
+                                    ),
+                                ),
+                            ),
+                        )],
+                        name="AWSManagedRulesATPRuleSet",
+                        vendor_name="AWS",
+                    ),
+                ),
+                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
+                    cloudwatch_metrics_enabled=False,
+                    metric_name="friendly-rule-metric-name",
+                    sampled_requests_enabled=False,
+                ),
+            )],
+            scope="CLOUDFRONT",
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        ```
         ### Rate Based
         Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 

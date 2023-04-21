@@ -71,6 +71,10 @@ export interface GetConnectionResult {
      */
     readonly ownerAccountId: string;
     /**
+     * The name of the AWS Direct Connect service provider associated with the connection.
+     */
+    readonly partnerName: string;
+    /**
      * Name of the service provider associated with the connection.
      */
     readonly providerName: string;

@@ -98,6 +98,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:acmpca/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+     * 
+     */
+    @Export(name="apiPassthrough", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> apiPassthrough;
+
+    /**
+     * @return Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+     * 
+     */
+    public Output<Optional<String>> apiPassthrough() {
+        return Codegen.optional(this.apiPassthrough);
+    }
+    /**
      * ARN of the certificate.
      * 
      */

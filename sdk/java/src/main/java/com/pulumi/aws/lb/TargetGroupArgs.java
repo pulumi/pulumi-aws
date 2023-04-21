@@ -278,6 +278,21 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
      * 
      */
@@ -342,6 +357,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.slowStart = $.slowStart;
         this.stickiness = $.stickiness;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.targetFailovers = $.targetFailovers;
         this.targetType = $.targetType;
         this.vpcId = $.vpcId;
@@ -720,6 +736,27 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

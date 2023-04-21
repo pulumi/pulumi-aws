@@ -32,6 +32,8 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+	ApiPassthrough pulumi.StringPtrOutput `pulumi:"apiPassthrough"`
 	// ARN of the certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// PEM-encoded certificate value.
@@ -92,6 +94,8 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+	ApiPassthrough *string `pulumi:"apiPassthrough"`
 	// ARN of the certificate.
 	Arn *string `pulumi:"arn"`
 	// PEM-encoded certificate value.
@@ -112,6 +116,8 @@ type certificateState struct {
 }
 
 type CertificateState struct {
+	// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+	ApiPassthrough pulumi.StringPtrInput
 	// ARN of the certificate.
 	Arn pulumi.StringPtrInput
 	// PEM-encoded certificate value.
@@ -136,6 +142,8 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+	ApiPassthrough *string `pulumi:"apiPassthrough"`
 	// ARN of the certificate authority.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// Certificate Signing Request in PEM format.
@@ -151,6 +159,8 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+	ApiPassthrough pulumi.StringPtrInput
 	// ARN of the certificate authority.
 	CertificateAuthorityArn pulumi.StringInput
 	// Certificate Signing Request in PEM format.
@@ -249,6 +259,11 @@ func (o CertificateOutput) ToCertificateOutput() CertificateOutput {
 
 func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
 	return o
+}
+
+// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+func (o CertificateOutput) ApiPassthrough() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.ApiPassthrough }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the certificate.

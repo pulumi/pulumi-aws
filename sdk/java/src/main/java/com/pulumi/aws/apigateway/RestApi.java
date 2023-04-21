@@ -318,6 +318,20 @@ public class RestApi extends com.pulumi.resources.CustomResource {
         return this.executionArn;
     }
     /**
+     * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * 
+     */
+    @Export(name="failOnWarnings", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> failOnWarnings;
+
+    /**
+     * @return Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * 
+     */
+    public Output<Optional<Boolean>> failOnWarnings() {
+        return Codegen.optional(this.failOnWarnings);
+    }
+    /**
      * Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */

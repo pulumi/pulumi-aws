@@ -298,6 +298,8 @@ type Endpoints struct {
 	Chimesdkmediapipelines               *string `pulumi:"chimesdkmediapipelines"`
 	Chimesdkmeetings                     *string `pulumi:"chimesdkmeetings"`
 	Chimesdkmessaging                    *string `pulumi:"chimesdkmessaging"`
+	Chimesdkvoice                        *string `pulumi:"chimesdkvoice"`
+	Cleanrooms                           *string `pulumi:"cleanrooms"`
 	Cloud9                               *string `pulumi:"cloud9"`
 	Cloudcontrol                         *string `pulumi:"cloudcontrol"`
 	Cloudcontrolapi                      *string `pulumi:"cloudcontrolapi"`
@@ -361,6 +363,7 @@ type Endpoints struct {
 	Dlm                                  *string `pulumi:"dlm"`
 	Dms                                  *string `pulumi:"dms"`
 	Docdb                                *string `pulumi:"docdb"`
+	Docdbelastic                         *string `pulumi:"docdbelastic"`
 	Drs                                  *string `pulumi:"drs"`
 	Ds                                   *string `pulumi:"ds"`
 	Dynamodb                             *string `pulumi:"dynamodb"`
@@ -692,6 +695,8 @@ type EndpointsArgs struct {
 	Chimesdkmediapipelines               pulumi.StringPtrInput `pulumi:"chimesdkmediapipelines"`
 	Chimesdkmeetings                     pulumi.StringPtrInput `pulumi:"chimesdkmeetings"`
 	Chimesdkmessaging                    pulumi.StringPtrInput `pulumi:"chimesdkmessaging"`
+	Chimesdkvoice                        pulumi.StringPtrInput `pulumi:"chimesdkvoice"`
+	Cleanrooms                           pulumi.StringPtrInput `pulumi:"cleanrooms"`
 	Cloud9                               pulumi.StringPtrInput `pulumi:"cloud9"`
 	Cloudcontrol                         pulumi.StringPtrInput `pulumi:"cloudcontrol"`
 	Cloudcontrolapi                      pulumi.StringPtrInput `pulumi:"cloudcontrolapi"`
@@ -755,6 +760,7 @@ type EndpointsArgs struct {
 	Dlm                                  pulumi.StringPtrInput `pulumi:"dlm"`
 	Dms                                  pulumi.StringPtrInput `pulumi:"dms"`
 	Docdb                                pulumi.StringPtrInput `pulumi:"docdb"`
+	Docdbelastic                         pulumi.StringPtrInput `pulumi:"docdbelastic"`
 	Drs                                  pulumi.StringPtrInput `pulumi:"drs"`
 	Ds                                   pulumi.StringPtrInput `pulumi:"ds"`
 	Dynamodb                             pulumi.StringPtrInput `pulumi:"dynamodb"`
@@ -1266,6 +1272,14 @@ func (o EndpointsOutput) Chimesdkmessaging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Chimesdkmessaging }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Chimesdkvoice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Chimesdkvoice }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Cleanrooms() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Cleanrooms }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Cloud9() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloud9 }).(pulumi.StringPtrOutput)
 }
@@ -1516,6 +1530,10 @@ func (o EndpointsOutput) Dms() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Docdb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Docdb }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Docdbelastic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Docdbelastic }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Drs() pulumi.StringPtrOutput {

@@ -100,6 +100,10 @@ export class FunctionUrl extends pulumi.CustomResource {
      */
     public /*out*/ readonly functionUrl!: pulumi.Output<string>;
     /**
+     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     */
+    public readonly invokeMode!: pulumi.Output<string | undefined>;
+    /**
      * The alias name or `"$LATEST"`.
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
@@ -126,6 +130,7 @@ export class FunctionUrl extends pulumi.CustomResource {
             resourceInputs["functionArn"] = state ? state.functionArn : undefined;
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["functionUrl"] = state ? state.functionUrl : undefined;
+            resourceInputs["invokeMode"] = state ? state.invokeMode : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
             resourceInputs["urlId"] = state ? state.urlId : undefined;
         } else {
@@ -139,6 +144,7 @@ export class FunctionUrl extends pulumi.CustomResource {
             resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["invokeMode"] = args ? args.invokeMode : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface FunctionUrlState {
      */
     functionUrl?: pulumi.Input<string>;
     /**
+     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     */
+    invokeMode?: pulumi.Input<string>;
+    /**
      * The alias name or `"$LATEST"`.
      */
     qualifier?: pulumi.Input<string>;
@@ -199,6 +209,10 @@ export interface FunctionUrlArgs {
      * The name (or ARN) of the Lambda function.
      */
     functionName: pulumi.Input<string>;
+    /**
+     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     */
+    invokeMode?: pulumi.Input<string>;
     /**
      * The alias name or `"$LATEST"`.
      */
