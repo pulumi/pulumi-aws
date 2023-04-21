@@ -76,6 +76,10 @@ export interface GetFunctionUrlResult {
      */
     readonly id: string;
     /**
+     * Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
+     */
+    readonly invokeMode: string;
+    /**
      * When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      */
     readonly lastModifiedTime: string;

@@ -185,7 +185,8 @@ type experimentTemplateArgs struct {
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target of an action. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
 }
@@ -201,7 +202,8 @@ type ExperimentTemplateArgs struct {
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayInput
 }

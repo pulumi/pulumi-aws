@@ -20,6 +20,21 @@ export type ServiceNetwork = import("./serviceNetwork").ServiceNetwork;
 export const ServiceNetwork: typeof import("./serviceNetwork").ServiceNetwork = null as any;
 utilities.lazyLoad(exports, ["ServiceNetwork"], () => require("./serviceNetwork"));
 
+export { ServiceNetworkServiceAssociationArgs, ServiceNetworkServiceAssociationState } from "./serviceNetworkServiceAssociation";
+export type ServiceNetworkServiceAssociation = import("./serviceNetworkServiceAssociation").ServiceNetworkServiceAssociation;
+export const ServiceNetworkServiceAssociation: typeof import("./serviceNetworkServiceAssociation").ServiceNetworkServiceAssociation = null as any;
+utilities.lazyLoad(exports, ["ServiceNetworkServiceAssociation"], () => require("./serviceNetworkServiceAssociation"));
+
+export { ServiceNetworkVpcAssociationArgs, ServiceNetworkVpcAssociationState } from "./serviceNetworkVpcAssociation";
+export type ServiceNetworkVpcAssociation = import("./serviceNetworkVpcAssociation").ServiceNetworkVpcAssociation;
+export const ServiceNetworkVpcAssociation: typeof import("./serviceNetworkVpcAssociation").ServiceNetworkVpcAssociation = null as any;
+utilities.lazyLoad(exports, ["ServiceNetworkVpcAssociation"], () => require("./serviceNetworkVpcAssociation"));
+
+export { TargetGroupArgs, TargetGroupState } from "./targetGroup";
+export type TargetGroup = import("./targetGroup").TargetGroup;
+export const TargetGroup: typeof import("./targetGroup").TargetGroup = null as any;
+utilities.lazyLoad(exports, ["TargetGroup"], () => require("./targetGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -29,6 +44,12 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "aws:vpclattice/serviceNetwork:ServiceNetwork":
                 return new ServiceNetwork(name, <any>undefined, { urn })
+            case "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation":
+                return new ServiceNetworkServiceAssociation(name, <any>undefined, { urn })
+            case "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation":
+                return new ServiceNetworkVpcAssociation(name, <any>undefined, { urn })
+            case "aws:vpclattice/targetGroup:TargetGroup":
+                return new TargetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -36,3 +57,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "vpclattice/service", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetwork", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetworkServiceAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetworkVpcAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/targetGroup", _module)

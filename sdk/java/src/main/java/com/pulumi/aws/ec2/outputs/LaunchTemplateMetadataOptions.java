@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LaunchTemplateMetadataOptions {
     /**
-     * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
+     * @return Whether the metadata service is available. Can be `enabled` or `disabled`.
      * 
      */
     private @Nullable String httpEndpoint;
@@ -23,12 +23,12 @@ public final class LaunchTemplateMetadataOptions {
      */
     private @Nullable String httpProtocolIpv6;
     /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
      * 
      */
     private @Nullable Integer httpPutResponseHopLimit;
     /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
+     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
      * 
      */
     private @Nullable String httpTokens;
@@ -40,7 +40,7 @@ public final class LaunchTemplateMetadataOptions {
 
     private LaunchTemplateMetadataOptions() {}
     /**
-     * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
+     * @return Whether the metadata service is available. Can be `enabled` or `disabled`.
      * 
      */
     public Optional<String> httpEndpoint() {
@@ -54,14 +54,14 @@ public final class LaunchTemplateMetadataOptions {
         return Optional.ofNullable(this.httpProtocolIpv6);
     }
     /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
      * 
      */
     public Optional<Integer> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
     /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
+     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
      * 
      */
     public Optional<String> httpTokens() {

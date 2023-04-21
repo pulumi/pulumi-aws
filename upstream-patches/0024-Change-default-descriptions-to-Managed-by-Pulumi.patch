@@ -1,4 +1,4 @@
-From a9ac4cd8e95913bb93faa758185b0595505f131e Mon Sep 17 00:00:00 2001
+From 39e716db928f65fb04df3eaded7654e63713b70b Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
 Subject: [PATCH 24/26] Change default descriptions to "Managed by Pulumi"
@@ -112,10 +112,10 @@ index 4f2bcf2202..449b5996da 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index 6375d29892..e1fea2e68b 100644
+index ae30f42a8d..3ea5cd0762 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
-@@ -50,7 +50,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -52,7 +52,7 @@ func ResourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -138,10 +138,10 @@ index 22d907b7d4..f587fcbcce 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
-index b8f8ee102b..69d1185057 100644
+index 1322823aae..709ecbe12f 100644
 --- a/internal/service/elasticache/subnet_group.go
 +++ b/internal/service/elasticache/subnet_group.go
-@@ -39,7 +39,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -41,7 +41,7 @@ func ResourceSubnetGroup() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -242,7 +242,7 @@ index 47f7d3f21e..24945bf3e0 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index f4cbfd1bb5..c7e473e37d 100644
+index 54f60de7ed..73bc03802a 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -47,7 +47,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -268,7 +268,7 @@ index b940b731c4..4ad2288586 100644
  
  			"option": {
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index f8a4d63d97..0b9998dbbb 100644
+index 8505b0e3ef..220453ba6b 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
 @@ -48,7 +48,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -281,7 +281,7 @@ index f8a4d63d97..0b9998dbbb 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/security_group.go b/internal/service/rds/security_group.go
-index ed5b5ebff2..91c5e34a8f 100644
+index c4afc8c981..54d4e61495 100644
 --- a/internal/service/rds/security_group.go
 +++ b/internal/service/rds/security_group.go
 @@ -47,7 +47,7 @@ func ResourceSecurityGroup() *schema.Resource {
@@ -294,7 +294,7 @@ index ed5b5ebff2..91c5e34a8f 100644
  
  			"ingress": {
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
-index 718e3c41c4..806a417f16 100644
+index 8c81fa4c07..c617663c0d 100644
 --- a/internal/service/rds/subnet_group.go
 +++ b/internal/service/rds/subnet_group.go
 @@ -40,7 +40,7 @@ func ResourceSubnetGroup() *schema.Resource {

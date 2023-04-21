@@ -111,6 +111,91 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Account Takeover Protection
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var atp_example = new WebAcl(&#34;atp-example&#34;, WebAclArgs.builder()        
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow()
+ *                 .build())
+ *             .description(&#34;Example of a managed ATP rule.&#34;)
+ *             .rules(WebAclRuleArgs.builder()
+ *                 .name(&#34;atp-rule-1&#34;)
+ *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
+ *                     .count()
+ *                     .build())
+ *                 .priority(1)
+ *                 .statement(WebAclRuleStatementArgs.builder()
+ *                     .managedRuleGroupStatement(WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
+ *                         .managedRuleGroupConfigs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.builder()
+ *                             .awsManagedRulesAtpRuleSet(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.builder()
+ *                                 .loginPath(&#34;/api/1/signin&#34;)
+ *                                 .requestInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs.builder()
+ *                                     .passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs.builder()
+ *                                         .identifier(&#34;/password&#34;)
+ *                                         .build())
+ *                                     .payloadType(&#34;JSON&#34;)
+ *                                     .usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs.builder()
+ *                                         .identifier(&#34;/email&#34;)
+ *                                         .build())
+ *                                     .build())
+ *                                 .responseInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs.builder()
+ *                                     .statusCode(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs.builder()
+ *                                         .failureCodes(&#34;403&#34;)
+ *                                         .successCodes(&#34;200&#34;)
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .name(&#34;AWSManagedRulesATPRuleSet&#34;)
+ *                         .vendorName(&#34;AWS&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName(&#34;friendly-rule-metric-name&#34;)
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .scope(&#34;CLOUDFRONT&#34;)
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName(&#34;friendly-metric-name&#34;)
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Rate Based
  * Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
  * ```java

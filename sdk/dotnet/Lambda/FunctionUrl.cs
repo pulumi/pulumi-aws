@@ -104,6 +104,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string> FunctionUrlResult { get; private set; } = null!;
 
         /// <summary>
+        /// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+        /// </summary>
+        [Output("invokeMode")]
+        public Output<string?> InvokeMode { get; private set; } = null!;
+
+        /// <summary>
         /// The alias name or `"$LATEST"`.
         /// </summary>
         [Output("qualifier")]
@@ -180,6 +186,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
+        /// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+        /// </summary>
+        [Input("invokeMode")]
+        public Input<string>? InvokeMode { get; set; }
+
+        /// <summary>
         /// The alias name or `"$LATEST"`.
         /// </summary>
         [Input("qualifier")]
@@ -222,6 +234,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("functionUrl")]
         public Input<string>? FunctionUrlResult { get; set; }
+
+        /// <summary>
+        /// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+        /// </summary>
+        [Input("invokeMode")]
+        public Input<string>? InvokeMode { get; set; }
 
         /// <summary>
         /// The alias name or `"$LATEST"`.

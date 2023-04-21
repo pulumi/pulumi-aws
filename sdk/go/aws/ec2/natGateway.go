@@ -86,6 +86,8 @@ type NatGateway struct {
 
 	// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
 	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
+	// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
 	ConnectivityType pulumi.StringPtrOutput `pulumi:"connectivityType"`
 	// The ID of the network interface associated with the NAT gateway.
@@ -136,6 +138,8 @@ func GetNatGateway(ctx *pulumi.Context,
 type natGatewayState struct {
 	// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
 	AllocationId *string `pulumi:"allocationId"`
+	// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+	AssociationId *string `pulumi:"associationId"`
 	// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
 	ConnectivityType *string `pulumi:"connectivityType"`
 	// The ID of the network interface associated with the NAT gateway.
@@ -155,6 +159,8 @@ type natGatewayState struct {
 type NatGatewayState struct {
 	// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
 	AllocationId pulumi.StringPtrInput
+	// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+	AssociationId pulumi.StringPtrInput
 	// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
 	ConnectivityType pulumi.StringPtrInput
 	// The ID of the network interface associated with the NAT gateway.
@@ -296,6 +302,11 @@ func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) Nat
 // The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
 func (o NatGatewayOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+func (o NatGatewayOutput) AssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
 // Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.

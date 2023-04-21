@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs();
+
+    /**
+     * Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
+     * 
+     */
+    @Import(name="awsManagedRulesAtpRuleSet")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs> awsManagedRulesAtpRuleSet;
+
+    /**
+     * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs>> awsManagedRulesAtpRuleSet() {
+        return Optional.ofNullable(this.awsManagedRulesAtpRuleSet);
+    }
 
     /**
      * Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
@@ -96,6 +112,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs() {}
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs $) {
+        this.awsManagedRulesAtpRuleSet = $.awsManagedRulesAtpRuleSet;
         this.awsManagedRulesBotControlRuleSet = $.awsManagedRulesBotControlRuleSet;
         this.loginPath = $.loginPath;
         this.passwordField = $.passwordField;
@@ -119,6 +136,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs defaults) {
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param awsManagedRulesAtpRuleSet Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsManagedRulesAtpRuleSet(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs> awsManagedRulesAtpRuleSet) {
+            $.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
+            return this;
+        }
+
+        /**
+         * @param awsManagedRulesAtpRuleSet Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsManagedRulesAtpRuleSet(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs awsManagedRulesAtpRuleSet) {
+            return awsManagedRulesAtpRuleSet(Output.of(awsManagedRulesAtpRuleSet));
         }
 
         /**

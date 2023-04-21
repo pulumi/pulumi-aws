@@ -8856,7 +8856,8 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetP
 type LaunchTemplateCpuOptions struct {
 	// The number of CPU cores for the instance.
 	CoreCount *int `pulumi:"coreCount"`
-	// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+	// The number of threads per CPU core.
+	// To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
 	// Otherwise, specify the default value of 2.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 }
@@ -8875,7 +8876,8 @@ type LaunchTemplateCpuOptionsInput interface {
 type LaunchTemplateCpuOptionsArgs struct {
 	// The number of CPU cores for the instance.
 	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
-	// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+	// The number of threads per CPU core.
+	// To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
 	// Otherwise, specify the default value of 2.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 }
@@ -8962,7 +8964,8 @@ func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
-// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+// The number of threads per CPU core.
+// To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
 // Otherwise, specify the default value of 2.
 func (o LaunchTemplateCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
@@ -9002,7 +9005,8 @@ func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+// The number of threads per CPU core.
+// To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
 // Otherwise, specify the default value of 2.
 func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
@@ -9014,7 +9018,10 @@ func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput 
 }
 
 type LaunchTemplateCreditSpecification struct {
-	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+	// The credit option for CPU usage.
+	// Can be `standard` or `unlimited`.
+	// T3 instances are launched as `unlimited` by default.
+	// T2 instances are launched as `standard` by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -9030,7 +9037,10 @@ type LaunchTemplateCreditSpecificationInput interface {
 }
 
 type LaunchTemplateCreditSpecificationArgs struct {
-	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+	// The credit option for CPU usage.
+	// Can be `standard` or `unlimited`.
+	// T3 instances are launched as `unlimited` by default.
+	// T2 instances are launched as `standard` by default.
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -9111,7 +9121,10 @@ func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecifica
 	}).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
-// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+// The credit option for CPU usage.
+// Can be `standard` or `unlimited`.
+// T3 instances are launched as `unlimited` by default.
+// T2 instances are launched as `standard` by default.
 func (o LaunchTemplateCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -9140,7 +9153,10 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) Elem() LaunchTemplateCreditS
 	}).(LaunchTemplateCreditSpecificationOutput)
 }
 
-// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+// The credit option for CPU usage.
+// Can be `standard` or `unlimited`.
+// T3 instances are launched as `unlimited` by default.
+// T2 instances are launched as `standard` by default.
 func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) *string {
 		if v == nil {
@@ -12401,13 +12417,13 @@ func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringP
 }
 
 type LaunchTemplateMetadataOptions struct {
-	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	// Whether the metadata service is available. Can be `enabled` or `disabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
 	// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
 	HttpProtocolIpv6 *string `pulumi:"httpProtocolIpv6"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
 	HttpTokens *string `pulumi:"httpTokens"`
 	// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
 	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
@@ -12425,13 +12441,13 @@ type LaunchTemplateMetadataOptionsInput interface {
 }
 
 type LaunchTemplateMetadataOptionsArgs struct {
-	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	// Whether the metadata service is available. Can be `enabled` or `disabled`.
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
 	// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
 	HttpProtocolIpv6 pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
 	// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
 	InstanceMetadataTags pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
@@ -12514,7 +12530,7 @@ func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrO
 	}).(LaunchTemplateMetadataOptionsPtrOutput)
 }
 
-// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+// Whether the metadata service is available. Can be `enabled` or `disabled`.
 func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -12524,12 +12540,12 @@ func (o LaunchTemplateMetadataOptionsOutput) HttpProtocolIpv6() pulumi.StringPtr
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpProtocolIpv6 }).(pulumi.StringPtrOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
 func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
 func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
@@ -12563,7 +12579,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOpt
 	}).(LaunchTemplateMetadataOptionsOutput)
 }
 
-// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+// Whether the metadata service is available. Can be `enabled` or `disabled`.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -12583,7 +12599,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *int {
 		if v == nil {
@@ -12593,7 +12609,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {

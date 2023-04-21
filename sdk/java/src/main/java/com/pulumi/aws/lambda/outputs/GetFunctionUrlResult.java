@@ -45,6 +45,11 @@ public final class GetFunctionUrlResult {
      */
     private String id;
     /**
+     * @return Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
+     * 
+     */
+    private String invokeMode;
+    /**
      * @return When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      * 
      */
@@ -103,6 +108,13 @@ public final class GetFunctionUrlResult {
         return this.id;
     }
     /**
+     * @return Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
+     * 
+     */
+    public String invokeMode() {
+        return this.invokeMode;
+    }
+    /**
      * @return When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      * 
      */
@@ -136,6 +148,7 @@ public final class GetFunctionUrlResult {
         private String functionName;
         private String functionUrl;
         private String id;
+        private String invokeMode;
         private String lastModifiedTime;
         private @Nullable String qualifier;
         private String urlId;
@@ -149,6 +162,7 @@ public final class GetFunctionUrlResult {
     	      this.functionName = defaults.functionName;
     	      this.functionUrl = defaults.functionUrl;
     	      this.id = defaults.id;
+    	      this.invokeMode = defaults.invokeMode;
     	      this.lastModifiedTime = defaults.lastModifiedTime;
     	      this.qualifier = defaults.qualifier;
     	      this.urlId = defaults.urlId;
@@ -193,6 +207,11 @@ public final class GetFunctionUrlResult {
             return this;
         }
         @CustomType.Setter
+        public Builder invokeMode(String invokeMode) {
+            this.invokeMode = Objects.requireNonNull(invokeMode);
+            return this;
+        }
+        @CustomType.Setter
         public Builder lastModifiedTime(String lastModifiedTime) {
             this.lastModifiedTime = Objects.requireNonNull(lastModifiedTime);
             return this;
@@ -216,6 +235,7 @@ public final class GetFunctionUrlResult {
             o.functionName = functionName;
             o.functionUrl = functionUrl;
             o.id = id;
+            o.invokeMode = invokeMode;
             o.lastModifiedTime = lastModifiedTime;
             o.qualifier = qualifier;
             o.urlId = urlId;

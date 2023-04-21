@@ -22,7 +22,7 @@ class GetFunctionUrlResult:
     """
     A collection of values returned by getFunctionUrl.
     """
-    def __init__(__self__, authorization_type=None, cors=None, creation_time=None, function_arn=None, function_name=None, function_url=None, id=None, last_modified_time=None, qualifier=None, url_id=None):
+    def __init__(__self__, authorization_type=None, cors=None, creation_time=None, function_arn=None, function_name=None, function_url=None, id=None, invoke_mode=None, last_modified_time=None, qualifier=None, url_id=None):
         if authorization_type and not isinstance(authorization_type, str):
             raise TypeError("Expected argument 'authorization_type' to be a str")
         pulumi.set(__self__, "authorization_type", authorization_type)
@@ -44,6 +44,9 @@ class GetFunctionUrlResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if invoke_mode and not isinstance(invoke_mode, str):
+            raise TypeError("Expected argument 'invoke_mode' to be a str")
+        pulumi.set(__self__, "invoke_mode", invoke_mode)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -108,6 +111,14 @@ class GetFunctionUrlResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="invokeMode")
+    def invoke_mode(self) -> str:
+        """
+        Whether the Lambda function responds in `BUFFERED` or `RESPONSE_STREAM` mode.
+        """
+        return pulumi.get(self, "invoke_mode")
+
+    @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
         """
@@ -142,6 +153,7 @@ class AwaitableGetFunctionUrlResult(GetFunctionUrlResult):
             function_name=self.function_name,
             function_url=self.function_url,
             id=self.id,
+            invoke_mode=self.invoke_mode,
             last_modified_time=self.last_modified_time,
             qualifier=self.qualifier,
             url_id=self.url_id)
@@ -182,6 +194,7 @@ def get_function_url(function_name: Optional[str] = None,
         function_name=__ret__.function_name,
         function_url=__ret__.function_url,
         id=__ret__.id,
+        invoke_mode=__ret__.invoke_mode,
         last_modified_time=__ret__.last_modified_time,
         qualifier=__ret__.qualifier,
         url_id=__ret__.url_id)

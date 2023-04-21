@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateMetadataOptions
     {
         /// <summary>
-        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        /// Whether the metadata service is available. Can be `enabled` or `disabled`.
         /// </summary>
         public readonly string? HttpEndpoint;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? HttpProtocolIpv6;
         /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
         /// </summary>
         public readonly int? HttpPutResponseHopLimit;
         /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
         /// </summary>
         public readonly string? HttpTokens;
         /// <summary>

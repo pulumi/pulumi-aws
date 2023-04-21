@@ -15,6 +15,24 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfigKernelSpecArgs',
     'AppResourceSpecArgs',
     'CodeRepositoryGitConfigArgs',
+    'DataQualityJobDefinitionDataQualityAppSpecificationArgs',
+    'DataQualityJobDefinitionDataQualityBaselineConfigArgs',
+    'DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs',
+    'DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs',
+    'DataQualityJobDefinitionDataQualityJobInputArgs',
+    'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs',
+    'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs',
+    'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs',
+    'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs',
+    'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs',
+    'DataQualityJobDefinitionDataQualityJobOutputConfigArgs',
+    'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs',
+    'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs',
+    'DataQualityJobDefinitionJobResourcesArgs',
+    'DataQualityJobDefinitionJobResourcesClusterConfigArgs',
+    'DataQualityJobDefinitionNetworkConfigArgs',
+    'DataQualityJobDefinitionNetworkConfigVpcConfigArgs',
+    'DataQualityJobDefinitionStoppingConditionArgs',
     'DeviceDeviceArgs',
     'DeviceFleetOutputConfigArgs',
     'DomainDefaultSpaceSettingsArgs',
@@ -83,6 +101,8 @@ __all__ = [
     'ModelPrimaryContainerImageConfigArgs',
     'ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs',
     'ModelVpcConfigArgs',
+    'MonitoringScheduleMonitoringScheduleConfigArgs',
+    'MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs',
     'NotebookInstanceInstanceMetadataServiceConfigurationArgs',
     'ProjectServiceCatalogProvisioningDetailsArgs',
     'ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs',
@@ -372,6 +392,759 @@ class CodeRepositoryGitConfigArgs:
     @secret_arn.setter
     def secret_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_arn", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityAppSpecificationArgs:
+    def __init__(__self__, *,
+                 image_uri: pulumi.Input[str],
+                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 post_analytics_processor_source_uri: Optional[pulumi.Input[str]] = None,
+                 record_preprocessor_source_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] image_uri: The container image that the data quality monitoring job runs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
+        :param pulumi.Input[str] post_analytics_processor_source_uri: An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
+        :param pulumi.Input[str] record_preprocessor_source_uri: An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+        """
+        pulumi.set(__self__, "image_uri", image_uri)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if post_analytics_processor_source_uri is not None:
+            pulumi.set(__self__, "post_analytics_processor_source_uri", post_analytics_processor_source_uri)
+        if record_preprocessor_source_uri is not None:
+            pulumi.set(__self__, "record_preprocessor_source_uri", record_preprocessor_source_uri)
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> pulumi.Input[str]:
+        """
+        The container image that the data quality monitoring job runs.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @image_uri.setter
+    def image_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_uri", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="postAnalyticsProcessorSourceUri")
+    def post_analytics_processor_source_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
+        """
+        return pulumi.get(self, "post_analytics_processor_source_uri")
+
+    @post_analytics_processor_source_uri.setter
+    def post_analytics_processor_source_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "post_analytics_processor_source_uri", value)
+
+    @property
+    @pulumi.getter(name="recordPreprocessorSourceUri")
+    def record_preprocessor_source_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+        """
+        return pulumi.get(self, "record_preprocessor_source_uri")
+
+    @record_preprocessor_source_uri.setter
+    def record_preprocessor_source_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "record_preprocessor_source_uri", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
+    def __init__(__self__, *,
+                 constraints_resource: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs']] = None,
+                 statistics_resource: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs']] = None):
+        """
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs'] constraints_resource: The constraints resource for a monitoring job. Fields are documented below.
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs'] statistics_resource: The statistics resource for a monitoring job. Fields are documented below.
+        """
+        if constraints_resource is not None:
+            pulumi.set(__self__, "constraints_resource", constraints_resource)
+        if statistics_resource is not None:
+            pulumi.set(__self__, "statistics_resource", statistics_resource)
+
+    @property
+    @pulumi.getter(name="constraintsResource")
+    def constraints_resource(self) -> Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs']]:
+        """
+        The constraints resource for a monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "constraints_resource")
+
+    @constraints_resource.setter
+    def constraints_resource(self, value: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs']]):
+        pulumi.set(self, "constraints_resource", value)
+
+    @property
+    @pulumi.getter(name="statisticsResource")
+    def statistics_resource(self) -> Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs']]:
+        """
+        The statistics resource for a monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "statistics_resource")
+
+    @statistics_resource.setter
+    def statistics_resource(self, value: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs']]):
+        pulumi.set(self, "statistics_resource", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs:
+    def __init__(__self__, *,
+                 s3_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_uri: The Amazon S3 URI for the constraints resource.
+        """
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 URI for the constraints resource.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_uri", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs:
+    def __init__(__self__, *,
+                 s3_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_uri: The Amazon S3 URI for the statistics resource.
+        """
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 URI for the statistics resource.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_uri", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobInputArgs:
+    def __init__(__self__, *,
+                 batch_transform_input: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs']] = None,
+                 endpoint_input: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs']] = None):
+        """
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job. Fields are documented below.
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs'] endpoint_input: Input object for the endpoint. Fields are documented below.
+        """
+        if batch_transform_input is not None:
+            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+        if endpoint_input is not None:
+            pulumi.set(__self__, "endpoint_input", endpoint_input)
+
+    @property
+    @pulumi.getter(name="batchTransformInput")
+    def batch_transform_input(self) -> Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs']]:
+        """
+        Input object for the batch transform job. Fields are documented below.
+        """
+        return pulumi.get(self, "batch_transform_input")
+
+    @batch_transform_input.setter
+    def batch_transform_input(self, value: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs']]):
+        pulumi.set(self, "batch_transform_input", value)
+
+    @property
+    @pulumi.getter(name="endpointInput")
+    def endpoint_input(self) -> Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs']]:
+        """
+        Input object for the endpoint. Fields are documented below.
+        """
+        return pulumi.get(self, "endpoint_input")
+
+    @endpoint_input.setter
+    def endpoint_input(self, value: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs']]):
+        pulumi.set(self, "endpoint_input", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs:
+    def __init__(__self__, *,
+                 data_captured_destination_s3_uri: pulumi.Input[str],
+                 dataset_format: pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs'],
+                 local_path: Optional[pulumi.Input[str]] = None,
+                 s3_data_distribution_type: Optional[pulumi.Input[str]] = None,
+                 s3_input_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_captured_destination_s3_uri: The Amazon S3 location being used to capture the data.
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job. Fields are documented below.
+        :param pulumi.Input[str] local_path: Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        :param pulumi.Input[str] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
+        :param pulumi.Input[str] s3_input_mode: Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
+        """
+        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        pulumi.set(__self__, "dataset_format", dataset_format)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+
+    @property
+    @pulumi.getter(name="dataCapturedDestinationS3Uri")
+    def data_captured_destination_s3_uri(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 location being used to capture the data.
+        """
+        return pulumi.get(self, "data_captured_destination_s3_uri")
+
+    @data_captured_destination_s3_uri.setter
+    def data_captured_destination_s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_captured_destination_s3_uri", value)
+
+    @property
+    @pulumi.getter(name="datasetFormat")
+    def dataset_format(self) -> pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs']:
+        """
+        The dataset format for your batch transform job. Fields are documented below.
+        """
+        return pulumi.get(self, "dataset_format")
+
+    @dataset_format.setter
+    def dataset_format(self, value: pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs']):
+        pulumi.set(self, "dataset_format", value)
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        """
+        return pulumi.get(self, "local_path")
+
+    @local_path.setter
+    def local_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_path", value)
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @s3_data_distribution_type.setter
+    def s3_data_distribution_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_data_distribution_type", value)
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+    @s3_input_mode.setter
+    def s3_input_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_input_mode", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs:
+    def __init__(__self__, *,
+                 csv: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs']] = None,
+                 json: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs']] = None):
+        """
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs'] csv: The CSV dataset used in the monitoring job. Fields are documented below.
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs'] json: The JSON dataset used in the monitoring job. Fields are documented below.
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs']]:
+        """
+        The CSV dataset used in the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "csv")
+
+    @csv.setter
+    def csv(self, value: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs']]):
+        pulumi.set(self, "csv", value)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs']]:
+        """
+        The JSON dataset used in the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "json")
+
+    @json.setter
+    def json(self, value: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs']]):
+        pulumi.set(self, "json", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs:
+    def __init__(__self__, *,
+                 header: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] header: Indicates if the CSV data has a header.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the CSV data has a header.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "header", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs:
+    def __init__(__self__, *,
+                 line: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] line: Indicates if the file should be read as a json object per line.
+        """
+        if line is not None:
+            pulumi.set(__self__, "line", line)
+
+    @property
+    @pulumi.getter
+    def line(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the file should be read as a json object per line.
+        """
+        return pulumi.get(self, "line")
+
+    @line.setter
+    def line(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "line", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs:
+    def __init__(__self__, *,
+                 endpoint_name: pulumi.Input[str],
+                 local_path: Optional[pulumi.Input[str]] = None,
+                 s3_data_distribution_type: Optional[pulumi.Input[str]] = None,
+                 s3_input_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint_name: An endpoint in customer's account which has `data_capture_config` enabled.
+        :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
+        :param pulumi.Input[str] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
+        :param pulumi.Input[str] s3_input_mode: Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
+        """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Input[str]:
+        """
+        An endpoint in customer's account which has `data_capture_config` enabled.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
+        """
+        return pulumi.get(self, "local_path")
+
+    @local_path.setter
+    def local_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_path", value)
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @s3_data_distribution_type.setter
+    def s3_data_distribution_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_data_distribution_type", value)
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+    @s3_input_mode.setter
+    def s3_input_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_input_mode", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobOutputConfigArgs:
+    def __init__(__self__, *,
+                 monitoring_outputs: pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs'],
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="monitoringOutputs")
+    def monitoring_outputs(self) -> pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs']:
+        """
+        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
+        """
+        return pulumi.get(self, "monitoring_outputs")
+
+    @monitoring_outputs.setter
+    def monitoring_outputs(self, value: pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs']):
+        pulumi.set(self, "monitoring_outputs", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs:
+    def __init__(__self__, *,
+                 s3_output: pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs']):
+        """
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+        """
+        pulumi.set(__self__, "s3_output", s3_output)
+
+    @property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs']:
+        """
+        The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+        """
+        return pulumi.get(self, "s3_output")
+
+    @s3_output.setter
+    def s3_output(self, value: pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs']):
+        pulumi.set(self, "s3_output", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[str],
+                 local_path: Optional[pulumi.Input[str]] = None,
+                 s3_upload_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_uri: The Amazon S3 URI for the constraints resource.
+        :param pulumi.Input[str] local_path: Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        :param pulumi.Input[str] s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if s3_upload_mode is not None:
+            pulumi.set(__self__, "s3_upload_mode", s3_upload_mode)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 URI for the constraints resource.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        """
+        return pulumi.get(self, "local_path")
+
+    @local_path.setter
+    def local_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_path", value)
+
+    @property
+    @pulumi.getter(name="s3UploadMode")
+    def s3_upload_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
+        """
+        return pulumi.get(self, "s3_upload_mode")
+
+    @s3_upload_mode.setter
+    def s3_upload_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_upload_mode", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionJobResourcesArgs:
+    def __init__(__self__, *,
+                 cluster_config: pulumi.Input['DataQualityJobDefinitionJobResourcesClusterConfigArgs']):
+        """
+        :param pulumi.Input['DataQualityJobDefinitionJobResourcesClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job. Fields are documented below.
+        """
+        pulumi.set(__self__, "cluster_config", cluster_config)
+
+    @property
+    @pulumi.getter(name="clusterConfig")
+    def cluster_config(self) -> pulumi.Input['DataQualityJobDefinitionJobResourcesClusterConfigArgs']:
+        """
+        The configuration for the cluster resources used to run the processing job. Fields are documented below.
+        """
+        return pulumi.get(self, "cluster_config")
+
+    @cluster_config.setter
+    def cluster_config(self, value: pulumi.Input['DataQualityJobDefinitionJobResourcesClusterConfigArgs']):
+        pulumi.set(self, "cluster_config", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionJobResourcesClusterConfigArgs:
+    def __init__(__self__, *,
+                 instance_count: pulumi.Input[int],
+                 instance_type: pulumi.Input[str],
+                 volume_size_in_gb: pulumi.Input[int],
+                 volume_kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
+        :param pulumi.Input[str] instance_type: The ML compute instance type for the processing job.
+        :param pulumi.Input[int] volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        :param pulumi.Input[str] volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        """
+        The ML compute instance type for the processing job.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @volume_size_in_gb.setter
+    def volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "volume_size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @volume_kms_key_id.setter
+    def volume_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_kms_key_id", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionNetworkConfigArgs:
+    def __init__(__self__, *,
+                 enable_inter_container_traffic_encryption: Optional[pulumi.Input[bool]] = None,
+                 enable_network_isolation: Optional[pulumi.Input[bool]] = None,
+                 vpc_config: Optional[pulumi.Input['DataQualityJobDefinitionNetworkConfigVpcConfigArgs']] = None):
+        """
+        :param pulumi.Input[bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
+        :param pulumi.Input[bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
+        :param pulumi.Input['DataQualityJobDefinitionNetworkConfigVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
+        """
+        if enable_inter_container_traffic_encryption is not None:
+            pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
+        if enable_network_isolation is not None:
+            pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter(name="enableInterContainerTrafficEncryption")
+    def enable_inter_container_traffic_encryption(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
+        """
+        return pulumi.get(self, "enable_inter_container_traffic_encryption")
+
+    @enable_inter_container_traffic_encryption.setter
+    def enable_inter_container_traffic_encryption(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_inter_container_traffic_encryption", value)
+
+    @property
+    @pulumi.getter(name="enableNetworkIsolation")
+    def enable_network_isolation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
+        """
+        return pulumi.get(self, "enable_network_isolation")
+
+    @enable_network_isolation.setter
+    def enable_network_isolation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_network_isolation", value)
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['DataQualityJobDefinitionNetworkConfigVpcConfigArgs']]:
+        """
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
+        """
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['DataQualityJobDefinitionNetworkConfigVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionNetworkConfigVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class DataQualityJobDefinitionStoppingConditionArgs:
+    def __init__(__self__, *,
+                 max_runtime_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_runtime_in_seconds: The maximum runtime allowed in seconds.
+        """
+        if max_runtime_in_seconds is not None:
+            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+
+    @property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum runtime allowed in seconds.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
+
+    @max_runtime_in_seconds.setter
+    def max_runtime_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_runtime_in_seconds", value)
 
 
 @pulumi.input_type
@@ -3923,6 +4696,81 @@ class ModelVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class MonitoringScheduleMonitoringScheduleConfigArgs:
+    def __init__(__self__, *,
+                 monitoring_job_definition_name: pulumi.Input[str],
+                 monitoring_type: pulumi.Input[str],
+                 schedule_config: Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] monitoring_job_definition_name: The name of the monitoring job definition to schedule.
+        :param pulumi.Input[str] monitoring_type: The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
+        :param pulumi.Input['MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs'] schedule_config: Configures the monitoring schedule. Fields are documented below.
+        """
+        pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
+        pulumi.set(__self__, "monitoring_type", monitoring_type)
+        if schedule_config is not None:
+            pulumi.set(__self__, "schedule_config", schedule_config)
+
+    @property
+    @pulumi.getter(name="monitoringJobDefinitionName")
+    def monitoring_job_definition_name(self) -> pulumi.Input[str]:
+        """
+        The name of the monitoring job definition to schedule.
+        """
+        return pulumi.get(self, "monitoring_job_definition_name")
+
+    @monitoring_job_definition_name.setter
+    def monitoring_job_definition_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "monitoring_job_definition_name", value)
+
+    @property
+    @pulumi.getter(name="monitoringType")
+    def monitoring_type(self) -> pulumi.Input[str]:
+        """
+        The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
+        """
+        return pulumi.get(self, "monitoring_type")
+
+    @monitoring_type.setter
+    def monitoring_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "monitoring_type", value)
+
+    @property
+    @pulumi.getter(name="scheduleConfig")
+    def schedule_config(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs']]:
+        """
+        Configures the monitoring schedule. Fields are documented below.
+        """
+        return pulumi.get(self, "schedule_config")
+
+    @schedule_config.setter
+    def schedule_config(self, value: Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs']]):
+        pulumi.set(self, "schedule_config", value)
+
+
+@pulumi.input_type
+class MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs:
+    def __init__(__self__, *,
+                 schedule_expression: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] schedule_expression: A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
+        """
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> pulumi.Input[str]:
+        """
+        A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_expression", value)
 
 
 @pulumi.input_type

@@ -267,6 +267,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.ownerAccountId;
     }
     /**
+     * The name of the AWS Direct Connect service provider associated with the connection.
+     * 
+     */
+    @Export(name="partnerName", refs={String.class}, tree="[0]")
+    private Output<String> partnerName;
+
+    /**
+     * @return The name of the AWS Direct Connect service provider associated with the connection.
+     * 
+     */
+    public Output<String> partnerName() {
+        return this.partnerName;
+    }
+    /**
      * The MAC Security (MACsec) port link status of the connection.
      * 
      */

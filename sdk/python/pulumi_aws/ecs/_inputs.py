@@ -540,6 +540,7 @@ class ServiceAlarmsArgs:
                  enable: pulumi.Input[bool],
                  rollback: pulumi.Input[bool]):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_names: One or more CloudWatch alarm names.
         :param pulumi.Input[bool] enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
         :param pulumi.Input[bool] rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
@@ -550,6 +551,9 @@ class ServiceAlarmsArgs:
     @property
     @pulumi.getter(name="alarmNames")
     def alarm_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One or more CloudWatch alarm names.
+        """
         return pulumi.get(self, "alarm_names")
 
     @alarm_names.setter

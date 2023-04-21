@@ -275,7 +275,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
@@ -345,6 +345,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
             resourceInputs["storageMode"] = args ? args.storageMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bootstrapBrokers"] = undefined /*out*/;
             resourceInputs["bootstrapBrokersPublicSaslIam"] = undefined /*out*/;
@@ -354,7 +355,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapBrokersSaslScram"] = undefined /*out*/;
             resourceInputs["bootstrapBrokersTls"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["zookeeperConnectString"] = undefined /*out*/;
             resourceInputs["zookeeperConnectStringTls"] = undefined /*out*/;
         }
@@ -518,4 +518,8 @@ export interface ClusterArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

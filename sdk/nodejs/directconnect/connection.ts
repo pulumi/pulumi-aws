@@ -123,6 +123,10 @@ export class Connection extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
+     * The name of the AWS Direct Connect service provider associated with the connection.
+     */
+    public /*out*/ readonly partnerName!: pulumi.Output<string>;
+    /**
      * The MAC Security (MACsec) port link status of the connection.
      */
     public /*out*/ readonly portEncryptionStatus!: pulumi.Output<string>;
@@ -174,6 +178,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["macsecCapable"] = state ? state.macsecCapable : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["partnerName"] = state ? state.partnerName : undefined;
             resourceInputs["portEncryptionStatus"] = state ? state.portEncryptionStatus : undefined;
             resourceInputs["providerName"] = state ? state.providerName : undefined;
             resourceInputs["requestMacsec"] = state ? state.requestMacsec : undefined;
@@ -204,6 +209,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["jumboFrameCapable"] = undefined /*out*/;
             resourceInputs["macsecCapable"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["partnerName"] = undefined /*out*/;
             resourceInputs["portEncryptionStatus"] = undefined /*out*/;
             resourceInputs["vlanId"] = undefined /*out*/;
         }
@@ -256,6 +262,10 @@ export interface ConnectionState {
      * The ID of the AWS account that owns the connection.
      */
     ownerAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the AWS Direct Connect service provider associated with the connection.
+     */
+    partnerName?: pulumi.Input<string>;
     /**
      * The MAC Security (MACsec) port link status of the connection.
      */

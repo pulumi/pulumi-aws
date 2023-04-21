@@ -1409,6 +1409,7 @@ func (o ClusterSettingArrayOutput) Index(i pulumi.IntInput) ClusterSettingOutput
 }
 
 type ServiceAlarms struct {
+	// One or more CloudWatch alarm names.
 	AlarmNames []string `pulumi:"alarmNames"`
 	// Determines whether to use the CloudWatch alarm option in the service deployment process.
 	Enable bool `pulumi:"enable"`
@@ -1428,6 +1429,7 @@ type ServiceAlarmsInput interface {
 }
 
 type ServiceAlarmsArgs struct {
+	// One or more CloudWatch alarm names.
 	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
 	// Determines whether to use the CloudWatch alarm option in the service deployment process.
 	Enable pulumi.BoolInput `pulumi:"enable"`
@@ -1512,6 +1514,7 @@ func (o ServiceAlarmsOutput) ToServiceAlarmsPtrOutputWithContext(ctx context.Con
 	}).(ServiceAlarmsPtrOutput)
 }
 
+// One or more CloudWatch alarm names.
 func (o ServiceAlarmsOutput) AlarmNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAlarms) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
 }
@@ -1550,6 +1553,7 @@ func (o ServiceAlarmsPtrOutput) Elem() ServiceAlarmsOutput {
 	}).(ServiceAlarmsOutput)
 }
 
+// One or more CloudWatch alarm names.
 func (o ServiceAlarmsPtrOutput) AlarmNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceAlarms) []string {
 		if v == nil {

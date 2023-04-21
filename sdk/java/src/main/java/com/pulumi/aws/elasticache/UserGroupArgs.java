@@ -18,21 +18,6 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final UserGroupArgs Empty = new UserGroupArgs();
 
     /**
-     * The ARN that identifies the user group.
-     * 
-     */
-    @Import(name="arn")
-    private @Nullable Output<String> arn;
-
-    /**
-     * @return The ARN that identifies the user group.
-     * 
-     */
-    public Optional<Output<String>> arn() {
-        return Optional.ofNullable(this.arn);
-    }
-
-    /**
      * The current supported value is `REDIS`.
      * 
      */
@@ -60,6 +45,21 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
     }
 
     /**
@@ -95,9 +95,9 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
     private UserGroupArgs() {}
 
     private UserGroupArgs(UserGroupArgs $) {
-        this.arn = $.arn;
         this.engine = $.engine;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.userGroupId = $.userGroupId;
         this.userIds = $.userIds;
     }
@@ -118,27 +118,6 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(UserGroupArgs defaults) {
             $ = new UserGroupArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param arn The ARN that identifies the user group.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder arn(@Nullable Output<String> arn) {
-            $.arn = arn;
-            return this;
-        }
-
-        /**
-         * @param arn The ARN that identifies the user group.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder arn(String arn) {
-            return arn(Output.of(arn));
         }
 
         /**
@@ -181,6 +160,27 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

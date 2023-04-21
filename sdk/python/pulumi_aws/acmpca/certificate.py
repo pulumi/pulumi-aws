@@ -20,6 +20,7 @@ class CertificateArgs:
                  certificate_signing_request: pulumi.Input[str],
                  signing_algorithm: pulumi.Input[str],
                  validity: pulumi.Input['CertificateValidityArgs'],
+                 api_passthrough: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
@@ -27,6 +28,7 @@ class CertificateArgs:
         :param pulumi.Input[str] certificate_signing_request: Certificate Signing Request in PEM format.
         :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input[str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         :param pulumi.Input[str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         """
@@ -34,6 +36,8 @@ class CertificateArgs:
         pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
         pulumi.set(__self__, "validity", validity)
+        if api_passthrough is not None:
+            pulumi.set(__self__, "api_passthrough", api_passthrough)
         if template_arn is not None:
             pulumi.set(__self__, "template_arn", template_arn)
 
@@ -86,6 +90,18 @@ class CertificateArgs:
         pulumi.set(self, "validity", value)
 
     @property
+    @pulumi.getter(name="apiPassthrough")
+    def api_passthrough(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+        """
+        return pulumi.get(self, "api_passthrough")
+
+    @api_passthrough.setter
+    def api_passthrough(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_passthrough", value)
+
+    @property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -102,6 +118,7 @@ class CertificateArgs:
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
+                 api_passthrough: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
@@ -112,6 +129,7 @@ class _CertificateState:
                  validity: Optional[pulumi.Input['CertificateValidityArgs']] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+        :param pulumi.Input[str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         :param pulumi.Input[str] arn: ARN of the certificate.
         :param pulumi.Input[str] certificate: PEM-encoded certificate value.
         :param pulumi.Input[str] certificate_authority_arn: ARN of the certificate authority.
@@ -122,6 +140,8 @@ class _CertificateState:
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
         """
+        if api_passthrough is not None:
+            pulumi.set(__self__, "api_passthrough", api_passthrough)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if certificate is not None:
@@ -138,6 +158,18 @@ class _CertificateState:
             pulumi.set(__self__, "template_arn", template_arn)
         if validity is not None:
             pulumi.set(__self__, "validity", validity)
+
+    @property
+    @pulumi.getter(name="apiPassthrough")
+    def api_passthrough(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+        """
+        return pulumi.get(self, "api_passthrough")
+
+    @api_passthrough.setter
+    def api_passthrough(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_passthrough", value)
 
     @property
     @pulumi.getter
@@ -242,6 +274,7 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_passthrough: Optional[pulumi.Input[str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
@@ -268,6 +301,7 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         :param pulumi.Input[str] certificate_authority_arn: ARN of the certificate authority.
         :param pulumi.Input[str] certificate_signing_request: Certificate Signing Request in PEM format.
         :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
@@ -314,6 +348,7 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_passthrough: Optional[pulumi.Input[str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
@@ -328,6 +363,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
+            __props__.__dict__["api_passthrough"] = api_passthrough
             if certificate_authority_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_arn'")
             __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
@@ -354,6 +390,7 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            api_passthrough: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             certificate: Optional[pulumi.Input[str]] = None,
             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
@@ -369,6 +406,7 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         :param pulumi.Input[str] arn: ARN of the certificate.
         :param pulumi.Input[str] certificate: PEM-encoded certificate value.
         :param pulumi.Input[str] certificate_authority_arn: ARN of the certificate authority.
@@ -383,6 +421,7 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = _CertificateState.__new__(_CertificateState)
 
+        __props__.__dict__["api_passthrough"] = api_passthrough
         __props__.__dict__["arn"] = arn
         __props__.__dict__["certificate"] = certificate
         __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
@@ -392,6 +431,14 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["template_arn"] = template_arn
         __props__.__dict__["validity"] = validity
         return Certificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="apiPassthrough")
+    def api_passthrough(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+        """
+        return pulumi.get(self, "api_passthrough")
 
     @property
     @pulumi.getter

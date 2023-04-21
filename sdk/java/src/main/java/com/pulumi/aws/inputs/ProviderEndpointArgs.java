@@ -344,6 +344,20 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.chimesdkmessaging);
     }
 
+    @Import(name="chimesdkvoice")
+    private @Nullable Output<String> chimesdkvoice;
+
+    public Optional<Output<String>> chimesdkvoice() {
+        return Optional.ofNullable(this.chimesdkvoice);
+    }
+
+    @Import(name="cleanrooms")
+    private @Nullable Output<String> cleanrooms;
+
+    public Optional<Output<String>> cleanrooms() {
+        return Optional.ofNullable(this.cleanrooms);
+    }
+
     @Import(name="cloud9")
     private @Nullable Output<String> cloud9;
 
@@ -783,6 +797,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> docdb() {
         return Optional.ofNullable(this.docdb);
+    }
+
+    @Import(name="docdbelastic")
+    private @Nullable Output<String> docdbelastic;
+
+    public Optional<Output<String>> docdbelastic() {
+        return Optional.ofNullable(this.docdbelastic);
     }
 
     @Import(name="drs")
@@ -2725,6 +2746,8 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.chimesdkmediapipelines = $.chimesdkmediapipelines;
         this.chimesdkmeetings = $.chimesdkmeetings;
         this.chimesdkmessaging = $.chimesdkmessaging;
+        this.chimesdkvoice = $.chimesdkvoice;
+        this.cleanrooms = $.cleanrooms;
         this.cloud9 = $.cloud9;
         this.cloudcontrol = $.cloudcontrol;
         this.cloudcontrolapi = $.cloudcontrolapi;
@@ -2788,6 +2811,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.dlm = $.dlm;
         this.dms = $.dms;
         this.docdb = $.docdb;
+        this.docdbelastic = $.docdbelastic;
         this.drs = $.drs;
         this.ds = $.ds;
         this.dynamodb = $.dynamodb;
@@ -3501,6 +3525,24 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return chimesdkmessaging(Output.of(chimesdkmessaging));
         }
 
+        public Builder chimesdkvoice(@Nullable Output<String> chimesdkvoice) {
+            $.chimesdkvoice = chimesdkvoice;
+            return this;
+        }
+
+        public Builder chimesdkvoice(String chimesdkvoice) {
+            return chimesdkvoice(Output.of(chimesdkvoice));
+        }
+
+        public Builder cleanrooms(@Nullable Output<String> cleanrooms) {
+            $.cleanrooms = cleanrooms;
+            return this;
+        }
+
+        public Builder cleanrooms(String cleanrooms) {
+            return cleanrooms(Output.of(cleanrooms));
+        }
+
         public Builder cloud9(@Nullable Output<String> cloud9) {
             $.cloud9 = cloud9;
             return this;
@@ -4066,6 +4108,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder docdb(String docdb) {
             return docdb(Output.of(docdb));
+        }
+
+        public Builder docdbelastic(@Nullable Output<String> docdbelastic) {
+            $.docdbelastic = docdbelastic;
+            return this;
+        }
+
+        public Builder docdbelastic(String docdbelastic) {
+            return docdbelastic(Output.of(docdbelastic));
         }
 
         public Builder drs(@Nullable Output<String> drs) {

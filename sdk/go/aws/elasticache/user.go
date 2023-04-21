@@ -249,7 +249,8 @@ type userArgs struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the user.
 	UserId string `pulumi:"userId"`
 	// The username of the user.
@@ -269,7 +270,8 @@ type UserArgs struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
 	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The ID of the user.
 	UserId pulumi.StringInput
 	// The username of the user.

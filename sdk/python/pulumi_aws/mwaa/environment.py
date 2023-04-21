@@ -33,6 +33,8 @@ class EnvironmentArgs:
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
+                 startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
@@ -56,6 +58,8 @@ class EnvironmentArgs:
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
         :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        :param pulumi.Input[str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        :param pulumi.Input[str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
@@ -91,6 +95,10 @@ class EnvironmentArgs:
             pulumi.set(__self__, "requirements_s3_path", requirements_s3_path)
         if schedulers is not None:
             pulumi.set(__self__, "schedulers", schedulers)
+        if startup_script_s3_object_version is not None:
+            pulumi.set(__self__, "startup_script_s3_object_version", startup_script_s3_object_version)
+        if startup_script_s3_path is not None:
+            pulumi.set(__self__, "startup_script_s3_path", startup_script_s3_path)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -305,6 +313,30 @@ class EnvironmentArgs:
         pulumi.set(self, "schedulers", value)
 
     @property
+    @pulumi.getter(name="startupScriptS3ObjectVersion")
+    def startup_script_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        """
+        return pulumi.get(self, "startup_script_s3_object_version")
+
+    @startup_script_s3_object_version.setter
+    def startup_script_s3_object_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "startup_script_s3_object_version", value)
+
+    @property
+    @pulumi.getter(name="startupScriptS3Path")
+    def startup_script_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+        """
+        return pulumi.get(self, "startup_script_s3_path")
+
+    @startup_script_s3_path.setter
+    def startup_script_s3_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "startup_script_s3_path", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -377,6 +409,8 @@ class _EnvironmentState:
                  schedulers: Optional[pulumi.Input[int]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_path: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -406,6 +440,8 @@ class _EnvironmentState:
         :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[str] service_role_arn: The Service Role ARN of the Amazon MWAA Environment
         :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        :param pulumi.Input[str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[str] status: The status of the Amazon MWAA Environment
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -455,6 +491,10 @@ class _EnvironmentState:
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if source_bucket_arn is not None:
             pulumi.set(__self__, "source_bucket_arn", source_bucket_arn)
+        if startup_script_s3_object_version is not None:
+            pulumi.set(__self__, "startup_script_s3_object_version", startup_script_s3_object_version)
+        if startup_script_s3_path is not None:
+            pulumi.set(__self__, "startup_script_s3_path", startup_script_s3_path)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -719,6 +759,30 @@ class _EnvironmentState:
         pulumi.set(self, "source_bucket_arn", value)
 
     @property
+    @pulumi.getter(name="startupScriptS3ObjectVersion")
+    def startup_script_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        """
+        return pulumi.get(self, "startup_script_s3_object_version")
+
+    @startup_script_s3_object_version.setter
+    def startup_script_s3_object_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "startup_script_s3_object_version", value)
+
+    @property
+    @pulumi.getter(name="startupScriptS3Path")
+    def startup_script_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+        """
+        return pulumi.get(self, "startup_script_s3_path")
+
+    @startup_script_s3_path.setter
+    def startup_script_s3_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "startup_script_s3_path", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -813,6 +877,8 @@ class Environment(pulumi.CustomResource):
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
@@ -944,6 +1010,8 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        :param pulumi.Input[str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
@@ -1094,6 +1162,8 @@ class Environment(pulumi.CustomResource):
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
+                 startup_script_s3_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
@@ -1132,6 +1202,8 @@ class Environment(pulumi.CustomResource):
             if source_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_bucket_arn'")
             __props__.__dict__["source_bucket_arn"] = source_bucket_arn
+            __props__.__dict__["startup_script_s3_object_version"] = startup_script_s3_object_version
+            __props__.__dict__["startup_script_s3_path"] = startup_script_s3_path
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["webserver_access_mode"] = webserver_access_mode
@@ -1175,6 +1247,8 @@ class Environment(pulumi.CustomResource):
             schedulers: Optional[pulumi.Input[int]] = None,
             service_role_arn: Optional[pulumi.Input[str]] = None,
             source_bucket_arn: Optional[pulumi.Input[str]] = None,
+            startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
+            startup_script_s3_path: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1209,6 +1283,8 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[str] service_role_arn: The Service Role ARN of the Amazon MWAA Environment
         :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        :param pulumi.Input[str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[str] status: The status of the Amazon MWAA Environment
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1241,6 +1317,8 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["schedulers"] = schedulers
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["source_bucket_arn"] = source_bucket_arn
+        __props__.__dict__["startup_script_s3_object_version"] = startup_script_s3_object_version
+        __props__.__dict__["startup_script_s3_path"] = startup_script_s3_path
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1414,6 +1492,22 @@ class Environment(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         """
         return pulumi.get(self, "source_bucket_arn")
+
+    @property
+    @pulumi.getter(name="startupScriptS3ObjectVersion")
+    def startup_script_s3_object_version(self) -> pulumi.Output[str]:
+        """
+        The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
+        """
+        return pulumi.get(self, "startup_script_s3_object_version")
+
+    @property
+    @pulumi.getter(name="startupScriptS3Path")
+    def startup_script_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
+        """
+        return pulumi.get(self, "startup_script_s3_path")
 
     @property
     @pulumi.getter

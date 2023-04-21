@@ -8,6 +8,7 @@ import typing
 from .app import *
 from .app_image_config import *
 from .code_repository import *
+from .data_quality_job_definition import *
 from .device import *
 from .device_fleet import *
 from .domain import *
@@ -22,6 +23,7 @@ from .image_version import *
 from .model import *
 from .model_package_group import *
 from .model_package_group_policy import *
+from .monitoring_schedule import *
 from .notebook_instance import *
 from .notebook_instance_lifecycle_configuration import *
 from .project import *

@@ -89,6 +89,10 @@ export interface GetNatGatewayResult {
      */
     readonly allocationId: string;
     /**
+     * The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+     */
+    readonly associationId: string;
+    /**
      * Connectivity type of the NAT Gateway.
      */
     readonly connectivityType: string;

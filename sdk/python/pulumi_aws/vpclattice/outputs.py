@@ -8,9 +8,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ServiceDnsEntry',
+    'ServiceNetworkServiceAssociationDnsEntry',
+    'TargetGroupConfig',
+    'TargetGroupConfigHealthCheck',
+    'TargetGroupConfigHealthCheckMatcher',
     'GetServiceDnsEntryResult',
 ]
 
@@ -52,6 +57,324 @@ class ServiceDnsEntry(dict):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class ServiceNetworkServiceAssociationDnsEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkServiceAssociationDnsEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNetworkServiceAssociationDnsEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNetworkServiceAssociationDnsEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: Optional[str] = None,
+                 hosted_zone_id: Optional[str] = None):
+        """
+        :param str domain_name: The domain name of the service.
+        :param str hosted_zone_id: The ID of the hosted zone.
+        """
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[str]:
+        """
+        The domain name of the service.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[str]:
+        """
+        The ID of the hosted zone.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class TargetGroupConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "healthCheck":
+            suggest = "health_check"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "protocolVersion":
+            suggest = "protocol_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: int,
+                 protocol: str,
+                 vpc_identifier: str,
+                 health_check: Optional['outputs.TargetGroupConfigHealthCheck'] = None,
+                 ip_address_type: Optional[str] = None,
+                 protocol_version: Optional[str] = None):
+        """
+        :param int port: The port on which the targets are listening.
+        :param str protocol: The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+        :param str vpc_identifier: The ID of the VPC.
+        :param 'TargetGroupConfigHealthCheckArgs' health_check: The health check configuration.
+        :param str ip_address_type: The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+        :param str protocol_version: The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if protocol_version is not None:
+            pulumi.set(__self__, "protocol_version", protocol_version)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port on which the targets are listening.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> str:
+        """
+        The ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional['outputs.TargetGroupConfigHealthCheck']:
+        """
+        The health check configuration.
+        """
+        return pulumi.get(self, "health_check")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
+        """
+        The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="protocolVersion")
+    def protocol_version(self) -> Optional[str]:
+        """
+        The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+        """
+        return pulumi.get(self, "protocol_version")
+
+
+@pulumi.output_type
+class TargetGroupConfigHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthCheckIntervalSeconds":
+            suggest = "health_check_interval_seconds"
+        elif key == "healthCheckTimeoutSeconds":
+            suggest = "health_check_timeout_seconds"
+        elif key == "healthyThresholdCount":
+            suggest = "healthy_threshold_count"
+        elif key == "protocolVersion":
+            suggest = "protocol_version"
+        elif key == "unhealthyThresholdCount":
+            suggest = "unhealthy_threshold_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupConfigHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupConfigHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupConfigHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 health_check_interval_seconds: Optional[int] = None,
+                 health_check_timeout_seconds: Optional[int] = None,
+                 healthy_threshold_count: Optional[int] = None,
+                 matcher: Optional['outputs.TargetGroupConfigHealthCheckMatcher'] = None,
+                 path: Optional[str] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 protocol_version: Optional[str] = None,
+                 unhealthy_threshold_count: Optional[int] = None):
+        """
+        :param bool enabled: Indicates whether health checking is enabled. Defaults to `true`.
+        :param int health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+        :param int health_check_timeout_seconds: The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+               * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+        :param 'TargetGroupConfigHealthCheckMatcherArgs' matcher: The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+        :param str path: The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+        :param int port: The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+        :param str protocol: The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+        :param str protocol_version: The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+        :param int unhealthy_threshold_count: The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if health_check_interval_seconds is not None:
+            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
+        if health_check_timeout_seconds is not None:
+            pulumi.set(__self__, "health_check_timeout_seconds", health_check_timeout_seconds)
+        if healthy_threshold_count is not None:
+            pulumi.set(__self__, "healthy_threshold_count", healthy_threshold_count)
+        if matcher is not None:
+            pulumi.set(__self__, "matcher", matcher)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if protocol_version is not None:
+            pulumi.set(__self__, "protocol_version", protocol_version)
+        if unhealthy_threshold_count is not None:
+            pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether health checking is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="healthCheckIntervalSeconds")
+    def health_check_interval_seconds(self) -> Optional[int]:
+        """
+        The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+        """
+        return pulumi.get(self, "health_check_interval_seconds")
+
+    @property
+    @pulumi.getter(name="healthCheckTimeoutSeconds")
+    def health_check_timeout_seconds(self) -> Optional[int]:
+        """
+        The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+        * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+        """
+        return pulumi.get(self, "health_check_timeout_seconds")
+
+    @property
+    @pulumi.getter(name="healthyThresholdCount")
+    def healthy_threshold_count(self) -> Optional[int]:
+        return pulumi.get(self, "healthy_threshold_count")
+
+    @property
+    @pulumi.getter
+    def matcher(self) -> Optional['outputs.TargetGroupConfigHealthCheckMatcher']:
+        """
+        The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+        """
+        return pulumi.get(self, "matcher")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="protocolVersion")
+    def protocol_version(self) -> Optional[str]:
+        """
+        The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+        """
+        return pulumi.get(self, "protocol_version")
+
+    @property
+    @pulumi.getter(name="unhealthyThresholdCount")
+    def unhealthy_threshold_count(self) -> Optional[int]:
+        """
+        The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+        """
+        return pulumi.get(self, "unhealthy_threshold_count")
+
+
+@pulumi.output_type
+class TargetGroupConfigHealthCheckMatcher(dict):
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        :param str value: The HTTP codes to use when checking for a successful response from a target.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The HTTP codes to use when checking for a successful response from a target.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

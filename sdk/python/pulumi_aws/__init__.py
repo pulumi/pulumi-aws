@@ -83,6 +83,8 @@ if typing.TYPE_CHECKING:
     cfg = __cfg
     import pulumi_aws.chime as __chime
     chime = __chime
+    import pulumi_aws.chimesdkmediapipelines as __chimesdkmediapipelines
+    chimesdkmediapipelines = __chimesdkmediapipelines
     import pulumi_aws.cloud9 as __cloud9
     cloud9 = __cloud9
     import pulumi_aws.cloudcontrol as __cloudcontrol
@@ -291,6 +293,8 @@ if typing.TYPE_CHECKING:
     outposts = __outposts
     import pulumi_aws.pinpoint as __pinpoint
     pinpoint = __pinpoint
+    import pulumi_aws.pipes as __pipes
+    pipes = __pipes
     import pulumi_aws.pricing as __pricing
     pricing = __pricing
     import pulumi_aws.qldb as __qldb
@@ -429,6 +433,7 @@ else:
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
     cfg = _utilities.lazy_import('pulumi_aws.cfg')
     chime = _utilities.lazy_import('pulumi_aws.chime')
+    chimesdkmediapipelines = _utilities.lazy_import('pulumi_aws.chimesdkmediapipelines')
     cloud9 = _utilities.lazy_import('pulumi_aws.cloud9')
     cloudcontrol = _utilities.lazy_import('pulumi_aws.cloudcontrol')
     cloudformation = _utilities.lazy_import('pulumi_aws.cloudformation')
@@ -533,6 +538,7 @@ else:
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
     outposts = _utilities.lazy_import('pulumi_aws.outposts')
     pinpoint = _utilities.lazy_import('pulumi_aws.pinpoint')
+    pipes = _utilities.lazy_import('pulumi_aws.pipes')
     pricing = _utilities.lazy_import('pulumi_aws.pricing')
     qldb = _utilities.lazy_import('pulumi_aws.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws.quicksight')
@@ -1910,6 +1916,14 @@ _utilities.register(
   "fqn": "pulumi_aws.chime",
   "classes": {
    "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials": "VoiceConnectorTerminationCredentials"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chimesdkmediapipelines/mediaInsightsPipelineConfiguration",
+  "fqn": "pulumi_aws.chimesdkmediapipelines",
+  "classes": {
+   "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration": "MediaInsightsPipelineConfiguration"
   }
  },
  {
@@ -7514,6 +7528,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "pipes/pipe",
+  "fqn": "pulumi_aws.pipes",
+  "classes": {
+   "aws:pipes/pipe:Pipe": "Pipe"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "qldb/ledger",
   "fqn": "pulumi_aws.qldb",
   "classes": {
@@ -8658,6 +8680,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sagemaker/dataQualityJobDefinition",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition": "DataQualityJobDefinition"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sagemaker/device",
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
@@ -8758,6 +8788,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy": "ModelPackageGroupPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/monitoringSchedule",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/monitoringSchedule:MonitoringSchedule": "MonitoringSchedule"
   }
  },
  {
@@ -9878,6 +9916,30 @@ _utilities.register(
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
    "aws:vpclattice/serviceNetwork:ServiceNetwork": "ServiceNetwork"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/serviceNetworkServiceAssociation",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation": "ServiceNetworkServiceAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/serviceNetworkVpcAssociation",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation": "ServiceNetworkVpcAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/targetGroup",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/targetGroup:TargetGroup": "TargetGroup"
   }
  },
  {

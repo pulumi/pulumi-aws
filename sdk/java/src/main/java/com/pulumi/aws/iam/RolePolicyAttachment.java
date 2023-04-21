@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role&#39;s managed policy attachments and the provider will show a permanent difference.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -50,9 +49,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .effect(&#34;Allow&#34;)
- *             .principals(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .actions(&#34;sts:AssumeRole&#34;)
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;ec2.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .build())
  *             .build());
  * 
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        

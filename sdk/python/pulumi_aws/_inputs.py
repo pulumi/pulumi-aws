@@ -310,6 +310,8 @@ class ProviderEndpointArgs:
                  chimesdkmediapipelines: Optional[pulumi.Input[str]] = None,
                  chimesdkmeetings: Optional[pulumi.Input[str]] = None,
                  chimesdkmessaging: Optional[pulumi.Input[str]] = None,
+                 chimesdkvoice: Optional[pulumi.Input[str]] = None,
+                 cleanrooms: Optional[pulumi.Input[str]] = None,
                  cloud9: Optional[pulumi.Input[str]] = None,
                  cloudcontrol: Optional[pulumi.Input[str]] = None,
                  cloudcontrolapi: Optional[pulumi.Input[str]] = None,
@@ -373,6 +375,7 @@ class ProviderEndpointArgs:
                  dlm: Optional[pulumi.Input[str]] = None,
                  dms: Optional[pulumi.Input[str]] = None,
                  docdb: Optional[pulumi.Input[str]] = None,
+                 docdbelastic: Optional[pulumi.Input[str]] = None,
                  drs: Optional[pulumi.Input[str]] = None,
                  ds: Optional[pulumi.Input[str]] = None,
                  dynamodb: Optional[pulumi.Input[str]] = None,
@@ -737,6 +740,10 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "chimesdkmeetings", chimesdkmeetings)
         if chimesdkmessaging is not None:
             pulumi.set(__self__, "chimesdkmessaging", chimesdkmessaging)
+        if chimesdkvoice is not None:
+            pulumi.set(__self__, "chimesdkvoice", chimesdkvoice)
+        if cleanrooms is not None:
+            pulumi.set(__self__, "cleanrooms", cleanrooms)
         if cloud9 is not None:
             pulumi.set(__self__, "cloud9", cloud9)
         if cloudcontrol is not None:
@@ -863,6 +870,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "dms", dms)
         if docdb is not None:
             pulumi.set(__self__, "docdb", docdb)
+        if docdbelastic is not None:
+            pulumi.set(__self__, "docdbelastic", docdbelastic)
         if drs is not None:
             pulumi.set(__self__, "drs", drs)
         if ds is not None:
@@ -1829,6 +1838,24 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def chimesdkvoice(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "chimesdkvoice")
+
+    @chimesdkvoice.setter
+    def chimesdkvoice(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chimesdkvoice", value)
+
+    @property
+    @pulumi.getter
+    def cleanrooms(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cleanrooms")
+
+    @cleanrooms.setter
+    def cleanrooms(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cleanrooms", value)
+
+    @property
+    @pulumi.getter
     def cloud9(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "cloud9")
 
@@ -2393,6 +2420,15 @@ class ProviderEndpointArgs:
     @docdb.setter
     def docdb(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docdb", value)
+
+    @property
+    @pulumi.getter
+    def docdbelastic(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "docdbelastic")
+
+    @docdbelastic.setter
+    def docdbelastic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docdbelastic", value)
 
     @property
     @pulumi.getter

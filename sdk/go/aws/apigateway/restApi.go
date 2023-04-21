@@ -142,6 +142,8 @@ type RestApi struct {
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
+	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
 	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	MinimumCompressionSize pulumi.IntPtrOutput `pulumi:"minimumCompressionSize"`
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -209,6 +211,8 @@ type restApiState struct {
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn *string `pulumi:"executionArn"`
+	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+	FailOnWarnings *bool `pulumi:"failOnWarnings"`
 	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -248,6 +252,8 @@ type RestApiState struct {
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn pulumi.StringPtrInput
+	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+	FailOnWarnings pulumi.BoolPtrInput
 	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	MinimumCompressionSize pulumi.IntPtrInput
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -283,6 +289,8 @@ type restApiArgs struct {
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// Configuration block defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
+	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+	FailOnWarnings *bool `pulumi:"failOnWarnings"`
 	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -313,6 +321,8 @@ type RestApiArgs struct {
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// Configuration block defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
+	// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+	FailOnWarnings pulumi.BoolPtrInput
 	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	MinimumCompressionSize pulumi.IntPtrInput
 	// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -461,6 +471,11 @@ func (o RestApiOutput) EndpointConfiguration() RestApiEndpointConfigurationOutpu
 // e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 func (o RestApiOutput) ExecutionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
+}
+
+// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+func (o RestApiOutput) FailOnWarnings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.BoolPtrOutput { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
 }
 
 // Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.

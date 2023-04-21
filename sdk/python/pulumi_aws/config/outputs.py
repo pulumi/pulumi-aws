@@ -226,6 +226,8 @@ class Endpoints(dict):
                  chimesdkmediapipelines: Optional[str] = None,
                  chimesdkmeetings: Optional[str] = None,
                  chimesdkmessaging: Optional[str] = None,
+                 chimesdkvoice: Optional[str] = None,
+                 cleanrooms: Optional[str] = None,
                  cloud9: Optional[str] = None,
                  cloudcontrol: Optional[str] = None,
                  cloudcontrolapi: Optional[str] = None,
@@ -289,6 +291,7 @@ class Endpoints(dict):
                  dlm: Optional[str] = None,
                  dms: Optional[str] = None,
                  docdb: Optional[str] = None,
+                 docdbelastic: Optional[str] = None,
                  drs: Optional[str] = None,
                  ds: Optional[str] = None,
                  dynamodb: Optional[str] = None,
@@ -653,6 +656,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "chimesdkmeetings", chimesdkmeetings)
         if chimesdkmessaging is not None:
             pulumi.set(__self__, "chimesdkmessaging", chimesdkmessaging)
+        if chimesdkvoice is not None:
+            pulumi.set(__self__, "chimesdkvoice", chimesdkvoice)
+        if cleanrooms is not None:
+            pulumi.set(__self__, "cleanrooms", cleanrooms)
         if cloud9 is not None:
             pulumi.set(__self__, "cloud9", cloud9)
         if cloudcontrol is not None:
@@ -779,6 +786,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "dms", dms)
         if docdb is not None:
             pulumi.set(__self__, "docdb", docdb)
+        if docdbelastic is not None:
+            pulumi.set(__self__, "docdbelastic", docdbelastic)
         if drs is not None:
             pulumi.set(__self__, "drs", drs)
         if ds is not None:
@@ -1557,6 +1566,16 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def chimesdkvoice(self) -> Optional[str]:
+        return pulumi.get(self, "chimesdkvoice")
+
+    @property
+    @pulumi.getter
+    def cleanrooms(self) -> Optional[str]:
+        return pulumi.get(self, "cleanrooms")
+
+    @property
+    @pulumi.getter
     def cloud9(self) -> Optional[str]:
         return pulumi.get(self, "cloud9")
 
@@ -1869,6 +1888,11 @@ class Endpoints(dict):
     @pulumi.getter
     def docdb(self) -> Optional[str]:
         return pulumi.get(self, "docdb")
+
+    @property
+    @pulumi.getter
+    def docdbelastic(self) -> Optional[str]:
+        return pulumi.get(self, "docdbelastic")
 
     @property
     @pulumi.getter

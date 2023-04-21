@@ -19,7 +19,8 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? CoreCount { get; set; }
 
         /// <summary>
-        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+        /// The number of threads per CPU core.
+        /// To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
         /// Otherwise, specify the default value of 2.
         /// </summary>
         [Input("threadsPerCore")]

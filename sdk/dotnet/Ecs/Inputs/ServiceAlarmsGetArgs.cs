@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         [Input("alarmNames", required: true)]
         private InputList<string>? _alarmNames;
+
+        /// <summary>
+        /// One or more CloudWatch alarm names.
+        /// </summary>
         public InputList<string> AlarmNames
         {
             get => _alarmNames ?? (_alarmNames = new InputList<string>());
