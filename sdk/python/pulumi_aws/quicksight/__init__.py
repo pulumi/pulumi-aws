@@ -14,6 +14,8 @@ from .get_quicksight_group import *
 from .get_quicksight_user import *
 from .group import *
 from .group_membership import *
+from .iam_policy_assignment import *
+from .ingestion import *
 from .user import *
 from ._inputs import *
 from . import outputs

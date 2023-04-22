@@ -9488,6 +9488,158 @@ func (o FolderPermissionArrayOutput) Index(i pulumi.IntInput) FolderPermissionOu
 	}).(FolderPermissionOutput)
 }
 
+type IamPolicyAssignmentIdentities struct {
+	Groups []string `pulumi:"groups"`
+	// Array of Quicksight user names to assign the policy to.
+	Users []string `pulumi:"users"`
+}
+
+// IamPolicyAssignmentIdentitiesInput is an input type that accepts IamPolicyAssignmentIdentitiesArgs and IamPolicyAssignmentIdentitiesOutput values.
+// You can construct a concrete instance of `IamPolicyAssignmentIdentitiesInput` via:
+//
+//	IamPolicyAssignmentIdentitiesArgs{...}
+type IamPolicyAssignmentIdentitiesInput interface {
+	pulumi.Input
+
+	ToIamPolicyAssignmentIdentitiesOutput() IamPolicyAssignmentIdentitiesOutput
+	ToIamPolicyAssignmentIdentitiesOutputWithContext(context.Context) IamPolicyAssignmentIdentitiesOutput
+}
+
+type IamPolicyAssignmentIdentitiesArgs struct {
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// Array of Quicksight user names to assign the policy to.
+	Users pulumi.StringArrayInput `pulumi:"users"`
+}
+
+func (IamPolicyAssignmentIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IamPolicyAssignmentIdentities)(nil)).Elem()
+}
+
+func (i IamPolicyAssignmentIdentitiesArgs) ToIamPolicyAssignmentIdentitiesOutput() IamPolicyAssignmentIdentitiesOutput {
+	return i.ToIamPolicyAssignmentIdentitiesOutputWithContext(context.Background())
+}
+
+func (i IamPolicyAssignmentIdentitiesArgs) ToIamPolicyAssignmentIdentitiesOutputWithContext(ctx context.Context) IamPolicyAssignmentIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamPolicyAssignmentIdentitiesOutput)
+}
+
+func (i IamPolicyAssignmentIdentitiesArgs) ToIamPolicyAssignmentIdentitiesPtrOutput() IamPolicyAssignmentIdentitiesPtrOutput {
+	return i.ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(context.Background())
+}
+
+func (i IamPolicyAssignmentIdentitiesArgs) ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(ctx context.Context) IamPolicyAssignmentIdentitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamPolicyAssignmentIdentitiesOutput).ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(ctx)
+}
+
+// IamPolicyAssignmentIdentitiesPtrInput is an input type that accepts IamPolicyAssignmentIdentitiesArgs, IamPolicyAssignmentIdentitiesPtr and IamPolicyAssignmentIdentitiesPtrOutput values.
+// You can construct a concrete instance of `IamPolicyAssignmentIdentitiesPtrInput` via:
+//
+//	        IamPolicyAssignmentIdentitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IamPolicyAssignmentIdentitiesPtrInput interface {
+	pulumi.Input
+
+	ToIamPolicyAssignmentIdentitiesPtrOutput() IamPolicyAssignmentIdentitiesPtrOutput
+	ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(context.Context) IamPolicyAssignmentIdentitiesPtrOutput
+}
+
+type iamPolicyAssignmentIdentitiesPtrType IamPolicyAssignmentIdentitiesArgs
+
+func IamPolicyAssignmentIdentitiesPtr(v *IamPolicyAssignmentIdentitiesArgs) IamPolicyAssignmentIdentitiesPtrInput {
+	return (*iamPolicyAssignmentIdentitiesPtrType)(v)
+}
+
+func (*iamPolicyAssignmentIdentitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IamPolicyAssignmentIdentities)(nil)).Elem()
+}
+
+func (i *iamPolicyAssignmentIdentitiesPtrType) ToIamPolicyAssignmentIdentitiesPtrOutput() IamPolicyAssignmentIdentitiesPtrOutput {
+	return i.ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *iamPolicyAssignmentIdentitiesPtrType) ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(ctx context.Context) IamPolicyAssignmentIdentitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamPolicyAssignmentIdentitiesPtrOutput)
+}
+
+type IamPolicyAssignmentIdentitiesOutput struct{ *pulumi.OutputState }
+
+func (IamPolicyAssignmentIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IamPolicyAssignmentIdentities)(nil)).Elem()
+}
+
+func (o IamPolicyAssignmentIdentitiesOutput) ToIamPolicyAssignmentIdentitiesOutput() IamPolicyAssignmentIdentitiesOutput {
+	return o
+}
+
+func (o IamPolicyAssignmentIdentitiesOutput) ToIamPolicyAssignmentIdentitiesOutputWithContext(ctx context.Context) IamPolicyAssignmentIdentitiesOutput {
+	return o
+}
+
+func (o IamPolicyAssignmentIdentitiesOutput) ToIamPolicyAssignmentIdentitiesPtrOutput() IamPolicyAssignmentIdentitiesPtrOutput {
+	return o.ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(context.Background())
+}
+
+func (o IamPolicyAssignmentIdentitiesOutput) ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(ctx context.Context) IamPolicyAssignmentIdentitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IamPolicyAssignmentIdentities) *IamPolicyAssignmentIdentities {
+		return &v
+	}).(IamPolicyAssignmentIdentitiesPtrOutput)
+}
+
+func (o IamPolicyAssignmentIdentitiesOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IamPolicyAssignmentIdentities) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// Array of Quicksight user names to assign the policy to.
+func (o IamPolicyAssignmentIdentitiesOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IamPolicyAssignmentIdentities) []string { return v.Users }).(pulumi.StringArrayOutput)
+}
+
+type IamPolicyAssignmentIdentitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IamPolicyAssignmentIdentitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IamPolicyAssignmentIdentities)(nil)).Elem()
+}
+
+func (o IamPolicyAssignmentIdentitiesPtrOutput) ToIamPolicyAssignmentIdentitiesPtrOutput() IamPolicyAssignmentIdentitiesPtrOutput {
+	return o
+}
+
+func (o IamPolicyAssignmentIdentitiesPtrOutput) ToIamPolicyAssignmentIdentitiesPtrOutputWithContext(ctx context.Context) IamPolicyAssignmentIdentitiesPtrOutput {
+	return o
+}
+
+func (o IamPolicyAssignmentIdentitiesPtrOutput) Elem() IamPolicyAssignmentIdentitiesOutput {
+	return o.ApplyT(func(v *IamPolicyAssignmentIdentities) IamPolicyAssignmentIdentities {
+		if v != nil {
+			return *v
+		}
+		var ret IamPolicyAssignmentIdentities
+		return ret
+	}).(IamPolicyAssignmentIdentitiesOutput)
+}
+
+func (o IamPolicyAssignmentIdentitiesPtrOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IamPolicyAssignmentIdentities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Array of Quicksight user names to assign the policy to.
+func (o IamPolicyAssignmentIdentitiesPtrOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IamPolicyAssignmentIdentities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(pulumi.StringArrayOutput)
+}
+
 type GetDataSetColumnGroup struct {
 	GeoSpatialColumnGroups []GetDataSetColumnGroupGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroups"`
 }
@@ -13104,6 +13256,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesPtrInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderPermissionInput)(nil)).Elem(), FolderPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderPermissionArrayInput)(nil)).Elem(), FolderPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IamPolicyAssignmentIdentitiesInput)(nil)).Elem(), IamPolicyAssignmentIdentitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IamPolicyAssignmentIdentitiesPtrInput)(nil)).Elem(), IamPolicyAssignmentIdentitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupArrayInput)(nil)).Elem(), GetDataSetColumnGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupGeoSpatialColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupGeoSpatialColumnGroupArgs{})
@@ -13291,6 +13445,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FolderPermissionOutput{})
 	pulumi.RegisterOutputType(FolderPermissionArrayOutput{})
+	pulumi.RegisterOutputType(IamPolicyAssignmentIdentitiesOutput{})
+	pulumi.RegisterOutputType(IamPolicyAssignmentIdentitiesPtrOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupGeoSpatialColumnGroupOutput{})

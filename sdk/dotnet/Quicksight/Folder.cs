@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Quicksight
+namespace Pulumi.Aws.QuickSight
 {
     /// <summary>
     /// Resource for managing a QuickSight Folder.
@@ -17,12 +17,13 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Folder("example", new()
+    ///     var example = new Aws.QuickSight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
     ///     });
@@ -33,17 +34,18 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Folder("example", new()
+    ///     var example = new Aws.QuickSight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
     ///         Permissions = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.FolderPermissionArgs
+    ///             new Aws.QuickSight.Inputs.FolderPermissionArgs
     ///             {
     ///                 Actions = new[]
     ///                 {
@@ -67,17 +69,18 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var parent = new Aws.Quicksight.Folder("parent", new()
+    ///     var parent = new Aws.QuickSight.Folder("parent", new()
     ///     {
     ///         FolderId = "parent-id",
     ///     });
     /// 
-    ///     var example = new Aws.Quicksight.Folder("example", new()
+    ///     var example = new Aws.QuickSight.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
     ///         ParentFolderArn = parent.Arn,

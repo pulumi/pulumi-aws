@@ -50,6 +50,16 @@ export type GroupMembership = import("./groupMembership").GroupMembership;
 export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
 utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
 
+export { IamPolicyAssignmentArgs, IamPolicyAssignmentState } from "./iamPolicyAssignment";
+export type IamPolicyAssignment = import("./iamPolicyAssignment").IamPolicyAssignment;
+export const IamPolicyAssignment: typeof import("./iamPolicyAssignment").IamPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["IamPolicyAssignment"], () => require("./iamPolicyAssignment"));
+
+export { IngestionArgs, IngestionState } from "./ingestion";
+export type Ingestion = import("./ingestion").Ingestion;
+export const Ingestion: typeof import("./ingestion").Ingestion = null as any;
+utilities.lazyLoad(exports, ["Ingestion"], () => require("./ingestion"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -72,6 +82,10 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "aws:quicksight/groupMembership:GroupMembership":
                 return new GroupMembership(name, <any>undefined, { urn })
+            case "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment":
+                return new IamPolicyAssignment(name, <any>undefined, { urn })
+            case "aws:quicksight/ingestion:Ingestion":
+                return new Ingestion(name, <any>undefined, { urn })
             case "aws:quicksight/user:User":
                 return new User(name, <any>undefined, { urn })
             default:
@@ -85,4 +99,6 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/dataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/folder", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/group", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/groupMembership", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/iamPolicyAssignment", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/ingestion", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)

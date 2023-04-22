@@ -140,6 +140,11 @@ __all__ = [
     'InputSourceArgs',
     'InputVpcArgs',
     'MultiplexMultiplexSettingsArgs',
+    'MultiplexProgramMultiplexProgramSettingsArgs',
+    'MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs',
+    'MultiplexProgramMultiplexProgramSettingsVideoSettingArgs',
+    'MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSettingArgs',
+    'MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSettingArgs',
 ]
 
 @pulumi.input_type
@@ -8912,5 +8917,265 @@ class MultiplexMultiplexSettingsArgs:
     @transport_stream_reserved_bitrate.setter
     def transport_stream_reserved_bitrate(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "transport_stream_reserved_bitrate", value)
+
+
+@pulumi.input_type
+class MultiplexProgramMultiplexProgramSettingsArgs:
+    def __init__(__self__, *,
+                 preferred_channel_pipeline: pulumi.Input[str],
+                 program_number: pulumi.Input[int],
+                 service_descriptors: pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']]],
+                 video_settings: pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingArgs']]]):
+        """
+        :param pulumi.Input[str] preferred_channel_pipeline: Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+        :param pulumi.Input[int] program_number: Unique program number.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']]] service_descriptors: Service Descriptor. See Service Descriptor for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingArgs']]] video_settings: Video settings. See Video Settings for more details.
+        """
+        pulumi.set(__self__, "preferred_channel_pipeline", preferred_channel_pipeline)
+        pulumi.set(__self__, "program_number", program_number)
+        pulumi.set(__self__, "service_descriptors", service_descriptors)
+        pulumi.set(__self__, "video_settings", video_settings)
+
+    @property
+    @pulumi.getter(name="preferredChannelPipeline")
+    def preferred_channel_pipeline(self) -> pulumi.Input[str]:
+        """
+        Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+        """
+        return pulumi.get(self, "preferred_channel_pipeline")
+
+    @preferred_channel_pipeline.setter
+    def preferred_channel_pipeline(self, value: pulumi.Input[str]):
+        pulumi.set(self, "preferred_channel_pipeline", value)
+
+    @property
+    @pulumi.getter(name="programNumber")
+    def program_number(self) -> pulumi.Input[int]:
+        """
+        Unique program number.
+        """
+        return pulumi.get(self, "program_number")
+
+    @program_number.setter
+    def program_number(self, value: pulumi.Input[int]):
+        pulumi.set(self, "program_number", value)
+
+    @property
+    @pulumi.getter(name="serviceDescriptors")
+    def service_descriptors(self) -> pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']]]:
+        """
+        Service Descriptor. See Service Descriptor for more details.
+        """
+        return pulumi.get(self, "service_descriptors")
+
+    @service_descriptors.setter
+    def service_descriptors(self, value: pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']]]):
+        pulumi.set(self, "service_descriptors", value)
+
+    @property
+    @pulumi.getter(name="videoSettings")
+    def video_settings(self) -> pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingArgs']]]:
+        """
+        Video settings. See Video Settings for more details.
+        """
+        return pulumi.get(self, "video_settings")
+
+    @video_settings.setter
+    def video_settings(self, value: pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingArgs']]]):
+        pulumi.set(self, "video_settings", value)
+
+
+@pulumi.input_type
+class MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs:
+    def __init__(__self__, *,
+                 provider_name: pulumi.Input[str],
+                 service_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] provider_name: Unique provider name.
+        :param pulumi.Input[str] service_name: Unique service name.
+        """
+        pulumi.set(__self__, "provider_name", provider_name)
+        pulumi.set(__self__, "service_name", service_name)
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> pulumi.Input[str]:
+        """
+        Unique provider name.
+        """
+        return pulumi.get(self, "provider_name")
+
+    @provider_name.setter
+    def provider_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_name", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        Unique service name.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+
+@pulumi.input_type
+class MultiplexProgramMultiplexProgramSettingsVideoSettingArgs:
+    def __init__(__self__, *,
+                 constant_bitrate: pulumi.Input[int],
+                 statemux_settings: pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSettingArgs']]],
+                 statmux_settings: pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSettingArgs']]]):
+        """
+        :param pulumi.Input[int] constant_bitrate: Constant bitrate value.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSettingArgs']]] statemux_settings: Statemux settings. See Statmux Settings for more details. Settings from this attribute will apply to `statmux_settings`. Conflicts with `statmux_settings`.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSettingArgs']]] statmux_settings: Statmux settings. See Statmux Settings for more details Conflicts with `statemux_settings`.
+        """
+        pulumi.set(__self__, "constant_bitrate", constant_bitrate)
+        pulumi.set(__self__, "statemux_settings", statemux_settings)
+        pulumi.set(__self__, "statmux_settings", statmux_settings)
+
+    @property
+    @pulumi.getter(name="constantBitrate")
+    def constant_bitrate(self) -> pulumi.Input[int]:
+        """
+        Constant bitrate value.
+        """
+        return pulumi.get(self, "constant_bitrate")
+
+    @constant_bitrate.setter
+    def constant_bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "constant_bitrate", value)
+
+    @property
+    @pulumi.getter(name="statemuxSettings")
+    def statemux_settings(self) -> pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSettingArgs']]]:
+        """
+        Statemux settings. See Statmux Settings for more details. Settings from this attribute will apply to `statmux_settings`. Conflicts with `statmux_settings`.
+        """
+        return pulumi.get(self, "statemux_settings")
+
+    @statemux_settings.setter
+    def statemux_settings(self, value: pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSettingArgs']]]):
+        pulumi.set(self, "statemux_settings", value)
+
+    @property
+    @pulumi.getter(name="statmuxSettings")
+    def statmux_settings(self) -> pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSettingArgs']]]:
+        """
+        Statmux settings. See Statmux Settings for more details Conflicts with `statemux_settings`.
+        """
+        return pulumi.get(self, "statmux_settings")
+
+    @statmux_settings.setter
+    def statmux_settings(self, value: pulumi.Input[Sequence[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSettingArgs']]]):
+        pulumi.set(self, "statmux_settings", value)
+
+
+@pulumi.input_type
+class MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSettingArgs:
+    def __init__(__self__, *,
+                 maximum_bitrate: pulumi.Input[int],
+                 minimum_bitrate: pulumi.Input[int],
+                 priority: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] maximum_bitrate: Maximum bitrate.
+        :param pulumi.Input[int] minimum_bitrate: Minimum bitrate.
+        :param pulumi.Input[int] priority: Priority value.
+        """
+        pulumi.set(__self__, "maximum_bitrate", maximum_bitrate)
+        pulumi.set(__self__, "minimum_bitrate", minimum_bitrate)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter(name="maximumBitrate")
+    def maximum_bitrate(self) -> pulumi.Input[int]:
+        """
+        Maximum bitrate.
+        """
+        return pulumi.get(self, "maximum_bitrate")
+
+    @maximum_bitrate.setter
+    def maximum_bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_bitrate", value)
+
+    @property
+    @pulumi.getter(name="minimumBitrate")
+    def minimum_bitrate(self) -> pulumi.Input[int]:
+        """
+        Minimum bitrate.
+        """
+        return pulumi.get(self, "minimum_bitrate")
+
+    @minimum_bitrate.setter
+    def minimum_bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum_bitrate", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Priority value.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+
+@pulumi.input_type
+class MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSettingArgs:
+    def __init__(__self__, *,
+                 maximum_bitrate: pulumi.Input[int],
+                 minimum_bitrate: pulumi.Input[int],
+                 priority: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] maximum_bitrate: Maximum bitrate.
+        :param pulumi.Input[int] minimum_bitrate: Minimum bitrate.
+        :param pulumi.Input[int] priority: Priority value.
+        """
+        pulumi.set(__self__, "maximum_bitrate", maximum_bitrate)
+        pulumi.set(__self__, "minimum_bitrate", minimum_bitrate)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter(name="maximumBitrate")
+    def maximum_bitrate(self) -> pulumi.Input[int]:
+        """
+        Maximum bitrate.
+        """
+        return pulumi.get(self, "maximum_bitrate")
+
+    @maximum_bitrate.setter
+    def maximum_bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_bitrate", value)
+
+    @property
+    @pulumi.getter(name="minimumBitrate")
+    def minimum_bitrate(self) -> pulumi.Input[int]:
+        """
+        Minimum bitrate.
+        """
+        return pulumi.get(self, "minimum_bitrate")
+
+    @minimum_bitrate.setter
+    def minimum_bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum_bitrate", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Priority value.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
 
 

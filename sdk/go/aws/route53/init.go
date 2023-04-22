@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:route53/cidrCollection:CidrCollection":
+		r = &CidrCollection{}
+	case "aws:route53/cidrLocation:CidrLocation":
+		r = &CidrLocation{}
 	case "aws:route53/delegationSet:DelegationSet":
 		r = &DelegationSet{}
 	case "aws:route53/healthCheck:HealthCheck":
@@ -80,6 +84,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/cidrCollection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/cidrLocation",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53/delegationSet",

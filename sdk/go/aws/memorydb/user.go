@@ -15,46 +15,6 @@ import (
 //
 // More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRandomPassword, err := random.NewRandomPassword(ctx, "exampleRandomPassword", &random.RandomPasswordArgs{
-//				Length: pulumi.Int(16),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = memorydb.NewUser(ctx, "exampleUser", &memorydb.UserArgs{
-//				UserName:     pulumi.String("my-user"),
-//				AccessString: pulumi.String("on ~* &* +@all"),
-//				AuthenticationMode: &memorydb.UserAuthenticationModeArgs{
-//					Type: pulumi.String("password"),
-//					Passwords: pulumi.StringArray{
-//						exampleRandomPassword.Result,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Use the `user_name` to import a user. For example

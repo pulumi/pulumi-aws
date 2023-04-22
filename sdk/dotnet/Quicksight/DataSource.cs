@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Quicksight
+namespace Pulumi.Aws.QuickSight
 {
     /// <summary>
     /// Resource for managing QuickSight Data Source
@@ -16,19 +16,20 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Quicksight.DataSource("default", new()
+    ///     var @default = new Aws.QuickSight.DataSource("default", new()
     ///     {
     ///         DataSourceId = "example-id",
-    ///         Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
+    ///         Parameters = new Aws.QuickSight.Inputs.DataSourceParametersArgs
     ///         {
-    ///             S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args
+    ///             S3 = new Aws.QuickSight.Inputs.DataSourceParametersS3Args
     ///             {
-    ///                 ManifestFileLocation = new Aws.Quicksight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
+    ///                 ManifestFileLocation = new Aws.QuickSight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
     ///                 {
     ///                     Bucket = "my-bucket",
     ///                     Key = "path/to/manifest.json",

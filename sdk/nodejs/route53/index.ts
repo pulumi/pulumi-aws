@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CidrCollectionArgs, CidrCollectionState } from "./cidrCollection";
+export type CidrCollection = import("./cidrCollection").CidrCollection;
+export const CidrCollection: typeof import("./cidrCollection").CidrCollection = null as any;
+utilities.lazyLoad(exports, ["CidrCollection"], () => require("./cidrCollection"));
+
+export { CidrLocationArgs, CidrLocationState } from "./cidrLocation";
+export type CidrLocation = import("./cidrLocation").CidrLocation;
+export const CidrLocation: typeof import("./cidrLocation").CidrLocation = null as any;
+utilities.lazyLoad(exports, ["CidrLocation"], () => require("./cidrLocation"));
+
 export { DelegationSetArgs, DelegationSetState } from "./delegationSet";
 export type DelegationSet = import("./delegationSet").DelegationSet;
 export const DelegationSet: typeof import("./delegationSet").DelegationSet = null as any;
@@ -184,6 +194,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:route53/cidrCollection:CidrCollection":
+                return new CidrCollection(name, <any>undefined, { urn })
+            case "aws:route53/cidrLocation:CidrLocation":
+                return new CidrLocation(name, <any>undefined, { urn })
             case "aws:route53/delegationSet:DelegationSet":
                 return new DelegationSet(name, <any>undefined, { urn })
             case "aws:route53/healthCheck:HealthCheck":
@@ -235,6 +249,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "route53/cidrCollection", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/cidrLocation", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/delegationSet", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/healthCheck", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/hostedZoneDnsSec", _module)

@@ -71,6 +71,7 @@ __all__ = [
     'DataSourceSslPropertiesArgs',
     'DataSourceVpcConnectionPropertiesArgs',
     'FolderPermissionArgs',
+    'IamPolicyAssignmentIdentitiesArgs',
     'GetDataSetColumnLevelPermissionRuleArgs',
 ]
 
@@ -3105,6 +3106,41 @@ class FolderPermissionArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class IamPolicyAssignmentIdentitiesArgs:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Array of Quicksight user names to assign the policy to.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of Quicksight user names to assign the policy to.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users", value)
 
 
 @pulumi.input_type

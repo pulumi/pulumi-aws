@@ -17,6 +17,7 @@ __all__ = [
     'ClusterS3ImportArgs',
     'ClusterScalingConfigurationArgs',
     'ClusterServerlessv2ScalingConfigurationArgs',
+    'ExportTaskTimeoutsArgs',
     'GlobalClusterGlobalClusterMemberArgs',
     'InstanceBlueGreenUpdateArgs',
     'InstanceListenerEndpointArgs',
@@ -424,6 +425,35 @@ class ClusterServerlessv2ScalingConfigurationArgs:
     @min_capacity.setter
     def min_capacity(self, value: pulumi.Input[float]):
         pulumi.set(self, "min_capacity", value)
+
+
+@pulumi.input_type
+class ExportTaskTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
 
 
 @pulumi.input_type

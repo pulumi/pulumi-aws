@@ -141,6 +141,11 @@ __all__ = [
     'InputSource',
     'InputVpc',
     'MultiplexMultiplexSettings',
+    'MultiplexProgramMultiplexProgramSettings',
+    'MultiplexProgramMultiplexProgramSettingsServiceDescriptor',
+    'MultiplexProgramMultiplexProgramSettingsVideoSetting',
+    'MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting',
+    'MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting',
 ]
 
 @pulumi.output_type
@@ -9354,5 +9359,306 @@ class MultiplexMultiplexSettings(dict):
         Transport stream reserved bit rate.
         """
         return pulumi.get(self, "transport_stream_reserved_bitrate")
+
+
+@pulumi.output_type
+class MultiplexProgramMultiplexProgramSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredChannelPipeline":
+            suggest = "preferred_channel_pipeline"
+        elif key == "programNumber":
+            suggest = "program_number"
+        elif key == "serviceDescriptors":
+            suggest = "service_descriptors"
+        elif key == "videoSettings":
+            suggest = "video_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiplexProgramMultiplexProgramSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiplexProgramMultiplexProgramSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiplexProgramMultiplexProgramSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preferred_channel_pipeline: str,
+                 program_number: int,
+                 service_descriptors: Sequence['outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor'],
+                 video_settings: Sequence['outputs.MultiplexProgramMultiplexProgramSettingsVideoSetting']):
+        """
+        :param str preferred_channel_pipeline: Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+        :param int program_number: Unique program number.
+        :param Sequence['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs'] service_descriptors: Service Descriptor. See Service Descriptor for more details.
+        :param Sequence['MultiplexProgramMultiplexProgramSettingsVideoSettingArgs'] video_settings: Video settings. See Video Settings for more details.
+        """
+        pulumi.set(__self__, "preferred_channel_pipeline", preferred_channel_pipeline)
+        pulumi.set(__self__, "program_number", program_number)
+        pulumi.set(__self__, "service_descriptors", service_descriptors)
+        pulumi.set(__self__, "video_settings", video_settings)
+
+    @property
+    @pulumi.getter(name="preferredChannelPipeline")
+    def preferred_channel_pipeline(self) -> str:
+        """
+        Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+        """
+        return pulumi.get(self, "preferred_channel_pipeline")
+
+    @property
+    @pulumi.getter(name="programNumber")
+    def program_number(self) -> int:
+        """
+        Unique program number.
+        """
+        return pulumi.get(self, "program_number")
+
+    @property
+    @pulumi.getter(name="serviceDescriptors")
+    def service_descriptors(self) -> Sequence['outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor']:
+        """
+        Service Descriptor. See Service Descriptor for more details.
+        """
+        return pulumi.get(self, "service_descriptors")
+
+    @property
+    @pulumi.getter(name="videoSettings")
+    def video_settings(self) -> Sequence['outputs.MultiplexProgramMultiplexProgramSettingsVideoSetting']:
+        """
+        Video settings. See Video Settings for more details.
+        """
+        return pulumi.get(self, "video_settings")
+
+
+@pulumi.output_type
+class MultiplexProgramMultiplexProgramSettingsServiceDescriptor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerName":
+            suggest = "provider_name"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiplexProgramMultiplexProgramSettingsServiceDescriptor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiplexProgramMultiplexProgramSettingsServiceDescriptor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiplexProgramMultiplexProgramSettingsServiceDescriptor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_name: str,
+                 service_name: str):
+        """
+        :param str provider_name: Unique provider name.
+        :param str service_name: Unique service name.
+        """
+        pulumi.set(__self__, "provider_name", provider_name)
+        pulumi.set(__self__, "service_name", service_name)
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> str:
+        """
+        Unique provider name.
+        """
+        return pulumi.get(self, "provider_name")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> str:
+        """
+        Unique service name.
+        """
+        return pulumi.get(self, "service_name")
+
+
+@pulumi.output_type
+class MultiplexProgramMultiplexProgramSettingsVideoSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "constantBitrate":
+            suggest = "constant_bitrate"
+        elif key == "statemuxSettings":
+            suggest = "statemux_settings"
+        elif key == "statmuxSettings":
+            suggest = "statmux_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiplexProgramMultiplexProgramSettingsVideoSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiplexProgramMultiplexProgramSettingsVideoSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiplexProgramMultiplexProgramSettingsVideoSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 constant_bitrate: int,
+                 statemux_settings: Sequence['outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting'],
+                 statmux_settings: Sequence['outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting']):
+        """
+        :param int constant_bitrate: Constant bitrate value.
+        :param Sequence['MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSettingArgs'] statemux_settings: Statemux settings. See Statmux Settings for more details. Settings from this attribute will apply to `statmux_settings`. Conflicts with `statmux_settings`.
+        :param Sequence['MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSettingArgs'] statmux_settings: Statmux settings. See Statmux Settings for more details Conflicts with `statemux_settings`.
+        """
+        pulumi.set(__self__, "constant_bitrate", constant_bitrate)
+        pulumi.set(__self__, "statemux_settings", statemux_settings)
+        pulumi.set(__self__, "statmux_settings", statmux_settings)
+
+    @property
+    @pulumi.getter(name="constantBitrate")
+    def constant_bitrate(self) -> int:
+        """
+        Constant bitrate value.
+        """
+        return pulumi.get(self, "constant_bitrate")
+
+    @property
+    @pulumi.getter(name="statemuxSettings")
+    def statemux_settings(self) -> Sequence['outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting']:
+        """
+        Statemux settings. See Statmux Settings for more details. Settings from this attribute will apply to `statmux_settings`. Conflicts with `statmux_settings`.
+        """
+        return pulumi.get(self, "statemux_settings")
+
+    @property
+    @pulumi.getter(name="statmuxSettings")
+    def statmux_settings(self) -> Sequence['outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting']:
+        """
+        Statmux settings. See Statmux Settings for more details Conflicts with `statemux_settings`.
+        """
+        return pulumi.get(self, "statmux_settings")
+
+
+@pulumi.output_type
+class MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumBitrate":
+            suggest = "maximum_bitrate"
+        elif key == "minimumBitrate":
+            suggest = "minimum_bitrate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_bitrate: int,
+                 minimum_bitrate: int,
+                 priority: int):
+        """
+        :param int maximum_bitrate: Maximum bitrate.
+        :param int minimum_bitrate: Minimum bitrate.
+        :param int priority: Priority value.
+        """
+        pulumi.set(__self__, "maximum_bitrate", maximum_bitrate)
+        pulumi.set(__self__, "minimum_bitrate", minimum_bitrate)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter(name="maximumBitrate")
+    def maximum_bitrate(self) -> int:
+        """
+        Maximum bitrate.
+        """
+        return pulumi.get(self, "maximum_bitrate")
+
+    @property
+    @pulumi.getter(name="minimumBitrate")
+    def minimum_bitrate(self) -> int:
+        """
+        Minimum bitrate.
+        """
+        return pulumi.get(self, "minimum_bitrate")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority value.
+        """
+        return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
+class MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumBitrate":
+            suggest = "maximum_bitrate"
+        elif key == "minimumBitrate":
+            suggest = "minimum_bitrate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_bitrate: int,
+                 minimum_bitrate: int,
+                 priority: int):
+        """
+        :param int maximum_bitrate: Maximum bitrate.
+        :param int minimum_bitrate: Minimum bitrate.
+        :param int priority: Priority value.
+        """
+        pulumi.set(__self__, "maximum_bitrate", maximum_bitrate)
+        pulumi.set(__self__, "minimum_bitrate", minimum_bitrate)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter(name="maximumBitrate")
+    def maximum_bitrate(self) -> int:
+        """
+        Maximum bitrate.
+        """
+        return pulumi.get(self, "maximum_bitrate")
+
+    @property
+    @pulumi.getter(name="minimumBitrate")
+    def minimum_bitrate(self) -> int:
+        """
+        Minimum bitrate.
+        """
+        return pulumi.get(self, "minimum_bitrate")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority value.
+        """
+        return pulumi.get(self, "priority")
 
 

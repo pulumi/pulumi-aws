@@ -27,6 +27,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -61,6 +62,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -113,6 +115,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -175,6 +178,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -239,6 +243,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -295,6 +300,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -369,6 +375,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
