@@ -43,7 +43,7 @@ jobs:
       with:
         go-version: ${{matrix.goversion}}
         cache-dependency-path: |
-            **/go.sum
+            sdk/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -147,7 +147,7 @@ jobs:
       with:
         go-version: ${{matrix.goversion}}
         cache-dependency-path: |
-            **/go.sum
+            sdk/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -250,7 +250,7 @@ jobs:
       with:
         go-version: ${{matrix.goversion}}
         cache-dependency-path: |
-            **/go.sum
+            sdk/go.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
