@@ -1,7 +1,7 @@
 From 632fb7a65c6256abd8365ea7db02e361c9540cef Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@pulumi.com>
 Date: Tue, 28 Mar 2023 15:09:00 -0700
-Subject: [PATCH 26/26] Revert Framework conversions
+Subject: [PATCH 26/27] Revert Framework conversions
 
 https://github.com/hashicorp/terraform-provider-aws/tree/main/internal/service/cognitoidp
 
