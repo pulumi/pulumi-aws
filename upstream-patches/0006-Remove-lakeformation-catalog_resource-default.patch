@@ -1,7 +1,7 @@
 From d85bd9ed17d73586996b51c8df80731b4648d64a Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:08:23 +0000
-Subject: [PATCH 06/26] Remove lakeformation catalog_resource default
+Subject: [PATCH 06/27] Remove lakeformation catalog_resource default
 
 ---
  internal/service/lakeformation/permissions.go | 4 ++--
