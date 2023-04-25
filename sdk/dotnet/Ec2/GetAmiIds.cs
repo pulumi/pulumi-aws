@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
@@ -61,6 +62,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.MediaPackage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
