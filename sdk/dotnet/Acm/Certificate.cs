@@ -53,6 +53,7 @@ namespace Pulumi.Aws.Acm
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -74,6 +75,7 @@ namespace Pulumi.Aws.Acm
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -99,6 +101,7 @@ namespace Pulumi.Aws.Acm
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// using Tls = Pulumi.Tls;

@@ -23,6 +23,7 @@ namespace Pulumi.Aws.S3
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
