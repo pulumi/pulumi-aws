@@ -122,6 +122,16 @@
       "new": "Data source for managing an AWS DMS (Database Migration) Certificate."
     }
   ],
+  "website/docs/d/dms_endpoint.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS DMS (Database Migration) Endpoint.",
+      "new": "  Data source for managing an AWS DMS (Database Migration) Endpoint."
+    },
+    {
+      "old": "Terraform data source for managing an AWS DMS (Database Migration) Endpoint.",
+      "new": "Data source for managing an AWS DMS (Database Migration) Endpoint."
+    }
+  ],
   "website/docs/d/dx_router_configuration.html.markdown": [
     {
       "old": "  Terraform data source for managing an AWS Direct Connect Router Configuration.",
@@ -245,6 +255,14 @@
       "old": "[2]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy"
     }
   ],
+  "website/docs/d/networkfirewall_resource_policy.html.markdown": [
+    {
+      "old": "[1]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_resource_policy"
+    },
+    {
+      "old": "[1]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_resource_policy"
+    }
+  ],
   "website/docs/d/networkmanager_core_network_policy_document.html.markdown": [
     {
       "old": "-> For more information about building AWS Core Network policy documents with Terraform, see the Using AWS & AWSCC Provider Together Guide"
@@ -298,6 +316,16 @@
       "new": "Data source for managing an AWS RDS (Relational Database) Clusters."
     }
   ],
+  "website/docs/d/redshiftserverless_workgroup.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS Redshift Serverless Workgroup.",
+      "new": "  Data source for managing an AWS Redshift Serverless Workgroup."
+    },
+    {
+      "old": "Terraform data source for managing an AWS Redshift Serverless Workgroup.",
+      "new": "Data source for managing an AWS Redshift Serverless Workgroup."
+    }
+  ],
   "website/docs/d/s3_account_public_access_block.html.markdown": [
     {
       "old": "* `account_id` - (Optional) AWS account ID to configure. Defaults to automatically determined account ID of the Terraform AWS provider.",
@@ -331,6 +359,16 @@
       "regExp": true,
       "regExpFlags": "gi",
       "old": "### Handling Key-Value Secret Strings in JSON\n[^#]+"
+    }
+  ],
+  "website/docs/d/sesv2_configuration_set.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.",
+      "new": "  Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set."
+    },
+    {
+      "old": "Terraform data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.",
+      "new": "Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set."
     }
   ],
   "website/docs/d/sesv2_dedicated_ip_pool.html.markdown": [
@@ -391,6 +429,16 @@
     {
       "old": "the data source, as noted in issue 4149",
       "new": "the data source."
+    }
+  ],
+  "website/docs/d/vpclattice_listener.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS VPC Lattice Listener.",
+      "new": "  Data source for managing an AWS VPC Lattice Listener."
+    },
+    {
+      "old": "Terraform data source for managing an AWS VPC Lattice Listener.",
+      "new": "Data source for managing an AWS VPC Lattice Listener."
     }
   ],
   "website/docs/d/vpclattice_service.html.markdown": [
@@ -758,6 +806,12 @@
     {
       "old": "[`aws_cloudfront_distribution`][3] resource:",
       "new": "`aws_cloudfront_distribution` resource:"
+    }
+  ],
+  "website/docs/r/cloudfront_public_key.html.markdown": [
+    {
+      "old": "**NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of terraform will want to recreate the `aws_cloudfront_public_key` resource.",
+      "new": "**NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws_cloudfront_public_key` resource."
     }
   ],
   "website/docs/r/cloudsearch_domain.html.markdown": [
@@ -1290,6 +1344,10 @@
     {
       "old": "Since the API does not return the actual values for Kerberos configurations, environments with those Terraform configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Terraform resources to prevent perpetual differences, e.g.,",
       "new": "Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the  `ignore_changes` option available to all resources to prevent perpetual differences, e.g.,"
+    },
+    {
+      "old": "The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Terraform configuration at the bottom of this page.",
+      "new": "The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page."
     }
   ],
   "website/docs/r/emr_security_configuration.html.markdown": [
@@ -1524,11 +1582,23 @@
       "new": "  Resource for managing an AWS Inspector V2 Delegated Admin Account."
     },
     {
+      "old": "  Terraform resource for managing an Amazon Inspector Delegated Admin Account.",
+      "new": "  Resource for managing an Amazon Inspector Delegated Admin Account."
+    },
+    {
       "old": "Terraform resource for managing an AWS Inspector V2 Delegated Admin Account.",
       "new": "Resource for managing an AWS Inspector V2 Delegated Admin Account."
+    },
+    {
+      "old": "Terraform resource for managing an Amazon Inspector Delegated Admin Account.",
+      "new": "Resource for managing an Amazon Inspector Delegated Admin Account."
     }
   ],
   "website/docs/r/inspector2_enabler.html.markdown": [
+    {
+      "old": "  Terraform resource for enabling Amazon Inspector resource scans.",
+      "new": "  Resource for enabling Amazon Inspector resource scans."
+    },
     {
       "old": ", Terraform will ignore the status of the other type.",
       "new": ", the provider will ignore the status of the other type."
@@ -1536,12 +1606,24 @@
     {
       "old": "Terraform resource for enabling AWS Inspector V2 resource scans.",
       "new": "Resource for enabling AWS Inspector V2 resource scans."
+    },
+    {
+      "old": "Terraform resource for enabling Amazon Inspector resource scans.",
+      "new": "Resource for enabling Amazon Inspector resource scans."
     }
   ],
   "website/docs/r/inspector2_member_association.html.markdown": [
     {
       "old": "  Terraform resource for managing an AWS Inspector V2 Member Association.",
       "new": "  Resource for managing an AWS Inspector V2 Member Association."
+    },
+    {
+      "old": "  Terraform resource for managing an Amazon Inspector Member Association.",
+      "new": "  Resource for managing an Amazon Inspector Member Association."
+    },
+    {
+      "old": "Terraform resource for associating accounts to existing Inspector instances.",
+      "new": "Resource for associating accounts to existing Inspector instances."
     },
     {
       "old": "Terraform resource for associating accounts to existing Inspector2 instances.",
@@ -1554,8 +1636,16 @@
       "new": "  Resource for managing an AWS Inspector V2 Organization Configuration."
     },
     {
+      "old": "  Terraform resource for managing an Amazon Inspector Organization Configuration.",
+      "new": "  Resource for managing an Amazon Inspector Organization Configuration."
+    },
+    {
       "old": "Terraform resource for managing an AWS Inspector V2 Organization Configuration.",
       "new": "Resource for managing an AWS Inspector V2 Organization Configuration."
+    },
+    {
+      "old": "Terraform resource for managing an Amazon Inspector Organization Configuration.",
+      "new": "Resource for managing an Amazon Inspector Organization Configuration."
     }
   ],
   "website/docs/r/iot_policy.html.markdown": [
@@ -1697,6 +1787,10 @@
     }
   ],
   "website/docs/r/kinesis_firehose_delivery_stream.html.markdown": [
+    {
+      "old": "  name        = \"terraform-kinesis-firehose-os\"",
+      "new": "  name        = \"pulumi-kinesis-firehose-os\""
+    },
     {
       "old": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in terraform state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.",
       "new": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values."
@@ -3174,6 +3268,26 @@
     {
       "old": "~> **NOTE on Security Groups and Security Group Rules:** Terraform currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or",
       "new": "~> **NOTE on Security Groups and Security Group Rules:** this provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or"
+    }
+  ],
+  "website/docs/r/vpclattice_listener.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS VPC Lattice Listener.",
+      "new": "  Resource for managing an AWS VPC Lattice Listener."
+    },
+    {
+      "old": "Terraform resource for managing an AWS VPC Lattice Listener.",
+      "new": "Resource for managing an AWS VPC Lattice Listener."
+    }
+  ],
+  "website/docs/r/vpclattice_listener_rule.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS VPC Lattice Listener Rule.",
+      "new": "  Resource for managing an AWS VPC Lattice Listener Rule."
+    },
+    {
+      "old": "Terraform resource for managing an AWS VPC Lattice Listener Rule.",
+      "new": "Resource for managing an AWS VPC Lattice Listener Rule."
     }
   ],
   "website/docs/r/vpclattice_service.html.markdown": [

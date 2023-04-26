@@ -1,4 +1,4 @@
-From d9da1ecdaf08dcb1a427cea5c27c1c9f8ed50ae8 Mon Sep 17 00:00:00 2001
+From 04c4f6326a5c89b9cd15a8e017921142f4df6d5f Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
 Subject: [PATCH 03/27] Add S3 legacy bucket to resources
@@ -41,7 +41,7 @@ https://github.com/hashicorp/terraform-provider-aws/pull/29717.
  create mode 100644 website/docs/r/s3_bucket_legacy.html.markdown
 
 diff --git a/go.mod b/go.mod
-index 2fd8849d68..11b47ed335 100644
+index ae77b713f4..2481b0b489 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -44,6 +44,7 @@ require (
@@ -53,7 +53,7 @@ index 2fd8849d68..11b47ed335 100644
  	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.26
  	github.com/hashicorp/awspolicyequivalence v1.6.0
 diff --git a/go.sum b/go.sum
-index 0349ef16d8..ed2cb27f2b 100644
+index 1bf70870e9..268df50def 100644
 --- a/go.sum
 +++ b/go.sum
 @@ -23,6 +23,7 @@ github.com/apparentlymart/go-textseg/v13 v13.0.0/go.mod h1:ZK2fH7c4NqDTLtiYLvIkE
@@ -61,8 +61,8 @@ index 0349ef16d8..ed2cb27f2b 100644
  github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
  github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5/go.mod h1:wHh0iHkYZB8zMSxRWpUBQtwG5a7fFgvEO+odwuTv2gs=
 +github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
- github.com/aws/aws-sdk-go v1.44.242 h1:bb6Rqd7dxh1gTUoVXLJTNC2c+zNaHpLRlNKk0kGN3fc=
- github.com/aws/aws-sdk-go v1.44.242/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
+ github.com/aws/aws-sdk-go v1.44.246 h1:iLxPX6JU0bxAci9R6/bp8rX0kL871ByCTx0MZlQWv1U=
+ github.com/aws/aws-sdk-go v1.44.246/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
  github.com/aws/aws-sdk-go-v2 v1.17.4/go.mod h1:uzbQtefpm44goOPmdKyAlXSNcwlRgF3ePWVW6EtJvvw=
 @@ -165,6 +166,7 @@ github.com/go-git/go-billy/v5 v5.3.1/go.mod h1:pmpqyWchKfYfrkb/UVH4otLvyi/5gJlGI
  github.com/go-git/go-git-fixtures/v4 v4.2.1/go.mod h1:K8zd3kDUAykwTdDCr+I0per6Y6vMiRR/nnVTBtavnB0=
