@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.eks.outputs;
 
+import com.pulumi.aws.eks.outputs.GetNodeGroupLaunchTemplate;
 import com.pulumi.aws.eks.outputs.GetNodeGroupRemoteAccess;
 import com.pulumi.aws.eks.outputs.GetNodeGroupResource;
 import com.pulumi.aws.eks.outputs.GetNodeGroupScalingConfig;
@@ -52,6 +53,11 @@ public final class GetNodeGroupResult {
      * 
      */
     private Map<String,String> labels;
+    /**
+     * @return Nested attribute containing information about the launch template used to create the EKS Node Group.
+     * 
+     */
+    private List<GetNodeGroupLaunchTemplate> launchTemplates;
     private String nodeGroupName;
     /**
      * @return ARN of the IAM Role that provides permissions for the EKS Node Group.
@@ -157,6 +163,13 @@ public final class GetNodeGroupResult {
     public Map<String,String> labels() {
         return this.labels;
     }
+    /**
+     * @return Nested attribute containing information about the launch template used to create the EKS Node Group.
+     * 
+     */
+    public List<GetNodeGroupLaunchTemplate> launchTemplates() {
+        return this.launchTemplates;
+    }
     public String nodeGroupName() {
         return this.nodeGroupName;
     }
@@ -248,6 +261,7 @@ public final class GetNodeGroupResult {
         private String id;
         private List<String> instanceTypes;
         private Map<String,String> labels;
+        private List<GetNodeGroupLaunchTemplate> launchTemplates;
         private String nodeGroupName;
         private String nodeRoleArn;
         private String releaseVersion;
@@ -270,6 +284,7 @@ public final class GetNodeGroupResult {
     	      this.id = defaults.id;
     	      this.instanceTypes = defaults.instanceTypes;
     	      this.labels = defaults.labels;
+    	      this.launchTemplates = defaults.launchTemplates;
     	      this.nodeGroupName = defaults.nodeGroupName;
     	      this.nodeRoleArn = defaults.nodeRoleArn;
     	      this.releaseVersion = defaults.releaseVersion;
@@ -325,6 +340,14 @@ public final class GetNodeGroupResult {
         public Builder labels(Map<String,String> labels) {
             this.labels = Objects.requireNonNull(labels);
             return this;
+        }
+        @CustomType.Setter
+        public Builder launchTemplates(List<GetNodeGroupLaunchTemplate> launchTemplates) {
+            this.launchTemplates = Objects.requireNonNull(launchTemplates);
+            return this;
+        }
+        public Builder launchTemplates(GetNodeGroupLaunchTemplate... launchTemplates) {
+            return launchTemplates(List.of(launchTemplates));
         }
         @CustomType.Setter
         public Builder nodeGroupName(String nodeGroupName) {
@@ -406,6 +429,7 @@ public final class GetNodeGroupResult {
             o.id = id;
             o.instanceTypes = instanceTypes;
             o.labels = labels;
+            o.launchTemplates = launchTemplates;
             o.nodeGroupName = nodeGroupName;
             o.nodeRoleArn = nodeRoleArn;
             o.releaseVersion = releaseVersion;

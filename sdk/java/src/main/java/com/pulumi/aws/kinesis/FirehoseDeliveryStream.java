@@ -10,6 +10,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigu
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3Configuration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamKinesisSourceConfiguration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamS3Configuration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamServerSideEncryption;
@@ -497,6 +498,180 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Opensearch Destination
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCluster = new Domain(&#34;testCluster&#34;);
+ * 
+ *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .destination(&#34;opensearch&#34;)
+ *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+ *                 .roleArn(aws_iam_role.firehose_role().arn())
+ *                 .bucketArn(aws_s3_bucket.bucket().arn())
+ *                 .bufferSize(10)
+ *                 .bufferInterval(400)
+ *                 .compressionFormat(&#34;GZIP&#34;)
+ *                 .build())
+ *             .opensearchConfiguration(FirehoseDeliveryStreamOpensearchConfigurationArgs.builder()
+ *                 .domainArn(testCluster.arn())
+ *                 .roleArn(aws_iam_role.firehose_role().arn())
+ *                 .indexName(&#34;test&#34;)
+ *                 .processingConfiguration(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs.builder()
+ *                     .enabled(&#34;true&#34;)
+ *                     .processors(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs.builder()
+ *                         .type(&#34;Lambda&#34;)
+ *                         .parameters(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs.builder()
+ *                             .parameterName(&#34;LambdaArn&#34;)
+ *                             .parameterValue(String.format(&#34;%s:$LATEST&#34;, aws_lambda_function.lambda_processor().arn()))
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Opensearch Destination With VPC
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCluster = new Domain(&#34;testCluster&#34;, DomainArgs.builder()        
+ *             .clusterConfig(DomainClusterConfigArgs.builder()
+ *                 .instanceCount(2)
+ *                 .zoneAwarenessEnabled(true)
+ *                 .instanceType(&#34;m4.large.search&#34;)
+ *                 .build())
+ *             .ebsOptions(DomainEbsOptionsArgs.builder()
+ *                 .ebsEnabled(true)
+ *                 .volumeSize(10)
+ *                 .build())
+ *             .vpcOptions(DomainVpcOptionsArgs.builder()
+ *                 .securityGroupIds(aws_security_group.first().id())
+ *                 .subnetIds(                
+ *                     aws_subnet.first().id(),
+ *                     aws_subnet.second().id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var firehose_opensearch = new RolePolicy(&#34;firehose-opensearch&#34;, RolePolicyArgs.builder()        
+ *             .role(aws_iam_role.firehose().id())
+ *             .policy(Output.tuple(testCluster.arn(), testCluster.arn()).applyValue(values -&gt; {
+ *                 var testClusterArn = values.t1;
+ *                 var testClusterArn1 = values.t2;
+ *                 return &#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Action&#34;: [
+ *         &#34;es:*&#34;
+ *       ],
+ *       &#34;Resource&#34;: [
+ *         &#34;%s&#34;,
+ *         &#34;%s/*&#34;
+ *       ]
+ *         },
+ *         {
+ *           &#34;Effect&#34;: &#34;Allow&#34;,
+ *           &#34;Action&#34;: [
+ *             &#34;ec2:DescribeVpcs&#34;,
+ *             &#34;ec2:DescribeVpcAttribute&#34;,
+ *             &#34;ec2:DescribeSubnets&#34;,
+ *             &#34;ec2:DescribeSecurityGroups&#34;,
+ *             &#34;ec2:DescribeNetworkInterfaces&#34;,
+ *             &#34;ec2:CreateNetworkInterface&#34;,
+ *             &#34;ec2:CreateNetworkInterfacePermission&#34;,
+ *             &#34;ec2:DeleteNetworkInterface&#34;
+ *           ],
+ *           &#34;Resource&#34;: [
+ *             &#34;*&#34;
+ *           ]
+ *         }
+ *   ]
+ * }
+ * &#34;, testClusterArn,testClusterArn1);
+ *             }))
+ *             .build());
+ * 
+ *         var test = new FirehoseDeliveryStream(&#34;test&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .destination(&#34;opensearch&#34;)
+ *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+ *                 .roleArn(aws_iam_role.firehose().arn())
+ *                 .bucketArn(aws_s3_bucket.bucket().arn())
+ *                 .build())
+ *             .opensearchConfiguration(FirehoseDeliveryStreamOpensearchConfigurationArgs.builder()
+ *                 .domainArn(testCluster.arn())
+ *                 .roleArn(aws_iam_role.firehose().arn())
+ *                 .indexName(&#34;test&#34;)
+ *                 .vpcConfig(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs.builder()
+ *                     .subnetIds(                    
+ *                         aws_subnet.first().id(),
+ *                         aws_subnet.second().id())
+ *                     .securityGroupIds(aws_security_group.first().id())
+ *                     .roleArn(aws_iam_role.firehose().arn())
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(firehose_opensearch)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Splunk Destination
  * ```java
  * package generated_program;
@@ -631,14 +806,14 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.arn;
     }
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
      * 
      */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
     /**
-     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
+     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
      * 
      */
     public Output<String> destination() {
@@ -719,6 +894,20 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Configuration options if opensearch is the destination. More details are given below.
+     * 
+     */
+    @Export(name="opensearchConfiguration", refs={FirehoseDeliveryStreamOpensearchConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ FirehoseDeliveryStreamOpensearchConfiguration> opensearchConfiguration;
+
+    /**
+     * @return Configuration options if opensearch is the destination. More details are given below.
+     * 
+     */
+    public Output<Optional<FirehoseDeliveryStreamOpensearchConfiguration>> opensearchConfiguration() {
+        return Codegen.optional(this.opensearchConfiguration);
     }
     /**
      * Configuration options if redshift is the destination.

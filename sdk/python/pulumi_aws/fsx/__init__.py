@@ -9,6 +9,7 @@ from .backup import *
 from .data_repository_association import *
 from .file_cache import *
 from .get_open_zfs_snapshot import *
+from .get_windows_file_system import *
 from .lustre_file_system import *
 from .ontap_file_system import *
 from .ontap_storage_virtual_machine import *

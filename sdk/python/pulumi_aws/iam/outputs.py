@@ -13,11 +13,14 @@ from ._enums import *
 
 __all__ = [
     'RoleInlinePolicy',
+    'RoleRoleLastUsed',
+    'GetAccessKeysAccessKeyResult',
     'GetGroupUserResult',
     'GetPolicyDocumentStatementResult',
     'GetPolicyDocumentStatementConditionResult',
     'GetPolicyDocumentStatementNotPrincipalResult',
     'GetPolicyDocumentStatementPrincipalResult',
+    'GetRoleRoleLastUsedResult',
 ]
 
 @pulumi.output_type
@@ -49,6 +52,90 @@ class RoleInlinePolicy(dict):
         Policy document as a JSON formatted string.
         """
         return pulumi.get(self, "policy")
+
+
+@pulumi.output_type
+class RoleRoleLastUsed(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUsedDate":
+            suggest = "last_used_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoleRoleLastUsed. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoleRoleLastUsed.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoleRoleLastUsed.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_used_date: Optional[str] = None,
+                 region: Optional[str] = None):
+        """
+        :param str region: The name of the AWS Region in which the role was last used.
+        """
+        if last_used_date is not None:
+            pulumi.set(__self__, "last_used_date", last_used_date)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="lastUsedDate")
+    def last_used_date(self) -> Optional[str]:
+        return pulumi.get(self, "last_used_date")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        The name of the AWS Region in which the role was last used.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetAccessKeysAccessKeyResult(dict):
+    def __init__(__self__, *,
+                 access_key_id: str,
+                 create_date: str,
+                 status: str):
+        """
+        :param str access_key_id: Access key ID.
+        :param str create_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+        :param str status: Access key status. Possible values are `Active` and `Inactive`.
+        """
+        pulumi.set(__self__, "access_key_id", access_key_id)
+        pulumi.set(__self__, "create_date", create_date)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> str:
+        """
+        Access key ID.
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> str:
+        """
+        Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+        """
+        return pulumi.get(self, "create_date")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Access key status. Possible values are `Active` and `Inactive`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -313,5 +400,30 @@ class GetPolicyDocumentStatementPrincipalResult(dict):
         Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetRoleRoleLastUsedResult(dict):
+    def __init__(__self__, *,
+                 last_used_date: str,
+                 region: str):
+        """
+        :param str region: The name of the AWS Region in which the role was last used.
+        """
+        pulumi.set(__self__, "last_used_date", last_used_date)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="lastUsedDate")
+    def last_used_date(self) -> str:
+        return pulumi.get(self, "last_used_date")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        The name of the AWS Region in which the role was last used.
+        """
+        return pulumi.get(self, "region")
 
 

@@ -34,6 +34,7 @@ __all__ = [
     'ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification',
     'ClusterMasterInstanceGroup',
     'ClusterMasterInstanceGroupEbsConfig',
+    'ClusterPlacementGroupConfig',
     'ClusterStep',
     'ClusterStepHadoopJarStep',
     'InstanceFleetInstanceTypeConfig',
@@ -1757,6 +1758,55 @@ class ClusterMasterInstanceGroupEbsConfig(dict):
         Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
         return pulumi.get(self, "volumes_per_instance")
+
+
+@pulumi.output_type
+class ClusterPlacementGroupConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceRole":
+            suggest = "instance_role"
+        elif key == "placementStrategy":
+            suggest = "placement_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPlacementGroupConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPlacementGroupConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPlacementGroupConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_role: str,
+                 placement_strategy: Optional[str] = None):
+        """
+        :param str instance_role: Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
+        :param str placement_strategy: EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
+        """
+        pulumi.set(__self__, "instance_role", instance_role)
+        if placement_strategy is not None:
+            pulumi.set(__self__, "placement_strategy", placement_strategy)
+
+    @property
+    @pulumi.getter(name="instanceRole")
+    def instance_role(self) -> str:
+        """
+        Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
+        """
+        return pulumi.get(self, "instance_role")
+
+    @property
+    @pulumi.getter(name="placementStrategy")
+    def placement_strategy(self) -> Optional[str]:
+        """
+        EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
+        """
+        return pulumi.get(self, "placement_strategy")
 
 
 @pulumi.output_type

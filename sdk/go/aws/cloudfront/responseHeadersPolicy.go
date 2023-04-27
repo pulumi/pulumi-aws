@@ -161,6 +161,8 @@ type ResponseHeadersPolicy struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A unique name to identify the response headers policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+	RemoveHeadersConfig ResponseHeadersPolicyRemoveHeadersConfigPtrOutput `pulumi:"removeHeadersConfig"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrOutput `pulumi:"securityHeadersConfig"`
 	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
@@ -206,6 +208,8 @@ type responseHeadersPolicyState struct {
 	Etag *string `pulumi:"etag"`
 	// A unique name to identify the response headers policy.
 	Name *string `pulumi:"name"`
+	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+	RemoveHeadersConfig *ResponseHeadersPolicyRemoveHeadersConfig `pulumi:"removeHeadersConfig"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig *ResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfig"`
 	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
@@ -223,6 +227,8 @@ type ResponseHeadersPolicyState struct {
 	Etag pulumi.StringPtrInput
 	// A unique name to identify the response headers policy.
 	Name pulumi.StringPtrInput
+	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+	RemoveHeadersConfig ResponseHeadersPolicyRemoveHeadersConfigPtrInput
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrInput
 	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
@@ -244,6 +250,8 @@ type responseHeadersPolicyArgs struct {
 	Etag *string `pulumi:"etag"`
 	// A unique name to identify the response headers policy.
 	Name *string `pulumi:"name"`
+	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+	RemoveHeadersConfig *ResponseHeadersPolicyRemoveHeadersConfig `pulumi:"removeHeadersConfig"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig *ResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfig"`
 	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
@@ -262,6 +270,8 @@ type ResponseHeadersPolicyArgs struct {
 	Etag pulumi.StringPtrInput
 	// A unique name to identify the response headers policy.
 	Name pulumi.StringPtrInput
+	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+	RemoveHeadersConfig ResponseHeadersPolicyRemoveHeadersConfigPtrInput
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrInput
 	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
@@ -380,6 +390,13 @@ func (o ResponseHeadersPolicyOutput) Etag() pulumi.StringOutput {
 // A unique name to identify the response headers policy.
 func (o ResponseHeadersPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+func (o ResponseHeadersPolicyOutput) RemoveHeadersConfig() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+		return v.RemoveHeadersConfig
+	}).(ResponseHeadersPolicyRemoveHeadersConfigPtrOutput)
 }
 
 // A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.

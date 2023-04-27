@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.wafv2.WebAclArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclState;
+import com.pulumi.aws.wafv2.outputs.WebAclCaptchaConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCustomResponseBody;
 import com.pulumi.aws.wafv2.outputs.WebAclDefaultAction;
 import com.pulumi.aws.wafv2.outputs.WebAclRule;
@@ -460,6 +461,20 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> capacity() {
         return this.capacity;
+    }
+    /**
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    @Export(name="captchaConfig", refs={WebAclCaptchaConfig.class}, tree="[0]")
+    private Output</* @Nullable */ WebAclCaptchaConfig> captchaConfig;
+
+    /**
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    public Output<Optional<WebAclCaptchaConfig>> captchaConfig() {
+        return Codegen.optional(this.captchaConfig);
     }
     /**
      * Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.

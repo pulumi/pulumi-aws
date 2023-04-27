@@ -1278,6 +1278,162 @@ func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataSourceOpensearchserviceConfig struct {
+	// HTTP endpoint of the OpenSearch domain.
+	Endpoint string `pulumi:"endpoint"`
+	// AWS region of the OpenSearch domain. Defaults to current region.
+	Region *string `pulumi:"region"`
+}
+
+// DataSourceOpensearchserviceConfigInput is an input type that accepts DataSourceOpensearchserviceConfigArgs and DataSourceOpensearchserviceConfigOutput values.
+// You can construct a concrete instance of `DataSourceOpensearchserviceConfigInput` via:
+//
+//	DataSourceOpensearchserviceConfigArgs{...}
+type DataSourceOpensearchserviceConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceOpensearchserviceConfigOutput() DataSourceOpensearchserviceConfigOutput
+	ToDataSourceOpensearchserviceConfigOutputWithContext(context.Context) DataSourceOpensearchserviceConfigOutput
+}
+
+type DataSourceOpensearchserviceConfigArgs struct {
+	// HTTP endpoint of the OpenSearch domain.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// AWS region of the OpenSearch domain. Defaults to current region.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (DataSourceOpensearchserviceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOpensearchserviceConfig)(nil)).Elem()
+}
+
+func (i DataSourceOpensearchserviceConfigArgs) ToDataSourceOpensearchserviceConfigOutput() DataSourceOpensearchserviceConfigOutput {
+	return i.ToDataSourceOpensearchserviceConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceOpensearchserviceConfigArgs) ToDataSourceOpensearchserviceConfigOutputWithContext(ctx context.Context) DataSourceOpensearchserviceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOpensearchserviceConfigOutput)
+}
+
+func (i DataSourceOpensearchserviceConfigArgs) ToDataSourceOpensearchserviceConfigPtrOutput() DataSourceOpensearchserviceConfigPtrOutput {
+	return i.ToDataSourceOpensearchserviceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceOpensearchserviceConfigArgs) ToDataSourceOpensearchserviceConfigPtrOutputWithContext(ctx context.Context) DataSourceOpensearchserviceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOpensearchserviceConfigOutput).ToDataSourceOpensearchserviceConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceOpensearchserviceConfigPtrInput is an input type that accepts DataSourceOpensearchserviceConfigArgs, DataSourceOpensearchserviceConfigPtr and DataSourceOpensearchserviceConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceOpensearchserviceConfigPtrInput` via:
+//
+//	        DataSourceOpensearchserviceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceOpensearchserviceConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceOpensearchserviceConfigPtrOutput() DataSourceOpensearchserviceConfigPtrOutput
+	ToDataSourceOpensearchserviceConfigPtrOutputWithContext(context.Context) DataSourceOpensearchserviceConfigPtrOutput
+}
+
+type dataSourceOpensearchserviceConfigPtrType DataSourceOpensearchserviceConfigArgs
+
+func DataSourceOpensearchserviceConfigPtr(v *DataSourceOpensearchserviceConfigArgs) DataSourceOpensearchserviceConfigPtrInput {
+	return (*dataSourceOpensearchserviceConfigPtrType)(v)
+}
+
+func (*dataSourceOpensearchserviceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceOpensearchserviceConfig)(nil)).Elem()
+}
+
+func (i *dataSourceOpensearchserviceConfigPtrType) ToDataSourceOpensearchserviceConfigPtrOutput() DataSourceOpensearchserviceConfigPtrOutput {
+	return i.ToDataSourceOpensearchserviceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceOpensearchserviceConfigPtrType) ToDataSourceOpensearchserviceConfigPtrOutputWithContext(ctx context.Context) DataSourceOpensearchserviceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOpensearchserviceConfigPtrOutput)
+}
+
+type DataSourceOpensearchserviceConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceOpensearchserviceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOpensearchserviceConfig)(nil)).Elem()
+}
+
+func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceConfigOutput() DataSourceOpensearchserviceConfigOutput {
+	return o
+}
+
+func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceConfigOutputWithContext(ctx context.Context) DataSourceOpensearchserviceConfigOutput {
+	return o
+}
+
+func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceConfigPtrOutput() DataSourceOpensearchserviceConfigPtrOutput {
+	return o.ToDataSourceOpensearchserviceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceConfigPtrOutputWithContext(ctx context.Context) DataSourceOpensearchserviceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceOpensearchserviceConfig) *DataSourceOpensearchserviceConfig {
+		return &v
+	}).(DataSourceOpensearchserviceConfigPtrOutput)
+}
+
+// HTTP endpoint of the OpenSearch domain.
+func (o DataSourceOpensearchserviceConfigOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// AWS region of the OpenSearch domain. Defaults to current region.
+func (o DataSourceOpensearchserviceConfigOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceOpensearchserviceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceOpensearchserviceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceOpensearchserviceConfig)(nil)).Elem()
+}
+
+func (o DataSourceOpensearchserviceConfigPtrOutput) ToDataSourceOpensearchserviceConfigPtrOutput() DataSourceOpensearchserviceConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceOpensearchserviceConfigPtrOutput) ToDataSourceOpensearchserviceConfigPtrOutputWithContext(ctx context.Context) DataSourceOpensearchserviceConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceOpensearchserviceConfigPtrOutput) Elem() DataSourceOpensearchserviceConfigOutput {
+	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) DataSourceOpensearchserviceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceOpensearchserviceConfig
+		return ret
+	}).(DataSourceOpensearchserviceConfigOutput)
+}
+
+// HTTP endpoint of the OpenSearch domain.
+func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region of the OpenSearch domain. Defaults to current region.
+func (o DataSourceOpensearchserviceConfigPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataSourceRelationalDatabaseConfig struct {
 	// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
 	HttpEndpointConfig *DataSourceRelationalDatabaseConfigHttpEndpointConfig `pulumi:"httpEndpointConfig"`
@@ -4317,6 +4473,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrInput)(nil)).Elem(), DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceLambdaConfigInput)(nil)).Elem(), DataSourceLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceLambdaConfigPtrInput)(nil)).Elem(), DataSourceLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOpensearchserviceConfigInput)(nil)).Elem(), DataSourceOpensearchserviceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOpensearchserviceConfigPtrInput)(nil)).Elem(), DataSourceOpensearchserviceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigPtrInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigHttpEndpointConfigInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs{})
@@ -4369,6 +4527,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceLambdaConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceLambdaConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceOpensearchserviceConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceOpensearchserviceConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput{})

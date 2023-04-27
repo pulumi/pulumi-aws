@@ -73,6 +73,7 @@ type DefaultSubnet struct {
 	CidrBlock                               pulumi.StringOutput    `pulumi:"cidrBlock"`
 	CustomerOwnedIpv4Pool                   pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	EnableDns64                             pulumi.BoolPtrOutput   `pulumi:"enableDns64"`
+	EnableLniAtDeviceIndex                  pulumi.IntOutput       `pulumi:"enableLniAtDeviceIndex"`
 	EnableResourceNameDnsARecordOnLaunch    pulumi.BoolPtrOutput   `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrOutput   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
 	ExistingDefaultSubnet                   pulumi.BoolOutput      `pulumi:"existingDefaultSubnet"`
@@ -136,6 +137,7 @@ type defaultSubnetState struct {
 	CidrBlock                               *string `pulumi:"cidrBlock"`
 	CustomerOwnedIpv4Pool                   *string `pulumi:"customerOwnedIpv4Pool"`
 	EnableDns64                             *bool   `pulumi:"enableDns64"`
+	EnableLniAtDeviceIndex                  *int    `pulumi:"enableLniAtDeviceIndex"`
 	EnableResourceNameDnsARecordOnLaunch    *bool   `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
 	ExistingDefaultSubnet                   *bool   `pulumi:"existingDefaultSubnet"`
@@ -168,6 +170,7 @@ type DefaultSubnetState struct {
 	CidrBlock                               pulumi.StringPtrInput
 	CustomerOwnedIpv4Pool                   pulumi.StringPtrInput
 	EnableDns64                             pulumi.BoolPtrInput
+	EnableLniAtDeviceIndex                  pulumi.IntPtrInput
 	EnableResourceNameDnsARecordOnLaunch    pulumi.BoolPtrInput
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrInput
 	ExistingDefaultSubnet                   pulumi.BoolPtrInput
@@ -352,6 +355,10 @@ func (o DefaultSubnetOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 
 func (o DefaultSubnetOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.BoolPtrOutput { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
+}
+
+func (o DefaultSubnetOutput) EnableLniAtDeviceIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.IntOutput { return v.EnableLniAtDeviceIndex }).(pulumi.IntOutput)
 }
 
 func (o DefaultSubnetOutput) EnableResourceNameDnsARecordOnLaunch() pulumi.BoolPtrOutput {

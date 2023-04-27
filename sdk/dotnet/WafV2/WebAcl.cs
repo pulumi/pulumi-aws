@@ -361,6 +361,12 @@ namespace Pulumi.Aws.WafV2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// </summary>
+        [Output("captchaConfig")]
+        public Output<Outputs.WebAclCaptchaConfig?> CaptchaConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         /// </summary>
         [Output("customResponseBodies")]
@@ -463,6 +469,12 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// </summary>
+        [Input("captchaConfig")]
+        public Input<Inputs.WebAclCaptchaConfigArgs>? CaptchaConfig { get; set; }
+
         [Input("customResponseBodies")]
         private InputList<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
 
@@ -560,6 +572,12 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
+
+        /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// </summary>
+        [Input("captchaConfig")]
+        public Input<Inputs.WebAclCaptchaConfigGetArgs>? CaptchaConfig { get; set; }
 
         [Input("customResponseBodies")]
         private InputList<Inputs.WebAclCustomResponseBodyGetArgs>? _customResponseBodies;

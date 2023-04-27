@@ -110,6 +110,8 @@ type Subnet struct {
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
 	EnableDns64 pulumi.BoolPtrOutput `pulumi:"enableDns64"`
+	// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+	EnableLniAtDeviceIndex pulumi.IntPtrOutput `pulumi:"enableLniAtDeviceIndex"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
 	EnableResourceNameDnsARecordOnLaunch pulumi.BoolPtrOutput `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
@@ -189,6 +191,8 @@ type subnetState struct {
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
 	EnableDns64 *bool `pulumi:"enableDns64"`
+	// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+	EnableLniAtDeviceIndex *int `pulumi:"enableLniAtDeviceIndex"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
 	EnableResourceNameDnsARecordOnLaunch *bool `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
@@ -237,6 +241,8 @@ type SubnetState struct {
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
 	EnableDns64 pulumi.BoolPtrInput
+	// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+	EnableLniAtDeviceIndex pulumi.IntPtrInput
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
 	EnableResourceNameDnsARecordOnLaunch pulumi.BoolPtrInput
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
@@ -287,6 +293,8 @@ type subnetArgs struct {
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
 	EnableDns64 *bool `pulumi:"enableDns64"`
+	// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+	EnableLniAtDeviceIndex *int `pulumi:"enableLniAtDeviceIndex"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
 	EnableResourceNameDnsARecordOnLaunch *bool `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
@@ -330,6 +338,8 @@ type SubnetArgs struct {
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
 	EnableDns64 pulumi.BoolPtrInput
+	// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+	EnableLniAtDeviceIndex pulumi.IntPtrInput
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
 	EnableResourceNameDnsARecordOnLaunch pulumi.BoolPtrInput
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
@@ -479,6 +489,11 @@ func (o SubnetOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 // Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
 func (o SubnetOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+func (o SubnetOutput) EnableLniAtDeviceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.IntPtrOutput { return v.EnableLniAtDeviceIndex }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.

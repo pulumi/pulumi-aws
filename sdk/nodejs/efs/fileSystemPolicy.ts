@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  * });
  * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policyFileSystemPolicy", {
  *     fileSystemId: fs.id,
- *     bypassPolicyLockoutSafetyCheck: true,
  *     policy: policyPolicyDocument.apply(policyPolicyDocument => policyPolicyDocument.json),
  * });
  * ```

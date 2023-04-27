@@ -1336,7 +1336,7 @@ class DataSetPhysicalTableMapCustomSql(dict):
                  columns: Optional[Sequence['outputs.DataSetPhysicalTableMapCustomSqlColumn']] = None):
         """
         :param str data_source_arn: ARN of the data source.
-        :param str name: Display name for the dataset.
+        :param str name: Display name for the SQL query result.
         :param str sql_query: SQL query.
         :param Sequence['DataSetPhysicalTableMapCustomSqlColumnArgs'] columns: Column schema from the SQL query result set. See columns.
         """
@@ -1358,7 +1358,7 @@ class DataSetPhysicalTableMapCustomSql(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Display name for the dataset.
+        Display name for the SQL query result.
         """
         return pulumi.get(self, "name")
 

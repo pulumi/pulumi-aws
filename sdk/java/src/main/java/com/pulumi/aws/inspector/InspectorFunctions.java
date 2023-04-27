@@ -14,8 +14,8 @@ import java.util.concurrent.CompletableFuture;
 
 public final class InspectorFunctions {
     /**
-     * The AWS Inspector Rules Packages data source allows access to the list of AWS
-     * Inspector Rules Packages which can be used by AWS Inspector within the region
+     * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
+     * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
      * configured in the provider.
      * 
      * ## Example Usage
@@ -70,8 +70,8 @@ public final class InspectorFunctions {
         return getRulesPackages(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * The AWS Inspector Rules Packages data source allows access to the list of AWS
-     * Inspector Rules Packages which can be used by AWS Inspector within the region
+     * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
+     * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
      * configured in the provider.
      * 
      * ## Example Usage
@@ -126,8 +126,8 @@ public final class InspectorFunctions {
         return getRulesPackagesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * The AWS Inspector Rules Packages data source allows access to the list of AWS
-     * Inspector Rules Packages which can be used by AWS Inspector within the region
+     * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
+     * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
      * configured in the provider.
      * 
      * ## Example Usage
@@ -182,8 +182,8 @@ public final class InspectorFunctions {
         return getRulesPackages(args, InvokeOptions.Empty);
     }
     /**
-     * The AWS Inspector Rules Packages data source allows access to the list of AWS
-     * Inspector Rules Packages which can be used by AWS Inspector within the region
+     * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
+     * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
      * configured in the provider.
      * 
      * ## Example Usage
@@ -238,8 +238,8 @@ public final class InspectorFunctions {
         return getRulesPackagesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * The AWS Inspector Rules Packages data source allows access to the list of AWS
-     * Inspector Rules Packages which can be used by AWS Inspector within the region
+     * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
+     * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
      * configured in the provider.
      * 
      * ## Example Usage
@@ -294,8 +294,8 @@ public final class InspectorFunctions {
         return Deployment.getInstance().invoke("aws:inspector/getRulesPackages:getRulesPackages", TypeShape.of(GetRulesPackagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * The AWS Inspector Rules Packages data source allows access to the list of AWS
-     * Inspector Rules Packages which can be used by AWS Inspector within the region
+     * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
+     * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
      * configured in the provider.
      * 
      * ## Example Usage

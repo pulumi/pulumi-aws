@@ -132,6 +132,10 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Amazon OpenSearch Service settings. See below
+     */
+    public readonly opensearchserviceConfig!: pulumi.Output<outputs.appsync.DataSourceOpensearchserviceConfig | undefined>;
+    /**
      * AWS RDS settings. See Relational Database Config
      */
     public readonly relationalDatabaseConfig!: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
@@ -166,6 +170,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["httpConfig"] = state ? state.httpConfig : undefined;
             resourceInputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["opensearchserviceConfig"] = state ? state.opensearchserviceConfig : undefined;
             resourceInputs["relationalDatabaseConfig"] = state ? state.relationalDatabaseConfig : undefined;
             resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -185,6 +190,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["httpConfig"] = args ? args.httpConfig : undefined;
             resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["opensearchserviceConfig"] = args ? args.opensearchserviceConfig : undefined;
             resourceInputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -236,6 +242,10 @@ export interface DataSourceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Amazon OpenSearch Service settings. See below
+     */
+    opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig>;
+    /**
      * AWS RDS settings. See Relational Database Config
      */
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
@@ -285,6 +295,10 @@ export interface DataSourceArgs {
      * User-supplied name for the data source.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Amazon OpenSearch Service settings. See below
+     */
+    opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig>;
     /**
      * AWS RDS settings. See Relational Database Config
      */

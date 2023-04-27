@@ -173,7 +173,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<int?> IdleTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the LB will be internal.
+        /// If true, the LB will be internal. Defaults to `false`.
         /// </summary>
         [Output("internal")]
         public Output<bool> Internal { get; private set; } = null!;
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<int>? IdleTimeout { get; set; }
 
         /// <summary>
-        /// If true, the LB will be internal.
+        /// If true, the LB will be internal. Defaults to `false`.
         /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }
@@ -568,7 +568,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<int>? IdleTimeout { get; set; }
 
         /// <summary>
-        /// If true, the LB will be internal.
+        /// If true, the LB will be internal. Defaults to `false`.
         /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }

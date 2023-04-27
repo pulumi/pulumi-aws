@@ -98,7 +98,7 @@ class Enabler(pulumi.CustomResource):
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource for enabling AWS Inspector V2 resource scans.
+        Resource for enabling Amazon Inspector resource scans.
 
         > **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
 
@@ -140,7 +140,7 @@ class Enabler(pulumi.CustomResource):
                  args: EnablerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for enabling AWS Inspector V2 resource scans.
+        Resource for enabling Amazon Inspector resource scans.
 
         > **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
 

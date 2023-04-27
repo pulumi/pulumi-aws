@@ -21,6 +21,7 @@ class SubnetArgs:
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class SubnetArgs:
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the subnet.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
+        :param pulumi.Input[int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         :param pulumi.Input[bool] enable_resource_name_dns_a_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet,
@@ -69,6 +71,8 @@ class SubnetArgs:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if enable_dns64 is not None:
             pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if enable_lni_at_device_index is not None:
+            pulumi.set(__self__, "enable_lni_at_device_index", enable_lni_at_device_index)
         if enable_resource_name_dns_a_record_on_launch is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
@@ -175,6 +179,18 @@ class SubnetArgs:
     @enable_dns64.setter
     def enable_dns64(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_dns64", value)
+
+    @property
+    @pulumi.getter(name="enableLniAtDeviceIndex")
+    def enable_lni_at_device_index(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        """
+        return pulumi.get(self, "enable_lni_at_device_index")
+
+    @enable_lni_at_device_index.setter
+    def enable_lni_at_device_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "enable_lni_at_device_index", value)
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
@@ -310,6 +326,7 @@ class _SubnetState:
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -334,6 +351,7 @@ class _SubnetState:
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the subnet.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
+        :param pulumi.Input[int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         :param pulumi.Input[bool] enable_resource_name_dns_a_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet,
@@ -365,6 +383,8 @@ class _SubnetState:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if enable_dns64 is not None:
             pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if enable_lni_at_device_index is not None:
+            pulumi.set(__self__, "enable_lni_at_device_index", enable_lni_at_device_index)
         if enable_resource_name_dns_a_record_on_launch is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
@@ -477,6 +497,18 @@ class _SubnetState:
     @enable_dns64.setter
     def enable_dns64(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_dns64", value)
+
+    @property
+    @pulumi.getter(name="enableLniAtDeviceIndex")
+    def enable_lni_at_device_index(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        """
+        return pulumi.get(self, "enable_lni_at_device_index")
+
+    @enable_lni_at_device_index.setter
+    def enable_lni_at_device_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "enable_lni_at_device_index", value)
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
@@ -649,6 +681,7 @@ class Subnet(pulumi.CustomResource):
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -715,6 +748,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the subnet.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
+        :param pulumi.Input[int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         :param pulumi.Input[bool] enable_resource_name_dns_a_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet,
@@ -801,6 +835,7 @@ class Subnet(pulumi.CustomResource):
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -827,6 +862,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["cidr_block"] = cidr_block
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
             __props__.__dict__["enable_dns64"] = enable_dns64
+            __props__.__dict__["enable_lni_at_device_index"] = enable_lni_at_device_index
             __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
             __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
@@ -860,6 +896,7 @@ class Subnet(pulumi.CustomResource):
             cidr_block: Optional[pulumi.Input[str]] = None,
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             enable_dns64: Optional[pulumi.Input[bool]] = None,
+            enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
             enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
             enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -889,6 +926,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the subnet.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         :param pulumi.Input[bool] enable_dns64: Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
+        :param pulumi.Input[int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         :param pulumi.Input[bool] enable_resource_name_dns_a_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range for the subnet,
@@ -917,6 +955,7 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["cidr_block"] = cidr_block
         __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__.__dict__["enable_dns64"] = enable_dns64
+        __props__.__dict__["enable_lni_at_device_index"] = enable_lni_at_device_index
         __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
         __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
         __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
@@ -989,6 +1028,14 @@ class Subnet(pulumi.CustomResource):
         Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
         """
         return pulumi.get(self, "enable_dns64")
+
+    @property
+    @pulumi.getter(name="enableLniAtDeviceIndex")
+    def enable_lni_at_device_index(self) -> pulumi.Output[Optional[int]]:
+        """
+        Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        """
+        return pulumi.get(self, "enable_lni_at_device_index")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")

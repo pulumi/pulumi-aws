@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Inspector V2 Delegated Admin Account.
+ * Resource for managing an Amazon Inspector Delegated Admin Account.
  * 
  * ## Example Usage
  * ### Basic Usage
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
+ * Inspector Delegated Admin Account can be imported using the `account_id`, e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901

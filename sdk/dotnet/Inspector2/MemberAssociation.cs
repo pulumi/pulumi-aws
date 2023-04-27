@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inspector2
 {
     /// <summary>
-    /// Resource for associating accounts to existing Inspector2 instances.
+    /// Resource for associating accounts to existing Inspector instances.
     /// 
     /// ## Example Usage
     /// ### Basic Usage
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Inspector2
     /// {
     ///     var example = new Aws.Inspector2.MemberAssociation("example", new()
     ///     {
-    ///         AccountId = "012345678901",
+    ///         AccountId = "123456789012",
     ///     });
     /// 
     /// });

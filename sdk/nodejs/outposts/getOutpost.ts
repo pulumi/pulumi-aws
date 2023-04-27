@@ -27,6 +27,7 @@ export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): 
         "id": args.id,
         "name": args.name,
         "ownerId": args.ownerId,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -50,6 +51,10 @@ export interface GetOutpostArgs {
      * AWS Account identifier of the Outpost owner.
      */
     ownerId?: string;
+    /**
+     * The Outpost tags.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -66,16 +71,32 @@ export interface GetOutpostResult {
      */
     readonly availabilityZoneId: string;
     /**
-     * Description.
+     * The description of the Outpost.
      */
     readonly description: string;
     readonly id: string;
-    readonly name: string;
-    readonly ownerId: string;
     /**
-     * Site identifier.
+     * The life cycle status.
+     */
+    readonly lifecycleStatus: string;
+    readonly name: string;
+    readonly ownerId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the site.
+     */
+    readonly siteArn: string;
+    /**
+     * The ID of the site.
      */
     readonly siteId: string;
+    /**
+     * The hardware type.
+     */
+    readonly supportedHardwareType: string;
+    /**
+     * The Outpost tags.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Provides details about an Outposts Outpost.
@@ -115,4 +136,8 @@ export interface GetOutpostOutputArgs {
      * AWS Account identifier of the Outpost owner.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * The Outpost tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -6,6 +6,8 @@ package com.pulumi.aws.route53;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
 import com.pulumi.aws.route53.inputs.GetDelegationSetPlainArgs;
+import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+import com.pulumi.aws.route53.inputs.GetQueryLogConfigPlainArgs;
 import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
 import com.pulumi.aws.route53.inputs.GetResolverEndpointPlainArgs;
 import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
@@ -27,6 +29,7 @@ import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentPlainArgs;
 import com.pulumi.aws.route53.inputs.GetZoneArgs;
 import com.pulumi.aws.route53.inputs.GetZonePlainArgs;
 import com.pulumi.aws.route53.outputs.GetDelegationSetResult;
+import com.pulumi.aws.route53.outputs.GetQueryLogConfigResult;
 import com.pulumi.aws.route53.outputs.GetResolverEndpointResult;
 import com.pulumi.aws.route53.outputs.GetResolverFirewallConfigResult;
 import com.pulumi.aws.route53.outputs.GetResolverFirewallDomainListResult;
@@ -207,6 +210,444 @@ public final class Route53Functions {
      */
     public static CompletableFuture<GetDelegationSetResult> getDelegationSetPlain(GetDelegationSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getDelegationSet:getDelegationSet", TypeShape.of(GetDelegationSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .filters(            
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;Name&#34;)
+     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .build(),
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;ShareStatus&#34;)
+     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQueryLogConfigResult> getQueryLogConfig() {
+        return getQueryLogConfig(GetQueryLogConfigArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .filters(            
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;Name&#34;)
+     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .build(),
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;ShareStatus&#34;)
+     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain() {
+        return getQueryLogConfigPlain(GetQueryLogConfigPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .filters(            
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;Name&#34;)
+     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .build(),
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;ShareStatus&#34;)
+     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQueryLogConfigResult> getQueryLogConfig(GetQueryLogConfigArgs args) {
+        return getQueryLogConfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .filters(            
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;Name&#34;)
+     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .build(),
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;ShareStatus&#34;)
+     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain(GetQueryLogConfigPlainArgs args) {
+        return getQueryLogConfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .filters(            
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;Name&#34;)
+     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .build(),
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;ShareStatus&#34;)
+     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQueryLogConfigResult> getQueryLogConfig(GetQueryLogConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getQueryLogConfig:getQueryLogConfig", TypeShape.of(GetQueryLogConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
+     *             .filters(            
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;Name&#34;)
+     *                     .values(&#34;shared-query-log-config&#34;)
+     *                     .build(),
+     *                 GetQueryLogConfigFilterArgs.builder()
+     *                     .name(&#34;ShareStatus&#34;)
+     *                     .values(&#34;SHARED_WITH_ME&#34;)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain(GetQueryLogConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getQueryLogConfig:getQueryLogConfig", TypeShape.of(GetQueryLogConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.

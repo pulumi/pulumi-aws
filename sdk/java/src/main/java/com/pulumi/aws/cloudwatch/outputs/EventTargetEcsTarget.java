@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetCapacityProviderStrategy;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetNetworkConfiguration;
+import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetOrderedPlacementStrategy;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetPlacementConstraint;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -48,6 +49,11 @@ public final class EventTargetEcsTarget {
      * 
      */
     private @Nullable EventTargetEcsTargetNetworkConfiguration networkConfiguration;
+    /**
+     * @return An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+     * 
+     */
+    private @Nullable List<EventTargetEcsTargetOrderedPlacementStrategy> orderedPlacementStrategies;
     /**
      * @return An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
      * 
@@ -123,6 +129,13 @@ public final class EventTargetEcsTarget {
         return Optional.ofNullable(this.networkConfiguration);
     }
     /**
+     * @return An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+     * 
+     */
+    public List<EventTargetEcsTargetOrderedPlacementStrategy> orderedPlacementStrategies() {
+        return this.orderedPlacementStrategies == null ? List.of() : this.orderedPlacementStrategies;
+    }
+    /**
      * @return An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
      * 
      */
@@ -180,6 +193,7 @@ public final class EventTargetEcsTarget {
         private @Nullable String group;
         private @Nullable String launchType;
         private @Nullable EventTargetEcsTargetNetworkConfiguration networkConfiguration;
+        private @Nullable List<EventTargetEcsTargetOrderedPlacementStrategy> orderedPlacementStrategies;
         private @Nullable List<EventTargetEcsTargetPlacementConstraint> placementConstraints;
         private @Nullable String platformVersion;
         private @Nullable String propagateTags;
@@ -195,6 +209,7 @@ public final class EventTargetEcsTarget {
     	      this.group = defaults.group;
     	      this.launchType = defaults.launchType;
     	      this.networkConfiguration = defaults.networkConfiguration;
+    	      this.orderedPlacementStrategies = defaults.orderedPlacementStrategies;
     	      this.placementConstraints = defaults.placementConstraints;
     	      this.platformVersion = defaults.platformVersion;
     	      this.propagateTags = defaults.propagateTags;
@@ -237,6 +252,14 @@ public final class EventTargetEcsTarget {
             return this;
         }
         @CustomType.Setter
+        public Builder orderedPlacementStrategies(@Nullable List<EventTargetEcsTargetOrderedPlacementStrategy> orderedPlacementStrategies) {
+            this.orderedPlacementStrategies = orderedPlacementStrategies;
+            return this;
+        }
+        public Builder orderedPlacementStrategies(EventTargetEcsTargetOrderedPlacementStrategy... orderedPlacementStrategies) {
+            return orderedPlacementStrategies(List.of(orderedPlacementStrategies));
+        }
+        @CustomType.Setter
         public Builder placementConstraints(@Nullable List<EventTargetEcsTargetPlacementConstraint> placementConstraints) {
             this.placementConstraints = placementConstraints;
             return this;
@@ -277,6 +300,7 @@ public final class EventTargetEcsTarget {
             o.group = group;
             o.launchType = launchType;
             o.networkConfiguration = networkConfiguration;
+            o.orderedPlacementStrategies = orderedPlacementStrategies;
             o.placementConstraints = placementConstraints;
             o.platformVersion = platformVersion;
             o.propagateTags = propagateTags;

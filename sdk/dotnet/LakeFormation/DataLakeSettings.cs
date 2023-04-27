@@ -81,6 +81,61 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
+    /// ### Enable EMR access to LakeFormation resources
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.LakeFormation.DataLakeSettings("example", new()
+    ///     {
+    ///         Admins = new[]
+    ///         {
+    ///             aws_iam_user.Test.Arn,
+    ///             aws_iam_role.Test.Arn,
+    ///         },
+    ///         CreateDatabaseDefaultPermissions = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs
+    ///             {
+    ///                 Permissions = new[]
+    ///                 {
+    ///                     "SELECT",
+    ///                     "ALTER",
+    ///                     "DROP",
+    ///                 },
+    ///                 Principal = aws_iam_user.Test.Arn,
+    ///             },
+    ///         },
+    ///         CreateTableDefaultPermissions = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs
+    ///             {
+    ///                 Permissions = new[]
+    ///                 {
+    ///                     "ALL",
+    ///                 },
+    ///                 Principal = aws_iam_role.Test.Arn,
+    ///             },
+    ///         },
+    ///         AllowExternalDataFiltering = true,
+    ///         ExternalDataFilteringAllowLists = new[]
+    ///         {
+    ///             data.Aws_caller_identity.Current.Account_id,
+    ///             data.Aws_caller_identity.Third_party.Account_id,
+    ///         },
+    ///         AuthorizedSessionTagValueLists = new[]
+    ///         {
+    ///             "Amazon EMR",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/dataLakeSettings:DataLakeSettings")]
     public partial class DataLakeSettings : global::Pulumi.CustomResource
@@ -90,6 +145,18 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Output("admins")]
         public Output<ImmutableArray<string>> Admins { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+        /// </summary>
+        [Output("allowExternalDataFiltering")]
+        public Output<bool?> AllowExternalDataFiltering { get; private set; } = null!;
+
+        /// <summary>
+        /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// </summary>
+        [Output("authorizedSessionTagValueLists")]
+        public Output<ImmutableArray<string>> AuthorizedSessionTagValueLists { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID.
@@ -108,6 +175,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Output("createTableDefaultPermissions")]
         public Output<ImmutableArray<Outputs.DataLakeSettingsCreateTableDefaultPermission>> CreateTableDefaultPermissions { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+        /// </summary>
+        [Output("externalDataFilteringAllowLists")]
+        public Output<ImmutableArray<string>> ExternalDataFilteringAllowLists { get; private set; } = null!;
 
         /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
@@ -174,6 +247,24 @@ namespace Pulumi.Aws.LakeFormation
         }
 
         /// <summary>
+        /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+        /// </summary>
+        [Input("allowExternalDataFiltering")]
+        public Input<bool>? AllowExternalDataFiltering { get; set; }
+
+        [Input("authorizedSessionTagValueLists")]
+        private InputList<string>? _authorizedSessionTagValueLists;
+
+        /// <summary>
+        /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// </summary>
+        public InputList<string> AuthorizedSessionTagValueLists
+        {
+            get => _authorizedSessionTagValueLists ?? (_authorizedSessionTagValueLists = new InputList<string>());
+            set => _authorizedSessionTagValueLists = value;
+        }
+
+        /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID.
         /// </summary>
         [Input("catalogId")]
@@ -201,6 +292,18 @@ namespace Pulumi.Aws.LakeFormation
         {
             get => _createTableDefaultPermissions ?? (_createTableDefaultPermissions = new InputList<Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs>());
             set => _createTableDefaultPermissions = value;
+        }
+
+        [Input("externalDataFilteringAllowLists")]
+        private InputList<string>? _externalDataFilteringAllowLists;
+
+        /// <summary>
+        /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+        /// </summary>
+        public InputList<string> ExternalDataFilteringAllowLists
+        {
+            get => _externalDataFilteringAllowLists ?? (_externalDataFilteringAllowLists = new InputList<string>());
+            set => _externalDataFilteringAllowLists = value;
         }
 
         [Input("trustedResourceOwners")]
@@ -236,6 +339,24 @@ namespace Pulumi.Aws.LakeFormation
         }
 
         /// <summary>
+        /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+        /// </summary>
+        [Input("allowExternalDataFiltering")]
+        public Input<bool>? AllowExternalDataFiltering { get; set; }
+
+        [Input("authorizedSessionTagValueLists")]
+        private InputList<string>? _authorizedSessionTagValueLists;
+
+        /// <summary>
+        /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// </summary>
+        public InputList<string> AuthorizedSessionTagValueLists
+        {
+            get => _authorizedSessionTagValueLists ?? (_authorizedSessionTagValueLists = new InputList<string>());
+            set => _authorizedSessionTagValueLists = value;
+        }
+
+        /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID.
         /// </summary>
         [Input("catalogId")]
@@ -263,6 +384,18 @@ namespace Pulumi.Aws.LakeFormation
         {
             get => _createTableDefaultPermissions ?? (_createTableDefaultPermissions = new InputList<Inputs.DataLakeSettingsCreateTableDefaultPermissionGetArgs>());
             set => _createTableDefaultPermissions = value;
+        }
+
+        [Input("externalDataFilteringAllowLists")]
+        private InputList<string>? _externalDataFilteringAllowLists;
+
+        /// <summary>
+        /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+        /// </summary>
+        public InputList<string> ExternalDataFilteringAllowLists
+        {
+            get => _externalDataFilteringAllowLists ?? (_externalDataFilteringAllowLists = new InputList<string>());
+            set => _externalDataFilteringAllowLists = value;
         }
 
         [Input("trustedResourceOwners")]

@@ -21,6 +21,7 @@ class MetricStreamArgs:
                  role_arn: pulumi.Input[str],
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]] = None,
+                 include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
@@ -33,6 +34,7 @@ class MetricStreamArgs:
         :param pulumi.Input[str] role_arn: ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]] include_filters: List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+        :param pulumi.Input[bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         :param pulumi.Input[str] name: Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]] statistics_configurations: For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
@@ -46,6 +48,8 @@ class MetricStreamArgs:
             pulumi.set(__self__, "exclude_filters", exclude_filters)
         if include_filters is not None:
             pulumi.set(__self__, "include_filters", include_filters)
+        if include_linked_accounts_metrics is not None:
+            pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -118,6 +122,18 @@ class MetricStreamArgs:
         pulumi.set(self, "include_filters", value)
 
     @property
+    @pulumi.getter(name="includeLinkedAccountsMetrics")
+    def include_linked_accounts_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+        """
+        return pulumi.get(self, "include_linked_accounts_metrics")
+
+    @include_linked_accounts_metrics.setter
+    def include_linked_accounts_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_linked_accounts_metrics", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -186,6 +202,7 @@ class _MetricStreamState:
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]] = None,
                  firehose_arn: Optional[pulumi.Input[str]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]] = None,
+                 include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
                  last_update_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -202,6 +219,7 @@ class _MetricStreamState:
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
         :param pulumi.Input[str] firehose_arn: ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]] include_filters: List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+        :param pulumi.Input[bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         :param pulumi.Input[str] last_update_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
         :param pulumi.Input[str] name: Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
@@ -222,6 +240,8 @@ class _MetricStreamState:
             pulumi.set(__self__, "firehose_arn", firehose_arn)
         if include_filters is not None:
             pulumi.set(__self__, "include_filters", include_filters)
+        if include_linked_accounts_metrics is not None:
+            pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
         if last_update_date is not None:
             pulumi.set(__self__, "last_update_date", last_update_date)
         if name is not None:
@@ -300,6 +320,18 @@ class _MetricStreamState:
     @include_filters.setter
     def include_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]):
         pulumi.set(self, "include_filters", value)
+
+    @property
+    @pulumi.getter(name="includeLinkedAccountsMetrics")
+    def include_linked_accounts_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+        """
+        return pulumi.get(self, "include_linked_accounts_metrics")
+
+    @include_linked_accounts_metrics.setter
+    def include_linked_accounts_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_linked_accounts_metrics", value)
 
     @property
     @pulumi.getter(name="lastUpdateDate")
@@ -418,6 +450,7 @@ class MetricStream(pulumi.CustomResource):
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamExcludeFilterArgs']]]]] = None,
                  firehose_arn: Optional[pulumi.Input[str]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamIncludeFilterArgs']]]]] = None,
+                 include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
@@ -550,6 +583,7 @@ class MetricStream(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamExcludeFilterArgs']]]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
         :param pulumi.Input[str] firehose_arn: ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamIncludeFilterArgs']]]] include_filters: List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+        :param pulumi.Input[bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         :param pulumi.Input[str] name: Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] output_format: Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
@@ -701,6 +735,7 @@ class MetricStream(pulumi.CustomResource):
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamExcludeFilterArgs']]]]] = None,
                  firehose_arn: Optional[pulumi.Input[str]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamIncludeFilterArgs']]]]] = None,
+                 include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
@@ -722,6 +757,7 @@ class MetricStream(pulumi.CustomResource):
                 raise TypeError("Missing required property 'firehose_arn'")
             __props__.__dict__["firehose_arn"] = firehose_arn
             __props__.__dict__["include_filters"] = include_filters
+            __props__.__dict__["include_linked_accounts_metrics"] = include_linked_accounts_metrics
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             if output_format is None and not opts.urn:
@@ -752,6 +788,7 @@ class MetricStream(pulumi.CustomResource):
             exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamExcludeFilterArgs']]]]] = None,
             firehose_arn: Optional[pulumi.Input[str]] = None,
             include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamIncludeFilterArgs']]]]] = None,
+            include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
             last_update_date: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
@@ -773,6 +810,7 @@ class MetricStream(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamExcludeFilterArgs']]]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
         :param pulumi.Input[str] firehose_arn: ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamIncludeFilterArgs']]]] include_filters: List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+        :param pulumi.Input[bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         :param pulumi.Input[str] last_update_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
         :param pulumi.Input[str] name: Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
@@ -792,6 +830,7 @@ class MetricStream(pulumi.CustomResource):
         __props__.__dict__["exclude_filters"] = exclude_filters
         __props__.__dict__["firehose_arn"] = firehose_arn
         __props__.__dict__["include_filters"] = include_filters
+        __props__.__dict__["include_linked_accounts_metrics"] = include_linked_accounts_metrics
         __props__.__dict__["last_update_date"] = last_update_date
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
@@ -842,6 +881,14 @@ class MetricStream(pulumi.CustomResource):
         List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
         """
         return pulumi.get(self, "include_filters")
+
+    @property
+    @pulumi.getter(name="includeLinkedAccountsMetrics")
+    def include_linked_accounts_metrics(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+        """
+        return pulumi.get(self, "include_linked_accounts_metrics")
 
     @property
     @pulumi.getter(name="lastUpdateDate")

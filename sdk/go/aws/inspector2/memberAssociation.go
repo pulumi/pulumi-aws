@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for associating accounts to existing Inspector2 instances.
+// Resource for associating accounts to existing Inspector instances.
 //
 // ## Example Usage
 // ### Basic Usage
@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := inspector2.NewMemberAssociation(ctx, "example", &inspector2.MemberAssociationArgs{
-//				AccountId: pulumi.String("012345678901"),
+//				AccountId: pulumi.String("123456789012"),
 //			})
 //			if err != nil {
 //				return err

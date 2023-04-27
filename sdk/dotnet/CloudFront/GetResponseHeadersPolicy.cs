@@ -166,7 +166,7 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigResult> CorsConfigs;
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        /// Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyCustomHeadersConfigResult> CustomHeadersConfigs;
         /// <summary>
@@ -175,6 +175,10 @@ namespace Pulumi.Aws.CloudFront
         public readonly string Etag;
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyRemoveHeadersConfigResult> RemoveHeadersConfigs;
         /// <summary>
         /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         /// </summary>
@@ -198,6 +202,8 @@ namespace Pulumi.Aws.CloudFront
 
             string name,
 
+            ImmutableArray<Outputs.GetResponseHeadersPolicyRemoveHeadersConfigResult> removeHeadersConfigs,
+
             ImmutableArray<Outputs.GetResponseHeadersPolicySecurityHeadersConfigResult> securityHeadersConfigs,
 
             ImmutableArray<Outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult> serverTimingHeadersConfigs)
@@ -208,6 +214,7 @@ namespace Pulumi.Aws.CloudFront
             Etag = etag;
             Id = id;
             Name = name;
+            RemoveHeadersConfigs = removeHeadersConfigs;
             SecurityHeadersConfigs = securityHeadersConfigs;
             ServerTimingHeadersConfigs = serverTimingHeadersConfigs;
         }

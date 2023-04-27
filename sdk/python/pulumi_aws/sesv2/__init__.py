@@ -13,6 +13,7 @@ from .dedicated_ip_pool import *
 from .email_identity import *
 from .email_identity_feedback_attributes import *
 from .email_identity_mail_from_attributes import *
+from .get_configuration_set import *
 from .get_dedicated_ip_pool import *
 from ._inputs import *
 from . import outputs

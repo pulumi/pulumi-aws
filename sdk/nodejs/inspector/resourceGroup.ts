@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Amazon Inspector resource group resource.
+ * Provides an Amazon Inspector Classic Resource Group.
  *
  * ## Example Usage
  *

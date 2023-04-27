@@ -4,11 +4,19 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleIotAnalytic {
+    /**
+     * @return The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+     * 
+     */
+    private @Nullable Boolean batchMode;
     /**
      * @return Name of AWS IOT Analytics channel.
      * 
@@ -21,6 +29,13 @@ public final class TopicRuleIotAnalytic {
     private String roleArn;
 
     private TopicRuleIotAnalytic() {}
+    /**
+     * @return The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+     * 
+     */
+    public Optional<Boolean> batchMode() {
+        return Optional.ofNullable(this.batchMode);
+    }
     /**
      * @return Name of AWS IOT Analytics channel.
      * 
@@ -45,15 +60,22 @@ public final class TopicRuleIotAnalytic {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean batchMode;
         private String channelName;
         private String roleArn;
         public Builder() {}
         public Builder(TopicRuleIotAnalytic defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.batchMode = defaults.batchMode;
     	      this.channelName = defaults.channelName;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
+        public Builder batchMode(@Nullable Boolean batchMode) {
+            this.batchMode = batchMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder channelName(String channelName) {
             this.channelName = Objects.requireNonNull(channelName);
@@ -66,6 +88,7 @@ public final class TopicRuleIotAnalytic {
         }
         public TopicRuleIotAnalytic build() {
             final var o = new TopicRuleIotAnalytic();
+            o.batchMode = batchMode;
             o.channelName = channelName;
             o.roleArn = roleArn;
             return o;

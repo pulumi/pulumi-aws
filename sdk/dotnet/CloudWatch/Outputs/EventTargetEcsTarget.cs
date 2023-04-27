@@ -38,6 +38,10 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly Outputs.EventTargetEcsTargetNetworkConfiguration? NetworkConfiguration;
         /// <summary>
+        /// An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventTargetEcsTargetOrderedPlacementStrategy> OrderedPlacementStrategies;
+        /// <summary>
         /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventTargetEcsTargetPlacementConstraint> PlacementConstraints;
@@ -76,6 +80,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
             Outputs.EventTargetEcsTargetNetworkConfiguration? networkConfiguration,
 
+            ImmutableArray<Outputs.EventTargetEcsTargetOrderedPlacementStrategy> orderedPlacementStrategies,
+
             ImmutableArray<Outputs.EventTargetEcsTargetPlacementConstraint> placementConstraints,
 
             string? platformVersion,
@@ -94,6 +100,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
             Group = group;
             LaunchType = launchType;
             NetworkConfiguration = networkConfiguration;
+            OrderedPlacementStrategies = orderedPlacementStrategies;
             PlacementConstraints = placementConstraints;
             PlatformVersion = platformVersion;
             PropagateTags = propagateTags;

@@ -178,9 +178,17 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string AwsAccountId;
         /// <summary>
+        /// The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+        /// </summary>
+        public readonly string CloudHsmClusterId;
+        /// <summary>
         /// The date and time when the key was created
         /// </summary>
         public readonly string CreationDate;
+        /// <summary>
+        /// A unique identifier for the custom key store that contains the KMS key.
+        /// </summary>
+        public readonly string CustomKeyStoreId;
         /// <summary>
         /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
         /// </summary>
@@ -212,6 +220,10 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string KeyManager;
         /// <summary>
+        /// Describes the type of key material in the KMS key.
+        /// </summary>
+        public readonly string KeySpec;
+        /// <summary>
         /// The state of the key
         /// </summary>
         public readonly string KeyState;
@@ -232,9 +244,17 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string Origin;
         /// <summary>
+        /// The waiting period before the primary key in a multi-Region key is deleted.
+        /// </summary>
+        public readonly int PendingDeletionWindowInDays;
+        /// <summary>
         /// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
         /// </summary>
         public readonly string ValidTo;
+        /// <summary>
+        /// Information about the external key that is associated with a KMS key in an external key store.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKeyXksKeyConfigurationResult> XksKeyConfigurations;
 
         [OutputConstructor]
         private GetKeyResult(
@@ -242,7 +262,11 @@ namespace Pulumi.Aws.Kms
 
             string awsAccountId,
 
+            string cloudHsmClusterId,
+
             string creationDate,
+
+            string customKeyStoreId,
 
             string customerMasterKeySpec,
 
@@ -262,6 +286,8 @@ namespace Pulumi.Aws.Kms
 
             string keyManager,
 
+            string keySpec,
+
             string keyState,
 
             string keyUsage,
@@ -272,11 +298,17 @@ namespace Pulumi.Aws.Kms
 
             string origin,
 
-            string validTo)
+            int pendingDeletionWindowInDays,
+
+            string validTo,
+
+            ImmutableArray<Outputs.GetKeyXksKeyConfigurationResult> xksKeyConfigurations)
         {
             Arn = arn;
             AwsAccountId = awsAccountId;
+            CloudHsmClusterId = cloudHsmClusterId;
             CreationDate = creationDate;
+            CustomKeyStoreId = customKeyStoreId;
             CustomerMasterKeySpec = customerMasterKeySpec;
             DeletionDate = deletionDate;
             Description = description;
@@ -286,12 +318,15 @@ namespace Pulumi.Aws.Kms
             Id = id;
             KeyId = keyId;
             KeyManager = keyManager;
+            KeySpec = keySpec;
             KeyState = keyState;
             KeyUsage = keyUsage;
             MultiRegion = multiRegion;
             MultiRegionConfigurations = multiRegionConfigurations;
             Origin = origin;
+            PendingDeletionWindowInDays = pendingDeletionWindowInDays;
             ValidTo = validTo;
+            XksKeyConfigurations = xksKeyConfigurations;
         }
     }
 }

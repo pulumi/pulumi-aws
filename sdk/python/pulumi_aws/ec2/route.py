@@ -38,7 +38,7 @@ class RouteArgs:
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
+        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
@@ -168,7 +168,7 @@ class RouteArgs:
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier of a VPC internet gateway or a virtual private gateway.
+        Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         """
         return pulumi.get(self, "gateway_id")
 
@@ -290,7 +290,7 @@ class _RouteState:
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
+        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
         :param pulumi.Input[str] instance_owner_id: The AWS account ID of the owner of the EC2 instance.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
@@ -419,7 +419,7 @@ class _RouteState:
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier of a VPC internet gateway or a virtual private gateway.
+        Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         """
         return pulumi.get(self, "gateway_id")
 
@@ -618,7 +618,7 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
+        Individual routes can be imported using `ROUTETABLEID_DESTINATION`. [Local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) can be imported using the VPC's IPv4 or IPv6 CIDR blocks. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
 
         ```sh
          $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
@@ -644,7 +644,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
+        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
@@ -697,7 +697,7 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
+        Individual routes can be imported using `ROUTETABLEID_DESTINATION`. [Local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) can be imported using the VPC's IPv4 or IPv6 CIDR blocks. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
 
         ```sh
          $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
@@ -818,7 +818,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
+        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
         :param pulumi.Input[str] instance_owner_id: The AWS account ID of the owner of the EC2 instance.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
@@ -907,7 +907,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Identifier of a VPC internet gateway or a virtual private gateway.
+        Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         """
         return pulumi.get(self, "gateway_id")
 

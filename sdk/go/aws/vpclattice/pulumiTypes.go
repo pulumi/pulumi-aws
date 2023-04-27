@@ -10,6 +10,1842 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ListenerDefaultAction struct {
+	FixedResponse *ListenerDefaultActionFixedResponse `pulumi:"fixedResponse"`
+	// Route requests to one or more target groups. See Forward blocks below.
+	Forwards []ListenerDefaultActionForward `pulumi:"forwards"`
+}
+
+// ListenerDefaultActionInput is an input type that accepts ListenerDefaultActionArgs and ListenerDefaultActionOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionInput` via:
+//
+//	ListenerDefaultActionArgs{...}
+type ListenerDefaultActionInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionOutput() ListenerDefaultActionOutput
+	ToListenerDefaultActionOutputWithContext(context.Context) ListenerDefaultActionOutput
+}
+
+type ListenerDefaultActionArgs struct {
+	FixedResponse ListenerDefaultActionFixedResponsePtrInput `pulumi:"fixedResponse"`
+	// Route requests to one or more target groups. See Forward blocks below.
+	Forwards ListenerDefaultActionForwardArrayInput `pulumi:"forwards"`
+}
+
+func (ListenerDefaultActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultAction)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionArgs) ToListenerDefaultActionOutput() ListenerDefaultActionOutput {
+	return i.ToListenerDefaultActionOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionArgs) ToListenerDefaultActionOutputWithContext(ctx context.Context) ListenerDefaultActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionOutput)
+}
+
+func (i ListenerDefaultActionArgs) ToListenerDefaultActionPtrOutput() ListenerDefaultActionPtrOutput {
+	return i.ToListenerDefaultActionPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionArgs) ToListenerDefaultActionPtrOutputWithContext(ctx context.Context) ListenerDefaultActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionOutput).ToListenerDefaultActionPtrOutputWithContext(ctx)
+}
+
+// ListenerDefaultActionPtrInput is an input type that accepts ListenerDefaultActionArgs, ListenerDefaultActionPtr and ListenerDefaultActionPtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionPtrInput` via:
+//
+//	        ListenerDefaultActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerDefaultActionPtrInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionPtrOutput() ListenerDefaultActionPtrOutput
+	ToListenerDefaultActionPtrOutputWithContext(context.Context) ListenerDefaultActionPtrOutput
+}
+
+type listenerDefaultActionPtrType ListenerDefaultActionArgs
+
+func ListenerDefaultActionPtr(v *ListenerDefaultActionArgs) ListenerDefaultActionPtrInput {
+	return (*listenerDefaultActionPtrType)(v)
+}
+
+func (*listenerDefaultActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultAction)(nil)).Elem()
+}
+
+func (i *listenerDefaultActionPtrType) ToListenerDefaultActionPtrOutput() ListenerDefaultActionPtrOutput {
+	return i.ToListenerDefaultActionPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerDefaultActionPtrType) ToListenerDefaultActionPtrOutputWithContext(ctx context.Context) ListenerDefaultActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionPtrOutput)
+}
+
+type ListenerDefaultActionOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultAction)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionOutput) ToListenerDefaultActionOutput() ListenerDefaultActionOutput {
+	return o
+}
+
+func (o ListenerDefaultActionOutput) ToListenerDefaultActionOutputWithContext(ctx context.Context) ListenerDefaultActionOutput {
+	return o
+}
+
+func (o ListenerDefaultActionOutput) ToListenerDefaultActionPtrOutput() ListenerDefaultActionPtrOutput {
+	return o.ToListenerDefaultActionPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerDefaultActionOutput) ToListenerDefaultActionPtrOutputWithContext(ctx context.Context) ListenerDefaultActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultAction) *ListenerDefaultAction {
+		return &v
+	}).(ListenerDefaultActionPtrOutput)
+}
+
+func (o ListenerDefaultActionOutput) FixedResponse() ListenerDefaultActionFixedResponsePtrOutput {
+	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionFixedResponse { return v.FixedResponse }).(ListenerDefaultActionFixedResponsePtrOutput)
+}
+
+// Route requests to one or more target groups. See Forward blocks below.
+func (o ListenerDefaultActionOutput) Forwards() ListenerDefaultActionForwardArrayOutput {
+	return o.ApplyT(func(v ListenerDefaultAction) []ListenerDefaultActionForward { return v.Forwards }).(ListenerDefaultActionForwardArrayOutput)
+}
+
+type ListenerDefaultActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultAction)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionPtrOutput) ToListenerDefaultActionPtrOutput() ListenerDefaultActionPtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionPtrOutput) ToListenerDefaultActionPtrOutputWithContext(ctx context.Context) ListenerDefaultActionPtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionPtrOutput) Elem() ListenerDefaultActionOutput {
+	return o.ApplyT(func(v *ListenerDefaultAction) ListenerDefaultAction {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultAction
+		return ret
+	}).(ListenerDefaultActionOutput)
+}
+
+func (o ListenerDefaultActionPtrOutput) FixedResponse() ListenerDefaultActionFixedResponsePtrOutput {
+	return o.ApplyT(func(v *ListenerDefaultAction) *ListenerDefaultActionFixedResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FixedResponse
+	}).(ListenerDefaultActionFixedResponsePtrOutput)
+}
+
+// Route requests to one or more target groups. See Forward blocks below.
+func (o ListenerDefaultActionPtrOutput) Forwards() ListenerDefaultActionForwardArrayOutput {
+	return o.ApplyT(func(v *ListenerDefaultAction) []ListenerDefaultActionForward {
+		if v == nil {
+			return nil
+		}
+		return v.Forwards
+	}).(ListenerDefaultActionForwardArrayOutput)
+}
+
+type ListenerDefaultActionFixedResponse struct {
+	// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
+	StatusCode int `pulumi:"statusCode"`
+}
+
+// ListenerDefaultActionFixedResponseInput is an input type that accepts ListenerDefaultActionFixedResponseArgs and ListenerDefaultActionFixedResponseOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionFixedResponseInput` via:
+//
+//	ListenerDefaultActionFixedResponseArgs{...}
+type ListenerDefaultActionFixedResponseInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionFixedResponseOutput() ListenerDefaultActionFixedResponseOutput
+	ToListenerDefaultActionFixedResponseOutputWithContext(context.Context) ListenerDefaultActionFixedResponseOutput
+}
+
+type ListenerDefaultActionFixedResponseArgs struct {
+	// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
+	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+}
+
+func (ListenerDefaultActionFixedResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionFixedResponse)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionFixedResponseArgs) ToListenerDefaultActionFixedResponseOutput() ListenerDefaultActionFixedResponseOutput {
+	return i.ToListenerDefaultActionFixedResponseOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionFixedResponseArgs) ToListenerDefaultActionFixedResponseOutputWithContext(ctx context.Context) ListenerDefaultActionFixedResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionFixedResponseOutput)
+}
+
+func (i ListenerDefaultActionFixedResponseArgs) ToListenerDefaultActionFixedResponsePtrOutput() ListenerDefaultActionFixedResponsePtrOutput {
+	return i.ToListenerDefaultActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionFixedResponseArgs) ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerDefaultActionFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionFixedResponseOutput).ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx)
+}
+
+// ListenerDefaultActionFixedResponsePtrInput is an input type that accepts ListenerDefaultActionFixedResponseArgs, ListenerDefaultActionFixedResponsePtr and ListenerDefaultActionFixedResponsePtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionFixedResponsePtrInput` via:
+//
+//	        ListenerDefaultActionFixedResponseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerDefaultActionFixedResponsePtrInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionFixedResponsePtrOutput() ListenerDefaultActionFixedResponsePtrOutput
+	ToListenerDefaultActionFixedResponsePtrOutputWithContext(context.Context) ListenerDefaultActionFixedResponsePtrOutput
+}
+
+type listenerDefaultActionFixedResponsePtrType ListenerDefaultActionFixedResponseArgs
+
+func ListenerDefaultActionFixedResponsePtr(v *ListenerDefaultActionFixedResponseArgs) ListenerDefaultActionFixedResponsePtrInput {
+	return (*listenerDefaultActionFixedResponsePtrType)(v)
+}
+
+func (*listenerDefaultActionFixedResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultActionFixedResponse)(nil)).Elem()
+}
+
+func (i *listenerDefaultActionFixedResponsePtrType) ToListenerDefaultActionFixedResponsePtrOutput() ListenerDefaultActionFixedResponsePtrOutput {
+	return i.ToListenerDefaultActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *listenerDefaultActionFixedResponsePtrType) ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerDefaultActionFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionFixedResponsePtrOutput)
+}
+
+type ListenerDefaultActionFixedResponseOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionFixedResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionFixedResponse)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedResponseOutput() ListenerDefaultActionFixedResponseOutput {
+	return o
+}
+
+func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedResponseOutputWithContext(ctx context.Context) ListenerDefaultActionFixedResponseOutput {
+	return o
+}
+
+func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedResponsePtrOutput() ListenerDefaultActionFixedResponsePtrOutput {
+	return o.ToListenerDefaultActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerDefaultActionFixedResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultActionFixedResponse) *ListenerDefaultActionFixedResponse {
+		return &v
+	}).(ListenerDefaultActionFixedResponsePtrOutput)
+}
+
+// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
+func (o ListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
+	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
+}
+
+type ListenerDefaultActionFixedResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionFixedResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultActionFixedResponse)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionFixedResponsePtrOutput) ToListenerDefaultActionFixedResponsePtrOutput() ListenerDefaultActionFixedResponsePtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionFixedResponsePtrOutput) ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerDefaultActionFixedResponsePtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionFixedResponsePtrOutput) Elem() ListenerDefaultActionFixedResponseOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) ListenerDefaultActionFixedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultActionFixedResponse
+		return ret
+	}).(ListenerDefaultActionFixedResponseOutput)
+}
+
+// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
+func (o ListenerDefaultActionFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(pulumi.IntPtrOutput)
+}
+
+type ListenerDefaultActionForward struct {
+	// One or more target group blocks.
+	TargetGroups []ListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
+}
+
+// ListenerDefaultActionForwardInput is an input type that accepts ListenerDefaultActionForwardArgs and ListenerDefaultActionForwardOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardInput` via:
+//
+//	ListenerDefaultActionForwardArgs{...}
+type ListenerDefaultActionForwardInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardOutput() ListenerDefaultActionForwardOutput
+	ToListenerDefaultActionForwardOutputWithContext(context.Context) ListenerDefaultActionForwardOutput
+}
+
+type ListenerDefaultActionForwardArgs struct {
+	// One or more target group blocks.
+	TargetGroups ListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
+}
+
+func (ListenerDefaultActionForwardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionForwardArgs) ToListenerDefaultActionForwardOutput() ListenerDefaultActionForwardOutput {
+	return i.ToListenerDefaultActionForwardOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardArgs) ToListenerDefaultActionForwardOutputWithContext(ctx context.Context) ListenerDefaultActionForwardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardOutput)
+}
+
+// ListenerDefaultActionForwardArrayInput is an input type that accepts ListenerDefaultActionForwardArray and ListenerDefaultActionForwardArrayOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardArrayInput` via:
+//
+//	ListenerDefaultActionForwardArray{ ListenerDefaultActionForwardArgs{...} }
+type ListenerDefaultActionForwardArrayInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardArrayOutput() ListenerDefaultActionForwardArrayOutput
+	ToListenerDefaultActionForwardArrayOutputWithContext(context.Context) ListenerDefaultActionForwardArrayOutput
+}
+
+type ListenerDefaultActionForwardArray []ListenerDefaultActionForwardInput
+
+func (ListenerDefaultActionForwardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionForwardArray) ToListenerDefaultActionForwardArrayOutput() ListenerDefaultActionForwardArrayOutput {
+	return i.ToListenerDefaultActionForwardArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardArray) ToListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) ListenerDefaultActionForwardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardArrayOutput)
+}
+
+type ListenerDefaultActionForwardOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardOutput() ListenerDefaultActionForwardOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardOutputWithContext(ctx context.Context) ListenerDefaultActionForwardOutput {
+	return o
+}
+
+// One or more target group blocks.
+func (o ListenerDefaultActionForwardOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForward) []ListenerDefaultActionForwardTargetGroup { return v.TargetGroups }).(ListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerDefaultActionForwardArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardArrayOutput) ToListenerDefaultActionForwardArrayOutput() ListenerDefaultActionForwardArrayOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardArrayOutput) ToListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) ListenerDefaultActionForwardArrayOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) ListenerDefaultActionForwardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerDefaultActionForward {
+		return vs[0].([]ListenerDefaultActionForward)[vs[1].(int)]
+	}).(ListenerDefaultActionForwardOutput)
+}
+
+type ListenerDefaultActionForwardTargetGroup struct {
+	// ID or Amazon Resource Name (ARN) of the target group.
+	TargetGroupIdentifier *string `pulumi:"targetGroupIdentifier"`
+	// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+	// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+	Weight *int `pulumi:"weight"`
+}
+
+// ListenerDefaultActionForwardTargetGroupInput is an input type that accepts ListenerDefaultActionForwardTargetGroupArgs and ListenerDefaultActionForwardTargetGroupOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardTargetGroupInput` via:
+//
+//	ListenerDefaultActionForwardTargetGroupArgs{...}
+type ListenerDefaultActionForwardTargetGroupInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardTargetGroupOutput() ListenerDefaultActionForwardTargetGroupOutput
+	ToListenerDefaultActionForwardTargetGroupOutputWithContext(context.Context) ListenerDefaultActionForwardTargetGroupOutput
+}
+
+type ListenerDefaultActionForwardTargetGroupArgs struct {
+	// ID or Amazon Resource Name (ARN) of the target group.
+	TargetGroupIdentifier pulumi.StringPtrInput `pulumi:"targetGroupIdentifier"`
+	// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+	// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (ListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionForwardTargetGroupArgs) ToListenerDefaultActionForwardTargetGroupOutput() ListenerDefaultActionForwardTargetGroupOutput {
+	return i.ToListenerDefaultActionForwardTargetGroupOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardTargetGroupArgs) ToListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardTargetGroupOutput)
+}
+
+// ListenerDefaultActionForwardTargetGroupArrayInput is an input type that accepts ListenerDefaultActionForwardTargetGroupArray and ListenerDefaultActionForwardTargetGroupArrayOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardTargetGroupArrayInput` via:
+//
+//	ListenerDefaultActionForwardTargetGroupArray{ ListenerDefaultActionForwardTargetGroupArgs{...} }
+type ListenerDefaultActionForwardTargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardTargetGroupArrayOutput() ListenerDefaultActionForwardTargetGroupArrayOutput
+	ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Context) ListenerDefaultActionForwardTargetGroupArrayOutput
+}
+
+type ListenerDefaultActionForwardTargetGroupArray []ListenerDefaultActionForwardTargetGroupInput
+
+func (ListenerDefaultActionForwardTargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionForwardTargetGroupArray) ToListenerDefaultActionForwardTargetGroupArrayOutput() ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return i.ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardTargetGroupArray) ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerDefaultActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionForwardTargetGroupOutput() ListenerDefaultActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupOutput {
+	return o
+}
+
+// ID or Amazon Resource Name (ARN) of the target group.
+func (o ListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *string { return v.TargetGroupIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+func (o ListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type ListenerDefaultActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardTargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardTargetGroupArrayOutput) ToListenerDefaultActionForwardTargetGroupArrayOutput() ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardTargetGroupArrayOutput) ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) ListenerDefaultActionForwardTargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerDefaultActionForwardTargetGroup {
+		return vs[0].([]ListenerDefaultActionForwardTargetGroup)[vs[1].(int)]
+	}).(ListenerDefaultActionForwardTargetGroupOutput)
+}
+
+type ListenerRuleAction struct {
+	// Describes the rule action that returns a custom HTTP response.
+	FixedResponse *ListenerRuleActionFixedResponse `pulumi:"fixedResponse"`
+	// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+	Forward *ListenerRuleActionForward `pulumi:"forward"`
+}
+
+// ListenerRuleActionInput is an input type that accepts ListenerRuleActionArgs and ListenerRuleActionOutput values.
+// You can construct a concrete instance of `ListenerRuleActionInput` via:
+//
+//	ListenerRuleActionArgs{...}
+type ListenerRuleActionInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionOutput() ListenerRuleActionOutput
+	ToListenerRuleActionOutputWithContext(context.Context) ListenerRuleActionOutput
+}
+
+type ListenerRuleActionArgs struct {
+	// Describes the rule action that returns a custom HTTP response.
+	FixedResponse ListenerRuleActionFixedResponsePtrInput `pulumi:"fixedResponse"`
+	// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+	Forward ListenerRuleActionForwardPtrInput `pulumi:"forward"`
+}
+
+func (ListenerRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleAction)(nil)).Elem()
+}
+
+func (i ListenerRuleActionArgs) ToListenerRuleActionOutput() ListenerRuleActionOutput {
+	return i.ToListenerRuleActionOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionArgs) ToListenerRuleActionOutputWithContext(ctx context.Context) ListenerRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionOutput)
+}
+
+func (i ListenerRuleActionArgs) ToListenerRuleActionPtrOutput() ListenerRuleActionPtrOutput {
+	return i.ToListenerRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionArgs) ToListenerRuleActionPtrOutputWithContext(ctx context.Context) ListenerRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionOutput).ToListenerRuleActionPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleActionPtrInput is an input type that accepts ListenerRuleActionArgs, ListenerRuleActionPtr and ListenerRuleActionPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionPtrInput` via:
+//
+//	        ListenerRuleActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleActionPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionPtrOutput() ListenerRuleActionPtrOutput
+	ToListenerRuleActionPtrOutputWithContext(context.Context) ListenerRuleActionPtrOutput
+}
+
+type listenerRuleActionPtrType ListenerRuleActionArgs
+
+func ListenerRuleActionPtr(v *ListenerRuleActionArgs) ListenerRuleActionPtrInput {
+	return (*listenerRuleActionPtrType)(v)
+}
+
+func (*listenerRuleActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleAction)(nil)).Elem()
+}
+
+func (i *listenerRuleActionPtrType) ToListenerRuleActionPtrOutput() ListenerRuleActionPtrOutput {
+	return i.ToListenerRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleActionPtrType) ToListenerRuleActionPtrOutputWithContext(ctx context.Context) ListenerRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionPtrOutput)
+}
+
+type ListenerRuleActionOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleAction)(nil)).Elem()
+}
+
+func (o ListenerRuleActionOutput) ToListenerRuleActionOutput() ListenerRuleActionOutput {
+	return o
+}
+
+func (o ListenerRuleActionOutput) ToListenerRuleActionOutputWithContext(ctx context.Context) ListenerRuleActionOutput {
+	return o
+}
+
+func (o ListenerRuleActionOutput) ToListenerRuleActionPtrOutput() ListenerRuleActionPtrOutput {
+	return o.ToListenerRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleActionOutput) ToListenerRuleActionPtrOutputWithContext(ctx context.Context) ListenerRuleActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleAction) *ListenerRuleAction {
+		return &v
+	}).(ListenerRuleActionPtrOutput)
+}
+
+// Describes the rule action that returns a custom HTTP response.
+func (o ListenerRuleActionOutput) FixedResponse() ListenerRuleActionFixedResponsePtrOutput {
+	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionFixedResponse { return v.FixedResponse }).(ListenerRuleActionFixedResponsePtrOutput)
+}
+
+// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+func (o ListenerRuleActionOutput) Forward() ListenerRuleActionForwardPtrOutput {
+	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionForward { return v.Forward }).(ListenerRuleActionForwardPtrOutput)
+}
+
+type ListenerRuleActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleAction)(nil)).Elem()
+}
+
+func (o ListenerRuleActionPtrOutput) ToListenerRuleActionPtrOutput() ListenerRuleActionPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionPtrOutput) ToListenerRuleActionPtrOutputWithContext(ctx context.Context) ListenerRuleActionPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionPtrOutput) Elem() ListenerRuleActionOutput {
+	return o.ApplyT(func(v *ListenerRuleAction) ListenerRuleAction {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleAction
+		return ret
+	}).(ListenerRuleActionOutput)
+}
+
+// Describes the rule action that returns a custom HTTP response.
+func (o ListenerRuleActionPtrOutput) FixedResponse() ListenerRuleActionFixedResponsePtrOutput {
+	return o.ApplyT(func(v *ListenerRuleAction) *ListenerRuleActionFixedResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FixedResponse
+	}).(ListenerRuleActionFixedResponsePtrOutput)
+}
+
+// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+func (o ListenerRuleActionPtrOutput) Forward() ListenerRuleActionForwardPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleAction) *ListenerRuleActionForward {
+		if v == nil {
+			return nil
+		}
+		return v.Forward
+	}).(ListenerRuleActionForwardPtrOutput)
+}
+
+type ListenerRuleActionFixedResponse struct {
+	// The HTTP response code.
+	StatusCode int `pulumi:"statusCode"`
+}
+
+// ListenerRuleActionFixedResponseInput is an input type that accepts ListenerRuleActionFixedResponseArgs and ListenerRuleActionFixedResponseOutput values.
+// You can construct a concrete instance of `ListenerRuleActionFixedResponseInput` via:
+//
+//	ListenerRuleActionFixedResponseArgs{...}
+type ListenerRuleActionFixedResponseInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionFixedResponseOutput() ListenerRuleActionFixedResponseOutput
+	ToListenerRuleActionFixedResponseOutputWithContext(context.Context) ListenerRuleActionFixedResponseOutput
+}
+
+type ListenerRuleActionFixedResponseArgs struct {
+	// The HTTP response code.
+	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+}
+
+func (ListenerRuleActionFixedResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionFixedResponse)(nil)).Elem()
+}
+
+func (i ListenerRuleActionFixedResponseArgs) ToListenerRuleActionFixedResponseOutput() ListenerRuleActionFixedResponseOutput {
+	return i.ToListenerRuleActionFixedResponseOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionFixedResponseArgs) ToListenerRuleActionFixedResponseOutputWithContext(ctx context.Context) ListenerRuleActionFixedResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionFixedResponseOutput)
+}
+
+func (i ListenerRuleActionFixedResponseArgs) ToListenerRuleActionFixedResponsePtrOutput() ListenerRuleActionFixedResponsePtrOutput {
+	return i.ToListenerRuleActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionFixedResponseArgs) ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerRuleActionFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionFixedResponseOutput).ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx)
+}
+
+// ListenerRuleActionFixedResponsePtrInput is an input type that accepts ListenerRuleActionFixedResponseArgs, ListenerRuleActionFixedResponsePtr and ListenerRuleActionFixedResponsePtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionFixedResponsePtrInput` via:
+//
+//	        ListenerRuleActionFixedResponseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleActionFixedResponsePtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionFixedResponsePtrOutput() ListenerRuleActionFixedResponsePtrOutput
+	ToListenerRuleActionFixedResponsePtrOutputWithContext(context.Context) ListenerRuleActionFixedResponsePtrOutput
+}
+
+type listenerRuleActionFixedResponsePtrType ListenerRuleActionFixedResponseArgs
+
+func ListenerRuleActionFixedResponsePtr(v *ListenerRuleActionFixedResponseArgs) ListenerRuleActionFixedResponsePtrInput {
+	return (*listenerRuleActionFixedResponsePtrType)(v)
+}
+
+func (*listenerRuleActionFixedResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionFixedResponse)(nil)).Elem()
+}
+
+func (i *listenerRuleActionFixedResponsePtrType) ToListenerRuleActionFixedResponsePtrOutput() ListenerRuleActionFixedResponsePtrOutput {
+	return i.ToListenerRuleActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleActionFixedResponsePtrType) ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerRuleActionFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionFixedResponsePtrOutput)
+}
+
+type ListenerRuleActionFixedResponseOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionFixedResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionFixedResponse)(nil)).Elem()
+}
+
+func (o ListenerRuleActionFixedResponseOutput) ToListenerRuleActionFixedResponseOutput() ListenerRuleActionFixedResponseOutput {
+	return o
+}
+
+func (o ListenerRuleActionFixedResponseOutput) ToListenerRuleActionFixedResponseOutputWithContext(ctx context.Context) ListenerRuleActionFixedResponseOutput {
+	return o
+}
+
+func (o ListenerRuleActionFixedResponseOutput) ToListenerRuleActionFixedResponsePtrOutput() ListenerRuleActionFixedResponsePtrOutput {
+	return o.ToListenerRuleActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleActionFixedResponseOutput) ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerRuleActionFixedResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionFixedResponse) *ListenerRuleActionFixedResponse {
+		return &v
+	}).(ListenerRuleActionFixedResponsePtrOutput)
+}
+
+// The HTTP response code.
+func (o ListenerRuleActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
+	return o.ApplyT(func(v ListenerRuleActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
+}
+
+type ListenerRuleActionFixedResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionFixedResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionFixedResponse)(nil)).Elem()
+}
+
+func (o ListenerRuleActionFixedResponsePtrOutput) ToListenerRuleActionFixedResponsePtrOutput() ListenerRuleActionFixedResponsePtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionFixedResponsePtrOutput) ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerRuleActionFixedResponsePtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionFixedResponsePtrOutput) Elem() ListenerRuleActionFixedResponseOutput {
+	return o.ApplyT(func(v *ListenerRuleActionFixedResponse) ListenerRuleActionFixedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionFixedResponse
+		return ret
+	}).(ListenerRuleActionFixedResponseOutput)
+}
+
+// The HTTP response code.
+func (o ListenerRuleActionFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleActionFixedResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(pulumi.IntPtrOutput)
+}
+
+type ListenerRuleActionForward struct {
+	// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+	TargetGroups []ListenerRuleActionForwardTargetGroup `pulumi:"targetGroups"`
+}
+
+// ListenerRuleActionForwardInput is an input type that accepts ListenerRuleActionForwardArgs and ListenerRuleActionForwardOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardInput` via:
+//
+//	ListenerRuleActionForwardArgs{...}
+type ListenerRuleActionForwardInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardOutput() ListenerRuleActionForwardOutput
+	ToListenerRuleActionForwardOutputWithContext(context.Context) ListenerRuleActionForwardOutput
+}
+
+type ListenerRuleActionForwardArgs struct {
+	// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+	TargetGroups ListenerRuleActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
+}
+
+func (ListenerRuleActionForwardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForward)(nil)).Elem()
+}
+
+func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardOutput() ListenerRuleActionForwardOutput {
+	return i.ToListenerRuleActionForwardOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardOutputWithContext(ctx context.Context) ListenerRuleActionForwardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardOutput)
+}
+
+func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
+	return i.ToListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardOutput).ToListenerRuleActionForwardPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleActionForwardPtrInput is an input type that accepts ListenerRuleActionForwardArgs, ListenerRuleActionForwardPtr and ListenerRuleActionForwardPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardPtrInput` via:
+//
+//	        ListenerRuleActionForwardArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleActionForwardPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput
+	ToListenerRuleActionForwardPtrOutputWithContext(context.Context) ListenerRuleActionForwardPtrOutput
+}
+
+type listenerRuleActionForwardPtrType ListenerRuleActionForwardArgs
+
+func ListenerRuleActionForwardPtr(v *ListenerRuleActionForwardArgs) ListenerRuleActionForwardPtrInput {
+	return (*listenerRuleActionForwardPtrType)(v)
+}
+
+func (*listenerRuleActionForwardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionForward)(nil)).Elem()
+}
+
+func (i *listenerRuleActionForwardPtrType) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
+	return i.ToListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleActionForwardPtrType) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardPtrOutput)
+}
+
+type ListenerRuleActionForwardOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForward)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardOutput() ListenerRuleActionForwardOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardOutputWithContext(ctx context.Context) ListenerRuleActionForwardOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
+	return o.ToListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionForward) *ListenerRuleActionForward {
+		return &v
+	}).(ListenerRuleActionForwardPtrOutput)
+}
+
+// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+func (o ListenerRuleActionForwardOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup { return v.TargetGroups }).(ListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerRuleActionForwardPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionForward)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardPtrOutput) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardPtrOutput) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardPtrOutput) Elem() ListenerRuleActionForwardOutput {
+	return o.ApplyT(func(v *ListenerRuleActionForward) ListenerRuleActionForward {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionForward
+		return ret
+	}).(ListenerRuleActionForwardOutput)
+}
+
+// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+func (o ListenerRuleActionForwardPtrOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup {
+		if v == nil {
+			return nil
+		}
+		return v.TargetGroups
+	}).(ListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerRuleActionForwardTargetGroup struct {
+	TargetGroupIdentifier string `pulumi:"targetGroupIdentifier"`
+	Weight                *int   `pulumi:"weight"`
+}
+
+// ListenerRuleActionForwardTargetGroupInput is an input type that accepts ListenerRuleActionForwardTargetGroupArgs and ListenerRuleActionForwardTargetGroupOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardTargetGroupInput` via:
+//
+//	ListenerRuleActionForwardTargetGroupArgs{...}
+type ListenerRuleActionForwardTargetGroupInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardTargetGroupOutput() ListenerRuleActionForwardTargetGroupOutput
+	ToListenerRuleActionForwardTargetGroupOutputWithContext(context.Context) ListenerRuleActionForwardTargetGroupOutput
+}
+
+type ListenerRuleActionForwardTargetGroupArgs struct {
+	TargetGroupIdentifier pulumi.StringInput `pulumi:"targetGroupIdentifier"`
+	Weight                pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (ListenerRuleActionForwardTargetGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i ListenerRuleActionForwardTargetGroupArgs) ToListenerRuleActionForwardTargetGroupOutput() ListenerRuleActionForwardTargetGroupOutput {
+	return i.ToListenerRuleActionForwardTargetGroupOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardTargetGroupArgs) ToListenerRuleActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardTargetGroupOutput)
+}
+
+// ListenerRuleActionForwardTargetGroupArrayInput is an input type that accepts ListenerRuleActionForwardTargetGroupArray and ListenerRuleActionForwardTargetGroupArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardTargetGroupArrayInput` via:
+//
+//	ListenerRuleActionForwardTargetGroupArray{ ListenerRuleActionForwardTargetGroupArgs{...} }
+type ListenerRuleActionForwardTargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardTargetGroupArrayOutput() ListenerRuleActionForwardTargetGroupArrayOutput
+	ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(context.Context) ListenerRuleActionForwardTargetGroupArrayOutput
+}
+
+type ListenerRuleActionForwardTargetGroupArray []ListenerRuleActionForwardTargetGroupInput
+
+func (ListenerRuleActionForwardTargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i ListenerRuleActionForwardTargetGroupArray) ToListenerRuleActionForwardTargetGroupArrayOutput() ListenerRuleActionForwardTargetGroupArrayOutput {
+	return i.ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardTargetGroupArray) ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerRuleActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardTargetGroupOutput) ToListenerRuleActionForwardTargetGroupOutput() ListenerRuleActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardTargetGroupOutput) ToListenerRuleActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleActionForwardTargetGroup) string { return v.TargetGroupIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ListenerRuleActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerRuleActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type ListenerRuleActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardTargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardTargetGroupArrayOutput) ToListenerRuleActionForwardTargetGroupArrayOutput() ListenerRuleActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardTargetGroupArrayOutput) ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) ListenerRuleActionForwardTargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleActionForwardTargetGroup {
+		return vs[0].([]ListenerRuleActionForwardTargetGroup)[vs[1].(int)]
+	}).(ListenerRuleActionForwardTargetGroupOutput)
+}
+
+type ListenerRuleMatch struct {
+	// The HTTP criteria that a rule must match.
+	HttpMatch *ListenerRuleMatchHttpMatch `pulumi:"httpMatch"`
+}
+
+// ListenerRuleMatchInput is an input type that accepts ListenerRuleMatchArgs and ListenerRuleMatchOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchInput` via:
+//
+//	ListenerRuleMatchArgs{...}
+type ListenerRuleMatchInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchOutput() ListenerRuleMatchOutput
+	ToListenerRuleMatchOutputWithContext(context.Context) ListenerRuleMatchOutput
+}
+
+type ListenerRuleMatchArgs struct {
+	// The HTTP criteria that a rule must match.
+	HttpMatch ListenerRuleMatchHttpMatchPtrInput `pulumi:"httpMatch"`
+}
+
+func (ListenerRuleMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatch)(nil)).Elem()
+}
+
+func (i ListenerRuleMatchArgs) ToListenerRuleMatchOutput() ListenerRuleMatchOutput {
+	return i.ToListenerRuleMatchOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchArgs) ToListenerRuleMatchOutputWithContext(ctx context.Context) ListenerRuleMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchOutput)
+}
+
+func (i ListenerRuleMatchArgs) ToListenerRuleMatchPtrOutput() ListenerRuleMatchPtrOutput {
+	return i.ToListenerRuleMatchPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchArgs) ToListenerRuleMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchOutput).ToListenerRuleMatchPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleMatchPtrInput is an input type that accepts ListenerRuleMatchArgs, ListenerRuleMatchPtr and ListenerRuleMatchPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchPtrInput` via:
+//
+//	        ListenerRuleMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleMatchPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchPtrOutput() ListenerRuleMatchPtrOutput
+	ToListenerRuleMatchPtrOutputWithContext(context.Context) ListenerRuleMatchPtrOutput
+}
+
+type listenerRuleMatchPtrType ListenerRuleMatchArgs
+
+func ListenerRuleMatchPtr(v *ListenerRuleMatchArgs) ListenerRuleMatchPtrInput {
+	return (*listenerRuleMatchPtrType)(v)
+}
+
+func (*listenerRuleMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleMatch)(nil)).Elem()
+}
+
+func (i *listenerRuleMatchPtrType) ToListenerRuleMatchPtrOutput() ListenerRuleMatchPtrOutput {
+	return i.ToListenerRuleMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleMatchPtrType) ToListenerRuleMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchPtrOutput)
+}
+
+type ListenerRuleMatchOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchOutput) ToListenerRuleMatchOutput() ListenerRuleMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchOutput) ToListenerRuleMatchOutputWithContext(ctx context.Context) ListenerRuleMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchOutput) ToListenerRuleMatchPtrOutput() ListenerRuleMatchPtrOutput {
+	return o.ToListenerRuleMatchPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleMatchOutput) ToListenerRuleMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleMatch) *ListenerRuleMatch {
+		return &v
+	}).(ListenerRuleMatchPtrOutput)
+}
+
+// The HTTP criteria that a rule must match.
+func (o ListenerRuleMatchOutput) HttpMatch() ListenerRuleMatchHttpMatchPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatch) *ListenerRuleMatchHttpMatch { return v.HttpMatch }).(ListenerRuleMatchHttpMatchPtrOutput)
+}
+
+type ListenerRuleMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchPtrOutput) ToListenerRuleMatchPtrOutput() ListenerRuleMatchPtrOutput {
+	return o
+}
+
+func (o ListenerRuleMatchPtrOutput) ToListenerRuleMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchPtrOutput {
+	return o
+}
+
+func (o ListenerRuleMatchPtrOutput) Elem() ListenerRuleMatchOutput {
+	return o.ApplyT(func(v *ListenerRuleMatch) ListenerRuleMatch {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleMatch
+		return ret
+	}).(ListenerRuleMatchOutput)
+}
+
+// The HTTP criteria that a rule must match.
+func (o ListenerRuleMatchPtrOutput) HttpMatch() ListenerRuleMatchHttpMatchPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleMatch) *ListenerRuleMatchHttpMatch {
+		if v == nil {
+			return nil
+		}
+		return v.HttpMatch
+	}).(ListenerRuleMatchHttpMatchPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatch struct {
+	// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+	HeaderMatches []ListenerRuleMatchHttpMatchHeaderMatch `pulumi:"headerMatches"`
+	// The HTTP method type.
+	Method *string `pulumi:"method"`
+	// The path match.
+	PathMatch *ListenerRuleMatchHttpMatchPathMatch `pulumi:"pathMatch"`
+}
+
+// ListenerRuleMatchHttpMatchInput is an input type that accepts ListenerRuleMatchHttpMatchArgs and ListenerRuleMatchHttpMatchOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchInput` via:
+//
+//	ListenerRuleMatchHttpMatchArgs{...}
+type ListenerRuleMatchHttpMatchInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchOutput() ListenerRuleMatchHttpMatchOutput
+	ToListenerRuleMatchHttpMatchOutputWithContext(context.Context) ListenerRuleMatchHttpMatchOutput
+}
+
+type ListenerRuleMatchHttpMatchArgs struct {
+	// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+	HeaderMatches ListenerRuleMatchHttpMatchHeaderMatchArrayInput `pulumi:"headerMatches"`
+	// The HTTP method type.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The path match.
+	PathMatch ListenerRuleMatchHttpMatchPathMatchPtrInput `pulumi:"pathMatch"`
+}
+
+func (ListenerRuleMatchHttpMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatch)(nil)).Elem()
+}
+
+func (i ListenerRuleMatchHttpMatchArgs) ToListenerRuleMatchHttpMatchOutput() ListenerRuleMatchHttpMatchOutput {
+	return i.ToListenerRuleMatchHttpMatchOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchArgs) ToListenerRuleMatchHttpMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchOutput)
+}
+
+func (i ListenerRuleMatchHttpMatchArgs) ToListenerRuleMatchHttpMatchPtrOutput() ListenerRuleMatchHttpMatchPtrOutput {
+	return i.ToListenerRuleMatchHttpMatchPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchArgs) ToListenerRuleMatchHttpMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchOutput).ToListenerRuleMatchHttpMatchPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleMatchHttpMatchPtrInput is an input type that accepts ListenerRuleMatchHttpMatchArgs, ListenerRuleMatchHttpMatchPtr and ListenerRuleMatchHttpMatchPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchPtrInput` via:
+//
+//	        ListenerRuleMatchHttpMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleMatchHttpMatchPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchPtrOutput() ListenerRuleMatchHttpMatchPtrOutput
+	ToListenerRuleMatchHttpMatchPtrOutputWithContext(context.Context) ListenerRuleMatchHttpMatchPtrOutput
+}
+
+type listenerRuleMatchHttpMatchPtrType ListenerRuleMatchHttpMatchArgs
+
+func ListenerRuleMatchHttpMatchPtr(v *ListenerRuleMatchHttpMatchArgs) ListenerRuleMatchHttpMatchPtrInput {
+	return (*listenerRuleMatchHttpMatchPtrType)(v)
+}
+
+func (*listenerRuleMatchHttpMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleMatchHttpMatch)(nil)).Elem()
+}
+
+func (i *listenerRuleMatchHttpMatchPtrType) ToListenerRuleMatchHttpMatchPtrOutput() ListenerRuleMatchHttpMatchPtrOutput {
+	return i.ToListenerRuleMatchHttpMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleMatchHttpMatchPtrType) ToListenerRuleMatchHttpMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatchOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchOutput) ToListenerRuleMatchHttpMatchOutput() ListenerRuleMatchHttpMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchOutput) ToListenerRuleMatchHttpMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchOutput) ToListenerRuleMatchHttpMatchPtrOutput() ListenerRuleMatchHttpMatchPtrOutput {
+	return o.ToListenerRuleMatchHttpMatchPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleMatchHttpMatchOutput) ToListenerRuleMatchHttpMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleMatchHttpMatch) *ListenerRuleMatchHttpMatch {
+		return &v
+	}).(ListenerRuleMatchHttpMatchPtrOutput)
+}
+
+// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+func (o ListenerRuleMatchHttpMatchOutput) HeaderMatches() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatch) []ListenerRuleMatchHttpMatchHeaderMatch { return v.HeaderMatches }).(ListenerRuleMatchHttpMatchHeaderMatchArrayOutput)
+}
+
+// The HTTP method type.
+func (o ListenerRuleMatchHttpMatchOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// The path match.
+func (o ListenerRuleMatchHttpMatchOutput) PathMatch() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatch) *ListenerRuleMatchHttpMatchPathMatch { return v.PathMatch }).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleMatchHttpMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchPtrOutput) ToListenerRuleMatchHttpMatchPtrOutput() ListenerRuleMatchHttpMatchPtrOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPtrOutput) ToListenerRuleMatchHttpMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPtrOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPtrOutput) Elem() ListenerRuleMatchHttpMatchOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) ListenerRuleMatchHttpMatch {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleMatchHttpMatch
+		return ret
+	}).(ListenerRuleMatchHttpMatchOutput)
+}
+
+// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+func (o ListenerRuleMatchHttpMatchPtrOutput) HeaderMatches() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) []ListenerRuleMatchHttpMatchHeaderMatch {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderMatches
+	}).(ListenerRuleMatchHttpMatchHeaderMatchArrayOutput)
+}
+
+// The HTTP method type.
+func (o ListenerRuleMatchHttpMatchPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path match.
+func (o ListenerRuleMatchHttpMatchPtrOutput) PathMatch() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatch) *ListenerRuleMatchHttpMatchPathMatch {
+		if v == nil {
+			return nil
+		}
+		return v.PathMatch
+	}).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatchHeaderMatch struct {
+	// Indicates whether the match is case sensitive. Defaults to false.
+	CaseSensitive *bool `pulumi:"caseSensitive"`
+	// The header match type.
+	Match ListenerRuleMatchHttpMatchHeaderMatchMatch `pulumi:"match"`
+	// The name of the header.
+	Name string `pulumi:"name"`
+}
+
+// ListenerRuleMatchHttpMatchHeaderMatchInput is an input type that accepts ListenerRuleMatchHttpMatchHeaderMatchArgs and ListenerRuleMatchHttpMatchHeaderMatchOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchHeaderMatchInput` via:
+//
+//	ListenerRuleMatchHttpMatchHeaderMatchArgs{...}
+type ListenerRuleMatchHttpMatchHeaderMatchInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchHeaderMatchOutput() ListenerRuleMatchHttpMatchHeaderMatchOutput
+	ToListenerRuleMatchHttpMatchHeaderMatchOutputWithContext(context.Context) ListenerRuleMatchHttpMatchHeaderMatchOutput
+}
+
+type ListenerRuleMatchHttpMatchHeaderMatchArgs struct {
+	// Indicates whether the match is case sensitive. Defaults to false.
+	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
+	// The header match type.
+	Match ListenerRuleMatchHttpMatchHeaderMatchMatchInput `pulumi:"match"`
+	// The name of the header.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ListenerRuleMatchHttpMatchHeaderMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i ListenerRuleMatchHttpMatchHeaderMatchArgs) ToListenerRuleMatchHttpMatchHeaderMatchOutput() ListenerRuleMatchHttpMatchHeaderMatchOutput {
+	return i.ToListenerRuleMatchHttpMatchHeaderMatchOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchHeaderMatchArgs) ToListenerRuleMatchHttpMatchHeaderMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchHeaderMatchOutput)
+}
+
+// ListenerRuleMatchHttpMatchHeaderMatchArrayInput is an input type that accepts ListenerRuleMatchHttpMatchHeaderMatchArray and ListenerRuleMatchHttpMatchHeaderMatchArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchHeaderMatchArrayInput` via:
+//
+//	ListenerRuleMatchHttpMatchHeaderMatchArray{ ListenerRuleMatchHttpMatchHeaderMatchArgs{...} }
+type ListenerRuleMatchHttpMatchHeaderMatchArrayInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchHeaderMatchArrayOutput() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput
+	ToListenerRuleMatchHttpMatchHeaderMatchArrayOutputWithContext(context.Context) ListenerRuleMatchHttpMatchHeaderMatchArrayOutput
+}
+
+type ListenerRuleMatchHttpMatchHeaderMatchArray []ListenerRuleMatchHttpMatchHeaderMatchInput
+
+func (ListenerRuleMatchHttpMatchHeaderMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleMatchHttpMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i ListenerRuleMatchHttpMatchHeaderMatchArray) ToListenerRuleMatchHttpMatchHeaderMatchArrayOutput() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
+	return i.ToListenerRuleMatchHttpMatchHeaderMatchArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchHeaderMatchArray) ToListenerRuleMatchHttpMatchHeaderMatchArrayOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchHeaderMatchArrayOutput)
+}
+
+type ListenerRuleMatchHttpMatchHeaderMatchOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchHeaderMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) ToListenerRuleMatchHttpMatchHeaderMatchOutput() ListenerRuleMatchHttpMatchHeaderMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) ToListenerRuleMatchHttpMatchHeaderMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchOutput {
+	return o
+}
+
+// Indicates whether the match is case sensitive. Defaults to false.
+func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatch) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+}
+
+// The header match type.
+func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) Match() ListenerRuleMatchHttpMatchHeaderMatchMatchOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatch) ListenerRuleMatchHttpMatchHeaderMatchMatch {
+		return v.Match
+	}).(ListenerRuleMatchHttpMatchHeaderMatchMatchOutput)
+}
+
+// The name of the header.
+func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatch) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ListenerRuleMatchHttpMatchHeaderMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleMatchHttpMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) ToListenerRuleMatchHttpMatchHeaderMatchArrayOutput() ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) ToListenerRuleMatchHttpMatchHeaderMatchArrayOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) Index(i pulumi.IntInput) ListenerRuleMatchHttpMatchHeaderMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleMatchHttpMatchHeaderMatch {
+		return vs[0].([]ListenerRuleMatchHttpMatchHeaderMatch)[vs[1].(int)]
+	}).(ListenerRuleMatchHttpMatchHeaderMatchOutput)
+}
+
+type ListenerRuleMatchHttpMatchHeaderMatchMatch struct {
+	// Specifies a contains type match.
+	Contains *string `pulumi:"contains"`
+	// Specifies an exact type match.
+	Exact *string `pulumi:"exact"`
+	// Specifies a prefix type match. Matches the value with the prefix.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// ListenerRuleMatchHttpMatchHeaderMatchMatchInput is an input type that accepts ListenerRuleMatchHttpMatchHeaderMatchMatchArgs and ListenerRuleMatchHttpMatchHeaderMatchMatchOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchHeaderMatchMatchInput` via:
+//
+//	ListenerRuleMatchHttpMatchHeaderMatchMatchArgs{...}
+type ListenerRuleMatchHttpMatchHeaderMatchMatchInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchHeaderMatchMatchOutput() ListenerRuleMatchHttpMatchHeaderMatchMatchOutput
+	ToListenerRuleMatchHttpMatchHeaderMatchMatchOutputWithContext(context.Context) ListenerRuleMatchHttpMatchHeaderMatchMatchOutput
+}
+
+type ListenerRuleMatchHttpMatchHeaderMatchMatchArgs struct {
+	// Specifies a contains type match.
+	Contains pulumi.StringPtrInput `pulumi:"contains"`
+	// Specifies an exact type match.
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	// Specifies a prefix type match. Matches the value with the prefix.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ListenerRuleMatchHttpMatchHeaderMatchMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatchHeaderMatchMatch)(nil)).Elem()
+}
+
+func (i ListenerRuleMatchHttpMatchHeaderMatchMatchArgs) ToListenerRuleMatchHttpMatchHeaderMatchMatchOutput() ListenerRuleMatchHttpMatchHeaderMatchMatchOutput {
+	return i.ToListenerRuleMatchHttpMatchHeaderMatchMatchOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchHeaderMatchMatchArgs) ToListenerRuleMatchHttpMatchHeaderMatchMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchHeaderMatchMatchOutput)
+}
+
+type ListenerRuleMatchHttpMatchHeaderMatchMatchOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatchHeaderMatchMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ToListenerRuleMatchHttpMatchHeaderMatchMatchOutput() ListenerRuleMatchHttpMatchHeaderMatchMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ToListenerRuleMatchHttpMatchHeaderMatchMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchMatchOutput {
+	return o
+}
+
+// Specifies a contains type match.
+func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Contains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Contains }).(pulumi.StringPtrOutput)
+}
+
+// Specifies an exact type match.
+func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a prefix type match. Matches the value with the prefix.
+func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatchPathMatch struct {
+	// Indicates whether the match is case sensitive. Defaults to false.
+	CaseSensitive *bool `pulumi:"caseSensitive"`
+	// The header match type.
+	Match ListenerRuleMatchHttpMatchPathMatchMatch `pulumi:"match"`
+}
+
+// ListenerRuleMatchHttpMatchPathMatchInput is an input type that accepts ListenerRuleMatchHttpMatchPathMatchArgs and ListenerRuleMatchHttpMatchPathMatchOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchPathMatchInput` via:
+//
+//	ListenerRuleMatchHttpMatchPathMatchArgs{...}
+type ListenerRuleMatchHttpMatchPathMatchInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchPathMatchOutput() ListenerRuleMatchHttpMatchPathMatchOutput
+	ToListenerRuleMatchHttpMatchPathMatchOutputWithContext(context.Context) ListenerRuleMatchHttpMatchPathMatchOutput
+}
+
+type ListenerRuleMatchHttpMatchPathMatchArgs struct {
+	// Indicates whether the match is case sensitive. Defaults to false.
+	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
+	// The header match type.
+	Match ListenerRuleMatchHttpMatchPathMatchMatchInput `pulumi:"match"`
+}
+
+func (ListenerRuleMatchHttpMatchPathMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatch)(nil)).Elem()
+}
+
+func (i ListenerRuleMatchHttpMatchPathMatchArgs) ToListenerRuleMatchHttpMatchPathMatchOutput() ListenerRuleMatchHttpMatchPathMatchOutput {
+	return i.ToListenerRuleMatchHttpMatchPathMatchOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchPathMatchArgs) ToListenerRuleMatchHttpMatchPathMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchOutput)
+}
+
+func (i ListenerRuleMatchHttpMatchPathMatchArgs) ToListenerRuleMatchHttpMatchPathMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return i.ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchPathMatchArgs) ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchOutput).ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleMatchHttpMatchPathMatchPtrInput is an input type that accepts ListenerRuleMatchHttpMatchPathMatchArgs, ListenerRuleMatchHttpMatchPathMatchPtr and ListenerRuleMatchHttpMatchPathMatchPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchPathMatchPtrInput` via:
+//
+//	        ListenerRuleMatchHttpMatchPathMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleMatchHttpMatchPathMatchPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchPathMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchPtrOutput
+	ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(context.Context) ListenerRuleMatchHttpMatchPathMatchPtrOutput
+}
+
+type listenerRuleMatchHttpMatchPathMatchPtrType ListenerRuleMatchHttpMatchPathMatchArgs
+
+func ListenerRuleMatchHttpMatchPathMatchPtr(v *ListenerRuleMatchHttpMatchPathMatchArgs) ListenerRuleMatchHttpMatchPathMatchPtrInput {
+	return (*listenerRuleMatchHttpMatchPathMatchPtrType)(v)
+}
+
+func (*listenerRuleMatchHttpMatchPathMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleMatchHttpMatchPathMatch)(nil)).Elem()
+}
+
+func (i *listenerRuleMatchHttpMatchPathMatchPtrType) ToListenerRuleMatchHttpMatchPathMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return i.ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleMatchHttpMatchPathMatchPtrType) ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatchPathMatchOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchPathMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchOutput) ToListenerRuleMatchHttpMatchPathMatchOutput() ListenerRuleMatchHttpMatchPathMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchOutput) ToListenerRuleMatchHttpMatchPathMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchOutput) ToListenerRuleMatchHttpMatchPathMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return o.ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchOutput) ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleMatchHttpMatchPathMatch) *ListenerRuleMatchHttpMatchPathMatch {
+		return &v
+	}).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
+}
+
+// Indicates whether the match is case sensitive. Defaults to false.
+func (o ListenerRuleMatchHttpMatchPathMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatch) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+}
+
+// The header match type.
+func (o ListenerRuleMatchHttpMatchPathMatchOutput) Match() ListenerRuleMatchHttpMatchPathMatchMatchOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatch) ListenerRuleMatchHttpMatchPathMatchMatch { return v.Match }).(ListenerRuleMatchHttpMatchPathMatchMatchOutput)
+}
+
+type ListenerRuleMatchHttpMatchPathMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchPathMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleMatchHttpMatchPathMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) ToListenerRuleMatchHttpMatchPathMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchPtrOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Elem() ListenerRuleMatchHttpMatchPathMatchOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatch) ListenerRuleMatchHttpMatchPathMatch {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleMatchHttpMatchPathMatch
+		return ret
+	}).(ListenerRuleMatchHttpMatchPathMatchOutput)
+}
+
+// Indicates whether the match is case sensitive. Defaults to false.
+func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaseSensitive
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The header match type.
+func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Match() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatch) *ListenerRuleMatchHttpMatchPathMatchMatch {
+		if v == nil {
+			return nil
+		}
+		return &v.Match
+	}).(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatchPathMatchMatch struct {
+	// Specifies an exact type match.
+	Exact *string `pulumi:"exact"`
+	// Specifies a prefix type match. Matches the value with the prefix.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// ListenerRuleMatchHttpMatchPathMatchMatchInput is an input type that accepts ListenerRuleMatchHttpMatchPathMatchMatchArgs and ListenerRuleMatchHttpMatchPathMatchMatchOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchPathMatchMatchInput` via:
+//
+//	ListenerRuleMatchHttpMatchPathMatchMatchArgs{...}
+type ListenerRuleMatchHttpMatchPathMatchMatchInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchPathMatchMatchOutput() ListenerRuleMatchHttpMatchPathMatchMatchOutput
+	ToListenerRuleMatchHttpMatchPathMatchMatchOutputWithContext(context.Context) ListenerRuleMatchHttpMatchPathMatchMatchOutput
+}
+
+type ListenerRuleMatchHttpMatchPathMatchMatchArgs struct {
+	// Specifies an exact type match.
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	// Specifies a prefix type match. Matches the value with the prefix.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ListenerRuleMatchHttpMatchPathMatchMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchMatch)(nil)).Elem()
+}
+
+func (i ListenerRuleMatchHttpMatchPathMatchMatchArgs) ToListenerRuleMatchHttpMatchPathMatchMatchOutput() ListenerRuleMatchHttpMatchPathMatchMatchOutput {
+	return i.ToListenerRuleMatchHttpMatchPathMatchMatchOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchPathMatchMatchArgs) ToListenerRuleMatchHttpMatchPathMatchMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchMatchOutput)
+}
+
+func (i ListenerRuleMatchHttpMatchPathMatchMatchArgs) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return i.ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleMatchHttpMatchPathMatchMatchArgs) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchMatchOutput).ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleMatchHttpMatchPathMatchMatchPtrInput is an input type that accepts ListenerRuleMatchHttpMatchPathMatchMatchArgs, ListenerRuleMatchHttpMatchPathMatchMatchPtr and ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleMatchHttpMatchPathMatchMatchPtrInput` via:
+//
+//	        ListenerRuleMatchHttpMatchPathMatchMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleMatchHttpMatchPathMatchMatchPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput
+	ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(context.Context) ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput
+}
+
+type listenerRuleMatchHttpMatchPathMatchMatchPtrType ListenerRuleMatchHttpMatchPathMatchMatchArgs
+
+func ListenerRuleMatchHttpMatchPathMatchMatchPtr(v *ListenerRuleMatchHttpMatchPathMatchMatchArgs) ListenerRuleMatchHttpMatchPathMatchMatchPtrInput {
+	return (*listenerRuleMatchHttpMatchPathMatchMatchPtrType)(v)
+}
+
+func (*listenerRuleMatchHttpMatchPathMatchMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleMatchHttpMatchPathMatchMatch)(nil)).Elem()
+}
+
+func (i *listenerRuleMatchHttpMatchPathMatchMatchPtrType) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return i.ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleMatchHttpMatchPathMatchMatchPtrType) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatchPathMatchMatchOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchPathMatchMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) ToListenerRuleMatchHttpMatchPathMatchMatchOutput() ListenerRuleMatchHttpMatchPathMatchMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) ToListenerRuleMatchHttpMatchPathMatchMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchMatchOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return o.ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleMatchHttpMatchPathMatchMatch) *ListenerRuleMatchHttpMatchPathMatchMatch {
+		return &v
+	}).(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput)
+}
+
+// Specifies an exact type match.
+func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatchMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a prefix type match. Matches the value with the prefix.
+func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatchMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleMatchHttpMatchPathMatchMatch)(nil)).Elem()
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
+	return o
+}
+
+func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Elem() ListenerRuleMatchHttpMatchPathMatchMatchOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatchMatch) ListenerRuleMatchHttpMatchPathMatchMatch {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleMatchHttpMatchPathMatchMatch
+		return ret
+	}).(ListenerRuleMatchHttpMatchPathMatchMatchOutput)
+}
+
+// Specifies an exact type match.
+func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatchMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exact
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a prefix type match. Matches the value with the prefix.
+func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleMatchHttpMatchPathMatchMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceDnsEntry struct {
 	DomainName   *string `pulumi:"domainName"`
 	HostedZoneId *string `pulumi:"hostedZoneId"`
@@ -893,6 +2729,396 @@ func (o TargetGroupConfigHealthCheckMatcherPtrOutput) Value() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetListenerDefaultAction struct {
+	FixedResponses []GetListenerDefaultActionFixedResponse `pulumi:"fixedResponses"`
+	Forwards       []GetListenerDefaultActionForward       `pulumi:"forwards"`
+}
+
+// GetListenerDefaultActionInput is an input type that accepts GetListenerDefaultActionArgs and GetListenerDefaultActionOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionInput` via:
+//
+//	GetListenerDefaultActionArgs{...}
+type GetListenerDefaultActionInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionOutput() GetListenerDefaultActionOutput
+	ToGetListenerDefaultActionOutputWithContext(context.Context) GetListenerDefaultActionOutput
+}
+
+type GetListenerDefaultActionArgs struct {
+	FixedResponses GetListenerDefaultActionFixedResponseArrayInput `pulumi:"fixedResponses"`
+	Forwards       GetListenerDefaultActionForwardArrayInput       `pulumi:"forwards"`
+}
+
+func (GetListenerDefaultActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultAction)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionArgs) ToGetListenerDefaultActionOutput() GetListenerDefaultActionOutput {
+	return i.ToGetListenerDefaultActionOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionArgs) ToGetListenerDefaultActionOutputWithContext(ctx context.Context) GetListenerDefaultActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionOutput)
+}
+
+// GetListenerDefaultActionArrayInput is an input type that accepts GetListenerDefaultActionArray and GetListenerDefaultActionArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionArrayInput` via:
+//
+//	GetListenerDefaultActionArray{ GetListenerDefaultActionArgs{...} }
+type GetListenerDefaultActionArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionArrayOutput() GetListenerDefaultActionArrayOutput
+	ToGetListenerDefaultActionArrayOutputWithContext(context.Context) GetListenerDefaultActionArrayOutput
+}
+
+type GetListenerDefaultActionArray []GetListenerDefaultActionInput
+
+func (GetListenerDefaultActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultAction)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionArray) ToGetListenerDefaultActionArrayOutput() GetListenerDefaultActionArrayOutput {
+	return i.ToGetListenerDefaultActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionArray) ToGetListenerDefaultActionArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionArrayOutput)
+}
+
+type GetListenerDefaultActionOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultAction)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionOutput) ToGetListenerDefaultActionOutput() GetListenerDefaultActionOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionOutput) ToGetListenerDefaultActionOutputWithContext(ctx context.Context) GetListenerDefaultActionOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionOutput) FixedResponses() GetListenerDefaultActionFixedResponseArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionFixedResponse { return v.FixedResponses }).(GetListenerDefaultActionFixedResponseArrayOutput)
+}
+
+func (o GetListenerDefaultActionOutput) Forwards() GetListenerDefaultActionForwardArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionForward { return v.Forwards }).(GetListenerDefaultActionForwardArrayOutput)
+}
+
+type GetListenerDefaultActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultAction)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionArrayOutput) ToGetListenerDefaultActionArrayOutput() GetListenerDefaultActionArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionArrayOutput) ToGetListenerDefaultActionArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultAction {
+		return vs[0].([]GetListenerDefaultAction)[vs[1].(int)]
+	}).(GetListenerDefaultActionOutput)
+}
+
+type GetListenerDefaultActionFixedResponse struct {
+	StatusCode int `pulumi:"statusCode"`
+}
+
+// GetListenerDefaultActionFixedResponseInput is an input type that accepts GetListenerDefaultActionFixedResponseArgs and GetListenerDefaultActionFixedResponseOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionFixedResponseInput` via:
+//
+//	GetListenerDefaultActionFixedResponseArgs{...}
+type GetListenerDefaultActionFixedResponseInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionFixedResponseOutput() GetListenerDefaultActionFixedResponseOutput
+	ToGetListenerDefaultActionFixedResponseOutputWithContext(context.Context) GetListenerDefaultActionFixedResponseOutput
+}
+
+type GetListenerDefaultActionFixedResponseArgs struct {
+	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+}
+
+func (GetListenerDefaultActionFixedResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionFixedResponse)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionFixedResponseArgs) ToGetListenerDefaultActionFixedResponseOutput() GetListenerDefaultActionFixedResponseOutput {
+	return i.ToGetListenerDefaultActionFixedResponseOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionFixedResponseArgs) ToGetListenerDefaultActionFixedResponseOutputWithContext(ctx context.Context) GetListenerDefaultActionFixedResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionFixedResponseOutput)
+}
+
+// GetListenerDefaultActionFixedResponseArrayInput is an input type that accepts GetListenerDefaultActionFixedResponseArray and GetListenerDefaultActionFixedResponseArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionFixedResponseArrayInput` via:
+//
+//	GetListenerDefaultActionFixedResponseArray{ GetListenerDefaultActionFixedResponseArgs{...} }
+type GetListenerDefaultActionFixedResponseArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionFixedResponseArrayOutput() GetListenerDefaultActionFixedResponseArrayOutput
+	ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(context.Context) GetListenerDefaultActionFixedResponseArrayOutput
+}
+
+type GetListenerDefaultActionFixedResponseArray []GetListenerDefaultActionFixedResponseInput
+
+func (GetListenerDefaultActionFixedResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionFixedResponse)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionFixedResponseArray) ToGetListenerDefaultActionFixedResponseArrayOutput() GetListenerDefaultActionFixedResponseArrayOutput {
+	return i.ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionFixedResponseArray) ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionFixedResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionFixedResponseArrayOutput)
+}
+
+type GetListenerDefaultActionFixedResponseOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionFixedResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionFixedResponse)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionFixedResponseOutput) ToGetListenerDefaultActionFixedResponseOutput() GetListenerDefaultActionFixedResponseOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionFixedResponseOutput) ToGetListenerDefaultActionFixedResponseOutputWithContext(ctx context.Context) GetListenerDefaultActionFixedResponseOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
+}
+
+type GetListenerDefaultActionFixedResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionFixedResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionFixedResponse)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionFixedResponseArrayOutput) ToGetListenerDefaultActionFixedResponseArrayOutput() GetListenerDefaultActionFixedResponseArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionFixedResponseArrayOutput) ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionFixedResponseArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionFixedResponseArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionFixedResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionFixedResponse {
+		return vs[0].([]GetListenerDefaultActionFixedResponse)[vs[1].(int)]
+	}).(GetListenerDefaultActionFixedResponseOutput)
+}
+
+type GetListenerDefaultActionForward struct {
+	TargetGroups []GetListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
+}
+
+// GetListenerDefaultActionForwardInput is an input type that accepts GetListenerDefaultActionForwardArgs and GetListenerDefaultActionForwardOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardInput` via:
+//
+//	GetListenerDefaultActionForwardArgs{...}
+type GetListenerDefaultActionForwardInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardOutput() GetListenerDefaultActionForwardOutput
+	ToGetListenerDefaultActionForwardOutputWithContext(context.Context) GetListenerDefaultActionForwardOutput
+}
+
+type GetListenerDefaultActionForwardArgs struct {
+	TargetGroups GetListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
+}
+
+func (GetListenerDefaultActionForwardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardArgs) ToGetListenerDefaultActionForwardOutput() GetListenerDefaultActionForwardOutput {
+	return i.ToGetListenerDefaultActionForwardOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardArgs) ToGetListenerDefaultActionForwardOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardOutput)
+}
+
+// GetListenerDefaultActionForwardArrayInput is an input type that accepts GetListenerDefaultActionForwardArray and GetListenerDefaultActionForwardArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardArrayInput` via:
+//
+//	GetListenerDefaultActionForwardArray{ GetListenerDefaultActionForwardArgs{...} }
+type GetListenerDefaultActionForwardArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardArrayOutput() GetListenerDefaultActionForwardArrayOutput
+	ToGetListenerDefaultActionForwardArrayOutputWithContext(context.Context) GetListenerDefaultActionForwardArrayOutput
+}
+
+type GetListenerDefaultActionForwardArray []GetListenerDefaultActionForwardInput
+
+func (GetListenerDefaultActionForwardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardArray) ToGetListenerDefaultActionForwardArrayOutput() GetListenerDefaultActionForwardArrayOutput {
+	return i.ToGetListenerDefaultActionForwardArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardArray) ToGetListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardArrayOutput)
+}
+
+type GetListenerDefaultActionForwardOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardOutput) ToGetListenerDefaultActionForwardOutput() GetListenerDefaultActionForwardOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardOutput) ToGetListenerDefaultActionForwardOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardOutput) TargetGroups() GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForward) []GetListenerDefaultActionForwardTargetGroup {
+		return v.TargetGroups
+	}).(GetListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type GetListenerDefaultActionForwardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardArrayOutput) ToGetListenerDefaultActionForwardArrayOutput() GetListenerDefaultActionForwardArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardArrayOutput) ToGetListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionForwardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionForward {
+		return vs[0].([]GetListenerDefaultActionForward)[vs[1].(int)]
+	}).(GetListenerDefaultActionForwardOutput)
+}
+
+type GetListenerDefaultActionForwardTargetGroup struct {
+	TargetGroupIdentifier string `pulumi:"targetGroupIdentifier"`
+	Weight                int    `pulumi:"weight"`
+}
+
+// GetListenerDefaultActionForwardTargetGroupInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArgs and GetListenerDefaultActionForwardTargetGroupOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardTargetGroupInput` via:
+//
+//	GetListenerDefaultActionForwardTargetGroupArgs{...}
+type GetListenerDefaultActionForwardTargetGroupInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardTargetGroupOutput() GetListenerDefaultActionForwardTargetGroupOutput
+	ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(context.Context) GetListenerDefaultActionForwardTargetGroupOutput
+}
+
+type GetListenerDefaultActionForwardTargetGroupArgs struct {
+	TargetGroupIdentifier pulumi.StringInput `pulumi:"targetGroupIdentifier"`
+	Weight                pulumi.IntInput    `pulumi:"weight"`
+}
+
+func (GetListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardTargetGroupArgs) ToGetListenerDefaultActionForwardTargetGroupOutput() GetListenerDefaultActionForwardTargetGroupOutput {
+	return i.ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardTargetGroupArgs) ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardTargetGroupOutput)
+}
+
+// GetListenerDefaultActionForwardTargetGroupArrayInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArray and GetListenerDefaultActionForwardTargetGroupArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionForwardTargetGroupArrayInput` via:
+//
+//	GetListenerDefaultActionForwardTargetGroupArray{ GetListenerDefaultActionForwardTargetGroupArgs{...} }
+type GetListenerDefaultActionForwardTargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerDefaultActionForwardTargetGroupArrayOutput() GetListenerDefaultActionForwardTargetGroupArrayOutput
+	ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput
+}
+
+type GetListenerDefaultActionForwardTargetGroupArray []GetListenerDefaultActionForwardTargetGroupInput
+
+func (GetListenerDefaultActionForwardTargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i GetListenerDefaultActionForwardTargetGroupArray) ToGetListenerDefaultActionForwardTargetGroupArrayOutput() GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return i.ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerDefaultActionForwardTargetGroupArray) ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type GetListenerDefaultActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultActionForwardTargetGroupOutput() GetListenerDefaultActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) string { return v.TargetGroupIdentifier }).(pulumi.StringOutput)
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetListenerDefaultActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerDefaultActionForwardTargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) ToGetListenerDefaultActionForwardTargetGroupArrayOutput() GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionForwardTargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerDefaultActionForwardTargetGroup {
+		return vs[0].([]GetListenerDefaultActionForwardTargetGroup)[vs[1].(int)]
+	}).(GetListenerDefaultActionForwardTargetGroupOutput)
+}
+
 type GetServiceDnsEntry struct {
 	DomainName   string `pulumi:"domainName"`
 	HostedZoneId string `pulumi:"hostedZoneId"`
@@ -994,6 +3220,33 @@ func (o GetServiceDnsEntryArrayOutput) Index(i pulumi.IntInput) GetServiceDnsEnt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionInput)(nil)).Elem(), ListenerDefaultActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionPtrInput)(nil)).Elem(), ListenerDefaultActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionFixedResponseInput)(nil)).Elem(), ListenerDefaultActionFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionFixedResponsePtrInput)(nil)).Elem(), ListenerDefaultActionFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardInput)(nil)).Elem(), ListenerDefaultActionForwardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardArrayInput)(nil)).Elem(), ListenerDefaultActionForwardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardTargetGroupInput)(nil)).Elem(), ListenerDefaultActionForwardTargetGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), ListenerDefaultActionForwardTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionInput)(nil)).Elem(), ListenerRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionPtrInput)(nil)).Elem(), ListenerRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionFixedResponseInput)(nil)).Elem(), ListenerRuleActionFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionFixedResponsePtrInput)(nil)).Elem(), ListenerRuleActionFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionForwardInput)(nil)).Elem(), ListenerRuleActionForwardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionForwardPtrInput)(nil)).Elem(), ListenerRuleActionForwardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionForwardTargetGroupInput)(nil)).Elem(), ListenerRuleActionForwardTargetGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionForwardTargetGroupArrayInput)(nil)).Elem(), ListenerRuleActionForwardTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchInput)(nil)).Elem(), ListenerRuleMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchPtrInput)(nil)).Elem(), ListenerRuleMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchInput)(nil)).Elem(), ListenerRuleMatchHttpMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPtrInput)(nil)).Elem(), ListenerRuleMatchHttpMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchHeaderMatchInput)(nil)).Elem(), ListenerRuleMatchHttpMatchHeaderMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchHeaderMatchArrayInput)(nil)).Elem(), ListenerRuleMatchHttpMatchHeaderMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchHeaderMatchMatchInput)(nil)).Elem(), ListenerRuleMatchHttpMatchHeaderMatchMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchPtrInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchMatchInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchMatchPtrInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryInput)(nil)).Elem(), ServiceDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryArrayInput)(nil)).Elem(), ServiceDnsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArgs{})
@@ -1004,8 +3257,43 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigHealthCheckPtrInput)(nil)).Elem(), TargetGroupConfigHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigHealthCheckMatcherInput)(nil)).Elem(), TargetGroupConfigHealthCheckMatcherArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigHealthCheckMatcherPtrInput)(nil)).Elem(), TargetGroupConfigHealthCheckMatcherArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionInput)(nil)).Elem(), GetListenerDefaultActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionArrayInput)(nil)).Elem(), GetListenerDefaultActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionFixedResponseInput)(nil)).Elem(), GetListenerDefaultActionFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionFixedResponseArrayInput)(nil)).Elem(), GetListenerDefaultActionFixedResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardInput)(nil)).Elem(), GetListenerDefaultActionForwardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsEntryInput)(nil)).Elem(), GetServiceDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsEntryArrayInput)(nil)).Elem(), GetServiceDnsEntryArray{})
+	pulumi.RegisterOutputType(ListenerDefaultActionOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionPtrOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionFixedResponseOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionFixedResponsePtrOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardArrayOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardTargetGroupOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionFixedResponseOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionFixedResponsePtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardTargetGroupOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchHeaderMatchOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchHeaderMatchArrayOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchHeaderMatchMatchOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchMatchOutput{})
+	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDnsEntryOutput{})
 	pulumi.RegisterOutputType(ServiceDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryOutput{})
@@ -1016,6 +3304,14 @@ func init() {
 	pulumi.RegisterOutputType(TargetGroupConfigHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigHealthCheckMatcherOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigHealthCheckMatcherPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionFixedResponseOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionFixedResponseArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupOutput{})
+	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceDnsEntryOutput{})
 	pulumi.RegisterOutputType(GetServiceDnsEntryArrayOutput{})
 }

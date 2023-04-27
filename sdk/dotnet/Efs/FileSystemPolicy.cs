@@ -71,7 +71,6 @@ namespace Pulumi.Aws.Efs
     ///     var policyFileSystemPolicy = new Aws.Efs.FileSystemPolicy("policyFileSystemPolicy", new()
     ///     {
     ///         FileSystemId = fs.Id,
-    ///         BypassPolicyLockoutSafetyCheck = true,
     ///         Policy = policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 

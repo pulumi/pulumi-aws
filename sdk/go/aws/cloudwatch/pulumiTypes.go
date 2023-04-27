@@ -1924,6 +1924,811 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOut
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput)
 }
 
+type EventEndpointEventBus struct {
+	// The ARN of the event bus the endpoint is associated with.
+	EventBusArn string `pulumi:"eventBusArn"`
+}
+
+// EventEndpointEventBusInput is an input type that accepts EventEndpointEventBusArgs and EventEndpointEventBusOutput values.
+// You can construct a concrete instance of `EventEndpointEventBusInput` via:
+//
+//	EventEndpointEventBusArgs{...}
+type EventEndpointEventBusInput interface {
+	pulumi.Input
+
+	ToEventEndpointEventBusOutput() EventEndpointEventBusOutput
+	ToEventEndpointEventBusOutputWithContext(context.Context) EventEndpointEventBusOutput
+}
+
+type EventEndpointEventBusArgs struct {
+	// The ARN of the event bus the endpoint is associated with.
+	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
+}
+
+func (EventEndpointEventBusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointEventBus)(nil)).Elem()
+}
+
+func (i EventEndpointEventBusArgs) ToEventEndpointEventBusOutput() EventEndpointEventBusOutput {
+	return i.ToEventEndpointEventBusOutputWithContext(context.Background())
+}
+
+func (i EventEndpointEventBusArgs) ToEventEndpointEventBusOutputWithContext(ctx context.Context) EventEndpointEventBusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointEventBusOutput)
+}
+
+// EventEndpointEventBusArrayInput is an input type that accepts EventEndpointEventBusArray and EventEndpointEventBusArrayOutput values.
+// You can construct a concrete instance of `EventEndpointEventBusArrayInput` via:
+//
+//	EventEndpointEventBusArray{ EventEndpointEventBusArgs{...} }
+type EventEndpointEventBusArrayInput interface {
+	pulumi.Input
+
+	ToEventEndpointEventBusArrayOutput() EventEndpointEventBusArrayOutput
+	ToEventEndpointEventBusArrayOutputWithContext(context.Context) EventEndpointEventBusArrayOutput
+}
+
+type EventEndpointEventBusArray []EventEndpointEventBusInput
+
+func (EventEndpointEventBusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventEndpointEventBus)(nil)).Elem()
+}
+
+func (i EventEndpointEventBusArray) ToEventEndpointEventBusArrayOutput() EventEndpointEventBusArrayOutput {
+	return i.ToEventEndpointEventBusArrayOutputWithContext(context.Background())
+}
+
+func (i EventEndpointEventBusArray) ToEventEndpointEventBusArrayOutputWithContext(ctx context.Context) EventEndpointEventBusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointEventBusArrayOutput)
+}
+
+type EventEndpointEventBusOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointEventBusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointEventBus)(nil)).Elem()
+}
+
+func (o EventEndpointEventBusOutput) ToEventEndpointEventBusOutput() EventEndpointEventBusOutput {
+	return o
+}
+
+func (o EventEndpointEventBusOutput) ToEventEndpointEventBusOutputWithContext(ctx context.Context) EventEndpointEventBusOutput {
+	return o
+}
+
+// The ARN of the event bus the endpoint is associated with.
+func (o EventEndpointEventBusOutput) EventBusArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EventEndpointEventBus) string { return v.EventBusArn }).(pulumi.StringOutput)
+}
+
+type EventEndpointEventBusArrayOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointEventBusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventEndpointEventBus)(nil)).Elem()
+}
+
+func (o EventEndpointEventBusArrayOutput) ToEventEndpointEventBusArrayOutput() EventEndpointEventBusArrayOutput {
+	return o
+}
+
+func (o EventEndpointEventBusArrayOutput) ToEventEndpointEventBusArrayOutputWithContext(ctx context.Context) EventEndpointEventBusArrayOutput {
+	return o
+}
+
+func (o EventEndpointEventBusArrayOutput) Index(i pulumi.IntInput) EventEndpointEventBusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventEndpointEventBus {
+		return vs[0].([]EventEndpointEventBus)[vs[1].(int)]
+	}).(EventEndpointEventBusOutput)
+}
+
+type EventEndpointReplicationConfig struct {
+	// The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don't have a `roleArn` or you don't want event replication enabled, set `state` to `DISABLED`.
+	State *string `pulumi:"state"`
+}
+
+// EventEndpointReplicationConfigInput is an input type that accepts EventEndpointReplicationConfigArgs and EventEndpointReplicationConfigOutput values.
+// You can construct a concrete instance of `EventEndpointReplicationConfigInput` via:
+//
+//	EventEndpointReplicationConfigArgs{...}
+type EventEndpointReplicationConfigInput interface {
+	pulumi.Input
+
+	ToEventEndpointReplicationConfigOutput() EventEndpointReplicationConfigOutput
+	ToEventEndpointReplicationConfigOutputWithContext(context.Context) EventEndpointReplicationConfigOutput
+}
+
+type EventEndpointReplicationConfigArgs struct {
+	// The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don't have a `roleArn` or you don't want event replication enabled, set `state` to `DISABLED`.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (EventEndpointReplicationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointReplicationConfig)(nil)).Elem()
+}
+
+func (i EventEndpointReplicationConfigArgs) ToEventEndpointReplicationConfigOutput() EventEndpointReplicationConfigOutput {
+	return i.ToEventEndpointReplicationConfigOutputWithContext(context.Background())
+}
+
+func (i EventEndpointReplicationConfigArgs) ToEventEndpointReplicationConfigOutputWithContext(ctx context.Context) EventEndpointReplicationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointReplicationConfigOutput)
+}
+
+func (i EventEndpointReplicationConfigArgs) ToEventEndpointReplicationConfigPtrOutput() EventEndpointReplicationConfigPtrOutput {
+	return i.ToEventEndpointReplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventEndpointReplicationConfigArgs) ToEventEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EventEndpointReplicationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointReplicationConfigOutput).ToEventEndpointReplicationConfigPtrOutputWithContext(ctx)
+}
+
+// EventEndpointReplicationConfigPtrInput is an input type that accepts EventEndpointReplicationConfigArgs, EventEndpointReplicationConfigPtr and EventEndpointReplicationConfigPtrOutput values.
+// You can construct a concrete instance of `EventEndpointReplicationConfigPtrInput` via:
+//
+//	        EventEndpointReplicationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventEndpointReplicationConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventEndpointReplicationConfigPtrOutput() EventEndpointReplicationConfigPtrOutput
+	ToEventEndpointReplicationConfigPtrOutputWithContext(context.Context) EventEndpointReplicationConfigPtrOutput
+}
+
+type eventEndpointReplicationConfigPtrType EventEndpointReplicationConfigArgs
+
+func EventEndpointReplicationConfigPtr(v *EventEndpointReplicationConfigArgs) EventEndpointReplicationConfigPtrInput {
+	return (*eventEndpointReplicationConfigPtrType)(v)
+}
+
+func (*eventEndpointReplicationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointReplicationConfig)(nil)).Elem()
+}
+
+func (i *eventEndpointReplicationConfigPtrType) ToEventEndpointReplicationConfigPtrOutput() EventEndpointReplicationConfigPtrOutput {
+	return i.ToEventEndpointReplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventEndpointReplicationConfigPtrType) ToEventEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EventEndpointReplicationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointReplicationConfigPtrOutput)
+}
+
+type EventEndpointReplicationConfigOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointReplicationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointReplicationConfig)(nil)).Elem()
+}
+
+func (o EventEndpointReplicationConfigOutput) ToEventEndpointReplicationConfigOutput() EventEndpointReplicationConfigOutput {
+	return o
+}
+
+func (o EventEndpointReplicationConfigOutput) ToEventEndpointReplicationConfigOutputWithContext(ctx context.Context) EventEndpointReplicationConfigOutput {
+	return o
+}
+
+func (o EventEndpointReplicationConfigOutput) ToEventEndpointReplicationConfigPtrOutput() EventEndpointReplicationConfigPtrOutput {
+	return o.ToEventEndpointReplicationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventEndpointReplicationConfigOutput) ToEventEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EventEndpointReplicationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventEndpointReplicationConfig) *EventEndpointReplicationConfig {
+		return &v
+	}).(EventEndpointReplicationConfigPtrOutput)
+}
+
+// The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don't have a `roleArn` or you don't want event replication enabled, set `state` to `DISABLED`.
+func (o EventEndpointReplicationConfigOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventEndpointReplicationConfig) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type EventEndpointReplicationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointReplicationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointReplicationConfig)(nil)).Elem()
+}
+
+func (o EventEndpointReplicationConfigPtrOutput) ToEventEndpointReplicationConfigPtrOutput() EventEndpointReplicationConfigPtrOutput {
+	return o
+}
+
+func (o EventEndpointReplicationConfigPtrOutput) ToEventEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EventEndpointReplicationConfigPtrOutput {
+	return o
+}
+
+func (o EventEndpointReplicationConfigPtrOutput) Elem() EventEndpointReplicationConfigOutput {
+	return o.ApplyT(func(v *EventEndpointReplicationConfig) EventEndpointReplicationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventEndpointReplicationConfig
+		return ret
+	}).(EventEndpointReplicationConfigOutput)
+}
+
+// The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don't have a `roleArn` or you don't want event replication enabled, set `state` to `DISABLED`.
+func (o EventEndpointReplicationConfigPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventEndpointReplicationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventEndpointRoutingConfig struct {
+	// Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+	FailoverConfig EventEndpointRoutingConfigFailoverConfig `pulumi:"failoverConfig"`
+}
+
+// EventEndpointRoutingConfigInput is an input type that accepts EventEndpointRoutingConfigArgs and EventEndpointRoutingConfigOutput values.
+// You can construct a concrete instance of `EventEndpointRoutingConfigInput` via:
+//
+//	EventEndpointRoutingConfigArgs{...}
+type EventEndpointRoutingConfigInput interface {
+	pulumi.Input
+
+	ToEventEndpointRoutingConfigOutput() EventEndpointRoutingConfigOutput
+	ToEventEndpointRoutingConfigOutputWithContext(context.Context) EventEndpointRoutingConfigOutput
+}
+
+type EventEndpointRoutingConfigArgs struct {
+	// Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+	FailoverConfig EventEndpointRoutingConfigFailoverConfigInput `pulumi:"failoverConfig"`
+}
+
+func (EventEndpointRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointRoutingConfig)(nil)).Elem()
+}
+
+func (i EventEndpointRoutingConfigArgs) ToEventEndpointRoutingConfigOutput() EventEndpointRoutingConfigOutput {
+	return i.ToEventEndpointRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i EventEndpointRoutingConfigArgs) ToEventEndpointRoutingConfigOutputWithContext(ctx context.Context) EventEndpointRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigOutput)
+}
+
+func (i EventEndpointRoutingConfigArgs) ToEventEndpointRoutingConfigPtrOutput() EventEndpointRoutingConfigPtrOutput {
+	return i.ToEventEndpointRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventEndpointRoutingConfigArgs) ToEventEndpointRoutingConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigOutput).ToEventEndpointRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// EventEndpointRoutingConfigPtrInput is an input type that accepts EventEndpointRoutingConfigArgs, EventEndpointRoutingConfigPtr and EventEndpointRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `EventEndpointRoutingConfigPtrInput` via:
+//
+//	        EventEndpointRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventEndpointRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventEndpointRoutingConfigPtrOutput() EventEndpointRoutingConfigPtrOutput
+	ToEventEndpointRoutingConfigPtrOutputWithContext(context.Context) EventEndpointRoutingConfigPtrOutput
+}
+
+type eventEndpointRoutingConfigPtrType EventEndpointRoutingConfigArgs
+
+func EventEndpointRoutingConfigPtr(v *EventEndpointRoutingConfigArgs) EventEndpointRoutingConfigPtrInput {
+	return (*eventEndpointRoutingConfigPtrType)(v)
+}
+
+func (*eventEndpointRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointRoutingConfig)(nil)).Elem()
+}
+
+func (i *eventEndpointRoutingConfigPtrType) ToEventEndpointRoutingConfigPtrOutput() EventEndpointRoutingConfigPtrOutput {
+	return i.ToEventEndpointRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventEndpointRoutingConfigPtrType) ToEventEndpointRoutingConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigPtrOutput)
+}
+
+type EventEndpointRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointRoutingConfig)(nil)).Elem()
+}
+
+func (o EventEndpointRoutingConfigOutput) ToEventEndpointRoutingConfigOutput() EventEndpointRoutingConfigOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigOutput) ToEventEndpointRoutingConfigOutputWithContext(ctx context.Context) EventEndpointRoutingConfigOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigOutput) ToEventEndpointRoutingConfigPtrOutput() EventEndpointRoutingConfigPtrOutput {
+	return o.ToEventEndpointRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventEndpointRoutingConfigOutput) ToEventEndpointRoutingConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventEndpointRoutingConfig) *EventEndpointRoutingConfig {
+		return &v
+	}).(EventEndpointRoutingConfigPtrOutput)
+}
+
+// Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+func (o EventEndpointRoutingConfigOutput) FailoverConfig() EventEndpointRoutingConfigFailoverConfigOutput {
+	return o.ApplyT(func(v EventEndpointRoutingConfig) EventEndpointRoutingConfigFailoverConfig { return v.FailoverConfig }).(EventEndpointRoutingConfigFailoverConfigOutput)
+}
+
+type EventEndpointRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointRoutingConfig)(nil)).Elem()
+}
+
+func (o EventEndpointRoutingConfigPtrOutput) ToEventEndpointRoutingConfigPtrOutput() EventEndpointRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigPtrOutput) ToEventEndpointRoutingConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigPtrOutput) Elem() EventEndpointRoutingConfigOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfig) EventEndpointRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventEndpointRoutingConfig
+		return ret
+	}).(EventEndpointRoutingConfigOutput)
+}
+
+// Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+func (o EventEndpointRoutingConfigPtrOutput) FailoverConfig() EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfig) *EventEndpointRoutingConfigFailoverConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.FailoverConfig
+	}).(EventEndpointRoutingConfigFailoverConfigPtrOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfig struct {
+	// Parameters used for the primary Region. Documented below.
+	Primary EventEndpointRoutingConfigFailoverConfigPrimary `pulumi:"primary"`
+	// Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+	Secondary EventEndpointRoutingConfigFailoverConfigSecondary `pulumi:"secondary"`
+}
+
+// EventEndpointRoutingConfigFailoverConfigInput is an input type that accepts EventEndpointRoutingConfigFailoverConfigArgs and EventEndpointRoutingConfigFailoverConfigOutput values.
+// You can construct a concrete instance of `EventEndpointRoutingConfigFailoverConfigInput` via:
+//
+//	EventEndpointRoutingConfigFailoverConfigArgs{...}
+type EventEndpointRoutingConfigFailoverConfigInput interface {
+	pulumi.Input
+
+	ToEventEndpointRoutingConfigFailoverConfigOutput() EventEndpointRoutingConfigFailoverConfigOutput
+	ToEventEndpointRoutingConfigFailoverConfigOutputWithContext(context.Context) EventEndpointRoutingConfigFailoverConfigOutput
+}
+
+type EventEndpointRoutingConfigFailoverConfigArgs struct {
+	// Parameters used for the primary Region. Documented below.
+	Primary EventEndpointRoutingConfigFailoverConfigPrimaryInput `pulumi:"primary"`
+	// Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+	Secondary EventEndpointRoutingConfigFailoverConfigSecondaryInput `pulumi:"secondary"`
+}
+
+func (EventEndpointRoutingConfigFailoverConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfig)(nil)).Elem()
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigArgs) ToEventEndpointRoutingConfigFailoverConfigOutput() EventEndpointRoutingConfigFailoverConfigOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigOutputWithContext(context.Background())
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigArgs) ToEventEndpointRoutingConfigFailoverConfigOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigOutput)
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigArgs) ToEventEndpointRoutingConfigFailoverConfigPtrOutput() EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigArgs) ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigOutput).ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(ctx)
+}
+
+// EventEndpointRoutingConfigFailoverConfigPtrInput is an input type that accepts EventEndpointRoutingConfigFailoverConfigArgs, EventEndpointRoutingConfigFailoverConfigPtr and EventEndpointRoutingConfigFailoverConfigPtrOutput values.
+// You can construct a concrete instance of `EventEndpointRoutingConfigFailoverConfigPtrInput` via:
+//
+//	        EventEndpointRoutingConfigFailoverConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventEndpointRoutingConfigFailoverConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventEndpointRoutingConfigFailoverConfigPtrOutput() EventEndpointRoutingConfigFailoverConfigPtrOutput
+	ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(context.Context) EventEndpointRoutingConfigFailoverConfigPtrOutput
+}
+
+type eventEndpointRoutingConfigFailoverConfigPtrType EventEndpointRoutingConfigFailoverConfigArgs
+
+func EventEndpointRoutingConfigFailoverConfigPtr(v *EventEndpointRoutingConfigFailoverConfigArgs) EventEndpointRoutingConfigFailoverConfigPtrInput {
+	return (*eventEndpointRoutingConfigFailoverConfigPtrType)(v)
+}
+
+func (*eventEndpointRoutingConfigFailoverConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointRoutingConfigFailoverConfig)(nil)).Elem()
+}
+
+func (i *eventEndpointRoutingConfigFailoverConfigPtrType) ToEventEndpointRoutingConfigFailoverConfigPtrOutput() EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventEndpointRoutingConfigFailoverConfigPtrType) ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigPtrOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfigOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointRoutingConfigFailoverConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfig)(nil)).Elem()
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigOutput) ToEventEndpointRoutingConfigFailoverConfigOutput() EventEndpointRoutingConfigFailoverConfigOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigOutput) ToEventEndpointRoutingConfigFailoverConfigOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigOutput) ToEventEndpointRoutingConfigFailoverConfigPtrOutput() EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return o.ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigOutput) ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventEndpointRoutingConfigFailoverConfig) *EventEndpointRoutingConfigFailoverConfig {
+		return &v
+	}).(EventEndpointRoutingConfigFailoverConfigPtrOutput)
+}
+
+// Parameters used for the primary Region. Documented below.
+func (o EventEndpointRoutingConfigFailoverConfigOutput) Primary() EventEndpointRoutingConfigFailoverConfigPrimaryOutput {
+	return o.ApplyT(func(v EventEndpointRoutingConfigFailoverConfig) EventEndpointRoutingConfigFailoverConfigPrimary {
+		return v.Primary
+	}).(EventEndpointRoutingConfigFailoverConfigPrimaryOutput)
+}
+
+// Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+func (o EventEndpointRoutingConfigFailoverConfigOutput) Secondary() EventEndpointRoutingConfigFailoverConfigSecondaryOutput {
+	return o.ApplyT(func(v EventEndpointRoutingConfigFailoverConfig) EventEndpointRoutingConfigFailoverConfigSecondary {
+		return v.Secondary
+	}).(EventEndpointRoutingConfigFailoverConfigSecondaryOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointRoutingConfigFailoverConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointRoutingConfigFailoverConfig)(nil)).Elem()
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) ToEventEndpointRoutingConfigFailoverConfigPtrOutput() EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPtrOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) Elem() EventEndpointRoutingConfigFailoverConfigOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfigFailoverConfig) EventEndpointRoutingConfigFailoverConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventEndpointRoutingConfigFailoverConfig
+		return ret
+	}).(EventEndpointRoutingConfigFailoverConfigOutput)
+}
+
+// Parameters used for the primary Region. Documented below.
+func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) Primary() EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfigFailoverConfig) *EventEndpointRoutingConfigFailoverConfigPrimary {
+		if v == nil {
+			return nil
+		}
+		return &v.Primary
+	}).(EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput)
+}
+
+// Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) Secondary() EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfigFailoverConfig) *EventEndpointRoutingConfigFailoverConfigSecondary {
+		if v == nil {
+			return nil
+		}
+		return &v.Secondary
+	}).(EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfigPrimary struct {
+	// The ARN of the health check used by the endpoint to determine whether failover is triggered.
+	HealthCheck *string `pulumi:"healthCheck"`
+}
+
+// EventEndpointRoutingConfigFailoverConfigPrimaryInput is an input type that accepts EventEndpointRoutingConfigFailoverConfigPrimaryArgs and EventEndpointRoutingConfigFailoverConfigPrimaryOutput values.
+// You can construct a concrete instance of `EventEndpointRoutingConfigFailoverConfigPrimaryInput` via:
+//
+//	EventEndpointRoutingConfigFailoverConfigPrimaryArgs{...}
+type EventEndpointRoutingConfigFailoverConfigPrimaryInput interface {
+	pulumi.Input
+
+	ToEventEndpointRoutingConfigFailoverConfigPrimaryOutput() EventEndpointRoutingConfigFailoverConfigPrimaryOutput
+	ToEventEndpointRoutingConfigFailoverConfigPrimaryOutputWithContext(context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryOutput
+}
+
+type EventEndpointRoutingConfigFailoverConfigPrimaryArgs struct {
+	// The ARN of the health check used by the endpoint to determine whether failover is triggered.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+}
+
+func (EventEndpointRoutingConfigFailoverConfigPrimaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigPrimary)(nil)).Elem()
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigPrimaryArgs) ToEventEndpointRoutingConfigFailoverConfigPrimaryOutput() EventEndpointRoutingConfigFailoverConfigPrimaryOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigPrimaryOutputWithContext(context.Background())
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigPrimaryArgs) ToEventEndpointRoutingConfigFailoverConfigPrimaryOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigPrimaryOutput)
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigPrimaryArgs) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput() EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(context.Background())
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigPrimaryArgs) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigPrimaryOutput).ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(ctx)
+}
+
+// EventEndpointRoutingConfigFailoverConfigPrimaryPtrInput is an input type that accepts EventEndpointRoutingConfigFailoverConfigPrimaryArgs, EventEndpointRoutingConfigFailoverConfigPrimaryPtr and EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput values.
+// You can construct a concrete instance of `EventEndpointRoutingConfigFailoverConfigPrimaryPtrInput` via:
+//
+//	        EventEndpointRoutingConfigFailoverConfigPrimaryArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventEndpointRoutingConfigFailoverConfigPrimaryPtrInput interface {
+	pulumi.Input
+
+	ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput() EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput
+	ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput
+}
+
+type eventEndpointRoutingConfigFailoverConfigPrimaryPtrType EventEndpointRoutingConfigFailoverConfigPrimaryArgs
+
+func EventEndpointRoutingConfigFailoverConfigPrimaryPtr(v *EventEndpointRoutingConfigFailoverConfigPrimaryArgs) EventEndpointRoutingConfigFailoverConfigPrimaryPtrInput {
+	return (*eventEndpointRoutingConfigFailoverConfigPrimaryPtrType)(v)
+}
+
+func (*eventEndpointRoutingConfigFailoverConfigPrimaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointRoutingConfigFailoverConfigPrimary)(nil)).Elem()
+}
+
+func (i *eventEndpointRoutingConfigFailoverConfigPrimaryPtrType) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput() EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(context.Background())
+}
+
+func (i *eventEndpointRoutingConfigFailoverConfigPrimaryPtrType) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfigPrimaryOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointRoutingConfigFailoverConfigPrimaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigPrimary)(nil)).Elem()
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryOutput) ToEventEndpointRoutingConfigFailoverConfigPrimaryOutput() EventEndpointRoutingConfigFailoverConfigPrimaryOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryOutput) ToEventEndpointRoutingConfigFailoverConfigPrimaryOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryOutput) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput() EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return o.ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(context.Background())
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryOutput) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventEndpointRoutingConfigFailoverConfigPrimary) *EventEndpointRoutingConfigFailoverConfigPrimary {
+		return &v
+	}).(EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput)
+}
+
+// The ARN of the health check used by the endpoint to determine whether failover is triggered.
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventEndpointRoutingConfigFailoverConfigPrimary) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointRoutingConfigFailoverConfigPrimary)(nil)).Elem()
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput() EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) Elem() EventEndpointRoutingConfigFailoverConfigPrimaryOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfigFailoverConfigPrimary) EventEndpointRoutingConfigFailoverConfigPrimary {
+		if v != nil {
+			return *v
+		}
+		var ret EventEndpointRoutingConfigFailoverConfigPrimary
+		return ret
+	}).(EventEndpointRoutingConfigFailoverConfigPrimaryOutput)
+}
+
+// The ARN of the health check used by the endpoint to determine whether failover is triggered.
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfigFailoverConfigPrimary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheck
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfigSecondary struct {
+	// The name of the secondary Region.
+	Route *string `pulumi:"route"`
+}
+
+// EventEndpointRoutingConfigFailoverConfigSecondaryInput is an input type that accepts EventEndpointRoutingConfigFailoverConfigSecondaryArgs and EventEndpointRoutingConfigFailoverConfigSecondaryOutput values.
+// You can construct a concrete instance of `EventEndpointRoutingConfigFailoverConfigSecondaryInput` via:
+//
+//	EventEndpointRoutingConfigFailoverConfigSecondaryArgs{...}
+type EventEndpointRoutingConfigFailoverConfigSecondaryInput interface {
+	pulumi.Input
+
+	ToEventEndpointRoutingConfigFailoverConfigSecondaryOutput() EventEndpointRoutingConfigFailoverConfigSecondaryOutput
+	ToEventEndpointRoutingConfigFailoverConfigSecondaryOutputWithContext(context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryOutput
+}
+
+type EventEndpointRoutingConfigFailoverConfigSecondaryArgs struct {
+	// The name of the secondary Region.
+	Route pulumi.StringPtrInput `pulumi:"route"`
+}
+
+func (EventEndpointRoutingConfigFailoverConfigSecondaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigSecondary)(nil)).Elem()
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigSecondaryArgs) ToEventEndpointRoutingConfigFailoverConfigSecondaryOutput() EventEndpointRoutingConfigFailoverConfigSecondaryOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigSecondaryOutputWithContext(context.Background())
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigSecondaryArgs) ToEventEndpointRoutingConfigFailoverConfigSecondaryOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigSecondaryOutput)
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigSecondaryArgs) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput() EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(context.Background())
+}
+
+func (i EventEndpointRoutingConfigFailoverConfigSecondaryArgs) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigSecondaryOutput).ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(ctx)
+}
+
+// EventEndpointRoutingConfigFailoverConfigSecondaryPtrInput is an input type that accepts EventEndpointRoutingConfigFailoverConfigSecondaryArgs, EventEndpointRoutingConfigFailoverConfigSecondaryPtr and EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput values.
+// You can construct a concrete instance of `EventEndpointRoutingConfigFailoverConfigSecondaryPtrInput` via:
+//
+//	        EventEndpointRoutingConfigFailoverConfigSecondaryArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventEndpointRoutingConfigFailoverConfigSecondaryPtrInput interface {
+	pulumi.Input
+
+	ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput() EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput
+	ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput
+}
+
+type eventEndpointRoutingConfigFailoverConfigSecondaryPtrType EventEndpointRoutingConfigFailoverConfigSecondaryArgs
+
+func EventEndpointRoutingConfigFailoverConfigSecondaryPtr(v *EventEndpointRoutingConfigFailoverConfigSecondaryArgs) EventEndpointRoutingConfigFailoverConfigSecondaryPtrInput {
+	return (*eventEndpointRoutingConfigFailoverConfigSecondaryPtrType)(v)
+}
+
+func (*eventEndpointRoutingConfigFailoverConfigSecondaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointRoutingConfigFailoverConfigSecondary)(nil)).Elem()
+}
+
+func (i *eventEndpointRoutingConfigFailoverConfigSecondaryPtrType) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput() EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return i.ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(context.Background())
+}
+
+func (i *eventEndpointRoutingConfigFailoverConfigSecondaryPtrType) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfigSecondaryOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointRoutingConfigFailoverConfigSecondaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigSecondary)(nil)).Elem()
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryOutput) ToEventEndpointRoutingConfigFailoverConfigSecondaryOutput() EventEndpointRoutingConfigFailoverConfigSecondaryOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryOutput) ToEventEndpointRoutingConfigFailoverConfigSecondaryOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryOutput) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput() EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return o.ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(context.Background())
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryOutput) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventEndpointRoutingConfigFailoverConfigSecondary) *EventEndpointRoutingConfigFailoverConfigSecondary {
+		return &v
+	}).(EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput)
+}
+
+// The name of the secondary Region.
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryOutput) Route() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventEndpointRoutingConfigFailoverConfigSecondary) *string { return v.Route }).(pulumi.StringPtrOutput)
+}
+
+type EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput struct{ *pulumi.OutputState }
+
+func (EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventEndpointRoutingConfigFailoverConfigSecondary)(nil)).Elem()
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput() EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
+	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) Elem() EventEndpointRoutingConfigFailoverConfigSecondaryOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfigFailoverConfigSecondary) EventEndpointRoutingConfigFailoverConfigSecondary {
+		if v != nil {
+			return *v
+		}
+		var ret EventEndpointRoutingConfigFailoverConfigSecondary
+		return ret
+	}).(EventEndpointRoutingConfigFailoverConfigSecondaryOutput)
+}
+
+// The name of the secondary Region.
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) Route() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventEndpointRoutingConfigFailoverConfigSecondary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Route
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventPermissionCondition struct {
 	// Key for the condition. Valid values: `aws:PrincipalOrgID`.
 	Key string `pulumi:"key"`
@@ -2443,6 +3248,8 @@ type EventTargetEcsTarget struct {
 	LaunchType *string `pulumi:"launchType"`
 	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration *EventTargetEcsTargetNetworkConfiguration `pulumi:"networkConfiguration"`
+	// An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+	OrderedPlacementStrategies []EventTargetEcsTargetOrderedPlacementStrategy `pulumi:"orderedPlacementStrategies"`
 	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
 	PlacementConstraints []EventTargetEcsTargetPlacementConstraint `pulumi:"placementConstraints"`
 	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
@@ -2481,6 +3288,8 @@ type EventTargetEcsTargetArgs struct {
 	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
 	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration EventTargetEcsTargetNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
+	// An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+	OrderedPlacementStrategies EventTargetEcsTargetOrderedPlacementStrategyArrayInput `pulumi:"orderedPlacementStrategies"`
 	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
 	PlacementConstraints EventTargetEcsTargetPlacementConstraintArrayInput `pulumi:"placementConstraints"`
 	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
@@ -2604,6 +3413,13 @@ func (o EventTargetEcsTargetOutput) NetworkConfiguration() EventTargetEcsTargetN
 	return o.ApplyT(func(v EventTargetEcsTarget) *EventTargetEcsTargetNetworkConfiguration { return v.NetworkConfiguration }).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
 
+// An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+func (o EventTargetEcsTargetOutput) OrderedPlacementStrategies() EventTargetEcsTargetOrderedPlacementStrategyArrayOutput {
+	return o.ApplyT(func(v EventTargetEcsTarget) []EventTargetEcsTargetOrderedPlacementStrategy {
+		return v.OrderedPlacementStrategies
+	}).(EventTargetEcsTargetOrderedPlacementStrategyArrayOutput)
+}
+
 // An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
 func (o EventTargetEcsTargetOutput) PlacementConstraints() EventTargetEcsTargetPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) []EventTargetEcsTargetPlacementConstraint { return v.PlacementConstraints }).(EventTargetEcsTargetPlacementConstraintArrayOutput)
@@ -2716,6 +3532,16 @@ func (o EventTargetEcsTargetPtrOutput) NetworkConfiguration() EventTargetEcsTarg
 		}
 		return v.NetworkConfiguration
 	}).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
+}
+
+// An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+func (o EventTargetEcsTargetPtrOutput) OrderedPlacementStrategies() EventTargetEcsTargetOrderedPlacementStrategyArrayOutput {
+	return o.ApplyT(func(v *EventTargetEcsTarget) []EventTargetEcsTargetOrderedPlacementStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.OrderedPlacementStrategies
+	}).(EventTargetEcsTargetOrderedPlacementStrategyArrayOutput)
 }
 
 // An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
@@ -3066,6 +3892,112 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Subnets() pulumi.Stri
 		}
 		return v.Subnets
 	}).(pulumi.StringArrayOutput)
+}
+
+type EventTargetEcsTargetOrderedPlacementStrategy struct {
+	// The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	Field *string `pulumi:"field"`
+	// Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+	Type string `pulumi:"type"`
+}
+
+// EventTargetEcsTargetOrderedPlacementStrategyInput is an input type that accepts EventTargetEcsTargetOrderedPlacementStrategyArgs and EventTargetEcsTargetOrderedPlacementStrategyOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetOrderedPlacementStrategyInput` via:
+//
+//	EventTargetEcsTargetOrderedPlacementStrategyArgs{...}
+type EventTargetEcsTargetOrderedPlacementStrategyInput interface {
+	pulumi.Input
+
+	ToEventTargetEcsTargetOrderedPlacementStrategyOutput() EventTargetEcsTargetOrderedPlacementStrategyOutput
+	ToEventTargetEcsTargetOrderedPlacementStrategyOutputWithContext(context.Context) EventTargetEcsTargetOrderedPlacementStrategyOutput
+}
+
+type EventTargetEcsTargetOrderedPlacementStrategyArgs struct {
+	// The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventTargetEcsTargetOrderedPlacementStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetEcsTargetOrderedPlacementStrategy)(nil)).Elem()
+}
+
+func (i EventTargetEcsTargetOrderedPlacementStrategyArgs) ToEventTargetEcsTargetOrderedPlacementStrategyOutput() EventTargetEcsTargetOrderedPlacementStrategyOutput {
+	return i.ToEventTargetEcsTargetOrderedPlacementStrategyOutputWithContext(context.Background())
+}
+
+func (i EventTargetEcsTargetOrderedPlacementStrategyArgs) ToEventTargetEcsTargetOrderedPlacementStrategyOutputWithContext(ctx context.Context) EventTargetEcsTargetOrderedPlacementStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetOrderedPlacementStrategyOutput)
+}
+
+// EventTargetEcsTargetOrderedPlacementStrategyArrayInput is an input type that accepts EventTargetEcsTargetOrderedPlacementStrategyArray and EventTargetEcsTargetOrderedPlacementStrategyArrayOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetOrderedPlacementStrategyArrayInput` via:
+//
+//	EventTargetEcsTargetOrderedPlacementStrategyArray{ EventTargetEcsTargetOrderedPlacementStrategyArgs{...} }
+type EventTargetEcsTargetOrderedPlacementStrategyArrayInput interface {
+	pulumi.Input
+
+	ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutput() EventTargetEcsTargetOrderedPlacementStrategyArrayOutput
+	ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutputWithContext(context.Context) EventTargetEcsTargetOrderedPlacementStrategyArrayOutput
+}
+
+type EventTargetEcsTargetOrderedPlacementStrategyArray []EventTargetEcsTargetOrderedPlacementStrategyInput
+
+func (EventTargetEcsTargetOrderedPlacementStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetEcsTargetOrderedPlacementStrategy)(nil)).Elem()
+}
+
+func (i EventTargetEcsTargetOrderedPlacementStrategyArray) ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutput() EventTargetEcsTargetOrderedPlacementStrategyArrayOutput {
+	return i.ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i EventTargetEcsTargetOrderedPlacementStrategyArray) ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetOrderedPlacementStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetOrderedPlacementStrategyArrayOutput)
+}
+
+type EventTargetEcsTargetOrderedPlacementStrategyOutput struct{ *pulumi.OutputState }
+
+func (EventTargetEcsTargetOrderedPlacementStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetEcsTargetOrderedPlacementStrategy)(nil)).Elem()
+}
+
+func (o EventTargetEcsTargetOrderedPlacementStrategyOutput) ToEventTargetEcsTargetOrderedPlacementStrategyOutput() EventTargetEcsTargetOrderedPlacementStrategyOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetOrderedPlacementStrategyOutput) ToEventTargetEcsTargetOrderedPlacementStrategyOutputWithContext(ctx context.Context) EventTargetEcsTargetOrderedPlacementStrategyOutput {
+	return o
+}
+
+// The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+func (o EventTargetEcsTargetOrderedPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetEcsTargetOrderedPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+// Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+func (o EventTargetEcsTargetOrderedPlacementStrategyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTargetEcsTargetOrderedPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EventTargetEcsTargetOrderedPlacementStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTargetEcsTargetOrderedPlacementStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetEcsTargetOrderedPlacementStrategy)(nil)).Elem()
+}
+
+func (o EventTargetEcsTargetOrderedPlacementStrategyArrayOutput) ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutput() EventTargetEcsTargetOrderedPlacementStrategyArrayOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetOrderedPlacementStrategyArrayOutput) ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetOrderedPlacementStrategyArrayOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetOrderedPlacementStrategyArrayOutput) Index(i pulumi.IntInput) EventTargetEcsTargetOrderedPlacementStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTargetEcsTargetOrderedPlacementStrategy {
+		return vs[0].([]EventTargetEcsTargetOrderedPlacementStrategy)[vs[1].(int)]
+	}).(EventTargetEcsTargetOrderedPlacementStrategyOutput)
 }
 
 type EventTargetEcsTargetPlacementConstraint struct {
@@ -6537,6 +7469,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput)(nil)).Elem(), EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput)(nil)).Elem(), EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput)(nil)).Elem(), EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointEventBusInput)(nil)).Elem(), EventEndpointEventBusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointEventBusArrayInput)(nil)).Elem(), EventEndpointEventBusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointReplicationConfigInput)(nil)).Elem(), EventEndpointReplicationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointReplicationConfigPtrInput)(nil)).Elem(), EventEndpointReplicationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigInput)(nil)).Elem(), EventEndpointRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigPtrInput)(nil)).Elem(), EventEndpointRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigInput)(nil)).Elem(), EventEndpointRoutingConfigFailoverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigPtrInput)(nil)).Elem(), EventEndpointRoutingConfigFailoverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigPrimaryInput)(nil)).Elem(), EventEndpointRoutingConfigFailoverConfigPrimaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigPrimaryPtrInput)(nil)).Elem(), EventEndpointRoutingConfigFailoverConfigPrimaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigSecondaryInput)(nil)).Elem(), EventEndpointRoutingConfigFailoverConfigSecondaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigSecondaryPtrInput)(nil)).Elem(), EventEndpointRoutingConfigFailoverConfigSecondaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventPermissionConditionInput)(nil)).Elem(), EventPermissionConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventPermissionConditionPtrInput)(nil)).Elem(), EventPermissionConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetBatchTargetInput)(nil)).Elem(), EventTargetBatchTargetArgs{})
@@ -6549,6 +7493,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetCapacityProviderStrategyArrayInput)(nil)).Elem(), EventTargetEcsTargetCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetNetworkConfigurationInput)(nil)).Elem(), EventTargetEcsTargetNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetNetworkConfigurationPtrInput)(nil)).Elem(), EventTargetEcsTargetNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetOrderedPlacementStrategyInput)(nil)).Elem(), EventTargetEcsTargetOrderedPlacementStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetOrderedPlacementStrategyArrayInput)(nil)).Elem(), EventTargetEcsTargetOrderedPlacementStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetPlacementConstraintInput)(nil)).Elem(), EventTargetEcsTargetPlacementConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetEcsTargetPlacementConstraintArrayInput)(nil)).Elem(), EventTargetEcsTargetPlacementConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetHttpTargetInput)(nil)).Elem(), EventTargetHttpTargetArgs{})
@@ -6622,6 +7568,18 @@ func init() {
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput{})
+	pulumi.RegisterOutputType(EventEndpointEventBusOutput{})
+	pulumi.RegisterOutputType(EventEndpointEventBusArrayOutput{})
+	pulumi.RegisterOutputType(EventEndpointReplicationConfigOutput{})
+	pulumi.RegisterOutputType(EventEndpointReplicationConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventEndpointRoutingConfigOutput{})
+	pulumi.RegisterOutputType(EventEndpointRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventEndpointRoutingConfigFailoverConfigOutput{})
+	pulumi.RegisterOutputType(EventEndpointRoutingConfigFailoverConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventEndpointRoutingConfigFailoverConfigPrimaryOutput{})
+	pulumi.RegisterOutputType(EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput{})
+	pulumi.RegisterOutputType(EventEndpointRoutingConfigFailoverConfigSecondaryOutput{})
+	pulumi.RegisterOutputType(EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput{})
 	pulumi.RegisterOutputType(EventPermissionConditionOutput{})
 	pulumi.RegisterOutputType(EventPermissionConditionPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetBatchTargetOutput{})
@@ -6634,6 +7592,8 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetEcsTargetCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetEcsTargetOrderedPlacementStrategyOutput{})
+	pulumi.RegisterOutputType(EventTargetEcsTargetOrderedPlacementStrategyArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetPlacementConstraintOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetHttpTargetOutput{})

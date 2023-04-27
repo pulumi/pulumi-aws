@@ -138,7 +138,7 @@ type NodeGroup struct {
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringOutput `pulumi:"nodeGroupNamePrefix"`
@@ -226,7 +226,7 @@ type nodeGroupState struct {
 	Labels map[string]string `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
@@ -274,7 +274,7 @@ type NodeGroupState struct {
 	Labels pulumi.StringMapInput
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
-	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringPtrInput
@@ -324,7 +324,7 @@ type nodeGroupArgs struct {
 	Labels map[string]string `pulumi:"labels"`
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate *NodeGroupLaunchTemplate `pulumi:"launchTemplate"`
-	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
@@ -367,7 +367,7 @@ type NodeGroupArgs struct {
 	Labels pulumi.StringMapInput
 	// Configuration block with Launch Template settings. Detailed below.
 	LaunchTemplate NodeGroupLaunchTemplatePtrInput
-	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+	// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 	NodeGroupName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringPtrInput
@@ -524,7 +524,7 @@ func (o NodeGroupOutput) LaunchTemplate() NodeGroupLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupLaunchTemplatePtrOutput { return v.LaunchTemplate }).(NodeGroupLaunchTemplatePtrOutput)
 }
 
-// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 func (o NodeGroupOutput) NodeGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.NodeGroupName }).(pulumi.StringOutput)
 }

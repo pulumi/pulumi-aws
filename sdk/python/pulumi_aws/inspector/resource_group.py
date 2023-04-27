@@ -82,7 +82,7 @@ class ResourceGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an Amazon Inspector resource group resource.
+        Provides an Amazon Inspector Classic Resource Group.
 
         ## Example Usage
 
@@ -107,7 +107,7 @@ class ResourceGroup(pulumi.CustomResource):
                  args: ResourceGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Inspector resource group resource.
+        Provides an Amazon Inspector Classic Resource Group.
 
         ## Example Usage
 

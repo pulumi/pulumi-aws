@@ -24,12 +24,19 @@ __all__ = [
     'EventConnectionAuthParametersOauthOauthHttpParametersBody',
     'EventConnectionAuthParametersOauthOauthHttpParametersHeader',
     'EventConnectionAuthParametersOauthOauthHttpParametersQueryString',
+    'EventEndpointEventBus',
+    'EventEndpointReplicationConfig',
+    'EventEndpointRoutingConfig',
+    'EventEndpointRoutingConfigFailoverConfig',
+    'EventEndpointRoutingConfigFailoverConfigPrimary',
+    'EventEndpointRoutingConfigFailoverConfigSecondary',
     'EventPermissionCondition',
     'EventTargetBatchTarget',
     'EventTargetDeadLetterConfig',
     'EventTargetEcsTarget',
     'EventTargetEcsTargetCapacityProviderStrategy',
     'EventTargetEcsTargetNetworkConfiguration',
+    'EventTargetEcsTargetOrderedPlacementStrategy',
     'EventTargetEcsTargetPlacementConstraint',
     'EventTargetHttpTarget',
     'EventTargetInputTransformer',
@@ -792,6 +799,179 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
 
 
 @pulumi.output_type
+class EventEndpointEventBus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventBusArn":
+            suggest = "event_bus_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventEndpointEventBus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventEndpointEventBus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventEndpointEventBus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_bus_arn: str):
+        """
+        :param str event_bus_arn: The ARN of the event bus the endpoint is associated with.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> str:
+        """
+        The ARN of the event bus the endpoint is associated with.
+        """
+        return pulumi.get(self, "event_bus_arn")
+
+
+@pulumi.output_type
+class EventEndpointReplicationConfig(dict):
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        :param str state: The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class EventEndpointRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverConfig":
+            suggest = "failover_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventEndpointRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventEndpointRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventEndpointRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failover_config: 'outputs.EventEndpointRoutingConfigFailoverConfig'):
+        """
+        :param 'EventEndpointRoutingConfigFailoverConfigArgs' failover_config: Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+        """
+        pulumi.set(__self__, "failover_config", failover_config)
+
+    @property
+    @pulumi.getter(name="failoverConfig")
+    def failover_config(self) -> 'outputs.EventEndpointRoutingConfigFailoverConfig':
+        """
+        Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+        """
+        return pulumi.get(self, "failover_config")
+
+
+@pulumi.output_type
+class EventEndpointRoutingConfigFailoverConfig(dict):
+    def __init__(__self__, *,
+                 primary: 'outputs.EventEndpointRoutingConfigFailoverConfigPrimary',
+                 secondary: 'outputs.EventEndpointRoutingConfigFailoverConfigSecondary'):
+        """
+        :param 'EventEndpointRoutingConfigFailoverConfigPrimaryArgs' primary: Parameters used for the primary Region. Documented below.
+        :param 'EventEndpointRoutingConfigFailoverConfigSecondaryArgs' secondary: Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+        """
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> 'outputs.EventEndpointRoutingConfigFailoverConfigPrimary':
+        """
+        Parameters used for the primary Region. Documented below.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> 'outputs.EventEndpointRoutingConfigFailoverConfigSecondary':
+        """
+        Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+        """
+        return pulumi.get(self, "secondary")
+
+
+@pulumi.output_type
+class EventEndpointRoutingConfigFailoverConfigPrimary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthCheck":
+            suggest = "health_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventEndpointRoutingConfigFailoverConfigPrimary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventEndpointRoutingConfigFailoverConfigPrimary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventEndpointRoutingConfigFailoverConfigPrimary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_check: Optional[str] = None):
+        """
+        :param str health_check: The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        """
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional[str]:
+        """
+        The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        """
+        return pulumi.get(self, "health_check")
+
+
+@pulumi.output_type
+class EventEndpointRoutingConfigFailoverConfigSecondary(dict):
+    def __init__(__self__, *,
+                 route: Optional[str] = None):
+        """
+        :param str route: The name of the secondary Region.
+        """
+        if route is not None:
+            pulumi.set(__self__, "route", route)
+
+    @property
+    @pulumi.getter
+    def route(self) -> Optional[str]:
+        """
+        The name of the secondary Region.
+        """
+        return pulumi.get(self, "route")
+
+
+@pulumi.output_type
 class EventPermissionCondition(dict):
     def __init__(__self__, *,
                  key: str,
@@ -943,6 +1123,8 @@ class EventTargetEcsTarget(dict):
             suggest = "launch_type"
         elif key == "networkConfiguration":
             suggest = "network_configuration"
+        elif key == "orderedPlacementStrategies":
+            suggest = "ordered_placement_strategies"
         elif key == "placementConstraints":
             suggest = "placement_constraints"
         elif key == "platformVersion":
@@ -971,6 +1153,7 @@ class EventTargetEcsTarget(dict):
                  group: Optional[str] = None,
                  launch_type: Optional[str] = None,
                  network_configuration: Optional['outputs.EventTargetEcsTargetNetworkConfiguration'] = None,
+                 ordered_placement_strategies: Optional[Sequence['outputs.EventTargetEcsTargetOrderedPlacementStrategy']] = None,
                  placement_constraints: Optional[Sequence['outputs.EventTargetEcsTargetPlacementConstraint']] = None,
                  platform_version: Optional[str] = None,
                  propagate_tags: Optional[str] = None,
@@ -984,6 +1167,7 @@ class EventTargetEcsTarget(dict):
         :param str group: Specifies an ECS task group for the task. The maximum length is 255 characters.
         :param str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
         :param 'EventTargetEcsTargetNetworkConfigurationArgs' network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+        :param Sequence['EventTargetEcsTargetOrderedPlacementStrategyArgs'] ordered_placement_strategies: An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         :param Sequence['EventTargetEcsTargetPlacementConstraintArgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         :param str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
@@ -1003,6 +1187,8 @@ class EventTargetEcsTarget(dict):
             pulumi.set(__self__, "launch_type", launch_type)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if ordered_placement_strategies is not None:
+            pulumi.set(__self__, "ordered_placement_strategies", ordered_placement_strategies)
         if placement_constraints is not None:
             pulumi.set(__self__, "placement_constraints", placement_constraints)
         if platform_version is not None:
@@ -1069,6 +1255,14 @@ class EventTargetEcsTarget(dict):
         Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
         """
         return pulumi.get(self, "network_configuration")
+
+    @property
+    @pulumi.getter(name="orderedPlacementStrategies")
+    def ordered_placement_strategies(self) -> Optional[Sequence['outputs.EventTargetEcsTargetOrderedPlacementStrategy']]:
+        """
+        An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+        """
+        return pulumi.get(self, "ordered_placement_strategies")
 
     @property
     @pulumi.getter(name="placementConstraints")
@@ -1229,6 +1423,36 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
         The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
+class EventTargetEcsTargetOrderedPlacementStrategy(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 field: Optional[str] = None):
+        """
+        :param str type: Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+        :param str field: The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+        """
+        pulumi.set(__self__, "type", type)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+        """
+        return pulumi.get(self, "field")
 
 
 @pulumi.output_type

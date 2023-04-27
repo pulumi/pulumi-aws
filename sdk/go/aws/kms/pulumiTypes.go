@@ -447,6 +447,103 @@ func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) Index(i pulumi.IntI
 	}).(GetKeyMultiRegionConfigurationReplicaKeyOutput)
 }
 
+type GetKeyXksKeyConfiguration struct {
+	// The globally unique identifier for the key
+	Id string `pulumi:"id"`
+}
+
+// GetKeyXksKeyConfigurationInput is an input type that accepts GetKeyXksKeyConfigurationArgs and GetKeyXksKeyConfigurationOutput values.
+// You can construct a concrete instance of `GetKeyXksKeyConfigurationInput` via:
+//
+//	GetKeyXksKeyConfigurationArgs{...}
+type GetKeyXksKeyConfigurationInput interface {
+	pulumi.Input
+
+	ToGetKeyXksKeyConfigurationOutput() GetKeyXksKeyConfigurationOutput
+	ToGetKeyXksKeyConfigurationOutputWithContext(context.Context) GetKeyXksKeyConfigurationOutput
+}
+
+type GetKeyXksKeyConfigurationArgs struct {
+	// The globally unique identifier for the key
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKeyXksKeyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyXksKeyConfiguration)(nil)).Elem()
+}
+
+func (i GetKeyXksKeyConfigurationArgs) ToGetKeyXksKeyConfigurationOutput() GetKeyXksKeyConfigurationOutput {
+	return i.ToGetKeyXksKeyConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetKeyXksKeyConfigurationArgs) ToGetKeyXksKeyConfigurationOutputWithContext(ctx context.Context) GetKeyXksKeyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyXksKeyConfigurationOutput)
+}
+
+// GetKeyXksKeyConfigurationArrayInput is an input type that accepts GetKeyXksKeyConfigurationArray and GetKeyXksKeyConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetKeyXksKeyConfigurationArrayInput` via:
+//
+//	GetKeyXksKeyConfigurationArray{ GetKeyXksKeyConfigurationArgs{...} }
+type GetKeyXksKeyConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetKeyXksKeyConfigurationArrayOutput() GetKeyXksKeyConfigurationArrayOutput
+	ToGetKeyXksKeyConfigurationArrayOutputWithContext(context.Context) GetKeyXksKeyConfigurationArrayOutput
+}
+
+type GetKeyXksKeyConfigurationArray []GetKeyXksKeyConfigurationInput
+
+func (GetKeyXksKeyConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyXksKeyConfiguration)(nil)).Elem()
+}
+
+func (i GetKeyXksKeyConfigurationArray) ToGetKeyXksKeyConfigurationArrayOutput() GetKeyXksKeyConfigurationArrayOutput {
+	return i.ToGetKeyXksKeyConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetKeyXksKeyConfigurationArray) ToGetKeyXksKeyConfigurationArrayOutputWithContext(ctx context.Context) GetKeyXksKeyConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyXksKeyConfigurationArrayOutput)
+}
+
+type GetKeyXksKeyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetKeyXksKeyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyXksKeyConfiguration)(nil)).Elem()
+}
+
+func (o GetKeyXksKeyConfigurationOutput) ToGetKeyXksKeyConfigurationOutput() GetKeyXksKeyConfigurationOutput {
+	return o
+}
+
+func (o GetKeyXksKeyConfigurationOutput) ToGetKeyXksKeyConfigurationOutputWithContext(ctx context.Context) GetKeyXksKeyConfigurationOutput {
+	return o
+}
+
+// The globally unique identifier for the key
+func (o GetKeyXksKeyConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyXksKeyConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKeyXksKeyConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKeyXksKeyConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyXksKeyConfiguration)(nil)).Elem()
+}
+
+func (o GetKeyXksKeyConfigurationArrayOutput) ToGetKeyXksKeyConfigurationArrayOutput() GetKeyXksKeyConfigurationArrayOutput {
+	return o
+}
+
+func (o GetKeyXksKeyConfigurationArrayOutput) ToGetKeyXksKeyConfigurationArrayOutputWithContext(ctx context.Context) GetKeyXksKeyConfigurationArrayOutput {
+	return o
+}
+
+func (o GetKeyXksKeyConfigurationArrayOutput) Index(i pulumi.IntInput) GetKeyXksKeyConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKeyXksKeyConfiguration {
+		return vs[0].([]GetKeyXksKeyConfiguration)[vs[1].(int)]
+	}).(GetKeyXksKeyConfigurationOutput)
+}
+
 type GetSecretSecret struct {
 	Context     map[string]string `pulumi:"context"`
 	GrantTokens []string          `pulumi:"grantTokens"`
@@ -710,6 +807,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationPrimaryKeyArrayInput)(nil)).Elem(), GetKeyMultiRegionConfigurationPrimaryKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationReplicaKeyInput)(nil)).Elem(), GetKeyMultiRegionConfigurationReplicaKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationReplicaKeyArrayInput)(nil)).Elem(), GetKeyMultiRegionConfigurationReplicaKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyXksKeyConfigurationInput)(nil)).Elem(), GetKeyXksKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyXksKeyConfigurationArrayInput)(nil)).Elem(), GetKeyXksKeyConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretSecretInput)(nil)).Elem(), GetSecretSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretSecretArrayInput)(nil)).Elem(), GetSecretSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretInput)(nil)).Elem(), GetSecretsSecretArgs{})
@@ -722,6 +821,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationReplicaKeyOutput{})
 	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationReplicaKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetKeyXksKeyConfigurationOutput{})
+	pulumi.RegisterOutputType(GetKeyXksKeyConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretSecretOutput{})
 	pulumi.RegisterOutputType(GetSecretSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretsSecretOutput{})

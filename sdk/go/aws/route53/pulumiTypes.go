@@ -1011,6 +1011,109 @@ func (o ZoneVpcArrayOutput) Index(i pulumi.IntInput) ZoneVpcOutput {
 	}).(ZoneVpcOutput)
 }
 
+type GetQueryLogConfigFilter struct {
+	// The name of the query logging configuration.
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetQueryLogConfigFilterInput is an input type that accepts GetQueryLogConfigFilterArgs and GetQueryLogConfigFilterOutput values.
+// You can construct a concrete instance of `GetQueryLogConfigFilterInput` via:
+//
+//	GetQueryLogConfigFilterArgs{...}
+type GetQueryLogConfigFilterInput interface {
+	pulumi.Input
+
+	ToGetQueryLogConfigFilterOutput() GetQueryLogConfigFilterOutput
+	ToGetQueryLogConfigFilterOutputWithContext(context.Context) GetQueryLogConfigFilterOutput
+}
+
+type GetQueryLogConfigFilterArgs struct {
+	// The name of the query logging configuration.
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetQueryLogConfigFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetQueryLogConfigFilter)(nil)).Elem()
+}
+
+func (i GetQueryLogConfigFilterArgs) ToGetQueryLogConfigFilterOutput() GetQueryLogConfigFilterOutput {
+	return i.ToGetQueryLogConfigFilterOutputWithContext(context.Background())
+}
+
+func (i GetQueryLogConfigFilterArgs) ToGetQueryLogConfigFilterOutputWithContext(ctx context.Context) GetQueryLogConfigFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetQueryLogConfigFilterOutput)
+}
+
+// GetQueryLogConfigFilterArrayInput is an input type that accepts GetQueryLogConfigFilterArray and GetQueryLogConfigFilterArrayOutput values.
+// You can construct a concrete instance of `GetQueryLogConfigFilterArrayInput` via:
+//
+//	GetQueryLogConfigFilterArray{ GetQueryLogConfigFilterArgs{...} }
+type GetQueryLogConfigFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetQueryLogConfigFilterArrayOutput() GetQueryLogConfigFilterArrayOutput
+	ToGetQueryLogConfigFilterArrayOutputWithContext(context.Context) GetQueryLogConfigFilterArrayOutput
+}
+
+type GetQueryLogConfigFilterArray []GetQueryLogConfigFilterInput
+
+func (GetQueryLogConfigFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetQueryLogConfigFilter)(nil)).Elem()
+}
+
+func (i GetQueryLogConfigFilterArray) ToGetQueryLogConfigFilterArrayOutput() GetQueryLogConfigFilterArrayOutput {
+	return i.ToGetQueryLogConfigFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetQueryLogConfigFilterArray) ToGetQueryLogConfigFilterArrayOutputWithContext(ctx context.Context) GetQueryLogConfigFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetQueryLogConfigFilterArrayOutput)
+}
+
+type GetQueryLogConfigFilterOutput struct{ *pulumi.OutputState }
+
+func (GetQueryLogConfigFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetQueryLogConfigFilter)(nil)).Elem()
+}
+
+func (o GetQueryLogConfigFilterOutput) ToGetQueryLogConfigFilterOutput() GetQueryLogConfigFilterOutput {
+	return o
+}
+
+func (o GetQueryLogConfigFilterOutput) ToGetQueryLogConfigFilterOutputWithContext(ctx context.Context) GetQueryLogConfigFilterOutput {
+	return o
+}
+
+// The name of the query logging configuration.
+func (o GetQueryLogConfigFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQueryLogConfigFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetQueryLogConfigFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetQueryLogConfigFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetQueryLogConfigFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetQueryLogConfigFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetQueryLogConfigFilter)(nil)).Elem()
+}
+
+func (o GetQueryLogConfigFilterArrayOutput) ToGetQueryLogConfigFilterArrayOutput() GetQueryLogConfigFilterArrayOutput {
+	return o
+}
+
+func (o GetQueryLogConfigFilterArrayOutput) ToGetQueryLogConfigFilterArrayOutputWithContext(ctx context.Context) GetQueryLogConfigFilterArrayOutput {
+	return o
+}
+
+func (o GetQueryLogConfigFilterArrayOutput) Index(i pulumi.IntInput) GetQueryLogConfigFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetQueryLogConfigFilter {
+		return vs[0].([]GetQueryLogConfigFilter)[vs[1].(int)]
+	}).(GetQueryLogConfigFilterOutput)
+}
+
 type GetResolverEndpointFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -2559,6 +2662,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetIpArrayInput)(nil)).Elem(), ResolverRuleTargetIpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVpcInput)(nil)).Elem(), ZoneVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVpcArrayInput)(nil)).Elem(), ZoneVpcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetQueryLogConfigFilterInput)(nil)).Elem(), GetQueryLogConfigFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetQueryLogConfigFilterArrayInput)(nil)).Elem(), GetQueryLogConfigFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterInput)(nil)).Elem(), GetResolverEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterArrayInput)(nil)).Elem(), GetResolverEndpointFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverFirewallRulesFirewallRuleInput)(nil)).Elem(), GetResolverFirewallRulesFirewallRuleArgs{})
@@ -2597,6 +2702,8 @@ func init() {
 	pulumi.RegisterOutputType(ResolverRuleTargetIpArrayOutput{})
 	pulumi.RegisterOutputType(ZoneVpcOutput{})
 	pulumi.RegisterOutputType(ZoneVpcArrayOutput{})
+	pulumi.RegisterOutputType(GetQueryLogConfigFilterOutput{})
+	pulumi.RegisterOutputType(GetQueryLogConfigFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetResolverFirewallRulesFirewallRuleOutput{})

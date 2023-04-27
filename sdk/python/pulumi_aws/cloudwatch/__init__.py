@@ -12,6 +12,7 @@ from .event_archive import *
 from .event_bus import *
 from .event_bus_policy import *
 from .event_connection import *
+from .event_endpoint import *
 from .event_permission import *
 from .event_rule import *
 from .event_target import *

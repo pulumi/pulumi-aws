@@ -52,7 +52,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        :param pulumi.Input[bool] internal: If true, the LB will be internal.
+        :param pulumi.Input[bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
@@ -252,7 +252,7 @@ class LoadBalancerArgs:
     @pulumi.getter
     def internal(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, the LB will be internal.
+        If true, the LB will be internal. Defaults to `false`.
         """
         return pulumi.get(self, "internal")
 
@@ -444,7 +444,7 @@ class _LoadBalancerState:
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        :param pulumi.Input[bool] internal: If true, the LB will be internal.
+        :param pulumi.Input[bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
@@ -691,7 +691,7 @@ class _LoadBalancerState:
     @pulumi.getter
     def internal(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, the LB will be internal.
+        If true, the LB will be internal. Defaults to `false`.
         """
         return pulumi.get(self, "internal")
 
@@ -988,7 +988,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        :param pulumi.Input[bool] internal: If true, the LB will be internal.
+        :param pulumi.Input[bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
@@ -1236,7 +1236,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[bool] enable_xff_client_port: Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        :param pulumi.Input[bool] internal: If true, the LB will be internal.
+        :param pulumi.Input[bool] internal: If true, the LB will be internal. Defaults to `false`.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
         :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
@@ -1404,7 +1404,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def internal(self) -> pulumi.Output[bool]:
         """
-        If true, the LB will be internal.
+        If true, the LB will be internal. Defaults to `false`.
         """
         return pulumi.get(self, "internal")
 

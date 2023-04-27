@@ -152,7 +152,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
     /**
-     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      */
     public readonly nodeGroupName!: pulumi.Output<string>;
     /**
@@ -325,7 +325,7 @@ export interface NodeGroupState {
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
-     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      */
     nodeGroupName?: pulumi.Input<string>;
     /**
@@ -416,7 +416,7 @@ export interface NodeGroupArgs {
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
-     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      */
     nodeGroupName?: pulumi.Input<string>;
     /**

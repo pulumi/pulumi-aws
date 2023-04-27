@@ -86,7 +86,9 @@ import (
 //
 // ```
 //
-// The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles.
+// The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
+//
+// The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
 // ### Instance Fleet
 //
 // ```go
@@ -366,6 +368,8 @@ type Cluster struct {
 	MasterPublicDns pulumi.StringOutput `pulumi:"masterPublicDns"`
 	// Name of the job flow.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The specified placement group configuration for an Amazon EMR cluster.
+	PlacementGroupConfigs ClusterPlacementGroupConfigArrayOutput `pulumi:"placementGroupConfigs"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -468,6 +472,8 @@ type clusterState struct {
 	MasterPublicDns *string `pulumi:"masterPublicDns"`
 	// Name of the job flow.
 	Name *string `pulumi:"name"`
+	// The specified placement group configuration for an Amazon EMR cluster.
+	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -536,6 +542,8 @@ type ClusterState struct {
 	MasterPublicDns pulumi.StringPtrInput
 	// Name of the job flow.
 	Name pulumi.StringPtrInput
+	// The specified placement group configuration for an Amazon EMR cluster.
+	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringPtrInput
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -603,6 +611,8 @@ type clusterArgs struct {
 	MasterInstanceGroup *ClusterMasterInstanceGroup `pulumi:"masterInstanceGroup"`
 	// Name of the job flow.
 	Name *string `pulumi:"name"`
+	// The specified placement group configuration for an Amazon EMR cluster.
+	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel string `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -667,6 +677,8 @@ type ClusterArgs struct {
 	MasterInstanceGroup ClusterMasterInstanceGroupPtrInput
 	// Name of the job flow.
 	Name pulumi.StringPtrInput
+	// The specified placement group configuration for an Amazon EMR cluster.
+	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringInput
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -888,6 +900,11 @@ func (o ClusterOutput) MasterPublicDns() pulumi.StringOutput {
 // Name of the job flow.
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The specified placement group configuration for an Amazon EMR cluster.
+func (o ClusterOutput) PlacementGroupConfigs() ClusterPlacementGroupConfigArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterPlacementGroupConfigArrayOutput { return v.PlacementGroupConfigs }).(ClusterPlacementGroupConfigArrayOutput)
 }
 
 // Release label for the Amazon EMR release.

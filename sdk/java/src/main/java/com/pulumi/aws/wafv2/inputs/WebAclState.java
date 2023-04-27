@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclCaptchaConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCustomResponseBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
@@ -50,6 +51,21 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> capacity() {
         return Optional.ofNullable(this.capacity);
+    }
+
+    /**
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    @Import(name="captchaConfig")
+    private @Nullable Output<WebAclCaptchaConfigArgs> captchaConfig;
+
+    /**
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    public Optional<Output<WebAclCaptchaConfigArgs>> captchaConfig() {
+        return Optional.ofNullable(this.captchaConfig);
     }
 
     /**
@@ -199,6 +215,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     private WebAclState(WebAclState $) {
         this.arn = $.arn;
         this.capacity = $.capacity;
+        this.captchaConfig = $.captchaConfig;
         this.customResponseBodies = $.customResponseBodies;
         this.defaultAction = $.defaultAction;
         this.description = $.description;
@@ -269,6 +286,27 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder capacity(Integer capacity) {
             return capacity(Output.of(capacity));
+        }
+
+        /**
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captchaConfig(@Nullable Output<WebAclCaptchaConfigArgs> captchaConfig) {
+            $.captchaConfig = captchaConfig;
+            return this;
+        }
+
+        /**
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captchaConfig(WebAclCaptchaConfigArgs captchaConfig) {
+            return captchaConfig(Output.of(captchaConfig));
         }
 
         /**

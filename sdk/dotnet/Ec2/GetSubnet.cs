@@ -368,6 +368,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool EnableDns64;
         /// <summary>
+        /// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        /// </summary>
+        public readonly int EnableLniAtDeviceIndex;
+        /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         /// </summary>
         public readonly bool EnableResourceNameDnsARecordOnLaunch;
@@ -430,6 +434,8 @@ namespace Pulumi.Aws.Ec2
 
             bool enableDns64,
 
+            int enableLniAtDeviceIndex,
+
             bool enableResourceNameDnsARecordOnLaunch,
 
             bool enableResourceNameDnsAaaaRecordOnLaunch,
@@ -469,6 +475,7 @@ namespace Pulumi.Aws.Ec2
             CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             DefaultForAz = defaultForAz;
             EnableDns64 = enableDns64;
+            EnableLniAtDeviceIndex = enableLniAtDeviceIndex;
             EnableResourceNameDnsARecordOnLaunch = enableResourceNameDnsARecordOnLaunch;
             EnableResourceNameDnsAaaaRecordOnLaunch = enableResourceNameDnsAaaaRecordOnLaunch;
             Filters = filters;

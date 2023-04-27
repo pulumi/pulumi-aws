@@ -18,6 +18,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleAction Action;
         /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleCaptchaConfig? CaptchaConfig;
+        /// <summary>
         /// A friendly name of the rule.
         /// </summary>
         public readonly string Name;
@@ -42,6 +46,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         private RuleGroupRule(
             Outputs.RuleGroupRuleAction action,
 
+            Outputs.RuleGroupRuleCaptchaConfig? captchaConfig,
+
             string name,
 
             int priority,
@@ -53,6 +59,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             Outputs.RuleGroupRuleVisibilityConfig visibilityConfig)
         {
             Action = action;
+            CaptchaConfig = captchaConfig;
             Name = name;
             Priority = priority;
             RuleLabels = ruleLabels;

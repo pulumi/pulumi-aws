@@ -187,14 +187,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, the LB will be internal.
+     * If true, the LB will be internal. Defaults to `false`.
      * 
      */
     @Import(name="internal")
     private @Nullable Output<Boolean> internal;
 
     /**
-     * @return If true, the LB will be internal.
+     * @return If true, the LB will be internal. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> internal() {
@@ -652,7 +652,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internal If true, the LB will be internal.
+         * @param internal If true, the LB will be internal. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internal If true, the LB will be internal.
+         * @param internal If true, the LB will be internal. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -1,4 +1,4 @@
-From 632fb7a65c6256abd8365ea7db02e361c9540cef Mon Sep 17 00:00:00 2001
+From e47a0ea3e8e6179ad99409572b7df7aa5c223e2c Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@pulumi.com>
 Date: Tue, 28 Mar 2023 15:09:00 -0700
 Subject: [PATCH 26/27] Revert Framework conversions
@@ -131,7 +131,7 @@ index 920f4f4435..c2b084887f 100644
  
  package cognitoidp
 diff --git a/internal/service/cognitoidp/tags_gen.go b/internal/service/cognitoidp/tags_gen.go
-index 033bcdd9b2..5da020a633 100644
+index efa1eb0564..b3012c5001 100644
 --- a/internal/service/cognitoidp/tags_gen.go
 +++ b/internal/service/cognitoidp/tags_gen.go
 @@ -8,7 +8,6 @@ import (
@@ -174,7 +174,7 @@ index 033bcdd9b2..5da020a633 100644
  
  // map[string]*string handling
  
-@@ -115,8 +112,8 @@ func UpdateTags(ctx context.Context, conn cognitoidentityprovideriface.CognitoId
+@@ -118,8 +115,8 @@ func UpdateTags(ctx context.Context, conn cognitoidentityprovideriface.CognitoId
  	return nil
  }
  

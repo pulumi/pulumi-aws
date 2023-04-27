@@ -33,6 +33,7 @@ __all__ = [
     'ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs',
     'ClusterMasterInstanceGroupArgs',
     'ClusterMasterInstanceGroupEbsConfigArgs',
+    'ClusterPlacementGroupConfigArgs',
     'ClusterStepArgs',
     'ClusterStepHadoopJarStepArgs',
     'InstanceFleetInstanceTypeConfigArgs',
@@ -1714,6 +1715,44 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
     @volumes_per_instance.setter
     def volumes_per_instance(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "volumes_per_instance", value)
+
+
+@pulumi.input_type
+class ClusterPlacementGroupConfigArgs:
+    def __init__(__self__, *,
+                 instance_role: pulumi.Input[str],
+                 placement_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_role: Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
+        :param pulumi.Input[str] placement_strategy: EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
+        """
+        pulumi.set(__self__, "instance_role", instance_role)
+        if placement_strategy is not None:
+            pulumi.set(__self__, "placement_strategy", placement_strategy)
+
+    @property
+    @pulumi.getter(name="instanceRole")
+    def instance_role(self) -> pulumi.Input[str]:
+        """
+        Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
+        """
+        return pulumi.get(self, "instance_role")
+
+    @instance_role.setter
+    def instance_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_role", value)
+
+    @property
+    @pulumi.getter(name="placementStrategy")
+    def placement_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
+        """
+        return pulumi.get(self, "placement_strategy")
+
+    @placement_strategy.setter
+    def placement_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_strategy", value)
 
 
 @pulumi.input_type

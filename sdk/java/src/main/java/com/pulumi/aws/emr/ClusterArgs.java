@@ -11,6 +11,7 @@ import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
 import com.pulumi.aws.emr.inputs.ClusterKerberosAttributesArgs;
 import com.pulumi.aws.emr.inputs.ClusterMasterInstanceFleetArgs;
 import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
+import com.pulumi.aws.emr.inputs.ClusterPlacementGroupConfigArgs;
 import com.pulumi.aws.emr.inputs.ClusterStepArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -329,6 +330,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The specified placement group configuration for an Amazon EMR cluster.
+     * 
+     */
+    @Import(name="placementGroupConfigs")
+    private @Nullable Output<List<ClusterPlacementGroupConfigArgs>> placementGroupConfigs;
+
+    /**
+     * @return The specified placement group configuration for an Amazon EMR cluster.
+     * 
+     */
+    public Optional<Output<List<ClusterPlacementGroupConfigArgs>>> placementGroupConfigs() {
+        return Optional.ofNullable(this.placementGroupConfigs);
+    }
+
+    /**
      * Release label for the Amazon EMR release.
      * 
      */
@@ -501,6 +517,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.masterInstanceFleet = $.masterInstanceFleet;
         this.masterInstanceGroup = $.masterInstanceGroup;
         this.name = $.name;
+        this.placementGroupConfigs = $.placementGroupConfigs;
         this.releaseLabel = $.releaseLabel;
         this.scaleDownBehavior = $.scaleDownBehavior;
         this.securityConfiguration = $.securityConfiguration;
@@ -979,6 +996,37 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param placementGroupConfigs The specified placement group configuration for an Amazon EMR cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroupConfigs(@Nullable Output<List<ClusterPlacementGroupConfigArgs>> placementGroupConfigs) {
+            $.placementGroupConfigs = placementGroupConfigs;
+            return this;
+        }
+
+        /**
+         * @param placementGroupConfigs The specified placement group configuration for an Amazon EMR cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroupConfigs(List<ClusterPlacementGroupConfigArgs> placementGroupConfigs) {
+            return placementGroupConfigs(Output.of(placementGroupConfigs));
+        }
+
+        /**
+         * @param placementGroupConfigs The specified placement group configuration for an Amazon EMR cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroupConfigs(ClusterPlacementGroupConfigArgs... placementGroupConfigs) {
+            return placementGroupConfigs(List.of(placementGroupConfigs));
         }
 
         /**

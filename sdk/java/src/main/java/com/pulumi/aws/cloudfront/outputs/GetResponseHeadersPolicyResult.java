@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyCorsConfig;
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyCustomHeadersConfig;
+import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyRemoveHeadersConfig;
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicySecurityHeadersConfig;
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyServerTimingHeadersConfig;
 import com.pulumi.core.annotations.CustomType;
@@ -25,7 +26,7 @@ public final class GetResponseHeadersPolicyResult {
      */
     private List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
     /**
-     * @return Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+     * @return Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
      * 
      */
     private List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
@@ -36,6 +37,11 @@ public final class GetResponseHeadersPolicyResult {
     private String etag;
     private String id;
     private String name;
+    /**
+     * @return Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
+     * 
+     */
+    private List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs;
     /**
      * @return A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      * 
@@ -63,7 +69,7 @@ public final class GetResponseHeadersPolicyResult {
         return this.corsConfigs;
     }
     /**
-     * @return Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+     * @return Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
      * 
      */
     public List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs() {
@@ -81,6 +87,13 @@ public final class GetResponseHeadersPolicyResult {
     }
     public String name() {
         return this.name;
+    }
+    /**
+     * @return Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
+     * 
+     */
+    public List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs() {
+        return this.removeHeadersConfigs;
     }
     /**
      * @return A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
@@ -112,6 +125,7 @@ public final class GetResponseHeadersPolicyResult {
         private String etag;
         private String id;
         private String name;
+        private List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs;
         private List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs;
         private List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
         public Builder() {}
@@ -123,6 +137,7 @@ public final class GetResponseHeadersPolicyResult {
     	      this.etag = defaults.etag;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.removeHeadersConfigs = defaults.removeHeadersConfigs;
     	      this.securityHeadersConfigs = defaults.securityHeadersConfigs;
     	      this.serverTimingHeadersConfigs = defaults.serverTimingHeadersConfigs;
         }
@@ -164,6 +179,14 @@ public final class GetResponseHeadersPolicyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder removeHeadersConfigs(List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs) {
+            this.removeHeadersConfigs = Objects.requireNonNull(removeHeadersConfigs);
+            return this;
+        }
+        public Builder removeHeadersConfigs(GetResponseHeadersPolicyRemoveHeadersConfig... removeHeadersConfigs) {
+            return removeHeadersConfigs(List.of(removeHeadersConfigs));
+        }
+        @CustomType.Setter
         public Builder securityHeadersConfigs(List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs) {
             this.securityHeadersConfigs = Objects.requireNonNull(securityHeadersConfigs);
             return this;
@@ -187,6 +210,7 @@ public final class GetResponseHeadersPolicyResult {
             o.etag = etag;
             o.id = id;
             o.name = name;
+            o.removeHeadersConfigs = removeHeadersConfigs;
             o.securityHeadersConfigs = securityHeadersConfigs;
             o.serverTimingHeadersConfigs = serverTimingHeadersConfigs;
             return o;

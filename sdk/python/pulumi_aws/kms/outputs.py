@@ -15,6 +15,7 @@ __all__ = [
     'GetKeyMultiRegionConfigurationResult',
     'GetKeyMultiRegionConfigurationPrimaryKeyResult',
     'GetKeyMultiRegionConfigurationReplicaKeyResult',
+    'GetKeyXksKeyConfigurationResult',
     'GetSecretSecretResult',
     'GetSecretsSecretResult',
 ]
@@ -165,6 +166,24 @@ class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
         The AWS Region of a primary or replica key in a multi-Region key.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetKeyXksKeyConfigurationResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The globally unique identifier for the key
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The globally unique identifier for the key
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

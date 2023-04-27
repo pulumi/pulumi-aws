@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Fis.Outputs
     public sealed class ExperimentTemplateActionTarget
     {
         /// <summary>
-        /// Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
+        /// Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
         /// </summary>
         public readonly string Key;
         /// <summary>

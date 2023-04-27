@@ -208,6 +208,7 @@ class _DefaultSubnetState:
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
                  existing_default_subnet: Optional[pulumi.Input[bool]] = None,
@@ -247,6 +248,8 @@ class _DefaultSubnetState:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if enable_dns64 is not None:
             pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if enable_lni_at_device_index is not None:
+            pulumi.set(__self__, "enable_lni_at_device_index", enable_lni_at_device_index)
         if enable_resource_name_dns_a_record_on_launch is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
@@ -351,6 +354,15 @@ class _DefaultSubnetState:
     @enable_dns64.setter
     def enable_dns64(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_dns64", value)
+
+    @property
+    @pulumi.getter(name="enableLniAtDeviceIndex")
+    def enable_lni_at_device_index(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "enable_lni_at_device_index")
+
+    @enable_lni_at_device_index.setter
+    def enable_lni_at_device_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "enable_lni_at_device_index", value)
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
@@ -646,6 +658,7 @@ class DefaultSubnet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_id"] = None
             __props__.__dict__["cidr_block"] = None
+            __props__.__dict__["enable_lni_at_device_index"] = None
             __props__.__dict__["existing_default_subnet"] = None
             __props__.__dict__["ipv6_cidr_block_association_id"] = None
             __props__.__dict__["outpost_arn"] = None
@@ -668,6 +681,7 @@ class DefaultSubnet(pulumi.CustomResource):
             cidr_block: Optional[pulumi.Input[str]] = None,
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             enable_dns64: Optional[pulumi.Input[bool]] = None,
+            enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
             enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
             enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
             existing_default_subnet: Optional[pulumi.Input[bool]] = None,
@@ -709,6 +723,7 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__.__dict__["cidr_block"] = cidr_block
         __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__.__dict__["enable_dns64"] = enable_dns64
+        __props__.__dict__["enable_lni_at_device_index"] = enable_lni_at_device_index
         __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
         __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
         __props__.__dict__["existing_default_subnet"] = existing_default_subnet
@@ -771,6 +786,11 @@ class DefaultSubnet(pulumi.CustomResource):
     @pulumi.getter(name="enableDns64")
     def enable_dns64(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enable_dns64")
+
+    @property
+    @pulumi.getter(name="enableLniAtDeviceIndex")
+    def enable_lni_at_device_index(self) -> pulumi.Output[int]:
+        return pulumi.get(self, "enable_lni_at_device_index")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")

@@ -17,6 +17,7 @@ __all__ = [
     'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingDestinationConfigArgs',
     'EventSourceMappingDestinationConfigOnFailureArgs',
+    'EventSourceMappingDocumentDbEventSourceConfigArgs',
     'EventSourceMappingFilterCriteriaArgs',
     'EventSourceMappingFilterCriteriaFilterArgs',
     'EventSourceMappingScalingConfigArgs',
@@ -170,6 +171,60 @@ class EventSourceMappingDestinationConfigOnFailureArgs:
     @destination_arn.setter
     def destination_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "destination_arn", value)
+
+
+@pulumi.input_type
+class EventSourceMappingDocumentDbEventSourceConfigArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 collection_name: Optional[pulumi.Input[str]] = None,
+                 full_document: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] database_name: The name of the database to consume within the DocumentDB cluster.
+        :param pulumi.Input[str] collection_name: The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+        :param pulumi.Input[str] full_document: Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        if collection_name is not None:
+            pulumi.set(__self__, "collection_name", collection_name)
+        if full_document is not None:
+            pulumi.set(__self__, "full_document", full_document)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database to consume within the DocumentDB cluster.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @collection_name.setter
+    def collection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collection_name", value)
+
+    @property
+    @pulumi.getter(name="fullDocument")
+    def full_document(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+        """
+        return pulumi.get(self, "full_document")
+
+    @full_document.setter
+    def full_document(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "full_document", value)
 
 
 @pulumi.input_type

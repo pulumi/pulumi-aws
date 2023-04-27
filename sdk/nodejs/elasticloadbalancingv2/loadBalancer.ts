@@ -188,7 +188,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly idleTimeout!: pulumi.Output<number | undefined>;
     /**
-     * If true, the LB will be internal.
+     * If true, the LB will be internal. Defaults to `false`.
      */
     public readonly internal!: pulumi.Output<boolean>;
     /**
@@ -386,7 +386,7 @@ export interface LoadBalancerState {
      */
     idleTimeout?: pulumi.Input<number>;
     /**
-     * If true, the LB will be internal.
+     * If true, the LB will be internal. Defaults to `false`.
      */
     internal?: pulumi.Input<boolean>;
     /**
@@ -493,7 +493,7 @@ export interface LoadBalancerArgs {
      */
     idleTimeout?: pulumi.Input<number>;
     /**
-     * If true, the LB will be internal.
+     * If true, the LB will be internal. Defaults to `false`.
      */
     internal?: pulumi.Input<boolean>;
     /**

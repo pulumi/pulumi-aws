@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetRoleResult',
@@ -21,7 +22,7 @@ class GetRoleResult:
     """
     A collection of values returned by getRole.
     """
-    def __init__(__self__, arn=None, assume_role_policy=None, create_date=None, description=None, id=None, max_session_duration=None, name=None, path=None, permissions_boundary=None, tags=None, unique_id=None):
+    def __init__(__self__, arn=None, assume_role_policy=None, create_date=None, description=None, id=None, max_session_duration=None, name=None, path=None, permissions_boundary=None, role_last_useds=None, tags=None, unique_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +50,9 @@ class GetRoleResult:
         if permissions_boundary and not isinstance(permissions_boundary, str):
             raise TypeError("Expected argument 'permissions_boundary' to be a str")
         pulumi.set(__self__, "permissions_boundary", permissions_boundary)
+        if role_last_useds and not isinstance(role_last_useds, list):
+            raise TypeError("Expected argument 'role_last_useds' to be a list")
+        pulumi.set(__self__, "role_last_useds", role_last_useds)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -126,6 +130,14 @@ class GetRoleResult:
         return pulumi.get(self, "permissions_boundary")
 
     @property
+    @pulumi.getter(name="roleLastUseds")
+    def role_last_useds(self) -> Sequence['outputs.GetRoleRoleLastUsedResult']:
+        """
+        Contains information about the last time that an IAM role was used. See `role_last_used` for details.
+        """
+        return pulumi.get(self, "role_last_useds")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -157,6 +169,7 @@ class AwaitableGetRoleResult(GetRoleResult):
             name=self.name,
             path=self.path,
             permissions_boundary=self.permissions_boundary,
+            role_last_useds=self.role_last_useds,
             tags=self.tags,
             unique_id=self.unique_id)
 
@@ -198,6 +211,7 @@ def get_role(name: Optional[str] = None,
         name=__ret__.name,
         path=__ret__.path,
         permissions_boundary=__ret__.permissions_boundary,
+        role_last_useds=__ret__.role_last_useds,
         tags=__ret__.tags,
         unique_id=__ret__.unique_id)
 

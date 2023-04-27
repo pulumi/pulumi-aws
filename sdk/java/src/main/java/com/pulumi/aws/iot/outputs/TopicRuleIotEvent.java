@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,6 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleIotEvent {
+    /**
+     * @return The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+     * 
+     */
+    private @Nullable Boolean batchMode;
     /**
      * @return The name of the AWS IoT Events input.
      * 
@@ -28,6 +34,13 @@ public final class TopicRuleIotEvent {
     private String roleArn;
 
     private TopicRuleIotEvent() {}
+    /**
+     * @return The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+     * 
+     */
+    public Optional<Boolean> batchMode() {
+        return Optional.ofNullable(this.batchMode);
+    }
     /**
      * @return The name of the AWS IoT Events input.
      * 
@@ -59,17 +72,24 @@ public final class TopicRuleIotEvent {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean batchMode;
         private String inputName;
         private @Nullable String messageId;
         private String roleArn;
         public Builder() {}
         public Builder(TopicRuleIotEvent defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.batchMode = defaults.batchMode;
     	      this.inputName = defaults.inputName;
     	      this.messageId = defaults.messageId;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
+        public Builder batchMode(@Nullable Boolean batchMode) {
+            this.batchMode = batchMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder inputName(String inputName) {
             this.inputName = Objects.requireNonNull(inputName);
@@ -87,6 +107,7 @@ public final class TopicRuleIotEvent {
         }
         public TopicRuleIotEvent build() {
             final var o = new TopicRuleIotEvent();
+            o.batchMode = batchMode;
             o.inputName = inputName;
             o.messageId = messageId;
             o.roleArn = roleArn;

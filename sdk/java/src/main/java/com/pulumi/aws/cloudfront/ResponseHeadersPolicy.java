@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudfront.ResponseHeadersPolicyArgs;
 import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyState;
 import com.pulumi.aws.cloudfront.outputs.ResponseHeadersPolicyCorsConfig;
 import com.pulumi.aws.cloudfront.outputs.ResponseHeadersPolicyCustomHeadersConfig;
+import com.pulumi.aws.cloudfront.outputs.ResponseHeadersPolicyRemoveHeadersConfig;
 import com.pulumi.aws.cloudfront.outputs.ResponseHeadersPolicySecurityHeadersConfig;
 import com.pulumi.aws.cloudfront.outputs.ResponseHeadersPolicyServerTimingHeadersConfig;
 import com.pulumi.core.Output;
@@ -238,6 +239,20 @@ public class ResponseHeadersPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+     * 
+     */
+    @Export(name="removeHeadersConfig", refs={ResponseHeadersPolicyRemoveHeadersConfig.class}, tree="[0]")
+    private Output</* @Nullable */ ResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfig;
+
+    /**
+     * @return A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+     * 
+     */
+    public Output<Optional<ResponseHeadersPolicyRemoveHeadersConfig>> removeHeadersConfig() {
+        return Codegen.optional(this.removeHeadersConfig);
     }
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.

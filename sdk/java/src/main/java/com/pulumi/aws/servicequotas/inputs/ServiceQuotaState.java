@@ -3,11 +3,13 @@
 
 package com.pulumi.aws.servicequotas.inputs;
 
+import com.pulumi.aws.servicequotas.inputs.ServiceQuotaUsageMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -137,6 +139,21 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Information about the measurement.
+     * 
+     */
+    @Import(name="usageMetrics")
+    private @Nullable Output<List<ServiceQuotaUsageMetricArgs>> usageMetrics;
+
+    /**
+     * @return Information about the measurement.
+     * 
+     */
+    public Optional<Output<List<ServiceQuotaUsageMetricArgs>>> usageMetrics() {
+        return Optional.ofNullable(this.usageMetrics);
+    }
+
+    /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      * 
      */
@@ -163,6 +180,7 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
         this.requestStatus = $.requestStatus;
         this.serviceCode = $.serviceCode;
         this.serviceName = $.serviceName;
+        this.usageMetrics = $.usageMetrics;
         this.value = $.value;
     }
 
@@ -347,6 +365,37 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
+        }
+
+        /**
+         * @param usageMetrics Information about the measurement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usageMetrics(@Nullable Output<List<ServiceQuotaUsageMetricArgs>> usageMetrics) {
+            $.usageMetrics = usageMetrics;
+            return this;
+        }
+
+        /**
+         * @param usageMetrics Information about the measurement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usageMetrics(List<ServiceQuotaUsageMetricArgs> usageMetrics) {
+            return usageMetrics(Output.of(usageMetrics));
+        }
+
+        /**
+         * @param usageMetrics Information about the measurement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usageMetrics(ServiceQuotaUsageMetricArgs... usageMetrics) {
+            return usageMetrics(List.of(usageMetrics));
         }
 
         /**

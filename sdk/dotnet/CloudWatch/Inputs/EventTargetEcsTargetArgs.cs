@@ -54,6 +54,18 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         [Input("networkConfiguration")]
         public Input<Inputs.EventTargetEcsTargetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
+        [Input("orderedPlacementStrategies")]
+        private InputList<Inputs.EventTargetEcsTargetOrderedPlacementStrategyArgs>? _orderedPlacementStrategies;
+
+        /// <summary>
+        /// An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+        /// </summary>
+        public InputList<Inputs.EventTargetEcsTargetOrderedPlacementStrategyArgs> OrderedPlacementStrategies
+        {
+            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.EventTargetEcsTargetOrderedPlacementStrategyArgs>());
+            set => _orderedPlacementStrategies = value;
+        }
+
         [Input("placementConstraints")]
         private InputList<Inputs.EventTargetEcsTargetPlacementConstraintArgs>? _placementConstraints;
 

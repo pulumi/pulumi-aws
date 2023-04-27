@@ -82,6 +82,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     public readonly enableDns64!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly enableLniAtDeviceIndex!: pulumi.Output<number>;
     public readonly enableResourceNameDnsARecordOnLaunch!: pulumi.Output<boolean | undefined>;
     public readonly enableResourceNameDnsAaaaRecordOnLaunch!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly existingDefaultSubnet!: pulumi.Output<boolean>;
@@ -124,6 +125,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             resourceInputs["enableDns64"] = state ? state.enableDns64 : undefined;
+            resourceInputs["enableLniAtDeviceIndex"] = state ? state.enableLniAtDeviceIndex : undefined;
             resourceInputs["enableResourceNameDnsARecordOnLaunch"] = state ? state.enableResourceNameDnsARecordOnLaunch : undefined;
             resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = state ? state.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
             resourceInputs["existingDefaultSubnet"] = state ? state.existingDefaultSubnet : undefined;
@@ -161,6 +163,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["enableLniAtDeviceIndex"] = undefined /*out*/;
             resourceInputs["existingDefaultSubnet"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;
@@ -194,6 +197,7 @@ export interface DefaultSubnetState {
     cidrBlock?: pulumi.Input<string>;
     customerOwnedIpv4Pool?: pulumi.Input<string>;
     enableDns64?: pulumi.Input<boolean>;
+    enableLniAtDeviceIndex?: pulumi.Input<number>;
     enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean>;
     enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean>;
     existingDefaultSubnet?: pulumi.Input<boolean>;

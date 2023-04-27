@@ -94,6 +94,12 @@ namespace Pulumi.Aws.ServiceQuotas
         public Output<string> ServiceName { get; private set; } = null!;
 
         /// <summary>
+        /// Information about the measurement.
+        /// </summary>
+        [Output("usageMetrics")]
+        public Output<ImmutableArray<Outputs.ServiceQuotaUsageMetric>> UsageMetrics { get; private set; } = null!;
+
+        /// <summary>
         /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         /// </summary>
         [Output("value")]
@@ -218,6 +224,18 @@ namespace Pulumi.Aws.ServiceQuotas
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
+
+        [Input("usageMetrics")]
+        private InputList<Inputs.ServiceQuotaUsageMetricGetArgs>? _usageMetrics;
+
+        /// <summary>
+        /// Information about the measurement.
+        /// </summary>
+        public InputList<Inputs.ServiceQuotaUsageMetricGetArgs> UsageMetrics
+        {
+            get => _usageMetrics ?? (_usageMetrics = new InputList<Inputs.ServiceQuotaUsageMetricGetArgs>());
+            set => _usageMetrics = value;
+        }
 
         /// <summary>
         /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.

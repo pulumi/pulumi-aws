@@ -11,6 +11,7 @@ import com.pulumi.aws.appsync.outputs.DataSourceElasticsearchConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceEventBridgeConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceHttpConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceLambdaConfig;
+import com.pulumi.aws.appsync.outputs.DataSourceOpensearchserviceConfig;
 import com.pulumi.aws.appsync.outputs.DataSourceRelationalDatabaseConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -249,6 +250,20 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Amazon OpenSearch Service settings. See below
+     * 
+     */
+    @Export(name="opensearchserviceConfig", refs={DataSourceOpensearchserviceConfig.class}, tree="[0]")
+    private Output</* @Nullable */ DataSourceOpensearchserviceConfig> opensearchserviceConfig;
+
+    /**
+     * @return Amazon OpenSearch Service settings. See below
+     * 
+     */
+    public Output<Optional<DataSourceOpensearchserviceConfig>> opensearchserviceConfig() {
+        return Codegen.optional(this.opensearchserviceConfig);
     }
     /**
      * AWS RDS settings. See Relational Database Config

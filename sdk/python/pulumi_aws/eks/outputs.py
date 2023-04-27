@@ -36,6 +36,7 @@ __all__ = [
     'GetClusterOutpostConfigResult',
     'GetClusterOutpostConfigControlPlanePlacementResult',
     'GetClusterVpcConfigResult',
+    'GetNodeGroupLaunchTemplateResult',
     'GetNodeGroupRemoteAccessResult',
     'GetNodeGroupResourceResult',
     'GetNodeGroupResourceAutoscalingGroupResult',
@@ -1150,6 +1151,46 @@ class GetClusterVpcConfigResult(dict):
         The VPC associated with your cluster.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetNodeGroupLaunchTemplateResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 version: str):
+        """
+        :param str id: The ID of the launch template.
+        :param str name: Name of the AutoScaling Group.
+        :param str version: Kubernetes version.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the launch template.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the AutoScaling Group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Kubernetes version.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

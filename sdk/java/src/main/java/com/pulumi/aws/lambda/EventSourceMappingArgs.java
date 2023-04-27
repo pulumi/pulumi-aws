@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda;
 
 import com.pulumi.aws.lambda.inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingDestinationConfigArgs;
+import com.pulumi.aws.lambda.inputs.EventSourceMappingDocumentDbEventSourceConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingFilterCriteriaArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingScalingConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
@@ -86,6 +87,21 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * 
+     */
+    @Import(name="documentDbEventSourceConfig")
+    private @Nullable Output<EventSourceMappingDocumentDbEventSourceConfigArgs> documentDbEventSourceConfig;
+
+    /**
+     * @return - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * 
+     */
+    public Optional<Output<EventSourceMappingDocumentDbEventSourceConfigArgs>> documentDbEventSourceConfig() {
+        return Optional.ofNullable(this.documentDbEventSourceConfig);
+    }
+
+    /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      * 
      */
@@ -101,14 +117,14 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      * 
      */
     @Import(name="eventSourceArn")
     private @Nullable Output<String> eventSourceArn;
 
     /**
-     * @return The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * @return The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      * 
      */
     public Optional<Output<String>> eventSourceArn() {
@@ -362,6 +378,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         this.batchSize = $.batchSize;
         this.bisectBatchOnFunctionError = $.bisectBatchOnFunctionError;
         this.destinationConfig = $.destinationConfig;
+        this.documentDbEventSourceConfig = $.documentDbEventSourceConfig;
         this.enabled = $.enabled;
         this.eventSourceArn = $.eventSourceArn;
         this.filterCriteria = $.filterCriteria;
@@ -485,6 +502,27 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param documentDbEventSourceConfig - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder documentDbEventSourceConfig(@Nullable Output<EventSourceMappingDocumentDbEventSourceConfigArgs> documentDbEventSourceConfig) {
+            $.documentDbEventSourceConfig = documentDbEventSourceConfig;
+            return this;
+        }
+
+        /**
+         * @param documentDbEventSourceConfig - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder documentDbEventSourceConfig(EventSourceMappingDocumentDbEventSourceConfigArgs documentDbEventSourceConfig) {
+            return documentDbEventSourceConfig(Output.of(documentDbEventSourceConfig));
+        }
+
+        /**
          * @param enabled Determines if the mapping will be enabled on creation. Defaults to `true`.
          * 
          * @return builder
@@ -506,7 +544,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventSourceArn The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+         * @param eventSourceArn The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
          * 
          * @return builder
          * 
@@ -517,7 +555,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventSourceArn The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+         * @param eventSourceArn The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
          * 
          * @return builder
          * 

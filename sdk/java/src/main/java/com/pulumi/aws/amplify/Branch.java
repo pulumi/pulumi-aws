@@ -78,6 +78,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sns.TopicPolicy;
  * import com.pulumi.aws.sns.TopicPolicyArgs;
+ * import com.pulumi.aws.sns.TopicSubscription;
+ * import com.pulumi.aws.sns.TopicSubscriptionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -155,6 +157,12 @@ import javax.annotation.Nullable;
  *         var amplifyAppMasterTopicPolicy = new TopicPolicy(&#34;amplifyAppMasterTopicPolicy&#34;, TopicPolicyArgs.builder()        
  *             .arn(amplifyAppMasterTopic.arn())
  *             .policy(amplifyAppMasterPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(amplifyAppMasterPolicyDocument -&gt; amplifyAppMasterPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .build());
+ * 
+ *         var this_ = new TopicSubscription(&#34;this&#34;, TopicSubscriptionArgs.builder()        
+ *             .topic(amplifyAppMasterTopic.arn())
+ *             .protocol(&#34;email&#34;)
+ *             .endpoint(&#34;user@acme.com&#34;)
  *             .build());
  * 
  *     }

@@ -10,12 +10,521 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ListenerDefaultActionArgs',
+    'ListenerDefaultActionFixedResponseArgs',
+    'ListenerDefaultActionForwardArgs',
+    'ListenerDefaultActionForwardTargetGroupArgs',
+    'ListenerRuleActionArgs',
+    'ListenerRuleActionFixedResponseArgs',
+    'ListenerRuleActionForwardArgs',
+    'ListenerRuleActionForwardTargetGroupArgs',
+    'ListenerRuleMatchArgs',
+    'ListenerRuleMatchHttpMatchArgs',
+    'ListenerRuleMatchHttpMatchHeaderMatchArgs',
+    'ListenerRuleMatchHttpMatchHeaderMatchMatchArgs',
+    'ListenerRuleMatchHttpMatchPathMatchArgs',
+    'ListenerRuleMatchHttpMatchPathMatchMatchArgs',
     'ServiceDnsEntryArgs',
     'ServiceNetworkServiceAssociationDnsEntryArgs',
     'TargetGroupConfigArgs',
     'TargetGroupConfigHealthCheckArgs',
     'TargetGroupConfigHealthCheckMatcherArgs',
 ]
+
+@pulumi.input_type
+class ListenerDefaultActionArgs:
+    def __init__(__self__, *,
+                 fixed_response: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']] = None,
+                 forwards: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]] forwards: Route requests to one or more target groups. See Forward blocks below.
+        """
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forwards is not None:
+            pulumi.set(__self__, "forwards", forwards)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']]:
+        return pulumi.get(self, "fixed_response")
+
+    @fixed_response.setter
+    def fixed_response(self, value: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']]):
+        pulumi.set(self, "fixed_response", value)
+
+    @property
+    @pulumi.getter
+    def forwards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]]]:
+        """
+        Route requests to one or more target groups. See Forward blocks below.
+        """
+        return pulumi.get(self, "forwards")
+
+    @forwards.setter
+    def forwards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]]]):
+        pulumi.set(self, "forwards", value)
+
+
+@pulumi.input_type
+class ListenerDefaultActionFixedResponseArgs:
+    def __init__(__self__, *,
+                 status_code: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] status_code: Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
+        """
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[int]:
+        """
+        Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[int]):
+        pulumi.set(self, "status_code", value)
+
+
+@pulumi.input_type
+class ListenerDefaultActionForwardArgs:
+    def __init__(__self__, *,
+                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: One or more target group blocks.
+        """
+        if target_groups is not None:
+            pulumi.set(__self__, "target_groups", target_groups)
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]]:
+        """
+        One or more target group blocks.
+        """
+        return pulumi.get(self, "target_groups")
+
+    @target_groups.setter
+    def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]]):
+        pulumi.set(self, "target_groups", value)
+
+
+@pulumi.input_type
+class ListenerDefaultActionForwardTargetGroupArgs:
+    def __init__(__self__, *,
+                 target_group_identifier: Optional[pulumi.Input[str]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[int] weight: Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+               weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
+        if target_group_identifier is not None:
+            pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="targetGroupIdentifier")
+    def target_group_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID or Amazon Resource Name (ARN) of the target group.
+        """
+        return pulumi.get(self, "target_group_identifier")
+
+    @target_group_identifier.setter
+    def target_group_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_group_identifier", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+        weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
+
+
+@pulumi.input_type
+class ListenerRuleActionArgs:
+    def __init__(__self__, *,
+                 fixed_response: Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']] = None,
+                 forward: Optional[pulumi.Input['ListenerRuleActionForwardArgs']] = None):
+        """
+        :param pulumi.Input['ListenerRuleActionFixedResponseArgs'] fixed_response: Describes the rule action that returns a custom HTTP response.
+        :param pulumi.Input['ListenerRuleActionForwardArgs'] forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        """
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forward is not None:
+            pulumi.set(__self__, "forward", forward)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']]:
+        """
+        Describes the rule action that returns a custom HTTP response.
+        """
+        return pulumi.get(self, "fixed_response")
+
+    @fixed_response.setter
+    def fixed_response(self, value: Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']]):
+        pulumi.set(self, "fixed_response", value)
+
+    @property
+    @pulumi.getter
+    def forward(self) -> Optional[pulumi.Input['ListenerRuleActionForwardArgs']]:
+        """
+        The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        """
+        return pulumi.get(self, "forward")
+
+    @forward.setter
+    def forward(self, value: Optional[pulumi.Input['ListenerRuleActionForwardArgs']]):
+        pulumi.set(self, "forward", value)
+
+
+@pulumi.input_type
+class ListenerRuleActionFixedResponseArgs:
+    def __init__(__self__, *,
+                 status_code: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] status_code: The HTTP response code.
+        """
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[int]:
+        """
+        The HTTP response code.
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[int]):
+        pulumi.set(self, "status_code", value)
+
+
+@pulumi.input_type
+class ListenerRuleActionForwardArgs:
+    def __init__(__self__, *,
+                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+        """
+        pulumi.set(__self__, "target_groups", target_groups)
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]:
+        """
+        The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+        """
+        return pulumi.get(self, "target_groups")
+
+    @target_groups.setter
+    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]):
+        pulumi.set(self, "target_groups", value)
+
+
+@pulumi.input_type
+class ListenerRuleActionForwardTargetGroupArgs:
+    def __init__(__self__, *,
+                 target_group_identifier: pulumi.Input[str],
+                 weight: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="targetGroupIdentifier")
+    def target_group_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "target_group_identifier")
+
+    @target_group_identifier.setter
+    def target_group_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_group_identifier", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
+
+
+@pulumi.input_type
+class ListenerRuleMatchArgs:
+    def __init__(__self__, *,
+                 http_match: Optional[pulumi.Input['ListenerRuleMatchHttpMatchArgs']] = None):
+        """
+        :param pulumi.Input['ListenerRuleMatchHttpMatchArgs'] http_match: The HTTP criteria that a rule must match.
+        """
+        if http_match is not None:
+            pulumi.set(__self__, "http_match", http_match)
+
+    @property
+    @pulumi.getter(name="httpMatch")
+    def http_match(self) -> Optional[pulumi.Input['ListenerRuleMatchHttpMatchArgs']]:
+        """
+        The HTTP criteria that a rule must match.
+        """
+        return pulumi.get(self, "http_match")
+
+    @http_match.setter
+    def http_match(self, value: Optional[pulumi.Input['ListenerRuleMatchHttpMatchArgs']]):
+        pulumi.set(self, "http_match", value)
+
+
+@pulumi.input_type
+class ListenerRuleMatchHttpMatchArgs:
+    def __init__(__self__, *,
+                 header_matches: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
+                 path_match: Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]] header_matches: The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        :param pulumi.Input[str] method: The HTTP method type.
+        :param pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArgs'] path_match: The path match.
+        """
+        if header_matches is not None:
+            pulumi.set(__self__, "header_matches", header_matches)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if path_match is not None:
+            pulumi.set(__self__, "path_match", path_match)
+
+    @property
+    @pulumi.getter(name="headerMatches")
+    def header_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]]]:
+        """
+        The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        """
+        return pulumi.get(self, "header_matches")
+
+    @header_matches.setter
+    def header_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]]]):
+        pulumi.set(self, "header_matches", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP method type.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="pathMatch")
+    def path_match(self) -> Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArgs']]:
+        """
+        The path match.
+        """
+        return pulumi.get(self, "path_match")
+
+    @path_match.setter
+    def path_match(self, value: Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArgs']]):
+        pulumi.set(self, "path_match", value)
+
+
+@pulumi.input_type
+class ListenerRuleMatchHttpMatchHeaderMatchArgs:
+    def __init__(__self__, *,
+                 match: pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArgs'],
+                 name: pulumi.Input[str],
+                 case_sensitive: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArgs'] match: The header match type.
+        :param pulumi.Input[str] name: The name of the header.
+        :param pulumi.Input[bool] case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
+        """
+        pulumi.set(__self__, "match", match)
+        pulumi.set(__self__, "name", name)
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
+
+    @property
+    @pulumi.getter
+    def match(self) -> pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArgs']:
+        """
+        The header match type.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArgs']):
+        pulumi.set(self, "match", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the match is case sensitive. Defaults to false.
+        """
+        return pulumi.get(self, "case_sensitive")
+
+    @case_sensitive.setter
+    def case_sensitive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "case_sensitive", value)
+
+
+@pulumi.input_type
+class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs:
+    def __init__(__self__, *,
+                 contains: Optional[pulumi.Input[str]] = None,
+                 exact: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] contains: Specifies a contains type match.
+        :param pulumi.Input[str] exact: Specifies an exact type match.
+        :param pulumi.Input[str] prefix: Specifies a prefix type match. Matches the value with the prefix.
+        """
+        if contains is not None:
+            pulumi.set(__self__, "contains", contains)
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def contains(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a contains type match.
+        """
+        return pulumi.get(self, "contains")
+
+    @contains.setter
+    def contains(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "contains", value)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an exact type match.
+        """
+        return pulumi.get(self, "exact")
+
+    @exact.setter
+    def exact(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exact", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a prefix type match. Matches the value with the prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class ListenerRuleMatchHttpMatchPathMatchArgs:
+    def __init__(__self__, *,
+                 match: pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArgs'],
+                 case_sensitive: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArgs'] match: The header match type.
+        :param pulumi.Input[bool] case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
+        """
+        pulumi.set(__self__, "match", match)
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
+
+    @property
+    @pulumi.getter
+    def match(self) -> pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArgs']:
+        """
+        The header match type.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArgs']):
+        pulumi.set(self, "match", value)
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the match is case sensitive. Defaults to false.
+        """
+        return pulumi.get(self, "case_sensitive")
+
+    @case_sensitive.setter
+    def case_sensitive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "case_sensitive", value)
+
+
+@pulumi.input_type
+class ListenerRuleMatchHttpMatchPathMatchMatchArgs:
+    def __init__(__self__, *,
+                 exact: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] exact: Specifies an exact type match.
+        :param pulumi.Input[str] prefix: Specifies a prefix type match. Matches the value with the prefix.
+        """
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an exact type match.
+        """
+        return pulumi.get(self, "exact")
+
+    @exact.setter
+    def exact(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exact", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a prefix type match. Matches the value with the prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
 
 @pulumi.input_type
 class ServiceDnsEntryArgs:

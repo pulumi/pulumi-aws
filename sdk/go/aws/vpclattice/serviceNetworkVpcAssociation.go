@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewServiceNetworkVpcAssociation(ctx, "example", &vpclattice.ServiceNetworkVpcAssociationArgs{
-//				VpcIdentifier:            pulumi.Any(aws_vpclattice_service.Example.Id),
+//				VpcIdentifier:            pulumi.Any(aws_vpc.Example.Id),
 //				ServiceNetworkIdentifier: pulumi.Any(aws_vpclattice_service_network.Example.Id),
 //				SecurityGroupIds: pulumi.StringArray{
 //					aws_security_group.Example.Id,

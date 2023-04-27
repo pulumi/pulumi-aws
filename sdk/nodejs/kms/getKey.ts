@@ -73,9 +73,17 @@ export interface GetKeyResult {
      */
     readonly awsAccountId: string;
     /**
+     * The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+     */
+    readonly cloudHsmClusterId: string;
+    /**
      * The date and time when the key was created
      */
     readonly creationDate: string;
+    /**
+     * A unique identifier for the custom key store that contains the KMS key.
+     */
+    readonly customKeyStoreId: string;
     /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
      */
@@ -107,6 +115,10 @@ export interface GetKeyResult {
      */
     readonly keyManager: string;
     /**
+     * Describes the type of key material in the KMS key.
+     */
+    readonly keySpec: string;
+    /**
      * The state of the key
      */
     readonly keyState: string;
@@ -127,9 +139,17 @@ export interface GetKeyResult {
      */
     readonly origin: string;
     /**
+     * The waiting period before the primary key in a multi-Region key is deleted.
+     */
+    readonly pendingDeletionWindowInDays: number;
+    /**
      * The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      */
     readonly validTo: string;
+    /**
+     * Information about the external key that is associated with a KMS key in an external key store.
+     */
+    readonly xksKeyConfigurations: outputs.kms.GetKeyXksKeyConfiguration[];
 }
 /**
  * Use this data source to get detailed information about

@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class TopicRuleIotEventArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicRuleIotEventArgs Empty = new TopicRuleIotEventArgs();
+
+    /**
+     * The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+     * 
+     */
+    @Import(name="batchMode")
+    private @Nullable Output<Boolean> batchMode;
+
+    /**
+     * @return The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+     * 
+     */
+    public Optional<Output<Boolean>> batchMode() {
+        return Optional.ofNullable(this.batchMode);
+    }
 
     /**
      * The name of the AWS IoT Events input.
@@ -63,6 +79,7 @@ public final class TopicRuleIotEventArgs extends com.pulumi.resources.ResourceAr
     private TopicRuleIotEventArgs() {}
 
     private TopicRuleIotEventArgs(TopicRuleIotEventArgs $) {
+        this.batchMode = $.batchMode;
         this.inputName = $.inputName;
         this.messageId = $.messageId;
         this.roleArn = $.roleArn;
@@ -84,6 +101,27 @@ public final class TopicRuleIotEventArgs extends com.pulumi.resources.ResourceAr
 
         public Builder(TopicRuleIotEventArgs defaults) {
             $ = new TopicRuleIotEventArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param batchMode The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder batchMode(@Nullable Output<Boolean> batchMode) {
+            $.batchMode = batchMode;
+            return this;
+        }
+
+        /**
+         * @param batchMode The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder batchMode(Boolean batchMode) {
+            return batchMode(Output.of(batchMode));
         }
 
         /**

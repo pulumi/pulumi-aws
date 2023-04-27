@@ -163,6 +163,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string PermissionsBoundary;
         /// <summary>
+        /// Contains information about the last time that an IAM role was used. See `role_last_used` for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRoleRoleLastUsedResult> RoleLastUseds;
+        /// <summary>
         /// Tags attached to the role.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -191,6 +195,8 @@ namespace Pulumi.Aws.Iam
 
             string permissionsBoundary,
 
+            ImmutableArray<Outputs.GetRoleRoleLastUsedResult> roleLastUseds,
+
             ImmutableDictionary<string, string> tags,
 
             string uniqueId)
@@ -204,6 +210,7 @@ namespace Pulumi.Aws.Iam
             Name = name;
             Path = path;
             PermissionsBoundary = permissionsBoundary;
+            RoleLastUseds = roleLastUseds;
             Tags = tags;
             UniqueId = uniqueId;
         }

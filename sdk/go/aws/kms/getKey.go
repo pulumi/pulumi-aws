@@ -85,8 +85,12 @@ type LookupKeyResult struct {
 	Arn string `pulumi:"arn"`
 	// The twelve-digit account ID of the AWS account that owns the key
 	AwsAccountId string `pulumi:"awsAccountId"`
+	// The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+	CloudHsmClusterId string `pulumi:"cloudHsmClusterId"`
 	// The date and time when the key was created
 	CreationDate string `pulumi:"creationDate"`
+	// A unique identifier for the custom key store that contains the KMS key.
+	CustomKeyStoreId string `pulumi:"customKeyStoreId"`
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
 	CustomerMasterKeySpec string `pulumi:"customerMasterKeySpec"`
 	// The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
@@ -103,6 +107,8 @@ type LookupKeyResult struct {
 	KeyId string `pulumi:"keyId"`
 	// The key's manager
 	KeyManager string `pulumi:"keyManager"`
+	// Describes the type of key material in the KMS key.
+	KeySpec string `pulumi:"keySpec"`
 	// The state of the key
 	KeyState string `pulumi:"keyState"`
 	// Specifies the intended use of the key
@@ -113,8 +119,12 @@ type LookupKeyResult struct {
 	MultiRegionConfigurations []GetKeyMultiRegionConfiguration `pulumi:"multiRegionConfigurations"`
 	// When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
 	Origin string `pulumi:"origin"`
+	// The waiting period before the primary key in a multi-Region key is deleted.
+	PendingDeletionWindowInDays int `pulumi:"pendingDeletionWindowInDays"`
 	// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
 	ValidTo string `pulumi:"validTo"`
+	// Information about the external key that is associated with a KMS key in an external key store.
+	XksKeyConfigurations []GetKeyXksKeyConfiguration `pulumi:"xksKeyConfigurations"`
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
@@ -171,9 +181,19 @@ func (o LookupKeyResultOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
+// The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+func (o LookupKeyResultOutput) CloudHsmClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.CloudHsmClusterId }).(pulumi.StringOutput)
+}
+
 // The date and time when the key was created
 func (o LookupKeyResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// A unique identifier for the custom key store that contains the KMS key.
+func (o LookupKeyResultOutput) CustomKeyStoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.CustomKeyStoreId }).(pulumi.StringOutput)
 }
 
 // Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
@@ -219,6 +239,11 @@ func (o LookupKeyResultOutput) KeyManager() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyManager }).(pulumi.StringOutput)
 }
 
+// Describes the type of key material in the KMS key.
+func (o LookupKeyResultOutput) KeySpec() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.KeySpec }).(pulumi.StringOutput)
+}
+
 // The state of the key
 func (o LookupKeyResultOutput) KeyState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyState }).(pulumi.StringOutput)
@@ -244,9 +269,19 @@ func (o LookupKeyResultOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.Origin }).(pulumi.StringOutput)
 }
 
+// The waiting period before the primary key in a multi-Region key is deleted.
+func (o LookupKeyResultOutput) PendingDeletionWindowInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupKeyResult) int { return v.PendingDeletionWindowInDays }).(pulumi.IntOutput)
+}
+
 // The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
 func (o LookupKeyResultOutput) ValidTo() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.ValidTo }).(pulumi.StringOutput)
+}
+
+// Information about the external key that is associated with a KMS key in an external key store.
+func (o LookupKeyResultOutput) XksKeyConfigurations() GetKeyXksKeyConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupKeyResult) []GetKeyXksKeyConfiguration { return v.XksKeyConfigurations }).(GetKeyXksKeyConfigurationArrayOutput)
 }
 
 func init() {
